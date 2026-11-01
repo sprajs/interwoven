@@ -10,14 +10,34 @@ if [[ "$(uname -s)" != Linux ]] || ! command -v apt-get >/dev/null; then
     exit 1
 fi
 
-admin=()
-if [[ "$(id -u)" != 0 ]]; then
-    admin=(sudo)
+# Managed cloud images often include build tools but do not provide sudo.
+# Only request system packages when something required is actually missing.
+missing=()
+for tool in cc c++ make cmake curl git pkg-config python3; do
+    if ! command -v "$tool" >/dev/null; then
+        missing+=("$tool")
+    fi
+done
+if command -v pkg-config >/dev/null && ! pkg-config --exists openssl; then
+    missing+=(libssl-dev)
 fi
-"${admin[@]}" apt-get update
-"${admin[@]}" env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    build-essential ca-certificates cmake curl git libssl-dev pkg-config \
-    python3 python3-venv
+if command -v python3 >/dev/null && ! python3 -c 'import venv, ensurepip' 2>/dev/null; then
+    missing+=(python3-venv)
+fi
+if [[ ${#missing[@]} -gt 0 ]]; then
+    admin=()
+    if [[ "$(id -u)" != 0 ]]; then
+        if ! command -v sudo >/dev/null || ! sudo -n true 2>/dev/null; then
+            echo "Missing system prerequisites: ${missing[*]}. Install them in the base image or run setup with package-install privileges." >&2
+            exit 1
+        fi
+        admin=(sudo -n)
+    fi
+    "${admin[@]}" apt-get update
+    "${admin[@]}" env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        build-essential ca-certificates cmake curl git libssl-dev pkg-config \
+        python3 python3-venv
+fi
 
 # Keep tooling separate from both system Python and experiment dependencies.
 tools_dir="$HOME/.local/share/big-idea-tools"
