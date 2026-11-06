@@ -25,6 +25,7 @@ export function Tooltip() {
   return (
     <div className="sheet pointer-events-none absolute z-40 border border-rule px-4 py-2" style={{ left, top, width: WIDTH }} role="status">
       <p className="note">{node.date_label}</p>
+      <EvidenceBadge strength={node.evidence_strength} />
       <h3 className={`text-body ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</h3>
       <EvidenceBadge strength={node.evidence_strength} />
       <p className="mt-1 text-note text-ink-2">{firstSentence(node.summary)}</p>

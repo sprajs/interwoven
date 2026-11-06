@@ -18,8 +18,8 @@ export function Mark({ kind, color = 'currentColor', size = MARK_SIZE.body, stre
 
 export function EvidenceBadge({ strength }: { strength?: EvidenceStrength }) {
   if (!strength || strength === 'direct') return null
-  return <span className="note inline-flex items-center gap-1 whitespace-nowrap">
-    <Mark kind="science" strength={strength} size={MARK_SIZE.note} />{strength === 'awareness_proxy' ? 'awareness proxy' : 'scoped inference'}
+  return <span className="note inline-flex items-center gap-1 border-b border-dotted border-rule">
+    <Mark kind="science" strength={strength} size={MARK_SIZE.note} />{strength === 'awareness_proxy' ? 'Awareness proxy' : 'Scoped inference'}
   </span>
 }
 

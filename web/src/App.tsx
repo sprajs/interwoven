@@ -102,7 +102,7 @@ function useKeyboard(): void {
           engine?.unfoldAll()
           break
         case 'w':
-          app.setUnplacedOpen(!app.unplacedOpen)
+          if (app.unplacedOpen || app.model?.unplaced.length) app.setUnplacedOpen(!app.unplacedOpen)
           break
         case 'r':
           engine?.redraw()

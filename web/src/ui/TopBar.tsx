@@ -14,9 +14,7 @@ const MODES: { id: Mode; label: string; hint: string }[] = [
 ]
 
 /** What the marks mean, set small under the name of the chart. */
-function Key() {
-  const model = useApp((s) => s.model)
-  const has = (test: (node: RawNode) => boolean) => model?.nodes.some(test) ?? false
+function Key({ loose }: { loose: boolean }) {
   return (
     <ul className="note hidden items-center gap-3 whitespace-nowrap corner:flex" aria-label="Key">
       <li className="flex items-center gap-1"><Mark kind="technology" size={MARK_SIZE.note} />technology</li>
@@ -26,8 +24,11 @@ function Key() {
       {has((node) => node.date_kind === 'known_by') && <li>← known by</li>}
       {has((node) => node.date_kind === 'known_from') && <li>not before →</li>}
       <li className="flex items-center gap-1"><RangeMark />date range</li>
-      {model?.links.some((link) => link.tentative) && <li className="flex items-center gap-1"><BrokenMark />awaiting review</li>}
-      {(model?.unplaced.length ?? 0) > 0 && <li className="flex items-center gap-1"><LooseMark />linked to an entry not yet placed</li>}
+      <li className="flex items-center gap-1"><BrokenMark />awaiting review</li>
+      <li className="flex items-center gap-1" title="An awareness proxy: a publication or similar stands in for when people could have known of it"><Mark kind="science" strength="awareness_proxy" size={MARK_SIZE.note} />proxy</li>
+      <li className="flex items-center gap-1" title="A scoped inference: use or availability inferred from the stated context"><Mark kind="science" strength="scoped_inference" size={MARK_SIZE.note} />inferred</li>
+      <li title="A date that limits one side only: known by this date, or not before it. The other end is unknown.">← by, not before →</li>
+      {loose && <li className="flex items-center gap-1"><LooseMark />linked to an entry not yet placed</li>}
     </ul>
   )
 }
@@ -47,7 +48,7 @@ export function TopBar() {
     <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-end gap-x-4 px-6 pt-2 compact:flex-nowrap compact:gap-x-8 compact:px-18">
       <div className="flex-1 compact:flex-none compact:self-start">
         <h1 className="text-title">{model?.title}</h1>
-        <div className="-mt-1 pointer-events-auto"><Key /></div>
+        <div className="-mt-1 pointer-events-auto"><Key loose={(model?.unplaced.length ?? 0) > 0} /></div>
       </div>
       <div className="hidden flex-1 compact:block" />
       <nav className="pointer-events-auto order-last flex basis-full items-end gap-4 compact:order-none compact:basis-auto wide:gap-6" aria-label="View">

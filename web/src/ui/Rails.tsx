@@ -64,7 +64,7 @@ function DensityRail() {
   return (
     <>
       <h2 className="text-head">Density</h2>
-      <p className="note mt-1">The hatching grows with the number of entries per year, on a root scale so quiet eras stay visible. It counts the date each entry was chosen to stand on, including labelled awareness estimates and inferences, so it shows where research has placed things, not how much happened. Move across the chart to count them.</p>
+      <p className="note mt-1">The hatching counts selected community-entry choices, including labelled awareness estimates and contextual inferences, on a root scale so quiet eras stay visible. Move across the chart to count them; details give their community and evidence. This shows where research has been dated so far, not how much happened.</p>
       {few ? (
         <p className="note mt-4">With {model?.n} entries placed, this is still a sketch. It becomes a real picture of activity as more dates are researched.</p>
       ) : (

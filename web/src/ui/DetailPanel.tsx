@@ -4,8 +4,8 @@ import { isPlacedNode, type RawLink, type TimelineEntry } from '../data/types.ts
 import { formatYear } from '../engine/time.ts'
 import { documentedSpan, EVENT_NAMES, hasLaterLife, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
 import { focusEntry, followEntry, getEngine, useApp } from '../store.ts'
-import { dateLimitNote, entryReasonLabel, evidenceLabel } from './entryText.ts'
 import { CloseButton, EvidenceBadge, Mark } from './icons.tsx'
+import { dateLimitNote, entryReasonLabel, evidenceLabel } from './entryText.ts'
 import { COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
 
 function LinkList({ title, links, side, model }: { title: string; links: RawLink[]; side: 'from' | 'to'; model: Model }) {
@@ -122,9 +122,9 @@ export function DetailPanel() {
   const toggleLabel = useApp((s) => s.toggleLabel)
   const node = model && selected !== null ? model.nodes[selected] : model?.entryById.get(unplacedSelected ?? '')
   const impactIsFull = model && node ? model.n <= 4000 || node.level === 0 : false
+  const entryEvent = node?.anchor_event_id ? model?.events[node.anchor_event_id] : undefined
   const mode = useApp((s) => s.mode)
   const linked = model && selected !== null && model.parents[selected]!.length + model.children[selected]!.length > 0
-  const entryEvent = node?.anchor_event_id ? model?.events[node.anchor_event_id] : undefined
 
   return (
     <AnimatePresence>
@@ -191,8 +191,8 @@ export function DetailPanel() {
             <div className="mt-2 space-y-1 text-note text-ink-2">
               <p>
                 {isPlacedNode(node)
-                  ? node.anchored ? `${entryReasonLabel(node.entry_basis, entryEvent?.event_type, node.date_kind, node.date_label, node.evidence_strength)}. Community: ${node.entry_community ?? 'not yet specified'}.` : 'Illustrative date supplied by this dataset.'
-                  : node.placement_reason}
+                  ? node.anchored ? `${entryReasonLabel(node.entry_basis, entryEvent?.event_type, node.date_kind, node.date_label, node.evidence_strength)}. Community: ${node.entry_community ?? 'not yet specified'}.` : 'Synthetic date supplied by this dataset.'
+                  : `Unplaced. ${node.placement_reason}`}
                 {node.date_basis ? ` ${node.date_basis}` : ''}
               </p>
               {isPlacedNode(node) && dateLimitNote(node.date_kind) && <p>{dateLimitNote(node.date_kind)}</p>}

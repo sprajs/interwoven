@@ -84,7 +84,7 @@ export function UnplacedPanel() {
               <CloseButton onClick={() => setOpen(false)} label="Close" />
             </div>
             <p className="note order-2 min-w-0 basis-full compact:order-1 compact:flex-1 compact:basis-0">
-              These {model.unplaced.length} entries are in the research, but none has a researched date to stand on yet, so the chart does not guess one: {reasons.researching} not yet researched, {reasons.unknown} researched and still unknown, {reasons.open} with a date open at one end. Each moves onto the chart when its date is settled.
+              These {model.unplaced.length} entries are in the research, but none has a defensible community-entry choice and a usable date yet, so the chart does not guess one: {reasons.researching} not yet researched, {reasons.unknown} researched and still unknown, {reasons.open} chosen but without a usable date. Researched one-sided limits can be plotted without inventing the other end, so each moves onto the chart once it has one.
             </p>
             <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Filter entries awaiting a date" placeholder="Filter" className="order-3 w-full border-b border-rule bg-transparent text-body outline-none placeholder:text-ink-3 compact:order-2 compact:w-48" />
           </div>
@@ -108,7 +108,7 @@ export function UnplacedPanel() {
                         className="group flex w-full items-baseline gap-2 text-left text-note text-ink transition-colors"
                       >
                         <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
-                          <Mark kind={entry.kind} size={MARK_SIZE.note} color={group.ink} />
+                          <Mark kind={entry.kind} strength={entry.evidence_strength} size={MARK_SIZE.note} color={group.ink} />
                         </span>
                         <span className={`link-hover min-w-0 ${entry.kind === 'science' ? 'science' : ''}`}>{entry.title}</span>
                       </button>

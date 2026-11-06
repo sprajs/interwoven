@@ -17,11 +17,11 @@ Then open http://localhost:5174. The other commands below run from this `web` fo
 - Vertical position has no scale. It comes from the links and shared labels, so related work drifts together without forming categories.
 - A solid dot is a technology and an open ring is science. Science titles are set in italic.
 - A thin bar with end marks is a date range. A broken line is a link still awaiting review.
-- A short fine thread leaving a mark is a link to an entry with no date yet. It has nowhere to go until that date is researched, so all these threads are one length. Right is what the entry led to, and left is what it built on.
 - A hollow diamond and `[proxy]` label mark an awareness opportunity, such as a justified publication proxy. A broken ring and `[inferred]` label mark contextual use/availability inference. Their community, evidence, justification and uncertainty appear in details.
 - A left-pointing arrow is a known-by upper date limit; a right-pointing arrow is a “not before” lower limit. A lower limit establishes neither continuing use nor a later endpoint. The unknown opposite end stays omitted.
-- Every entry and link in the research is drawn at every zoom. Names appear where there is room for them, and more of them as you zoom in.
-- An entry is placed only once a date has been chosen for it. If any are waiting, **Awaiting a date**, under the chart, holds them as a small row of marks and opens as an index. Pointing at an entry there lights what it is already linked to on the chart.
+- Zooming brings in deeper levels, from landmarks to fine detail.
+- A short fine thread leaving a mark is a link to an entry with no date yet. It has nowhere to go until that date is researched, so all these threads are one length. Right is what the entry led to, and left is what it built on.
+- Only entries with a selected, researched date appear on the chart. **Awaiting a date**, under the chart when anything is waiting, holds the rest as a small row of marks, and opens as an index of everything still to be placed. Pointing at an entry there lights what it is already linked to on the chart.
 
 The type, spacing and rules are explained in [DESIGN.md](DESIGN.md).
 

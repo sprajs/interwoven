@@ -15,6 +15,7 @@ const HALO_ALPHA = 0.92
 const LABEL_GAP = UNIT
 const MAX_LABELS = 140
 const VISIT_BUDGET = 9000
+const labelText = (node: RawNode) => node.title + (node.evidence_strength === 'awareness_proxy' ? ' [proxy]' : node.evidence_strength === 'scoped_inference' ? ' [inferred]' : '')
 /** Below these numbers of entries in view, the chart starts to speak in sentences. */
 const DATES_BELOW = 34
 const SENTENCE_BELOW = 13
@@ -168,7 +169,7 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const py = (ys[i]! - cam.cy) * yScale + cy
     if (px < -40 || px > W + 40 || py < top || py > bottom) return
     const labelF = labelFont(node.level, node.kind === 'science')
-    const gap = labelGap(node, radius[i]!)
+    const gap = radius[i]! * (node.date_kind === 'known_by' || node.date_kind === 'known_from' ? 3.2 : 1) + LABEL_GAP
     const width = measure(ctx, labelText(node), labelF)
     const height = TYPE[tierStep(node.level)].size
     const rightX = px + gap
@@ -246,7 +247,7 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const alpha = a * Math.min(1, v) * (1 - faded * 0.82)
     if (alpha < 0.02) continue
     const labelF = labelFont(node.level, node.kind === 'science')
-    const gap = labelGap(node, radius[i]!)
+    const gap = radius[i]! * (node.date_kind === 'known_by' || node.date_kind === 'known_from' ? 3.2 : 1) + LABEL_GAP
     const text = labelText(node)
     const width = measure(ctx, text, labelF)
     const x = sideOf.get(i) === -1 ? px - gap - width : px + gap

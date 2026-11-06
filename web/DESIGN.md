@@ -88,12 +88,16 @@ Three line weights: 0.75 hair, 1 rule, 1.5 stroke. Colour belongs to the data: t
 
 ## Designing for a sparse chart
 
-Only entries with a selected, researched date are on the chart, so it starts small and fills in. That shapes four decisions:
+Only entries with a selected, researched date are on the chart, so it may start small and fill in. These decisions switch themselves off as the data grows: with every entry placed there are no loose threads and no row of marks waiting, and above 60 entries depth takes over again.
 
 - **Everything shows.** Below 60 entries, depth does not hide any, the depth control goes away, and dates sit under names, because a chart this size can be read whole.
 - **Loose threads.** A link to an entry with no date cannot be drawn to anywhere, so it is drawn as a short fine thread leaving the mark, all one length because it measures nothing. Right is what the entry led to and left is what it built on. These are the places the chart will grow from.
 - **Reach follows links through undated entries,** which can carry a reach on to a dated entry beyond them but never extend it themselves.
 - **Awaiting a date is part of the piece.** Below the chart, a word-sized row of marks shows what is waiting, in no time order because it has none. It opens an index set like the back of a book: grouped, in columns, with the reasons counted at the top. Pointing at an entry lights what it is already linked to on the chart, which stays in view.
+
+## Marks that qualify evidence
+
+A mark says how far to trust its date, not only what it is. An awareness proxy is a hollow diamond and an inference is a broken ring, each with a word beside its name on the chart, so neither reads as an ordinary documented entry. A short open arrow says a date is a limit on one side only, and the unknown end is left undrawn. These sit in the key with the other marks, and take their sizes from the same steps.
 
 ## Checks
 
