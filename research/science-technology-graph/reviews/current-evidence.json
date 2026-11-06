@@ -3367,6 +3367,53 @@
       ]
     },
     {
+      "id": "cont-d-arpanet-research-network-1971--shutdown-1990",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "07e9510ce7aae266a97043decbbc4774fa247978c4f78fcbd34d428603a519ad",
+      "evidence": [
+        {
+          "source_id": "cont-d-depth-src-chm-arpanet",
+          "locator": "1990 timeline",
+          "supports": "The Computer History Museum dates formal ARPANET shutdown to 1990."
+        },
+        {
+          "source_id": "cont-d-depth-src-darpa-arpanet",
+          "locator": "DARPA Solution section",
+          "supports": "DARPA prose dates formal decommissioning to 1990; its infographic gives an inconsistent 1989 endpoint."
+        }
+      ],
+      "limits": "These are retrospective institutional accounts; DARPA’s infographic gives 1989. No exact last-host date or cessation of TCP/IP, MILNET, Internet service, or all host activity is inferred.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-arpanet-research-network-1971--tcp-cutover-1983",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "6b6c566803478ff85522cbe5f3ed01cbcacc2cb466bbd3175b4c1b9c6f5b7ea4",
+      "evidence": [
+        {
+          "source_id": "cont-d-depth-src-rfc942",
+          "locator": "Printed pp. 25–26",
+          "supports": "The NRC report identifies the 1 January 1983 ARPANET NCP-to-TCP cutover and continued network operation."
+        }
+      ],
+      "limits": "This cutover date does not establish that every host completed conversion on that day. The network and protocols are distinct configurations, and the cutover was not the network’s shutdown.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
       "id": "cont-d-dec-pdp11-20-1970--entry",
       "type": "event",
       "historical_claim": "accepted",
@@ -3513,6 +3560,69 @@
       ]
     },
     {
+      "id": "cont-d-ibm-305-350-1956--market-withdrawal-1969",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "73be161df86f4d5fdd05d312656d70e71087e2f2f38c5ee62eba678a670d492e",
+      "evidence": [
+        {
+          "source_id": "cont-d-depth-src-ramac-finland",
+          "locator": "IBM 305 RAMAC introduction and history",
+          "supports": "The museum identifies the 305 type with IBM 350 disk storage and reports its production and market withdrawal dates and OTK use."
+        }
+      ],
+      "limits": "This is a retrospective museum account without an inspected withdrawal notice. It does not identify the last customer, an exact withdrawal day, or the last use of a machine.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-ibm-305-350-1956--otk-helsinki-1960s",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "09125097ef88e174bf18603e365ace41bbf0780f10b4cfcce221b39446b2e244",
+      "evidence": [
+        {
+          "source_id": "cont-d-depth-src-ramac-finland",
+          "locator": "IBM 305 RAMAC introduction and history",
+          "supports": "The museum identifies the 305 type with IBM 350 disk storage and reports its production and market withdrawal dates and OTK use."
+        }
+      ],
+      "limits": "The museum identifies the 350 disk at type level but does not establish the OTK disk’s serial identity, the specific workload, an exact start or stop, or continuous use throughout the decade.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-ibm-305-350-1956--production-end-1961",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "8c5a996bf8cd306b8e4e8b35769ed6d922ddbd0be98d0a7fe302d1a732fa632d",
+      "evidence": [
+        {
+          "source_id": "cont-d-depth-src-ramac-finland",
+          "locator": "IBM 305 RAMAC introduction and history",
+          "supports": "The museum identifies the 305 type with IBM 350 disk storage and reports its production and market withdrawal dates and OTK use."
+        }
+      ],
+      "limits": "This is a retrospective museum account, not an inspected IBM production notice. Production cessation is not the end of use or a universal end for IBM 350 disks.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
       "id": "cont-d-ibm-305-350-1956--zellerbach-prototype-1956",
       "type": "event",
       "historical_claim": "accepted",
@@ -3534,6 +3644,27 @@
       "review_basis": [
         {
           "path": "reviews/continuation-01.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-ibm-726-1953--douglas-tulsa-by-1961",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "0ce86902f188a0d9886432e2a5d15efd5f8c88beb37ce00ba12d4b9d580fe056",
+      "evidence": [
+        {
+          "source_id": "cont-d-depth-src-brl701",
+          "locator": "Printed p. 393 / original PDF segment p. 94 / excerpt p. 1",
+          "supports": "The survey lists Douglas Tulsa’s IBM 701 standard components and a third IBM 726 tape unit at $850 per month."
+        }
+      ],
+      "limits": "The system’s customer acceptance date in the survey does not establish that the separately listed third tape unit had been delivered on that date. The survey does not document a particular tape operation, first deployment, or last use.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
@@ -5062,6 +5193,27 @@
           "path": "reviews/electronics.json",
           "assessed_projection_sha256": "ce00bacd74e126c64a312829e1998e1b91ef7de36b26b95d418967da3c8ce7cf",
           "scope": "Historical proposition; lifecycle classification remains separate."
+        }
+      ]
+    },
+    {
+      "id": "elec-fairchild-physical-isolation-1960--phase-two-decision",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "43295761eb7b78b7fd183d3ba8cc63178484063a2c088cb25e910a392b192f57",
+      "evidence": [
+        {
+          "source_id": "entry-src-micrologic-life",
+          "locator": "Printed pp. 17–18: Kattner, Last and Norman panel discussion",
+          "supports": "Kattner recalled a decision at the end of 1960 to phase out physically isolated Phase Two and concentrate on junction-isolated Phase Three; Last recalled a December 1960 decision remained open."
+        }
+      ],
+      "limits": "This is a retrospective recollection of a decision, not proof that a shutdown was completed on that date or that all physically isolated circuits ceased. Last separately recalled a December 1960 memo still weighing both approaches; customer/sample recollections also differ.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
     },
@@ -14856,8 +15008,18 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "c2b950edfa56ba3f724a8a79a5577d6038ebc463bca4beaf0979b18240e79c3c",
+      "proposition_sha256": "f7ba00cb70bbb865448f6fed87525990238756bd8564d9a4496bee6e7bb31a3d",
       "evidence": [
+        {
+          "source_id": "cont-d-depth-src-chm-arpanet",
+          "locator": "1990 timeline",
+          "supports": "The Computer History Museum dates formal ARPANET shutdown to 1990."
+        },
+        {
+          "source_id": "cont-d-depth-src-darpa-arpanet",
+          "locator": "DARPA Solution section",
+          "supports": "DARPA prose dates formal decommissioning to 1990; its infographic gives an inconsistent 1989 endpoint."
+        },
         {
           "source_id": "cont-d-src-rfc801",
           "locator": "Introduction",
@@ -14867,12 +15029,21 @@
           "source_id": "cont-d-src-davies-npl",
           "locator": "Printed p. 9",
           "supports": "Davies distinguishes NPL’s local packet network from a nationwide distributed network."
+        },
+        {
+          "source_id": "cont-d-depth-src-rfc942",
+          "locator": "Printed pp. 25–26",
+          "supports": "The NRC report identifies the 1 January 1983 ARPANET NCP-to-TCP cutover and continued network operation."
         }
       ],
-      "limits": "NPL had an earlier local packet network; this claim is the distributed host/IMP architecture and documented use, not invention of packet switching.",
+      "limits": "NPL had an earlier local packet network; this claim is the distributed host/IMP architecture and documented use, not invention of packet switching.\nThis cutover date does not establish that every host completed conversion on that day. The network and protocols are distinct configurations, and the cutover was not the network’s shutdown.\nThese are retrospective institutional accounts; DARPA’s infographic gives 1989. No exact last-host date or cessation of TCP/IP, MILNET, Internet service, or all host activity is inferred.",
       "review_basis": [
         {
           "path": "reviews/continuation-01.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/continuation-10.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
@@ -14975,7 +15146,7 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "8c1d8ae2dda18f2b1bef2f46b24e9a294176b6fb17bb620edd900c07b21ad9bb",
+      "proposition_sha256": "0a11ed980f06c02987924bdb58a42d2c02aac59268a3e2b6edbc8cf1dbd468bb",
       "evidence": [
         {
           "source_id": "cont-d-src-ramac",
@@ -14988,15 +15159,24 @@
           "supports": "Pugh describes a customer engineering-prototype delivery in June 1956."
         },
         {
+          "source_id": "cont-d-depth-src-ramac-finland",
+          "locator": "IBM 305 RAMAC introduction and history",
+          "supports": "The museum identifies the 305 type with IBM 350 disk storage and reports its production and market withdrawal dates and OTK use."
+        },
+        {
           "source_id": "cont-d-src-ramac-1977",
           "locator": "Printed p. 45 / PDF p. 51 and photograph captions",
           "supports": "IBM reports June shipment and identifies the customer and prototype."
         }
       ],
-      "limits": "First customer contract is unknown. Pugh dates production deliveries to June 1957; other accounts differ, so no production month is asserted. The 1956 engineering prototype is separate.\nA photograph shows Zellerbach staff trying controls but is not independently dated to June; actual June operation and a production shipment are not asserted.",
+      "limits": "First customer contract is unknown. Pugh dates production deliveries to June 1957; other accounts differ, so no production month is asserted. The 1956 engineering prototype is separate.\nA photograph shows Zellerbach staff trying controls but is not independently dated to June; actual June operation and a production shipment are not asserted.\nThis is a retrospective museum account, not an inspected IBM production notice. Production cessation is not the end of use or a universal end for IBM 350 disks.\nThis is a retrospective museum account without an inspected withdrawal notice. It does not identify the last customer, an exact withdrawal day, or the last use of a machine.\nThe museum identifies the 350 disk at type level but does not establish the OTK disk’s serial identity, the specific workload, an exact start or stop, or continuous use throughout the decade.",
       "review_basis": [
         {
           "path": "reviews/continuation-01.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/continuation-10.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
@@ -15006,7 +15186,7 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "60beea22c4c69cbe0364b0e92660446147714391b2129a6b1eeb8cbc7da993bf",
+      "proposition_sha256": "f1d1bf14736a6143577d50e36bca91a5b9f6424ce05e57a4ab7e7b9b28dfde16",
       "evidence": [
         {
           "source_id": "cont-d-src-ibm-tape",
@@ -15019,6 +15199,11 @@
           "supports": "CHM says IBM announced the 726 for sale in 1952 and cites an $850 monthly rental."
         },
         {
+          "source_id": "cont-d-depth-src-brl701",
+          "locator": "Printed p. 393 / original PDF segment p. 94 / excerpt p. 1",
+          "supports": "The survey lists Douglas Tulsa’s IBM 701 standard components and a third IBM 726 tape unit at $850 per month."
+        },
+        {
           "source_id": "cont-d-src-uniservo-manual",
           "locator": "Section III, Uniservo tape transport and floating pulleys",
           "supports": "The earlier UNISERVO used mechanical tape-loop buffering for rapid tape motion."
@@ -15029,10 +15214,14 @@
           "supports": "The earlier UNISERVO used metal tape; IBM used oxide tape and vacuum-column buffering."
         }
       ],
-      "limits": "Exact first offer and first sale dates, buyers and number of machines are not established.\nThe source does not establish the first order, delivery or transaction; the date of the rental price is not independently specified.",
+      "limits": "Exact first offer and first sale dates, buyers and number of machines are not established.\nThe source does not establish the first order, delivery or transaction; the date of the rental price is not independently specified.\nThe system’s customer acceptance date in the survey does not establish that the separately listed third tape unit had been delivered on that date. The survey does not document a particular tape operation, first deployment, or last use.",
       "review_basis": [
         {
           "path": "reviews/continuation-01.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/continuation-10.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
@@ -16084,7 +16273,7 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "15ff65da2cebb8bc290bc77c19657c6e391413ad28b53491a1003377e98a11c8",
+      "proposition_sha256": "25ee88d6bb33784bab1e89588964fdbcbaafa7aeed2541adb730d54562fc9d99",
       "evidence": [
         {
           "source_id": "elec-chm-planar-ic",
@@ -16120,13 +16309,22 @@
           "source_id": "src-electronics-1961",
           "locator": "Printed p. 76, PDF p. 78, New on the Market",
           "supports": "Says first Micrologic flip-flop now available, introductory price $120, while other elements were to follow."
+        },
+        {
+          "source_id": "entry-src-micrologic-life",
+          "locator": "Printed pp. 17–18: Kattner, Last and Norman panel discussion",
+          "supports": "Kattner recalled a decision at the end of 1960 to phase out physically isolated Phase Two and concentrate on junction-isolated Phase Three; Last recalled a December 1960 decision remained open."
         }
       ],
-      "limits": "The May specimen, the photographed March 1961 sample, and the first sold Type F die are not established as the same physical object or mask.\nThe identification of the photographed device as physically isolated is retrospective. The original Life article and caption were not inspected, and readers are not shown to have learned the rear-etched epoxy method. The photographed sample is not established as the first-working May die or a sold Type F die.\nThe exact day is retrospective; no original fabrication notebook was inspected. This specimen is not equated with the first sold Type F die.",
+      "limits": "The May specimen, the photographed March 1961 sample, and the first sold Type F die are not established as the same physical object or mask.\nThe identification of the photographed device as physically isolated is retrospective. The original Life article and caption were not inspected, and readers are not shown to have learned the rear-etched epoxy method. The photographed sample is not established as the first-working May die or a sold Type F die.\nThe exact day is retrospective; no original fabrication notebook was inspected. This specimen is not equated with the first sold Type F die.\nThis is a retrospective recollection of a decision, not proof that a shutdown was completed on that date or that all physically isolated circuits ceased. Last separately recalled a December 1960 memo still weighing both approaches; customer/sample recollections also differ.",
       "review_basis": [
         {
           "path": "reviews/identity.json",
           "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        },
+        {
+          "path": "reviews/continuation-10.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
     },

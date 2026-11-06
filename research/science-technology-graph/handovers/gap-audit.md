@@ -135,9 +135,9 @@ These counts describe node-stage statuses. Scoped event episodes are counted sep
 | Stage | Documented | Ongoing | Unknown | Not researched | Not applicable |
 | --- | --- | --- | --- | --- | --- |
 | adoption | 5 | 0 | 1 | 268 | 0 |
-| decline | 1 | 0 | 0 | 273 | 0 |
-| withdrawal | 3 | 0 | 0 | 271 | 0 |
-| end of use | 1 | 0 | 11 | 262 | 0 |
+| decline | 1 | 0 | 1 | 272 | 0 |
+| withdrawal | 4 | 0 | 0 | 270 | 0 |
+| end of use | 2 | 0 | 12 | 260 | 0 |
 | abandonment | 0 | 0 | 0 | 274 | 0 |
 | revival | 0 | 0 | 0 | 274 | 0 |
 
@@ -153,8 +153,8 @@ Reviewed means both event review axes are accepted. Event counts are independent
 | --- | --- | --- | --- | --- | --- |
 | adoption | 6 | 0 | 0 | 6 | 5 |
 | decline | 1 | 0 | 0 | 1 | 1 |
-| withdrawal | 3 | 0 | 0 | 3 | 3 |
-| end of use | 8 | 0 | 0 | 8 | 6 |
+| withdrawal | 5 | 0 | 0 | 5 | 4 |
+| end of use | 9 | 0 | 0 | 9 | 7 |
 | abandonment | 0 | 0 | 0 | 0 | 0 |
 | revival | 0 | 0 | 0 | 0 | 0 |
 
@@ -173,8 +173,11 @@ Reviewed means both event review axes are accepted. Event counts are independent
 - `cont-c-continuous-wire-papermaking--frogmore-pm2-end-2009` (end of use; node `cont-c-continuous-wire-papermaking`; May 2009). Scope: The secondhand 1895-built steam-powered Fourdrinier No. 2 operating at Frogmore paper mill. Regions: Frogmore Mill, Hertfordshire, England. Applications: paper and board production. Population: Frogmore living-museum operators of No. 2. Market: unknown.
 - `cont-c-linecasting-linotype--nyt-hot-type-end` (end of use; node `cont-c-linecasting-linotype`; 2 July 1978). Scope: Keyboard-operated machine that assembles reusable letter matrices, justifies them, casts each line as a single metal slug, and redistributes the matrices. Regions: New York City, United States. Applications: newspaper composition. Population: The New York Times compositors using hot type. Market: unknown.
 - `cont-c-linecasting-linotype--parkrecord-junior-end` (end of use; node `cont-c-linecasting-linotype`; by 1915). Scope: Keyboard-operated machine that assembles reusable letter matrices, justifies them, casts each line as a single metal slug, and redistributes the matrices. Regions: Park City, Utah, United States. Applications: newspaper composition. Population: Park Record workers previously using the Junior Linotype. Market: unknown.
+- `cont-d-arpanet-research-network-1971--shutdown-1990` (end of use; node `cont-d-arpanet-research-network-1971`; 1990). Scope: The original ARPANET research network, not the wider Internet or MILNET. Regions: not specified. Applications: Research-computer networking. Population: ARPANET network operators and participating research organizations. Market: unknown.
 - `cont-d-hawaii-alohanet-1971--network-end` (end of use; node `cont-d-hawaii-alohanet-1971`; autumn 1976). Scope: Original University of Hawaiʻi ALOHANET experimental radio network Regions: Hawaiʻi, United States. Applications: University computing access. Population: not yet researched. Market: not yet researched.
 - `mat-bessemer-air-conversion--workington-last-uk-1974` (end of use; node `mat-bessemer-air-conversion`; 1974). Scope: British Steel Corporation Bessemer converter at Workington. Regions: Workington, Cumbria, England; United Kingdom. Applications: steel conversion. Population: Workington steelworks converter operators. Market: unknown.
+- `cont-d-ibm-305-350-1956--market-withdrawal-1969` (withdrawal; node `cont-d-ibm-305-350-1956`; 1969). Scope: IBM 305 RAMAC market offering. Regions: not specified. Applications: Business computing. Population: Prospective IBM 305 RAMAC buyers. Market: unknown.
+- `cont-d-ibm-305-350-1956--production-end-1961` (withdrawal; node `cont-d-ibm-305-350-1956`; 1961). Scope: IBM 305 RAMAC production. Regions: not specified. Applications: Business computing. Population: IBM 305 RAMAC manufacturing and prospective buyers. Market: unknown.
 - `cont-d-w4-digital-compact-cassette--consumer-withdrawal-1996` (withdrawal; node `cont-d-w4-digital-compact-cassette`; by 1996). Scope: Philips consumer DCC hardware production. Regions: not specified. Applications: Consumer audio. Population: Philips consumer DCC hardware production staff and buyers. Market: unknown.
 - `glass-ee2-google-withdrawal-2023` (withdrawal; node `google-glass-enterprise-2`; By 15 March 2023). Scope: Google vendor sales of Glass Enterprise Edition 2 Regions: not specified. Applications: Enterprise wearables. Population: not yet researched. Market: Google sales only.
 - `zeiss-1-18-withdrawal-by-1889` (withdrawal; node `zeiss-homogeneous-1-18`; Between the 1885 and 1889 catalogues). Scope: Old-series Zeiss 1/18 homogeneous-immersion objective Regions: Germany. Applications: Microscopy. Population: not yet researched. Market: Manufacturer supply.
