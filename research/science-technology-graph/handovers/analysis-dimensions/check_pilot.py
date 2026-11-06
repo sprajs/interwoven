@@ -81,7 +81,7 @@ print(f"  largest relation type: {relation_counts.most_common(1)[0]}")
 print(f"  descriptions containing a number with a unit (rough match): {sum(bool(unit.search(n.get('configuration', ''))) for n in nodes)}")
 print(f"  distinct free-text regions: {len({r for n in nodes for r in n['regions']})}")
 
-undetermined = lambda rows, facet: sum(isinstance(r.get(facet), str) and r[facet] in statuses for r in rows)
+undetermined = lambda rows, facet: sum(isinstance(r.get(facet), str) and (r[facet] in statuses or r[facet] == "not_assessed") for r in rows)
 print("\nTHE PILOT (one coder, from the graph's own text, no sources reopened)")
 print(f"  entries {len(pilot_entries)}, links {len(pilot_links)}")
 for facet in ("advance_type", "change_scale", "prompted_by"):

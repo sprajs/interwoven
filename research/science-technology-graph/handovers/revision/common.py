@@ -60,7 +60,7 @@ def evidence(sid, locator, supports):
 def link(rid, source, target, relation, statement, ev, temporal, uncertainty):
     return {'schema_version':1, 'id':rid, 'from':source, 'to':target, 'relation':relation,
             'statement':statement, 'scope':'Only the identified configurations and source-described contribution.',
-            'evidence':ev, 'confidence':'high', 'necessity':'Strength not assessed; historical support is separate.',
+            'evidence':ev, 'confidence':'high', 'influence':'not_assessed',
             'alternatives':'No unique historical route or universal necessity asserted.', 'uncertainty':uncertainty,
             'temporal_note':temporal, 'review':{'historical_claim':'accepted','lifecycle_classification':'needs_review'},
             'provenance':{'method':'source-evidence','source_ids':list(dict.fromkeys(e['source_id'] for e in ev)),

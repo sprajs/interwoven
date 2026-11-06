@@ -129,3 +129,31 @@ This does not block topic labels or independently sourced history repairs.
 Validation: graph valid with zero concerns; 93 graph tests, 140 web tests and the
 production build passed. A regression test rejects unreviewed topics and checks
 that brand words cannot override a reviewed assignment.
+
+## Stage 6 — completed
+
+Ten new links reconnect scoped functions and families: oxide masking → planar
+configuration; MOS → 4004; voltaic supply → Ampère; induction → Lauffen transformers
+and Pearl Street dynamos; separate condensation → Old Bess; expansion/patent
+programme ↔ Soho compound configuration; Nine Chapters ↔ Fangcheng; and two
+noncausal family links among the Roman stone saws. The already-present
+silicon-gate → 4004 development was retained without a duplicate.
+
+Each newly drawn function states the bounded synthesis and disclaims an invented
+personal reading/copying route. Source passages were reopened. The Arabic
+algebra-reception source confirms Leonardo's algebraic borrowing, but the existing
+Liber abaci node is scoped to numerical arithmetic; it was not used to draw an
+unsupported algebra → place-value edge. Shared maker, company or actor still does
+not establish a link. The remaining disconnected histories are a sourced research
+queue, not filled with speculative edges.
+
+The EDSAC/LEO edge now binds its source to the 1947 exchange agreement. This newly
+separated recorded project-knowledge event also moves EDSAC's earliest record
+before its 1949 logged run; the 1950 service remains separate. Thomson's
+acknowledgement of Clausius is bound to the printed account, and the Joule edge
+now distinguishes quoted 772.69 from rounded 772. Oral content is not inferred
+from a later printed sentence.
+
+All historian holds and refused Oughtred→Soho, Newton→Abbe and 4004→genome links
+remain refused/held. Validation: graph valid, zero concerns; 140 web tests and
+production build passed. Counts: 283 entries, 549 events, 151 links.

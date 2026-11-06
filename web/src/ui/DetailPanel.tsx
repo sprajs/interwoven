@@ -43,8 +43,9 @@ function LinkList({ title, links, side, model }: { title: string; links: RawLink
                   {link.tentative && <span className="text-ink-3"> Awaiting review.</span>}
                 </p>
               )}
-              {(link.from_event_id || link.to_event_id) && <p className="note mt-1 pl-4">Linked events: {eventLabel(link.from_event_id)} → {eventLabel(link.to_event_id)}.</p>}
+              {(link.from_event_id || link.to_event_id) && <p className="note mt-1 pl-4">Linked events: {eventLabel(link.from_event_id)} {link.causal === false ? '↔' : '→'} {eventLabel(link.to_event_id)}.</p>}
               {link.temporal_note && <p className="note mt-1 pl-4">{link.temporal_note}</p>}
+              {link.influence && <p className="note mt-1 pl-4">Evidence confidence: {link.confidence ?? 'not assessed'}. Influence: {link.influence.replace(/_/g, ' ')}.</p>}
             </li>
           )
         })}
