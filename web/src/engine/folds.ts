@@ -189,7 +189,9 @@ export function foldAroundYears(years: readonly number[], options: StoryFoldOpti
   // Every window gets a little air, so a lone year still has width.
   const total = windows.reduce((sum, [a, b]) => sum + (b - a), 0)
   const pad = Math.max(1, total * 0.04)
-  const padded = windows.map(([a, b]): [number, number] => [a - pad, b + pad])
+  // The last window runs on past the story, so the final titles have room to their right.
+  const tail = Math.max(pad, total * 0.3)
+  const padded = windows.map(([a, b], k): [number, number] => [a - pad, b + (k === windows.length - 1 ? tail : pad)])
   const openYears = padded.reduce((sum, [a, b]) => sum + (b - a), 0)
 
   const segments: FoldSegment[] = []
