@@ -27,27 +27,29 @@
     "D": "/root/review_terra_electronics"
   },
   "waves": {
-    "1": "60 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "2": "36 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "3": "57 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "4": "25 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "5": "13 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "6": "14 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "7": "6 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary."
+    "1": "60 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "2": "36 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "3": "57 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "4": "25 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "5": "13 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "6": "14 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "7": "6 registered cases; individual status, scope and exact review/disposition pointer govern coverage.",
+    "8": "2 registered cases; individual status, scope and exact review/disposition pointer govern coverage."
   },
   "summary": {
-    "candidate_and_integrated_cases": 211,
+    "candidate_and_integrated_cases": 213,
     "by_status": {
       "proposed": 158,
-      "integrated": 53
+      "integrated": 53,
+      "insufficient": 2
     },
     "by_pod": {
       "A": 67,
       "B": 43,
-      "C": 44,
+      "C": 46,
       "D": 57
     },
-    "status_rule": "Integrated records point to exact current review; proposed leads remain unresolved unless individually updated."
+    "status_rule": "Integrated records point to exact current review; proposed and author-held leads remain unresolved unless individually reviewed."
   },
   "candidates": [
     {
@@ -12749,6 +12751,210 @@
         "global_comparison_status": "frontier_supported",
         "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
       }
+    },
+    {
+      "id": "HOLD-C-hydraulic-lime-binder",
+      "title": "Hydraulic-lime binder global comparison",
+      "owner": "/root/review_terra_mechanics",
+      "pod": "C",
+      "wave": 8,
+      "status": "insufficient",
+      "frontier_review": {
+        "global_comparison_status": "unresolved",
+        "qualification": "Author-held research with explicit source/access limits; no new canonical identity, date or causal claim accepted."
+      },
+      "research_disposition": {
+        "status": "hold",
+        "case": "hydraulic lime plaster / binder",
+        "reason": "The 2010 team independently analyzed hydraulic Tell es-Safi/Gath plaster, and the 2015 authors discuss its stratigraphic context, but the 2010 introduction reports earlier Cretan use around the 17th century BCE. The exact underlying Kommos analytical passage and dated site context were not independently inspected. A graph anchor at later Gath would not adequately resolve the earliest defensible documented use of the general capability, while attributing the earlier Kommos claim to the 2010 authors as their own experiment would overstate evidence.",
+        "inspected_sources": [
+          {
+            "title": "Iron Age hydraulic plaster from Tell es-Safi/Gath, Israel",
+            "authors": [
+              "Lior Regev",
+              "Alexander Zukerman",
+              "Louise Hitchcock",
+              "Aren M. Maeir",
+              "Steve Weiner",
+              "Elisabetta Boaretto"
+            ],
+            "year": 2010,
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440310002207",
+            "locator": "Publisher-rendered abstract and introduction, Kommos and Phaistos comparator passages",
+            "access": "Original article abstract and introduction only; full source unavailable through inspected publisher view; attributed note retained.",
+            "local_note": "evidence/acquired/cont-c-next-hydraulic-regev-2010-note.txt",
+            "local_note_sha256": "78cf1870bdbc0924111c81062b80ffaf8199ec76fc009951eca7caa9bc468123"
+          },
+          {
+            "title": "Radiocarbon Dating Shows an Early Appearance of Philistine Material Culture in Tell es-Safi/Gath, Philistia",
+            "authors": [
+              "Yotam Asscher and colleagues"
+            ],
+            "year": 2015,
+            "url": "https://pure.mpg.de/rest/items/item_2226146_8/component/file_2226147/content",
+            "locator": "Printed pp. 829–831, Table 1 and period discussion; pp. 837–838, hydraulic fragment; pp. 841–842, gap in dating of Stratum A5",
+            "access": "Full research article PDF retained. Stratum A5 is 11th–10th century BCE by pottery-based relative chronology; radiocarbon samples were not taken directly from A5 in the model.",
+            "local_copy": "evidence/acquired/cont-c-next-hydraulic-gath-asscher-2015.pdf",
+            "local_copy_sha256": "2d52a5cb03bf1be7bfc03124bd308873009304bd4595e29ff7ea96537a2a9ee0"
+          },
+          {
+            "title": "New evidence of early use of artificial pozzolanic material in mortars",
+            "authors": [
+              "Magdalini Theodoridou",
+              "Ioannis Ioannou",
+              "Maria Philokyprou"
+            ],
+            "year": 2013,
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440313001222",
+            "locator": "Publisher abstract and available introductory and conclusion excerpts",
+            "access": "Publisher-rendered partial text only; authors describe analytical tests of Late Bronze Age Cypriot lime mortars containing crushed ceramic, but the named-site sample and complete chronology tables were not inspected."
+          }
+        ],
+        "next_evidence_needed": "Inspect the original Dandrau–Dubernet 2006 Kommos V pp. 236–248 and archaeological stratigraphy for the specific 17th-century floor, compare its mechanism with other earlier global material, and independently review a scoped use event and approximate chronology before proposing a canonical node.",
+        "exclusions": "No regional-first novelty, assumed Aegean-to-Levant transfer, global-first claim, specimen-only node, or 1200 BCE hard point date is inferred."
+      },
+      "source_note_sha256": "6e6ce0927999d411509cd991f1a7b4babaa8f6cc91b701012968bc546c0d5389",
+      "source_note_filename": "hydraulic-lime-hold.json",
+      "source_leads": [
+        {
+          "title": "Iron Age hydraulic plaster from Tell es-Safi/Gath, Israel",
+          "authors": [
+            "Lior Regev",
+            "Alexander Zukerman",
+            "Louise Hitchcock",
+            "Aren M. Maeir",
+            "Steve Weiner",
+            "Elisabetta Boaretto"
+          ],
+          "year": 2010,
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440310002207",
+          "locator": "Publisher-rendered abstract and introduction, Kommos and Phaistos comparator passages",
+          "access": "Original article abstract and introduction only; full source unavailable through inspected publisher view; attributed note retained.",
+          "local_note": "evidence/acquired/cont-c-next-hydraulic-regev-2010-note.txt",
+          "local_note_sha256": "78cf1870bdbc0924111c81062b80ffaf8199ec76fc009951eca7caa9bc468123"
+        },
+        {
+          "title": "Radiocarbon Dating Shows an Early Appearance of Philistine Material Culture in Tell es-Safi/Gath, Philistia",
+          "authors": [
+            "Yotam Asscher and colleagues"
+          ],
+          "year": 2015,
+          "url": "https://pure.mpg.de/rest/items/item_2226146_8/component/file_2226147/content",
+          "locator": "Printed pp. 829–831, Table 1 and period discussion; pp. 837–838, hydraulic fragment; pp. 841–842, gap in dating of Stratum A5",
+          "access": "Full research article PDF retained. Stratum A5 is 11th–10th century BCE by pottery-based relative chronology; radiocarbon samples were not taken directly from A5 in the model.",
+          "local_copy": "evidence/acquired/cont-c-next-hydraulic-gath-asscher-2015.pdf",
+          "local_copy_sha256": "2d52a5cb03bf1be7bfc03124bd308873009304bd4595e29ff7ea96537a2a9ee0"
+        },
+        {
+          "title": "New evidence of early use of artificial pozzolanic material in mortars",
+          "authors": [
+            "Magdalini Theodoridou",
+            "Ioannis Ioannou",
+            "Maria Philokyprou"
+          ],
+          "year": 2013,
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440313001222",
+          "locator": "Publisher abstract and available introductory and conclusion excerpts",
+          "access": "Publisher-rendered partial text only; authors describe analytical tests of Late Bronze Age Cypriot lime mortars containing crushed ceramic, but the named-site sample and complete chronology tables were not inspected."
+        }
+      ]
+    },
+    {
+      "id": "HOLD-C-haber-components",
+      "title": "Industrial ammonia components and Oppau date refinement",
+      "owner": "/root/review_terra_mechanics",
+      "pod": "C",
+      "wave": 8,
+      "status": "insufficient",
+      "frontier_review": {
+        "global_comparison_status": "unresolved",
+        "qualification": "Author-held research with explicit source/access limits; no new canonical identity, date or causal claim accepted."
+      },
+      "research_disposition": {
+        "status": "hold_for_independent_review",
+        "scope": "Already sourced enabling components and chronology for cont-c-industrial-ammonia-synthesis; no new standalone node or causal connection proposed.",
+        "findings": [
+          {
+            "claim": "The existing Oppau event may be bounded by 9 September 1913",
+            "evidence": "BASF Corporate History sections Synthesis of ammonia and Oppau 1913 say the plant went into operation that day. Kristensen (2016), printed pp. 16–17, calls it the first officially produced ammonia and says some operations started in late summer. Earlier operations are not necessarily earlier delivered ammonia. A known-by bound is safer than an unqualified exact first-use assertion.",
+            "status": "candidate_date_refinement",
+            "current_effect": "The current 1913 event and explicit uncertainty remain valid pending exact-record independent review."
+          },
+          {
+            "claim": "Pressure-vessel inner liner and pressure jacket roles",
+            "evidence": "Carl Bosch, Nobel Lecture 21 May 1932, printed pp. 208–209 / PDF pp. 12–13, describes the testing and first lined converter in March 1911; p. 212 attributes an ammonia-converter heat-exchange layout to Knietsch’s earlier sulfuric-acid contact-process design. The author is a participant describing his own development.",
+            "status": "hold_global_component_novelty",
+            "limit": "No adequate worldwide predecessor search or directly evidenced matching existing graph endpoint establishes an additional frontier node or a causal link; a 1911 trial is not the Oppau 1913 operating event."
+          },
+          {
+            "claim": "Industrial catalyst development",
+            "evidence": "Bosch, Nobel Lecture printed pp. 197–199, describes the practical limits of early catalysts and an industrially useful mixed catalyst. The separate patent is a selective claims document.",
+            "status": "hold_global_component_novelty",
+            "limit": "Global catalyst predecessor comparison and actual deployed configuration binding are incomplete; do not infer novelty or downstream transfer from names and chronology alone."
+          }
+        ],
+        "sources": [
+          {
+            "name": "BASF Corporate History",
+            "url": "https://www.basf.com/global/en/who-we-are/history/Carl-Bosch",
+            "access": "inspected source; compact attributed note",
+            "local": {
+              "path": "evidence/acquired/cont-c-next-haber-basf-note.txt",
+              "sha256": "03a4ea235f04502751376fb3f94db31fd2d11b1dc22bf1ce0f334b36754239ca"
+            }
+          },
+          {
+            "name": "Kristensen 2016 FFI report",
+            "url": "https://kudos.dfo.no/documents/52306/files/34756.pdf",
+            "access": "provider-rendered text inspected; direct download returned HTML challenge; compact attributed note",
+            "local": {
+              "path": "evidence/acquired/cont-c-next-haber-ffi-note.txt",
+              "sha256": "4eef6daacb88520cb00934e1462398e7d9df8640ec1e009e58a7f1672e7769f3"
+            }
+          },
+          {
+            "name": "Bosch Nobel Lecture 1932",
+            "url": "https://www.nobelprize.org/uploads/2018/06/bosch-lecture.pdf",
+            "access": "full original official PDF retained",
+            "local": {
+              "path": "evidence/acquired/cont-c-next-haber-bosch-nobel-1932.pdf",
+              "sha256": "e17499a8d33666c485f8043362d9619dffdf83c3b07a262afa047a4a5581ba13"
+            }
+          }
+        ],
+        "no_unreviewed_action": "No canonical mutation is proposed in this hold."
+      },
+      "source_note_sha256": "e22472037dacf0c33e0d4f132f7c7ee9b1be28b0ad423e96c96cf3360b44213e",
+      "source_note_filename": "haber-components-hold.json",
+      "source_leads": [
+        {
+          "name": "BASF Corporate History",
+          "url": "https://www.basf.com/global/en/who-we-are/history/Carl-Bosch",
+          "access": "inspected source; compact attributed note",
+          "local": {
+            "path": "evidence/acquired/cont-c-next-haber-basf-note.txt",
+            "sha256": "03a4ea235f04502751376fb3f94db31fd2d11b1dc22bf1ce0f334b36754239ca"
+          }
+        },
+        {
+          "name": "Kristensen 2016 FFI report",
+          "url": "https://kudos.dfo.no/documents/52306/files/34756.pdf",
+          "access": "provider-rendered text inspected; direct download returned HTML challenge; compact attributed note",
+          "local": {
+            "path": "evidence/acquired/cont-c-next-haber-ffi-note.txt",
+            "sha256": "4eef6daacb88520cb00934e1462398e7d9df8640ec1e009e58a7f1672e7769f3"
+          }
+        },
+        {
+          "name": "Bosch Nobel Lecture 1932",
+          "url": "https://www.nobelprize.org/uploads/2018/06/bosch-lecture.pdf",
+          "access": "full original official PDF retained",
+          "local": {
+            "path": "evidence/acquired/cont-c-next-haber-bosch-nobel-1932.pdf",
+            "sha256": "e17499a8d33666c485f8043362d9619dffdf83c3b07a262afa047a4a5581ba13"
+          }
+        }
+      ]
     }
   ],
   "existing_graph_priorities": [

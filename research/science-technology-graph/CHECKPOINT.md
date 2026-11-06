@@ -12,7 +12,7 @@ The current addition ledgers are `reviews/continuation-01.json`, `reviews/contin
 
 ## Verification
 
-Strict graph validation has zero errors and concerns. All **882 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **543** distinct canonical source-copy paths, plus **9** frontier-audit and **27** continuation comparison captures mapped separately. Held/nonintegrated comparison context is not promoted to canonical claims. Their access/representation/inspected-passage limits remain explicit.
+Strict graph validation has zero errors and concerns. All **882 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **543** distinct canonical source-copy paths, plus **9** frontier-audit and **32** continuation comparison captures mapped separately. Held/nonintegrated comparison context is not promoted to canonical claims. Their access/representation/inspected-passage limits remain explicit.
 
 The imported dataset matches all **488** canonical event date objects, scopes, evidence and both review axes, with no fabricated opposite limit. All **263** nodes are placed, labelled and assigned tiers. Import/validation passes. The application code has passed 120 web tests and production build; graph semantics have passed 92 Python tests. Browser verification is refreshed at the next content freeze.
 
@@ -20,7 +20,7 @@ The UI draws reviewed scoped episodes, preserving full precision/approximation/e
 
 ## Ongoing waves and limits
 
-`handovers/research-register.json` is the single current coverage/ownership register: 211 prospective or integrated cases, with exact resolution pointers and model provenance. The planning range is 150–250 distinct additions if evidence supports them, never a quota. Only the already assigned industrial, materials, imaging, foundational-science and eight-case lifecycle/relationship packets remain in scope for this session; unsupported and unstarted leads stay in the current backlog. Regional-first, rediscovery, restoration and individual object witnesses do not qualify alone; uncertain comparisons are held. Failed or extinct novel attempts remain eligible with actual performance/failure stated.
+`handovers/research-register.json` is the single current coverage/ownership register: 213 prospective or integrated cases, with exact resolution pointers and model provenance. The planning range is 150–250 distinct additions if evidence supports them, never a quota. Only the already assigned industrial, materials, imaging, foundational-science and eight-case lifecycle/relationship packets remain in scope for this session; unsupported and unstarted leads stay in the current backlog. Regional-first, rediscovery, restoration and individual object witnesses do not qualify alone; uncertain comparisons are held. Failed or extinct novel attempts remain eligible with actual performance/failure stated.
 
 First commercial availability, adoption, decline, end-of-use and revival are separate scoped questions. Current placement does not imply full ancestry, acceptance, continuity or complete lifecycle research. `BACKLOG.md` and live coverage tools preserve the remaining work. This continuation is not complete.
 
@@ -35,7 +35,7 @@ First commercial availability, adoption, decline, end-of-use and revival are sep
 | `schema.json` | `315ab1cb21a1a48f198620b79e407f12b9e4cbf49af17bc415a0c99e62c26958` |
 | `reviews/current-evidence.json` | `3ed1b496298b9404b6dfa344bd8958fd375c35ba866ffe45c1f8fc276b468b9a` |
 | `reviews/frontier-context.json` | `10657fdd6bb431f52daa6328e8bdbf253e52525f74f75a04c41aa68b88a8ffc2` |
-| `reviews/continuation-context.json` | `e97f8c7b4f39ad804c0fd1dbf74845c5ee7523cd3b47fffa1df8669cb612ba68` |
+| `reviews/continuation-context.json` | `7fb076328732e6f569214e4d9e47ff37950d8c860b7bf06e98b71a9d68fa72d8` |
 | `../../web/public/data/timeline.json` | `aa1976d650529f01c31e538d1ebe9ef95dfd918f20b52f6a92d52a67109c2849` |
 
 ## Repository boundary
