@@ -12,6 +12,7 @@ export const CARTOUCHE_WIDTH = 1180
 
 interface SheetState {
   selected: number | null
+  unplacedSelected: string | null
   mode: string
   model: Model | null
   rowOrder: RowOrder
@@ -39,6 +40,7 @@ export function reachCornersFree(model: Model | null, order: RowOrder): boolean 
 
 /** Whether a side sheet takes room from the chart on the right. */
 export function rightSheetOpen(s: SheetState, width = window.innerWidth): boolean {
+  if (s.unplacedSelected !== null) return true
   if (s.mode === 'reach') return s.selected !== null || width < CARTOUCHE_WIDTH || !reachCornersFree(s.model, s.rowOrder)
   return s.selected !== null || s.mode !== 'threads'
 }

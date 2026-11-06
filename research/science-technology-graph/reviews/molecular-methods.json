@@ -1,0 +1,1994 @@
+{
+  "scope": "Independent historical review of the current molecular structure and sequencing records. Verdicts cover the exact projected propositions and stated source limits; lifecycle assessment remains separate.",
+  "reviewed_at": "2026-11-06T02:22:31.286915+00:00",
+  "review_basis": {
+    "method": "Current propositions were compared field by field with independently source-reviewed propositions; the reviewed target digest was verified before comparison. Current source-copy identities and hashes were checked. This is not a claim to have reread all sources in full.",
+    "verified_reviewed_target_sha256": "2459b2f21a0869d4931a8f8b5f50ed587e4736ff1a12a0c0f1227fa29be3a148",
+    "date_evidence": "Receipt or report dates are latest bounds for the specified by-date events; earlier limits are unknown."
+  },
+  "proposition_hash_method": "SHA-256 of UTF-8 JSON for each displayed proposition object, keys sorted, Unicode unescaped, comma and colon separators, no extra whitespace or trailing newline. Review metadata and lifecycle assessments are excluded.",
+  "source_access": [
+    {
+      "source_id": "bio-wyatt-1952",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2147366/",
+      "edition": "Original publication",
+      "access": "partial-text",
+      "inspected_extent": "PMC abstract, affiliation and received-date fields",
+      "finding": "Eleven virus samples, near-unity paired-base ratios, Sault Ste. Marie and receipt 1 July 1952 verified. No priority claim.",
+      "access_limit": "No local source copy is declared. The original paper abstract and indexed opening were inspected in the independent source review; the complete paper was not read.",
+      "current_copy": "No local copy declared",
+      "copy_hash_verified": false
+    },
+    {
+      "source_id": "bio-franklin-gosling-1953",
+      "url": "https://williams.chemistry.gatech.edu/course_Information/6572/papers/franklin_1953.pdf",
+      "edition": "Original publication",
+      "access": "full-text",
+      "inspected_extent": "Printed pp. 740-741, complete article across both pages",
+      "finding": "Hydration-dependent patterns and qualified helical/two-chain interpretation are explicit; 34 A repeat, roughly 20 A diameter and exterior phosphates are supported. Signed April 2.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/originals/542fa917f08648a2a978e02ccac426ca247b0a8f277b1c96dab87c2aab51e460.pdf",
+        "sha256": "542fa917f08648a2a978e02ccac426ca247b0a8f277b1c96dab87c2aab51e460"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "542fa917f08648a2a978e02ccac426ca247b0a8f277b1c96dab87c2aab51e460"
+    },
+    {
+      "source_id": "bio-photo51-catalogue",
+      "url": "https://digital.sciencehistory.org/works/mjir8wn",
+      "edition": "Current catalogue record accessed 2026-11-06; item circa 1953",
+      "access": "partial-text",
+      "inspected_extent": "Description, circa-date and inscription fields",
+      "finding": "Original exposure is 1952; the annotated print is circa 1953. Location and creator identities verified.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/acquired/bio-photo51-catalogue.html",
+        "sha256": "9845e50526d1a2e7d2fe01e55effc31df0e57104d02f8e600ad9dbdbe91dcf40",
+        "representation": "full_source"
+      },
+      "copy_hash_verified": true
+    },
+    {
+      "source_id": "bio-watson-crick-1953",
+      "url": "https://inters.org/files/watsoncrick1953.pdf",
+      "edition": "Hosted transcription of 1953 original; not a journal-page facsimile",
+      "access": "full-text",
+      "inspected_extent": "p. 737 transcription, model, composition paragraph, references 3-4 and closing date",
+      "finding": "Antiparallel paired chains, explicit Wyatt 1952 citation, competing inputs and unproved status verified. The acknowledgement does not establish a specific Franklin-result transfer edge.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/originals/591d2ff358977c52e83af8305a15fd76f1487a86a28db6c6e3851ca095a0809b.pdf",
+        "sha256": "591d2ff358977c52e83af8305a15fd76f1487a86a28db6c6e3851ca095a0809b"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "591d2ff358977c52e83af8305a15fd76f1487a86a28db6c6e3851ca095a0809b"
+    },
+    {
+      "source_id": "bio-lehman-1958",
+      "url": "https://www.biochem.du.ac.in/userfiles/downloads/JBC-1958-Lehman.pdf",
+      "edition": "Original publication",
+      "access": "partial-text",
+      "inspected_extent": "p. 163, title/header, introductory rationale and report purpose",
+      "finding": "Partial purification, substrates, assay and received 10 October 1957 are explicit. Coenzyme chemistry motivates the search; model-to-enzyme discovery is correctly absent.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/originals/5b598253511691c4ed00d56ff2b2eef309c73c2c6491e8e2e71039b01fd6deea.pdf",
+        "sha256": "5b598253511691c4ed00d56ff2b2eef309c73c2c6491e8e2e71039b01fd6deea"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "5b598253511691c4ed00d56ff2b2eef309c73c2c6491e8e2e71039b01fd6deea"
+    },
+    {
+      "source_id": "bio-kornberg-1959",
+      "url": "https://www.nobelprize.org/uploads/2018/06/kornberg-lecture.pdf",
+      "edition": "1959 lecture as reproduced in Nobel Lectures, Physiology or Medicine 1942–1962",
+      "access": "partial-text",
+      "inspected_extent": "pp. 666-668, 670-673, 678-679, including references 5, 13, 15-18",
+      "finding": "Complementary pairing interprets copying; purified enzyme/template experiments supply evidence. The cited 1958 studies and 1959 evidence stage fit the interval.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/originals/3c46b6317c2bff884bfebda20096b95fb6b611f604eb6c08487ab8500aff620f.pdf",
+        "sha256": "3c46b6317c2bff884bfebda20096b95fb6b611f604eb6c08487ab8500aff620f"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "3c46b6317c2bff884bfebda20096b95fb6b611f604eb6c08487ab8500aff620f"
+    },
+    {
+      "source_id": "bio-sanger-coulson-1975",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1499197/download-documents?artifactId=4SWs_8P5CUHkkfIf2-HGMDRZxCXK4J0L_OHPFCZHLbCmKAsQz8-_96k",
+      "edition": "Original publication",
+      "access": "partial-text",
+      "inspected_extent": "Printed pp. 441-442; p. 441 visually checked",
+      "finding": "The 20 December 1974 receipt date and implemented complementary primer extension are explicit; E. coli/T4 enzymes, limiting substrates and gel products match the node. Functional requirement is supported without personal-transmission inference.",
+      "access_limit": "Original USPTO URL returned 403. Alternative scan was checked directly; noisy OCR was checked against rendered first page.",
+      "current_copy": {
+        "path": "evidence/originals/3c5a313b4d8e69ce9563e357bff18ec03afecd31ab2607bf5103958ffee3ff24.pdf",
+        "sha256": "3c5a313b4d8e69ce9563e357bff18ec03afecd31ab2607bf5103958ffee3ff24"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "3c5a313b4d8e69ce9563e357bff18ec03afecd31ab2607bf5103958ffee3ff24",
+      "alternate_access_url": "https://herba.msu.ru/shipunov/school/univ_110/papers/sanger1975_dna_sequencing.pdf"
+    },
+    {
+      "source_id": "bio-sanger-nicklen-coulson-1977",
+      "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+      "edition": "Original publication",
+      "access": "partial-text",
+      "inspected_extent": "p. 5463, abstract, introduction, Principle and Methods",
+      "finding": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/originals/1183232d9abfadfba23756aee2d3aa9865296f4bd626854d13cc4e38c1e1a86f.pdf",
+        "sha256": "1183232d9abfadfba23756aee2d3aa9865296f4bd626854d13cc4e38c1e1a86f"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "1183232d9abfadfba23756aee2d3aa9865296f4bd626854d13cc4e38c1e1a86f"
+    },
+    {
+      "source_id": "bio-phix174-1977",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/870828/",
+      "edition": "Original publication",
+      "access": "abstract",
+      "inspected_extent": "Author abstract and publication date, PMID 870828",
+      "finding": "Approximately 5,375 bases, plus/minus method, overlapping coding frames and 24 February 1977 report verified. Later corrected sequence excluded.",
+      "access_limit": "PubMed UI returned empty pages; official EFetch supplied original author abstracts. Full papers not read.",
+      "current_copy": {
+        "path": "evidence/originals/9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09.xml",
+        "sha256": "9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09",
+        "representation": "full_source"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09",
+      "alternate_access_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=870828,3713851,2443975,1100841&retmode=xml"
+    },
+    {
+      "source_id": "bio-smith-1986",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3713851/",
+      "edition": "Original publication",
+      "access": "abstract",
+      "inspected_extent": "Author abstract PMID 3713851; Nature metadata and affiliations, DOI 10.1038/321674a0",
+      "finding": "Primer-linked four-colour readout, one gel tube and computer acquisition verified. Publisher record gives received 30 December 1985, accepted April 1986 and Caltech/Applied Biosystems affiliations.",
+      "access_limit": "The local NCBI XML contains the author abstract, not the full paper or all publisher receipt-date and affiliation metadata; the latter were checked in the publisher record during source review.",
+      "current_copy": {
+        "path": "evidence/originals/9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09.xml",
+        "sha256": "9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09",
+        "representation": "full_source"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09",
+      "alternate_access_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=870828,3713851,2443975,1100841&retmode=xml",
+      "additional_metadata_url": "https://www.nature.com/articles/321674a0"
+    },
+    {
+      "source_id": "bio-prober-1987",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2443975/",
+      "edition": "Original publication",
+      "access": "abstract",
+      "inspected_extent": "Author abstract, affiliation and publication date, PMID 2443975",
+      "finding": "Explicit modified dideoxy protocol with four labelled terminators, reverse transcriptase, one reaction/lane and automated calls; M13 demonstration, DuPont and October 16 verified.",
+      "access_limit": "PubMed UI returned empty pages; official EFetch supplied original author abstracts. Full papers not read.",
+      "current_copy": {
+        "path": "evidence/originals/9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09.xml",
+        "sha256": "9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09",
+        "representation": "full_source"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "9d43a23b032429bb9f36a87ff2d136df5d94959b230ee90d025696ffb1ce3e09",
+      "alternate_access_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=870828,3713851,2443975,1100841&retmode=xml"
+    },
+    {
+      "source_id": "bio-human-genome-2001",
+      "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+      "edition": "Original publication",
+      "access": "partial-text",
+      "inspected_extent": "p. 860 summary; pp. 863-864 strategy/technology; pp. 867-868 sequencing/assembly; references 62 and 67",
+      "finding": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft.",
+      "access_limit": "Only the specified passages or abstracts were inspected; full-document access is not implied.",
+      "current_copy": {
+        "path": "evidence/originals/b3ae947a9dc13856b461c0d8991d56acd2401b065f7d88e7cec451c1f143c06a.pdf",
+        "sha256": "b3ae947a9dc13856b461c0d8991d56acd2401b065f7d88e7cec451c1f143c06a"
+      },
+      "copy_hash_verified": true,
+      "reviewed_copy_sha256": "b3ae947a9dc13856b461c0d8991d56acd2401b065f7d88e7cec451c1f143c06a"
+    }
+  ],
+  "records": [
+    {
+      "id": "bio-insect-virus-base-ratios-1952",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-insect-virus-base-ratios-1952",
+        "label": "Viral DNA base ratios",
+        "kind": "science",
+        "configuration": "Wyatt’s analyses of DNA from 11 insect viruses found A:T and G:C near unity while aggregate base composition varied.",
+        "regions": [
+          "Sault Ste. Marie, Ontario, Canada"
+        ],
+        "event_ids": [
+          "bio-insect-virus-base-ratios-1952--event-01"
+        ],
+        "uncertainty": "Not the origin of all base-ratio work: Wyatt explicitly builds on earlier analyses; Chargaff’s broader programme remains to be expanded."
+      },
+      "proposition_sha256": "1d2aad463ef665ea202402667e6e3ccfce2d6dd6a51ab35386f77c8335155925",
+      "source_evidence": [
+        {
+          "source_id": "bio-wyatt-1952",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2147366/",
+          "locator": "p. 201 and abstract",
+          "supports": "Sample scope, ratios, location and receipt date.",
+          "access": "partial-text",
+          "inspected_context": "Eleven virus samples, near-unity paired-base ratios, Sault Ste. Marie and receipt 1 July 1952 verified. No priority claim."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. Not the origin of all base-ratio work: Wyatt explicitly builds on earlier analyses; Chargaff’s broader programme remains to be expanded."
+    },
+    {
+      "id": "bio-insect-virus-base-ratios-1952--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-insect-virus-base-ratios-1952--event-01",
+        "node_id": "bio-insect-virus-base-ratios-1952",
+        "event_type": "observation",
+        "date": {
+          "status": "bounded",
+          "precision": "day",
+          "calendar": "historical-BCE-CE",
+          "label": "by 1 July 1952",
+          "basis": "Measurements were reported in a manuscript received 1 July 1952; bounded as established by that year, without claiming the earliest such measurements.",
+          "latest": {
+            "year": 1952,
+            "month": 7,
+            "day": 1
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "Sault Ste. Marie, Ontario, Canada"
+          ],
+          "configuration": "Wyatt’s analyses of DNA from 11 insect viruses found A:T and G:C near unity while aggregate base composition varied.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Wyatt’s analyses of DNA from 11 insect viruses found A:T and G:C near unity while aggregate base composition varied.",
+        "evidence": [
+          {
+            "source_id": "bio-wyatt-1952",
+            "locator": "p. 201 and abstract",
+            "supports": "Sample scope, ratios, location and receipt date."
+          }
+        ],
+        "uncertainty": "Not the origin of all base-ratio work: Wyatt explicitly builds on earlier analyses; Chargaff’s broader programme remains to be expanded."
+      },
+      "proposition_sha256": "179f0a72d6c7ef5696122a598dd41aa608eef4f6053809c90208c6a4a96c8f58",
+      "source_evidence": [
+        {
+          "source_id": "bio-wyatt-1952",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2147366/",
+          "locator": "p. 201 and abstract",
+          "supports": "Sample scope, ratios, location and receipt date.",
+          "access": "partial-text",
+          "inspected_context": "Eleven virus samples, near-unity paired-base ratios, Sault Ste. Marie and receipt 1 July 1952 verified. No priority claim."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. Not the origin of all base-ratio work: Wyatt explicitly builds on earlier analyses; Chargaff’s broader programme remains to be expanded. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-humidity-varied-dna-diffraction-1952",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-humidity-varied-dna-diffraction-1952",
+        "label": "Humidity-varied DNA diffraction",
+        "kind": "technology",
+        "configuration": "Franklin and Gosling obtained DNA-fibre X-ray patterns under differing hydration, distinguishing crystalline A and wetter B configurations.",
+        "regions": [
+          "King’s College London, England"
+        ],
+        "event_ids": [
+          "bio-humidity-varied-dna-diffraction-1952--event-01"
+        ],
+        "uncertainty": "No claim of inventing X-ray diffraction or DNA diffraction; exact instrument construction is not reconstructed here."
+      },
+      "proposition_sha256": "e244f4e694623088cbd89fc52ee860b3f2bb926586594c587b8d2ec79351e803",
+      "source_evidence": [
+        {
+          "source_id": "bio-franklin-gosling-1953",
+          "url": "https://williams.chemistry.gatech.edu/course_Information/6572/papers/franklin_1953.pdf",
+          "locator": "p. 740, opening paragraphs and diffraction image",
+          "supports": "Humidity-dependent fibre patterns.",
+          "access": "full-text",
+          "inspected_context": "Hydration-dependent patterns and qualified helical/two-chain interpretation are explicit; 34 A repeat, roughly 20 A diameter and exterior phosphates are supported. Signed April 2."
+        },
+        {
+          "source_id": "bio-photo51-catalogue",
+          "url": "https://digital.sciencehistory.org/works/mjir8wn",
+          "locator": "Description and inscription fields",
+          "supports": "1952 original exposure; later annotated print.",
+          "access": "partial-text",
+          "inspected_context": "Original exposure is 1952; the annotated print is circa 1953. Location and creator identities verified."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. No claim of inventing X-ray diffraction or DNA diffraction; exact instrument construction is not reconstructed here."
+    },
+    {
+      "id": "bio-humidity-varied-dna-diffraction-1952--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-humidity-varied-dna-diffraction-1952--event-01",
+        "node_id": "bio-humidity-varied-dna-diffraction-1952",
+        "event_type": "demonstration",
+        "date": {
+          "status": "bounded",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "by 1953",
+          "basis": "Archive dates the original B-form image to 1952; the humidity-dependent procedure is documented by the signed 2 April 1953 account.",
+          "latest": {
+            "year": 1953
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "King’s College London, England"
+          ],
+          "configuration": "Franklin and Gosling obtained DNA-fibre X-ray patterns under differing hydration, distinguishing crystalline A and wetter B configurations.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Franklin and Gosling obtained DNA-fibre X-ray patterns under differing hydration, distinguishing crystalline A and wetter B configurations.",
+        "evidence": [
+          {
+            "source_id": "bio-franklin-gosling-1953",
+            "locator": "p. 740, opening paragraphs and diffraction image",
+            "supports": "Humidity-dependent fibre patterns."
+          },
+          {
+            "source_id": "bio-photo51-catalogue",
+            "locator": "Description and inscription fields",
+            "supports": "1952 original exposure; later annotated print."
+          }
+        ],
+        "uncertainty": "No claim of inventing X-ray diffraction or DNA diffraction; exact instrument construction is not reconstructed here."
+      },
+      "proposition_sha256": "130685f675d5b0ef9cbfc21263219c5c9e1dc946ed528f9e612514081c0fa24b",
+      "source_evidence": [
+        {
+          "source_id": "bio-franklin-gosling-1953",
+          "url": "https://williams.chemistry.gatech.edu/course_Information/6572/papers/franklin_1953.pdf",
+          "locator": "p. 740, opening paragraphs and diffraction image",
+          "supports": "Humidity-dependent fibre patterns.",
+          "access": "full-text",
+          "inspected_context": "Hydration-dependent patterns and qualified helical/two-chain interpretation are explicit; 34 A repeat, roughly 20 A diameter and exterior phosphates are supported. Signed April 2."
+        },
+        {
+          "source_id": "bio-photo51-catalogue",
+          "url": "https://digital.sciencehistory.org/works/mjir8wn",
+          "locator": "Description and inscription fields",
+          "supports": "1952 original exposure; later annotated print.",
+          "access": "partial-text",
+          "inspected_context": "Original exposure is 1952; the annotated print is circa 1953. Location and creator identities verified."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. No claim of inventing X-ray diffraction or DNA diffraction; exact instrument construction is not reconstructed here. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-b-dna-helical-constraints-1953",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-b-dna-helical-constraints-1953",
+        "label": "B-DNA helical constraints",
+        "kind": "science",
+        "configuration": "Franklin and Gosling inferred a probable helix, approximately 34 Å repeat and 20 Å diameter, with exterior phosphates and a probable two-chain unit.",
+        "regions": [
+          "King’s College London, England"
+        ],
+        "event_ids": [
+          "bio-b-dna-helical-constraints-1953--event-01"
+        ],
+        "uncertainty": "The authors did not call diffraction alone direct proof of helicity or offer a complete structure; the model involved additional density and chemical arguments."
+      },
+      "proposition_sha256": "57412606ce208072a23b7dd9dd608051d79598d216b2ee2f91109c4ed0cc4b1a",
+      "source_evidence": [
+        {
+          "source_id": "bio-franklin-gosling-1953",
+          "url": "https://williams.chemistry.gatech.edu/course_Information/6572/papers/franklin_1953.pdf",
+          "locator": "pp. 740–741, analysis and concluding paragraphs",
+          "supports": "Geometry, two-chain qualification and lack of direct proof.",
+          "access": "full-text",
+          "inspected_context": "Hydration-dependent patterns and qualified helical/two-chain interpretation are explicit; 34 A repeat, roughly 20 A diameter and exterior phosphates are supported. Signed April 2."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. The authors did not call diffraction alone direct proof of helicity or offer a complete structure; the model involved additional density and chemical arguments."
+    },
+    {
+      "id": "bio-b-dna-helical-constraints-1953--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-b-dna-helical-constraints-1953--event-01",
+        "node_id": "bio-b-dna-helical-constraints-1953",
+        "event_type": "dated_assertion",
+        "date": {
+          "status": "bounded",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "by Apr 1953",
+          "basis": "This node is the qualified interpretation documented in the account signed 2 April 1953, not the earlier photographic exposure.",
+          "latest": {
+            "year": 1953
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "King’s College London, England"
+          ],
+          "configuration": "Franklin and Gosling inferred a probable helix, approximately 34 Å repeat and 20 Å diameter, with exterior phosphates and a probable two-chain unit.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Franklin and Gosling inferred a probable helix, approximately 34 Å repeat and 20 Å diameter, with exterior phosphates and a probable two-chain unit.",
+        "evidence": [
+          {
+            "source_id": "bio-franklin-gosling-1953",
+            "locator": "pp. 740–741, analysis and concluding paragraphs",
+            "supports": "Geometry, two-chain qualification and lack of direct proof."
+          }
+        ],
+        "uncertainty": "The authors did not call diffraction alone direct proof of helicity or offer a complete structure; the model involved additional density and chemical arguments."
+      },
+      "proposition_sha256": "b64d980adeb1a8821c6816474f95e0bd7fb2f9630278c9ec507d9129b46ba07b",
+      "source_evidence": [
+        {
+          "source_id": "bio-franklin-gosling-1953",
+          "url": "https://williams.chemistry.gatech.edu/course_Information/6572/papers/franklin_1953.pdf",
+          "locator": "pp. 740–741, analysis and concluding paragraphs",
+          "supports": "Geometry, two-chain qualification and lack of direct proof.",
+          "access": "full-text",
+          "inspected_context": "Hydration-dependent patterns and qualified helical/two-chain interpretation are explicit; 34 A repeat, roughly 20 A diameter and exterior phosphates are supported. Signed April 2."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. The authors did not call diffraction alone direct proof of helicity or offer a complete structure; the model involved additional density and chemical arguments. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year. The lifecycle stage is unresolved."
+    },
+    {
+      "id": "bio-dna-double-helix-model-1953",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-dna-double-helix-model-1953",
+        "label": "DNA double-helix model",
+        "kind": "science",
+        "configuration": "Watson and Crick proposed antiparallel helical chains with complementary A–T and G–C pairs, drawing on chemical constraints and others’ experimental work.",
+        "regions": [
+          "Cambridge, England"
+        ],
+        "event_ids": [
+          "bio-dna-double-helix-model-1953--event-01"
+        ],
+        "uncertainty": "The paper explicitly treats the model as unproved. Donohue, Franklin, Gosling, Wilkins, other King’s workers and prior chemical researchers are not collapsed into sole-person credit."
+      },
+      "proposition_sha256": "2a19f11bc2cdd355c814a60d557930a179302834aea5ecb7b89dea5b22415c35",
+      "source_evidence": [
+        {
+          "source_id": "bio-watson-crick-1953",
+          "url": "https://inters.org/files/watsoncrick1953.pdf",
+          "locator": "p. 737, both columns and acknowledgements",
+          "supports": "Model, pairing, date and multiple contributions.",
+          "access": "full-text",
+          "inspected_context": "Antiparallel paired chains, explicit Wyatt 1952 citation, competing inputs and unproved status verified. The acknowledgement does not establish a specific Franklin-result transfer edge."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. The paper explicitly treats the model as unproved. Donohue, Franklin, Gosling, Wilkins, other King’s workers and prior chemical researchers are not collapsed into sole-person credit."
+    },
+    {
+      "id": "bio-dna-double-helix-model-1953--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "accepted",
+      "proposition": {
+        "id": "bio-dna-double-helix-model-1953--event-01",
+        "node_id": "bio-dna-double-helix-model-1953",
+        "event_type": "formulation",
+        "date": {
+          "status": "known",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "1953",
+          "basis": "Proposed structural model in the manuscript signed 2 April 1953; date belongs to model proposal, not discovery of DNA.",
+          "earliest": {
+            "year": 1953
+          },
+          "latest": {
+            "year": 1953
+          }
+        },
+        "scope": {
+          "regions": [
+            "Cambridge, England"
+          ],
+          "configuration": "Watson and Crick proposed antiparallel helical chains with complementary A–T and G–C pairs, drawing on chemical constraints and others’ experimental work.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Watson and Crick proposed antiparallel helical chains with complementary A–T and G–C pairs, drawing on chemical constraints and others’ experimental work.",
+        "evidence": [
+          {
+            "source_id": "bio-watson-crick-1953",
+            "locator": "p. 737, both columns and acknowledgements",
+            "supports": "Model, pairing, date and multiple contributions."
+          }
+        ],
+        "uncertainty": "The paper explicitly treats the model as unproved. Donohue, Franklin, Gosling, Wilkins, other King’s workers and prior chemical researchers are not collapsed into sole-person credit."
+      },
+      "proposition_sha256": "ce078ec4b5e9e2095aa14dcc54b862b59ee2d97f66d648123581b7269f6614bf",
+      "source_evidence": [
+        {
+          "source_id": "bio-watson-crick-1953",
+          "url": "https://inters.org/files/watsoncrick1953.pdf",
+          "locator": "p. 737, both columns and acknowledgements",
+          "supports": "Model, pairing, date and multiple contributions.",
+          "access": "full-text",
+          "inspected_context": "Antiparallel paired chains, explicit Wyatt 1952 citation, competing inputs and unproved status verified. The acknowledgement does not establish a specific Franklin-result transfer edge."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. The paper explicitly treats the model as unproved. Donohue, Franklin, Gosling, Wilkins, other King’s workers and prior chemical researchers are not collapsed into sole-person credit. Its formulation type and anchor were also spot-checked in reviews/current-model-review.json."
+    },
+    {
+      "id": "bio-dna-polymerase-preparation-1957",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-dna-polymerase-preparation-1957",
+        "label": "DNA polymerase preparation",
+        "kind": "technology",
+        "configuration": "Lehman, Bessman, Simms and Kornberg prepared substrates, partially purified an E. coli DNA polymerase and assayed DNA incorporation.",
+        "regions": [
+          "Washington University, St. Louis, Missouri, USA"
+        ],
+        "event_ids": [
+          "bio-dna-polymerase-preparation-1957--event-01"
+        ],
+        "uncertainty": "Partial purification is not a pure modern reagent. The authors’ rationale came from coenzyme chemistry; no double-helix-to-enzyme invention edge is claimed."
+      },
+      "proposition_sha256": "9c483e7595fa358f8aaf9f375e3c57f634a0aac625df0790aa91169960868841",
+      "source_evidence": [
+        {
+          "source_id": "bio-lehman-1958",
+          "url": "https://www.biochem.du.ac.in/userfiles/downloads/JBC-1958-Lehman.pdf",
+          "locator": "p. 163, header and opening paragraphs",
+          "supports": "Preparation, assay, place and pre-publication date.",
+          "access": "partial-text",
+          "inspected_context": "Partial purification, substrates, assay and received 10 October 1957 are explicit. Coenzyme chemistry motivates the search; model-to-enzyme discovery is correctly absent."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. Partial purification is not a pure modern reagent. The authors’ rationale came from coenzyme chemistry; no double-helix-to-enzyme invention edge is claimed."
+    },
+    {
+      "id": "bio-dna-polymerase-preparation-1957--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-dna-polymerase-preparation-1957--event-01",
+        "node_id": "bio-dna-polymerase-preparation-1957",
+        "event_type": "demonstration",
+        "date": {
+          "status": "bounded",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "by 1957",
+          "basis": "Detailed purification/assay work was submitted 10 October 1957 and published in 1958; this is a by-date, not a first-discovery claim.",
+          "latest": {
+            "year": 1957
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "Washington University, St. Louis, Missouri, USA"
+          ],
+          "configuration": "Lehman, Bessman, Simms and Kornberg prepared substrates, partially purified an E. coli DNA polymerase and assayed DNA incorporation.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Lehman, Bessman, Simms and Kornberg prepared substrates, partially purified an E. coli DNA polymerase and assayed DNA incorporation.",
+        "evidence": [
+          {
+            "source_id": "bio-lehman-1958",
+            "locator": "p. 163, header and opening paragraphs",
+            "supports": "Preparation, assay, place and pre-publication date."
+          }
+        ],
+        "uncertainty": "Partial purification is not a pure modern reagent. The authors’ rationale came from coenzyme chemistry; no double-helix-to-enzyme invention edge is claimed."
+      },
+      "proposition_sha256": "8a9e92b09ea3908a77f108a2e3604c4c0bf2b861b2279518e65d318f69030988",
+      "source_evidence": [
+        {
+          "source_id": "bio-lehman-1958",
+          "url": "https://www.biochem.du.ac.in/userfiles/downloads/JBC-1958-Lehman.pdf",
+          "locator": "p. 163, header and opening paragraphs",
+          "supports": "Preparation, assay, place and pre-publication date.",
+          "access": "partial-text",
+          "inspected_context": "Partial purification, substrates, assay and received 10 October 1957 are explicit. Coenzyme chemistry motivates the search; model-to-enzyme discovery is correctly absent."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. Partial purification is not a pure modern reagent. The authors’ rationale came from coenzyme chemistry; no double-helix-to-enzyme invention edge is claimed. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-template-directed-synthesis-1959",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-template-directed-synthesis-1959",
+        "label": "Template-directed DNA synthesis",
+        "kind": "science",
+        "configuration": "Kornberg’s team interpreted DNA-dependent enzymatic synthesis as copying through complementary base pairing and presented several experimental lines of support.",
+        "regions": [
+          "St. Louis, Missouri, USA",
+          "Stanford, California, USA"
+        ],
+        "event_ids": [
+          "bio-template-directed-synthesis-1959--event-01"
+        ],
+        "uncertainty": "A contemporary participant’s synthesis. It does not establish that the isolated reaction reproduced every step of cellular chromosome replication."
+      },
+      "proposition_sha256": "3b3edde77d8d233754f871cca1a9f6c618d14532174af26738807b033c82b036",
+      "source_evidence": [
+        {
+          "source_id": "bio-kornberg-1959",
+          "url": "https://www.nobelprize.org/uploads/2018/06/kornberg-lecture.pdf",
+          "locator": "pp. 670–673; pp. 678–680 and references",
+          "supports": "Template interpretation and supporting enzyme studies.",
+          "access": "partial-text",
+          "inspected_context": "Complementary pairing interprets copying; purified enzyme/template experiments supply evidence. The cited 1958 studies and 1959 evidence stage fit the interval."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. A contemporary participant’s synthesis. It does not establish that the isolated reaction reproduced every step of cellular chromosome replication."
+    },
+    {
+      "id": "bio-template-directed-synthesis-1959--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-template-directed-synthesis-1959--event-01",
+        "node_id": "bio-template-directed-synthesis-1959",
+        "event_type": "dated_assertion",
+        "date": {
+          "status": "bounded",
+          "precision": "range",
+          "calendar": "historical-BCE-CE",
+          "label": "1958–59",
+          "basis": "The 1959 lecture synthesizes the 1958 cited enzyme studies and then-current template evidence; interval marks that evidence/interpretation stage.",
+          "earliest": {
+            "year": 1958
+          },
+          "latest": {
+            "year": 1959
+          }
+        },
+        "scope": {
+          "regions": [
+            "St. Louis, Missouri, USA",
+            "Stanford, California, USA"
+          ],
+          "configuration": "Kornberg’s team interpreted DNA-dependent enzymatic synthesis as copying through complementary base pairing and presented several experimental lines of support.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Kornberg’s team interpreted DNA-dependent enzymatic synthesis as copying through complementary base pairing and presented several experimental lines of support.",
+        "evidence": [
+          {
+            "source_id": "bio-kornberg-1959",
+            "locator": "pp. 670–673; pp. 678–680 and references",
+            "supports": "Template interpretation and supporting enzyme studies."
+          }
+        ],
+        "uncertainty": "A contemporary participant’s synthesis. It does not establish that the isolated reaction reproduced every step of cellular chromosome replication."
+      },
+      "proposition_sha256": "ecdda8e3e96cd4268a4caa91afb98df1cbdd81ea949ee138794116c663160afb",
+      "source_evidence": [
+        {
+          "source_id": "bio-kornberg-1959",
+          "url": "https://www.nobelprize.org/uploads/2018/06/kornberg-lecture.pdf",
+          "locator": "pp. 670–673; pp. 678–680 and references",
+          "supports": "Template interpretation and supporting enzyme studies.",
+          "access": "partial-text",
+          "inspected_context": "Complementary pairing interprets copying; purified enzyme/template experiments supply evidence. The cited 1958 studies and 1959 evidence stage fit the interval."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. A contemporary participant’s synthesis. It does not establish that the isolated reaction reproduced every step of cellular chromosome replication. The lifecycle stage is unresolved."
+    },
+    {
+      "id": "bio-plus-minus-sequencing-1974",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-plus-minus-sequencing-1974",
+        "label": "Plus/minus DNA sequencing",
+        "kind": "technology",
+        "configuration": "Sanger and Coulson used primed DNA synthesis, limiting nucleotide conditions, E. coli and T4 polymerases, and gel separation to infer sequences.",
+        "regions": [
+          "MRC Laboratory of Molecular Biology, Cambridge, England"
+        ],
+        "event_ids": [
+          "bio-plus-minus-sequencing-1974--event-01"
+        ],
+        "uncertainty": "Not the first DNA sequencing attempt; earlier primed sequencing and synthetic-primer work are explicitly mentioned by the paper and remain backlog."
+      },
+      "proposition_sha256": "4ec4d6662797b05d4fbbaf601fa4ff273bfbebe99be8ef5d1e5b3d5c6e2c1805",
+      "source_evidence": [
+        {
+          "source_id": "bio-sanger-coulson-1975",
+          "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1499197/download-documents?artifactId=4SWs_8P5CUHkkfIf2-HGMDRZxCXK4J0L_OHPFCZHLbCmKAsQz8-_96k",
+          "locator": "p. 441, header, abstract and Principle of the Method",
+          "supports": "Demonstrated method and receipt date.",
+          "access": "partial-text",
+          "inspected_context": "The 20 December 1974 receipt date and implemented complementary primer extension are explicit; E. coli/T4 enzymes, limiting substrates and gel products match the node. Functional requirement is supported without personal-transmission inference."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. Not the first DNA sequencing attempt; earlier primed sequencing and synthetic-primer work are explicitly mentioned by the paper and remain backlog."
+    },
+    {
+      "id": "bio-plus-minus-sequencing-1974--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-plus-minus-sequencing-1974--event-01",
+        "node_id": "bio-plus-minus-sequencing-1974",
+        "event_type": "demonstration",
+        "date": {
+          "status": "bounded",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "by 1974",
+          "basis": "Demonstrations appear in a manuscript received 20 December 1974; publication followed in May 1975.",
+          "latest": {
+            "year": 1974
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "MRC Laboratory of Molecular Biology, Cambridge, England"
+          ],
+          "configuration": "Sanger and Coulson used primed DNA synthesis, limiting nucleotide conditions, E. coli and T4 polymerases, and gel separation to infer sequences.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Sanger and Coulson used primed DNA synthesis, limiting nucleotide conditions, E. coli and T4 polymerases, and gel separation to infer sequences.",
+        "evidence": [
+          {
+            "source_id": "bio-sanger-coulson-1975",
+            "locator": "p. 441, header, abstract and Principle of the Method",
+            "supports": "Demonstrated method and receipt date."
+          }
+        ],
+        "uncertainty": "Not the first DNA sequencing attempt; earlier primed sequencing and synthetic-primer work are explicitly mentioned by the paper and remain backlog."
+      },
+      "proposition_sha256": "8f2adf74ae7e40fb0c8c5228ff4ae51865e377626e2255faa3b045e36bbc78d7",
+      "source_evidence": [
+        {
+          "source_id": "bio-sanger-coulson-1975",
+          "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1499197/download-documents?artifactId=4SWs_8P5CUHkkfIf2-HGMDRZxCXK4J0L_OHPFCZHLbCmKAsQz8-_96k",
+          "locator": "p. 441, header, abstract and Principle of the Method",
+          "supports": "Demonstrated method and receipt date.",
+          "access": "partial-text",
+          "inspected_context": "The 20 December 1974 receipt date and implemented complementary primer extension are explicit; E. coli/T4 enzymes, limiting substrates and gel products match the node. Functional requirement is supported without personal-transmission inference."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. Not the first DNA sequencing attempt; earlier primed sequencing and synthetic-primer work are explicitly mentioned by the paper and remain backlog. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-phix174-sequence-report-1977",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-phix174-sequence-report-1977",
+        "label": "φX174 sequence report",
+        "kind": "science",
+        "configuration": "A reported approximately 5,375-nucleotide φX174 sequence, obtained with plus/minus sequencing, revealed overlapping coding regions.",
+        "regions": [
+          "Cambridge, England; wider collaborating laboratories unresolved"
+        ],
+        "event_ids": [
+          "bio-phix174-sequence-report-1977--event-01"
+        ],
+        "uncertainty": "This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim."
+      },
+      "proposition_sha256": "9852b46a558103fc92681eb6495812306101d0f79419f3713b7c03a57cafffef",
+      "source_evidence": [
+        {
+          "source_id": "bio-phix174-1977",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/870828/",
+          "locator": "Abstract and bibliographic date",
+          "supports": "Reported sequence, method, overlapping frames.",
+          "access": "abstract",
+          "inspected_context": "Approximately 5,375 bases, plus/minus method, overlapping coding frames and 24 February 1977 report verified. Later corrected sequence excluded."
+        },
+        {
+          "source_id": "bio-sanger-nicklen-coulson-1977",
+          "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+          "locator": "p. 5463, opening paragraph",
+          "supports": "Contemporary attribution to the plus/minus method.",
+          "access": "partial-text",
+          "inspected_context": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim."
+    },
+    {
+      "id": "bio-phix174-sequence-report-1977--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-phix174-sequence-report-1977--event-01",
+        "node_id": "bio-phix174-sequence-report-1977",
+        "event_type": "dated_assertion",
+        "date": {
+          "status": "known",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "Feb 1977",
+          "basis": "Node is the public sequence report of 24 February 1977; exact completion of all contributing experiments is not established by the inspected abstract.",
+          "earliest": {
+            "year": 1977
+          },
+          "latest": {
+            "year": 1977
+          }
+        },
+        "scope": {
+          "regions": [
+            "Cambridge, England; wider collaborating laboratories unresolved"
+          ],
+          "configuration": "A reported approximately 5,375-nucleotide φX174 sequence, obtained with plus/minus sequencing, revealed overlapping coding regions.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "A reported approximately 5,375-nucleotide φX174 sequence, obtained with plus/minus sequencing, revealed overlapping coding regions.",
+        "evidence": [
+          {
+            "source_id": "bio-phix174-1977",
+            "locator": "Abstract and bibliographic date",
+            "supports": "Reported sequence, method, overlapping frames."
+          },
+          {
+            "source_id": "bio-sanger-nicklen-coulson-1977",
+            "locator": "p. 5463, opening paragraph",
+            "supports": "Contemporary attribution to the plus/minus method."
+          }
+        ],
+        "uncertainty": "This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim."
+      },
+      "proposition_sha256": "a5e68f559bb45eddc169419546dd9315be5a13b68b03609849fcc61255f8ce08",
+      "source_evidence": [
+        {
+          "source_id": "bio-phix174-1977",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/870828/",
+          "locator": "Abstract and bibliographic date",
+          "supports": "Reported sequence, method, overlapping frames.",
+          "access": "abstract",
+          "inspected_context": "Approximately 5,375 bases, plus/minus method, overlapping coding frames and 24 February 1977 report verified. Later corrected sequence excluded."
+        },
+        {
+          "source_id": "bio-sanger-nicklen-coulson-1977",
+          "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+          "locator": "p. 5463, opening paragraph",
+          "supports": "Contemporary attribution to the plus/minus method.",
+          "access": "partial-text",
+          "inspected_context": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim. The lifecycle stage is unresolved."
+    },
+    {
+      "id": "bio-chain-termination-sequencing-1977",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-chain-termination-sequencing-1977",
+        "label": "Chain-termination DNA sequencing",
+        "kind": "technology",
+        "configuration": "Sanger, Nicklen and Coulson generated base-specific terminated extension products using nucleotide analogues and read the size-separated products on gels.",
+        "regions": [
+          "MRC Laboratory of Molecular Biology, Cambridge, England"
+        ],
+        "event_ids": [
+          "bio-chain-termination-sequencing-1977--event-01"
+        ],
+        "uncertainty": "The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report."
+      },
+      "proposition_sha256": "548d57107f7fcb046203c21a98c9dda9e295a0d73e20cafa52c466d8eeb7df91",
+      "source_evidence": [
+        {
+          "source_id": "bio-sanger-nicklen-coulson-1977",
+          "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+          "locator": "p. 5463, abstract, Principle and Methods",
+          "supports": "Terminator method and demonstrated application.",
+          "access": "partial-text",
+          "inspected_context": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report."
+    },
+    {
+      "id": "bio-chain-termination-sequencing-1977--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-chain-termination-sequencing-1977--event-01",
+        "node_id": "bio-chain-termination-sequencing-1977",
+        "event_type": "demonstration",
+        "date": {
+          "status": "bounded",
+          "precision": "day",
+          "calendar": "historical-BCE-CE",
+          "label": "by 3 October 1977",
+          "basis": "Method demonstrated by contribution on 3 October 1977; December publication is a later report milestone.",
+          "latest": {
+            "year": 1977,
+            "month": 10,
+            "day": 3
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "MRC Laboratory of Molecular Biology, Cambridge, England"
+          ],
+          "configuration": "Sanger, Nicklen and Coulson generated base-specific terminated extension products using nucleotide analogues and read the size-separated products on gels.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Sanger, Nicklen and Coulson generated base-specific terminated extension products using nucleotide analogues and read the size-separated products on gels.",
+        "evidence": [
+          {
+            "source_id": "bio-sanger-nicklen-coulson-1977",
+            "locator": "p. 5463, abstract, Principle and Methods",
+            "supports": "Terminator method and demonstrated application."
+          }
+        ],
+        "uncertainty": "The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report."
+      },
+      "proposition_sha256": "03174a2686579f735112cde7d1ff051a4b3c859f89ef87ee3b0144299614aab7",
+      "source_evidence": [
+        {
+          "source_id": "bio-sanger-nicklen-coulson-1977",
+          "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+          "locator": "p. 5463, abstract, Principle and Methods",
+          "supports": "Terminator method and demonstrated application.",
+          "access": "partial-text",
+          "inspected_context": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-fluorescent-primer-readout-1985",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-fluorescent-primer-readout-1985",
+        "label": "Four-colour primer readout",
+        "kind": "technology",
+        "configuration": "Smith and colleagues tagged primers with four fluorophores, combined reaction products in one gel tube and acquired detected bands by computer.",
+        "regions": [
+          "Caltech, Pasadena, California, USA",
+          "Applied Biosystems, Foster City, California, USA"
+        ],
+        "event_ids": [
+          "bio-fluorescent-primer-readout-1985--event-01"
+        ],
+        "uncertainty": "Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date."
+      },
+      "proposition_sha256": "4dbe073ede9259416f5bd1856542100b6735739ce0881a7cd2fdc63a10141b2d",
+      "source_evidence": [
+        {
+          "source_id": "bio-smith-1986",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3713851/",
+          "locator": "Abstract; publisher receipt date and affiliations",
+          "supports": "Specified readout and development locations.",
+          "access": "abstract",
+          "inspected_context": "Primer-linked four-colour readout, one gel tube and computer acquisition verified. Publisher record gives received 30 December 1985, accepted April 1986 and Caltech/Applied Biosystems affiliations."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date."
+    },
+    {
+      "id": "bio-fluorescent-primer-readout-1985--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-fluorescent-primer-readout-1985--event-01",
+        "node_id": "bio-fluorescent-primer-readout-1985",
+        "event_type": "demonstration",
+        "date": {
+          "status": "bounded",
+          "precision": "day",
+          "calendar": "historical-BCE-CE",
+          "label": "by 30 December 1985",
+          "basis": "The demonstrated system was submitted 30 December 1985 and described in June 1986; interval avoids treating the journal date as invention day.",
+          "latest": {
+            "year": 1985,
+            "month": 12,
+            "day": 30
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "Caltech, Pasadena, California, USA",
+            "Applied Biosystems, Foster City, California, USA"
+          ],
+          "configuration": "Smith and colleagues tagged primers with four fluorophores, combined reaction products in one gel tube and acquired detected bands by computer.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Smith and colleagues tagged primers with four fluorophores, combined reaction products in one gel tube and acquired detected bands by computer.",
+        "evidence": [
+          {
+            "source_id": "bio-smith-1986",
+            "locator": "Abstract; publisher receipt date and affiliations",
+            "supports": "Specified readout and development locations."
+          }
+        ],
+        "uncertainty": "Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date."
+      },
+      "proposition_sha256": "159346a746c7ebc3ffece938568b5563a921d1538b80210d683627cb472732d8",
+      "source_evidence": [
+        {
+          "source_id": "bio-smith-1986",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3713851/",
+          "locator": "Abstract; publisher receipt date and affiliations",
+          "supports": "Specified readout and development locations.",
+          "access": "abstract",
+          "inspected_context": "Primer-linked four-colour readout, one gel tube and computer acquisition verified. Publisher record gives received 30 December 1985, accepted April 1986 and Caltech/Applied Biosystems affiliations."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-fluorescent-terminator-sequencing-1987",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-fluorescent-terminator-sequencing-1987",
+        "label": "Fluorescent terminator sequencing",
+        "kind": "technology",
+        "configuration": "Prober and colleagues combined four dye-labelled dideoxy terminators with reverse transcriptase, one reaction mixture, electrophoresis and automated sequence calls.",
+        "regions": [
+          "DuPont, Wilmington, Delaware, USA"
+        ],
+        "event_ids": [
+          "bio-fluorescent-terminator-sequencing-1987--event-01"
+        ],
+        "uncertainty": "Abstract-level access; no claim that this exact reagent set or enzyme was used unchanged by all Human Genome Project centres."
+      },
+      "proposition_sha256": "64d0e407d3dcd6803e5aed114d060ff44a70cd5879e7183b9d10ace07854e06b",
+      "source_evidence": [
+        {
+          "source_id": "bio-prober-1987",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2443975/",
+          "locator": "Abstract and affiliation",
+          "supports": "Terminator labels, enzyme, detection and demonstration.",
+          "access": "abstract",
+          "inspected_context": "Explicit modified dideoxy protocol with four labelled terminators, reverse transcriptase, one reaction/lane and automated calls; M13 demonstration, DuPont and October 16 verified."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. Abstract-level access; no claim that this exact reagent set or enzyme was used unchanged by all Human Genome Project centres."
+    },
+    {
+      "id": "bio-fluorescent-terminator-sequencing-1987--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-fluorescent-terminator-sequencing-1987--event-01",
+        "node_id": "bio-fluorescent-terminator-sequencing-1987",
+        "event_type": "demonstration",
+        "date": {
+          "status": "bounded",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "by Oct 1987",
+          "basis": "Demonstrated M13 sequencing system described on 16 October 1987; earlier construction date not resolved in the abstract.",
+          "latest": {
+            "year": 1987
+          },
+          "earliest_status": "unknown"
+        },
+        "scope": {
+          "regions": [
+            "DuPont, Wilmington, Delaware, USA"
+          ],
+          "configuration": "Prober and colleagues combined four dye-labelled dideoxy terminators with reverse transcriptase, one reaction mixture, electrophoresis and automated sequence calls.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "Prober and colleagues combined four dye-labelled dideoxy terminators with reverse transcriptase, one reaction mixture, electrophoresis and automated sequence calls.",
+        "evidence": [
+          {
+            "source_id": "bio-prober-1987",
+            "locator": "Abstract and affiliation",
+            "supports": "Terminator labels, enzyme, detection and demonstration."
+          }
+        ],
+        "uncertainty": "Abstract-level access; no claim that this exact reagent set or enzyme was used unchanged by all Human Genome Project centres."
+      },
+      "proposition_sha256": "99edb7599e7940de3e33ab0985746cd408b8c73b9a93458766158c1cb023ce4d",
+      "source_evidence": [
+        {
+          "source_id": "bio-prober-1987",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2443975/",
+          "locator": "Abstract and affiliation",
+          "supports": "Terminator labels, enzyme, detection and demonstration.",
+          "access": "abstract",
+          "inspected_context": "Explicit modified dideoxy protocol with four labelled terminators, reverse transcriptase, one reaction/lane and automated calls; M13 demonstration, DuPont and October 16 verified."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. Abstract-level access; no claim that this exact reagent set or enzyme was used unchanged by all Human Genome Project centres. The source establishes a latest date; the earliest date is unknown. This is not an inferred invention, commercial introduction or start year."
+    },
+    {
+      "id": "bio-human-hierarchical-sequencing-1999",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-human-hierarchical-sequencing-1999",
+        "label": "Mapped-clone genome sequencing",
+        "kind": "technology",
+        "configuration": "The public consortium sequenced mapped BAC/PAC clones with automated fluorescent reads and computational assembly.",
+        "regions": [
+          "USA",
+          "United Kingdom",
+          "Japan",
+          "France",
+          "Germany",
+          "China"
+        ],
+        "event_ids": [
+          "bio-human-hierarchical-sequencing-1999--event-01"
+        ],
+        "uncertainty": "This node is the public consortium configuration, not Celera’s whole-genome strategy or every possible way to assemble a genome."
+      },
+      "proposition_sha256": "02e95df960d57b7d99b413f3e5182992a383475a8c2528964eb3683c3e0508d1",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "pp. 863–867, strategy, technology and sequencing",
+          "supports": "Production workflow and period.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. This node is the public consortium configuration, not Celera’s whole-genome strategy or every possible way to assemble a genome."
+    },
+    {
+      "id": "bio-human-hierarchical-sequencing-1999--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-human-hierarchical-sequencing-1999--event-01",
+        "node_id": "bio-human-hierarchical-sequencing-1999",
+        "event_type": "practical_deployment",
+        "date": {
+          "status": "bounded",
+          "precision": "range",
+          "calendar": "historical-BCE-CE",
+          "label": "1999–2000",
+          "basis": "Dates the public consortium’s production phase and procedures used for the October 2000 draft, not invention of shotgun sequencing.",
+          "earliest": {
+            "year": 1999
+          },
+          "latest": {
+            "year": 2000
+          }
+        },
+        "scope": {
+          "regions": [
+            "USA",
+            "United Kingdom",
+            "Japan",
+            "France",
+            "Germany",
+            "China"
+          ],
+          "configuration": "The public consortium sequenced mapped BAC/PAC clones with automated fluorescent reads and computational assembly.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "The public consortium sequenced mapped BAC/PAC clones with automated fluorescent reads and computational assembly.",
+        "evidence": [
+          {
+            "source_id": "bio-human-genome-2001",
+            "locator": "pp. 863–867, strategy, technology and sequencing",
+            "supports": "Production workflow and period."
+          }
+        ],
+        "uncertainty": "This node is the public consortium configuration, not Celera’s whole-genome strategy or every possible way to assemble a genome."
+      },
+      "proposition_sha256": "7b95b76c5f89228cd9d25569fec4b30713a74f07bd2ce7a0ef0a82bd5ce8deee",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "pp. 863–867, strategy, technology and sequencing",
+          "supports": "Production workflow and period.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. This node is the public consortium configuration, not Celera’s whole-genome strategy or every possible way to assemble a genome."
+    },
+    {
+      "id": "bio-human-genome-draft-2000",
+      "type": "node",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-human-genome-draft-2000",
+        "label": "Human genome draft",
+        "kind": "science",
+        "configuration": "The public consortium’s assembled draft provided broad human genome sequence coverage while retaining gaps and ambiguities.",
+        "regions": [
+          "USA",
+          "United Kingdom",
+          "Japan",
+          "France",
+          "Germany",
+          "China"
+        ],
+        "event_ids": [
+          "bio-human-genome-draft-2000--event-01"
+        ],
+        "uncertainty": "Not a gapless genome, an inventory of every human variant, or proof that all reported gene-count interpretations remained correct."
+      },
+      "proposition_sha256": "a7ffef0daa4b37e1840b63992d77d491aa55d4d7df87f259f216337c58d031cb",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "p. 860; pp. 867–868, assembly",
+          "supports": "Draft scope and snapshot date.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "Current configuration, kind, regions and stated uncertainty match the inspected source propositions. Not a gapless genome, an inventory of every human variant, or proof that all reported gene-count interpretations remained correct."
+    },
+    {
+      "id": "bio-human-genome-draft-2000--event-01",
+      "type": "event",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-human-genome-draft-2000--event-01",
+        "node_id": "bio-human-genome-draft-2000",
+        "event_type": "dated_assertion",
+        "date": {
+          "status": "known",
+          "precision": "year",
+          "calendar": "historical-BCE-CE",
+          "label": "Oct 2000",
+          "basis": "Anchored to the 7 October 2000 data snapshot analysed in the February 2001 paper.",
+          "earliest": {
+            "year": 2000
+          },
+          "latest": {
+            "year": 2000
+          }
+        },
+        "scope": {
+          "regions": [
+            "USA",
+            "United Kingdom",
+            "Japan",
+            "France",
+            "Germany",
+            "China"
+          ],
+          "configuration": "The public consortium’s assembled draft provided broad human genome sequence coverage while retaining gaps and ambiguities.",
+          "applications": [],
+          "market": {
+            "status": "not_yet_researched"
+          },
+          "population": {
+            "status": "not_yet_researched"
+          }
+        },
+        "statement": "The public consortium’s assembled draft provided broad human genome sequence coverage while retaining gaps and ambiguities.",
+        "evidence": [
+          {
+            "source_id": "bio-human-genome-2001",
+            "locator": "p. 860; pp. 867–868, assembly",
+            "supports": "Draft scope and snapshot date."
+          }
+        ],
+        "uncertainty": "Not a gapless genome, an inventory of every human variant, or proof that all reported gene-count interpretations remained correct."
+      },
+      "proposition_sha256": "9eb4efa677f9213e537ded7a9551ea0a8118840dcff0de728737f92992f90e86",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "p. 860; pp. 867–868, assembly",
+          "supports": "Draft scope and snapshot date.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "The statement, scope and source references support this bounded historical event. Not a gapless genome, an inventory of every human variant, or proof that all reported gene-count interpretations remained correct. The lifecycle stage is unresolved."
+    },
+    {
+      "id": "bio-diffraction-to-b-constraints",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-diffraction-to-b-constraints",
+        "from": {
+          "node_id": "bio-humidity-varied-dna-diffraction-1952",
+          "event_id": "bio-humidity-varied-dna-diffraction-1952--event-01"
+        },
+        "to": {
+          "node_id": "bio-b-dna-helical-constraints-1953",
+          "event_id": "bio-b-dna-helical-constraints-1953--event-01"
+        },
+        "relation": "instrument-enables-observation",
+        "statement": "Hydration-dependent fibre diffraction supplied the patterns from which Franklin and Gosling inferred B-form geometry.",
+        "scope": "King’s College London, 1952–April 1953.",
+        "evidence": [
+          {
+            "source_id": "bio-franklin-gosling-1953",
+            "locator": "pp. 740–741, image and analysis",
+            "supports": "Pattern-to-geometry inference."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Contribution, not unique necessity: diffraction alone did not establish the complete structure.",
+        "alternatives": "Chemical accessibility, density and hydration behaviour also constrain the interpretation.",
+        "uncertainty": "A pattern is not a direct picture of molecular chains.",
+        "temporal_note": "Earlier exposures and subsequent interpretation overlap in the evidence; the inference was documented by 1953, without an established date of first formulation."
+      },
+      "proposition_sha256": "4a119fc904952a60c836f50c641a9cd29bbbfdff0d524998a6254b208e3969a1",
+      "source_evidence": [
+        {
+          "source_id": "bio-franklin-gosling-1953",
+          "url": "https://williams.chemistry.gatech.edu/course_Information/6572/papers/franklin_1953.pdf",
+          "locator": "pp. 740–741, image and analysis",
+          "supports": "Pattern-to-geometry inference.",
+          "access": "full-text",
+          "inspected_context": "Hydration-dependent patterns and qualified helical/two-chain interpretation are explicit; 34 A repeat, roughly 20 A diameter and exterior phosphates are supported. Signed April 2."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. A pattern is not a direct picture of molecular chains. The temporal note uses the publication or evidenced latest bound without inventing an experiment year."
+    },
+    {
+      "id": "bio-base-ratios-to-double-helix",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-base-ratios-to-double-helix",
+        "from": {
+          "node_id": "bio-insect-virus-base-ratios-1952",
+          "event_id": "bio-insect-virus-base-ratios-1952--event-01"
+        },
+        "to": {
+          "node_id": "bio-dna-double-helix-model-1953",
+          "event_id": "bio-dna-double-helix-model-1953--event-01"
+        },
+        "relation": "observed-combination",
+        "statement": "Watson and Crick explicitly cited Wyatt’s base-ratio measurements among the chemical observations consistent with complementary pairing.",
+        "scope": "Cambridge model proposal, April 1953.",
+        "evidence": [
+          {
+            "source_id": "bio-watson-crick-1953",
+            "locator": "p. 737, right column and reference 4",
+            "supports": "Explicit cited compositional constraint."
+          },
+          {
+            "source_id": "bio-wyatt-1952",
+            "locator": "Abstract",
+            "supports": "Measured ratios in the specified virus samples."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "A contributing constraint, not a sufficient proof or unique route.",
+        "alternatives": "Chargaff and collaborators supplied other compositional evidence, explicitly cited as reference 3.",
+        "uncertainty": "A:T and G:C abundance alone does not determine a double helix.",
+        "temporal_note": "Measurements reported by 1 July 1952 precede the 1953 double-helix proposal; the report does not establish the experiments’ earliest date."
+      },
+      "proposition_sha256": "89eb8161482da5d7e797d9fdcc821814f2d79b9659f2952aa0b1f49ec1cea63a",
+      "source_evidence": [
+        {
+          "source_id": "bio-watson-crick-1953",
+          "url": "https://inters.org/files/watsoncrick1953.pdf",
+          "locator": "p. 737, right column and reference 4",
+          "supports": "Explicit cited compositional constraint.",
+          "access": "full-text",
+          "inspected_context": "Antiparallel paired chains, explicit Wyatt 1952 citation, competing inputs and unproved status verified. The acknowledgement does not establish a specific Franklin-result transfer edge."
+        },
+        {
+          "source_id": "bio-wyatt-1952",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2147366/",
+          "locator": "Abstract",
+          "supports": "Measured ratios in the specified virus samples.",
+          "access": "partial-text",
+          "inspected_context": "Eleven virus samples, near-unity paired-base ratios, Sault Ste. Marie and receipt 1 July 1952 verified. No priority claim."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. A:T and G:C abundance alone does not determine a double helix. The temporal note uses the publication or evidenced latest bound without inventing an experiment year."
+    },
+    {
+      "id": "bio-model-to-template-interpretation",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-model-to-template-interpretation",
+        "from": {
+          "node_id": "bio-dna-double-helix-model-1953",
+          "event_id": "bio-dna-double-helix-model-1953--event-01"
+        },
+        "to": {
+          "node_id": "bio-template-directed-synthesis-1959",
+          "event_id": "bio-template-directed-synthesis-1959--event-01"
+        },
+        "relation": "documented-development",
+        "statement": "Kornberg used complementary pairing in the Watson–Crick model to interpret template-directed enzymatic synthesis.",
+        "scope": "Contemporary synthesis of biochemical evidence, 1959 lecture.",
+        "evidence": [
+          {
+            "source_id": "bio-kornberg-1959",
+            "locator": "pp. 666–668, 671–672, 678–679",
+            "supports": "Model and base-pairing interpretation of synthesis."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Explanatory contribution; no claim that the model was necessary to discover or purify polymerase.",
+        "alternatives": "The enzyme search was guided by nucleotide/coenzyme chemistry, as the authors separately state.",
+        "uncertainty": "The lecture is evidence of interpretation, not proof of the researchers’ entire discovery sequence.",
+        "temporal_note": "1953 proposed model precedes the 1958–1959 biochemical account."
+      },
+      "proposition_sha256": "c363b6f3d5a69a4ed187a94df6d1d813a98482c1478433a1a7a74dd2ff66f1b7",
+      "source_evidence": [
+        {
+          "source_id": "bio-kornberg-1959",
+          "url": "https://www.nobelprize.org/uploads/2018/06/kornberg-lecture.pdf",
+          "locator": "pp. 666–668, 671–672, 678–679",
+          "supports": "Model and base-pairing interpretation of synthesis.",
+          "access": "partial-text",
+          "inspected_context": "Complementary pairing interprets copying; purified enzyme/template experiments supply evidence. The cited 1958 studies and 1959 evidence stage fit the interval."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. The lecture is evidence of interpretation, not proof of the researchers’ entire discovery sequence."
+    },
+    {
+      "id": "bio-enzyme-assay-to-template-evidence",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-enzyme-assay-to-template-evidence",
+        "from": {
+          "node_id": "bio-dna-polymerase-preparation-1957",
+          "event_id": "bio-dna-polymerase-preparation-1957--event-01"
+        },
+        "to": {
+          "node_id": "bio-template-directed-synthesis-1959",
+          "event_id": "bio-template-directed-synthesis-1959--event-01"
+        },
+        "relation": "instrument-enables-observation",
+        "statement": "The purified enzyme reaction and assay made it possible to investigate DNA-dependent synthesis outside intact cells.",
+        "scope": "E. coli enzyme studies summarised in 1959.",
+        "evidence": [
+          {
+            "source_id": "bio-lehman-1958",
+            "locator": "p. 163",
+            "supports": "Purification and incorporation assay."
+          },
+          {
+            "source_id": "bio-kornberg-1959",
+            "locator": "pp. 670–673",
+            "supports": "Reaction requirements and template evidence."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Required for these specified cell-free observations; not a universal prerequisite for evidence about replication.",
+        "alternatives": "Cellular genetic and physical experiments could test different aspects of replication.",
+        "uncertainty": "Partial purification and template interpretation are distinct achievements.",
+        "temporal_note": "Preparation documented by October 1957 precedes the later evidence synthesis."
+      },
+      "proposition_sha256": "bf6d1e03dfd8f3b5bae64aa93e3892af139986cfa6f2559d1b40b50b97f1e73f",
+      "source_evidence": [
+        {
+          "source_id": "bio-lehman-1958",
+          "url": "https://www.biochem.du.ac.in/userfiles/downloads/JBC-1958-Lehman.pdf",
+          "locator": "p. 163",
+          "supports": "Purification and incorporation assay.",
+          "access": "partial-text",
+          "inspected_context": "Partial purification, substrates, assay and received 10 October 1957 are explicit. Coenzyme chemistry motivates the search; model-to-enzyme discovery is correctly absent."
+        },
+        {
+          "source_id": "bio-kornberg-1959",
+          "url": "https://www.nobelprize.org/uploads/2018/06/kornberg-lecture.pdf",
+          "locator": "pp. 670–673",
+          "supports": "Reaction requirements and template evidence.",
+          "access": "partial-text",
+          "inspected_context": "Complementary pairing interprets copying; purified enzyme/template experiments supply evidence. The cited 1958 studies and 1959 evidence stage fit the interval."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. Partial purification and template interpretation are distinct achievements."
+    },
+    {
+      "id": "bio-template-copying-to-plus-minus",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-template-copying-to-plus-minus",
+        "from": {
+          "node_id": "bio-template-directed-synthesis-1959",
+          "event_id": "bio-template-directed-synthesis-1959--event-01"
+        },
+        "to": {
+          "node_id": "bio-plus-minus-sequencing-1974",
+          "event_id": "bio-plus-minus-sequencing-1974--event-01"
+        },
+        "relation": "bounded-technical-requirement",
+        "statement": "The plus/minus assay requires complementary template copying because its sequence readout comes from primer-extension products.",
+        "scope": "The specific Sanger–Coulson primed-synthesis assay submitted in 1974.",
+        "evidence": [
+          {
+            "source_id": "bio-sanger-coulson-1975",
+            "locator": "p. 441, Introduction and Principle of the Method",
+            "supports": "Template copying is the implemented operation."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Yes, only within this assay: without template-directed extension its stated readout cannot be generated. It does not require Kornberg’s exact historical preparation.",
+        "alternatives": "Chemical-cleavage sequencing is a different route; no all-sequencing dependency is asserted.",
+        "uncertainty": "Functional requirement, not a claim that the 1959 lecture personally transmitted the technique to Sanger.",
+        "temporal_note": "Established copying operation precedes its later assay use."
+      },
+      "proposition_sha256": "56429ba6c84b5c47b4412ad949588f9b17fdb1a5953a6e068866430dc0bb831b",
+      "source_evidence": [
+        {
+          "source_id": "bio-sanger-coulson-1975",
+          "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1499197/download-documents?artifactId=4SWs_8P5CUHkkfIf2-HGMDRZxCXK4J0L_OHPFCZHLbCmKAsQz8-_96k",
+          "locator": "p. 441, Introduction and Principle of the Method",
+          "supports": "Template copying is the implemented operation.",
+          "access": "partial-text",
+          "inspected_context": "The 20 December 1974 receipt date and implemented complementary primer extension are explicit; E. coli/T4 enzymes, limiting substrates and gel products match the node. Functional requirement is supported without personal-transmission inference."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. Functional requirement, not a claim that the 1959 lecture personally transmitted the technique to Sanger."
+    },
+    {
+      "id": "bio-plus-minus-to-phix174",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-plus-minus-to-phix174",
+        "from": {
+          "node_id": "bio-plus-minus-sequencing-1974",
+          "event_id": "bio-plus-minus-sequencing-1974--event-01"
+        },
+        "to": {
+          "node_id": "bio-phix174-sequence-report-1977",
+          "event_id": "bio-phix174-sequence-report-1977--event-01"
+        },
+        "relation": "instrument-enables-observation",
+        "statement": "The original φX174 genome report explicitly used the plus/minus sequence-reading method.",
+        "scope": "Genome report published February 1977.",
+        "evidence": [
+          {
+            "source_id": "bio-phix174-1977",
+            "locator": "Abstract",
+            "supports": "Direct statement of the employed method."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Actual documented use, not necessity for any possible phage sequencing project.",
+        "alternatives": "Other methods could supply or later check sequence data.",
+        "uncertainty": "The inspected abstract does not allocate every segment or confirmation to an individual experiment.",
+        "temporal_note": "The method demonstration was documented by December 1974, before the 1977 genome-sequence report."
+      },
+      "proposition_sha256": "87a98ccdc94673ec9737f4c34a4b23bfe3175ffa5eb290a93ca79241cdb12103",
+      "source_evidence": [
+        {
+          "source_id": "bio-phix174-1977",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/870828/",
+          "locator": "Abstract",
+          "supports": "Direct statement of the employed method.",
+          "access": "abstract",
+          "inspected_context": "Approximately 5,375 bases, plus/minus method, overlapping coding frames and 24 February 1977 report verified. Later corrected sequence excluded."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. The inspected abstract does not allocate every segment or confirmation to an individual experiment. The temporal note uses the publication or evidenced latest bound without inventing an experiment year."
+    },
+    {
+      "id": "bio-plus-minus-to-termination",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-plus-minus-to-termination",
+        "from": {
+          "node_id": "bio-plus-minus-sequencing-1974",
+          "event_id": "bio-plus-minus-sequencing-1974--event-01"
+        },
+        "to": {
+          "node_id": "bio-chain-termination-sequencing-1977",
+          "event_id": "bio-chain-termination-sequencing-1977--event-01"
+        },
+        "relation": "documented-development",
+        "statement": "Sanger, Nicklen and Coulson presented chain termination as a further polymerase sequencing method related to plus/minus.",
+        "scope": "Cambridge method development by October 1977.",
+        "evidence": [
+          {
+            "source_id": "bio-sanger-nicklen-coulson-1977",
+            "locator": "p. 5463, abstract and opening paragraphs",
+            "supports": "Explicit relationship and performance motivation."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Documented development, not proof that no independent design route existed.",
+        "alternatives": "Maxam–Gilbert chemical cleavage and Barnes ribosubstitution are acknowledged contemporary alternatives.",
+        "uncertainty": "The new assay also depends on inhibitor chemistry; the plus/minus method is not its sole antecedent.",
+        "temporal_note": "Earlier plus/minus development is distinct from the later 1977 method."
+      },
+      "proposition_sha256": "f3dc883b4ccedb98e85ce043dafa464beb3f1ed27ef6d057a5cb617d435a2e5e",
+      "source_evidence": [
+        {
+          "source_id": "bio-sanger-nicklen-coulson-1977",
+          "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+          "locator": "p. 5463, abstract and opening paragraphs",
+          "supports": "Explicit relationship and performance motivation.",
+          "access": "partial-text",
+          "inspected_context": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. The new assay also depends on inhibitor chemistry; the plus/minus method is not its sole antecedent."
+    },
+    {
+      "id": "bio-termination-to-dye-terminators",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-termination-to-dye-terminators",
+        "from": {
+          "node_id": "bio-chain-termination-sequencing-1977",
+          "event_id": "bio-chain-termination-sequencing-1977--event-01"
+        },
+        "to": {
+          "node_id": "bio-fluorescent-terminator-sequencing-1987",
+          "event_id": "bio-fluorescent-terminator-sequencing-1987--event-01"
+        },
+        "relation": "documented-adaptation",
+        "statement": "Prober’s system adapted dideoxy sequencing with four fluorescent terminators and a combined reaction/readout.",
+        "scope": "DuPont M13 sequencing demonstration reported in 1987.",
+        "evidence": [
+          {
+            "source_id": "bio-prober-1987",
+            "locator": "Abstract",
+            "supports": "Explicit modified dideoxy protocol."
+          },
+          {
+            "source_id": "bio-sanger-nicklen-coulson-1977",
+            "locator": "p. 5463, Principle of the Method",
+            "supports": "Earlier dideoxy-termination operation."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Adaptation, not exclusive historical ancestry; the exact 1977 enzyme and labelling arrangement are not required.",
+        "alternatives": "Four-colour primer labelling offered a different fluorescence arrangement.",
+        "uncertainty": "Primary abstract establishes the adaptation but not every development step or transfer between laboratories.",
+        "temporal_note": "The 1977 termination publication preceded the 1987 modified-system report; these publication dates are not exact dates of the experiments."
+      },
+      "proposition_sha256": "b9805ae3f275cf79b522a9ae577c75042b5c626a73b19e392b9ec9e8597ff4fe",
+      "source_evidence": [
+        {
+          "source_id": "bio-prober-1987",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2443975/",
+          "locator": "Abstract",
+          "supports": "Explicit modified dideoxy protocol.",
+          "access": "abstract",
+          "inspected_context": "Explicit modified dideoxy protocol with four labelled terminators, reverse transcriptase, one reaction/lane and automated calls; M13 demonstration, DuPont and October 16 verified."
+        },
+        {
+          "source_id": "bio-sanger-nicklen-coulson-1977",
+          "url": "https://nemates.org/uky/425/Sanger.PNAS.1977.v74.p5463-5467.pdf",
+          "locator": "p. 5463, Principle of the Method",
+          "supports": "Earlier dideoxy-termination operation.",
+          "access": "partial-text",
+          "inspected_context": "Explicit further method related to plus/minus, terminator operation and October 3 contribution date. Earlier inhibitor chemistry and chemical-cleavage alternatives remain acknowledged."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. Primary abstract establishes the adaptation but not every development step or transfer between laboratories. The temporal note uses the publication or evidenced latest bound without inventing an experiment year."
+    },
+    {
+      "id": "bio-primer-fluorescence-to-human-production",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-primer-fluorescence-to-human-production",
+        "from": {
+          "node_id": "bio-fluorescent-primer-readout-1985",
+          "event_id": "bio-fluorescent-primer-readout-1985--event-01"
+        },
+        "to": {
+          "node_id": "bio-human-hierarchical-sequencing-1999",
+          "event_id": "bio-human-hierarchical-sequencing-1999--event-01"
+        },
+        "relation": "documented-development",
+        "statement": "The consortium identified four-colour fluorescence detection, citing Smith et al., among the advances supporting automated reads.",
+        "scope": "Public human genome sequencing production, 1999–2000.",
+        "evidence": [
+          {
+            "source_id": "bio-human-genome-2001",
+            "locator": "p. 864, technology paragraph and reference 62",
+            "supports": "Explicit cited contribution."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Contribution, not a unique required instrument.",
+        "alternatives": "Production also used dye-terminators and varied detectors.",
+        "uncertainty": "No claim that every centre used the 1986 apparatus.",
+        "temporal_note": "The demonstrated readout predates production-scale refinements."
+      },
+      "proposition_sha256": "4a43eb3bc25bc464cc35277cb81b8eaf82e8c86af11ae2fec74d21fd5fc6411a",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "p. 864, technology paragraph and reference 62",
+          "supports": "Explicit cited contribution.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. No claim that every centre used the 1986 apparatus."
+    },
+    {
+      "id": "bio-dye-terminators-to-human-production",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-dye-terminators-to-human-production",
+        "from": {
+          "node_id": "bio-fluorescent-terminator-sequencing-1987",
+          "event_id": "bio-fluorescent-terminator-sequencing-1987--event-01"
+        },
+        "to": {
+          "node_id": "bio-human-hierarchical-sequencing-1999",
+          "event_id": "bio-human-hierarchical-sequencing-1999--event-01"
+        },
+        "relation": "documented-development",
+        "statement": "The consortium cited Prober’s dye-labelled terminators among production-enabling laboratory advances.",
+        "scope": "Public human genome sequencing production, 1999–2000.",
+        "evidence": [
+          {
+            "source_id": "bio-human-genome-2001",
+            "locator": "p. 864, technology paragraph and reference 67; p. 867",
+            "supports": "Cited advance and actual varied dye-terminator use."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Contribution; neither this enzyme nor this dye set is asserted as mandatory.",
+        "alternatives": "Dye-primer reads were also used.",
+        "uncertainty": "Later reagents and workflows intervened.",
+        "temporal_note": "The demonstration reported by October 1987 precedes the later described production workflow; the demonstration’s earliest date is unresolved."
+      },
+      "proposition_sha256": "99f9d2b53bac7b1da6fef2a36cb9df2e6047d165d74ff1dfd43002e7e5373e04",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "p. 864, technology paragraph and reference 67; p. 867",
+          "supports": "Cited advance and actual varied dye-terminator use.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. Later reagents and workflows intervened. The temporal note uses the publication or evidenced latest bound without inventing an experiment year."
+    },
+    {
+      "id": "bio-human-production-to-draft",
+      "type": "relationship",
+      "historical_verdict": "accepted",
+      "lifecycle_verdict": "needs_review",
+      "proposition": {
+        "id": "bio-human-production-to-draft",
+        "from": {
+          "node_id": "bio-human-hierarchical-sequencing-1999",
+          "event_id": "bio-human-hierarchical-sequencing-1999--event-01"
+        },
+        "to": {
+          "node_id": "bio-human-genome-draft-2000",
+          "event_id": "bio-human-genome-draft-2000--event-01"
+        },
+        "relation": "process-enables-production",
+        "statement": "Mapped-clone sequencing and assembly generated the public human draft analysed from the October 2000 snapshot.",
+        "scope": "Public consortium, 1999–October 2000.",
+        "evidence": [
+          {
+            "source_id": "bio-human-genome-2001",
+            "locator": "p. 860; pp. 865–868",
+            "supports": "Documented workflow and resulting draft."
+          }
+        ],
+        "confidence": "high",
+        "necessity": "Actual production route; not the only possible sequencing strategy.",
+        "alternatives": "Whole-genome shotgun was a contemporary alternative.",
+        "uncertainty": "Multiple datasets and assembly decisions contributed.",
+        "temporal_note": "Production and resulting draft overlap; the endpoint is a snapshot, not a later all-gaps-closed milestone."
+      },
+      "proposition_sha256": "757ff62ca6878b80ef5ff00fae3cce4558007125628a8946c64282c6eb8fbd69",
+      "source_evidence": [
+        {
+          "source_id": "bio-human-genome-2001",
+          "url": "https://www.genome.gov/Pages/Newsroom/Webcasts/2010ScienceReportersWorkshop/Panel1_InitalSequencing_and_Analysis_%20of_the_Human_Genome.pdf",
+          "locator": "p. 860; pp. 865–868",
+          "supports": "Documented workflow and resulting draft.",
+          "access": "partial-text",
+          "inspected_context": "March 1999 production start and October 7, 2000 snapshot are explicit. Smith and Prober papers are individually cited as enabling advances; actual production used varied dye-primer/dye-terminator workflows. Mapped-clone assembly generated a qualified draft."
+        }
+      ],
+      "assessment": "Endpoints, direction, statement, scope, source locators and qualifications support this bounded historical relation. Multiple datasets and assembly decisions contributed."
+    }
+  ],
+  "release_recommendation": {
+    "accept_nodes": [
+      "bio-insect-virus-base-ratios-1952",
+      "bio-humidity-varied-dna-diffraction-1952",
+      "bio-b-dna-helical-constraints-1953",
+      "bio-dna-double-helix-model-1953",
+      "bio-dna-polymerase-preparation-1957",
+      "bio-template-directed-synthesis-1959",
+      "bio-plus-minus-sequencing-1974",
+      "bio-phix174-sequence-report-1977",
+      "bio-chain-termination-sequencing-1977",
+      "bio-fluorescent-primer-readout-1985",
+      "bio-fluorescent-terminator-sequencing-1987",
+      "bio-human-hierarchical-sequencing-1999",
+      "bio-human-genome-draft-2000"
+    ],
+    "accept_events": [
+      "bio-insect-virus-base-ratios-1952--event-01",
+      "bio-humidity-varied-dna-diffraction-1952--event-01",
+      "bio-b-dna-helical-constraints-1953--event-01",
+      "bio-dna-double-helix-model-1953--event-01",
+      "bio-dna-polymerase-preparation-1957--event-01",
+      "bio-template-directed-synthesis-1959--event-01",
+      "bio-plus-minus-sequencing-1974--event-01",
+      "bio-phix174-sequence-report-1977--event-01",
+      "bio-chain-termination-sequencing-1977--event-01",
+      "bio-fluorescent-primer-readout-1985--event-01",
+      "bio-fluorescent-terminator-sequencing-1987--event-01",
+      "bio-human-hierarchical-sequencing-1999--event-01",
+      "bio-human-genome-draft-2000--event-01"
+    ],
+    "accept_relationships": [
+      "bio-diffraction-to-b-constraints",
+      "bio-base-ratios-to-double-helix",
+      "bio-model-to-template-interpretation",
+      "bio-enzyme-assay-to-template-evidence",
+      "bio-template-copying-to-plus-minus",
+      "bio-plus-minus-to-phix174",
+      "bio-plus-minus-to-termination",
+      "bio-termination-to-dye-terminators",
+      "bio-primer-fluorescence-to-human-production",
+      "bio-dye-terminators-to-human-production",
+      "bio-human-production-to-draft"
+    ],
+    "repair_nodes": [],
+    "repair_events": [],
+    "repair_relationships": [],
+    "withhold_nodes": [],
+    "withhold_events": [],
+    "withhold_relationships": [],
+    "lifecycle_boundary": "The scientific formulation event bio-dna-double-helix-model-1953--event-01 was separately spot-checked in reviews/current-model-review.json. All other records here retain lifecycle needs_review; overall node lifecycle acceptance is not inferred."
+  },
+  "limits": [
+    "Historical acceptance covers only the displayed propositions and referenced source passages.",
+    "Some cited records provide an abstract or metadata, not a full article; bio-wyatt-1952 has no declared local copy.",
+    "A reporting or receipt date is an upper bound on described work, not necessarily its first demonstration, invention or availability.",
+    "No specific unpublished Franklin–Gosling to Watson–Crick transfer is inferred; diffraction alone does not prove a full molecular structure.",
+    "The template-copying edge is a bounded functional requirement, not evidence of personal transmission from the 1959 lecture.",
+    "The public genome draft is an October 2000 snapshot with gaps; the workflows and reagents were diverse."
+  ]
+}

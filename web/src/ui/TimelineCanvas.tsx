@@ -47,7 +47,7 @@ export function TimelineCanvas() {
       const story = s.mode === 'story'
       const labels = !compact && s.labelsOpen
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
-      const sheet = compact && (s.selected !== null || story)
+      const sheet = compact && (s.selected !== null || s.unplacedSelected !== null || story)
       engine.setInsets({
         top: compact ? 96 : 104,
         bottom: sheet ? window.innerHeight * 0.5 : compact ? (s.mode === 'reach' ? 158 : 104) : 96,
@@ -83,6 +83,8 @@ export function TimelineCanvas() {
         s.hiddenKinds !== prev.hiddenKinds ||
         s.activeLabels !== prev.activeLabels ||
         s.selected !== prev.selected ||
+        s.unplacedSelected !== prev.unplacedSelected ||
+        s.unplacedOpen !== prev.unplacedOpen ||
         s.labelsOpen !== prev.labelsOpen ||
         s.rowOrder !== prev.rowOrder ||
         s.story !== prev.story ||

@@ -2,37 +2,38 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { parseYearQuery, type YearQuery } from '../data/derive.ts'
 import type { Model } from '../data/model.ts'
+import { isPlacedNode, type TimelineEntry } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
-import { focusNode, getEngine, useApp } from '../store.ts'
+import { focusEntry, getEngine, useApp } from '../store.ts'
 import { Mark } from './icons.tsx'
 
 const MAX_RESULTS = 50
 /** Past this many matches, lighting them on the chart says nothing. */
 const HIGHLIGHT_LIMIT = 800
 
-function score(model: Model, q: string): { i: number; score: number }[] {
-  const scored: { i: number; score: number }[] = []
-  for (let i = 0; i < model.n; i++) {
-    const node = model.nodes[i]!
+function score(model: Model, q: string): { node: TimelineEntry; score: number }[] {
+  const scored: { node: TimelineEntry; score: number }[] = []
+  for (const node of [...model.nodes, ...model.unplaced]) {
     const title = node.title.toLowerCase()
     let s = -1
     if (title === q) s = 100
     else if (title.startsWith(q)) s = 80
     else if (title.includes(` ${q}`)) s = 65
     else if (title.includes(q)) s = 50
-    else if (String(Math.round(node.year)) === q) s = 45
+    else if (isPlacedNode(node) && String(Math.round(node.year)) === q) s = 45
+    else if (node.id.toLowerCase().includes(q)) s = 40
     else if (node.labels.some((l) => l.includes(q))) s = 30
     else if (node.regions.some((r) => r.toLowerCase().includes(q))) s = 25
     else if (node.summary.toLowerCase().includes(q)) s = 20
-    if (s >= 0) scored.push({ i, score: s + (3 - node.level) })
+    if (s >= 0) scored.push({ node, score: s + (3 - node.level) })
   }
-  return scored.sort((a, b) => b.score - a.score || model.nodes[a.i]!.year - model.nodes[b.i]!.year)
+  return scored.sort((a, b) => b.score - a.score || a.node.title.localeCompare(b.node.title))
 }
 
-export function searchNodes(model: Model, query: string): number[] {
+export function searchEntries(model: Model, query: string): TimelineEntry[] {
   const q = query.trim().toLowerCase()
-  if (!q) return [...model.landmarks]
-  return score(model, q).slice(0, MAX_RESULTS).map((s) => s.i)
+  if (!q) return model.landmarks.map((index) => model.nodes[index]!)
+  return score(model, q).slice(0, MAX_RESULTS).map((s) => s.node)
 }
 
 const describeDate = (date: YearQuery): string => (date.kind === 'year' ? `Go to ${formatYear(date.year)}` : `Open ${formatYear(date.start)} to ${formatYear(date.end)}`)
@@ -50,7 +51,7 @@ export function SearchPalette() {
   const [active, setActive] = useState(0)
   const listRef = useRef<HTMLUListElement>(null)
 
-  const results = useMemo(() => (model && open ? searchNodes(model, query) : []), [model, query, open])
+  const results = useMemo(() => (model && open ? searchEntries(model, query) : []), [model, query, open])
   const date = useMemo(() => parseYearQuery(query), [query])
   const offset = date ? 1 : 0
 
@@ -71,8 +72,11 @@ export function SearchPalette() {
       }
       return setSearchHits(hits)
     }
-    const hits = score(model, q)
-    setSearchHits(hits.length && hits.length <= HIGHLIGHT_LIMIT ? new Set(hits.map((h) => h.i)) : null)
+    const hits = score(model, q).flatMap((h) => {
+      const index = model.indexById.get(h.node.id)
+      return index === undefined ? [] : [index]
+    })
+    setSearchHits(hits.length && hits.length <= HIGHLIGHT_LIMIT ? new Set(hits) : null)
   }, [model, query, open, date, setSearchHits])
   useEffect(() => {
     listRef.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' })
@@ -92,10 +96,10 @@ export function SearchPalette() {
 
   const choose = (position: number) => {
     if (date && position === 0) return goToDate()
-    const i = results[position - offset]
-    if (i === undefined) return
+    const node = results[position - offset]
+    if (!node) return
     setOpen(false)
-    focusNode(i)
+    focusEntry(node.id)
   }
 
   const count = results.length + offset
@@ -146,17 +150,16 @@ export function SearchPalette() {
                 </li>
               )}
               {!query.trim() && <li className="px-4 pb-1 pt-1.5 text-[14.5px] italic text-ink-3">Landmarks</li>}
-              {results.map((i, k) => {
+              {results.map((node, k) => {
                 const position = k + offset
-                const node = model.nodes[i]!
                 return (
-                  <li key={i} role="option" aria-selected={position === active} data-index={position}>
+                  <li key={node.id} role="option" aria-selected={position === active} data-index={position}>
                     <button onClick={() => choose(position)} onPointerMove={() => setActive(position)} className={`flex w-full items-baseline gap-3 px-4 py-1 text-left text-[16.5px] leading-tight ${position === active ? 'bg-ink/[0.06]' : ''}`}>
                       <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
-                        <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
+                        <Mark kind={node.kind} size={9} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                       </span>
                       <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
-                      <span className="shrink-0 text-[14.5px] text-ink-3">{formatYear(node.year)}</span>
+                      <span className="shrink-0 text-[14.5px] text-ink-3">{isPlacedNode(node) ? formatYear(node.year) : 'not yet placed'}</span>
                     </button>
                   </li>
                 )

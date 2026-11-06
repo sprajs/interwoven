@@ -92,7 +92,7 @@ export function BottomBar() {
   const following = useApp((s) => s.mode === 'story' && s.story !== null)
   const mode = useApp((s) => s.mode)
   const margins = usePageMargins()
-  const sheetOpen = useApp((s) => s.selected !== null || s.mode !== 'threads' || s.labelsOpen)
+  const sheetOpen = useApp((s) => s.selected !== null || s.unplacedSelected !== null || s.mode !== 'threads' || s.labelsOpen || s.unplacedOpen)
   const crowded = useApp((s) => (s.selected !== null || (s.mode !== 'threads' && s.mode !== 'reach')) && s.labelsOpen)
   const [narrow, setNarrow] = useState(false)
   useEffect(() => {

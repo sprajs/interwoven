@@ -1,0 +1,684 @@
+{
+  "schema_version": 1,
+  "scope": "Independent historical and lifecycle review of seven current nodes, their fourteen events, and two documented-development relationships. Judgments apply only to the exact proposition hashes and scoped passages recorded here.",
+  "reviewed_on": "2026-11-06",
+  "hash_method": "SHA-256 of UTF-8 json.dumps(record_without_top_level_review, ensure_ascii=False, sort_keys=True, separators=(\",\", \":\")); all other fields are included.",
+  "decision_meanings": {
+    "accept": "Supported as scoped, subject to stated limits.",
+    "repair": "The current proposition needs the specified correction before acceptance.",
+    "withhold": "The proposition is not supported sufficiently to retain as an asserted claim."
+  },
+  "records": [
+    {
+      "id": "2n1613-commercial-1960",
+      "type": "event",
+      "proposition_sha256": "6c8ef3b8fd0b1a0f4b0671307e431a1feea3843aeaf78ad03d3fc325fce1c2ff",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "Caption naming 2N1613 as initially marketed April 1960; April sales paragraph"
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "April 1960 issue front page, PDF p. 20"
+        }
+      ],
+      "finding": "The IEEE historian explicitly describes the 2N1613 as initially marketed and sold in April 1960; Fairchild’s contemporary newsletter names the NPN type at the New York show. Scope no longer asserts an unproved buyer location. The exact first-sale day and earlier limited private offers remain unestablished.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "edge-micrologic-prototype-to-f",
+      "type": "relationship",
+      "proposition_sha256": "30dfed8e009b0f05cea95f54fbe0f933e19fc4876cd1e82cf3a12977a38795aa",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 19, first Micrologic and Type F; pp. 84–85, Last recollection; pp. 132–133, physically and diffused-isolated versions"
+        },
+        {
+          "source_id": "src-electronic-design-1961",
+          "locator": "Reprinted 29 March 1961 evaluation-sale report"
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "August 1961 PDF p. 113, availability in March"
+        }
+      ],
+      "finding": "The sources identify the May 1960 physical-isolation development sample, later diffused-isolation work, and the first commercial Micrologic Type F. The relationship is a bounded development antecedent; the exact prototype die or its isolation is not asserted to have been sold.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "edge-planar-to-2n1613",
+      "type": "relationship",
+      "proposition_sha256": "f42cc50f92277f32cbd35e2a6f428beecf669505f40d8cb0fdc3dde3349243da",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-chip-history",
+          "locator": "1959 and 1960 timeline entries"
+        },
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 prototype demonstration and 1960 initial marketing/sale paragraphs"
+        }
+      ],
+      "finding": "The independent timeline explicitly calls Hoerni's planar prototype an antecedent of the commercial 2N1613, and Riordan places development and initial marketing in sequence. The edge is historical development at process/product level, not proof that the same physical artifact or polarity was sold.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "fairchild-2n1613",
+      "type": "node",
+      "proposition_sha256": "cb46ceade2233dcf1eb891e3072e530c95d89c40f37b6377b11186e7ba06d228",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "Caption for the early planar prototype and 2N1613; April 1960 sales paragraph"
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "April 1960 issue front page, PDF p. 20"
+        }
+      ],
+      "finding": "Riordan explicitly describes the 2N1613 as initially marketed in April 1960 and sold in April; the contemporary Fairchild newsletter independently names its NPN type and public introduction. The manufacturer and part are bounded; earlier private arrangements and first day are not established.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "fairchild-micrologic-prototype",
+      "type": "node",
+      "proposition_sha256": "bd0abe87cdad6dac97a143f38b4696ca529992b9696c0ef53cf35599c640f158",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF pp. 84–85, Jay Last recollection; PDF p. 132, four-transistor mask layout"
+        }
+      ],
+      "finding": "Last retrospectively dates working physically isolated Micrologic devices to May 1960; the museum describes the four-transistor device and identifies a later diffused-isolation version. He only speculates that the earliest shipped samples were physically isolated. The exact prototype sale date appropriately remains unknown.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "fairchild-micrologic-type-f",
+      "type": "node",
+      "proposition_sha256": "bc1ca809b8c867cefe3e9c211e4a6e402274f2a40c08f89f667581e385f18033",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 19, March 1961 Micrologic entry; PDF pp. 84–85 and 132–133"
+        },
+        {
+          "source_id": "src-electronic-design-1961",
+          "locator": "Reprinted 29 March 1961 report, opening and flip-flop price paragraphs"
+        },
+        {
+          "source_id": "src-electronics-1961",
+          "locator": "31 March 1961, printed p. 76/PDF p. 78"
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "August 1961 issue p. 2/PDF p. 113"
+        }
+      ],
+      "finding": "Fairchild’s August 1961 newsletter dates the first flip-flop availability to March; contemporary reports identify evaluation sales and a $120 price, while CHM PDF p. 19 identifies the first device as Type F. The scope does not claim the earliest sold die’s isolation.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "glass-ee2-commercial-2019",
+      "type": "event",
+      "proposition_sha256": "67dffb202793c50aa5eb2500dbffe8430940421fc53a46a6b89483039103148b",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-google-ee2-2019",
+          "locator": "20 May 2019, final paragraph"
+        },
+        {
+          "source_id": "src-techtarget-ee2",
+          "locator": "21 May 2019, final product-availability paragraph"
+        },
+        {
+          "source_id": "src-google-ee2-2020",
+          "locator": "4 February 2020, second paragraph"
+        }
+      ],
+      "finding": "Google invited enterprises to contact sales or partners in May 2019 and a 21 May trade report described partner availability. This event is a documented commercial offer; first commercial availability remains unknown.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "glass-ee2-developer-channel-2020",
+      "type": "event",
+      "proposition_sha256": "47e5b85e4a9a664354a6a56f1768acc6a727817d7e0e24cfc74fb6373824a179",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-google-ee2-2020",
+          "locator": "4 February 2020, second paragraph"
+        }
+      ],
+      "finding": "On 4 February 2020 Google said developers and businesses could purchase Glass Enterprise Edition 2 devices directly from named hardware resellers. Neither a single-unit minimum nor an exact first offer is inferred.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "glass-ee2-google-withdrawal-2023",
+      "type": "event",
+      "proposition_sha256": "ec4bff8a333c1ee4d6323fc1088aa75d4f4e2f931dd0e0eaa8af86cc90dd1947",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-google-withdrawal",
+          "locator": "Opening notice, last updated 15 March 2023"
+        },
+        {
+          "source_id": "src-google-ee2-help",
+          "locator": "Page header sales notification and EE2 heading"
+        }
+      ],
+      "finding": "Google’s family FAQ and the Edition 2 page state that as of 15 March 2023 Google would no longer sell Glass Enterprise Edition. The event now uses an unknown lower bound and an inclusive latest bound of 15 March, and does not infer reseller withdrawal or last device use.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "glass-ee2-support-cutoff-2023",
+      "type": "event",
+      "proposition_sha256": "b407c1e72bb0db79a0cc295a815f06d69d6f2d8299aab1f2a292219fd68300df",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-google-withdrawal",
+          "locator": "Opening notice and FAQ on support, Meet and replacement"
+        },
+        {
+          "source_id": "src-google-ee2-help",
+          "locator": "EE2 heading and family sales/support notification in page header"
+        }
+      ],
+      "finding": "Google specified support and the described replacement process until 15 September 2023; it said existing hardware and software could continue thereafter. This is a support endpoint, not an actual end-of-use event.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "glass-ee2-test-2018",
+      "type": "event",
+      "proposition_sha256": "257f750a7db4766713d9690420fa15e46757afcfac8f6e2ee23520c637802243",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-fcc-ee2",
+          "locator": "SGS report E2/2018/80047, PDF p. 1, product and EUT receipt fields"
+        }
+      ],
+      "finding": "The SGS report identifies Glass Enterprise Edition 2 model GG2 and receipt of the equipment under test on 8 August 2018. The event describes RF compliance testing, without calling it a prototype or implying that it was prior to every commercial offer.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "google-glass-enterprise-2",
+      "type": "node",
+      "proposition_sha256": "0e069348b7f95219092ba65805c85eb0c8a24e4f6b86291eb431775e2b77c008",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-google-ee2-2019",
+          "locator": "20 May 2019 announcement, final paragraph"
+        },
+        {
+          "source_id": "src-techtarget-ee2",
+          "locator": "21 May 2019 report, final product-availability paragraph"
+        },
+        {
+          "source_id": "src-google-ee2-2020",
+          "locator": "4 February 2020, opening paragraphs"
+        },
+        {
+          "source_id": "src-google-withdrawal",
+          "locator": "15 March 2023 notice and device/replacement FAQs"
+        },
+        {
+          "source_id": "src-google-ee2-help",
+          "locator": "Page header sales notification and EE2 product heading"
+        },
+        {
+          "source_id": "src-fcc-ee2",
+          "locator": "PDF p. 1, Product Name, Model No. and Date of EUT Received"
+        }
+      ],
+      "finding": "The record retains the 2019 partner offer and 2020 developer direct-reseller offer while leaving first commercial availability, order quantities and actual last use unknown. Google’s withdrawal is bounded to no later than 15 March 2023, separate from support ending 15 September.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "hoerni-conception-1957",
+      "type": "event",
+      "proposition_sha256": "fbe2b922d488daea6bf9dcbcca155fd190a98af02f2d70a4688b9473a7930c26",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1 December 1957 notebook discussion and oxide protection explanation"
+        }
+      ],
+      "finding": "Riordan describes the dated notebook entry and its method of preserving surface oxide to protect junctions. The notebook itself was not examined; the exact day is the historian's retrospective report.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "hoerni-precommercial-planar",
+      "type": "node",
+      "proposition_sha256": "87d90177d9aeaf70cd2539bfff57e32c9bc09eecd3e22e767b001a015c8ffb62",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1 December 1957 notebook discussion; 2 March notebook entry and following-week prototype demonstration"
+        },
+        {
+          "source_id": "src-chip-history",
+          "locator": "1959 and 1960 timeline entries"
+        }
+      ],
+      "finding": "The source describes a conception and a later Fairchild demonstration, with no proof that this specific prototype bore the 2N1613 designation. Unknown availability and unknown invention of the exact artifact are appropriate.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "hoerni-prototype-1959",
+      "type": "event",
+      "proposition_sha256": "3007c68e4b0b8144d9aa5f8bdd29ec870991d479e07378be47250295ebf06bcf",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "2 March notebook entry and following-week prototype demonstration"
+        },
+        {
+          "source_id": "src-chip-history",
+          "locator": "12 March 1959 and April 1960 timeline entries"
+        }
+      ],
+      "finding": "The IEEE account locates a demonstrated planar prototype in March 1959; the separate timeline says 12 March. Neither requires calling this prototype a 2N1613. The source describing the precise date is retrospective.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "intel-4004",
+      "type": "node",
+      "proposition_sha256": "2dd64810d26917ce32c472adbf2b4320a005ec5c2efcc2dcb9bf1ec1dc280288",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-intel-history",
+          "locator": "IEEE Micro December 1996, printed pp. 16–18/PDF pp. 7–9"
+        },
+        {
+          "source_id": "src-intel-ad",
+          "locator": "Reproduced 15 November 1971 MCS-4 advertisement, in-stock paragraph"
+        }
+      ],
+      "finding": "The participant account reports January working silicon and later iterations, exclusivity for Busicom and a May 1971 rights change. The ad supports a later available offer, not the first merchant offer or first commercial transaction; the unknown anchor is appropriate.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "intel-4004-merchant-1971",
+      "type": "event",
+      "proposition_sha256": "22b7ffbfe964bafb04f860a6eb74de30f352b99a1a39be59defa504511dfd29f",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-intel-ad",
+          "locator": "Reproduced 15 November 1971 advertisement, MCS-4 in-stock and office-address paragraphs"
+        },
+        {
+          "source_id": "src-intel-history",
+          "locator": "IEEE Micro December 1996 printed pp. 17–18/PDF pp. 8–9, Marketing the 4004"
+        }
+      ],
+      "finding": "The 15 November 1971 advertisement identifies the 4004 in the MCS-4 family and reports the family in stock. Its offered physical mask is left unspecified; the dated offer does not establish the first merchant or first contractual commercial availability.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "intel-4004-prototype-1971",
+      "type": "event",
+      "proposition_sha256": "944fde277b111f07927f0705f8d6de248d2df131bd8e5d74d51bfddef08451c8",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-intel-history",
+          "locator": "IEEE Micro December 1996 printed pp. 16–17/PDF pp. 7–8, The 4004 Comes to Life"
+        }
+      ],
+      "finding": "The participant account says a January wafer run worked initially, later verification exposed two minor bugs, and the next mask iteration in March was fully functional. This retrospective description supports a working early iteration rather than an identical final commercial mask.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "micrologic-f-commercial-1961",
+      "type": "event",
+      "proposition_sha256": "fadb0a34eedd349b55b3283fa1182f6b89c6e14c1e280f32c350c0c46f2bf3b3",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 19, March 1961 Micrologic entry and Type F identifier"
+        },
+        {
+          "source_id": "src-electronic-design-1961",
+          "locator": "Reprinted 29 March 1961 article, evaluation-quantity sales and $120 price"
+        },
+        {
+          "source_id": "src-electronics-1961",
+          "locator": "31 March 1961, printed p. 76/PDF p. 78, available flip-flop and $120 price"
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "August 1961 issue p. 2/PDF p. 113, first flip-flop made available in March"
+        }
+      ],
+      "finding": "Fairchild’s August 1961 issue dates first flip-flop availability to March, and 29/31 March reports describe evaluation sales and a $120 price. CHM PDF p. 19 identifies the first Micrologic device as Type F. Scope omits unsupported buyer geography and the exact earliest sold die and isolation remain unknown.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "micrologic-prototype-1960",
+      "type": "event",
+      "proposition_sha256": "a7a9bd243b0f51bc6a92e2bf159b7f1fcf3c9905b8b6e25091c8caacfe93fe73",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF pp. 84–85, Jay Last recollection; PDF p. 132, mask layout"
+        }
+      ],
+      "finding": "Last recalls that first working physically isolated Micrologic devices were made in May 1960; the museum mask description connects the four-transistor flip-flop design to the first functional physically isolated circuit. This is a retrospective/collated account, not an inspected fabrication notebook.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "zeiss-1-18-offer-1885",
+      "type": "event",
+      "proposition_sha256": "cf0e89742cfe740b78238ad9e84aca4a55be2f2a940158facab03af3d804d815",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-zeiss-1885",
+          "locator": "Title page PDF p. 4; printed pp. 31, 35 and 37/PDF pp. 36, 40 and 42"
+        }
+      ],
+      "finding": "The actual catalogue page lists no. 46, 1/18 homogeneous immersion, 1.25 mm focal length and 400/450 marks without/with correction. The stock text says fixed mounts are kept in stock, with correction mounts made only by order. The catalogue mentions an earlier introduction, not its date.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "zeiss-1-18-withdrawal-by-1889",
+      "type": "event",
+      "proposition_sha256": "d19d0d0f24e28867c3cf5cfe169411c585eed08909da123e5fd3e7c197e5d1f7",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-zeiss-1885",
+          "locator": "Title page PDF p. 4 and printed pp. 31, 35, 37/PDF pp. 36, 40, 42"
+        },
+        {
+          "source_id": "src-zeiss-1889",
+          "locator": "Title page PDF p. 1 and printed p. 15/PDF p. 19"
+        }
+      ],
+      "finding": "The first dated catalogue offers the 1/18; the 1889 catalogue explicitly says it no longer supplies the former 1/18 homogeneous-immersion objective. The year bounds are coarse and do not establish last owner use, other makers' supply, or demise of all achromats.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    },
+    {
+      "id": "zeiss-homogeneous-1-18",
+      "type": "node",
+      "proposition_sha256": "275a341a1c5265e8524dc90680639a15383bb4e9cd1afee1b28a2dd4229d5f51",
+      "verdict": "accept",
+      "evidence": [
+        {
+          "source_id": "src-zeiss-1885",
+          "locator": "Catalogue 27 title page, PDF p. 4; printed pp. 31, 35 and 37/PDF pp. 36, 40 and 42"
+        },
+        {
+          "source_id": "src-zeiss-1889",
+          "locator": "Catalogue 28 title page, PDF p. 1; printed p. 15/PDF p. 19"
+        }
+      ],
+      "finding": "The 1885 manufacturer catalogue identifies the 1/18 homogeneous-immersion objective and prices; the 1889 catalogue names the former 1/18 among products no longer supplied. It does not establish a first availability date, universal withdrawal, or end of use. 1885–1889 is a conservative year-level bound on supplier cessation.",
+      "needed_repairs": [],
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted"
+    }
+  ],
+  "inspected_sources": [
+    {
+      "source_id": "src-chip-history",
+      "title": "The Integrated Circuit Invented",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/e290b6bfd4d9bee13faf357aa7018bd053a6c11cf5f8596e517695ffc64c0719.html",
+      "sha256": "e290b6bfd4d9bee13faf357aa7018bd053a6c11cf5f8596e517695ffc64c0719",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-chm-sector",
+      "title": "Information Technology Corporate Histories Project: Semiconductor Sector",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/b6ff265748687fde427ac581a18750e40fa8a13ad122d5aca7bde7195063cb22.pdf",
+      "sha256": "b6ff265748687fde427ac581a18750e40fa8a13ad122d5aca7bde7195063cb22",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-electronic-design-1961",
+      "title": "Logic Nets in Transistor Cans: article from 29 March 1961",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/bdf6c8a12486d6df8e8af14247edd799a8351db19a44210de3012902929366eb.html",
+      "sha256": "bdf6c8a12486d6df8e8af14247edd799a8351db19a44210de3012902929366eb",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-electronics-1961",
+      "title": "Electronics, 31 March 1961: New on the Market, Integrated Circuits",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/dabd134ff33035e0c6dd8100b1c82da6c5cac94f91f3728f7c22ee56df9f0710.pdf",
+      "sha256": "dabd134ff33035e0c6dd8100b1c82da6c5cac94f91f3728f7c22ee56df9f0710",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-fairchild-leadwire",
+      "title": "Fairchild Leadwire: April 1960 and August 1961 issues",
+      "access": "partial-text",
+      "local_copy_path": "evidence/excerpts/58f8658007a688befd1b17f89c69c09b2449c528487f75d0afecf6cca30076ae.excerpt.pdf",
+      "sha256": "69ecfe2427d283ed42ece2cc523231c706f3a346682f50cb319088b0c0df88e3",
+      "hash_verified": true,
+      "representation": "excerpt",
+      "original_sha256": "58f8658007a688befd1b17f89c69c09b2449c528487f75d0afecf6cca30076ae",
+      "original_page_count": 151,
+      "page_mapping": [
+        {
+          "source_page": 1,
+          "excerpt_page": 1
+        },
+        {
+          "source_page": 20,
+          "excerpt_page": 2
+        },
+        {
+          "source_page": 112,
+          "excerpt_page": 3
+        },
+        {
+          "source_page": 113,
+          "excerpt_page": 4
+        }
+      ]
+    },
+    {
+      "source_id": "src-fcc-ee2",
+      "title": "Electromagnetic Emissions Compliance Report E2/2018/80047",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/04d5ba3ed0c202440a7ae8301ed67a96f7270af2c3b6d9eddc0bed098bd8ddc6.pdf",
+      "sha256": "04d5ba3ed0c202440a7ae8301ed67a96f7270af2c3b6d9eddc0bed098bd8ddc6",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-google-ee2-2019",
+      "title": "Glass Enterprise Edition 2: faster and more helpful",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/ab468d82f1cf50759d29d17433edf6d5f717fdb1a87c7ec925314ec52444f065.html",
+      "sha256": "ab468d82f1cf50759d29d17433edf6d5f717fdb1a87c7ec925314ec52444f065",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-google-ee2-2020",
+      "title": "Glass Enterprise Edition 2 now available for developers",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/1a0b43b015f90bcc2398e542f5a4c9e61d45162b333ba1e384e524b230bd45b3.html",
+      "sha256": "1a0b43b015f90bcc2398e542f5a4c9e61d45162b333ba1e384e524b230bd45b3",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-google-ee2-help",
+      "title": "About Glass Enterprise Edition 2",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/c442e243f9a0f87af0b6049c2191d7c1b2d6b2be3e251ffe22b0d8fbad605196.html",
+      "sha256": "c442e243f9a0f87af0b6049c2191d7c1b2d6b2be3e251ffe22b0d8fbad605196",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-google-withdrawal",
+      "title": "Glass Enterprise Edition Announcement FAQ",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/23ff6bb80bcf9e7078615579c062fef0f340c124846ebf70523e1b80f65bfeb8.html",
+      "sha256": "23ff6bb80bcf9e7078615579c062fef0f340c124846ebf70523e1b80f65bfeb8",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-ieee-planar",
+      "title": "The Silicon Dioxide Solution",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/52bdb0230bdd688936e7f5248c83a88d7466c76ba540d4a121d4ba976c40107e.html",
+      "sha256": "52bdb0230bdd688936e7f5248c83a88d7466c76ba540d4a121d4ba976c40107e",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-intel-ad",
+      "title": "Intel MCS-4 announcement in Electronic News, 15 November 1971",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/3abdc7c6e811310ede57b2a7a3ab8ac27bcce0df4120f1055933b40a2164f723.html",
+      "sha256": "3abdc7c6e811310ede57b2a7a3ab8ac27bcce0df4120f1055933b40a2164f723",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-intel-history",
+      "title": "The History of the 4004",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/dc4507971cfd3c3b4ea0c6b95c22b68c0e5a0717599be644b34e3101b7c9022d.pdf",
+      "sha256": "dc4507971cfd3c3b4ea0c6b95c22b68c0e5a0717599be644b34e3101b7c9022d",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-techtarget-ee2",
+      "title": "Google Glass Enterprise Edition 2 resurrects AR for Google",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/1f885b327bff0b2684e12e06d0a2e16ff031e7d55dfb29430c8548be2d3fb768.html",
+      "sha256": "1f885b327bff0b2684e12e06d0a2e16ff031e7d55dfb29430c8548be2d3fb768",
+      "hash_verified": true
+    },
+    {
+      "source_id": "src-zeiss-1885",
+      "title": "Microscopes and Microscopical Accessories, Catalogue No. 27",
+      "access": "partial-text",
+      "local_copy_path": "evidence/excerpts/23418b4d0dea060d617cfb77225c26a736b36891084f73393915ee3a1167fd9f.excerpt.pdf",
+      "sha256": "271f9554e29e5329b005b6abc57fd8d25fc9e283907c1eb691dfc6d72051b4d9",
+      "hash_verified": true,
+      "representation": "excerpt",
+      "original_sha256": "23418b4d0dea060d617cfb77225c26a736b36891084f73393915ee3a1167fd9f",
+      "original_page_count": 105,
+      "page_mapping": [
+        {
+          "excerpt_page": 1,
+          "source_page": 1
+        },
+        {
+          "excerpt_page": 2,
+          "source_page": 2
+        },
+        {
+          "excerpt_page": 3,
+          "source_page": 3
+        },
+        {
+          "excerpt_page": 4,
+          "source_page": 4
+        },
+        {
+          "excerpt_page": 5,
+          "source_page": 5
+        },
+        {
+          "excerpt_page": 6,
+          "source_page": 6
+        },
+        {
+          "excerpt_page": 7,
+          "source_page": 36
+        },
+        {
+          "excerpt_page": 8,
+          "source_page": 40
+        },
+        {
+          "excerpt_page": 9,
+          "source_page": 42
+        }
+      ]
+    },
+    {
+      "source_id": "src-zeiss-1889",
+      "title": "Microscopes and Microscopical Accessories, Catalogue No. 28",
+      "access": "partial-text",
+      "local_copy_path": "evidence/originals/f56b2366a5e8e35cad551c18408a38f97056d5797d96de145d53809de08b8a07.pdf",
+      "sha256": "f56b2366a5e8e35cad551c18408a38f97056d5797d96de145d53809de08b8a07",
+      "hash_verified": true
+    }
+  ],
+  "overall_limits": [
+    "Passage-level review does not prove that no earlier private offer or transaction exists.",
+    "Retrospective and participant recollections are identified as such. Schema validation and cache hashes do not by themselves establish historical claims.",
+    "Development-sample commercial applicability is not assessed. Intel 4004, Glass EE2 and the Zeiss objective have documented commercial offers but their first commercial availability remains unknown.",
+    "A supplier withdrawal or support cutoff is not the last actual use.",
+    "Acceptance of an explicitly unknown or unresearched stage does not turn it into a known historical date."
+  ]
+}

@@ -19,6 +19,8 @@ interface AppState {
   hiddenKinds: ReadonlySet<string>
   activeLabels: ReadonlySet<string>
   selected: number | null
+  /** The id of a selected entry that has no place on the chart yet. */
+  unplacedSelected: string | null
   /** The order of the reach view's rows. */
   rowOrder: RowOrder
   /** The thread being followed, if any. */
@@ -34,6 +36,7 @@ interface AppState {
   hover: Hover | null
   labelsOpen: boolean
   searchOpen: boolean
+  unplacedOpen: boolean
   /** Deepest level currently showing, 0 to 3. */
   depth: number
   setModel(model: Model): void
@@ -44,9 +47,11 @@ interface AppState {
   toggleLabel(id: string): void
   clearFilters(): void
   select(index: number | null): void
+  selectUnplaced(id: string | null): void
   setHover(hover: Hover | null): void
   setLabelsOpen(open: boolean): void
   setSearchOpen(open: boolean): void
+  setUnplacedOpen(open: boolean): void
   setDepth(depth: number): void
   setRowOrder(order: RowOrder): void
   setLife(life: Map<number, LifeRecord>): void
@@ -71,6 +76,7 @@ export const useApp = create<AppState>((set) => ({
   hiddenKinds: new Set(),
   activeLabels: new Set(),
   selected: null,
+  unplacedSelected: null,
   rowOrder: 'thread',
   story: null,
   life: new Map(),
@@ -80,6 +86,7 @@ export const useApp = create<AppState>((set) => ({
   hover: null,
   labelsOpen: false,
   searchOpen: false,
+  unplacedOpen: false,
   depth: 1,
   setModel: (model) => set({ model, error: null }),
   setError: (error) => set({ error }),
@@ -88,10 +95,12 @@ export const useApp = create<AppState>((set) => ({
   toggleKind: (id) => set((s) => ({ hiddenKinds: toggled(s.hiddenKinds, id) })),
   toggleLabel: (id) => set((s) => ({ activeLabels: toggled(s.activeLabels, id) })),
   clearFilters: () => set({ hiddenKinds: new Set(), activeLabels: new Set() }),
-  select: (selected) => set({ selected }),
+  select: (selected) => set({ selected, unplacedSelected: null }),
+  selectUnplaced: (unplacedSelected) => set({ unplacedSelected, selected: null }),
   setHover: (hover) => set({ hover }),
-  setLabelsOpen: (labelsOpen) => set({ labelsOpen }),
+  setLabelsOpen: (labelsOpen) => set((s) => ({ labelsOpen, unplacedOpen: labelsOpen ? false : s.unplacedOpen })),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
+  setUnplacedOpen: (unplacedOpen) => set((s) => ({ unplacedOpen, labelsOpen: unplacedOpen ? false : s.labelsOpen })),
   setDepth: (depth) => set({ depth }),
   setRowOrder: (rowOrder) => set({ rowOrder }),
   setLife: (life) => set({ life }),
@@ -144,6 +153,13 @@ export function stepStory(delta: number): void {
   const at = selected === null ? -1 : story.members.indexOf(selected)
   const next = Math.max(0, Math.min(story.members.length - 1, at + delta))
   select(story.members[next] ?? null)
+}
+
+export function focusEntry(id: string): void {
+  const state = useApp.getState()
+  const index = state.model?.indexById.get(id)
+  if (index !== undefined) focusNode(index)
+  else if (state.model?.entryById.has(id)) state.selectUnplaced(id)
 }
 
 type Filters = Pick<AppState, 'hiddenKinds' | 'activeLabels'>
