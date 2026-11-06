@@ -49,8 +49,8 @@ export function TimelineCanvas() {
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
       const sheet = compact && (s.selected !== null || story)
       engine.setInsets({
-        top: compact ? 118 : 104,
-        bottom: sheet ? window.innerHeight * 0.5 : compact ? 104 : 96,
+        top: compact ? 96 : 104,
+        bottom: sheet ? window.innerHeight * 0.5 : compact ? (s.mode === 'reach' ? 158 : 104) : 96,
         left: labels ? LABELS_WIDTH + 36 : compact ? 22 : 56,
         right: panel ? SHEET_WIDTH + 36 : compact ? 22 : 56,
       })

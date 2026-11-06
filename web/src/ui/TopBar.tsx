@@ -27,12 +27,12 @@ export function TopBar() {
 
   return (
     <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-end gap-x-3 gap-y-1 px-[22px] pt-2.5 min-[760px]:flex-nowrap min-[760px]:gap-x-7 min-[760px]:px-14">
-      <div className="flex basis-full items-baseline gap-3 min-[760px]:basis-auto min-[760px]:self-center">
+      <div className="flex flex-1 items-baseline gap-3 min-[760px]:flex-none min-[760px]:self-center">
         <h1 className="text-[27px] font-medium leading-none tracking-[-0.01em]">{title}</h1>
         <p className="caption hidden text-[15px] 2xl:block">{description}</p>
       </div>
       <div className="hidden flex-1 min-[760px]:block" />
-      <nav className="pointer-events-auto flex items-end gap-[14px] min-[900px]:gap-5" aria-label="View">
+      <nav className="pointer-events-auto order-last flex basis-full items-end gap-[14px] min-[760px]:order-none min-[760px]:basis-auto min-[900px]:gap-5" aria-label="View">
         {MODES.map((m) => {
           const active = mode === m.id
           return (
@@ -47,7 +47,7 @@ export function TopBar() {
         })}
       </nav>
       <span className="mb-[3px] hidden h-8 w-px bg-rule min-[760px]:block" aria-hidden />
-      <div className="pointer-events-auto ml-auto flex items-end gap-4 min-[760px]:ml-0 min-[760px]:gap-5">
+      <div className="pointer-events-auto flex items-end gap-4 min-[760px]:gap-5">
         <button onClick={() => setLabelsOpen(!labelsOpen)} aria-expanded={labelsOpen} className={`${TEXT_BUTTON} pb-[3px] ${labelsOpen || labelCount ? 'text-ink' : 'text-ink-3 hover:text-ink'}`} title="Follow labels through the chart (l)">
           Labels{labelCount > 0 ? ` (${labelCount})` : ''}
         </button>

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { computeReach, connectedComponents, findCrossings, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
-import { documentedSpan, hasLaterLife, indexLifecycle, isFinal, tallyLifecycle, type LifeEvent, type LifeRecord } from './lifecycle.ts'
+import { documentedSpan, hasLaterLife, indexLifecycle, isFinal, readEventDate, tallyLifecycle, type LifeEvent, type LifeRecord } from './lifecycle.ts'
 
 const dated = (...years: number[]) => years.map((year) => ({ year }))
 const edge = (source: number, target: number, tentative = false) => ({ source, target, tentative })
@@ -173,6 +173,12 @@ describe('lifecycle', () => {
   const ra: LifeRecord = { status: { abandonment: 'documented' }, events: [event('production', 'use', 1969), event('practical_deployment', 'use', 1969), event('abandonment', 'end', 1969)] }
   const single: LifeRecord = { status: { end_of_use: 'unknown' }, events: [event('first_commercial_availability', 'use', 1960)] }
 
+  it('keeps a bounded date marked, so "by 2023" cannot read as "in 2023"', () => {
+    expect(readEventDate({ latest: { year: 2023 } })).toEqual({ start: 2023, end: 2023, bound: 'by' })
+    expect(readEventDate({ earliest: { year: 1885 }, latest: { year: 1889 } })).toEqual({ start: 1885, end: 1889 })
+    expect(readEventDate({})).toBeNull()
+  })
+
   it('does not treat a single dated record as evidence of a later life', () => {
     expect(hasLaterLife(single)).toBe(false)
     expect(hasLaterLife(undefined)).toBe(false)
@@ -201,6 +207,8 @@ describe('lifecycle', () => {
   it('counts withdrawal from sale as not being the end of the thing', () => {
     expect(isFinal(glass)).toBe(false)
     expect(isFinal(ra)).toBe(true)
+    // Researched and found to be unknown stays unknown, even after an abandonment.
+    expect(isFinal({ ...ra, status: { abandonment: 'documented', end_of_use: 'unknown' } })).toBe(false)
   })
 
   it('drops records for entries that are not on the chart', () => {

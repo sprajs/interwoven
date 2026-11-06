@@ -616,6 +616,9 @@ export class Engine {
     }
   }
 
+  /** Whether to mention what the ruler does. Once it has been used, it is never mentioned again. */
+  rulerHint = readRulerHint()
+
   private animateFold(dt: number): boolean {
     if (this.foldT >= 1) return false
     this.foldT = Math.min(1, this.foldT + dt / FOLD_SECONDS)
@@ -656,6 +659,12 @@ export class Engine {
       else merged.push([p[0], p[1]])
     }
     this.openPeriods = merged
+    this.rulerHint = false
+    try {
+      localStorage.setItem(RULER_HINT_KEY, '1')
+    } catch {
+      // Only a reminder, so it does not matter if this cannot be saved.
+    }
     this.callbacks.onFolds(merged.length)
     this.rebuildFold()
     this.camera.fit(this.reducedMotion)
@@ -1541,4 +1550,14 @@ export class Engine {
 /** Height of one row at the current zoom, in CSS pixels. */
 function cam_rowPx(cam: Camera, n: number): number {
   return (cam.yScale * 0.976) / Math.max(1, n - 1)
+}
+
+const RULER_HINT_KEY = 'interwoven.ruler-used'
+
+function readRulerHint(): boolean {
+  try {
+    return localStorage.getItem(RULER_HINT_KEY) === null
+  } catch {
+    return true
+  }
 }

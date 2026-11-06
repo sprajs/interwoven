@@ -90,6 +90,7 @@ export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: n
   drawBracket(engine, ctx, W)
   if (engine.view.mode === 'density' && engine.pointer && engine.hovered === null && engine.pointerZone === 'chart') drawDensityProbe(engine, ctx, W)
   if (engine.pointerZone === 'ruler' && engine.pointer && !engine.bracket) drawRulerCursor(engine, ctx)
+  else if (engine.rulerHint && !engine.bracket && engine.drawU > 1 && engine.view.mode !== 'story') drawRulerHint(engine, ctx)
 }
 
 function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W: number, H: number): void {
@@ -277,13 +278,16 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
   const quiet = engine.mix.hatching > 0.5
   const fade = Math.min(1, dt * 8)
   const wantedProse = new Set<number>()
-  const rowRoom = inStory || engine.mix.weave > 0.5 ? cam.yScale / Math.max(1, model.n) : Infinity
+  const story = engine.view.story
+  // Rows set a limit on how much can sit under a title without running into the next row.
+  const rowRoom = inStory && story && story.y.length > 1 ? (story.y[1]! - story.y[0]!) * cam.yScale : engine.mix.weave > 0.5 ? (cam.yScale * 0.976) / Math.max(1, model.n - 1) : Infinity
 
   if (!quiet) {
     const order = [...wanted].sort((a, b) => nodes[a]!.level - nodes[b]!.level || (model.children[b]!.length - model.children[a]!.length))
     for (const i of order) {
       const node = nodes[i]!
       if (inView >= DATES_BELOW && i !== engine.view.selected) continue
+      if (rowRoom < 32) continue
       const px = cam.toX(engine.nodeV(i))
       const py = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
       if (px < -20 || px > W + 20) continue
@@ -297,10 +301,9 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       const bodyX = onLeft ? px - gap - width : titleX
 
       let text = ''
-      if (inView < PROSE_BELOW && !inStory) {
-        text = node.summary + (node.note ? ` ${node.note}` : '')
-      } else if (inView < SENTENCE_BELOW && !inStory) {
-        text = firstSentence(node.summary)
+      if (rowRoom > 60) {
+        if (inView < PROSE_BELOW && !inStory) text = node.summary + (node.note ? ` ${node.note}` : '')
+        else if (inView < SENTENCE_BELOW && !inStory) text = firstSentence(node.summary)
       }
 
       const dateFont = `italic 400 12.5px ${SERIF}`
@@ -314,14 +317,16 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       const available = Math.max(0, Math.floor((bottom - py - titleH - 16) / PROSE_LINE))
       let count = Math.min(lines.length, available, 12)
       let height = 14 + count * PROSE_LINE
-      while (count > 0 && blocked(bodyX, py + titleH, bodyX + width, py + titleH + height)) {
+      // Starts a full cell below the title, whose own cells would otherwise count as taken.
+      const clear = py + titleH + CELL
+      while (count > 0 && blocked(bodyX, clear, bodyX + width, py + titleH + height)) {
         count--
         height = 14 + count * PROSE_LINE
       }
       const dateWidth = measure(ctx, node.date_label, dateFont)
-      const dateFree = !blocked(onLeft ? px - gap - dateWidth : titleX, py + titleH, (onLeft ? px - gap : titleX + dateWidth), py + titleH + 14)
+      const dateFree = !blocked(onLeft ? px - gap - dateWidth : titleX, clear, onLeft ? px - gap : titleX + dateWidth, py + titleH + 14)
       if (!dateFree) continue
-      occupy(onLeft ? px - gap - Math.max(dateWidth, count ? width : 0) : titleX, py + titleH, onLeft ? px - gap : titleX + Math.max(dateWidth, count ? width : 0), py + titleH + height)
+      occupy(onLeft ? px - gap - Math.max(dateWidth, count ? width : 0) : titleX, clear, onLeft ? px - gap : titleX + Math.max(dateWidth, count ? width : 0), py + titleH + height)
       wantedProse.add(i)
       const a = (proseAlpha.get(i) ?? 0) + (1 - (proseAlpha.get(i) ?? 0)) * fade
       proseAlpha.set(i, a)
@@ -359,7 +364,7 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
   for (const [i, a] of proseAlpha) if (wantedProse.has(i) && a < 0.98) engine.labelsAnimating = true
 
   // What each link claims, written along it, when there is room or it has your attention.
-  if (quiet || engine.mix.weave > 0.5 || rowRoom < 12) return
+  if (quiet || engine.mix.weave > 0.5) return
   const selected = engine.view.selected
   const fadeEdge = Math.min(1, dt * 8)
   const showing = new Set<number>()
@@ -382,8 +387,9 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
     const body = long ? wrap(ctx, edge.link.statement!, `italic 400 12.5px ${SERIF}`, 200).slice(0, 6) : []
     const boxW = Math.max(width, body.length ? 200 : 0)
     const boxH = 14 + body.length * 14
-    const x0 = Math.max(4, Math.min(W - boxW - 4, mx - boxW / 2))
-    if (blocked(x0, my - 7, x0 + boxW, my - 7 + boxH)) return
+    // On the middle of the link if there is room, otherwise just to either side of it.
+    const x0 = [mx - boxW / 2, mx + 8, mx - boxW - 8].map((x) => Math.max(4, Math.min(W - boxW - 4, x))).find((x) => !blocked(x, my - 7, x + boxW, my - 7 + boxH))
+    if (x0 === undefined) return
     occupy(x0, my - 7, x0 + boxW, my - 7 + boxH)
     showing.add(k)
     const a = (edgeAlpha.get(k) ?? 0) + (1 - (edgeAlpha.get(k) ?? 0)) * fadeEdge
@@ -413,8 +419,13 @@ const END_MARK: Record<string, 'bracket' | 'cross' | 'double' | 'fall' | 'rise'>
   revival: 'rise',
 }
 
-function strokeMark(ctx: CanvasRenderingContext2D, event: LifeEvent, x: number, y: number, x1: number): void {
+function strokeMark(ctx: CanvasRenderingContext2D, event: LifeEvent, y: number, x1: number, size: number): void {
   const kind = END_MARK[event.type]
+  // The drawing below is at full size, scaled about its own position to suit the row height.
+  ctx.save()
+  ctx.translate(x1, y)
+  ctx.scale(size, size)
+  ctx.translate(-x1, -y)
   ctx.beginPath()
   if (kind === 'bracket') {
     // Withdrawal: a closing bracket, because it closes the sale and not necessarily the thing.
@@ -447,10 +458,11 @@ function strokeMark(ctx: CanvasRenderingContext2D, event: LifeEvent, x: number, 
   } else {
     // Evidence of use: a short upright stroke on the line.
     ctx.lineWidth = 1
-    ctx.moveTo(x, y - 3.5)
-    ctx.lineTo(x, y + 3.5)
+    ctx.moveTo(x1, y - 3.5)
+    ctx.lineTo(x1, y + 3.5)
   }
   ctx.stroke()
+  ctx.restore()
 }
 
 /**
@@ -469,6 +481,7 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
   const showDots = rowPx >= 3.4
   const showQuestion = rowPx >= 9
   const showNames = rowPx >= 12
+  const markSize = Math.min(1, Math.max(0.55, rowPx / 11))
   ctx.lineCap = 'round'
   ctx.lineJoin = 'round'
   for (let i = 0; i < model.n; i++) {
@@ -501,7 +514,17 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
           ctx.lineTo(x0, y + 2.5)
           ctx.stroke()
         }
-        strokeMark(ctx, event, x0, y, x1)
+        strokeMark(ctx, event, y, x1, markSize)
+        // "By 2023" could have been any time before: a little tail to the left says so.
+        if (event.bound === 'by' && event.role !== 'use' && markSize > 0.7) {
+          ctx.lineWidth = 0.8
+          ctx.setLineDash([1.5, 2.5])
+          ctx.beginPath()
+          ctx.moveTo(x1 - 3, y)
+          ctx.lineTo(x1 - 16, y)
+          ctx.stroke()
+          ctx.setLineDash([])
+        }
         if (showNames && event.role !== 'use') {
           const name = EVENT_NAMES[event.type] ?? event.type
           ctx.font = `italic 400 12.5px ${SERIF}`
@@ -600,6 +623,20 @@ function drawBracket(engine: Engine, ctx: CanvasRenderingContext2D, W: number): 
   ctx.strokeText(note, x, frame.top + 36)
   ctx.fillStyle = `rgba(${INK.secondary},1)`
   ctx.fillText(note, x, frame.top + 36)
+}
+
+/** The one thing nobody would guess, said once, close to where it happens. */
+function drawRulerHint(engine: Engine, ctx: CanvasRenderingContext2D): void {
+  const frame = engine.frameBounds()
+  ctx.font = `italic 400 13.5px ${SERIF}`
+  ctx.textAlign = 'left'
+  ctx.lineWidth = 3.5
+  ctx.strokeStyle = `rgba(${PAPER},0.95)`
+  const text = 'Drag along this ruler to open a period'
+  const x = engine.camera.insets.left
+  ctx.strokeText(text, x, frame.top + 14)
+  ctx.fillStyle = `rgba(${INK.muted},1)`
+  ctx.fillText(text, x, frame.top + 14)
 }
 
 /** The exact year under the pointer, and the invitation to open a period. */

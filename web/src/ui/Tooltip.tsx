@@ -1,4 +1,5 @@
-import { useApp } from '../store.ts'
+import { formatYear } from '../engine/time.ts'
+import { getEngine, useApp } from '../store.ts'
 
 const firstSentence = (text: string) => {
   const match = /^.+?[.!?](\s|$)/.exec(text)
@@ -9,9 +10,11 @@ export function Tooltip() {
   const hover = useApp((s) => s.hover)
   const model = useApp((s) => s.model)
   const selected = useApp((s) => s.selected)
+  const mode = useApp((s) => s.mode)
   if (!hover || !model || hover.index === selected) return null
   const node = model.nodes[hover.index]
   if (!node) return null
+  const reachEnd = getEngine()?.reach?.any[hover.index]
   const width = 268
   const flip = hover.x + width + 24 > window.innerWidth
   const left = flip ? hover.x - width - 14 : hover.x + 14
@@ -21,6 +24,9 @@ export function Tooltip() {
       <p className="text-[14px] text-ink-3">{node.date_label}</p>
       <h3 className={`text-[17px] font-medium leading-tight ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</h3>
       <p className="mt-1 text-[14.5px] leading-snug text-ink-2">{firstSentence(node.summary)}</p>
+      {mode === 'reach' && reachEnd !== undefined && reachEnd > node.year && (
+        <p className="mt-1 text-[14px] italic leading-snug text-ink-3">Built on until {formatYear(reachEnd)}. How long it lasted is another question.</p>
+      )}
     </div>
   )
 }

@@ -23,6 +23,8 @@ export interface LifeEvent {
   statement: string
   review: 'accepted' | 'candidate' | string
   uncertainty?: string
+  /** "by" means the date is only a latest possible one, and "from" only an earliest. */
+  bound?: 'by' | 'from'
 }
 
 export interface LifeRecord {
@@ -33,6 +35,19 @@ export interface LifeRecord {
 export interface LifecycleFile {
   meta: { provenance?: string; entries: number }
   records: Record<string, LifeRecord>
+}
+
+/**
+ * Reads a research event's date. A bounded date such as "by 15 March 2023" has only one end,
+ * and it stays marked as such, so it cannot be mistaken for the day the event happened.
+ */
+export function readEventDate(date: { earliest?: { year: number }; latest?: { year: number } } | undefined): Pick<LifeEvent, 'start' | 'end' | 'bound'> | null {
+  const earliest = date?.earliest?.year
+  const latest = date?.latest?.year
+  if (earliest !== undefined && latest !== undefined) return { start: earliest, end: latest }
+  if (latest !== undefined) return { start: latest, end: latest, bound: 'by' }
+  if (earliest !== undefined) return { start: earliest, end: earliest, bound: 'from' }
+  return null
 }
 
 export const ROLE_OF_EVENT: Record<string, EventRole> = {
@@ -122,7 +137,8 @@ export function documentedSpan(record: LifeRecord | undefined): DocumentedSpan |
 }
 
 /** True once an event says the thing itself stopped, not only that its sale or support did. */
-export const isFinal = (record: LifeRecord | undefined): boolean => Boolean(record?.events.some((e) => e.type === 'abandonment' || e.type === 'end_of_use'))
+export const isFinal = (record: LifeRecord | undefined): boolean =>
+  Boolean(record?.status.end_of_use !== 'unknown' && record?.events.some((e) => e.type === 'abandonment' || e.type === 'end_of_use'))
 
 /** Joins the sidecar to the loaded entries. Records for entries not on the chart are dropped. */
 export function indexLifecycle(file: LifecycleFile | null, indexById: Map<string, number>): Map<number, LifeRecord> {

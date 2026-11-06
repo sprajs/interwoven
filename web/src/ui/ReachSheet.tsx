@@ -1,7 +1,7 @@
-import { motion } from 'motion/react'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { RowOrder } from '../data/derive.ts'
 import { hasLaterLife, tallyLifecycle } from '../data/lifecycle.ts'
+import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, useApp } from '../store.ts'
 import { CARTOUCHE_WIDTH, COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
@@ -68,6 +68,20 @@ export function ReachSheet() {
     if (!model) return []
     return [...life.entries()].filter(([, record]) => hasLaterLife(record)).sort((a, b) => model.nodes[a[0]]!.year - model.nodes[b[0]]!.year)
   }, [life, model])
+  const cornerRef = useRef<HTMLDivElement>(null)
+  const asideRef = useRef<HTMLElement>(null)
+  // Zooming fills the corners with chart, so what sits in them steps aside until you return.
+  useEffect(() => {
+    return onEngineFrame((engine) => {
+      if (window.innerWidth < CARTOUCHE_WIDTH) return
+      const zoomed = engine.camera.logZoom > 0.12 || engine.camera.logY > 0.12 || engine.pleats.length > 0
+      for (const el of [cornerRef.current, asideRef.current]) {
+        if (!el) continue
+        el.style.opacity = zoomed ? '0' : '1'
+        el.style.pointerEvents = zoomed ? 'none' : ''
+      }
+    })
+  }, [])
   if (!model) return null
 
   const compact = width < COMPACT_WIDTH
@@ -100,17 +114,14 @@ export function ReachSheet() {
   return (
     <>
     {corner && (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="absolute bottom-[116px] left-14 z-10 w-[252px] select-text" style={{ background: 'var(--color-paper)' }}>
+      <div ref={cornerRef} className="absolute bottom-[116px] left-14 z-10 w-[252px] select-text transition-opacity duration-200" style={{ background: 'var(--color-paper)' }}>
         {keys}
-      </motion.div>
+      </div>
     )}
-    <motion.aside
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
+    <aside
+      ref={asideRef}
       style={{ width: compact ? undefined : corner ? 306 : SHEET_WIDTH, background: corner ? 'var(--color-paper)' : undefined }}
-      className={`sheet thin-scroll select-text overflow-y-auto pb-3 ${corner ? '' : 'px-4 pt-3'} ${placement}`}
+      className={`sheet thin-scroll select-text overflow-y-auto pb-3 transition-opacity duration-200 ${corner ? '' : 'px-4 pt-3'} ${placement}`}
       aria-label="About the reach view"
     >
       <div className="flex items-baseline justify-between gap-3">
@@ -185,7 +196,7 @@ export function ReachSheet() {
           )}
         </>
       )}
-    </motion.aside>
+    </aside>
     </>
   )
 }

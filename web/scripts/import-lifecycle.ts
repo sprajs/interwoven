@@ -5,7 +5,7 @@
 // something about it beyond "not yet researched", so absence always means unresearched.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { LATER_STAGES, ROLE_OF_EVENT, type LifeEvent, type LifecycleFile, type LifeRecord } from '../src/data/lifecycle.ts'
+import { LATER_STAGES, readEventDate, ROLE_OF_EVENT, type LifeEvent, type LifecycleFile, type LifeRecord } from '../src/data/lifecycle.ts'
 
 const dir = process.argv[2] ?? join(import.meta.dirname, '../../research/science-technology-graph')
 const readJsonl = (name: string): any[] =>
@@ -26,20 +26,22 @@ for (const event of events) {
 
 const records: Record<string, LifeRecord> = {}
 for (const node of nodes) {
-  const dated: LifeEvent[] = (eventsByNode.get(node.id) ?? [])
-    .filter((e) => e.date?.earliest && e.date?.latest)
-    .map((e) => ({
+  const dated: LifeEvent[] = []
+  for (const e of eventsByNode.get(node.id) ?? []) {
+    const when = readEventDate(e.date)
+    if (!when) continue
+    dated.push({
       id: e.id,
       type: e.event_type,
       role: ROLE_OF_EVENT[e.event_type] ?? 'origin',
-      start: e.date.earliest.year,
-      end: e.date.latest.year,
-      label: e.date.label ?? String(e.date.earliest.year),
+      ...when,
+      label: e.date.label ?? String(when.start),
       statement: e.statement ?? '',
       review: e.review?.historical_claim ?? 'candidate',
       ...(e.uncertainty ? { uncertainty: e.uncertainty } : {}),
-    }))
-    .sort((a, b) => a.start - b.start)
+    })
+  }
+  dated.sort((a, b) => a.start - b.start)
 
   const status: LifeRecord['status'] = {}
   for (const stage of LATER_STAGES) {
