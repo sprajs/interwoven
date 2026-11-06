@@ -48,6 +48,47 @@ function guess(e: WheelLike): WheelDevice {
   return Math.abs(e.deltaY) >= 50 && Number.isInteger(e.deltaY) ? 'mouse' : 'trackpad'
 }
 
+/** How far a scroll must travel before its direction is judged, since a gesture starts noisily. */
+const LOCK_AFTER_PX = 3
+/** Zoom per pixel of two-finger scroll, about 1.5x for a short stroke of 100 px. */
+const SCROLL_ZOOM_RATE = 0.004
+/** The most one event can zoom, so that a hard flick cannot leap past everything in view. */
+const SCROLL_ZOOM_LIMIT = 0.3
+
+export type ScrollIntent = 'zoom' | 'pan'
+
+/**
+ * Two fingers up or down zoom, and sideways they pan. Fingers always drift, so a gesture
+ * keeps the direction it started in until it ends, including its momentum.
+ */
+export class ScrollLock {
+  private intent: ScrollIntent | null = null
+  private lastTime = -Infinity
+  private travelX = 0
+  private travelY = 0
+
+  /** The intent of this event, or null while the gesture is still too short to judge. */
+  resolve(dx: number, dy: number, time: number): ScrollIntent | null {
+    if (time - this.lastTime >= STICKY_MS) {
+      this.intent = null
+      this.travelX = 0
+      this.travelY = 0
+    }
+    this.lastTime = time
+    if (this.intent) return this.intent
+    this.travelX += Math.abs(dx)
+    this.travelY += Math.abs(dy)
+    if (this.travelX + this.travelY < LOCK_AFTER_PX) return null
+    this.intent = this.travelX > this.travelY ? 'pan' : 'zoom'
+    return this.intent
+  }
+}
+
+/** The log zoom for a two-finger scroll. Scrolling down zooms out, as a mouse wheel does. */
+export function scrollZoomDelta(dy: number): number {
+  return Math.max(-SCROLL_ZOOM_LIMIT, Math.min(SCROLL_ZOOM_LIMIT, -dy * SCROLL_ZOOM_RATE))
+}
+
 /** How many notches a wheel event is worth, however the platform scaled it. */
 export function wheelNotches(e: Pick<WheelLike, 'deltaY' | 'deltaMode' | 'wheelDeltaY'>): number {
   if (e.wheelDeltaY) return -e.wheelDeltaY / 120

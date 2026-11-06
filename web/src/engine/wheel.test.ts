@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { WheelClassifier, wheelNotches } from './wheel.ts'
+import { ScrollLock, scrollZoomDelta, WheelClassifier, wheelNotches } from './wheel.ts'
 
 const event = (over: Partial<Parameters<WheelClassifier['classify']>[0]>) => ({ ctrlKey: false, metaKey: false, deltaX: 0, deltaY: 0, deltaMode: 0, timeStamp: 0, ...over })
 
@@ -27,6 +27,49 @@ describe('WheelClassifier', () => {
     expect(c.classify(event({ deltaY: 7, wheelDeltaY: -21, timeStamp: 0 }))).toBe('trackpad')
     expect(c.classify(event({ deltaY: 40, wheelDeltaY: -120, timeStamp: 16 }))).toBe('trackpad')
     expect(c.classify(event({ deltaY: 40, wheelDeltaY: -120, timeStamp: 1000 }))).toBe('mouse')
+  })
+})
+
+describe('ScrollLock', () => {
+  it('zooms for two fingers up or down, and pans for sideways', () => {
+    expect(new ScrollLock().resolve(0, 12, 0)).toBe('zoom')
+    expect(new ScrollLock().resolve(0, -12, 0)).toBe('zoom')
+    expect(new ScrollLock().resolve(12, 0, 0)).toBe('pan')
+  })
+
+  it('zooms when a stroke is exactly diagonal', () => {
+    expect(new ScrollLock().resolve(6, 6, 0)).toBe('zoom')
+  })
+
+  it('waits until a gesture has moved far enough to judge', () => {
+    const lock = new ScrollLock()
+    expect(lock.resolve(1, 0, 0)).toBeNull()
+    expect(lock.resolve(0, 8, 10)).toBe('zoom')
+  })
+
+  it('keeps its direction when the fingers drift, and through momentum', () => {
+    const lock = new ScrollLock()
+    expect(lock.resolve(0, 20, 0)).toBe('zoom')
+    expect(lock.resolve(40, 2, 16)).toBe('zoom')
+    expect(lock.resolve(30, 0, 32)).toBe('zoom')
+  })
+
+  it('judges afresh after a pause', () => {
+    const lock = new ScrollLock()
+    expect(lock.resolve(0, 20, 0)).toBe('zoom')
+    expect(lock.resolve(20, 0, 500)).toBe('pan')
+  })
+})
+
+describe('scrollZoomDelta', () => {
+  it('zooms in for negative scroll and out for positive, as a wheel does', () => {
+    expect(scrollZoomDelta(-50)).toBeGreaterThan(0)
+    expect(scrollZoomDelta(50)).toBeLessThan(0)
+  })
+
+  it('limits how far one hard flick can jump', () => {
+    expect(scrollZoomDelta(-100000)).toBe(0.3)
+    expect(scrollZoomDelta(100000)).toBe(-0.3)
   })
 })
 
