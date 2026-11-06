@@ -53,8 +53,8 @@ Where the evidence stops, three dots and a question mark indicate unknown contin
 | Action | Trackpad | Mouse | Touch |
 | --- | --- | --- | --- |
 | Pan | Two fingers sideways, or drag | Drag | Drag |
-| Zoom | Two fingers up or down, or pinch | Wheel | Pinch diagonally |
-| Zoom time only | Pinch or scroll over the ruler, or hold Option | Wheel over the ruler, or hold Option | Pinch sideways |
+| Zoom time | Two fingers up or down, or Option and pinch | Wheel | Pinch sideways |
+| Zoom time and height | Pinch | Not available | Pinch diagonally |
 | Zoom height only | Scroll over the left margin, or Shift and pinch | Wheel over the left margin | Pinch upright |
 
 Dragging either end of the bracket in the strip at the bottom stretches it, which also zooms time alone.

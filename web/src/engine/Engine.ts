@@ -898,7 +898,8 @@ export class Engine {
     if (device === 'pinch') {
       this.camera.zoomAt(x, y, -dy * 0.012, axis, true)
     } else if (device === 'mouse' && !e.shiftKey) {
-      this.camera.zoomAt(x, y, -wheelNotches(e as WheelEvent & { wheelDeltaY?: number }) * 0.26, axis)
+      // Scrolling narrows time. Height changes only over the left margin, or by pinching.
+      this.camera.zoomAt(x, y, -wheelNotches(e as WheelEvent & { wheelDeltaY?: number }) * 0.26, axis === 'both' ? 'time' : axis)
     } else if (e.shiftKey) {
       this.camera.panBy(-dy - dx, 0)
     } else if (axis !== 'both') {
@@ -907,7 +908,7 @@ export class Engine {
       if (dx !== 0) this.camera.panBy(-dx, 0)
     } else {
       const intent = this.scrollLock.resolve(dx, dy, e.timeStamp)
-      if (intent === 'zoom') this.camera.zoomAt(x, y, scrollZoomDelta(dy), 'both', true)
+      if (intent === 'zoom') this.camera.zoomAt(x, y, scrollZoomDelta(dy), 'time', true)
       else if (intent === 'pan') this.camera.panBy(-dx, -dy)
     }
     this.setHover(null, 0, 0)
