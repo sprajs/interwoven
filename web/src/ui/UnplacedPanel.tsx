@@ -78,13 +78,15 @@ export function UnplacedPanel() {
           className="sheet thin-scroll absolute inset-x-0 bottom-0 z-30 h-[56vh] select-text overflow-y-auto border-t border-rule px-6 pb-8 pt-4 compact:px-18"
           aria-label="Entries awaiting a date"
         >
-          <div className="flex flex-wrap items-baseline gap-x-8 gap-y-1">
+          <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
             <h2 className="text-head">Awaiting a date</h2>
-            <p className="note min-w-0 flex-1 basis-96">
+            <div className="order-1 ml-auto compact:order-3 compact:ml-0">
+              <CloseButton onClick={() => setOpen(false)} label="Close" />
+            </div>
+            <p className="note order-2 min-w-0 basis-full compact:order-1 compact:flex-1 compact:basis-0">
               These {model.unplaced.length} entries are in the research, but none has a researched date to stand on yet, so the chart does not guess one: {reasons.researching} not yet researched, {reasons.unknown} researched and still unknown, {reasons.open} with a date open at one end. Each moves onto the chart when its date is settled.
             </p>
-            <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Filter entries awaiting a date" placeholder="Filter" className="w-48 border-b border-rule bg-transparent text-body outline-none placeholder:text-ink-3" />
-            <CloseButton onClick={() => setOpen(false)} label="Close" />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Filter entries awaiting a date" placeholder="Filter" className="order-3 w-full border-b border-rule bg-transparent text-body outline-none placeholder:text-ink-3 compact:order-2 compact:w-48" />
           </div>
 
           <div className="mt-6 gap-8" style={{ columnWidth: LAYOUT.column }}>

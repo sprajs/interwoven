@@ -120,8 +120,8 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
   const densityMode = engine.mix.hatching > 0.5
   const landmarkMode = engine.view.mode === 'landmarks'
   const inReach = engine.view.mode === 'reach'
-  rowsMode = engine.mix.weave > 0.5
   const inStory = engine.view.mode === 'story' && engine.view.story !== null
+  rowsMode = engine.mix.weave > 0.5 || inStory
   // In rows, the title sits to the left of its mark and the rule runs on to the right.
   const natural = inReach ? -1 : 1
   const rightLimit = W - cam.insets.right + 16
