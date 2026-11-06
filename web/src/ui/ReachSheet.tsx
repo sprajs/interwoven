@@ -123,12 +123,13 @@ export function ReachSheet() {
             <div className="mt-4">{keys}</div>
 
             <table className="figures mt-4 w-full border-t border-rule text-note text-ink-2">
-              <caption className="sr-only">Reviewed scoped lifecycle episodes</caption>
+              <caption className="pb-1 text-left">Reviewed scoped episodes</caption>
               <tbody>
                 {[
+                  ['Adoption', tally.counts.adoption],
                   ['Decline', tally.counts.decline],
                   ['Withdrawal', tally.counts.withdrawal],
-                  ['Last use', tally.counts.end_of_use],
+                  ['End of use within scope', tally.counts.end_of_use],
                   ['Abandonment', tally.counts.abandonment],
                   ['Revival', tally.counts.revival],
                 ].map(([name, count]) => (

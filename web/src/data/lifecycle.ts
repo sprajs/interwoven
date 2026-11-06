@@ -109,17 +109,18 @@ export function lifeDateLabel(event: LifeEvent): string {
 export interface LifeTally {
   total: number
   withLifecycleEvidence: number
-  counts: Record<'decline' | 'withdrawal' | 'end_of_use' | 'abandonment' | 'revival', number>
+  /** Accepted scoped episodes, independent of broader node-stage assessments. */
+  counts: Record<LaterStage, number>
   statedUnknown: number
 }
 export function tallyLifecycle(records: Iterable<LifeRecord>, total: number): LifeTally {
-  const counts: LifeTally['counts'] = { decline: 0, withdrawal: 0, end_of_use: 0, abandonment: 0, revival: 0 }
+  const counts: LifeTally['counts'] = { adoption: 0, decline: 0, withdrawal: 0, end_of_use: 0, abandonment: 0, revival: 0 }
   let withLifecycleEvidence = 0, statedUnknown = 0
   for (const record of records) {
     if (hasLifecycleEvidence(record)) withLifecycleEvidence++
     const accepted = reviewedLifeEvents(record)
-    for (const key of Object.keys(counts) as (keyof LifeTally['counts'])[]) {
-      if (record.status[key] === 'documented' && accepted.some((e) => e.type === key && record.stages[key]?.event_ids.includes(e.id))) counts[key]++
+    for (const event of accepted) {
+      if (LATER_STAGES.includes(event.type as LaterStage)) counts[event.type as LaterStage]++
     }
     if (record.status.end_of_use === 'unknown') statedUnknown++
   }

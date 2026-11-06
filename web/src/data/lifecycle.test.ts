@@ -86,10 +86,10 @@ describe('scoped lifecycle evidence', () => {
     expect(r.status.end_of_use).toBe('unknown')
     expect(r).not.toHaveProperty('span')
     expect(r).not.toHaveProperty('final')
-    expect(tallyLifecycle([r], 1).counts).toEqual({ decline: 0, withdrawal: 1, end_of_use: 0, abandonment: 0, revival: 0 })
+    expect(tallyLifecycle([r], 1).counts).toEqual({ adoption: 0, decline: 0, withdrawal: 1, end_of_use: 0, abandonment: 1, revival: 0 })
   })
 
-  it('requires accepted classification, scoped source evidence and stage membership for counts', () => {
+  it('requires accepted classification and scoped source evidence for episode counts', () => {
     const r = record([event('withdrawal', 'withdrawal', 2023)])
     const e = r.events[0]!
     expect(isReviewedLifeEvent(e)).toBe(true)
@@ -102,7 +102,19 @@ describe('scoped lifecycle evidence', () => {
       expect(tallyLifecycle([{ ...r, events: [changed] }], 1).counts.withdrawal).toBe(0)
     }
     r.stages.withdrawal!.event_ids = ['different-event']
-    expect(tallyLifecycle([r], 1).counts.withdrawal).toBe(0)
+    expect(tallyLifecycle([r], 1).counts.withdrawal).toBe(1)
+  })
+
+  it('counts multiple scoped retirements while the broader family end remains unknown', () => {
+    const n = entry(), before = JSON.stringify(n)
+    const r = record([event('site-a', 'end_of_use', 1978), event('site-b', 'end_of_use', 2009), event('adopted', 'adoption', 1930),
+      { ...event('pending', 'end_of_use', 2010), lifecycle_review: 'needs_review' }], n)
+    expect(tallyLifecycle([r], 1)).toMatchObject({ withLifecycleEvidence: 1, statedUnknown: 1, counts: { adoption: 1, end_of_use: 2 } })
+    expect(r.status.end_of_use).toBe('unknown')
+    expect(r.stages.end_of_use!.event_ids).toEqual([])
+    expect(JSON.stringify(n)).toBe(before)
+    expect(r).not.toHaveProperty('span')
+    expect(r).not.toHaveProperty('final')
   })
 
   it('retains unknown-date episodes and explicit unknown states without plotting fabricated coordinates', () => {
