@@ -1,0 +1,74 @@
+<div id="graph-comparison-explorer">
+  <style>
+    #graph-comparison-explorer { display: grid; gap: calc(var(--font-size-base) * 1); }
+    #graph-comparison-explorer .comparison-detail { display: grid; gap: calc(var(--font-size-base) * .5); overflow-wrap: anywhere; }
+  </style>
+  <h3>Compare audit findings</h3>
+  <div class="viz-row" id="comparison-counts"></div>
+  <div class="viz-controls">
+    <label class="form-label" for="comparison-view">View
+      <select id="comparison-view" class="form-select">
+        <option value="connection">Connection verdicts</option>
+        <option value="entry">Entry verdicts</option>
+        <option value="removal">Removed entries</option>
+        <option value="added_entry">Added entries</option>
+        <option value="added_connection">Added connections</option>
+      </select>
+    </label>
+    <label class="form-label" for="comparison-record">Record
+      <select id="comparison-record" class="form-select"></select>
+    </label>
+  </div>
+  <div class="comparison-detail" aria-live="polite">
+    <h3 id="comparison-name"></h3>
+    <span id="comparison-id" class="text-small text-muted"></span>
+    <div id="comparison-verdict" class="viz-row"></div>
+    <div id="comparison-finding"></div>
+    <div id="comparison-identity"></div>
+    <div id="comparison-basis" class="text-small text-muted"></div>
+  </div>
+  <script>
+    (() => {
+      const root = document.getElementById('graph-comparison-explorer');
+      const rows = __COMPARISON_DATA__;
+      const counts = __COMPARISON_COUNTS__;
+      const view = root.querySelector('#comparison-view');
+      const record = root.querySelector('#comparison-record');
+      const fields = Object.fromEntries(['name','id','verdict','finding','identity','basis'].map(k => [k,root.querySelector('#comparison-'+k)]));
+      root.querySelector('#comparison-counts').textContent = counts;
+      function show() {
+        const row = rows.find(r => r.section === view.value && r.id === record.value);
+        if (!row) return;
+        fields.name.textContent = row.title;
+        fields.id.textContent = row.id;
+        fields.verdict.replaceChildren(...row.verdicts.map(t => {
+          const span = document.createElement('span'); span.className = 'viz-badge'; span.textContent = t; return span;
+        }));
+        fields.finding.textContent = row.finding;
+        fields.identity.textContent = row.identity || '';
+        fields.basis.textContent = row.basis;
+      }
+      function populate(selected) {
+        record.replaceChildren(...rows.filter(r => r.section === view.value).map(r => {
+          const option = document.createElement('option'); option.value = r.id;
+          option.textContent = r.title.length > 48 ? r.title.slice(0,45)+'…' : r.title;
+          return option;
+        }));
+        if (rows.some(r => r.section === view.value && r.id === selected)) record.value = selected;
+        show();
+      }
+      function restore(state) {
+        const s = state?.modelContent;
+        if (s && rows.some(r => r.section === s.view)) view.value = s.view;
+        populate(s?.selected);
+      }
+      function save() {
+        if (window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{view:view.value,selected:record.value},privateContent:null}).catch(() => {});
+      }
+      view.addEventListener('change',() => {populate();save();});
+      record.addEventListener('change',() => {show();save();});
+      window.addEventListener('openai:set_globals',event => {if(event.detail?.globals?.widgetState) restore(event.detail.globals.widgetState);});
+      restore(window.openai?.widgetState);
+    })();
+  </script>
+</div>
