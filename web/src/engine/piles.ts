@@ -16,15 +16,19 @@ const TOGETHER_FILL = 0.84
 /** Past this many levels, a stack stops growing: only a huge dataset gets there. */
 const MAX_LEVELS = 400
 /** Clear space around a family's ground line, in CSS pixels. */
-const GROUND = 10
+export const GROUND = 10
 /** How far a family's first mark sits below its rule, once its heading has room. */
 const HEADING = TYPE.note.line * 1.5
 
 export interface PileRow {
   /** Where the family's heading is measured from, 0 to 1 down the sheet. */
   top: number
-  /** Its ground line, 0 to 1 down the sheet. */
+  /** Where its marks are centred at the bottom of a pile, 0 to 1 down the sheet. */
   bottom: number
+  /** Where the feet of those marks rest. */
+  base: number
+  /** The top of its row, past which nothing of the family is drawn. */
+  ceiling: number
   count: number
 }
 
@@ -36,6 +40,36 @@ export interface PileLayout {
   peak: number
   /** How much larger than usual to draw the marks. */
   markScale: number
+  /** The area one entry takes up in a pile, in square CSS pixels. */
+  markArea: number
+}
+
+/** The curve behind the piles is stored at this many steps across the sheet. */
+export const CURVE_BINS = 4096
+/** How widely it smooths, in CSS pixels, so it stays one kind of shape at any zoom. */
+export const CURVE_SIGMA = 20
+
+/**
+ * A kernel density estimate of where entries fall across the sheet, as entries per unit of
+ * position, so that its area is the number of entries. `sigma` is in the same units.
+ */
+export function smoothDensity(positions: ArrayLike<number>, members: readonly number[], sigma: number, bins = CURVE_BINS): Float32Array {
+  const counts = new Float32Array(bins)
+  for (const i of members) counts[Math.max(0, Math.min(bins - 1, Math.floor(positions[i]! * bins)))]! += 1
+  const out = new Float32Array(bins)
+  const spread = Math.max(1, sigma * bins)
+  const reach = Math.ceil(spread * 3)
+  const kernel = new Float32Array(2 * reach + 1)
+  let total = 0
+  for (let k = -reach; k <= reach; k++) total += kernel[k + reach] = Math.exp(-(k * k) / (2 * spread * spread))
+  for (let b = 0; b < bins; b++) {
+    const count = counts[b]!
+    if (count === 0) continue
+    const start = Math.max(0, b - reach)
+    const end = Math.min(bins - 1, b + reach)
+    for (let c = start; c <= end; c++) out[c]! += (count * kernel[c - b + reach]! * bins) / total
+  }
+  return out
 }
 
 /**
@@ -100,7 +134,7 @@ export function layoutPiles({ xs, family, families, included, form, height }: Pi
     const step = Math.min(pitch, peak > 1 ? (ground - pitch / 2) / (peak - 1) : pitch)
     y.fill(ground / height)
     for (const i of order) y[i] = (ground - levels[i]! * step) / height
-    return { y, rows: [], peak, markScale: pitch / PILE_PITCH }
+    return { y, rows: [], peak, markScale: pitch / PILE_PITCH, markArea: pitch * step }
   }
 
   const peaks = groups.map((group) => {
@@ -120,10 +154,10 @@ export function layoutPiles({ xs, family, families, included, form, height }: Pi
     const ground = cursor + spare + peaks[g]! * step + GROUND / 2 - step / 2
     for (const i of group) y[i] = (ground - levels[i]! * step) / height
     // The first family's heading sits straight under the ruler, which is already a rule.
-    rows.push({ top: g === 0 ? 0 : (cursor + HEADING) / height, bottom: ground / height, count: group.length })
+    rows.push({ top: g === 0 ? 0 : (cursor + HEADING) / height, bottom: ground / height, base: (ground + step / 2) / height, ceiling: cursor / height, count: group.length })
     cursor = ground + step / 2 + GROUND / 2
   })
   // Entries left out wait on their family's ground, faded, ready to rejoin it.
   for (let i = 0; i < n; i++) if (!included(i)) y[i] = rows[family[i]!]!.bottom
-  return { y, rows, peak: Math.max(0, ...peaks), markScale: 1 }
+  return { y, rows, peak: Math.max(0, ...peaks), markScale: 1, markArea: PILE_PITCH * step }
 }

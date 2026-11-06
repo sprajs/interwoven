@@ -5,7 +5,7 @@ import { Camera, type Insets, type ZoomAxis } from './camera.ts'
 import { blendFolds, foldAroundYears, foldFromWindows, FoldMap, MAX_FOLD_POINTS, unfoldPleat, type Pleat } from './folds.ts'
 import { createDataTexture, createProgram, type Program } from './gl.ts'
 import { drawOverlay } from './overlay.ts'
-import { layoutPiles, type PileForm, type PileRow } from './piles.ts'
+import { CURVE_BINS, CURVE_SIGMA, GROUND, layoutPiles, smoothDensity, type PileForm, type PileRow } from './piles.ts'
 import * as S from './shaders.ts'
 import { LUT_SIZE, pickTicks } from './time.ts'
 import { ScrollLock, scrollZoomDelta, WheelClassifier, wheelNotches } from './wheel.ts'
@@ -45,17 +45,22 @@ const RULE_COLOR = hexUnit(INK.primary)
 const MARK_MIN = 2.5
 const PLEAT_TONE_ALPHA = 0.04
 const PLEAT_FOLD_ALPHA = 0.13
-const MAX_RECTS = 1400
+const MAX_RECTS = 5000
+/** The curve behind the piles: fine strokes of the family's ink, well behind the marks. */
+const CURVE_SPACING = UNIT / 2
+const CURVE_STROKE = 0.75
+const CURVE_ALPHA = 0.24
+const CURVE_MIN_HEIGHT = 2
 /** How long the page must rest before a pile settles to a new zoom, in milliseconds. */
 const PILE_SETTLE_MS = 140
 const FOLD_SECONDS = 0.62
 /** Periods that can be open at once. More than this stops being a comparison. */
 const MAX_OPEN_PERIODS = 3
-const MODE_MIX: Record<Mode, { marks: number; pile: number; families: number; nodes: number; edges: number; rules: number; weave: number; elbow: number }> = {
-  threads: { marks: 1, pile: 0, families: 1, nodes: 1, edges: 0.85, rules: 1, weave: 0, elbow: 0 },
-  story: { marks: 1, pile: 0, families: 0, nodes: 1, edges: 1, rules: 1, weave: 0, elbow: 1 },
-  reach: { marks: 1, pile: 0, families: 0, nodes: 1, edges: 0.85, rules: 0.6, weave: 1, elbow: 0 },
-  density: { marks: 1, pile: 1, families: 1, nodes: 1, edges: 0, rules: 1, weave: 0, elbow: 0 },
+const MODE_MIX: Record<Mode, { marks: number; pile: number; together: number; families: number; nodes: number; edges: number; rules: number; weave: number; elbow: number }> = {
+  threads: { marks: 1, pile: 0, together: 0, families: 1, nodes: 1, edges: 0.85, rules: 1, weave: 0, elbow: 0 },
+  story: { marks: 1, pile: 0, together: 0, families: 0, nodes: 1, edges: 1, rules: 1, weave: 0, elbow: 1 },
+  reach: { marks: 1, pile: 0, together: 0, families: 0, nodes: 1, edges: 0.85, rules: 0.6, weave: 1, elbow: 0 },
+  density: { marks: 1, pile: 1, together: 0, families: 1, nodes: 1, edges: 0, rules: 1, weave: 0, elbow: 0 },
 }
 
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -124,6 +129,12 @@ export class Engine {
   private yGoal = new Float32Array(0)
   private pileKey = ''
   private pileMarkScale = 1
+  /** Height of the curve for each family and then for everything, across the sheet, easing to the goal. */
+  private curveNow = new Float32Array(0)
+  private curveGoal = new Float32Array(0)
+  private curveMoving = false
+  private curveGround = 1
+  private curveInks: [number, number, number][] = []
   private pileTimer = 0
   private rowsCache = new Map<RowOrder, { rows: Int32Array; y: Float32Array }>()
   private foldFrom = FoldMap.identity()
@@ -453,19 +464,71 @@ export class Engine {
     const cam = this.camera
     const w = this.targetWarp
     const scale = Math.exp(cam.logZoom) * Math.max(1, cam.width - 2 * LAYOUT.margin)
+    const vs = new Float64Array(model.n)
     const xs = new Float64Array(model.n)
-    for (let i = 0; i < model.n; i++) xs[i] = this.foldTo.map(this.uLinear[i]! * (1 - w) + this.uCompressed[i]! * w) * scale
+    for (let i = 0; i < model.n; i++) {
+      vs[i] = this.foldTo.map(this.uLinear[i]! * (1 - w) + this.uCompressed[i]! * w)
+      xs[i] = vs[i]! * scale
+    }
+    const height = Math.max(1, cam.height - cam.insets.top - cam.insets.bottom)
     const layout = layoutPiles({
       xs,
       family: model.familyOf,
       families: model.families.length,
       included: (i) => this.passesFilters(i),
       form: this.view.pile,
-      height: Math.max(1, cam.height - cam.insets.top - cam.insets.bottom),
+      height,
     })
     if (layout.rows.length) this.pileRows = layout.rows
     this.pileMarkScale = layout.markScale
+    this.computeCurves(vs, scale, height, layout.markArea)
     return layout.y
+  }
+
+  /**
+   * The piles smoothed. A curve's area equals the area its marks take up, so it needs no scale of
+   * its own: it rises and falls with them, and a thinner stretch always means fewer entries.
+   */
+  private computeCurves(vs: Float64Array, scale: number, height: number, markArea: number): void {
+    const model = this.model!
+    const families = model.families.length
+    const groups: number[][] = Array.from({ length: families }, () => [])
+    const everything: number[] = []
+    for (let i = 0; i < model.n; i++) {
+      if (!this.passesFilters(i)) continue
+      groups[model.familyOf[i]!]!.push(i)
+      everything.push(i)
+    }
+    if (this.curveGoal.length !== (families + 1) * CURVE_BINS) {
+      this.curveGoal = new Float32Array((families + 1) * CURVE_BINS)
+      this.curveNow = new Float32Array((families + 1) * CURVE_BINS)
+      this.curveInks = [...model.families.map((family) => hexUnit(family.ink)), hexUnit(INK.muted)]
+    }
+    const sigma = CURVE_SIGMA / scale
+    const toHeight = markArea / (scale * height)
+    ;[...groups, everything].forEach((members, t) => {
+      const curve = smoothDensity(vs, members, sigma)
+      for (let b = 0; b < CURVE_BINS; b++) curve[b]! *= toHeight
+      this.curveGoal.set(curve, t * CURVE_BINS)
+    })
+    this.curveGround = (height - GROUND) / height
+    this.curveMoving = true
+  }
+
+  private animateCurves(dt: number): boolean {
+    if (!this.curveMoving) return false
+    const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 6.5)
+    const now = this.curveNow
+    const goal = this.curveGoal
+    let changed = false
+    for (let i = 0; i < now.length; i++) {
+      const d = goal[i]! - now[i]!
+      if (d === 0) continue
+      changed = true
+      now[i] = Math.abs(d) < 0.0002 ? goal[i]! : now[i]! + d * k
+    }
+    this.curveMoving = changed
+    return changed
   }
 
   /** Once the page comes to rest at a new zoom, the piles settle: closer in, they spread and sink. */
@@ -755,7 +818,7 @@ export class Engine {
 
   private animateMix(dt: number): boolean {
     const base = MODE_MIX[this.view.mode === 'story' && !this.followingStory ? 'threads' : this.view.mode]
-    const goal = this.view.mode === 'density' && this.view.pile === 'together' ? { ...base, families: 0, marks: this.pileMarkScale } : base
+    const goal = this.view.mode === 'density' && this.view.pile === 'together' ? { ...base, families: 0, together: 1, marks: this.pileMarkScale } : base
     const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 7)
     let changed = false
     const mix = this.mix as Record<string, number>
@@ -1107,6 +1170,7 @@ export class Engine {
     const mixMoving = this.animateMix(dt)
     const layoutMoving = this.animateLayout(dt)
     const foldMoving = this.animateFold(dt)
+    const curvesMoving = this.animateCurves(dt)
     if (this.model) this.watchPiles()
 
     if (this.model && this.gl && !this.gl.isContextLost()) {
@@ -1117,7 +1181,7 @@ export class Engine {
     }
     this.frameMs = performance.now() - start
 
-    if (cameraMoving || stateMoving || mixMoving || layoutMoving || foldMoving || this.labelsAnimating) {
+    if (cameraMoving || stateMoving || mixMoving || layoutMoving || foldMoving || curvesMoving || this.labelsAnimating) {
       this.raf = requestAnimationFrame(this.frame)
     } else {
       this.lastTime = 0
@@ -1294,7 +1358,7 @@ export class Engine {
     return { top: cam.insets.top - LAYOUT.framePad, bottom: cam.height - cam.insets.bottom + LAYOUT.framePad }
   }
 
-  /** Time as bands of tone behind the chart. */
+  /** Time as bands of tone behind the chart, and in the density view the curve behind the piles. */
   private drawRules(W: number, H: number): void {
     const gl = this.gl
     const cam = this.camera
@@ -1328,6 +1392,8 @@ export class Engine {
       }
     }
 
+    count = this.addCurves(data, count, top, bottom)
+
     if (count === 0) return
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
     gl.useProgram(this.programs.rect.handle)
@@ -1336,6 +1402,43 @@ export class Engine {
     gl.bindBuffer(gl.ARRAY_BUFFER, this.rectBuffer)
     gl.bufferSubData(gl.ARRAY_BUFFER, 0, data.subarray(0, count * 8))
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, count)
+  }
+
+  /** The curve behind the piles, as fine upright strokes rising from each family's ground. */
+  private addCurves(data: Float32Array, start: number, top: number, bottom: number): number {
+    const mix = this.mix
+    if (mix.pile < 0.01 || this.curveNow.length === 0) return start
+    const cam = this.camera
+    const dpr = this.dpr
+    const families = this.curveInks.length - 1
+    const half = (CURVE_STROKE * dpr) / 2
+    const screenY = (y: number) => (y - cam.cy) * cam.yScale + cam.centerY
+    // Strokes are pinned to the page, so they travel with it rather than shimmering.
+    const origin = cam.toX(0)
+    const first = origin - Math.ceil(origin / CURVE_SPACING) * CURVE_SPACING
+    let count = start
+    for (let t = 0; t <= families; t++) {
+      const row = t < families ? this.pileRows[t] : undefined
+      if (t < families && !row) continue
+      const alpha = CURVE_ALPHA * mix.pile * (t < families ? 1 - mix.together : mix.together)
+      if (alpha < 0.004) continue
+      const base = Math.min(bottom, screenY(row ? row.base : this.curveGround))
+      const ceiling = Math.max(top, screenY(row ? row.ceiling : 0))
+      const ink = this.curveInks[t]!
+      const offset = t * CURVE_BINS
+      for (let x = first; x < cam.width && count < MAX_RECTS; x += CURVE_SPACING) {
+        const v = cam.fromX(x)
+        if (v < 0 || v >= 1) continue
+        const height = this.curveNow[offset + Math.floor(v * CURVE_BINS)]! * cam.yScale * mix.pile
+        // Below this a stroke reads as a dot, and a row of them as a line of its own.
+        if (height < CURVE_MIN_HEIGHT) continue
+        const y = Math.max(ceiling, base - height)
+        if (y >= base) continue
+        data.set([x * dpr - half, y * dpr, x * dpr + half, base * dpr, ink[0], ink[1], ink[2], alpha], count * 8)
+        count++
+      }
+    }
+    return count
   }
 
   // ---------------------------------------------------------------- context loss

@@ -4,7 +4,7 @@ Interwoven asks a lot of a reader: time, links, evidence and doubt on one sheet.
 
 ## The chart
 
-**Time is the strongest thing on the page.** A ruler of dark and light cells runs across the top, like a map's scale bar, with each cell headed by the year it starts. The same cells carry down the chart as bands of tone, so a date can be read from anywhere. Each stretch of the ruler divides as finely as it has room for, at one step, so it reads 1800, 1850, 1900. Whatever has your attention drops a line to the ruler, which shows its date.
+**Time runs across the top of the page.** A ruler of two quiet tones runs across the top, like a map's scale bar, with each cell headed by the year it starts. It began in black and paper, which was hard on the eye, so the step is now carried by tone and the years by ink. The same cells carry down the chart as bands of tone, so a date can be read from anywhere. Each stretch of the ruler divides as finely as it has room for, at one step, so it reads 1800, 1850, 1900. Whatever has your attention drops a line to the ruler, which shows its date.
 
 **Entries sit on strands.** A linked entry takes the row of its neighbour if it can, so a thread reads as one line, as on a transit map. A row is held from an entry to the next on its thread, so nothing unrelated sits on a line it has nothing to do with. Threads stay together, and are grouped into six subject families, each with its own ink and a heading at the left of the view. Vertical position therefore means something: family first, then thread.
 
@@ -16,7 +16,7 @@ The research has many short threads and many entries with no links yet. The fami
 
 **The chart keeps the page.** Every view opens at full width. A side sheet opens only on request, and the view's own options sit on one quiet line under the chart.
 
-**Density is made of entries.** Each mark stays at its true date and stacks on whatever it would otherwise cover, so a shape on the page is always a count that can be checked by eye. No curve, smoothing or scale stands between the record and the reader, which is why the view dropped its hatched silhouette. Names give way to the shape: only what has your attention is named. The pointer reads one year on the ruler, never a range. The caveat stays in sight, because the shape shows where research has reached, not how much happened.
+**Density is made of entries.** Each mark stays at its true date and stacks on whatever it would otherwise cover, so a shape on the page is always a count that can be checked by eye. A fine hatched curve sits behind the marks to show the trend: a kernel density estimate with the same area as the marks it smooths, so it has no scale of its own to misread, and it never stands in for them. Names give way to the shape: only what has your attention is named. The pointer reads one year on the ruler, never a range. The caveat stays in sight, because the shape shows where research has reached, not how much happened.
 
 ### What marks and borders say
 
@@ -65,13 +65,13 @@ These use the font's measured average character, 0.454em.
 
 | Token | Value | Used for |
 | --- | --- | --- |
-| `ink` | `#1f1b16` | Names, reading text, the ruler's dark cells |
+| `ink` | `#1f1b16` | Names, reading text, the ruler's years |
 | `ink-2` | `#443c32` | Secondary reading text |
 | `ink-3` | `#5c5347` | Notes |
 | `rule` | ink at 22% | Under headings, around sheets, between families |
 | `rule-soft` | ink at 11% | Between rows |
 
-All text inks clear WCAG AA on both papers, and the ruler's light cell clears it too. Colour belongs to the data, as the six family inks. Text only ever uses the inks above. Family inks also have position and a written heading, so colour never carries identity alone.
+All text inks clear WCAG AA on both papers, and ink clears it on both of the ruler's cells. Colour belongs to the data, as the six family inks. Text only ever uses the inks above. Family inks also have position and a written heading, so colour never carries identity alone.
 
 ## Sources
 

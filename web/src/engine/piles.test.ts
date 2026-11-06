@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { layoutPiles, PILE_PITCH, stackLevels } from './piles.ts'
+import { layoutPiles, PILE_PITCH, smoothDensity, stackLevels } from './piles.ts'
 
 const inOrder = (n: number) => Array.from({ length: n }, (_, i) => i)
 
@@ -40,6 +40,32 @@ describe('stackLevels', () => {
     const n = 2000
     const levels = stackLevels(new Float64Array(n), inOrder(n))
     expect(Math.max(...levels)).toBeLessThan(n)
+  })
+})
+
+describe('smoothDensity', () => {
+  const area = (curve: Float32Array) => curve.reduce((sum, value) => sum + value, 0) / curve.length
+
+  it('keeps an area equal to the number of entries', () => {
+    const positions = [0.3, 0.31, 0.5, 0.7]
+    expect(area(smoothDensity(positions, [0, 1, 2, 3], 0.02))).toBeCloseTo(4, 3)
+  })
+
+  it('leaves out entries that are not among the members', () => {
+    expect(area(smoothDensity([0.3, 0.5, 0.7], [0, 2], 0.02))).toBeCloseTo(2, 3)
+  })
+
+  it('peaks where entries gather and fades away from them', () => {
+    const curve = smoothDensity([0.5, 0.5, 0.5, 0.2], [0, 1, 2, 3], 0.01)
+    const at = (v: number) => curve[Math.floor(v * curve.length)]!
+    expect(at(0.5)).toBeGreaterThan(at(0.2))
+    expect(at(0.8)).toBe(0)
+  })
+
+  it('stays finite for an entry at the very end of the sheet', () => {
+    const curve = smoothDensity([1], [0], 0.02)
+    expect(curve.every(Number.isFinite)).toBe(true)
+    expect(curve[curve.length - 1]!).toBeGreaterThan(0)
   })
 })
 
@@ -95,6 +121,15 @@ describe('layoutPiles', () => {
     const { y } = layoutPiles({ xs: tall, family: new Int32Array(200), families: 1, included: () => true, form: 'together', height: 300 })
     expect(Math.min(...y)).toBeGreaterThanOrEqual(0)
     expect(Math.max(...y)).toBeLessThanOrEqual(1)
+  })
+
+  it('gives every family a ceiling and a base it stays between', () => {
+    const { rows } = layoutPiles({ ...base, form: 'subject' })
+    for (const row of rows) {
+      expect(row.ceiling).toBeLessThan(row.bottom)
+      expect(row.bottom).toBeLessThan(row.base)
+      expect(row.base).toBeLessThanOrEqual(1)
+    }
   })
 
   it('counts only the entries that pass the filters', () => {
