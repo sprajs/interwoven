@@ -41,8 +41,8 @@
   "summary": {
     "candidate_and_integrated_cases": 225,
     "by_status": {
-      "proposed": 158,
-      "integrated": 65,
+      "proposed": 157,
+      "integrated": 66,
       "insufficient": 2
     },
     "by_pod": {
@@ -10648,13 +10648,13 @@
       "owner": "/root/lifecycle_terra",
       "instrument_comparison_contact": "/root/review_terra_electronics",
       "wave": 5,
-      "status": "proposed",
+      "status": "integrated",
       "priority": "P0",
       "kind_hypothesis": "science",
       "title": "Quantitative chemical atom and combining-weight model",
       "proposed_scope": "A discrete-atom chemical model tied to relative combining weights and multiple proportions, separated from ancient philosophical atomism or a modern accurate formula assignment.",
       "frontier_review": {
-        "global_comparison_status": "unresolved",
+        "global_comparison_status": "frontier_supported",
         "new_knowledge_or_method_delta_hypothesis": "A discrete-atom chemical model tied to relative combining weights and multiple proportions, separated from ancient philosophical atomism or a modern accurate formula assignment.",
         "prior_or_contemporaneous_results_anywhere": [
           {
@@ -10672,7 +10672,8 @@
         ],
         "integration_gate": "HOLD until original claim, worldwide predecessors and distinct knowledge/method contribution are independently reviewed. No sole-discoverer, regional-first or earliest-publication claim is accepted by this scout.",
         "routing_if_no_new_delta": "Preserve dated independent recognition, correction, replication or transmission as scoped events on the right result identity; no automatic pruning by resemblance.",
-        "claim_boundary": "State Dalton s incorrect simplest-compound assumptions where material; modern molecular formula knowledge must not be retrofitted."
+        "claim_boundary": "State Dalton s incorrect simplest-compound assumptions where material; modern molecular formula knowledge must not be retrofitted.",
+        "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
       },
       "source_leads": [
         {
@@ -10709,7 +10710,11 @@
         "status": "proposed_not_a_link",
         "existing_target_ids": [],
         "question": "An instrument, dataset or earlier result requires specific evidence of use or contribution. Do not link merely because it was available earlier."
-      }
+      },
+      "canonical_node_id": "cont-a-dalton-chemical-atomic-framework",
+      "review_ledger": "reviews/continuation-12.json",
+      "accepted_scope": "A historical chemical framework connecting relative atomic weights with small whole-number combinations to reason quantitatively about compound compositions, presented conditionally by Thomson in 1807 and by Dalton in 1808. Historical weights, formulas and assumptions were later revised.",
+      "entry_event_id": "cont-a-dalton-chemical-atomic-framework--thomson-1804-recognition"
     },
     {
       "id": "FS-SCI-005",
@@ -13221,12 +13226,12 @@
   "research_baseline_commit": "4c5a10531d3f01a6d51df45bc53aa7f331cc1672",
   "maintenance": "Single current register. Prospective hypotheses and source leads are not accepted historical facts. Historical assertion acceptance and frontier eligibility are separate. Integrated cases are updated in place and linked to exact reviews.",
   "current_canonical": {
-    "nodes": 275,
-    "events": 528,
+    "nodes": 276,
+    "events": 535,
     "relationships": 132,
-    "sources": 637,
-    "nodes_sha256": "7445ce94d665488aee64e249c42c85ff6232c136c4c81ae54b086e958aeeff0c",
-    "new_entries_integrated": 65,
+    "sources": 645,
+    "nodes_sha256": "3986d1b63adf07ba9c6f47eda4c907986c248612a2e4eff605be4a4981a3c723",
+    "new_entries_integrated": 66,
     "confirmed_identity_consolidations": 3,
     "assessment_record": "reviews/frontier-audit.json",
     "identity_refinements": 3,
@@ -13908,6 +13913,36 @@
           "name": "A4",
           "review_file_sha256": "3685afaeb3aab96573de42710a02920bae77a53005d3dd3de6dcbf3a8e76268e",
           "proposal_file_sha256": "c86d6b28be0672c675a0d003566194c65a2a449d99543f22678af58cd617356c"
+        }
+      ],
+      "updated_nodes": [],
+      "updated_events": [],
+      "updated_relationships": [],
+      "updated_sources": []
+    },
+    {
+      "review_ledger": "reviews/continuation-12.json",
+      "wave": 12,
+      "source_manifest_sha256": "504fac7a8d2d87a5166c2c6f73e558e2a8a4f8db87ef90d6f35270536f90c192",
+      "integrated_node_ids": [
+        "cont-a-dalton-chemical-atomic-framework"
+      ],
+      "integrated_event_ids": [
+        "cont-a-dalton-chemical-atomic-framework--wollaston-1808-recognition",
+        "cont-a-dalton-chemical-atomic-framework--dalton-1808-publication",
+        "cont-a-dalton-chemical-atomic-framework--thomson-1813-advocacy",
+        "cont-a-dalton-chemical-atomic-framework--thomson-1807-recognition",
+        "cont-a-dalton-chemical-atomic-framework--thomson-1807-publication",
+        "cont-a-dalton-chemical-atomic-framework--thomson-1804-recognition",
+        "cont-a-dalton-chemical-atomic-framework--thomson-early-teaching-report"
+      ],
+      "integrated_relationship_ids": [],
+      "entry_policy": "Best supported community entry with scope/approximation/open bounds; frontier comparison is separate.",
+      "independent_reviews": [
+        {
+          "name": "A5",
+          "review_file_sha256": "f41ed62ecfedc77d45eee734642576c90d283dfdcd463226544ec7f56132e67d",
+          "proposal_file_sha256": "5b9da662b9f1e4cbb262a97f3322f4f23d254eb1d2715e1a035d55311c128f90"
         }
       ],
       "updated_nodes": [],
