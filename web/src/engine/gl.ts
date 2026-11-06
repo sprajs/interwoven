@@ -31,7 +31,8 @@ export function createProgram(gl: WebGL2RenderingContext, vs: string, fs: string
   const count = gl.getProgramParameter(handle, gl.ACTIVE_UNIFORMS) as number
   for (let i = 0; i < count; i++) {
     const info = gl.getActiveUniform(handle, i)
-    if (info) u[info.name] = gl.getUniformLocation(handle, info.name)
+    // An array is reported as "name[0]". It is set through its first element.
+    if (info) u[info.name.replace(/\[0\]$/, '')] = gl.getUniformLocation(handle, info.name)
   }
   return { handle, u }
 }
