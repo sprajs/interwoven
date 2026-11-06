@@ -1,6 +1,6 @@
 // Keeps the chart current while the dev server runs. When the research data changes it
-// rebuilds public/data/timeline.json and lifecycle.json and reloads the page, but only if the
-// chart would actually change. A failed import leaves the last good chart in place.
+// rebuilds public/data/timeline.json and reloads the page, but only if the chart would
+// actually change. A failed import leaves the last good chart in place.
 import { spawn } from 'node:child_process'
 import { existsSync, readFileSync, watch, type FSWatcher } from 'node:fs'
 import { join, resolve } from 'node:path'
@@ -8,13 +8,6 @@ import type { Plugin } from 'vite'
 
 /** Long enough to let an agent finish writing all four data files. */
 const SETTLE_MS = 1500
-
-const IMPORT_BOTH = `
-import { spawnSync } from 'node:child_process'
-for (const script of ['scripts/import-research.ts', 'scripts/import-lifecycle.ts']) {
-  const { status } = spawnSync(process.execPath, ['--no-warnings', script], { stdio: 'inherit' })
-  if (status !== 0) process.exit(status ?? 1)
-}`
 
 export function researchSync(): Plugin {
   return {
@@ -24,7 +17,7 @@ export function researchSync(): Plugin {
       const web = server.config.root
       const dataDir = resolve(web, '../research/science-technology-graph/data')
       const overridesDir = join(web, 'data')
-      const outputs = ['timeline.json', 'lifecycle.json'].map((name) => join(web, 'public/data', name))
+      const output = join(web, 'public/data/timeline.json')
       const log = (message: string) => server.config.logger.info(`[research-sync] ${message}`, { timestamp: true })
 
       if (!existsSync(dataDir)) {
@@ -32,7 +25,7 @@ export function researchSync(): Plugin {
         return
       }
 
-      const read = () => outputs.map((output) => (existsSync(output) ? readFileSync(output, 'utf8') : '')).join('')
+      const read = () => (existsSync(output) ? readFileSync(output, 'utf8') : '')
       let timer: ReturnType<typeof setTimeout> | undefined
       let running = false
       let again = false
@@ -44,8 +37,7 @@ export function researchSync(): Plugin {
         }
         running = true
         const before = read()
-        // The lifecycle file only follows once the main import has passed its validation.
-        const child = spawn(process.execPath, ['--no-warnings', '--input-type=module', '-e', IMPORT_BOTH], { cwd: web })
+        const child = spawn(process.execPath, ['--no-warnings', 'scripts/import-research.ts'], { cwd: web })
         let text = ''
         child.stdout.on('data', (chunk) => (text += chunk))
         child.stderr.on('data', (chunk) => (text += chunk))

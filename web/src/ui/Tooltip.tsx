@@ -27,7 +27,6 @@ export function Tooltip() {
       <p className="note">{node.date_label}</p>
       <EvidenceBadge strength={node.evidence_strength} />
       <h3 className={`text-body ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</h3>
-      <EvidenceBadge strength={node.evidence_strength} />
       <p className="mt-1 text-note text-ink-2">{firstSentence(node.summary)}</p>
       {node.entry_community && <p className="note mt-1">{node.entry_community}</p>}
       {loose > 0 && <p className="note mt-1">{loose} {loose === 1 ? 'link goes' : 'links go'} to entries not yet placed.</p>}

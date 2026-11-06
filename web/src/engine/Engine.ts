@@ -60,8 +60,8 @@ const REVEAL_ZOOM = [0, 0, 1.7, 3]
 /** Linear time packs the recent past into a sliver, so levels appear later there. */
 const LINEAR_REVEAL_FACTOR = 8
 export const PAPER = hexUnit(PAPER_HEX)
-/** Up to this size the page has room for every mark and link at once, so depth hides none. Names give way by collision. */
-const SHOW_ALL_BELOW = 1000
+/** A page this sparse has room for every entry at once, so depth does not hide any of them. */
+const SHOW_ALL_BELOW = 60
 const RULE_COLOR = hexUnit(INK.primary)
 const HATCH_COLOR = hexUnit(INK.muted)
 /** How strongly the sheet's own marks print, far below any ink carrying data. */
@@ -947,7 +947,7 @@ export class Engine {
     return this.toV(this.nodeU(i))
   }
 
-  /** Whether there is room for every mark at any zoom. Only a chart of thousands needs depth. */
+  /** Whether there is room for everything at any zoom, which is true of a sparse chart. */
   get showsEverything(): boolean {
     return (this.model?.n ?? Infinity) < SHOW_ALL_BELOW
   }

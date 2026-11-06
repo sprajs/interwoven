@@ -1,5 +1,4 @@
 import { motion } from 'motion/react'
-import type { RawNode } from '../data/types.ts'
 import type { Mode } from '../engine/Engine.ts'
 import { useApp } from '../store.ts'
 import { BrokenMark, LooseMark, Mark, MARK_SIZE, RangeMark } from './icons.tsx'
@@ -19,10 +18,6 @@ function Key({ loose }: { loose: boolean }) {
     <ul className="note hidden items-center gap-3 whitespace-nowrap corner:flex" aria-label="Key">
       <li className="flex items-center gap-1"><Mark kind="technology" size={MARK_SIZE.note} />technology</li>
       <li className="science flex items-center gap-1"><Mark kind="science" size={MARK_SIZE.note} />science</li>
-      {has((node) => node.evidence_strength === 'scoped_inference') && <li className="flex items-center gap-1"><Mark kind="science" strength="scoped_inference" size={MARK_SIZE.note} />inferred</li>}
-      {has((node) => node.evidence_strength === 'awareness_proxy') && <li className="flex items-center gap-1"><Mark kind="science" strength="awareness_proxy" size={MARK_SIZE.note} />awareness proxy</li>}
-      {has((node) => node.date_kind === 'known_by') && <li>← known by</li>}
-      {has((node) => node.date_kind === 'known_from') && <li>not before →</li>}
       <li className="flex items-center gap-1"><RangeMark />date range</li>
       <li className="flex items-center gap-1"><BrokenMark />awaiting review</li>
       <li className="flex items-center gap-1" title="An awareness proxy: a publication or similar stands in for when people could have known of it"><Mark kind="science" strength="awareness_proxy" size={MARK_SIZE.note} />proxy</li>

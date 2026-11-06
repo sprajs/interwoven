@@ -52,10 +52,7 @@ export function readEventDate(date: { earliest?: { year: number }; latest?: { ye
 
 export const ROLE_OF_EVENT: Record<string, EventRole> = {
   commercial_offer: 'use',
-  commercial_availability: 'use',
   first_commercial_availability: 'use',
-  public_availability: 'use',
-  practical_use: 'use',
   practical_deployment: 'use',
   adoption: 'use',
   production: 'use',
@@ -73,10 +70,7 @@ export const isLaterLife = (type: string): boolean => type in ROLE_OF_EVENT
 
 export const EVENT_NAMES: Record<string, string> = {
   commercial_offer: 'Offered for sale',
-  commercial_availability: 'On sale',
   first_commercial_availability: 'First on sale',
-  public_availability: 'Publicly available',
-  practical_use: 'In use',
   practical_deployment: 'Put to use',
   adoption: 'Adopted',
   production: 'Made',

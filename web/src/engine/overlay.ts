@@ -35,12 +35,6 @@ function tierStep(level: number): TypeStep {
   return (rowsMode ? ROW_TIER_TYPE : TIER_TYPE)[level] ?? 'note'
 }
 
-/** A name, with a plain statement of how far its evidence goes when that is not direct. */
-const labelText = (node: RawNode) => node.title + (node.evidence_strength === 'awareness_proxy' ? ' [proxy]' : node.evidence_strength === 'scoped_inference' ? ' [inferred]' : '')
-
-/** A one-sided date draws an arrow beside its mark, so its name stands clear of the arrow. */
-const labelGap = (node: RawNode, radius: number) => radius * (node.date_kind === 'known_by' || node.date_kind === 'known_from' ? 3.2 : 1) + LABEL_GAP
-
 /** Label fonts are asked for thousands of times a frame, so each is only built once. */
 const labelFonts = new Map<string, string>()
 
@@ -367,8 +361,8 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       const px = cam.toX(engine.nodeV(i))
       const py = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
       if (px < -20 || px > W + 20) continue
-      const gap = labelGap(node, model.radius[i]!)
-      const titleWidth = measure(ctx, labelText(node), labelFont(node.level, node.kind === 'science'))
+      const gap = model.radius[i]! + LABEL_GAP
+      const titleWidth = measure(ctx, node.title, labelFont(node.level, node.kind === 'science'))
       const onLeft = sideOf.get(i) === -1
       const titleX = onLeft ? px - gap - titleWidth : px + gap
       const titleH = TYPE[tierStep(node.level)].line / 2
