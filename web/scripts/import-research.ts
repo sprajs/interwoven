@@ -25,7 +25,7 @@ const FAMILIES: { name: string; ink: string; labels: string[] }[] = [
   { name: 'Number & print', ink: INK.moss, labels: ['mathematics', 'arithmetic', 'calculation', 'accounting', 'printing', 'knowledge-transmission', 'timekeeping', 'measurement'] },
   { name: 'Water & wayfinding', ink: INK.verdigris, labels: ['water', 'mills', 'navigation', 'transport', 'agriculture', 'aquaculture'] },
   { name: 'Materials', ink: INK.madder, labels: ['metallurgy', 'materials', 'ceramics', 'polymers', 'chemistry', 'glass'] },
-  { name: 'Heat & power', ink: INK.ochre, labels: ['heat', 'steam', 'energy', 'machining', 'electric-power', 'mechanisms'] },
+  { name: 'Heat & power', ink: INK.ochre, labels: ['heat', 'steam', 'energy', 'machining', 'electric-power', 'mechanisms', 'physics'] },
   { name: 'Electricity & computing', ink: INK.indigo, labels: ['electromagnetism', 'radio', 'batteries', 'communication', 'electronics', 'semiconductors', 'computing', 'integrated-circuits'] },
   { name: 'Light & life', ink: INK.plum, labels: ['optics', 'astronomy', 'instruments', 'molecular-biology', 'medicine', 'evolution'] },
 ]

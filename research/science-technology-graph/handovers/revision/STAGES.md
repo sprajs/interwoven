@@ -181,3 +181,24 @@ labels and fresh proposition-bound decisions. No new causal link was inferred
 merely from their importance. Counts: 289 entries, 561 events, 151 links, 654
 sources. Validator, 140 web tests and production build passed. Raw source bytes
 are preserved; whitespace checking excludes acquired originals.
+
+## Stage 7, batch B — completed
+
+Eleven additional scoped capabilities cover the next priorities: Leibniz calculus,
+Copernican system, special relativity, final gravitational field equations,
+matrix quantum mechanics, fission, controlled chain reaction, Newcomen pumping,
+steam rail traction, magnetic direction finding and gunpowder. The already-present
+ammonia synthesis was not duplicated. Earlier Planck and Newton developments
+remain distinct research leads, not silently assigned the dates of later work.
+
+Manuscript/circulation records precede later publications where supported. The
+museum's modern steam-locomotive reconstruction is explicitly distinguished from
+the 1804 original capability. Compass and gunpowder dates retain documentary bounds,
+not invention-year assertions. Fission's 1938 chemical evidence and 1939 physical
+interpretation remain distinct contributions. No operational weapon instructions
+or historical claims of exclusive priority were added.
+
+Eleven sources were read; one raw-capture failure uses an attributed live-read
+note. Source access and later English translations remain explicit. Counts: 300
+entries, 583 events, 151 links, 665 sources. Validator, 140 web tests and production
+build passed. No historian hold was settled to admit this batch.
