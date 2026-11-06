@@ -91,7 +91,7 @@ export interface ResearchEvent {
 export interface ResearchNode {
   id: string
   label: string
-  kind: 'science' | 'technology'
+  kind: 'science' | 'technology' | 'mathematics' | 'practice'
   tier?: Level
   icon?: string
   labels?: string[]
@@ -113,7 +113,7 @@ export interface ResearchNode {
 export interface ResearchRecords {
   nodes: ResearchNode[]
   events: ResearchEvent[]
-  relationships: { id: string; from: { node_id: string; event_id?: string }; to: { node_id: string; event_id?: string }; relation: string; statement?: string; temporal_note?: string; review?: { historical_claim: string } }[]
+  relationships: { id: string; from: { node_id: string; event_id?: string }; to: { node_id: string; event_id?: string }; relation: string; statement?: string; influence?: string; confidence?: string; temporal_note?: string; review?: { historical_claim: string } }[]
   sources: { id: string; title: string; url?: string; year?: string | number | (string | number)[] }[]
 }
 
@@ -307,6 +307,7 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   const links: RawLink[] = records.relationships.map((link) => ({
     id: link.id, from: link.from.node_id, to: link.to.node_id,
     from_event_id: link.from.event_id, to_event_id: link.to.event_id,
+    influence: link.influence, confidence: link.confidence, causal: !['same-principle','same-family','companion-of'].includes(link.relation),
     relation: link.relation.replace(/-/g, ' '), statement: link.statement,
     temporal_note: link.temporal_note, tentative: link.review?.historical_claim !== 'accepted',
   }))

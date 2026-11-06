@@ -153,7 +153,7 @@ export function DetailPanel() {
           </div>
           <h2 className={`text-head ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</h2>
           <p className="note mt-1">
-            {node.kind === 'science' ? 'Science' : 'Technology'}
+            {node.kind.charAt(0).toUpperCase() + node.kind.slice(1)}
             {node.regions.length > 0 && <> · {node.regions.join('; ')}</>}
           </p>
           <EvidenceBadge strength={node.evidence_strength} />
@@ -189,8 +189,11 @@ export function DetailPanel() {
             </button>
           )}
 
-          <LinkList title="Built on" links={model.links.filter((link) => link.to === node.id)} side="from" model={model} />
-          <LinkList title="Led to" links={model.links.filter((link) => link.from === node.id)} side="to" model={model} />
+          <LinkList title="Built on" links={model.links.filter((link) => link.to === node.id && link.causal !== false)} side="from" model={model} />
+          <LinkList title="Led to" links={model.links.filter((link) => link.from === node.id && link.causal !== false)} side="to" model={model} />
+
+          <LinkList title="Related parts and principles" links={model.links.filter((link) => link.causal === false && link.to === node.id)} side="from" model={model} />
+          <LinkList title="Related parts and principles" links={model.links.filter((link) => link.causal === false && link.from === node.id)} side="to" model={model} />
 
           <LifeSection entry={node} index={selected} />
 

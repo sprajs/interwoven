@@ -133,7 +133,7 @@ describe('research importer placement', () => {
     expect(data.nodes[0]!.entry_date).not.toHaveProperty('earliest')
     expect(data.events![offer.id]!.date).toMatchObject({ status: 'known', earliest: { year: 1910 }, latest: { year: 1910 } })
     expect(JSON.stringify(current)).toBe(before)
-    expect(nodeMarkStyle(data.nodes[0]!)).toBe(2)
+    expect(nodeMarkStyle(data.nodes[0]!)).toBe(4)
   })
 
   it.each([
@@ -187,7 +187,7 @@ describe('research importer placement', () => {
     const current = node('s', [disclosure], 'public_awareness', disclosure.id)
     const data = buildResearchDataset(records([current], [disclosure]))
     expect(data.nodes[0]).toMatchObject({ evidence_strength: 'awareness_proxy', entry_basis: 'public_awareness', entry_community: 'Named local specialist community', proxy_justification: expect.any(String) })
-    expect(nodeMarkStyle(data.nodes[0]!)).toBe(17)
+    expect(nodeMarkStyle(data.nodes[0]!)).toBe(33)
     current.community_entry!.entry_basis = 'adoption'
     expect(buildResearchDataset(records([current], [disclosure])).unplaced![0]!.placement_reason).toMatch(/must not be called adoption/)
     current.community_entry!.entry_basis = 'public_awareness'
@@ -230,7 +230,7 @@ describe('research importer placement', () => {
     expect(data.nodes[0]).toMatchObject({ year: -900, end: -900, date_kind: 'known_by', date_label: 'By 900 BCE', evidence_strength: 'scoped_inference' })
     expect(data.nodes[0]).not.toHaveProperty('start')
     expect(data.events![use.id]!.date!.earliest).toEqual({ year: -1250 })
-    expect(nodeMarkStyle(data.nodes[0]!)).toBe(10)
+    expect(nodeMarkStyle(data.nodes[0]!)).toBe(20)
     use.event_type = 'archaeological_evidence'
     expect(buildResearchDataset(records([current], [use])).nodes).toEqual([])
   })

@@ -1,5 +1,5 @@
 {
-  "version": "draft-1",
+  "version": "owner-revision-1",
   "statuses": {
     "not_yet_researched": "Nobody has established this yet. Never replace it with a guess.",
     "unknown": "Investigated, and the evidence does not settle it.",
@@ -138,15 +138,6 @@
         "stimulated": "News or example prompted the work without supplying its content."
       }
     },
-    "dependence": {
-      "question": "How much did the later thing rely on this? Structured form of the existing free-text necessity field. Choose one.",
-      "values": {
-        "required_in_this_case": "This specific instance could not have happened without it. Not a claim about all possible routes.",
-        "materially_enabled": "It made a real practical difference.",
-        "contributed": "It was one input among several.",
-        "stimulus_only": "It prompted the work, and no content passed."
-      }
-    },
     "carrier": {
       "question": "How did the knowledge or thing get across? A link can have several values. Second wave.",
       "values": {
@@ -162,6 +153,16 @@
         "patent_or_licence": "A formal transfer of rights.",
         "commerce": "Buying and selling.",
         "translation": "Moved between languages."
+      }
+    },
+    "influence": {
+      "question": "How much influence is evidenced? Separate from confidence; the sole canonical strength field.",
+      "values": {
+        "minor": "A small evidenced contribution.",
+        "contributing": "One supported input among several.",
+        "major": "A substantial evidenced contribution.",
+        "essential": "Essential to this specific historical instance, not every possible route.",
+        "not_assessed": "Strength has not been established."
       }
     }
   },

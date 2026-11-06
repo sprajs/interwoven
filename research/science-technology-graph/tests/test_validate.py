@@ -94,7 +94,7 @@ def relationship(from_node="node-1", from_event="event-1", to_node="node-2", to_
     return {"schema_version": 1, "id": "relationship-1", "from": {"node_id": from_node, "event_id": from_event},
             "to": {"node_id": to_node, "event_id": to_event}, "relation": "documented-development",
             "statement": "One synthetic historical event informed another.", "scope": "Only the specified fixture configurations.",
-            "evidence": [evidence()], "confidence": "high", "necessity": "Not asserted.", "alternatives": "Not researched.",
+            "evidence": [evidence()], "confidence": "high", "influence": "not_assessed", "alternatives": "Not researched.",
             "uncertainty": "Fixture only.", "temporal_note": "The relationship concerns events, not commercial display anchors.",
             "review": review(), "provenance": provenance()}
 

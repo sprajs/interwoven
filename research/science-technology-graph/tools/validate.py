@@ -337,7 +337,7 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
                     errors.append(issue(path + "." + side + ".event_id", f"event {eid!r} does not belong to {nid!r}", "event_membership"))
                 elif eid in valid_ids["events"]:
                     dated.append(events[eid][0]["date"])
-        if len(dated) == 2 and _definitely_after(dated[0], dated[1]):
+        if edge["relation"] not in {"same-principle", "same-family", "companion-of"} and len(dated) == 2 and _definitely_after(dated[0], dated[1]):
             concerns.append(issue(path, "source event is later than receiving event; review temporal_note and relation direction (commercial display anchors were not compared)", "event_chronology"))
         if edge["relation"] in {"supersedes", "revival-of", "abandonment-of"}:
             inspected = any(sources.get(e["source_id"], ({}, ""))[0].get("inspected_passages") for e in edge["evidence"])

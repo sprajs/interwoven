@@ -19,6 +19,8 @@ function Key() {
   return (
     <ul className="note hidden items-center gap-3 whitespace-nowrap corner:flex" aria-label="Key">
       <li className="flex items-center gap-1"><Mark kind="technology" size={MARK_SIZE.note} />technology</li>
+      <li className="flex items-center gap-1"><Mark kind="mathematics" size={MARK_SIZE.note} />mathematics</li>
+      <li className="flex items-center gap-1"><Mark kind="practice" size={MARK_SIZE.note} />practice</li>
       <li className="science flex items-center gap-1"><Mark kind="science" size={MARK_SIZE.note} />science</li>
       {has((node) => node.evidence_strength === 'scoped_inference') && <li className="flex items-center gap-1" title="Use or availability inferred from the stated context. A box with a broken border."><Mark kind="science" strength="scoped_inference" size={MARK_SIZE.note} />inferred</li>}
       {has((node) => node.evidence_strength === 'awareness_proxy') && <li className="flex items-center gap-1" title="A publication or similar stands in for when people could have known of it. A box with a dotted border."><Mark kind="science" strength="awareness_proxy" size={MARK_SIZE.note} />awareness proxy</li>}

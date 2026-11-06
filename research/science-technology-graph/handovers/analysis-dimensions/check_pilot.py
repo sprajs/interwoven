@@ -50,14 +50,16 @@ for row in pilot_entries:
     for facet in ("advance_type", "change_scale", "prompted_by"):
         check(row, facet, vocab["entry_facets"][facet]["values"])
 for row in pilot_links:
-    if row["id"] not in link_by_id:
+    if row["id"] not in link_by_id and not row.get("archived"):
         errors.append(f"unknown link {row['id']}")
-    for facet in ("contribution", "dependence", "carrier"):
+    for facet in ("contribution", "influence", "carrier"):
         check(row, facet, vocab["link_facets"][facet]["values"])
 
 parents = collections.defaultdict(list)
 touched = collections.Counter()
 for link in links:
+    if link["relation"] in {"companion-of","same-principle","same-family"}:
+        continue
     source, target = link["from"]["node_id"], link["to"]["node_id"]
     parents[target].append(source)
     touched[source] += 1
@@ -84,13 +86,15 @@ print("\nTHE PILOT (one coder, from the graph's own text, no sources reopened)")
 print(f"  entries {len(pilot_entries)}, links {len(pilot_links)}")
 for facet in ("advance_type", "change_scale", "prompted_by"):
     print(f"  entry {facet}: undetermined from the record in {undetermined(pilot_entries, facet)}")
-for facet in ("contribution", "dependence", "carrier"):
+for facet in ("contribution", "influence", "carrier"):
     print(f"  link {facet}: undetermined from the record in {undetermined(pilot_links, facet)}")
 print(f"  entries needing a prerequisite that has no entry yet: {sum(bool(r['open_dependencies']) for r in pilot_entries)}")
 
 print("\nWHAT THE LARGEST RELATION TYPES HIDE (pilot links only)")
 cross = collections.defaultdict(collections.Counter)
 for row in pilot_links:
+    if row["id"] not in link_by_id:
+        continue
     for value in row["contribution"]:
         cross[link_by_id[row["id"]]["relation"]][value] += 1
 for relation, counts in sorted(cross.items(), key=lambda item: -sum(item[1].values())):

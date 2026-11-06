@@ -887,8 +887,10 @@
         },
         "kind": {
           "enum": [
+            "science",
             "technology",
-            "science"
+            "mathematics",
+            "practice"
           ]
         },
         "configuration": {
@@ -1201,12 +1203,14 @@
             "instrument-enables-observation",
             "process-enables-production",
             "theory-informs-design",
-            "observed-combination",
             "bounded-technical-requirement",
             "documented-adaptation",
             "supersedes",
             "revival-of",
-            "abandonment-of"
+            "abandonment-of",
+            "same-principle",
+            "same-family",
+            "companion-of"
           ]
         },
         "statement": {
@@ -1239,10 +1243,6 @@
             "low"
           ]
         },
-        "necessity": {
-          "type": "string",
-          "minLength": 1
-        },
         "alternatives": {
           "type": "string"
         },
@@ -1258,6 +1258,15 @@
         },
         "provenance": {
           "$ref": "#/$defs/provenance"
+        },
+        "influence": {
+          "enum": [
+            "minor",
+            "contributing",
+            "major",
+            "essential",
+            "not_assessed"
+          ]
         }
       },
       "required": [
@@ -1270,12 +1279,12 @@
         "scope",
         "evidence",
         "confidence",
-        "necessity",
         "alternatives",
         "uncertainty",
         "temporal_note",
         "review",
-        "provenance"
+        "provenance",
+        "influence"
       ],
       "additionalProperties": false
     },

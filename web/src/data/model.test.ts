@@ -34,6 +34,17 @@ const dataset = (nodes: RawNode[], links: [string, string][] = []): RawDataset =
 })
 
 describe('buildModel', () => {
+  it('keeps noncausal companions visible without counting them as ancestors', () => {
+    const data = dataset([node('a', 1800), node('b', 1850)], [['a', 'b']])
+    data.links[0]!.causal = false
+    data.links[0]!.relation = 'companion of'
+    const model = buildModel(data)
+    expect(model.edges).toHaveLength(1)
+    expect(model.children[0]).toEqual([])
+    expect(model.parents[1]).toEqual([])
+    expect(model.impact[0]).toBe(0)
+  })
+
   it('keeps every label a node carries and inks it by the first', () => {
     const model = buildModel(dataset([node('x', 1900, ['b', 'a'])]))
     expect(model.nodes[0]!.labels).toEqual(['b', 'a'])

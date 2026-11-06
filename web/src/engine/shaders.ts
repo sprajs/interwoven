@@ -119,9 +119,9 @@ in vec2 vPx;
 out vec4 fragColor;
 
 void main() {
-  float kind = mod(vInfo.x, 2.0);
-  float bound = floor(mod(vInfo.x, 8.0) / 2.0);
-  float strength = floor(vInfo.x / 8.0);
+  float kind = mod(vInfo.x, 4.0);
+  float bound = floor(mod(vInfo.x, 16.0) / 4.0);
+  float strength = floor(vInfo.x / 16.0);
   float r = vInfo.y;
   float aa = 0.7 * uDpr;
   float line = 1.4 * uDpr;
@@ -144,6 +144,10 @@ void main() {
     // Technology: a solid square of ink.
     edge = square;
     open = 0.0;
+  } else if (kind > 2.5) {
+    edge = square;
+  } else if (kind > 1.5) {
+    edge = (p.x + p.y) / 1.3;
   } else {
     // Science: an open circle.
     edge = circle;

@@ -99,10 +99,12 @@ export function buildModel(data: RawDataset): Model {
     if (source === undefined || target === undefined) continue
     const edge: Edge = { source, target, tentative: link.tentative, link }
     edges.push(edge)
-    parents[target]!.push(source)
-    children[source]!.push(target)
-    edgesInto[target]!.push(edge)
-    edgesOutOf[source]!.push(edge)
+    if (link.causal !== false) {
+      parents[target]!.push(source)
+      children[source]!.push(target)
+      edgesInto[target]!.push(edge)
+      edgesOutOf[source]!.push(edge)
+    }
   }
 
   const time = TimeScale.fromYears(nodes.map((node) => node.year))
@@ -173,7 +175,7 @@ export function buildModel(data: RawDataset): Model {
     familyOf,
     families,
     rowStep,
-    reach: computeReach(nodes, edges),
+    reach: computeReach(nodes, edges.filter((edge) => edge.link.causal !== false)),
     life: buildLifeRecords([...nodes, ...(data.unplaced ?? [])], data.events ?? {}),
     indexById,
   }
@@ -185,7 +187,7 @@ const SHAPE_BY_KIND = new Map(KINDS.map((k) => [k.id, k.shape]))
 export function nodeMarkStyle(node: RawNode): number {
   const bound = node.date_kind === 'known_by' ? 1 : node.date_kind === 'known_from' ? 2 : 0
   const strength = node.evidence_strength === 'scoped_inference' ? 1 : node.evidence_strength === 'awareness_proxy' ? 2 : 0
-  return (SHAPE_BY_KIND.get(node.kind) ?? 0) + bound * 2 + strength * 8
+  return (SHAPE_BY_KIND.get(node.kind) ?? 0) + bound * 4 + strength * 16
 }
 
 /** Hops from `start` along `adjacency`, up to `maxHops`. The start node maps to 0. */

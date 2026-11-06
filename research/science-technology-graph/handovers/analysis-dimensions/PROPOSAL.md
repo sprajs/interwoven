@@ -11,7 +11,7 @@ This proposes the labels and new data that would let us ask how breakthroughs ha
 | What was new? | Entry | `advance_type` |
 | What set people working on it? | Entry | `prompted_by` |
 | What passed from A to B? | Link | `contribution` |
-| How much did B rely on A? | Link | `dependence` |
+| How much did B rely on A? | Link | `influence` |
 | How did it get across? | Link | `carrier` |
 | Was the later version better, and by how much? | New records | `lineage`, `capability` |
 | Why is this entry in the graph at all? | Entry | `inclusion_reason` |
@@ -76,7 +76,7 @@ All five are "discovered a planet or moon". A single category would make them lo
 ## Order of work
 
 1. **Finish the science review first.** It may change relation types, entry kinds and tiers, and labels should sit on corrected records.
-2. **Wave 1: label what exists.** `inclusion_reason`, `advance_type`, `change_scale`, `contribution`, `dependence`, `lineage` and `open_dependencies` on the existing records. `open_dependencies` also gives a sourced list of what to research next, in place of guessing at gaps.
+2. **Wave 1: label what exists.** `inclusion_reason`, `advance_type`, `change_scale`, `contribution`, `influence`, `lineage` and `open_dependencies` on the existing records. `open_dependencies` also gives a sourced list of what to research next, in place of guessing at gaps.
 3. **Wave 2: one complete case.** Build telescopes and planetary discovery in full, starting with lens-making and ending with exoplanets, including failures and instruments that went nowhere. Define the list of discoveries up front so it is a real sample. Add `capability` records (aperture, resolving power, wavelength range, cost if available), `prompted_by` and `limit_removed`. Check whether the labels answer your questions here before repeating this anywhere else. A second complete case, such as microscopy or steel, would then show whether a pattern is general.
 4. **Wave 3: context.** `carrier`, `place`, `actor`, `funder`, `parallel_group`, `reception` and `end_reason`.
 
@@ -84,7 +84,7 @@ All five are "discovered a planet or moon". A single category would make them lo
 
 I coded 36 entries and 35 links across optics, heat, steel, semiconductors, sequencing, mathematics and regional work (`pilot-entries.jsonl`, `pilot-links.jsonl`).
 
-- **The record text is enough for some labels.** `advance_type`, `contribution` and `dependence` could be assigned for every record sampled.
+- **The record text is enough for some labels.** `advance_type`, `contribution` and `influence` could be assigned for every record sampled.
 - **`prompted_by` needs real research.** It could not be determined from the text for 24 of 36 entries, and `change_scale` for 10.
 - **The pilot changed the vocabulary.** A clinical or field trial needed its own `advance_type` value, and the Hōkūleʻa voyages needed `supplied_platform`, because neither fitted what I had drafted.
 - **Labels expose other questions.** A laboratory furnace fits poorly as a breakthrough, a surviving book is a witness to a technique and not its start, and laboratory methods are coded as technology. These feed the entry-identity part of the science review.
@@ -107,3 +107,7 @@ These frameworks informed the facets. I cite them from memory and have not reche
 | `parallel_group`, `reception` | Merton on multiples; van Raan on sleeping beauties |
 | Keystones | Bresnahan and Trajtenberg on general-purpose technologies |
 | Use, durability and survival | Edgerton, *The Shock of the Old* |
+
+## Owner revision, 6 November 2026
+
+The sole link strength is now `influence`, separate from confidence; no dependence field is retained. The draft pilot strength values are reset to `not_assessed`, not translated into invented influence findings. Removed pilot links are archived examples only. The original proposal’s two-coder reliability pilot remains required before scaling substantive analysis coding; no agreement statistic is claimed. `advance_type` supplies the entry role dimension, so no second role scheme is introduced.

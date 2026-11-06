@@ -81,3 +81,34 @@ Run `python3 tools/query.py stats` for current counts and `python3 tools/gap_aud
 Historical acceptance is scoped to the recorded propositions and inspected passages; it does not certify complete ancestry, source infallibility or full-document reading. A reviewed community-entry date does not complete the separate research into first commercial availability, adoption, decline, niche survival or last use.
 
 Sources distinguish retained originals, mapped excerpts, attributed partial research notes and external-only access. Selected PDF excerpts retain original-document hashes and explicit page mappings. A blocked download or metadata-only representation is never described as a captured original.
+
+## Kind, relation and consequence boundaries
+
+Kinds describe the referent: `science` is empirical knowledge or explanation;
+`mathematics` is a formal result, representation or calculation method;
+`technology` is an artifact, instrument, material or reproducible technical process;
+`practice` is a learned operational, social or navigational skill/system. Physical
+mathematical instruments remain technology. A cultural setting does not by itself
+turn a technical process into practice. Witnesses do not inherit their broader
+achievement's kind or importance merely from their material substrate.
+
+`documented-development` remains the broad evidenced contribution relation;
+`documented-transmission` requires actual transfer. `documented-adaptation` requires
+modification of a prior design. Instrument, production and theory relations state
+the specific contribution. `bounded-technical-requirement` describes a necessary
+function in the scoped configuration, without claiming personal transmission or
+universal historical inevitability. `companion-of` means evidenced co-function or
+parts of one configuration; `same-principle` and `same-family` express documented
+technical affinity. These three are noncausal and excluded from causal ancestry,
+reach and impact counts. Mere co-documentation warrants no link.
+
+Every link has one `influence` field: minor, contributing, major, essential or
+not_assessed. Confidence concerns support for the statement; influence concerns
+its strength. Necessity prose is retired and preserved in historical ledgers.
+
+Tier 0 requires visible later dependence across several fields or generations.
+Tier 1 is a major field-level contribution, tier 2 a bounded contribution/use or
+transmission, and tier 3 fine detail or a witness. These are editorial consequence
+judgements. Documentation volume, regional representation and survival of a good
+witness are not ranking criteria. `handovers/revision/stage4-tiers.json` records
+the one-pass judgement for every entry and the reason for every move.

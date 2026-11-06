@@ -1,5 +1,5 @@
 /** The dataset format the app reads. `npm run import` builds it from the research graph. */
-export type NodeKind = 'science' | 'technology'
+export type NodeKind = 'science' | 'technology' | 'mathematics' | 'practice'
 
 /** 0 is most prominent. Deeper levels appear as you zoom in. */
 export type Level = 0 | 1 | 2 | 3
@@ -116,6 +116,9 @@ export interface RawLink {
   to_event_id?: string
   relation: string
   statement?: string
+  influence?: string
+  confidence?: string
+  causal?: boolean
   temporal_note?: string
   /** Softer or still unreviewed links are drawn broken. */
   tentative: boolean
@@ -151,5 +154,7 @@ export interface RawDataset {
 export const KINDS: { id: NodeKind; name: string; plural: string; shape: number }[] = [
   { id: 'technology', name: 'Technology', plural: 'Technologies', shape: 0 },
   { id: 'science', name: 'Science', plural: 'Science', shape: 1 },
+  { id: 'mathematics', name: 'Mathematics', plural: 'Mathematics', shape: 2 },
+  { id: 'practice', name: 'Practice', plural: 'Practices', shape: 3 },
 ]
 

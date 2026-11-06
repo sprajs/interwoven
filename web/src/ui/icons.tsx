@@ -11,6 +11,10 @@ export function Mark({ kind, color = 'currentColor', size = MARK_SIZE.body, stre
         <path d="M6 .8L11.2 6 6 11.2.8 6Z" fill="none" stroke={color} strokeWidth="1.6" />
       ) : strength === 'scoped_inference' ? (
         <path d="M1 4V1h3M8 1h3v3M11 8v3H8M4 11H1V8" fill="none" stroke={color} strokeWidth="1.6" />
+      ) : kind === 'mathematics' ? (
+        <path d="M6 .8L11.2 6 6 11.2.8 6Z" fill="none" stroke={color} strokeWidth="1.6" />
+      ) : kind === 'practice' ? (
+        <rect x="1" y="1" width="10" height="10" fill="none" stroke={color} strokeWidth="1.6" />
       ) : kind === 'technology' ? (
         <rect x="1" y="1" width="10" height="10" fill={color} />
       ) : (
