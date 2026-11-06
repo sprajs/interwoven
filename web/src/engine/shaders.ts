@@ -72,8 +72,14 @@ void main() {
     return;
   }
   float r = a.z * uDpr * (0.42 + 0.58 * v) * (1.0 + 0.4 * s.z + 0.18 * mark);
-  float halfSize = r * 2.9 + 8.0 * uDpr;
+  // Quads stay tight: with tens of thousands of nodes, fill rate is the main GPU cost.
+  bool wide = b.a < 0.5 || mark > 0.0 || s.z > 0.05;
+  float halfSize = wide ? r * 2.9 + 8.0 * uDpr : r * 2.0 + 2.0 * uDpr;
   vec2 c = worldToPx(a.x, a.y);
+  if (c.x < -halfSize || c.x > uRes.x + halfSize || c.y < -halfSize || c.y > uRes.y + halfSize) {
+    gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
+    return;
+  }
   vPx = aCorner * halfSize;
   gl_Position = pxToClip(c + vPx);
   vColor = b.rgb;
@@ -174,7 +180,7 @@ void main() {
   float boost = min(ss.z, ts.z);
   float dim = max(ss.y, ts.y);
   float alpha = vis * mix(1.0, 0.05, dim) * (uEdgeAlpha + boost * 0.7);
-  if (alpha < 0.003) {
+  if (alpha < 0.006) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
@@ -256,6 +262,10 @@ void main() {
     return;
   }
   vec2 c = worldToPx(a.x, a.y);
+  if (c.x < -uKernel || c.x > uRes.x + uKernel || c.y < -uKernel || c.y > uRes.y + uKernel) {
+    gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
+    return;
+  }
   vP = aCorner;
   gl_Position = pxToClip(c + aCorner * uKernel);
   vColor = b.rgb * w;
