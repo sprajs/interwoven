@@ -4110,6 +4110,264 @@
       ]
     },
     {
+      "id": "cont-d-w4-aries-database-recovery--entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "5a3f6a12174f18700a815b96f8791dbe8f21b88f6c4b7b813308deff0088e9ac",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-aries-exodus",
+          "locator": "Printed pp. 165–168 and 171–174",
+          "supports": "Wisconsin researchers implemented and measured adapted ARIES-based client-server recovery; data locking was page-level or coarser."
+        },
+        {
+          "source_id": "cont-d-w4-src-aries-db2",
+          "locator": "Printed pp. 182–183",
+          "supports": "DB2 already used write-ahead and compensation logging."
+        },
+        {
+          "source_id": "cont-d-w4-src-aries-paper",
+          "locator": "Printed pp. 94–99, 109–110 and 136–140",
+          "supports": "The IBM paper describes redo-only compensation records linked by UndoNxtLSN and contrasts previous DB2 handling."
+        }
+      ],
+      "limits": "The EXODUS version made architectural modifications and used page-or-coarser data locking; its research implementation is not proof of a production customer or record-level locking. DB2 already supported write-ahead logging, compensation records and partial rollback. The ARIES authors report use to varying degrees in IBM program products by March 1992, but the precise released feature set and first customer use are unresolved.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-ccd-image-sensor--entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "687b5a75fd48b0a76700704b2d7429d3e391eca2bd184321e6be3720310eaa03",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-ccd-melen",
+          "locator": "Printed pp. 106–111",
+          "supports": "The contemporary article compares CCD and established MOS imaging arrays."
+        },
+        {
+          "source_id": "cont-d-w4-src-ccd-ad",
+          "locator": "Printed pp. 43–45",
+          "supports": "Fairchild offered the 500-element CCD101 for prototyping at a stated price."
+        },
+        {
+          "source_id": "cont-d-w4-src-ccd-bucket",
+          "locator": "Printed pp. 97–99, 109",
+          "supports": "The earlier switched-transistor charge register and proposed imaging application are described."
+        }
+      ],
+      "limits": "MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-ctss-file-batch--entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "ee39a9250e3fca51d86c18bc81532f167ae78ed7fe9ea647b4dd6088c1efd8b8",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-ctss-bbn",
+          "locator": "Printed pp. 140–141",
+          "supports": "BBN had already operated a protected PDP-1 time-sharing system."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-anniv",
+          "locator": "Printed pp. 3–4 / PDF p. 12",
+          "supports": "A participant retrospective connects the upgraded disk-based hardware configuration to summer 1963."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-bbn1963",
+          "locator": "Printed pp. 51–52 and 56",
+          "supports": "The 1963 authors report BBN service from September 1962 and identify the absence of a drum program library."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-manual",
+          "locator": "Printed pp. v–vi, 5–6 and 23–24",
+          "supports": "The 1963 guide describes protected operation and named disk files."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-mac",
+          "locator": "Summer Study section",
+          "supports": "A participant history describes visitors using CTSS via terminals while FMS batch work continued."
+        }
+      ],
+      "limits": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-digital-compact-cassette--consumer-withdrawal-1996",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "92cfdd8335f3b1e546542770c00ddefb0d725ce7b418ae0b56a6e13d169db927",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-dcc-2018",
+          "locator": "PDF p. 8",
+          "supports": "The former product manager recalls the 1996 discontinuation."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-1996",
+          "locator": "Selected translated 31 October excerpts",
+          "supports": "The translated report distinguishes consumer production from residual professional supply."
+        }
+      ],
+      "limits": "The Dutch original was not inspected. The withdrawal does not date the last use of media or all hardware.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-digital-compact-cassette--entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "47ce51cf9123175e3f0bc685efc82ea2abf44ce23ded5d1453ca7551d134e101",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-dcc-offer",
+          "locator": "December 1992 opening paragraphs",
+          "supports": "The UK account reports DCC sale beginning in October 1992."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-standard",
+          "locator": "PDF pp. 1–3",
+          "supports": "The manufacturers describe thin-film stationary heads, nine tracks, 384 kbit/s PASC and analogue-cassette playback."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-cx3-audio",
+          "locator": "Printed p. 12",
+          "supports": "The contemporary report specifies 14-bit 44.1 kHz two-channel PCM on the CX-3, with no price or marketing date yet."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-dat",
+          "locator": "Printed p. 17",
+          "supports": "Stationary and rotary DAT were studied before DCC."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-sharp1983",
+          "locator": "Printed p. 42",
+          "supports": "Sharp’s CX-3 prototype already recorded digital audio on ordinary cassettes using an 18-track head."
+        }
+      ],
+      "limits": "The exact first transaction is unknown. Sharp’s 1983 CX-3 prototype already made digital recordings on ordinary Compact Cassettes with a stationary 18-track head and 14-bit 44.1 kHz stereo PCM; its ability to play pre-existing analogue recordings is not established here. DCC combined lossy 384 kbit/s PASC coding, nine tracks per direction and analogue-recording playback: lower-rate coding trades exact sample preservation for compression. This is not a claim of first compatibility, demonstrated cost savings or universal sound superiority. Marketed rotary-head DAT and recordable MiniDisc used different mechanisms. Ordinary analogue tapes were not DCC digital recording media.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-digital-compact-cassette--us-offer-1992",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "63b0ac9d650b3c94fc7fca1810f81a8d3860d35fd677b1a3671d8058269427f7",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-dcc-us",
+          "locator": "Reproduced 5 November release",
+          "supports": "The reproduced release identifies the product and five U.S. cities."
+        }
+      ],
+      "limits": "A reproduced corporate release, not an inspected original wire copy; this does not prove a completed transaction.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-systemr-costed-join-planning--entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "8c2ba198f398c4c051e7e66db29d86c65f8111c38f71b17f48bde5a10af3cb65",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-sysr-reunion",
+          "locator": "Printed pp. 20–21",
+          "supports": "Participants recall Pratt & Whitney engine-parts and Upjohn clinical-research uses."
+        },
+        {
+          "source_id": "cont-d-w4-src-sysr-opt",
+          "locator": "Printed pp. 23–34",
+          "supports": "The optimizer combines catalog statistics, estimated CPU/I/O costs and join-order selection."
+        },
+        {
+          "source_id": "cont-d-w4-src-sysr-history",
+          "locator": "Printed pp. 632–635 and 638–641",
+          "supports": "System R’s multiuser optimizer preceded experimental external-site evaluations in 1978–79."
+        },
+        {
+          "source_id": "cont-d-w4-src-sysr-ingres",
+          "locator": "Section 7, printed pp. 21–24 / PDF pp. 23–26",
+          "supports": "INGRES had an earlier cost recurrence and an implemented smallest-relation selection rule."
+        }
+      ],
+      "limits": "INGRES authors had already formulated a minimum-cost recurrence and implemented a simpler relation-size choice. The 1981 history reports experimental sites, not a commercial product; the reunion does not date each partner’s individual query. The cost optimizer is part of the documented system configuration, not proof every user query used a particular plan.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-uv-erasable-floating-gate-memory--entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "accepted",
+      "proposition_sha256": "aa03ee2a61ee252610c42ebfbe5c6bfa48fd63a8584979e49bcbd58f5d21a2ba",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-eprom-ad",
+          "locator": "Advertisement between printed pp. 35 and 38",
+          "supports": "Intel offered the 2048-bit 1701/1702 devices in stock with immediate distributor delivery."
+        },
+        {
+          "source_id": "cont-d-w4-src-eprom-nvm",
+          "locator": "Earlier floating-gate and MNOS sections",
+          "supports": "Charge-trap and prior floating-gate research preceded the Intel product."
+        },
+        {
+          "source_id": "cont-d-w4-src-eprom-chm",
+          "locator": "Reusable ROM section",
+          "supports": "The museum describes ultraviolet erasure and electrical programming in floating-gate devices."
+        }
+      ],
+      "limits": "Earlier floating-gate research and MNOS charge-trap memories existed; these devices are not the first programmable memory. The advertisement does not establish the earliest offer or a paid transaction.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
       "id": "cont-d-xerox-parc-ethernet-1976--entry",
       "type": "event",
       "historical_claim": "accepted",
@@ -14699,6 +14957,247 @@
       ]
     },
     {
+      "id": "cont-d-w4-aries-database-recovery",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "58c9cc987d0300004cd7f4b5c8b2302154b3c744050a484b9ebdc0f39bf58f25",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-aries-exodus",
+          "locator": "Printed pp. 165–168 and 171–174",
+          "supports": "Wisconsin researchers implemented and measured adapted ARIES-based client-server recovery; data locking was page-level or coarser."
+        },
+        {
+          "source_id": "cont-d-w4-src-aries-db2",
+          "locator": "Printed pp. 182–183",
+          "supports": "DB2 already used write-ahead and compensation logging."
+        },
+        {
+          "source_id": "cont-d-w4-src-aries-paper",
+          "locator": "Printed pp. 94–99, 109–110 and 136–140",
+          "supports": "The IBM paper describes redo-only compensation records linked by UndoNxtLSN and contrasts previous DB2 handling."
+        }
+      ],
+      "limits": "The EXODUS version made architectural modifications and used page-or-coarser data locking; its research implementation is not proof of a production customer or record-level locking. DB2 already supported write-ahead logging, compensation records and partial rollback. The ARIES authors report use to varying degrees in IBM program products by March 1992, but the precise released feature set and first customer use are unresolved.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-ccd-image-sensor",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "25f9d0228517178f72606dcae491056d9e7235f1371af42cd6865e1373dbe5bc",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-ccd-melen",
+          "locator": "Printed pp. 106–111",
+          "supports": "The contemporary article compares CCD and established MOS imaging arrays."
+        },
+        {
+          "source_id": "cont-d-w4-src-ccd-ad",
+          "locator": "Printed pp. 43–45",
+          "supports": "Fairchild offered the 500-element CCD101 for prototyping at a stated price."
+        },
+        {
+          "source_id": "cont-d-w4-src-ccd-bucket",
+          "locator": "Printed pp. 97–99, 109",
+          "supports": "The earlier switched-transistor charge register and proposed imaging application are described."
+        }
+      ],
+      "limits": "MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-ctss-file-batch",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "db5d5f77303f83fb437f59d43711398f84c1484a2320df4c5d075e738a18caea",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-ctss-bbn",
+          "locator": "Printed pp. 140–141",
+          "supports": "BBN had already operated a protected PDP-1 time-sharing system."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-anniv",
+          "locator": "Printed pp. 3–4 / PDF p. 12",
+          "supports": "A participant retrospective connects the upgraded disk-based hardware configuration to summer 1963."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-bbn1963",
+          "locator": "Printed pp. 51–52 and 56",
+          "supports": "The 1963 authors report BBN service from September 1962 and identify the absence of a drum program library."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-manual",
+          "locator": "Printed pp. v–vi, 5–6 and 23–24",
+          "supports": "The 1963 guide describes protected operation and named disk files."
+        },
+        {
+          "source_id": "cont-d-w4-src-ctss-mac",
+          "locator": "Summer Study section",
+          "supports": "A participant history describes visitors using CTSS via terminals while FMS batch work continued."
+        }
+      ],
+      "limits": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-digital-compact-cassette",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "828bd8016337214688253242bce89671f74c062296a92722338b4717392037e5",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-dcc-offer",
+          "locator": "December 1992 opening paragraphs",
+          "supports": "The UK account reports DCC sale beginning in October 1992."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-2018",
+          "locator": "PDF p. 8",
+          "supports": "A former Philips manager recalls the 1996 discontinuation."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-2018",
+          "locator": "PDF p. 8",
+          "supports": "The former product manager recalls the 1996 discontinuation."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-standard",
+          "locator": "PDF pp. 1–3",
+          "supports": "The manufacturers describe thin-film stationary heads, nine tracks, 384 kbit/s PASC and analogue-cassette playback."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-cx3-audio",
+          "locator": "Printed p. 12",
+          "supports": "The contemporary report specifies 14-bit 44.1 kHz two-channel PCM on the CX-3, with no price or marketing date yet."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-dat",
+          "locator": "Printed p. 17",
+          "supports": "Stationary and rotary DAT were studied before DCC."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-sharp1983",
+          "locator": "Printed p. 42",
+          "supports": "Sharp’s CX-3 prototype already recorded digital audio on ordinary cassettes using an 18-track head."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-us",
+          "locator": "Reproduced 5 November release",
+          "supports": "The reproduced release identifies the product and five U.S. cities."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-1996",
+          "locator": "Selected translated 31 October excerpts",
+          "supports": "The translated report distinguishes consumer production from residual professional supply."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-1996",
+          "locator": "Selected translated 31 October excerpts",
+          "supports": "The translation reports withdrawal of consumer production and continued residual supply."
+        },
+        {
+          "source_id": "cont-d-w4-src-dcc-1996",
+          "locator": "Selected translated excerpts",
+          "supports": "Some professional activity and deliveries continued after consumer production ended."
+        }
+      ],
+      "limits": "The exact first transaction is unknown. Sharp’s 1983 CX-3 prototype already made digital recordings on ordinary Compact Cassettes with a stationary 18-track head and 14-bit 44.1 kHz stereo PCM; its ability to play pre-existing analogue recordings is not established here. DCC combined lossy 384 kbit/s PASC coding, nine tracks per direction and analogue-recording playback: lower-rate coding trades exact sample preservation for compression. This is not a claim of first compatibility, demonstrated cost savings or universal sound superiority. Marketed rotary-head DAT and recordable MiniDisc used different mechanisms. Ordinary analogue tapes were not DCC digital recording media.\nA reproduced corporate release, not an inspected original wire copy; this does not prove a completed transaction.\nThe Dutch original was not inspected. The withdrawal does not date the last use of media or all hardware.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-systemr-costed-join-planning",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "2e7751ea6f6d90212a2b2c5061305ec37a42676134cfd87892195e1b42a56c54",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-sysr-reunion",
+          "locator": "Printed pp. 20–21",
+          "supports": "Participants recall Pratt & Whitney engine-parts and Upjohn clinical-research uses."
+        },
+        {
+          "source_id": "cont-d-w4-src-sysr-opt",
+          "locator": "Printed pp. 23–34",
+          "supports": "The optimizer combines catalog statistics, estimated CPU/I/O costs and join-order selection."
+        },
+        {
+          "source_id": "cont-d-w4-src-sysr-history",
+          "locator": "Printed pp. 632–635 and 638–641",
+          "supports": "System R’s multiuser optimizer preceded experimental external-site evaluations in 1978–79."
+        },
+        {
+          "source_id": "cont-d-w4-src-sysr-ingres",
+          "locator": "Section 7, printed pp. 21–24 / PDF pp. 23–26",
+          "supports": "INGRES had an earlier cost recurrence and an implemented smallest-relation selection rule."
+        }
+      ],
+      "limits": "INGRES authors had already formulated a minimum-cost recurrence and implemented a simpler relation-size choice. The 1981 history reports experimental sites, not a commercial product; the reunion does not date each partner’s individual query. The cost optimizer is part of the documented system configuration, not proof every user query used a particular plan.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-uv-erasable-floating-gate-memory",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "a25065e1956b659661cb7c206c8abf1fb3c4a3032b5d2822a7b02f5553154455",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-eprom-ad",
+          "locator": "Advertisement between printed pp. 35 and 38",
+          "supports": "Intel offered the 2048-bit 1701/1702 devices in stock with immediate distributor delivery."
+        },
+        {
+          "source_id": "cont-d-w4-src-eprom-nvm",
+          "locator": "Earlier floating-gate and MNOS sections",
+          "supports": "Charge-trap and prior floating-gate research preceded the Intel product."
+        },
+        {
+          "source_id": "cont-d-w4-src-eprom-chm",
+          "locator": "Reusable ROM section",
+          "supports": "The museum describes ultraviolet erasure and electrical programming in floating-gate devices."
+        }
+      ],
+      "limits": "Earlier floating-gate research and MNOS charge-trap memories existed; these devices are not the first programmable memory. The advertisement does not establish the earliest offer or a paid transaction.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
       "id": "cont-d-xerox-parc-ethernet-1976",
       "type": "node",
       "historical_claim": "accepted",
@@ -20847,6 +21346,27 @@
       "review_basis": [
         {
           "path": "reviews/continuation-03.json",
+          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "cont-d-w4-eprom-4004-tester",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "3a8484462d56818da8303d9967c7b74d31f8fb5a39af20c4347cefae343c27f9",
+      "evidence": [
+        {
+          "source_id": "cont-d-w4-src-faggin-panel",
+          "locator": "Printed p. 20 / PDF p. 20",
+          "supports": "Faggin recalls using 1702 EPROM program storage with a 4004-controlled production tester."
+        }
+      ],
+      "limits": "The account is retrospective and does not establish a customer sale or all masks and versions of the tester.",
+      "review_basis": [
+        {
+          "path": "reviews/continuation-08.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
