@@ -1,0 +1,51 @@
+# Owner-authorized revision, 6 November 2026
+
+Baseline: Stage 1 comparison `5b6972f`; subsequent UI-only commits are preserved.
+Each stage has a separate commit. Fresh decisions bind exact changed propositions;
+they are editorial source reviews, not claims of independent historian approval.
+Original audit verdicts remain unchanged. No merge is approved by this programme
+unless it meets the owner's same-thing, same-source, no-independent-role test.
+
+## Stage 2 — completed
+
+Removed `chem-ph-scale-to-oxford-penicillin` and
+`entry-regional-link-tirta-waterworks-irrigation`. Their complete original records
+and the reasons remain in `reviews/revision-stage2.json`; neither removal declares
+the underlying pH use or inscription false.
+
+Added four passage-confirmed links: Regnault's numerical input to Clausius;
+Joule's first-to-revised magnetic apparatus; polymerase-I capability used by
+plus/minus sequencing; and the bounded induction function in Joule's apparatus.
+No claim identifies the later enzyme preparation with the original physical batch.
+
+The other ten Read proposals remain explicitly qualified in COMPARISON.md. In
+particular, Fleming's supplied strains need a programme/supply receiving event;
+Cooke credits a signalling proposal rather than the current Ampère experiment;
+Field and Marconi do not establish descent from the paid-service endpoint;
+Maudslay's common authorship and adjacent Alcoa timeline entries are insufficient;
+sequencing chemistry is not automatically PCR; chapter membership awaits the
+Stage 4 noncausal relation. The two Franklin transmission routes stay on the
+historian list. These are endpoint/evidence restrictions, not implementation blocks.
+
+Added EDSAC's separately dated first logged program (6 May 1949) and the Great
+Hafir's source-reported construction interval (sixth–fourth centuries BCE).
+The latter does not date its inlet or ducts. Lister's scope on current main already
+includes Glasgow and Preston. Humulin first sale, Barbegal precise chronology and
+function, and Muldoons remain flagged. Shang's qualified upper bound is not
+rewritten as an invented exact onset. Display changes belong to Stage 3.
+
+Validation: graph validator valid with zero concerns; 92 graph tests, 138 web tests,
+and production build passed. Web data was regenerated; the running site process
+was not stopped. Initial untracked research acquisitions were not staged.
+
+## Continuing order
+
+3. Separate earliest record from community entry; show ten actual examples first.
+4. Four kinds, revised relations, influence and a single whole-graph tier pass.
+5. Explicit reviewed topic labels and the revised label vocabulary.
+6. Reconnect only source-supported histories; preserve speculative refusals.
+7. Ranked sourced breakthrough batches starting from the independent gaps list.
+
+The eight historian questions in COMPARISON.md remain held throughout. No code
+change, inaccessible source or missing optional label is treated as a reason to
+stop otherwise independent work. Unknown historical facts stay unknown.
