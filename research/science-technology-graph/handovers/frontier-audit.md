@@ -3,7 +3,7 @@
 This current report accompanies [the exact applied audit](../reviews/frontier-audit.json) and [the targeted comparisons and supporting source records](../reviews/frontier-context.json). Those saved files contain the evidence and decisions needed for inspection. Source-packet filenames in the report are provenance; no temporary baseline or duplicate graph is required. The canonical graph and the current review ledger remain authoritative.
 
 
-Status: all eleven approved units are applied and independently hash-verified in the saved repository. Local commit recording is in progress.
+Status: all eleven approved units are applied and independently hash-verified in the saved repository. The core decisions are committed at `d66eb05`; the exact nine captured comparison files and portable mappings are retained in the following local packaging commit.
 
 The baseline is `30df3e79face637299ca26c88fdd2b1872725894`: 221 nodes, 387 events, 131 relationships and 310 sources. All 221 node IDs occur exactly once in the screening index. Screening is not a completed worldwide-priority investigation for every retained node. Focused follow-up compares seven voyaging entries, seven service entries, six mathematics witness/transmission cases, six further artifact/material comparison cases, AD36, and three process/scale cases. These are comparison case studies, sometimes involving multiple nodes, not a claim of an exhaustive world-history search. Other comparative work supports the specific identity decisions below.
 
