@@ -1,6 +1,6 @@
 # Current research checkpoint
 
-The substantial continuation is active. The current graph has **253 nodes, 458 events, 130 relationships and 500 sources**, with every node placed and labelled. The accepted 221-node baseline at `4c5a105` was refined by eleven independently reviewed frontier-audit units to 210 nodes; **43 new frontier configurations/results** have now been integrated in reviewed batches. The remaining graph is not certified as a completed global-frontier survey.
+The substantial continuation is finishing its already assigned research and review packets. The current graph has **253 nodes, 458 events, 130 relationships and 500 sources**, with every node placed and labelled. The accepted 221-node baseline at `4c5a105` was refined by eleven independently reviewed frontier-audit units to 210 nodes; **43 new frontier configurations/results** have now been integrated in reviewed batches. The remaining graph is not certified as a completed global-frontier survey.
 
 ## Committed audit and current additions
 
@@ -12,7 +12,7 @@ The current addition ledgers are `reviews/continuation-01.json`, `reviews/contin
 
 ## Verification
 
-Strict graph validation has zero errors and concerns. All **841 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **475** distinct canonical source-copy paths, plus **9** separately mapped captured comparison files. Their access/representation/inspected-passage limits remain explicit.
+Strict graph validation has zero errors and concerns. All **841 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **475** distinct canonical source-copy paths, plus **9** frontier-audit and **27** continuation comparison captures mapped separately. Four continuation captures support accepted comparisons, one preserves an unresolved earlier lead within an accepted comparison, and 22 preserve held/nonintegrated context. These captures do not create canonical claims. Their access/representation/inspected-passage limits remain explicit.
 
 The imported dataset matches all **458** canonical event date objects, scopes, evidence and both review axes, with no fabricated opposite limit. All **253** nodes are placed, labelled and assigned tiers. Import/validation passes. The application code has passed 120 web tests and production build; graph semantics have passed 92 Python tests. Browser checks at 253 nodes passed on desktop (1600 x 1060) and mobile (390 x 844): actual served bytes matched the imported dataset, CT date witnesses and approximate birch-tar search date remained visible, and the Reach table showed all six reviewed scoped end-of-use episodes. No browser or console errors were observed. Verification will be refreshed at the final content freeze.
 
