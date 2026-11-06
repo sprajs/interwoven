@@ -14,7 +14,7 @@ function LandmarkRail() {
   return (
     <>
       <h2 className="text-[21px] font-medium leading-none">Landmarks</h2>
-      <p className="caption mt-2 leading-snug">The entries the research marks as most prominent. Choose one to trace what led to it and what followed.</p>
+      <p className="caption mt-2 leading-snug">Placed entries the research marks as most prominent. Choose one to trace their recorded connections.</p>
       <ol className="mt-4 border-t border-rule">
         {items.map((i) => {
           const node = model.nodes[i]!
@@ -59,7 +59,7 @@ function DensityRail() {
   return (
     <>
       <h2 className="text-[21px] font-medium leading-none">Density</h2>
-      <p className="caption mt-2 leading-snug">The hatching grows with the number of entries per year, on a root scale so quiet eras stay visible. Move across the chart to count entries. This shows what has been researched so far, not all of history.</p>
+      <p className="caption mt-2 leading-snug">The hatching grows with the number of placed entries per year, on a root scale so quiet eras stay visible. Move across the chart to count them. Further research remains available in Unplaced.</p>
       <h3 className="mt-4 flex items-baseline justify-between border-b border-rule pb-1 text-[15px] italic text-ink-3">
         Busiest decades
         <span>entries</span>
@@ -85,7 +85,8 @@ function DensityRail() {
 export function Rails() {
   const mode = useApp((s) => s.mode)
   const selected = useApp((s) => s.selected)
-  const show = selected === null && mode !== 'threads'
+  const unplacedSelected = useApp((s) => s.unplacedSelected)
+  const show = selected === null && unplacedSelected === null && mode !== 'threads'
   return (
     <AnimatePresence>
       {show && (

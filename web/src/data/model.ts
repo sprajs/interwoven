@@ -1,5 +1,5 @@
 import { TimeScale } from '../engine/time.ts'
-import { KINDS, type RawDataset, type RawLabel, type RawLink, type RawNode } from './types.ts'
+import { KINDS, type RawDataset, type RawLabel, type RawLink, type RawNode, type RawUnplacedNode, type TimelineEntry } from './types.ts'
 
 export interface Edge {
   source: number
@@ -13,6 +13,10 @@ export interface Model {
   description: string
   synthetic: boolean
   nodes: RawNode[]
+  unplaced: RawUnplacedNode[]
+  entryById: Map<string, TimelineEntry>
+  links: RawLink[]
+  events: NonNullable<RawDataset['events']>
   n: number
   edges: Edge[]
   labels: (RawLabel & { count: number })[]
@@ -255,6 +259,10 @@ export function buildModel(data: RawDataset, synthetic = false): Model {
     description: data.meta?.description ?? '',
     synthetic,
     nodes,
+    unplaced: data.unplaced ?? [],
+    entryById: new Map([...nodes, ...(data.unplaced ?? [])].map((entry) => [entry.id, entry])),
+    links: data.links,
+    events: data.events ?? {},
     n,
     edges,
     labels,

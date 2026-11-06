@@ -27,8 +27,8 @@ export function BottomBar() {
   const compressed = useApp((s) => s.compressed)
   const setCompressed = useApp((s) => s.setCompressed)
   const margins = usePageMargins()
-  const sheetOpen = useApp((s) => s.selected !== null || s.mode !== 'threads' || s.labelsOpen)
-  const crowded = useApp((s) => (s.selected !== null || s.mode !== 'threads') && s.labelsOpen)
+  const sheetOpen = useApp((s) => s.selected !== null || s.unplacedSelected !== null || s.mode !== 'threads' || s.labelsOpen || s.unplacedOpen)
+  const crowded = useApp((s) => (s.selected !== null || s.unplacedSelected !== null || s.mode !== 'threads') && (s.labelsOpen || s.unplacedOpen))
 
   return (
     <div className="pointer-events-none absolute bottom-[47px] z-10 flex items-center gap-5 text-ink-3 transition-[left,right] duration-300" style={margins}>

@@ -1,37 +1,44 @@
 import { AnimatePresence, motion } from 'motion/react'
-import type { Edge, Model } from '../data/model.ts'
+import type { Model } from '../data/model.ts'
+import { isPlacedNode, type RawLink } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
-import { focusNode, useApp } from '../store.ts'
+import { focusEntry, useApp } from '../store.ts'
 import { CloseButton, Mark } from './icons.tsx'
 import { SHEET_WIDTH } from './layout.ts'
 
 const withArticle = (phrase: string) => `${/^[aeiou]/i.test(phrase) ? 'an' : 'a'} ${phrase}`
 
-function LinkList({ title, edges, side, model }: { title: string; edges: Edge[]; side: 'source' | 'target'; model: Model }) {
-  if (edges.length === 0) return null
-  const sorted = [...edges].sort((a, b) => model.nodes[a[side]]!.year - model.nodes[b[side]]!.year)
+function LinkList({ title, links, side, model }: { title: string; links: RawLink[]; side: 'from' | 'to'; model: Model }) {
+  if (links.length === 0) return null
+  const sorted = [...links].sort((a, b) => (model.entryById.get(a[side])?.title ?? '').localeCompare(model.entryById.get(b[side])?.title ?? ''))
+  const eventLabel = (id: string | undefined) => {
+    const event = id ? model.events[id] : undefined
+    return event ? `${event.event_type.replace(/_/g, ' ')} (${event.date_label})` : id ?? 'event not specified'
+  }
   return (
     <section className="mt-5">
       <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">{title}</h3>
       <ul>
-        {sorted.map((edge) => {
-          const i = edge[side]
-          const node = model.nodes[i]!
+        {sorted.map((link) => {
+          const node = model.entryById.get(link[side])
+          if (!node) return null
           return (
-            <li key={`${edge.source}-${edge.target}`} className="border-b border-rule/50 py-2">
-              <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 text-left text-[16px] leading-tight">
+            <li key={link.id ?? `${link.from}-${link.to}`} className="border-b border-rule/50 py-2">
+              <button onClick={() => focusEntry(node.id)} className="group flex w-full items-baseline gap-2 text-left text-[16px] leading-tight">
                 <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
-                  <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
+                  <Mark kind={node.kind} size={9} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                 </span>
                 <span className={`min-w-0 flex-1 group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
-                <span className="shrink-0 text-[14px] text-ink-3">{formatYear(node.year)}</span>
+                <span className="shrink-0 text-[14px] text-ink-3">{isPlacedNode(node) ? formatYear(node.year) : 'Unplaced'}</span>
               </button>
-              {edge.link.statement && (
+              {link.statement && (
                 <p className="mt-1 pl-[18px] text-[14px] leading-snug text-ink-2">
-                  {edge.link.statement}
-                  {edge.tentative && <em className="text-ink-3"> Awaiting review.</em>}
+                  {link.statement}
+                  {link.tentative && <em className="text-ink-3"> Awaiting review.</em>}
                 </p>
               )}
+              {(link.from_event_id || link.to_event_id) && <p className="mt-1 pl-[18px] text-[13.5px] leading-snug text-ink-3">Linked events: {eventLabel(link.from_event_id)} → {eventLabel(link.to_event_id)}.</p>}
+              {link.temporal_note && <p className="mt-1 pl-[18px] text-[13.5px] leading-snug text-ink-3">{link.temporal_note}</p>}
             </li>
           )
         })}
@@ -43,15 +50,16 @@ function LinkList({ title, edges, side, model }: { title: string; edges: Edge[];
 export function DetailPanel() {
   const model = useApp((s) => s.model)
   const selected = useApp((s) => s.selected)
+  const unplacedSelected = useApp((s) => s.unplacedSelected)
   const select = useApp((s) => s.select)
   const activeLabels = useApp((s) => s.activeLabels)
   const toggleLabel = useApp((s) => s.toggleLabel)
-  const node = model && selected !== null ? model.nodes[selected] : null
+  const node = model && selected !== null ? model.nodes[selected] : model?.entryById.get(unplacedSelected ?? '')
   const impactIsFull = model && node ? model.n <= 4000 || node.level === 0 : false
 
   return (
     <AnimatePresence>
-      {node && model && selected !== null && (
+      {node && model && (
         <motion.aside
           key="detail"
           initial={{ x: SHEET_WIDTH }}
@@ -90,26 +98,44 @@ export function DetailPanel() {
             </p>
           )}
 
-          {impactIsFull && model.impact[selected]! > 0 && (
+          {impactIsFull && selected !== null && model.impact[selected]! > 0 && (
             <p className="mt-3 text-[15px] text-ink-2">
-              {model.impact[selected]!.toLocaleString('en-US')} later {model.impact[selected] === 1 ? 'entry traces' : 'entries trace'} back to this one.
+              {model.impact[selected]!.toLocaleString('en-US')} linked {model.impact[selected] === 1 ? 'entry traces' : 'entries trace'} back to this one.
             </p>
           )}
 
-          <LinkList title="Built on" edges={model.edgesInto[selected]!} side="source" model={model} />
-          <LinkList title="Led to" edges={model.edgesOutOf[selected]!} side="target" model={model} />
+          <LinkList title="Built on" links={model.links.filter((link) => link.to === node.id)} side="from" model={model} />
+          <LinkList title="Led to" links={model.links.filter((link) => link.from === node.id)} side="to" model={model} />
 
           <section className="mt-5">
             <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">How this is dated</h3>
             <p className="mt-2 text-[14.5px] leading-snug text-ink-2">
-              {node.anchored
-                ? `Placed by its selected anchor, ${withArticle(node.placed_by)}.`
-                : `Placed by its earliest dated record, ${withArticle(node.placed_by)}. No anchor date has been selected yet, so this is not a claim of first availability.`}
+              {isPlacedNode(node)
+                ? node.anchored ? `Placed by its selected anchor, ${withArticle(node.placed_by)}.` : 'Illustrative date supplied by this dataset.'
+                : `Unplaced. ${node.placement_reason}`}
               {node.date_basis ? ` ${node.date_basis}` : ''}
             </p>
+            {node.anchor_status && <p className="mt-1.5 text-[14.5px] leading-snug text-ink-2">Anchor: {node.anchor_status.replace(/_/g, ' ')}{node.anchor_policy ? `; policy: ${node.anchor_policy.replace(/_/g, ' ')}` : ''}.</p>}
+            {node.anchor_rationale && <p className="mt-1.5 text-[14.5px] leading-snug text-ink-2">{node.anchor_rationale}</p>}
+            {node.commercial_date_status && <p className="mt-1.5 text-[14.5px] leading-snug text-ink-2">First commercial availability: {node.commercial_date_status.replace(/_/g, ' ')}{node.commercial_applicability ? `; applicability: ${node.commercial_applicability.replace(/_/g, ' ')}` : ''}.</p>}
+            {node.lifecycle_review && <p className="mt-1.5 text-[14.5px] leading-snug text-ink-3">Historical claim: {node.review}. Lifecycle classification: {node.lifecycle_review.replace(/_/g, ' ')}.</p>}
             {node.review !== 'accepted' && <p className="mt-1.5 text-[14.5px] italic leading-snug text-ink-3">This claim is still awaiting review.</p>}
             {node.uncertainty && <p className="mt-1.5 text-[14.5px] leading-snug text-ink-2">{node.uncertainty}</p>}
           </section>
+
+          {Object.values(model.events).some((event) => event.node_id === node.id) && (
+            <section className="mt-5">
+              <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">Recorded events</h3>
+              <ul className="mt-1.5 space-y-2">
+                {Object.values(model.events).filter((event) => event.node_id === node.id).map((event) => (
+                  <li key={event.id} className="text-[14.5px] leading-snug text-ink-2">
+                    <p>{event.event_type.replace(/_/g, ' ')} · {event.date_label}</p>
+                    {event.statement && <p className="mt-0.5">{event.statement}</p>}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {node.sources.length > 0 && (
             <section className="mt-5">

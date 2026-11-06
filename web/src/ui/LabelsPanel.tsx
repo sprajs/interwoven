@@ -44,7 +44,7 @@ export function LabelsPanel() {
             An entry can carry several. Choose any to follow them through the chart; the first label on an entry sets its ink.
           </p>
           <p className="mt-3 text-[15px] text-ink-2">
-            {shown.toLocaleString('en-US')} of {model.n.toLocaleString('en-US')} entries
+            {shown.toLocaleString('en-US')} of {model.n.toLocaleString('en-US')} placed entries
             {filtering && (
               <button onClick={clearFilters} className="ml-2 italic text-ink-3 underline decoration-[0.5px] underline-offset-2 hover:text-ink">
                 clear

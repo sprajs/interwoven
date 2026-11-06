@@ -13,6 +13,7 @@ import { SearchPalette } from './ui/SearchPalette.tsx'
 import { TimelineCanvas } from './ui/TimelineCanvas.tsx'
 import { Tooltip } from './ui/Tooltip.tsx'
 import { TopBar } from './ui/TopBar.tsx'
+import { UnplacedPanel } from './ui/UnplacedPanel.tsx'
 
 async function load(): Promise<void> {
   const { setModel, setError } = useApp.getState()
@@ -23,9 +24,8 @@ async function load(): Promise<void> {
     if (stress > 0) {
       data = makeStressDataset(Math.min(stress, 500000))
     } else {
-      const file = params.get('data') === 'seed' ? 'seed' : 'timeline'
-      const response = await fetch(`${import.meta.env.BASE_URL}data/${file}.json`)
-      if (!response.ok) throw new Error(`Could not load data/${file}.json (HTTP ${response.status}).`)
+      const response = await fetch(`${import.meta.env.BASE_URL}data/timeline.json`)
+      if (!response.ok) throw new Error(`Could not load data/timeline.json (HTTP ${response.status}).`)
       data = (await response.json()) as RawDataset
     }
     const issues = validateDataset(data)
@@ -49,7 +49,8 @@ function useKeyboard(): void {
       }
       if (e.key === 'Escape') {
         if (app.searchOpen) app.setSearchOpen(false)
-        else if (app.selected !== null) app.select(null)
+        else if (app.selected !== null || app.unplacedSelected !== null) app.select(null)
+        else if (app.unplacedOpen) app.setUnplacedOpen(false)
         else if (app.labelsOpen) app.setLabelsOpen(false)
         return
       }
@@ -104,6 +105,7 @@ export function App() {
       <BottomBar />
       <Overview />
       <LabelsPanel />
+      <UnplacedPanel />
       <Rails />
       <DetailPanel />
       <Tooltip />

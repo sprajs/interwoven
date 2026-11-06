@@ -38,12 +38,13 @@ export function TimelineCanvas() {
     const sync = () => {
       const s = useApp.getState()
       const compact = window.innerWidth < COMPACT_WIDTH
-      const panel = !compact && (s.selected !== null || s.mode !== 'threads')
-      const labels = !compact && s.labelsOpen
+      const selection = s.selected !== null || s.unplacedSelected !== null
+      const panel = !compact && (selection || s.mode !== 'threads')
+      const labels = !compact && (s.labelsOpen || s.unplacedOpen)
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
-      const sheet = compact && s.selected !== null
+      const sheet = compact && selection
       engine.setInsets({
-        top: compact ? 118 : 104,
+        top: compact ? 146 : 104,
         bottom: sheet ? window.innerHeight * 0.5 : compact ? 104 : 96,
         left: labels ? LABELS_WIDTH + 36 : compact ? 22 : 56,
         right: panel ? SHEET_WIDTH + 36 : compact ? 22 : 56,
@@ -71,7 +72,9 @@ export function TimelineCanvas() {
         s.hiddenKinds !== prev.hiddenKinds ||
         s.activeLabels !== prev.activeLabels ||
         s.selected !== prev.selected ||
-        s.labelsOpen !== prev.labelsOpen
+        s.unplacedSelected !== prev.unplacedSelected ||
+        s.labelsOpen !== prev.labelsOpen ||
+        s.unplacedOpen !== prev.unplacedOpen
       ) {
         sync()
       }

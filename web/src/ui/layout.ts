@@ -9,10 +9,11 @@ const COMPACT_MARGIN = 22
 /** The page margins, which widen to clear whichever side sheets are open. */
 export function usePageMargins(): { left: number; right: number } {
   const labelsOpen = useApp((s) => s.labelsOpen)
-  const rightSheet = useApp((s) => s.selected !== null || s.mode !== 'threads')
+  const unplacedOpen = useApp((s) => s.unplacedOpen)
+  const rightSheet = useApp((s) => s.selected !== null || s.unplacedSelected !== null || s.mode !== 'threads')
   if (window.innerWidth < COMPACT_WIDTH) return { left: COMPACT_MARGIN, right: COMPACT_MARGIN }
   return {
-    left: labelsOpen ? LABELS_WIDTH + 36 : MARGIN,
+    left: labelsOpen || unplacedOpen ? LABELS_WIDTH + 36 : MARGIN,
     right: rightSheet ? SHEET_WIDTH + 36 : MARGIN,
   }
 }
