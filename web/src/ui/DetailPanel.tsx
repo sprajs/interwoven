@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import type { Model } from '../data/model.ts'
 import { isPlacedNode, type RawLink, type TimelineEntry } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
-import { documentedSpan, EVENT_NAMES, hasLaterLife, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
+import { EVENT_NAMES, lifeDateLabel, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
 import { shortDate } from '../engine/overlay.ts'
 import { focusEntry, followEntry, useApp } from '../store.ts'
 import { dateLimitNote, entryReasonLabel, evidenceLabel } from './entryText.ts'
@@ -70,13 +70,12 @@ function LifeSection({ entry, index }: { entry: TimelineEntry; index: number | n
   const year = isPlacedNode(entry) ? entry.year : null
   const latest = (index !== null ? reach?.any[index] : undefined) ?? year ?? 0
   const span = year === null ? 0 : Math.round(latest - year)
-  const later = life && hasLaterLife(life) ? life.events.filter((e) => e.role !== 'origin') : []
-  const documented = documentedSpan(life)
-  const unresearched = LATER_STAGES.filter((stage) => !life?.status[stage] && !later.some((e) => e.type === stage))
+  const later = life?.events.filter((e) => e.role !== 'context') ?? []
+  const unresearched = LATER_STAGES.filter((stage) => !life?.status[stage] || life.status[stage] === 'not_yet_researched')
   const stated = LATER_STAGES.filter((stage) => life?.status[stage] === 'unknown')
   return (
     <section>
-      <h3 className="section-head">How long it lasted</h3>
+      <h3 className="section-head">Evidence over time</h3>
       <p className="mt-2 text-note text-ink-2">
         {span > 0 ? (
           <>
@@ -95,13 +94,19 @@ function LifeSection({ entry, index }: { entry: TimelineEntry; index: number | n
       {later.length > 0 && (
         <>
           <p className="mt-2 text-note text-ink-2">
-            <span className="text-ink">Documented life:</span> {documented ? `${formatYear(documented.start)} to ${formatYear(documented.end)}` : 'only these dated events'}.
+            <span className="text-ink">Recorded episodes:</span> each concerns its stated scope. Continuous use between separate dates remains unresearched.
           </p>
           <ul className="mt-1 space-y-1">
             {later.map((event) => (
               <li key={event.id} className="text-note text-ink-2">
-                <span className="text-ink">{EVENT_NAMES[event.type] ?? event.type}</span>, {event.label}. {event.statement}
-                {event.review !== 'accepted' && <span className="text-ink-3"> Awaiting review.</span>}
+                <span className="text-ink">{EVENT_NAMES[event.type] ?? event.type.replace(/_/g, ' ')}</span>, {lifeDateLabel(event)}. {event.statement}
+                {event.role === 'awareness' && <p className="text-ink-3">This records disclosure or awareness; use or adoption requires separate evidence.</p>}
+                {event.role === 'unclassified' && <p className="text-ink-3">Event role awaits classification.</p>}
+                {event.review !== 'accepted' && <p className="text-ink-3">Historical claim awaiting review.</p>}
+                {event.lifecycle_review !== 'accepted' && <p className="text-ink-3">Lifecycle classification awaiting review.</p>}
+                {event.scope && <p className="text-ink-3">Scope: {event.scope.configuration}. Regions: {event.scope.regions.join('; ') || 'unspecified'}. Population: {event.scope.population.value ?? event.scope.population.status.replace(/_/g, ' ')}. Market: {event.scope.market.value ?? event.scope.market.status.replace(/_/g, ' ')}.</p>}
+                {event.evidence?.map((item, i) => <p key={`${item.source_id}-${i}`} className="text-ink-3">{model?.sources[item.source_id]?.title ?? item.source_id}{item.locator ? ` · ${item.locator}` : ''}{item.supports ? `. ${item.supports}` : ''}</p>)}
+                {event.uncertainty && <p className="text-ink-3">{event.uncertainty}</p>}
               </li>
             ))}
           </ul>

@@ -1,5 +1,4 @@
 import { rowOrder, rowPositions, type RowOrder, type Story } from '../data/derive.ts'
-import { documentedSpan } from '../data/lifecycle.ts'
 import { nodeMarkStyle, walk, type Model } from '../data/model.ts'
 import { hexUnit, INK, LAYOUT, PAPER as PAPER_HEX, RULE_ALPHA, UNIT } from '../design.ts'
 import { Camera, type Insets, type ZoomAxis } from './camera.ts'
@@ -8,7 +7,7 @@ import { createDataTexture, createProgram, type Program } from './gl.ts'
 import { drawOverlay } from './overlay.ts'
 import * as S from './shaders.ts'
 import { LUT_SIZE, pickTicks } from './time.ts'
-import { WheelClassifier, wheelNotches } from './wheel.ts'
+import { ScrollLock, scrollZoomDelta, WheelClassifier, wheelNotches } from './wheel.ts'
 
 export type Mode = 'threads' | 'story' | 'reach' | 'density'
 
@@ -127,6 +126,7 @@ export class Engine {
   private foldData = new Float32Array(MAX_FOLD_POINTS * 2)
   private foldCount = 0
   private wheelKind = new WheelClassifier()
+  private scrollLock = new ScrollLock()
   private lastTap = { index: -1, time: 0 }
   private pinchSpan = { x: 0, y: 0 }
   private texA: WebGLTexture | null = null
@@ -347,8 +347,6 @@ export class Engine {
       add(i, y, direct, 0)
       add(i, direct, firm, 1)
       add(i, firm, any, 2)
-      const span = documentedSpan(model.life.get(model.nodes[i]!.id))
-      if (span) add(i, span.start, span.end, 3)
     }
     this.warpCount = ids.length
     if (this.warpVao) gl.deleteVertexArray(this.warpVao)
@@ -908,7 +906,9 @@ export class Engine {
       this.camera.zoomAt(x, y, -dy * 0.006, axis, true)
       if (dx !== 0) this.camera.panBy(-dx, 0)
     } else {
-      this.camera.panBy(-dx, -dy)
+      const intent = this.scrollLock.resolve(dx, dy, e.timeStamp)
+      if (intent === 'zoom') this.camera.zoomAt(x, y, scrollZoomDelta(dy), 'both', true)
+      else if (intent === 'pan') this.camera.panBy(-dx, -dy)
     }
     this.setHover(null, 0, 0)
     this.invalidate()

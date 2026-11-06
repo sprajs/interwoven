@@ -1,6 +1,6 @@
 # Science and technology graph
 
-A local, evidence-backed graph of scientific results and technological configurations. It includes independent regional developments, short-lived experiments, abandoned branches and configurations with no known descendants.
+A local, evidence-backed graph of advances in global scientific knowledge and technological capability, including short-lived experiments, abandoned branches and configurations with no known descendants.
 
 `schema.json` defines **version 1**. Four JSONL files share this single contract:
 
@@ -29,6 +29,18 @@ python3 tools/coverage.py --baseline 96b3199
 ```
 
 Traversal follows historical relationships. Candidate links are excluded unless `--include-candidates` is specified. Disconnected records are valid.
+
+## Global-frontier eligibility
+
+The graph follows advances in humanity’s scientific knowledge and technological capability, assessed against relevant documented prior developments wherever evidence is available. Geography, cultural affiliation, regional first use, independent rediscovery and revival do not by themselves establish a new frontier contribution. Comparison concerns the evidenced configuration or proposition, not cultural rankings or a universally ordered league table of progress.
+
+Retain distinct results and configurations when evidence supports a meaningful contribution: for example a new mechanism, architecture, precision, efficiency, material, production method, reduced cost, improved access, or application. Failed, short-lived, abandoned and extinct advances qualify even without modern descendants. A similar purpose does not establish an equivalent capability; document the actual comparison and its uncertainty.
+
+Prune only positively confirmed non-frontier duplicates. A missing novelty investigation is an unresolved question, not a deletion criterion. The documented equivalent prior capability need not already have a node in this dataset. When a confirmed reconstruction, repetition or regional adoption has no appropriate canonical target, exclude its standalone innovation identity while preserving its valid historical assertions and sources in a current exclusion decision or appropriate scoped events; do not force an inaccurate merger. Consolidate equivalent configurations under a researched identity; preserve their scoped invention, availability, use, adoption, decline and revival events, source evidence and supported causal history. A specimen, manuscript, patent or local deployment can witness a technology without becoming a separate innovation identity. Distinguish a new scientific result from a repetition of an earlier observation.
+
+Retain a rediscovery or transmission as a distinct explanatory step when sources establish that the particular event, together with other developments, enabled a later global frontier advance. Do not infer influence or necessity from chronology, resemblance or shared subject matter. If the later contribution or its transmission is unresolved, retain the candidate pending research rather than claiming this exception is proven.
+
+Eligibility and timeline placement are separate. Every retained node still uses its best supported entry into meaningful availability, use, adoption, recognition or awareness in a named community. Regional entry evidence can date a qualifying broader configuration; it does not establish global novelty or the earliest invention. Preserve the date’s precision, bounds, scope and uncertainty. Each identity change requires review of the complete changed proposition, its events, relationships and current review bindings.
 
 ## Lifecycle and dates
 

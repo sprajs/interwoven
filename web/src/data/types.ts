@@ -101,6 +101,8 @@ export interface RawEvent {
   scope?: EntryScope
   uncertainty?: string
   review?: string
+  lifecycle_review?: string
+  evidence?: { source_id: string; locator?: string; supports?: string }[]
 }
 
 export interface RawLink {

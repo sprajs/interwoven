@@ -84,8 +84,8 @@ export interface ResearchEvent {
   statement?: string
   scope?: EntryScope
   uncertainty?: string
-  review?: { historical_claim?: string }
-  evidence?: { source_id: string }[]
+  review?: { historical_claim?: string; lifecycle_classification?: string }
+  evidence?: { source_id: string; locator?: string; supports?: string }[]
 }
 
 export interface ResearchNode {
@@ -305,7 +305,9 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
     events: Object.fromEntries(records.events.map((event) => [event.id, { id: event.id, node_id: event.node_id,
       event_type: event.event_type, date_label: event.date?.label ?? 'Date not recorded',
       date_status: event.date?.status ?? 'missing', date_basis: event.date?.basis, date: event.date, statement: event.statement,
-      scope: event.scope, uncertainty: event.uncertainty, review: event.review?.historical_claim }])),
+      scope: event.scope, uncertainty: event.uncertainty, review: event.review?.historical_claim,
+      lifecycle_review: event.review?.lifecycle_classification,
+      evidence: event.evidence }])),
   }
 }
 

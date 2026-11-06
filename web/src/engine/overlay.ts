@@ -1,4 +1,4 @@
-import { documentedSpan, EVENT_NAMES, isFinal, type LifeEvent } from '../data/lifecycle.ts'
+import { EVENT_NAMES, plottedLifeEvents, type LifeEvent } from '../data/lifecycle.ts'
 import type { RawNode } from '../data/types.ts'
 import { BOX, BREAK, FONT_FAMILY, hexRgb, INK as INK_HEX, LAYOUT, LINE, NAME_AREA, NAME_STYLE, PAPER as PAPER_HEX, RULE_ALPHA, RULER_LIGHT, SHEET as SHEET_HEX, TYPE, UNIT, type TypeStep } from '../design.ts'
 import type { Engine } from './Engine.ts'
@@ -653,12 +653,10 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
     const local = alpha * (1 - faded * 0.75)
     const record = model.life.get(model.nodes[i]!.id)
     let lastYear = model.reach.any[i]!
-    for (const event of record?.events ?? []) {
-      // Dated records that do not bear on its later life are not marked here.
-      if (event.role === 'origin') continue
-      lastYear = Math.max(lastYear, event.end)
-      const x0 = engine.yearToX(event.start)
-      const x1 = engine.yearToX(event.end)
+    for (const event of plottedLifeEvents(record)) {
+      lastYear = Math.max(lastYear, event.end ?? event.year)
+      const x0 = engine.yearToX(event.start ?? event.year)
+      const x1 = engine.yearToX(event.end ?? event.year)
       if (x1 < -20 || x0 > W + 20) continue
       ctx.strokeStyle = `rgba(${INK.primary},${local})`
       // A date range is a range: a fine bar between the earliest and latest it can be.
@@ -673,12 +671,13 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
       }
       strokeMark(ctx, event, y, x1, markSize)
       // "By 2023" could have been any time before: a little tail to the left says so.
-      if (event.bound === 'by' && event.role !== 'use' && markSize > 0.7) {
+      if (event.bound && markSize > 0.7) {
+        const direction = event.bound === 'by' ? -1 : 1
         ctx.lineWidth = LINE.hair
         ctx.setLineDash([1.5, 2.5])
         ctx.beginPath()
-        ctx.moveTo(x1 - 3, y)
-        ctx.lineTo(x1 - 16, y)
+        ctx.moveTo(x1 + direction * 3, y)
+        ctx.lineTo(x1 + direction * 16, y)
         ctx.stroke()
         ctx.setLineDash([])
       }
@@ -690,9 +689,8 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
         ctx.textAlign = 'left'
       }
     }
-    if (!showDots || isFinal(record)) continue
-    const span = documentedSpan(record)
-    if (span) lastYear = Math.max(lastYear, span.end)
+    // A scoped withdrawal, abandonment or last-use episode never establishes a global ending.
+    if (!showDots) continue
     const x = engine.yearToX(Math.max(lastYear, model.nodes[i]!.year))
     if (x < -30 || x > W) continue
     const start = x + model.radius[i]! + 4

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import { computeReach, connectedComponents, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
-import { buildLifeRecords, documentedSpan, hasLaterLife, isFinal, readEventDate, tallyLifecycle, type LifeEvent, type LifeRecord } from './lifecycle.ts'
 
 const dated = (...years: number[]) => years.map((year) => ({ year }))
 const edge = (source: number, target: number, tentative = false) => ({ source, target, tentative })
@@ -144,69 +143,3 @@ describe('parseYearQuery', () => {
   })
 })
 
-const event = (type: string, role: LifeEvent['role'], start: number, end = start): LifeEvent => ({
-  id: `${type}-${start}`,
-  type,
-  role,
-  start,
-  end,
-  label: String(start),
-  statement: '',
-  review: 'accepted',
-})
-
-describe('lifecycle', () => {
-  const zeiss: LifeRecord = { status: { withdrawal: 'documented' }, events: [event('commercial_offer', 'use', 1885), event('withdrawal', 'end', 1885, 1889)] }
-  const glass: LifeRecord = { status: { withdrawal: 'documented', end_of_use: 'unknown' }, events: [event('documented_description', 'origin', 2018), event('commercial_offer', 'use', 2019), event('withdrawal', 'end', 2023), event('support_end', 'end', 2023)] }
-  const ra: LifeRecord = { status: { abandonment: 'documented' }, events: [event('production', 'use', 1969), event('practical_deployment', 'use', 1969), event('abandonment', 'end', 1969)] }
-  const single: LifeRecord = { status: { end_of_use: 'unknown' }, events: [event('first_commercial_availability', 'use', 1960)] }
-
-  it('keeps a bounded date marked, so "by 2023" cannot read as "in 2023"', () => {
-    expect(readEventDate({ latest: { year: 2023 } })).toEqual({ start: 2023, end: 2023, bound: 'by' })
-    expect(readEventDate({ earliest: { year: 1885 }, latest: { year: 1889 } })).toEqual({ start: 1885, end: 1889 })
-    expect(readEventDate({})).toBeNull()
-  })
-
-  it('does not treat a single dated record as evidence of a later life', () => {
-    expect(hasLaterLife(single)).toBe(false)
-    expect(hasLaterLife(undefined)).toBe(false)
-    expect(hasLaterLife(glass)).toBe(true)
-  })
-
-  it('tallies what is documented and nothing else', () => {
-    const tally = tallyLifecycle([zeiss, glass, ra, single], 143)
-    expect(tally.withLaterLife).toBe(3)
-    expect(tally.counts).toEqual({ decline: 0, withdrawal: 2, end_of_use: 0, abandonment: 1, revival: 0 })
-    expect(tally.statedUnknown).toBe(2)
-    expect(tally.total).toBe(143)
-  })
-
-  it('does not stretch a documented span into an uncertain date range', () => {
-    expect(documentedSpan(zeiss)).toBeNull()
-    const span = documentedSpan(glass)
-    expect(span?.start).toBe(2018)
-    expect(span?.end).toBe(2023)
-  })
-
-  it('has no span at all for an entry with no evidence', () => {
-    expect(documentedSpan(undefined)).toBeNull()
-  })
-
-  it('counts withdrawal from sale as not being the end of the thing', () => {
-    expect(isFinal(glass)).toBe(false)
-    expect(isFinal(ra)).toBe(true)
-    // Researched and found to be unknown stays unknown, even after an abandonment.
-    expect(isFinal({ ...ra, status: { abandonment: 'documented', end_of_use: 'unknown' } })).toBe(false)
-  })
-
-  it('builds a record only for what the research actually says', () => {
-    const entry = (id: string, lifecycle: Record<string, { status: string; event_ids: string[] }>) => ({ id, lifecycle }) as never
-    const records = buildLifeRecords(
-      [entry('silent', { decline: { status: 'not_yet_researched', event_ids: [] } }), entry('used', {}), entry('unknown', { end_of_use: { status: 'unknown', event_ids: [] } })],
-      { a: { id: 'a', node_id: 'used', event_type: 'practical_use', date_label: 'by 1200', date_status: 'bounded', date: { status: 'bounded', latest: { year: 1200 } } } },
-    )
-    expect(records.has('silent')).toBe(false)
-    expect(records.get('used')!.events[0]).toMatchObject({ role: 'use', bound: 'by', start: 1200 })
-    expect(records.get('unknown')!.status.end_of_use).toBe('unknown')
-  })
-})

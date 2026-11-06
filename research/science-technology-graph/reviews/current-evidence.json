@@ -1775,7 +1775,7 @@
       "type": "event",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "b54e3ed7ccd26392ecd7ffd07fb1ccb9ec2b72af1aab14a0f02581c5be017244",
+      "proposition_sha256": "2bf0aa3dca56da6d41b9376f270f586caa5efbd1336e0091930e24f55239f50f",
       "evidence": [
         {
           "source_id": "elec-chm-planar-ic",
@@ -1788,6 +1788,10 @@
         {
           "path": "reviews/identity.json",
           "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -1796,7 +1800,7 @@
       "type": "event",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "28a7da7f091f1abd84e4b51e645012e574cd9ccfa419e8c8870d11c5cce69fa4",
+      "proposition_sha256": "2c268971e5b9d803241b5631c89e209c0c627bf03a3811625b150e4758acb911",
       "evidence": [
         {
           "source_id": "src-ieee-planar",
@@ -1819,6 +1823,10 @@
         {
           "path": "reviews/identity.json",
           "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -6952,6 +6960,32 @@
       ]
     },
     {
+      "id": "math-gwalior-place-value-inscription--talang-tuwo-684",
+      "type": "event",
+      "historical_claim": "candidate",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "5bd24bb19ee687ca752c647e77064ea861f006d21282b28703091095d4ff49d0",
+      "evidence": [
+        {
+          "source_id": "math-src-talangalangtuwo-zero-mohd-zain-2025",
+          "locator": "Printed pp. 20–21 / PDF pp. 7–8, Srivijaya Zero, Khmer Zero and Campa Zero",
+          "supports": "Identifies the Talang Tuwo inscription, reads its date as 606 Śaka / 684 CE, and describes its inscribed zero as a circle."
+        },
+        {
+          "source_id": "math-src-coedes-talanguwo-1930",
+          "locator": "Printed pp. 38–40, section II, Inscription de Talang Tuwo",
+          "supports": "Cœdès describes the stone inscription and reports its epigraphic assignment to Śaka 606 / 684 CE."
+        }
+      ],
+      "limits": "The assignment of the inscription to 684 is conventional epigraphic dating, not independent physical dating or proof that carving was completed by that precise year. The inscribed zero is a placeholder; this is not evidence of the invention or universal first use of zero, zero arithmetic, or direct transmission to Gwalior.",
+      "review_basis": [
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved broader technology identity; existing regional and object witnesses retained. Source access and dating qualifications preserved."
+        }
+      ]
+    },
+    {
       "id": "math-hawari-worked-arithmetic-1305--event-01",
       "type": "event",
       "historical_claim": "accepted",
@@ -8322,7 +8356,7 @@
       "type": "event",
       "historical_claim": "accepted",
       "lifecycle_classification": "accepted",
-      "proposition_sha256": "be7a723b82725eb2484526092e3839061010e9d9fe72e41be33c6c8def97d78f",
+      "proposition_sha256": "7f9baedaf8c0424f66685954e291513649982a05bf0766b9154248b14a40b2c4",
       "evidence": [
         {
           "source_id": "entry-mech-k1-rmg",
@@ -8340,6 +8374,10 @@
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -8348,7 +8386,7 @@
       "type": "event",
       "historical_claim": "accepted",
       "lifecycle_classification": "accepted",
-      "proposition_sha256": "a84f0efa8a102066ca4234d008a24dae43d80830527041db77b174461df64f3d",
+      "proposition_sha256": "835f439553ad5a60be289a6277240410e1cd22d42ceefd54cdb3ecabf9a6219c",
       "evidence": [
         {
           "source_id": "entry-mech-k1-board",
@@ -8361,6 +8399,10 @@
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -9097,6 +9139,27 @@
       ]
     },
     {
+      "id": "med-forbes-stethoscope-chichester-1822--laennec-1819-publication",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "0c1b6206ba400c0a3397e05a05da2cb476a126c409c98a8ae38f2c1c99a719ec",
+      "evidence": [
+        {
+          "source_id": "audit-laennec-nantes-1819",
+          "locator": "L’édition originale and the collection description",
+          "supports": "Institutional library identifies the first edition and date and records a model stethoscope of 1819."
+        }
+      ],
+      "limits": "A publication is an awareness proxy; it does not prove any given reader read it, nor a first invention, sale or general adoption. The original 1819 scan was not obtained for this proposal.",
+      "review_basis": [
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved broader technology identity; existing regional and object witnesses retained. Source access and dating qualifications preserved."
+        }
+      ]
+    },
+    {
       "id": "med-forbes-stethoscope-chichester-1822--publication-01",
       "type": "event",
       "historical_claim": "accepted",
@@ -9171,6 +9234,27 @@
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        }
+      ]
+    },
+    {
+      "id": "med-lister-antisepsis-preston-1869--lister-use-by-1867-04",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "c89179b1501a8f325059ea7ab13408ea2681ed8b464930e6200df1fb23c8a3b8",
+      "evidence": [
+        {
+          "source_id": "audit-lister-bmj-1867",
+          "locator": "p. 246, compound fracture treatment and paragraph beginning The next object",
+          "supports": "Lister describes his clinical technique and explicitly cites March–April 1867 Lancet publications for its earlier version."
+        }
+      ],
+      "limits": "Upper bound derived from retrospective self-citation, not a precise first use or first-ever antisepsis claim; Semmelweis and other earlier antiseptic practices are not included in this specific identity.",
+      "review_basis": [
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved broader technology identity; existing regional and object witnesses retained. Source access and dating qualifications preserved."
         }
       ]
     },
@@ -10515,47 +10599,11 @@
       ]
     },
     {
-      "id": "elec-hoerni-planar-conception-1957",
-      "type": "node",
-      "historical_claim": "accepted",
-      "lifecycle_classification": "needs_review",
-      "proposition_sha256": "bf434ffe3a15c0fe10377f052bedc3b9b45e02824ddad98a4b9e2cc401a95e96",
-      "evidence": [
-        {
-          "source_id": "src-ieee-planar",
-          "locator": "1957 notebook discussion",
-          "supports": "Documents conception of oxide-protected transistor junctions."
-        },
-        {
-          "source_id": "elec-chm-planar-ic",
-          "locator": "Main narrative, August 1959 project and 26 May 1960 result",
-          "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
-        },
-        {
-          "source_id": "elec-chm-planar-process",
-          "locator": "Main narrative: December 1957 notebook entry",
-          "supports": "Conception date and retained oxide."
-        },
-        {
-          "source_id": "elec-moore-fairchild-1998",
-          "locator": "p. 58, planar-transistor discussion",
-          "supports": "Proposed geometry and departure from previous processing."
-        }
-      ],
-      "limits": "The day is reported in a retrospective IEEE account; the original notebook itself was not inspected.\nUse is specialist research use, not evidence of external commercial availability.",
-      "review_basis": [
-        {
-          "path": "reviews/identity.json",
-          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
-        }
-      ]
-    },
-    {
       "id": "elec-hoerni-planar-transistor-1959",
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "fa6ede7ebd520fb6efde005418ffee268f35c76a3c053dc124152bc5d61fc013",
+      "proposition_sha256": "0752f577751b15000a6f070afd0b59febae3b7560862462e275c6bc4ce053c84",
       "evidence": [
         {
           "source_id": "src-ieee-planar",
@@ -10598,6 +10646,16 @@
           "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
         },
         {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative, August 1959 project and 26 May 1960 result",
+          "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
+        },
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: December 1957 notebook entry",
+          "supports": "Conception date and retained oxide."
+        },
+        {
           "source_id": "elec-chm-planar-process",
           "locator": "Main narrative: March 1959 working device",
           "supports": "Demonstration date."
@@ -10606,13 +10664,22 @@
           "source_id": "entry-src-hoerni-1960",
           "locator": "Printed p. 39, paragraphs on March 1959 prototypes and Hoerni’s October 1960 paper",
           "supports": "Records the technical meeting and presentation of the planar design."
+        },
+        {
+          "source_id": "elec-moore-fairchild-1998",
+          "locator": "p. 58, planar-transistor discussion",
+          "supports": "Proposed geometry and departure from previous processing."
         }
       ],
-      "limits": "The March 1959 prototype’s polarity and product identity are not established. Class-level availability through the 2N1613 does not imply a sale of the original specimen or prove the first class-wide sale.\nThe 1959 specimen’s polarity and identity are unproved; an April 1960 product sale does not establish the first commercial availability of the entire configuration class.\nThe unnamed working specimen is not established as a 2N1613; a 1962 patent publication does not date the working prototype.\nThe presentation describes the design, not proof that the particular 1959 prototype was shown or became the 2N1613.",
+      "limits": "The March 1959 prototype’s polarity and product identity are not established. Class-level availability through the 2N1613 does not imply a sale of the original specimen or prove the first class-wide sale.\nThe 1959 specimen’s polarity and identity are unproved; an April 1960 product sale does not establish the first commercial availability of the entire configuration class.\nThe day is reported in a retrospective IEEE account; the original notebook itself was not inspected.\nThe unnamed working specimen is not established as a 2N1613; a 1962 patent publication does not date the working prototype.\nThe presentation describes the design, not proof that the particular 1959 prototype was shown or became the 2N1613.\nUse is specialist research use, not evidence of external commercial availability.",
       "review_basis": [
         {
           "path": "reviews/identity.json",
           "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -13968,21 +14035,35 @@
     {
       "id": "math-gwalior-place-value-inscription",
       "type": "node",
-      "historical_claim": "accepted",
+      "historical_claim": "candidate",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "60dfddc8d3e041d0fc07b4ddbfa10daa034f76027be96b10a98379e1ed9f5483",
+      "proposition_sha256": "a4836e3163371f20343e7d220367120290c2ceb319c721d40502adf1de54df03",
       "evidence": [
         {
           "source_id": "entry-exp-calculation-zero",
           "locator": "Paragraph on the 876 Gwalior inscription",
           "supports": "The inscription records a garden and uses a small zero mark in 270 and 50."
+        },
+        {
+          "source_id": "math-src-talangalangtuwo-zero-mohd-zain-2025",
+          "locator": "Printed pp. 20–21 / PDF pp. 7–8, Srivijaya Zero, Khmer Zero and Campa Zero",
+          "supports": "Identifies the Talang Tuwo inscription, reads its date as 606 Śaka / 684 CE, and describes its inscribed zero as a circle."
+        },
+        {
+          "source_id": "math-src-coedes-talanguwo-1930",
+          "locator": "Printed pp. 38–40, section II, Inscription de Talang Tuwo",
+          "supports": "Cœdès describes the stone inscription and reports its epigraphic assignment to Śaka 606 / 684 CE."
         }
       ],
-      "limits": "This is a dated historical use of a placeholder, not a claim that this was the earliest zero or evidence of Brahmagupta’s distinct arithmetic rules.",
+      "limits": "Talang Tuwo and Gwalior are independent witnesses to positional decimal notation with circular placeholders; neither is claimed as its origin, nor is a direct transmission route between them asserted. Placeholder notation is distinct from Brahmagupta’s rules for arithmetic on zero. The Talang Tuwo inscription is conventionally assigned to 684 by epigraphists, rather than independently physically dated.\n684 is a conventional scholarly dating of the inscription based on its date formula, not an independently measured carving date. The known-by date is conditional on that attribution; authorship and direct transmission to Gwalior are not established.\nThis is a dated historical use of a placeholder, not a claim that this was the earliest zero or evidence of Brahmagupta’s distinct arithmetic rules.\nThe assignment of the inscription to 684 is conventional epigraphic dating, not independent physical dating or proof that carving was completed by that precise year. The inscribed zero is a placeholder; this is not evidence of the invention or universal first use of zero, zero arithmetic, or direct transmission to Gwalior.",
       "review_basis": [
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved broader technology identity; existing regional and object witnesses retained. Source access and dating qualifications preserved."
         }
       ]
     },
@@ -14942,7 +15023,7 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "83c6c7e7ca706154246672461bc58cda441dbd23119005a1b24be2b3f761f136",
+      "proposition_sha256": "fcc2fc91aeb35fe1b094cfae624c6a9886ef4e0ed781051ec15c12a078a8ea9e",
       "evidence": [
         {
           "source_id": "entry-mech-h4-object",
@@ -14950,16 +15031,35 @@
           "supports": "Identifies H4, its 1759 completion and high-frequency balance."
         },
         {
+          "source_id": "entry-mech-k1-rmg",
+          "locator": "Pacific Encounters, K1 paragraph",
+          "supports": "K1 was used for longitude on Cook’s second voyage, 1772–1775."
+        },
+        {
+          "source_id": "entry-mech-k1-board",
+          "locator": "Single-page account of 1766 copy commission and 1769 completion",
+          "supports": "Identifies K1 as the Board-commissioned copy of H4."
+        },
+        {
+          "source_id": "entry-mech-k1-board",
+          "locator": "Single-page description",
+          "supports": "States completion in 1769."
+        },
+        {
           "source_id": "entry-mech-k1-board",
           "locator": "Single-page description: Board’s 1766 commission",
           "supports": "The Board ordered a copy of H4 following its sea trials."
         }
       ],
-      "limits": "The commission demonstrates technical recognition by a named body, not universal acceptance or fleet-wide supply; the original Board minutes were not separately inspected.",
+      "limits": "The commission demonstrates technical recognition by a named body, not universal acceptance or fleet-wide supply; the original Board minutes were not separately inspected.\nThe source does not establish the first day it was used or general availability of affordable chronometers.\nCompletion is not a date of first use or commercial offer.",
       "review_basis": [
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -15125,37 +15225,6 @@
       "review_basis": [
         {
           "path": "reviews/community-entry.json",
-          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
-        }
-      ]
-    },
-    {
-      "id": "mech-kendall-k1-voyage",
-      "type": "node",
-      "historical_claim": "accepted",
-      "lifecycle_classification": "needs_review",
-      "proposition_sha256": "346690e4511bee27501bf26f8af7636e499c471c1a44b716b4c1d379d93c0f9b",
-      "evidence": [
-        {
-          "source_id": "entry-mech-k1-rmg",
-          "locator": "Pacific Encounters, K1 paragraph",
-          "supports": "K1 was used for longitude on Cook’s second voyage, 1772–1775."
-        },
-        {
-          "source_id": "entry-mech-k1-board",
-          "locator": "Single-page account of 1766 copy commission and 1769 completion",
-          "supports": "Identifies K1 as the Board-commissioned copy of H4."
-        },
-        {
-          "source_id": "entry-mech-k1-board",
-          "locator": "Single-page description",
-          "supports": "States completion in 1769."
-        }
-      ],
-      "limits": "The source does not establish the first day it was used or general availability of affordable chronometers.\nCompletion is not a date of first use or commercial offer.",
-      "review_basis": [
-        {
-          "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
         }
       ]
@@ -15703,7 +15772,7 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "988b9119b9e2a825e24c289908eb563e551ac4c6ba506fb6ac38f2cabbb03d4f",
+      "proposition_sha256": "68585b920a8ee1042a724c616092e6ddf3b4d2152d3afa3165ad5397c0704af3",
       "evidence": [
         {
           "source_id": "entry-molecular-forbes-1824",
@@ -15714,13 +15783,22 @@
           "source_id": "entry-molecular-forbes-1824",
           "locator": "Case I, printed pp. 85–86, Chichester Dispensary entries for 24 and 28 May 1822",
           "supports": "Forbes reports a stethoscope examination on 28 May 1822 during the same Chichester practice."
+        },
+        {
+          "source_id": "audit-laennec-nantes-1819",
+          "locator": "L’édition originale and the collection description",
+          "supports": "Institutional library identifies the first edition and date and records a model stethoscope of 1819."
         }
       ],
-      "limits": "This is one practitioner’s use, not the first British use or general adoption.\nPublication of a report is not proof of first invention, deployment, community acceptance or sale.",
+      "limits": "A publication is an awareness proxy; it does not prove any given reader read it, nor a first invention, sale or general adoption. The original 1819 scan was not obtained for this proposal.\nThis is one practitioner’s use, not the first British use or general adoption.\nPublication of a report is not proof of first invention, deployment, community acceptance or sale.",
       "review_basis": [
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved broader technology identity; existing regional and object witnesses retained. Source access and dating qualifications preserved."
         }
       ]
     },
@@ -15765,7 +15843,7 @@
       "type": "node",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "20e15ea746ea0ffa7b0298991e53f2b4661421882afa08f81add57f66ce74ce3",
+      "proposition_sha256": "fb656e3646e0aa3fdb1dc0561abd363973663609f956f1164a3ecea358282086",
       "evidence": [
         {
           "source_id": "entry-molecular-marshall-1870",
@@ -15773,16 +15851,25 @@
           "supports": "This source is a dated published account of the specified configuration."
         },
         {
+          "source_id": "audit-lister-bmj-1867",
+          "locator": "p. 246, compound fracture treatment and paragraph beginning The next object",
+          "supports": "Lister describes his clinical technique and explicitly cites March–April 1867 Lancet publications for its earlier version."
+        },
+        {
           "source_id": "entry-molecular-marshall-1870",
           "locator": "p. 457, case and acknowledgement of Lister",
           "supports": "The author dates and describes his application and names Lister’s principles."
         }
       ],
-      "limits": "This case does not establish general acceptance, efficacy compared with alternatives, or the first carbolic use.\nPublication of a report is not proof of first invention, deployment, community acceptance or sale.",
+      "limits": "Upper bound derived from retrospective self-citation, not a precise first use or first-ever antisepsis claim; Semmelweis and other earlier antiseptic practices are not included in this specific identity.\nThis case does not establish general acceptance, efficacy compared with alternatives, or the first carbolic use.\nPublication of a report is not proof of first invention, deployment, community acceptance or sale.",
       "review_basis": [
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved broader technology identity; existing regional and object witnesses retained. Source access and dating qualifications preserved."
         }
       ]
     },
@@ -16743,32 +16830,11 @@
       ]
     },
     {
-      "id": "elec-planar-concept-to-device",
-      "type": "relationship",
-      "historical_claim": "accepted",
-      "lifecycle_classification": "needs_review",
-      "proposition_sha256": "20ed64be0f3aeed992b303ad46147332f60534ab0ae2bcb2c53f9b70a0b4e01e",
-      "evidence": [
-        {
-          "source_id": "elec-chm-planar-process",
-          "locator": "Main narrative: notebook, disclosure and working device",
-          "supports": "Sequence from conception to implementation."
-        }
-      ],
-      "limits": "The original notebook was not inspected.",
-      "review_basis": [
-        {
-          "path": "reviews/identity.json",
-          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
-        }
-      ]
-    },
-    {
       "id": "elec-planar-concept-to-interconnection",
       "type": "relationship",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "3aee8e53b67dc30cae6818a56f8b3f69d9fc201b9ff8f97e0497f41e67ec929d",
+      "proposition_sha256": "b15bacb3574a085ebc827d5da7911aefaa25cb765750759a64bb714e86d2f39c",
       "evidence": [
         {
           "source_id": "elec-noyce-patent-2981877",
@@ -16787,6 +16853,10 @@
           "path": "reviews/electronics.json",
           "assessed_projection_sha256": "5d6701cae2cd01d2913a02df0390d90ca488014b30604f030c09e2f4ee8a953b",
           "scope": "Historical proposition; lifecycle classification remains separate."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -18577,32 +18647,6 @@
       ]
     },
     {
-      "id": "mech-h4-to-k1-copy",
-      "type": "relationship",
-      "historical_claim": "accepted",
-      "lifecycle_classification": "needs_review",
-      "proposition_sha256": "58bd88738df8377f3d10380d0a37906700a279c1f60dad05a86f68184200487a",
-      "evidence": [
-        {
-          "source_id": "entry-mech-k1-board",
-          "locator": "K1 page, completion paragraph",
-          "supports": "Identifies K1 as the 1769 result of the H4 copying commission."
-        },
-        {
-          "source_id": "entry-mech-k1-board",
-          "locator": "Single-page description: Board’s 1766 commission",
-          "supports": "The Board ordered a copy of H4 following its sea trials."
-        }
-      ],
-      "limits": "The resource is a museum summary; the original Board minutes were not independently checked.",
-      "review_basis": [
-        {
-          "path": "reviews/expansion.json",
-          "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
-        }
-      ]
-    },
-    {
       "id": "mech-joule-refined-to-thomson-dynamical",
       "type": "relationship",
       "historical_claim": "accepted",
@@ -18673,7 +18717,7 @@
       "type": "relationship",
       "historical_claim": "accepted",
       "lifecycle_classification": "needs_review",
-      "proposition_sha256": "e032157119e13625f339fd09c51a42e0644e8fe0ae5b3d81f000bd1f56bf64b4",
+      "proposition_sha256": "154c6ef18b599ca0092d0128e9c97f7a0f7294e3d038afa5717e76ace337084f",
       "evidence": [
         {
           "source_id": "entry-mech-k2-rmg",
@@ -18686,6 +18730,10 @@
         {
           "path": "reviews/expansion.json",
           "scope": "Exact accepted projection composition; existing lifecycle classifications preserved."
+        },
+        {
+          "path": "reviews/frontier-audit.json",
+          "scope": "Exact independently approved same-configuration consolidation; original event endpoint, distinct object and stage scopes retained."
         }
       ]
     },
@@ -19052,6 +19100,114 @@
           "scope": "Historical proposition; lifecycle classification remains separate."
         }
       ]
+    }
+  ],
+  "superseded_records": [
+    {
+      "type": "relationship",
+      "id": "elec-planar-concept-to-device",
+      "status": "superseded_as_between_node_topology",
+      "original_proposition_sha256": "20ed64be0f3aeed992b303ad46147332f60534ab0ae2bcb2c53f9b70a0b4e01e",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: notebook, disclosure and working device",
+          "supports": "Sequence from conception to implementation."
+        }
+      ],
+      "current_decision": {
+        "path": "reviews/frontier-audit.json",
+        "reason": "The conception node asserts the same retained-oxide architecture as the existing broadly defined planar-transistor node. Conception, prototype and circuit uptake are stages and applications of that configuration; preserve their dates and scopes separately. Noyce interconnection remains a distinct extension."
+      }
+    },
+    {
+      "type": "node",
+      "id": "elec-hoerni-planar-conception-1957",
+      "status": "consolidated_configuration_identity",
+      "original_proposition_sha256": "bf434ffe3a15c0fe10377f052bedc3b9b45e02824ddad98a4b9e2cc401a95e96",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1957 notebook discussion",
+          "supports": "Documents conception of oxide-protected transistor junctions."
+        },
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative, August 1959 project and 26 May 1960 result",
+          "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
+        },
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: December 1957 notebook entry",
+          "supports": "Conception date and retained oxide."
+        },
+        {
+          "source_id": "elec-moore-fairchild-1998",
+          "locator": "p. 58, planar-transistor discussion",
+          "supports": "Proposed geometry and departure from previous processing."
+        }
+      ],
+      "current_decision": {
+        "path": "reviews/frontier-audit.json",
+        "reason": "The conception node asserts the same retained-oxide architecture as the existing broadly defined planar-transistor node. Conception, prototype and circuit uptake are stages and applications of that configuration; preserve their dates and scopes separately. Noyce interconnection remains a distinct extension."
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "mech-h4-to-k1-copy",
+      "status": "superseded_as_between_node_topology",
+      "original_proposition_sha256": "58bd88738df8377f3d10380d0a37906700a279c1f60dad05a86f68184200487a",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "evidence": [
+        {
+          "source_id": "entry-mech-k1-board",
+          "locator": "K1 page, completion paragraph",
+          "supports": "Identifies K1 as the 1769 result of the H4 copying commission."
+        },
+        {
+          "source_id": "entry-mech-k1-board",
+          "locator": "Single-page description: Board’s 1766 commission",
+          "supports": "The Board ordered a copy of H4 following its sea trials."
+        }
+      ],
+      "current_decision": {
+        "path": "reviews/frontier-audit.json",
+        "reason": "The holding institutions explicitly identify K1 as a commissioned copy of H4 for the same longitude-timekeeping application. No distinct cost, architecture, precision or application advance is asserted by the K1 records. Keep its 1769 completion and 1772–1775 voyage use as K1-scoped events; do not identify the two physical watches."
+      }
+    },
+    {
+      "type": "node",
+      "id": "mech-kendall-k1-voyage",
+      "status": "consolidated_configuration_identity",
+      "original_proposition_sha256": "346690e4511bee27501bf26f8af7636e499c471c1a44b716b4c1d379d93c0f9b",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "evidence": [
+        {
+          "source_id": "entry-mech-k1-rmg",
+          "locator": "Pacific Encounters, K1 paragraph",
+          "supports": "K1 was used for longitude on Cook’s second voyage, 1772–1775."
+        },
+        {
+          "source_id": "entry-mech-k1-board",
+          "locator": "Single-page account of 1766 copy commission and 1769 completion",
+          "supports": "Identifies K1 as the Board-commissioned copy of H4."
+        },
+        {
+          "source_id": "entry-mech-k1-board",
+          "locator": "Single-page description",
+          "supports": "States completion in 1769."
+        }
+      ],
+      "current_decision": {
+        "path": "reviews/frontier-audit.json",
+        "reason": "The holding institutions explicitly identify K1 as a commissioned copy of H4 for the same longitude-timekeeping application. No distinct cost, architecture, precision or application advance is asserted by the K1 records. Keep its 1769 completion and 1772–1775 voyage use as K1-scoped events; do not identify the two physical watches."
+      }
     }
   ]
 }

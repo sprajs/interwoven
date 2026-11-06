@@ -44,16 +44,16 @@ Drag again to open a second period beside the first, up to three, and they share
 **Reach.** Links become vertical lines hanging from horizontal rules. Two things are drawn separately and must not be confused:
 
 - **Influence reach**, worked out from the links: a rule from an entry to its latest descendant. It is firmer as far as something was built on directly, fine through later entries, and broken where it rests only on links awaiting review. It measures how long something went on being built on in the research so far, not how long it existed.
-- **Documented life**, from dated events: a heavy stroke over the stretch the evidence covers, a short upright for evidence of use or sale, a closing bracket for withdrawal from sale, a cross for abandonment. A date such as "by 2023" keeps a dotted tail, because it is only a latest date.
+- **Recorded episodes**, from reviewed dated events: a short upright for scoped use or sale, a closing bracket for withdrawal from sale, and a cross for abandonment. Separate episodes are not joined into an inferred continuous lifespan. An event's full date, approximation, missing bound, scope and evidence remain available in details; a coordinate used for drawing is not an additional historical bound.
 
-Where the evidence stops, three dots and a question mark say so. They are the same length everywhere, because they measure nothing. They only disappear when the research documents an end and does not call last use unknown. The notes give live counts of what is documented, including the stages with nothing yet, so this view fills in as research lands. Rows can be ordered by thread, date or reach. Where one line breaks at a crossing, that is a drafting convention to show the lines are not connected, and which one goes over means nothing.
+Where the evidence stops, three dots and a question mark indicate unknown continuation. They have the same length because they measure nothing. A local end event does not erase uncertainty about other places or applications. The notes give live counts of what is documented, including stages with nothing yet. Rows can be ordered by thread, date or reach. Where one line breaks at a crossing, that drafting convention shows the lines are not connected; which goes over means nothing.
 
 ## Moving around
 
 | Action | Trackpad | Mouse | Touch |
 | --- | --- | --- | --- |
-| Pan | Two-finger scroll | Drag | Drag |
-| Zoom | Pinch | Wheel | Pinch diagonally |
+| Pan | Two fingers sideways, or drag | Drag | Drag |
+| Zoom | Two fingers up or down, or pinch | Wheel | Pinch diagonally |
 | Zoom time only | Pinch or scroll over the ruler, or hold Option | Wheel over the ruler, or hold Option | Pinch sideways |
 | Zoom height only | Scroll over the left margin, or Shift and pinch | Wheel over the left margin | Pinch upright |
 
@@ -98,7 +98,7 @@ npm run validate
 
 ### Lifecycle evidence
 
-Every entry's lifecycle stages and dated events are in `timeline.json`. The app treats an entry with nothing beyond "not yet researched" as unresearched, never as ended or continuing.
+Every entry's lifecycle stages and dated events are in `timeline.json`, including full structured dates, scopes, evidence references and both review axes. Use, availability, recognition and awareness remain distinct. Unsupported or unclassified event types do not silently become origins. The app treats an entry with nothing beyond "not yet researched" as unresearched, never as ended or continuing. A scoped last-use, withdrawal or abandonment episode does not establish that the broader technology ended everywhere.
 
 ## Testing with other data
 

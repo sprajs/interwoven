@@ -33,6 +33,19 @@ function records(nodes: ResearchNode[], events: ResearchEvent[]): ResearchRecord
 }
 
 describe('research importer placement', () => {
+  it('exports original scoped event evidence and both review axes for lifecycle presentation', () => {
+    const use = event('scoped-use', 'scope', 'practical_use', 1910)
+    const current = node('scope', [use], 'practical_use', use.id)
+    use.scope = structuredClone(current.graph_anchor!.scope!)
+    use.evidence = [{ source_id: 'source-1', locator: 'Operating record, p. 4', supports: 'Only the named local users are attested.' }]
+    use.review = { historical_claim: 'accepted', lifecycle_classification: 'needs_review' }
+    const before = JSON.stringify([current, use])
+    const data = buildResearchDataset(records([current], [use]))
+    expect(data.events![use.id]).toMatchObject({ date: use.date, scope: use.scope, evidence: use.evidence, review: 'accepted', lifecycle_review: 'needs_review' })
+    expect(buildModel(data).life.get('scope')!.events[0]).toMatchObject({ scope: use.scope, evidence: use.evidence, lifecycle_review: 'needs_review' })
+    expect(JSON.stringify([current, use])).toBe(before)
+  })
+
   it('keeps unresolved technology accessible without using its dated invention', () => {
     const invention = event('u-invention', 'u', 'invention', 1850)
     const data = buildResearchDataset(records([node('u', [invention])], [invention]))
