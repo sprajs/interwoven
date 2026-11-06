@@ -157,3 +157,27 @@ from a later printed sentence.
 All historian holds and refused Oughtred→Soho, Newton→Abbe and 4004→genome links
 remain refused/held. Validation: graph valid, zero concerns; 140 web tests and
 production build passed. Counts: 283 entries, 549 events, 151 links.
+
+## Stage 7, batch A — completed
+
+Priorities 1, 3–6 supplied six new entries: Gutenberg's production system,
+domesticated maize, proto-cuneiform economic recording, specific microbial
+causation, Jenner vaccination and natural selection. Priority 2 (paper) was
+already represented. Nine sources were read and retained. One is an explicitly
+attributed live-read note after raw capture returned 429; it is not labelled an
+original. The maize source is the named paper's Europe PMC abstract, not an
+unread full paper or a captcha. Failed acquisition responses remain uncommitted.
+
+Dates retain their limits: Gutenberg's early institutional reconstruction is
+qualified; maize's 8,700 cal BP is a rounded known-by conversion, not an onset;
+proto-cuneiform has a reported interval; Darwin's private 1838 formulation is
+separate from the 1858 public account. Modern custody dates supply no anchors.
+Microbial causation is a high-level historical result, with no operational
+pathogen procedures. Earlier Pasteur and other antecedents are not overwritten.
+
+Evolution is an explicit topic rather than being forced into Molecular biology.
+All six additions have separate earliest-record and community events, explicit
+labels and fresh proposition-bound decisions. No new causal link was inferred
+merely from their importance. Counts: 289 entries, 561 events, 151 links, 654
+sources. Validator, 140 web tests and production build passed. Raw source bytes
+are preserved; whitespace checking excludes acquired originals.

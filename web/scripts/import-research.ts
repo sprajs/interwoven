@@ -27,7 +27,7 @@ const FAMILIES: { name: string; ink: string; labels: string[] }[] = [
   { name: 'Materials', ink: INK.madder, labels: ['metallurgy', 'materials', 'ceramics', 'polymers', 'chemistry', 'glass'] },
   { name: 'Heat & power', ink: INK.ochre, labels: ['heat', 'steam', 'energy', 'machining', 'electric-power', 'mechanisms'] },
   { name: 'Electricity & computing', ink: INK.indigo, labels: ['electromagnetism', 'radio', 'batteries', 'communication', 'electronics', 'semiconductors', 'computing', 'integrated-circuits'] },
-  { name: 'Light & life', ink: INK.plum, labels: ['optics', 'astronomy', 'instruments', 'molecular-biology', 'medicine'] },
+  { name: 'Light & life', ink: INK.plum, labels: ['optics', 'astronomy', 'instruments', 'molecular-biology', 'medicine', 'evolution'] },
 ]
 const FAMILY_OF = new Map(FAMILIES.flatMap((family) => family.labels.map((id) => [id, family] as const)))
 
