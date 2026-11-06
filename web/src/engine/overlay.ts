@@ -42,11 +42,20 @@ const nameStep = (node: RawNode): TypeStep => (NAME_STYLE[node.level] ?? NAME_ST
 
 /** A date short enough to read at a glance. The sheet gives its full wording and basis. */
 export function shortDate(node: RawNode): string {
-  const year = formatYear(node.year)
-  if (node.date_kind === 'known_by') return `by ${year}`
-  if (node.date_kind === 'known_from') return `from ${year}`
-  if (node.date_kind === 'interval' && node.start !== undefined && node.end !== undefined) return `${formatYear(node.start)}–${formatYear(node.end)}`
-  return year
+  // These are stored historical years, unlike ruler ticks or camera coordinates: do not round.
+  const storedYear = (year: number): string => {
+    if (year >= 0) return String(year)
+    const [whole, fraction] = String(-year).split('.')
+    return `${whole!.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}${fraction === undefined ? '' : `.${fraction}`} BCE`
+  }
+  const date = node.entry_date
+  const qualification = date?.status === 'approximate' ? 'c. ' : ''
+  if (node.date_kind === 'known_by') return `by ${qualification}${storedYear(date?.latest?.year ?? node.end ?? node.year)}`
+  if (node.date_kind === 'known_from') return `not before ${qualification}${storedYear(date?.earliest?.year ?? node.start ?? node.year)}`
+  const start = date?.earliest?.year ?? node.start
+  const end = date?.latest?.year ?? node.end
+  if (node.date_kind === 'interval' && start !== undefined && end !== undefined) return `${qualification}${storedYear(start)}–${storedYear(end)}`
+  return `${qualification}${storedYear(date?.earliest?.year ?? date?.latest?.year ?? node.year)}`
 }
 
 let occupancy = new Uint8Array(0)
