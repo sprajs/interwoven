@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { RowOrder } from '../data/derive.ts'
 import { hasLaterLife, tallyLifecycle } from '../data/lifecycle.ts'
+import { LAYOUT, UNIT } from '../design.ts'
 import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
-import { focusNode, useApp } from '../store.ts'
+import { focusEntry, useApp } from '../store.ts'
 import { CARTOUCHE_WIDTH, COMPACT_WIDTH, reachCornersFree, SHEET_WIDTH } from './layout.ts'
 
 const ORDERS: { id: RowOrder; label: string; hint: string }[] = [
@@ -16,7 +17,7 @@ const ORDERS: { id: RowOrder; label: string; hint: string }[] = [
 function KeyMark({ kind }: { kind: 'direct' | 'fine' | 'broken' | 'life' | 'use' | 'withdrawn' | 'abandoned' | 'unknown' }) {
   const common = { stroke: 'currentColor', fill: 'none', strokeLinecap: 'round' as const }
   return (
-    <svg width="30" height="11" viewBox="0 0 30 11" aria-hidden className="shrink-0 text-ink-2">
+    <svg width="30" height="12" viewBox="0 0 30 11" aria-hidden className="shrink-0 text-ink-2">
       {kind === 'direct' && <path d="M1 5.5h28" {...common} strokeWidth="1.25" />}
       {kind === 'fine' && <path d="M1 5.5h28" {...common} strokeWidth="0.7" />}
       {kind === 'broken' && <path d="M1 5.5h4M8 5.5h4M15 5.5h4M22 5.5h4" {...common} strokeWidth="0.7" />}
@@ -29,7 +30,7 @@ function KeyMark({ kind }: { kind: 'direct' | 'fine' | 'broken' | 'life' | 'use'
           <circle cx="4" cy="5.5" r="0.8" fill="currentColor" />
           <circle cx="9" cy="5.5" r="0.8" fill="currentColor" />
           <circle cx="14" cy="5.5" r="0.8" fill="currentColor" />
-          <text x="19" y="9" fontStyle="italic" fontSize="11" fill="currentColor">?</text>
+          <text x="19" y="9" fontSize="11" fill="currentColor">?</text>
         </>
       )}
     </svg>
@@ -38,7 +39,7 @@ function KeyMark({ kind }: { kind: 'direct' | 'fine' | 'broken' | 'life' | 'use'
 
 function Key({ mark, children }: { mark: Parameters<typeof KeyMark>[0]['kind']; children: React.ReactNode }) {
   return (
-    <li className="flex items-center gap-2 text-[14.5px] leading-[1.25] text-ink-2">
+    <li className="flex items-center gap-2 text-note text-ink-2">
       <KeyMark kind={mark} />
       <span>{children}</span>
     </li>
@@ -58,16 +59,20 @@ function useWidth(): number {
 /** Tells the reader what the rows mean and what is actually known about how things ended. */
 export function ReachSheet() {
   const model = useApp((s) => s.model)
-  const life = useApp((s) => s.life)
   const rowOrder = useApp((s) => s.rowOrder)
   const setRowOrder = useApp((s) => s.setRowOrder)
   const width = useWidth()
   const [open, setOpen] = useState(width >= COMPACT_WIDTH)
-  const tally = useMemo(() => tallyLifecycle(life, model?.n ?? 0), [life, model])
+  const lifeById = useApp((s) => s.lifeById)
+  const total = model ? model.n + model.unplaced.length : 0
+  const tally = useMemo(() => tallyLifecycle(Object.values(lifeById), total), [lifeById, total])
+  // Every documented life in the research, placed or not, in order of its first dated event.
   const documented = useMemo(() => {
     if (!model) return []
-    return [...life.entries()].filter(([, record]) => hasLaterLife(record)).sort((a, b) => model.nodes[a[0]]!.year - model.nodes[b[0]]!.year)
-  }, [life, model])
+    return Object.entries(lifeById)
+      .filter(([, record]) => hasLaterLife(record))
+      .sort((a, b) => a[1].events[0]!.start - b[1].events[0]!.start)
+  }, [lifeById, model])
   const cornerRef = useRef<HTMLDivElement>(null)
   const asideRef = useRef<HTMLElement>(null)
   // Zooming fills the corners with chart, so what sits in them steps aside until you return.
@@ -96,21 +101,21 @@ export function ReachSheet() {
   const compact = width < COMPACT_WIDTH
   const corner = width >= CARTOUCHE_WIDTH && reachCornersFree(model, rowOrder)
   const placement = compact
-    ? 'absolute inset-x-0 bottom-0 z-20 max-h-[56vh] border-t border-rule'
+    ? 'absolute inset-x-0 bottom-0 z-20 max-h-[56vh] border-t border-rule px-6 pt-3'
     : corner
-      ? 'absolute right-14 top-[108px] z-10 max-h-[calc(100vh-220px)]'
-      : 'absolute bottom-0 right-0 top-[54px] z-20 border-l border-t border-rule'
+      ? 'absolute right-18 top-36 z-10 max-h-[calc(100vh-216px)]'
+      : 'absolute bottom-0 right-0 top-18 z-20 border-l border-t border-rule px-8 pt-4'
 
   const keys = (
     <>
-      <h3 className="border-b border-rule pb-0.5 text-[14.5px] italic text-ink-3">Reach, from the links</h3>
-      <ul className="mt-1.5 space-y-[3px]">
+      <h3 className="section-head mt-0">Reach, from the links</h3>
+      <ul className="mt-1">
         <Key mark="direct">Built on directly</Key>
         <Key mark="fine">Built on through later entries</Key>
         <Key mark="broken">Only through links awaiting review</Key>
       </ul>
-      <h3 className="mt-3 border-b border-rule pb-0.5 text-[14.5px] italic text-ink-3">Life, from documented events</h3>
-      <ul className="mt-1.5 space-y-[3px]">
+      <h3 className="section-head mt-4">Life, from documented events</h3>
+      <ul className="mt-1">
         <Key mark="life">The stretch the evidence covers</Key>
         <Key mark="use">Evidence of use or sale</Key>
         <Key mark="withdrawn">Withdrawn from sale, not last use</Key>
@@ -122,90 +127,91 @@ export function ReachSheet() {
 
   return (
     <>
-    {corner && (
-      <div ref={cornerRef} className="absolute bottom-[116px] left-14 z-10 w-[252px] select-text transition-opacity duration-200" style={{ background: 'var(--color-paper)' }}>
-        {keys}
-      </div>
-    )}
-    <aside
-      ref={asideRef}
-      style={{ width: compact ? undefined : corner ? 306 : SHEET_WIDTH, background: corner ? 'var(--color-paper)' : undefined }}
-      className={`sheet thin-scroll select-text overflow-y-auto pb-3 transition-opacity duration-200 ${corner ? '' : 'px-4 pt-3'} ${placement}`}
-      aria-label="About the reach view"
-    >
-      <div className="flex items-baseline justify-between gap-3">
-        <h2 className="text-[21px] font-medium leading-none">Reach</h2>
-        <div className="flex items-baseline gap-2.5 text-[14.5px]" role="group" aria-label="Order of rows">
-          {ORDERS.map((option) => (
-            <button
-              key={option.id}
-              title={option.hint}
-              aria-pressed={rowOrder === option.id}
-              onClick={() => setRowOrder(option.id)}
-              className={rowOrder === option.id ? 'text-ink underline decoration-[0.5px] underline-offset-[3px]' : 'text-ink-3 hover:text-ink'}
-            >
-              {option.label}
-            </button>
-          ))}
+      {corner && (
+        <div ref={cornerRef} className="absolute bottom-30 left-18 z-10 w-84 select-text bg-paper transition-opacity duration-200">
+          {keys}
         </div>
-      </div>
-
-      <p className="mt-2 text-[15px] leading-snug text-ink-2">
-        Of {tally.total.toLocaleString('en-US')} entries, <span className="text-ink">{tally.withLaterLife}</span> {tally.withLaterLife === 1 ? 'has' : 'have'} any recorded life beyond {tally.withLaterLife === 1 ? 'its' : 'their'} origin. For the rest, how long they lasted is not yet known.
-      </p>
-
-      {compact && (
-        <button onClick={() => setOpen(!open)} aria-expanded={open} className="mt-1 text-[14.5px] italic text-ink-3 underline decoration-[0.5px] underline-offset-2">
-          {open ? 'Hide the key' : 'Show the key'}
-        </button>
       )}
+      <aside
+        ref={asideRef}
+        style={{ width: compact ? undefined : corner ? LAYOUT.column + 7 * UNIT : SHEET_WIDTH }}
+        className={`thin-scroll select-text overflow-y-auto pb-3 transition-opacity duration-200 ${corner ? 'bg-paper' : 'sheet'} ${placement}`}
+        aria-label="About the reach view"
+      >
+        <div className="flex items-baseline justify-between gap-3">
+          <h2 className="text-head">Reach</h2>
+          <div className="flex items-baseline gap-3 text-note" role="group" aria-label="Order of rows">
+            {ORDERS.map((option) => (
+              <button
+                key={option.id}
+                title={option.hint}
+                aria-pressed={rowOrder === option.id}
+                onClick={() => setRowOrder(option.id)}
+                className={rowOrder === option.id ? 'link text-ink' : 'text-ink-3 hover:text-ink'}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
-      {open && (
-        <>
-          {!corner && <div className="mt-3">{keys}</div>}
+        <p className="mt-2 text-body text-ink-2">
+          Of <span className="figures">{tally.total.toLocaleString('en-US')}</span> entries in the research, <span className="text-ink">{tally.withLaterLife}</span> {tally.withLaterLife === 1 ? 'has' : 'have'} any recorded life beyond {tally.withLaterLife === 1 ? 'its' : 'their'} origin. For the rest, how long they lasted is not yet known.
+        </p>
 
-          <table className="mt-3 w-full border-t border-rule text-[14.5px] text-ink-2">
-            <caption className="sr-only">Documented later-life events</caption>
-            <tbody>
-              {[
-                ['Decline', tally.counts.decline],
-                ['Withdrawal', tally.counts.withdrawal],
-                ['Last use', tally.counts.end_of_use],
-                ['Abandonment', tally.counts.abandonment],
-                ['Revival', tally.counts.revival],
-              ].map(([name, count]) => (
-                <tr key={name as string} className="border-b border-rule/50">
-                  <td className="py-[2px]">{name}</td>
-                  <td className={`py-[2px] text-right ${count === 0 ? 'italic text-ink-3' : 'text-ink'}`}>{count === 0 ? 'none documented' : count}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {compact && (
+          <button onClick={() => setOpen(!open)} aria-expanded={open} className="note link mt-1">
+            {open ? 'Hide the key' : 'Show the key'}
+          </button>
+        )}
 
-          {documented.length > 0 && (
-            <>
-              <h3 className="mt-3 border-b border-rule pb-0.5 text-[14.5px] italic text-ink-3">The documented lives</h3>
-              <ul>
-                {documented.map(([i, record]) => {
-                  const node = model.nodes[i]!
-                  const last = record.events[record.events.length - 1]!
-                  return (
-                    <li key={i} className="border-b border-rule/50">
-                      <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 py-[3px] text-left text-[15px] leading-tight">
-                        <span className="min-w-0 flex-1 group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2">{node.title}</span>
-                        <span className="shrink-0 text-[13.5px] text-ink-3">
-                          {formatYear(record.events[0]!.start)} to {formatYear(last.end)}
-                        </span>
-                      </button>
-                    </li>
-                  )
-                })}
-              </ul>
-            </>
-          )}
-        </>
-      )}
-    </aside>
+        {open && (
+          <>
+            {!corner && <div className="mt-4">{keys}</div>}
+
+            <table className="figures mt-4 w-full border-t border-rule text-note text-ink-2">
+              <caption className="sr-only">Documented later-life events</caption>
+              <tbody>
+                {[
+                  ['Decline', tally.counts.decline],
+                  ['Withdrawal', tally.counts.withdrawal],
+                  ['Last use', tally.counts.end_of_use],
+                  ['Abandonment', tally.counts.abandonment],
+                  ['Revival', tally.counts.revival],
+                ].map(([name, count]) => (
+                  <tr key={name as string} className="border-b border-rule-soft">
+                    <td className="py-px">{name}</td>
+                    <td className={`py-px text-right ${count === 0 ? 'text-ink-3' : 'text-ink'}`}>{count === 0 ? 'none documented' : count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            {documented.length > 0 && (
+              <>
+                <h3 className="section-head mt-4">The documented lives, placed or not</h3>
+                <ul>
+                  {documented.map(([id, record]) => {
+                    const entry = model.entryById.get(id)
+                    if (!entry) return null
+                    const last = record.events[record.events.length - 1]!
+                    return (
+                      <li key={id} className="border-b border-rule-soft">
+                        <button onClick={() => focusEntry(id)} className="group flex w-full items-baseline gap-2 py-px text-left text-note text-ink">
+                          <span className={`link-hover min-w-0 flex-1 ${entry.kind === 'science' ? 'science' : ''}`}>{entry.title}</span>
+                          <span className="figures shrink-0 text-ink-3">
+                            {formatYear(record.events[0]!.start)} to {formatYear(last.end)}
+                          </span>
+                        </button>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </>
+            )}
+          </>
+        )}
+      </aside>
     </>
   )
 }

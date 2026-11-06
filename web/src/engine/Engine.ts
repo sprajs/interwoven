@@ -1,6 +1,7 @@
-import { computeReach, findCrossings, rowOrder, rowPositions, type Reach, type RowOrder, type Story } from '../data/derive.ts'
+import { findCrossings, rowOrder, rowPositions, type Reach, type RowOrder, type Story } from '../data/derive.ts'
 import { documentedSpan, type LifeRecord } from '../data/lifecycle.ts'
-import { SHAPE_BY_KIND, walk, type Model } from '../data/model.ts'
+import { modelReach, SHAPE_BY_KIND, walk, type Model } from '../data/model.ts'
+import { hexUnit, INK, LAYOUT, PAPER as PAPER_HEX, UNIT } from '../design.ts'
 import { Camera, type Insets, type ZoomAxis } from './camera.ts'
 import { blendFolds, foldAroundYears, foldFromWindows, FoldMap, MAX_FOLD_POINTS, unfoldPleat, type Pleat } from './folds.ts'
 import { createDataTexture, createProgram, createTarget, deleteTarget, type Program, type Target } from './gl.ts'
@@ -26,6 +27,23 @@ export interface ViewState {
   previewLabel: string | null
 }
 
+export interface LooseEnd {
+  /** Whether the entry led to the unplaced one, rather than building on it. */
+  out: boolean
+  tentative: boolean
+}
+
+function findLooseEnds(model: Model): LooseEnd[][] {
+  const ends: LooseEnd[][] = model.nodes.map(() => [])
+  for (const link of model.links) {
+    const from = model.indexById.get(link.from)
+    const to = model.indexById.get(link.to)
+    if (from !== undefined && to === undefined) ends[from]!.push({ out: true, tentative: link.tentative })
+    else if (to !== undefined && from === undefined) ends[to]!.push({ out: false, tentative: link.tentative })
+  }
+  return ends
+}
+
 export interface EngineCallbacks {
   onHover(index: number | null, x: number, y: number): void
   onSelect(index: number | null): void
@@ -41,13 +59,20 @@ export interface EngineCallbacks {
 const REVEAL_ZOOM = [0, 0, 1.7, 3]
 /** Linear time packs the recent past into a sliver, so levels appear later there. */
 const LINEAR_REVEAL_FACTOR = 8
-export const PAPER = [0.957, 0.937, 0.902] as const
-const RULE_COLOR = [0.2, 0.18, 0.16] as const
-const HATCH_COLOR = [0.42, 0.36, 0.29] as const
+export const PAPER = hexUnit(PAPER_HEX)
+/** A page this sparse has room for every entry at once, so depth does not hide any of them. */
+const SHOW_ALL_BELOW = 60
+const RULE_COLOR = hexUnit(INK.primary)
+const HATCH_COLOR = hexUnit(INK.muted)
+/** How strongly the sheet's own marks print, far below any ink carrying data. */
+const TICK_RULE_ALPHA = 0.055
+const PLEAT_TONE_ALPHA = 0.04
+const PLEAT_FOLD_ALPHA = 0.13
+const HATCH_ALPHA = 0.62
 const OPENING_SECONDS = 2.4
 const REDRAW_SECONDS = 12
 const MAX_RECTS = 1400
-const HATCH_SPACING = 3.5
+const HATCH_SPACING = UNIT / 2 + 0.5
 const RATE_BINS = 512
 const RATE_SMOOTHING = 7
 const FOLD_SECONDS = 0.62
@@ -87,6 +112,8 @@ export class Engine {
   reach: Reach | null = null
   /** Documented later lives, from the lifecycle sidecar. */
   life = new Map<number, LifeRecord>()
+  /** Links per entry whose other end has no place on the chart yet. */
+  looseEnds: LooseEnd[][] = []
   /** Where each entry currently sits, easing toward the layout the view asks for. */
   yNow = new Float32Array(0)
   /** A period being marked out on the ruler, in screen pixels. */
@@ -282,9 +309,7 @@ export class Engine {
     const a = new Float32Array(S.TEX_WIDTH * height * 4)
     const b = new Float32Array(S.TEX_WIDTH * height * 4)
     model.nodes.forEach((node, i) => {
-      // An entry placed by its earliest record rather than a selected anchor is provisional.
-      const provisional = !node.anchored && !model.synthetic ? 2 : 0
-      a.set([node.year, this.yNow[i] ?? model.y[i]!, model.radius[i]!, (SHAPE_BY_KIND.get(node.kind) ?? 0) + provisional], i * 4)
+      a.set([node.year, this.yNow[i] ?? model.y[i]!, model.radius[i]!, SHAPE_BY_KIND.get(node.kind) ?? 0], i * 4)
       b.set([model.ink[i * 3]!, model.ink[i * 3 + 1]!, model.ink[i * 3 + 2]!, node.level], i * 4)
     })
     this.aData = a
@@ -479,7 +504,8 @@ export class Engine {
     this.labelAlpha = new Float32Array(model.n)
     this.uLinear = Float32Array.from(model.nodes, (node) => model.time.linear(node.year))
     this.uCompressed = Float32Array.from(model.nodes, (node) => model.time.compressed(node.year))
-    this.reach = computeReach(model.nodes, model.edges)
+    this.reach = modelReach(model)
+    this.looseEnds = findLooseEnds(model)
     this.rowsCache.clear()
     this.crossKey = ''
     this.yNow = Float32Array.from(model.y)
@@ -921,9 +947,18 @@ export class Engine {
     return this.toV(this.nodeU(i))
   }
 
+  /** Whether there is room for everything at any zoom, which is true of a sparse chart. */
+  get showsEverything(): boolean {
+    return (this.model?.n ?? Infinity) < SHOW_ALL_BELOW
+  }
+
   /** Reveal strength 0..1 per level at the current zoom. */
   private computeReveal(): void {
     const factor = LINEAR_REVEAL_FACTOR + (1 - LINEAR_REVEAL_FACTOR) * this.warp
+    if (this.showsEverything) {
+      this.reveal.fill(1)
+      return
+    }
     // Opening a period is as good as zooming into it, so its detail appears as it opens.
     const lz = this.camera.logZoom + this.foldGain
     for (let level = 0; level < 4; level++) {
@@ -1065,7 +1100,7 @@ export class Engine {
   /** The ruler zooms time, the left margin zooms height, and the chart zooms both. */
   private zoneAt(x: number, y: number): 'ruler' | 'gutter' | 'chart' | null {
     const frame = this.frameBounds()
-    if (y >= frame.top - 30 && y <= frame.top + 5) return 'ruler'
+    if (y >= frame.top - 5 * UNIT && y <= frame.top + UNIT) return 'ruler'
     if (y < frame.top || y > frame.bottom) return null
     if (x < Math.min(this.camera.insets.left - 8, 40)) return 'gutter'
     return 'chart'
@@ -1444,7 +1479,6 @@ export class Engine {
     gl.uniform3f(P.node.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
     // Rows are tight at a distance, so marks keep within their row.
     gl.uniform1f(P.node.u.uMarkCap!, 100 + (Math.max(1.5, rowPx * 0.55) - 100) * weave)
-    gl.uniform1f(P.node.u.uWhisker!, model.synthetic ? 0 : (1 - mix.hatching) * (1 - weave))
     gl.bindVertexArray(this.quadVao)
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
     gl.bindVertexArray(null)
@@ -1472,7 +1506,7 @@ export class Engine {
   /** The ruled area of the page that holds the chart, in CSS pixels. */
   frameBounds(): { top: number; bottom: number } {
     const cam = this.camera
-    return { top: cam.insets.top - 16, bottom: cam.height - cam.insets.bottom + 26 }
+    return { top: cam.insets.top - LAYOUT.framePad, bottom: cam.height - cam.insets.bottom + LAYOUT.framePad }
   }
 
   /** Pencil lines at the axis ticks, and in the density view the hatched silhouette of activity. */
@@ -1486,7 +1520,7 @@ export class Engine {
     const { top, bottom } = this.frameBounds()
     for (const tick of this.ticks) {
       if (count >= MAX_RECTS || tick.x < 0 || tick.x > cam.width) continue
-      data.set([tick.x * dpr - 0.5, top * dpr, tick.x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.055 * this.mix.rules], count * 8)
+      data.set([tick.x * dpr - 0.5, top * dpr, tick.x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], TICK_RULE_ALPHA * this.mix.rules], count * 8)
       count++
     }
 
@@ -1496,11 +1530,11 @@ export class Engine {
       const x1 = cam.toX(this.foldNow.map(pleat.u1))
       if (x1 < 0 || x0 > cam.width || x1 - x0 < 1) continue
       if (count >= MAX_RECTS) break
-      data.set([x0 * dpr, top * dpr, x1 * dpr, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.04], count * 8)
+      data.set([x0 * dpr, top * dpr, x1 * dpr, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], PLEAT_TONE_ALPHA], count * 8)
       count++
-      const spacing = Math.max(3, Math.min(5, (x1 - x0) / 6))
+      const spacing = Math.max(UNIT / 2, Math.min(UNIT, (x1 - x0) / 6))
       for (let x = x0; x <= x1 + 0.01 && count < MAX_RECTS; x += spacing) {
-        data.set([x * dpr - 0.5, top * dpr, x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.13], count * 8)
+        data.set([x * dpr - 0.5, top * dpr, x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], PLEAT_FOLD_ALPHA], count * 8)
         count++
       }
     }
@@ -1522,7 +1556,7 @@ export class Engine {
         const jitter = Math.sin(key * 12.9898) * 43758.5453
         const wobble = 0.93 + 0.14 * (jitter - Math.floor(jitter))
         const half = h * reach * wobble * hatching
-        data.set([x * dpr - 0.5 * dpr, (middle - half) * dpr, x * dpr + 0.5 * dpr, (middle + half) * dpr, HATCH_COLOR[0], HATCH_COLOR[1], HATCH_COLOR[2], 0.62 * hatching], count * 8)
+        data.set([x * dpr - 0.5 * dpr, (middle - half) * dpr, x * dpr + 0.5 * dpr, (middle + half) * dpr, HATCH_COLOR[0], HATCH_COLOR[1], HATCH_COLOR[2], HATCH_ALPHA * hatching], count * 8)
         count++
       }
     }

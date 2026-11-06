@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
 import { getEngine, passes, useApp } from '../store.ts'
+import { LAYOUT } from '../design.ts'
 import { usePageMargins } from './layout.ts'
 
-const HEIGHT = 30
-const TICK_BY_LEVEL = [20, 15, 10, 7]
+const HEIGHT = LAYOUT.overview
+const TICK_BY_LEVEL = [18, 12, 9, 6]
 
 /** The whole of history along one ruled line: one fine tick per entry, with the current view bracketed. */
 export function Overview() {
@@ -38,7 +39,7 @@ export function Overview() {
       ctx.clearRect(0, 0, width, HEIGHT)
 
       const warp = compressed ? 1 : 0
-      const baseline = HEIGHT - 3.5
+      const baseline = HEIGHT - 3
       ctx.fillStyle = 'rgba(38,33,28,0.55)'
       ctx.fillRect(0, baseline, width, 0.75)
 
@@ -89,7 +90,7 @@ export function Overview() {
   if (!model) return null
 
   return (
-    <div className="absolute bottom-3 z-10 transition-[left,right] duration-300" style={margins}>
+    <div className="absolute bottom-4 z-10 transition-[left,right] duration-300" style={margins}>
       <div
         ref={boxRef}
         className="relative touch-none"
@@ -152,11 +153,11 @@ export function Overview() {
       >
         <canvas ref={canvasRef} className="absolute inset-0" />
         {pleats.map((p) => (
-          <div key={p.a} className="pointer-events-none absolute inset-y-0 bg-ink/[0.07]" style={{ left: `${p.a * 100}%`, width: `${(p.b - p.a) * 100}%` }} />
+          <div key={p.a} className="pointer-events-none absolute inset-y-0 bg-tint" style={{ left: `${p.a * 100}%`, width: `${(p.b - p.a) * 100}%` }} />
         ))}
-        <div ref={windowRef} className="pointer-events-none absolute inset-y-0 left-0 border-x-[1.5px] border-ink/70" />
+        <div ref={windowRef} className="pointer-events-none absolute inset-y-0 left-0 border-x border-ink-2" />
         {probe && (
-          <div className="pointer-events-none absolute -top-[22px] -translate-x-1/2 whitespace-nowrap text-[14px] text-ink-2" style={{ left: probe.x }}>
+          <div className="note pointer-events-none absolute -top-7 -translate-x-1/2 whitespace-nowrap text-ink-2" style={{ left: probe.x }}>
             {probe.text}
           </div>
         )}

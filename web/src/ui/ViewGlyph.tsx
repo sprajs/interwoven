@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
-import { computeReach, rowOrder, storyIndex } from '../data/derive.ts'
-import type { Model } from '../data/model.ts'
+import { rowOrder, storyIndex } from '../data/derive.ts'
+import { modelReach, type Model } from '../data/model.ts'
 import type { Mode } from '../engine/Engine.ts'
 
-const W = 44
-const H = 17
+const W = 42
+const H = 18
 /** Tiny drawings stay cheap on huge datasets by drawing a sample. */
 const SAMPLE = 260
 
@@ -41,7 +41,7 @@ function drawGlyph(model: Model, mode: Mode): string {
       .join('')
   }
   if (mode === 'reach') {
-    const reach = computeReach(model.nodes, model.edges)
+    const reach = modelReach(model)
     const rows = rowOrder(model.nodes, model.children, model.parents, reach, 'thread')
     const n = rows.length
     return sampled([...rows.keys()])

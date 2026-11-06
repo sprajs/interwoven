@@ -108,13 +108,13 @@ export function SearchPalette() {
     <AnimatePresence>
       {open && model && (
         <motion.div
-          className="pointer-events-none absolute inset-x-0 top-[54px] z-40 flex justify-end px-[22px] min-[760px]:top-[52px] min-[760px]:px-14"
-          initial={{ opacity: 0, y: -4 }}
+          className="pointer-events-none absolute inset-x-0 top-14 z-40 flex justify-end px-6 compact:top-18 compact:px-18"
+          initial={{ opacity: 0, y: -3 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
+          exit={{ opacity: 0, y: -3 }}
           transition={{ duration: 0.12 }}
         >
-          <div role="dialog" aria-label="Find on the chart" className="sheet pointer-events-auto w-full max-w-[25rem] border border-rule">
+          <div role="dialog" aria-label="Find on the chart" className="sheet pointer-events-auto w-full max-w-sm border border-rule">
             <input
               autoFocus
               value={query}
@@ -133,38 +133,38 @@ export function SearchPalette() {
                 e.stopPropagation()
                 if (e.key === 'Escape') setOpen(false)
               }}
-              placeholder="An entry, a place, a label, 1850 or 1600 to 1700"
+              placeholder="An entry, a place, 1850, 1600 to 1700"
               aria-label="Find"
               role="combobox"
               aria-expanded="true"
               aria-controls="search-results"
-              className="w-full border-b border-rule bg-transparent px-4 py-2.5 text-[18px] text-ink outline-none focus-visible:outline-none placeholder:italic placeholder:text-ink-3"
+              className="w-full border-b border-rule bg-transparent px-4 py-2 text-lead text-ink outline-none placeholder:text-ink-3"
             />
             <ul id="search-results" ref={listRef} role="listbox" className="thin-scroll max-h-[46vh] overflow-y-auto py-1">
               {date && (
                 <li role="option" aria-selected={active === 0} data-index={0}>
-                  <button onClick={goToDate} onPointerMove={() => setActive(0)} className={`flex w-full items-baseline gap-3 px-4 py-1.5 text-left text-[16.5px] italic leading-tight ${active === 0 ? 'bg-ink/[0.06]' : ''}`}>
+                  <button onClick={goToDate} onPointerMove={() => setActive(0)} className={`flex w-full items-baseline gap-3 px-4 py-1 text-left text-body ${active === 0 ? 'bg-tint' : ''}`}>
                     <span className="min-w-0 flex-1">{describeDate(date)}</span>
-                    <span className="shrink-0 text-[14px] not-italic text-ink-3">return</span>
+                    <span className="note shrink-0">return</span>
                   </button>
                 </li>
               )}
-              {!query.trim() && <li className="px-4 pb-1 pt-1.5 text-[14.5px] italic text-ink-3">Landmarks</li>}
+              {!query.trim() && <li className="note px-4 pb-1 pt-1">Landmarks</li>}
               {results.map((node, k) => {
                 const position = k + offset
                 return (
                   <li key={node.id} role="option" aria-selected={position === active} data-index={position}>
-                    <button onClick={() => choose(position)} onPointerMove={() => setActive(position)} className={`flex w-full items-baseline gap-3 px-4 py-1 text-left text-[16.5px] leading-tight ${position === active ? 'bg-ink/[0.06]' : ''}`}>
-                      <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
-                        <Mark kind={node.kind} size={9} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
+                    <button onClick={() => choose(position)} onPointerMove={() => setActive(position)} className={`flex w-full items-baseline gap-2 px-4 py-px text-left text-body ${position === active ? 'bg-tint' : ''}`}>
+                      <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
+                        <Mark kind={node.kind} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                       </span>
-                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
-                      <span className="shrink-0 text-[14.5px] text-ink-3">{isPlacedNode(node) ? formatYear(node.year) : 'not yet placed'}</span>
+                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
+                      <span className="note shrink-0">{isPlacedNode(node) ? formatYear(node.year) : 'awaiting a date'}</span>
                     </button>
                   </li>
                 )
               })}
-              {results.length === 0 && !date && <li className="px-4 py-3 text-[15.5px] italic text-ink-3">Nothing matches “{query}”.</li>}
+              {results.length === 0 && !date && <li className="note px-4 py-2">Nothing matches “{query}”.</li>}
             </ul>
           </div>
         </motion.div>

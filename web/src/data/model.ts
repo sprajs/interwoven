@@ -1,4 +1,6 @@
+import { TIER_RADIUS } from '../design.ts'
 import { TimeScale } from '../engine/time.ts'
+import { computeReach, type Reach } from './derive.ts'
 import { KINDS, type RawDataset, type RawLabel, type RawLink, type RawNode, type RawUnplacedNode, type TimelineEntry } from './types.ts'
 
 export interface Edge {
@@ -40,7 +42,6 @@ export interface Model {
   indexById: Map<string, number>
 }
 
-const LEVEL_RADIUS = [4.4, 3.3, 2.6, 2.1]
 const FALLBACK_INK = '#4a433b'
 const FULL_IMPACT_LIMIT = 4000
 
@@ -239,7 +240,7 @@ export function buildModel(data: RawDataset, synthetic = false): Model {
   nodes.forEach((node, i) => {
     if (node.level === 0) landmarks.push(i)
     impact[i] = n <= FULL_IMPACT_LIMIT || node.level === 0 ? countDescendants(i, children, seen, i) : children[i]!.length
-    radius[i] = (LEVEL_RADIUS[node.level] ?? 2.4) * (1 + Math.min(0.25, Math.log1p(children[i]!.length) * 0.05))
+    radius[i] = TIER_RADIUS[node.level] ?? TIER_RADIUS[3]!
     const primary = labelById.get(node.labels[0] ?? '')
     ink.set(hexToRgb(primary?.ink ?? FALLBACK_INK), i * 3)
   })
@@ -301,4 +302,30 @@ export function walk(start: number, adjacency: number[][], maxHops: number): Map
     frontier = next
   }
   return hops
+}
+
+const reachCache = new WeakMap<Model, Reach>()
+
+/**
+ * Reach for the placed entries, following links through entries that have no date yet. An
+ * undated entry cannot extend a reach, but it can carry one on to a dated entry beyond it.
+ */
+export function modelReach(model: Model): Reach {
+  let reach = reachCache.get(model)
+  if (!reach) {
+    const index = new Map(model.indexById)
+    const dated: { year: number }[] = [...model.nodes]
+    for (const entry of model.unplaced) {
+      index.set(entry.id, dated.length)
+      dated.push({ year: -Infinity })
+    }
+    const edges = model.links.flatMap((link) => {
+      const source = index.get(link.from)
+      const target = index.get(link.to)
+      return source === undefined || target === undefined ? [] : [{ source, target, tentative: link.tentative }]
+    })
+    reach = computeReach(dated, edges)
+    reachCache.set(model, reach)
+  }
+  return reach
 }

@@ -88,11 +88,10 @@ uniform float uNodeAlpha;
 uniform int uHover;
 uniform int uSelected;
 uniform float uDrawU;
-uniform float uWhisker;
 uniform float uMarkCap;
 flat out vec3 vColor;
 flat out vec4 vInfo;
-flat out vec4 vExtra;
+flat out vec3 vExtra;
 out vec2 vPx;
 
 void main() {
@@ -112,9 +111,7 @@ void main() {
     return;
   }
   float r = min(a.z, uMarkCap) * uDpr * mix(0.5, 1.0, v) * (1.0 + 0.2 * s.z);
-  // Shape: 0 or 1 is the kind, and adding 2 means the date is provisional, which gets a whisker.
-  float whisker = (a.w >= 1.5 ? 1.0 : 0.0) * uWhisker * mix(0.0, 1.0, v) * uDpr;
-  float halfSize = r * 1.25 + 2.0 * uDpr + mark * (r + 7.0 * uDpr) + whisker * 4.5;
+  float halfSize = r * 1.25 + 2.0 * uDpr + mark * (r + 7.0 * uDpr);
   vec2 c = worldToPx(a.x, a.y);
   if (c.x < -halfSize || c.x > uRes.x + halfSize || c.y < -halfSize || c.y > uRes.y + halfSize) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
@@ -123,8 +120,8 @@ void main() {
   vPx = aCorner * halfSize;
   gl_Position = pxToClip(c + vPx);
   vColor = mix(${GRAPHITE}, b.rgb, mix(1.0, 0.25, s.y));
-  vInfo = vec4(mod(a.w, 2.0), r, alpha, hash(float(id) + 3.1) * 6.283);
-  vExtra = vec4(mark, v, b.a, whisker * 4.5);
+  vInfo = vec4(a.w, r, alpha, hash(float(id) + 3.1) * 6.283);
+  vExtra = vec3(mark, v, b.a);
 }
 `
 
@@ -133,7 +130,7 @@ uniform float uDpr;
 uniform vec3 uPaper;
 flat in vec3 vColor;
 flat in vec4 vInfo;
-flat in vec4 vExtra;
+flat in vec3 vExtra;
 in vec2 vPx;
 out vec4 fragColor;
 
@@ -175,13 +172,6 @@ void main() {
     float ring = 1.0 - smoothstep(0.35 * uDpr, 1.15 * uDpr, abs(dist - wobble) / nib);
     rgb = mix(rgb, vec3(0.15, 0.13, 0.11), ring * (1.0 - a));
     a = max(a, ring * mark);
-  }
-  // A provisional date: a fine stroke either side of the mark, about here and no more.
-  float reach = vExtra.w;
-  if (reach > 0.0 && abs(vPx.x) < r + reach && abs(vPx.x) > r) {
-    float w = (1.0 - smoothstep(0.25 * uDpr, 0.85 * uDpr, abs(vPx.y))) * 0.8;
-    rgb = mix(rgb, vColor, w * (1.0 - a));
-    a = max(a, w);
   }
   fragColor = vec4(rgb * a, a) * alpha;
 }

@@ -25,8 +25,10 @@ interface AppState {
   rowOrder: RowOrder
   /** The thread being followed, if any. */
   story: Story | null
-  /** Documented later lives, from the lifecycle sidecar. */
+  /** Documented later lives of the entries on the chart, from the lifecycle sidecar. */
   life: Map<number, LifeRecord>
+  /** The same for every entry in the research, by id, placed or not. */
+  lifeById: Record<string, LifeRecord>
   /** Entries matching the search box, while something is typed there. */
   searchHits: ReadonlySet<number> | null
   /** A label being pointed at. */
@@ -54,7 +56,7 @@ interface AppState {
   setUnplacedOpen(open: boolean): void
   setDepth(depth: number): void
   setRowOrder(order: RowOrder): void
-  setLife(life: Map<number, LifeRecord>): void
+  setLife(life: Map<number, LifeRecord>, lifeById: Record<string, LifeRecord>): void
   setSearchHits(hits: ReadonlySet<number> | null): void
   setPreviewLabel(id: string | null): void
   setOpenPeriods(count: number): void
@@ -80,6 +82,7 @@ export const useApp = create<AppState>((set) => ({
   rowOrder: 'thread',
   story: null,
   life: new Map(),
+  lifeById: {},
   searchHits: null,
   previewLabel: null,
   openPeriods: 0,
@@ -103,7 +106,7 @@ export const useApp = create<AppState>((set) => ({
   setUnplacedOpen: (unplacedOpen) => set((s) => ({ unplacedOpen, labelsOpen: unplacedOpen ? false : s.labelsOpen })),
   setDepth: (depth) => set({ depth }),
   setRowOrder: (rowOrder) => set({ rowOrder }),
-  setLife: (life) => set({ life }),
+  setLife: (life, lifeById) => set({ life, lifeById }),
   setSearchHits: (searchHits) => set({ searchHits }),
   setPreviewLabel: (previewLabel) => set({ previewLabel }),
   setOpenPeriods: (openPeriods) => set({ openPeriods }),

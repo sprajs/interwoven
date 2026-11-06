@@ -15,30 +15,32 @@ function LandmarkRail() {
   const items = model.landmarks.filter((i) => passes(model.nodes[i]!, { hiddenKinds, activeLabels }))
   return (
     <>
-      <h2 className="text-[21px] font-medium leading-none">Landmarks</h2>
-      <p className="caption mt-2 leading-snug">Placed entries the research marks as most prominent. Choose one to trace their recorded connections.</p>
+      <h2 className="text-head">Landmarks</h2>
+      <p className="note mt-1">The entries the research marks as most prominent. Choose one to trace what led to it and what followed.</p>
       <ol className="mt-4 border-t border-rule">
         {items.map((i) => {
           const node = model.nodes[i]!
           return (
-            <li key={i} className="border-b border-rule/50">
-              <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2.5 py-[6px] text-left text-[16px] leading-tight">
-                <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
-                  <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
+            <li key={i} className="border-b border-rule-soft">
+              <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 py-1 text-left text-body">
+                <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
+                  <Mark kind={node.kind} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
                 </span>
-                <span className={`min-w-0 flex-1 group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
-                <span className="shrink-0 text-[14px] text-ink-3">{formatYear(node.year)}</span>
+                <span className={`link-hover min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
+                <span className="note shrink-0">{formatYear(node.year)}</span>
               </button>
             </li>
           )
         })}
       </ol>
-      {items.length === 0 && <p className="mt-3 text-[15px] italic text-ink-3">None match the chosen labels.</p>}
+      {items.length === 0 && <p className="note mt-2">None match the chosen labels.</p>}
     </>
   )
 }
 
 const DECADE_LIST = 10
+/** Below this, a list of the busiest decades would be ranking ones and twos. */
+const FEW_ENTRIES = 60
 
 function DensityRail() {
   const model = useApp((s) => s.model)
@@ -58,28 +60,35 @@ function DensityRail() {
   }, [model, hiddenKinds, activeLabels])
 
   const max = decades[0]?.[1] ?? 1
+  const few = (model?.n ?? 0) < FEW_ENTRIES
   return (
     <>
-      <h2 className="text-[21px] font-medium leading-none">Density</h2>
-      <p className="caption mt-2 leading-snug">The hatching grows with the number of placed entries per year, on a root scale so quiet eras stay visible. Move across the chart to count them. Further research remains available in Unplaced.</p>
-      <h3 className="mt-4 flex items-baseline justify-between border-b border-rule pb-1 text-[15px] italic text-ink-3">
-        Busiest decades
-        <span>entries</span>
-      </h3>
-      <ol>
-        {decades.map(([decade, count]) => (
-          <li key={decade} className="border-b border-rule/50">
-            <button onClick={() => getEngine()?.flyToYears(decade - 15, decade + 25)} className="group w-full py-[5px] text-left">
-              <span className="flex items-baseline justify-between text-[16px] leading-tight">
-                <span className="group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2">{decade < 0 ? formatYear(decade) : `${decade}s`}</span>
-                <span className="text-[14px] text-ink-3">{count.toLocaleString('en-US')}</span>
-              </span>
-              <span className="mt-1 block h-[3px] rounded-r-[2px] bg-ink-2" style={{ width: `${(count / max) * 100}%` }} />
-            </button>
-          </li>
-        ))}
-      </ol>
-      {decades.length === 0 && <p className="mt-3 text-[15px] italic text-ink-3">None match the chosen labels.</p>}
+      <h2 className="text-head">Density</h2>
+      <p className="note mt-1">The hatching grows with the number of placed entries per year, on a root scale so quiet eras stay visible. Move across the chart to count them. This shows where research has been dated so far, not how much happened.</p>
+      {few ? (
+        <p className="note mt-4">With {model?.n} entries placed, this is still a sketch. It becomes a real picture of activity as more dates are researched.</p>
+      ) : (
+        <>
+          <h3 className="section-head flex items-baseline justify-between">
+            Busiest decades
+            <span className="font-normal text-ink-3">entries</span>
+          </h3>
+          <ol>
+            {decades.map(([decade, count]) => (
+              <li key={decade} className="border-b border-rule-soft">
+                <button onClick={() => getEngine()?.flyToYears(decade - 15, decade + 25)} className="group w-full py-1 text-left">
+                  <span className="flex items-baseline justify-between text-body">
+                    <span className="link-hover">{decade < 0 ? formatYear(decade) : `${decade}s`}</span>
+                    <span className="figures note">{count.toLocaleString('en-US')}</span>
+                  </span>
+                  <span className="mt-1 block h-px bg-ink-2" style={{ width: `${(count / max) * 100}%` }} />
+                </button>
+              </li>
+            ))}
+          </ol>
+          {decades.length === 0 && <p className="note mt-2">None match the chosen labels.</p>}
+        </>
+      )}
     </>
   )
 }
@@ -101,7 +110,7 @@ export function Rails() {
           exit={{ x: SHEET_WIDTH }}
           transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
           style={{ width: SHEET_WIDTH }}
-          className="sheet thin-scroll absolute bottom-0 right-0 top-[54px] z-20 hidden overflow-y-auto border-l border-t border-rule px-5 pb-6 pt-4 min-[760px]:block"
+          className="sheet thin-scroll absolute bottom-0 right-0 top-18 z-20 hidden overflow-y-auto border-l border-t border-rule px-8 pb-8 pt-4 compact:block"
         >
           {mode === 'landmarks' ? <LandmarkRail /> : <DensityRail />}
         </motion.aside>

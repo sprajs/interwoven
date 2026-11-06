@@ -1,29 +1,39 @@
 import { documentedSpan, EVENT_NAMES, isFinal, type LifeEvent } from '../data/lifecycle.ts'
+import { hexRgb, INK as INK_HEX, LAYOUT, LINE, PAPER as PAPER_HEX, ROW_TIER_TYPE, RULE_ALPHA, TIER_INK, TIER_TYPE, TYPE, UNIT, type TypeStep } from '../design.ts'
 import { formatYear } from './time.ts'
 import type { Engine } from './Engine.ts'
 
 const SERIF = '"EB Garamond Variable", Georgia, "Times New Roman", serif'
-const INK = { primary: '38,33,28', secondary: '78,70,60', muted: '106,97,86' }
-const PAPER = '244,239,230'
-const CELL = 7
+const INK = { primary: hexRgb(INK_HEX.primary), secondary: hexRgb(INK_HEX.secondary), muted: hexRgb(INK_HEX.muted) }
+const PAPER = hexRgb(PAPER_HEX)
+const CELL = UNIT
+/** Paper left around words so lines appear to be drawn around them. */
+const HALO = 3
+const HALO_ALPHA = 0.92
+/** The gap between a mark and its name: close enough to belong, not touching. */
+const LABEL_GAP = UNIT
 const MAX_LABELS = 140
 const VISIT_BUDGET = 9000
 /** Below these numbers of entries in view, the chart starts to speak in sentences. */
 const DATES_BELOW = 34
 const SENTENCE_BELOW = 13
 const PROSE_BELOW = 6
-const PROSE_WIDTH = 248
-const PROSE_LINE = 15.5
-
-/** Serif roman for technology and italic for science, as maps set towns and rivers apart. */
-function labelFont(level: number, italic: boolean): string {
-  const size = (rowsMode ? [14, 13, 12.5, 12.5] : [17, 14.5, 13.5, 12.5])[level] ?? 12.5
-  const weight = level === 0 ? 500 : 400
-  return `${italic ? 'italic ' : ''}${weight} ${size}px ${SERIF}`
-}
+const PROSE_WIDTH = LAYOUT.column
+const PROSE_LINE = TYPE.note.line
 
 /** Rows hold names in a smaller, more even size, as Priestley set his. */
 let rowsMode = false
+
+/** A font from the type scale. Italic is kept for science, as maps keep it for water. */
+function font(step: TypeStep, italic = false): string {
+  return `${italic ? 'italic ' : ''}400 ${TYPE[step].size}px ${SERIF}`
+}
+
+function tierStep(level: number): TypeStep {
+  return (rowsMode ? ROW_TIER_TYPE : TIER_TYPE)[level] ?? 'note'
+}
+
+const labelFont = (level: number, italic: boolean): string => font(tierStep(level), italic)
 
 let occupancy = new Uint8Array(0)
 let cols = 0
@@ -84,6 +94,7 @@ export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: n
   ctx.textBaseline = 'middle'
 
   if (engine.mix.weave > 0.02) drawLifeMarks(engine, ctx, W)
+  if (engine.mix.hatching < 0.5) drawLooseEnds(engine, ctx, W)
   drawNodeLabels(engine, ctx, dt, W, H)
   drawPleats(engine, ctx)
   drawAxis(engine, ctx, W)
@@ -138,10 +149,10 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const px = (engine.nodeV(i) - cam.cu) * xs + cx
     const py = (ys[i]! - cam.cy) * yScale + cy
     if (px < -40 || px > W + 40 || py < top || py > bottom) return
-    const font = labelFont(node.level, node.kind === 'science')
-    const gap = radius[i]! + 5
-    const width = measure(ctx, node.title, font)
-    const height = rowsMode ? 12 : node.level === 0 ? 19 : 15
+    const labelF = labelFont(node.level, node.kind === 'science')
+    const gap = radius[i]! + LABEL_GAP
+    const width = measure(ctx, node.title, labelF)
+    const height = TYPE[tierStep(node.level)].size
     const rightX = px + gap
     const leftX = px - gap - width
     const free = (x: number) => !blocked(x - 2, py - height / 2, x + width + 2, py + height / 2)
@@ -216,23 +227,67 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const faded = state[i * 4 + 1]!
     const alpha = a * Math.min(1, v) * (1 - faded * 0.82)
     if (alpha < 0.02) continue
-    const font = labelFont(node.level, node.kind === 'science')
-    const gap = radius[i]! + 5
-    const width = measure(ctx, node.title, font)
+    const labelF = labelFont(node.level, node.kind === 'science')
+    const gap = radius[i]! + LABEL_GAP
+    const width = measure(ctx, node.title, labelF)
     const x = sideOf.get(i) === -1 ? px - gap - width : px + gap
 
-    ctx.font = font
-    // A little clear paper around the words, as if the lines were drawn around them.
-    ctx.lineWidth = 3.5
-    ctx.strokeStyle = `rgba(${PAPER},${0.9 * alpha})`
+    ctx.font = labelF
+    ctx.lineWidth = HALO
+    ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA * alpha})`
     ctx.strokeText(node.title, x, py)
     const emphasised = state[i * 4 + 2]! > 0.3
-    const ink = node.level <= 1 || emphasised ? INK.primary : node.level === 2 ? INK.secondary : INK.muted
+    const ink = INK[emphasised ? 'primary' : (TIER_INK[node.level] ?? 'secondary')]
     ctx.fillStyle = `rgba(${ink},${alpha})`
     ctx.fillText(node.title, x, py)
   }
 
   drawProse(engine, ctx, dt, W, top, bottom, rightLimit, wanted, inStory)
+}
+
+const LOOSE_LENGTH = 3 * UNIT
+const LOOSE_FAN = 0.5
+
+/**
+ * A link whose other end has no date yet cannot be drawn to anywhere, so it is drawn as a short
+ * loose thread leaving the mark. It stays one length, because it does not measure anything.
+ * Threads to the right lead to later work and threads to the left build on earlier work.
+ */
+function drawLooseEnds(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
+  const model = engine.model!
+  const cam = engine.camera
+  const ends = engine.looseEnds
+  const frame = engine.frameBounds()
+  ctx.lineWidth = LINE.hair
+  ctx.lineCap = 'round'
+  for (let i = 0; i < model.n; i++) {
+    const list = ends[i]
+    if (!list || list.length === 0) continue
+    const alpha = engine.nodeVisibility(i) * (1 - engine.state[i * 4 + 1]! * 0.85)
+    if (alpha < 0.05 || engine.nodeU(i) > engine.drawU) continue
+    const x = cam.toX(engine.nodeV(i))
+    const y = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
+    if (x < -LOOSE_LENGTH || x > W + LOOSE_LENGTH || y < frame.top || y > frame.bottom) continue
+    const r = model.radius[i]!
+    const ink = model.ink
+    ctx.strokeStyle = `rgba(${ink[i * 3]! * 255},${ink[i * 3 + 1]! * 255},${ink[i * 3 + 2]! * 255},${alpha * 0.85})`
+    let outs = 0
+    let ins = 0
+    for (const end of list) {
+      const k = end.out ? outs++ : ins++
+      // Fans out above and below the line of the name, so the threads stay clear of its text.
+      const step = Math.ceil((k + 1) / 2) * (k % 2 === 0 ? -1 : 1)
+      const angle = (end.out ? 0 : Math.PI) + (end.out ? 1 : -1) * step * LOOSE_FAN * 1.4
+      const c = Math.cos(angle)
+      const n = Math.sin(angle)
+      ctx.setLineDash(end.tentative ? [2, 2.5] : [])
+      ctx.beginPath()
+      ctx.moveTo(x + c * r, y + n * r)
+      ctx.quadraticCurveTo(x + c * (r + LOOSE_LENGTH * 0.6), y + n * (r + LOOSE_LENGTH * 0.4), x + c * (r + LOOSE_LENGTH), y + n * (r + LOOSE_LENGTH * 0.9))
+      ctx.stroke()
+    }
+  }
+  ctx.setLineDash([])
 }
 
 function wrap(ctx: CanvasRenderingContext2D, text: string, font: string, width: number): string[] {
@@ -292,12 +347,11 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       const px = cam.toX(engine.nodeV(i))
       const py = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
       if (px < -20 || px > W + 20) continue
-      const gap = model.radius[i]! + 5
-      const font = labelFont(node.level, node.kind === 'science')
-      const titleWidth = measure(ctx, node.title, font)
+      const gap = model.radius[i]! + LABEL_GAP
+      const titleWidth = measure(ctx, node.title, labelFont(node.level, node.kind === 'science'))
       const onLeft = sideOf.get(i) === -1
       const titleX = onLeft ? px - gap - titleWidth : px + gap
-      const titleH = node.level === 0 ? 10 : 8
+      const titleH = TYPE[tierStep(node.level)].line / 2
       const width = Math.min(PROSE_WIDTH, onLeft ? Math.max(120, px - gap - 8) : Math.max(120, rightLimit - titleX))
       const bodyX = onLeft ? px - gap - width : titleX
 
@@ -307,25 +361,25 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
         else if (inView < SENTENCE_BELOW && !inStory) text = firstSentence(node.summary)
       }
 
-      const dateFont = `italic 400 12.5px ${SERIF}`
+      const dateFont = font('note')
       const key = `${i}|${text.length}|${Math.round(width)}`
       let lines = wrapCache.get(key)
       if (!lines) {
-        lines = text ? wrap(ctx, text, `400 13.5px ${SERIF}`, width) : []
+        lines = text ? wrap(ctx, text, font('note'), width) : []
         wrapCache.set(key, lines)
       }
       // Keeps to the room there is: a line less, and if need be only the date.
       const available = Math.max(0, Math.floor((bottom - py - titleH - 16) / PROSE_LINE))
       let count = Math.min(lines.length, available, 12)
-      let height = 14 + count * PROSE_LINE
+      let height = PROSE_LINE + count * PROSE_LINE
       // Starts a full cell below the title, whose own cells would otherwise count as taken.
       const clear = py + titleH + CELL
       while (count > 0 && blocked(bodyX, clear, bodyX + width, py + titleH + height)) {
         count--
-        height = 14 + count * PROSE_LINE
+        height = PROSE_LINE + count * PROSE_LINE
       }
       const dateWidth = measure(ctx, node.date_label, dateFont)
-      const dateFree = !blocked(onLeft ? px - gap - dateWidth : titleX, clear, onLeft ? px - gap : titleX + dateWidth, py + titleH + 14)
+      const dateFree = !blocked(onLeft ? px - gap - dateWidth : titleX, clear, onLeft ? px - gap : titleX + dateWidth, py + titleH + PROSE_LINE)
       if (!dateFree) continue
       occupy(onLeft ? px - gap - Math.max(dateWidth, count ? width : 0) : titleX, clear, onLeft ? px - gap : titleX + Math.max(dateWidth, count ? width : 0), py + titleH + height)
       wantedProse.add(i)
@@ -337,14 +391,13 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       ctx.textAlign = onLeft ? 'right' : 'left'
       const anchorX = onLeft ? px - gap : titleX
       ctx.font = dateFont
-      ctx.lineWidth = 3
-      ctx.strokeStyle = `rgba(${PAPER},${0.9 * alpha})`
-      ctx.strokeText(node.date_label, anchorX, py + titleH + 6)
+      ctx.lineWidth = HALO
+      ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA * alpha})`
+      ctx.strokeText(node.date_label, anchorX, py + titleH + PROSE_LINE / 2)
       ctx.fillStyle = `rgba(${INK.muted},${alpha})`
-      ctx.fillText(node.date_label, anchorX, py + titleH + 6)
-      ctx.font = `400 13.5px ${SERIF}`
+      ctx.fillText(node.date_label, anchorX, py + titleH + PROSE_LINE / 2)
       for (let k = 0; k < count; k++) {
-        const ly = py + titleH + 21 + k * PROSE_LINE
+        const ly = py + titleH + PROSE_LINE / 2 + (k + 1) * PROSE_LINE
         const line = count < lines.length && k === count - 1 ? `${lines[k]!.replace(/[.,;:]?$/, '')}…` : lines[k]!
         ctx.strokeText(line, anchorX, ly)
         ctx.fillStyle = `rgba(${INK.secondary},${alpha})`
@@ -383,11 +436,11 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
     if (mx < 0 || mx > W || my < top || my > bottom) return
     const long = inView < PROSE_BELOW && edge.link.statement
     const word = edge.link.relation + (edge.tentative ? ' (awaiting review)' : '')
-    const font = `italic 400 12.5px ${SERIF}`
-    const width = measure(ctx, word, font)
-    const body = long ? wrap(ctx, edge.link.statement!, `italic 400 12.5px ${SERIF}`, 200).slice(0, 6) : []
-    const boxW = Math.max(width, body.length ? 200 : 0)
-    const boxH = 14 + body.length * 14
+    const edgeFont = font('note')
+    const width = measure(ctx, word, edgeFont)
+    const body = long ? wrap(ctx, edge.link.statement!, edgeFont, LAYOUT.column).slice(0, 6) : []
+    const boxW = Math.max(width, body.length ? LAYOUT.column : 0)
+    const boxH = PROSE_LINE + body.length * PROSE_LINE
     // On the middle of the link if there is room, otherwise just to either side of it.
     const x0 = [mx - boxW / 2, mx + 8, mx - boxW - 8].map((x) => Math.max(4, Math.min(W - boxW - 4, x))).find((x) => !blocked(x, my - 7, x + boxW, my - 7 + boxH))
     if (x0 === undefined) return
@@ -396,16 +449,16 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
     const a = (edgeAlpha.get(k) ?? 0) + (1 - (edgeAlpha.get(k) ?? 0)) * fadeEdge
     edgeAlpha.set(k, a)
     if (a < 0.98) engine.labelsAnimating = true
-    ctx.font = font
-    ctx.lineWidth = 3
-    ctx.strokeStyle = `rgba(${PAPER},${0.92 * a})`
+    ctx.font = edgeFont
+    ctx.lineWidth = HALO
+    ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA * a})`
     ctx.fillStyle = `rgba(${INK.muted},${a})`
     ctx.strokeText(word, x0, my)
     ctx.fillText(word, x0, my)
     ctx.fillStyle = `rgba(${INK.secondary},${a})`
     body.forEach((line, n) => {
-      ctx.strokeText(line, x0, my + 14 + n * 14)
-      ctx.fillText(line, x0, my + 14 + n * 14)
+      ctx.strokeText(line, x0, my + (n + 1) * PROSE_LINE)
+      ctx.fillText(line, x0, my + (n + 1) * PROSE_LINE)
     })
   })
   for (const k of edgeAlpha.keys()) if (!showing.has(k)) edgeAlpha.delete(k)
@@ -431,34 +484,34 @@ function strokeMark(ctx: CanvasRenderingContext2D, event: LifeEvent, y: number, 
   if (kind === 'bracket') {
     // Withdrawal: a closing bracket, because it closes the sale and not necessarily the thing.
     const light = event.type === 'support_end'
-    ctx.lineWidth = light ? 1 : 1.5
+    ctx.lineWidth = light ? LINE.rule : LINE.stroke
     ctx.moveTo(x1 - 3, y - 5)
     ctx.lineTo(x1, y - 5)
     ctx.lineTo(x1, y + 5)
     ctx.lineTo(x1 - 3, y + 5)
   } else if (kind === 'cross') {
-    ctx.lineWidth = 1.5
+    ctx.lineWidth = LINE.stroke
     ctx.moveTo(x1 - 4, y - 4)
     ctx.lineTo(x1 + 4, y + 4)
     ctx.moveTo(x1 + 4, y - 4)
     ctx.lineTo(x1 - 4, y + 4)
   } else if (kind === 'double') {
-    ctx.lineWidth = 1.5
+    ctx.lineWidth = LINE.stroke
     ctx.moveTo(x1 - 2, y - 5)
     ctx.lineTo(x1 - 2, y + 5)
     ctx.moveTo(x1 + 1.5, y - 5)
     ctx.lineTo(x1 + 1.5, y + 5)
   } else if (kind === 'fall') {
-    ctx.lineWidth = 1.5
+    ctx.lineWidth = LINE.stroke
     ctx.moveTo(x1 - 4, y - 4)
     ctx.lineTo(x1 + 3, y + 4)
   } else if (kind === 'rise') {
-    ctx.lineWidth = 1.5
+    ctx.lineWidth = LINE.stroke
     ctx.moveTo(x1 - 4, y + 4)
     ctx.lineTo(x1 + 3, y - 4)
   } else {
     // Evidence of use: a short upright stroke on the line.
-    ctx.lineWidth = 1
+    ctx.lineWidth = LINE.rule
     ctx.moveTo(x1, y - 3.5)
     ctx.lineTo(x1, y + 3.5)
   }
@@ -480,8 +533,8 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
   const alpha = engine.mix.weave
   const rowPx = (cam.yScale * 0.976) / Math.max(1, model.n - 1)
   const showDots = rowPx >= 3.4
-  const showQuestion = rowPx >= 9
-  const showNames = rowPx >= 12
+  const showQuestion = rowPx >= TYPE.note.size
+  const showNames = rowPx >= TYPE.note.line + UNIT
   const markSize = Math.min(1, Math.max(0.55, rowPx / 11))
   ctx.lineCap = 'round'
   ctx.lineJoin = 'round'
@@ -507,7 +560,7 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
         }
         // A date range is a range: a fine bar between the earliest and latest it can be.
         if (x1 - x0 > 2) {
-          ctx.lineWidth = 0.9
+          ctx.lineWidth = LINE.hair
           ctx.beginPath()
           ctx.moveTo(x0, y)
           ctx.lineTo(x1, y)
@@ -518,7 +571,7 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
         strokeMark(ctx, event, y, x1, markSize)
         // "By 2023" could have been any time before: a little tail to the left says so.
         if (event.bound === 'by' && event.role !== 'use' && markSize > 0.7) {
-          ctx.lineWidth = 0.8
+          ctx.lineWidth = LINE.hair
           ctx.setLineDash([1.5, 2.5])
           ctx.beginPath()
           ctx.moveTo(x1 - 3, y)
@@ -528,10 +581,10 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
         }
         if (showNames && event.role !== 'use') {
           const name = EVENT_NAMES[event.type] ?? event.type
-          ctx.font = `italic 400 12.5px ${SERIF}`
+          ctx.font = font('note')
           ctx.fillStyle = `rgba(${INK.secondary},${local})`
           ctx.textAlign = 'center'
-          ctx.fillText(name, x1, y - 10)
+          ctx.fillText(name, x1, y - PROSE_LINE / 2 - UNIT / 2)
           ctx.textAlign = 'left'
         }
       }
@@ -545,8 +598,8 @@ function drawLifeMarks(engine: Engine, ctx: CanvasRenderingContext2D, W: number)
     ctx.fillStyle = `rgba(${INK.muted},${local * 0.72})`
     for (let d = 0; d < 3; d++) ctx.fillRect(start + d * 3.4, y - 0.45, 0.95, 0.95)
     if (showQuestion) {
-      ctx.font = `italic 400 ${Math.min(12.5, rowPx + 1)}px ${SERIF}`
-      ctx.fillText('?', start + 10.5, y)
+      ctx.font = font('note')
+      ctx.fillText('?', start + 12, y)
     }
   }
 }
@@ -565,7 +618,7 @@ function drawPleats(engine: Engine, ctx: CanvasRenderingContext2D): void {
   const model = engine.model!
   const frame = engine.frameBounds()
   const warpYear = (u: number) => model.time.year(u, engine.warp)
-  ctx.font = `italic 400 12.5px ${SERIF}`
+  ctx.font = font('note')
   for (const pleat of pleats) {
     const x0 = cam.toX(engine.foldNow.map(pleat.u0))
     const x1 = cam.toX(engine.foldNow.map(pleat.u1))
@@ -573,18 +626,32 @@ function drawPleats(engine: Engine, ctx: CanvasRenderingContext2D): void {
     const years = Math.abs(warpYear(pleat.u1) - warpYear(pleat.u0))
     if (years < 1) continue
     ctx.save()
-    ctx.translate((x0 + x1) / 2, frame.top + 10)
+    ctx.translate((x0 + x1) / 2, frame.top + UNIT * 2)
     ctx.rotate(Math.PI / 2)
     ctx.textAlign = 'left'
     const label = `${formatSpan(years)} folded`
-    ctx.lineWidth = 3.5
-    ctx.strokeStyle = `rgba(${PAPER},0.95)`
+    ctx.lineWidth = HALO
+    ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA})`
     ctx.strokeText(label, 0, 0)
     ctx.fillStyle = `rgba(${INK.muted},1)`
     ctx.fillText(label, 0, 0)
     ctx.restore()
   }
   ctx.textAlign = 'left'
+}
+
+/** A figure and what it means, used wherever the chart answers a question in place. */
+function drawNotePair(ctx: CanvasRenderingContext2D, line: string, note: string, x: number, y: number): void {
+  ctx.lineWidth = HALO
+  ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA})`
+  ctx.font = font('body')
+  ctx.strokeText(line, x, y)
+  ctx.fillStyle = `rgba(${INK.primary},1)`
+  ctx.fillText(line, x, y)
+  ctx.font = font('note')
+  ctx.strokeText(note, x, y + TYPE.note.line)
+  ctx.fillStyle = `rgba(${INK.secondary},1)`
+  ctx.fillText(note, x, y + TYPE.note.line)
 }
 
 /** A period being marked out along the ruler: what is outside is about to fold away. */
@@ -598,9 +665,9 @@ function drawBracket(engine: Engine, ctx: CanvasRenderingContext2D, W: number): 
   ctx.fillRect(0, frame.top, Math.max(0, a), frame.bottom - frame.top)
   ctx.fillRect(b, frame.top, Math.max(0, W - b), frame.bottom - frame.top)
   ctx.fillStyle = `rgba(${INK.primary},0.75)`
-  ctx.fillRect(a - 0.5, frame.top - 8, 1, frame.bottom - frame.top + 8)
-  ctx.fillRect(b - 0.5, frame.top - 8, 1, frame.bottom - frame.top + 8)
-  ctx.fillRect(a, frame.top - 8, b - a, 1)
+  ctx.fillRect(a - LINE.rule / 2, frame.top - UNIT, LINE.rule, frame.bottom - frame.top + UNIT)
+  ctx.fillRect(b - LINE.rule / 2, frame.top - UNIT, LINE.rule, frame.bottom - frame.top + UNIT)
+  ctx.fillRect(a, frame.top - UNIT, b - a, LINE.rule)
   if (b - a < 8) return
   const y0 = engine.xToYear(a)
   const y1 = engine.xToYear(b)
@@ -612,18 +679,20 @@ function drawBracket(engine: Engine, ctx: CanvasRenderingContext2D, W: number): 
   }
   const line = `${formatYear(y0)} to ${formatYear(y1)}`
   const note = `${count.toLocaleString('en-US')} ${count === 1 ? 'entry' : 'entries'}. Release to open this period.`
-  const x = Math.min(W - 250, Math.max(8, a + 8))
-  ctx.textAlign = 'left'
-  ctx.lineWidth = 4
-  ctx.strokeStyle = `rgba(${PAPER},0.96)`
-  ctx.font = `500 16px ${SERIF}`
-  ctx.strokeText(line, x, frame.top + 18)
+  const x = Math.min(W - LAYOUT.column, Math.max(UNIT, a + UNIT))
+  drawNotePair(ctx, line, note, x, frame.top + TYPE.body.line)
+}
+
+/** A year set on the ruler over whatever tick is there. */
+function drawRulerYear(ctx: CanvasRenderingContext2D, text: string, x: number, lineY: number): void {
+  ctx.font = font('note')
+  const width = measure(ctx, text, ctx.font)
+  ctx.fillStyle = `rgba(${PAPER},1)`
+  ctx.fillRect(x - width / 2 - UNIT, lineY - TYPE.note.line - UNIT / 2, width + UNIT * 2, TYPE.note.line)
+  ctx.textAlign = 'center'
   ctx.fillStyle = `rgba(${INK.primary},1)`
-  ctx.fillText(line, x, frame.top + 18)
-  ctx.font = `italic 400 13.5px ${SERIF}`
-  ctx.strokeText(note, x, frame.top + 36)
-  ctx.fillStyle = `rgba(${INK.secondary},1)`
-  ctx.fillText(note, x, frame.top + 36)
+  ctx.fillText(text, x, lineY - TYPE.note.line / 2 - UNIT / 2)
+  ctx.textAlign = 'left'
 }
 
 /** While the chart is being drawn, a rule marks where the pen has got to and in what year. */
@@ -636,29 +705,22 @@ function drawPen(engine: Engine, ctx: CanvasRenderingContext2D): void {
   const year = engine.model!.time.year(clamped, engine.warp)
   ctx.fillStyle = `rgba(${INK.primary},0.5)`
   ctx.fillRect(x - 0.4, frame.top, 0.8, frame.bottom - frame.top)
-  ctx.font = `500 13.5px ${SERIF}`
-  const text = formatYear(year)
-  const width = measure(ctx, text, ctx.font)
-  ctx.fillStyle = `rgba(${PAPER},1)`
-  ctx.fillRect(x - width / 2 - 5, frame.top - 20, width + 10, 18)
-  ctx.textAlign = 'center'
-  ctx.fillStyle = `rgba(${INK.primary},1)`
-  ctx.fillText(text, x, frame.top - 11)
+  drawRulerYear(ctx, formatYear(year), x, frame.top)
   ctx.textAlign = 'left'
 }
 
 /** The one thing nobody would guess, said once, close to where it happens. */
 function drawRulerHint(engine: Engine, ctx: CanvasRenderingContext2D): void {
   const frame = engine.frameBounds()
-  ctx.font = `italic 400 13.5px ${SERIF}`
+  ctx.font = font('note')
   ctx.textAlign = 'left'
-  ctx.lineWidth = 3.5
-  ctx.strokeStyle = `rgba(${PAPER},0.95)`
+  ctx.lineWidth = HALO
+  ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA})`
   const text = 'Drag along this ruler to open a period'
   const x = engine.camera.insets.left
-  ctx.strokeText(text, x, frame.top + 14)
+  ctx.strokeText(text, x, frame.top + TYPE.note.line)
   ctx.fillStyle = `rgba(${INK.muted},1)`
-  ctx.fillText(text, x, frame.top + 14)
+  ctx.fillText(text, x, frame.top + TYPE.note.line)
 }
 
 /** The exact year under the pointer, and the invitation to open a period. */
@@ -669,44 +731,37 @@ function drawRulerCursor(engine: Engine, ctx: CanvasRenderingContext2D): void {
   const year = engine.xToYear(pointer.x)
   ctx.fillStyle = `rgba(${INK.primary},0.35)`
   ctx.fillRect(pointer.x - 0.4, lineY, 0.8, frame.bottom - lineY)
-  ctx.font = `500 13.5px ${SERIF}`
-  const text = formatYear(year)
-  const width = measure(ctx, text, ctx.font)
-  ctx.fillStyle = `rgba(${PAPER},1)`
-  ctx.fillRect(pointer.x - width / 2 - 5, lineY - 20, width + 10, 18)
-  ctx.textAlign = 'center'
-  ctx.fillStyle = `rgba(${INK.primary},1)`
-  ctx.fillText(text, pointer.x, lineY - 11)
+  drawRulerYear(ctx, formatYear(year), pointer.x, lineY)
   ctx.textAlign = 'left'
   if (engine.view.mode === 'story' && engine.view.story) return
   const pleat = engine.pleatAtX(pointer.x)
   const hint = pleat && engine.openPeriods.length ? 'Click to unfold' : 'Drag along the ruler to open a period'
-  ctx.font = `italic 400 13.5px ${SERIF}`
+  ctx.font = font('note')
   const hintWidth = measure(ctx, hint, ctx.font)
-  const x = pointer.x + hintWidth + 18 > engine.camera.width ? pointer.x - hintWidth - 10 : pointer.x + 10
-  ctx.lineWidth = 3.5
-  ctx.strokeStyle = `rgba(${PAPER},0.95)`
-  ctx.strokeText(hint, x, lineY + 14)
+  const x = pointer.x + hintWidth + 3 * UNIT > engine.camera.width ? pointer.x - hintWidth - 2 * UNIT : pointer.x + 2 * UNIT
+  ctx.lineWidth = HALO
+  ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA})`
+  ctx.strokeText(hint, x, lineY + TYPE.note.line)
   ctx.fillStyle = `rgba(${INK.secondary},1)`
-  ctx.fillText(hint, x, lineY + 14)
+  ctx.fillText(hint, x, lineY + TYPE.note.line)
 }
 
 function drawAxis(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
   const frame = engine.frameBounds()
   const lineY = frame.top
 
-  ctx.fillStyle = `rgba(${INK.primary},0.55)`
-  ctx.fillRect(0, lineY, W, 0.75)
-  ctx.fillRect(0, frame.bottom, W, 0.75)
+  ctx.fillStyle = `rgba(${INK.primary},${RULE_ALPHA.frame})`
+  ctx.fillRect(0, lineY, W, LINE.hair)
+  ctx.fillRect(0, frame.bottom, W, LINE.hair)
 
   ctx.textAlign = 'center'
-  ctx.font = `400 13px ${SERIF}`
+  ctx.font = font('note')
   for (const tick of engine.ticks) {
-    if (tick.x < 14 || tick.x > W - 14) continue
+    if (tick.x < 2 * UNIT || tick.x > W - 2 * UNIT) continue
     ctx.fillStyle = `rgba(${INK.secondary},1)`
-    ctx.fillText(formatYear(tick.year), tick.x, lineY - 11)
-    ctx.fillStyle = `rgba(${INK.primary},0.6)`
-    ctx.fillRect(tick.x - 0.4, lineY, 0.8, 5)
+    ctx.fillText(formatYear(tick.year), tick.x, lineY - TYPE.note.line / 2 - UNIT / 2)
+    ctx.fillStyle = `rgba(${INK.primary},${RULE_ALPHA.frame})`
+    ctx.fillRect(tick.x - LINE.hair / 2, lineY, LINE.hair, UNIT)
   }
   ctx.textAlign = 'left'
 }
@@ -729,26 +784,15 @@ function drawDensityProbe(engine: Engine, ctx: CanvasRenderingContext2D, W: numb
   }
 
   const { top: y0, bottom: y1 } = engine.frameBounds()
-  ctx.fillStyle = `rgba(${INK.primary},0.55)`
-  ctx.fillRect(pointer.x - reach, y0, 0.75, y1 - y0)
-  ctx.fillRect(pointer.x + reach, y0, 0.75, y1 - y0)
+  ctx.fillStyle = `rgba(${INK.primary},${RULE_ALPHA.frame})`
+  ctx.fillRect(pointer.x - reach, y0, LINE.hair, y1 - y0)
+  ctx.fillRect(pointer.x + reach, y0, LINE.hair, y1 - y0)
 
   const primary = `${count.toLocaleString('en-US')} ${count === 1 ? 'entry' : 'entries'}`
   const secondary = `${formatYear(a)} to ${formatYear(b)}`
-  const right = pointer.x + reach + 8
-  const flip = right + 150 > W - cam.insets.right
+  const right = pointer.x + reach + UNIT
+  const flip = right + 2 * LAYOUT.column / 3 > W - cam.insets.right
   ctx.textAlign = flip ? 'right' : 'left'
-  const textX = flip ? pointer.x - reach - 8 : right
-  ctx.lineWidth = 4
-  ctx.lineJoin = 'round'
-  ctx.strokeStyle = `rgba(${PAPER},0.95)`
-  ctx.font = `500 16px ${SERIF}`
-  ctx.strokeText(primary, textX, y0 + 18)
-  ctx.fillStyle = `rgba(${INK.primary},1)`
-  ctx.fillText(primary, textX, y0 + 18)
-  ctx.font = `italic 400 13.5px ${SERIF}`
-  ctx.strokeText(secondary, textX, y0 + 36)
-  ctx.fillStyle = `rgba(${INK.secondary},1)`
-  ctx.fillText(secondary, textX, y0 + 36)
+  drawNotePair(ctx, primary, secondary, flip ? pointer.x - reach - UNIT : right, y0 + TYPE.body.line)
   ctx.textAlign = 'left'
 }

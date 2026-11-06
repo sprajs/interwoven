@@ -3,7 +3,8 @@ import { Engine } from '../engine/Engine.ts'
 import { emitFrame } from '../engine/frames.ts'
 import { clearTextCache } from '../engine/overlay.ts'
 import { followEntry, openThread, setEngine, stepStory, useApp } from '../store.ts'
-import { COMPACT_WIDTH, LABELS_WIDTH, rightSheetOpen, SHEET_WIDTH } from './layout.ts'
+import { FONT_FACES, LAYOUT, UNIT } from '../design.ts'
+import { COMPACT_WIDTH, LABELS_WIDTH, rightSheetOpen, SHEET_CLEARANCE, SHEET_WIDTH } from './layout.ts'
 
 
 /** Mounts the engine and mirrors app state into it. */
@@ -48,11 +49,12 @@ export function TimelineCanvas() {
       const labels = !compact && s.labelsOpen
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
       const sheet = compact && (s.selected !== null || s.unplacedSelected !== null || story)
+      const bottom = s.unplacedOpen ? window.innerHeight * 0.56 : sheet ? window.innerHeight * 0.5 : compact && s.mode === 'reach' ? 26 * UNIT : LAYOUT.frameBottom
       engine.setInsets({
-        top: compact ? 96 : 104,
-        bottom: sheet ? window.innerHeight * 0.5 : compact ? (s.mode === 'reach' ? 158 : 104) : 96,
-        left: labels ? LABELS_WIDTH + 36 : compact ? 22 : 56,
-        right: panel ? SHEET_WIDTH + 36 : compact ? 22 : 56,
+        top: (compact ? LAYOUT.frameTopCompact : LAYOUT.frameTop) + LAYOUT.framePad,
+        bottom: bottom + LAYOUT.framePad,
+        left: labels ? LABELS_WIDTH + SHEET_CLEARANCE : compact ? LAYOUT.marginCompact : LAYOUT.margin,
+        right: panel ? SHEET_WIDTH + SHEET_CLEARANCE : compact ? LAYOUT.marginCompact : LAYOUT.margin,
       })
       engine.setView({
         mode: s.mode,
@@ -97,8 +99,7 @@ export function TimelineCanvas() {
     window.addEventListener('resize', sync)
 
     // Text measured before the web fonts arrive has the wrong width.
-    const fonts = ['400 14px "EB Garamond Variable"', 'italic 400 14px "EB Garamond Variable"', '500 17px "EB Garamond Variable"']
-    void Promise.all(fonts.map((font) => document.fonts.load(font))).then(() => {
+    void Promise.all(FONT_FACES.map((face) => document.fonts.load(face))).then(() => {
       clearTextCache()
       engine.invalidate()
     })

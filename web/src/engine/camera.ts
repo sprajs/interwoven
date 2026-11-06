@@ -1,3 +1,4 @@
+import { LAYOUT } from '../design.ts'
 /**
  * View over the (v, y) plane, where v is the axis position after any folding. Time and height
  * have their own zoom. An ordinary zoom moves both, with time zooming faster, so marks spread
@@ -19,7 +20,7 @@ const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 
 export class Camera {
   width = 1
   height = 1
-  insets: Insets = { top: 112, bottom: 84, left: 56, right: 56 }
+  insets: Insets = { top: LAYOUT.frameTop + LAYOUT.framePad, bottom: LAYOUT.frameBottom + LAYOUT.framePad, left: LAYOUT.margin, right: LAYOUT.margin }
   cu = 0.5
   cy = 0.5
   /** Time zoom. */

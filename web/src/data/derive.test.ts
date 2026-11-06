@@ -205,7 +205,7 @@ describe('lifecycle', () => {
   })
 
   it('tallies what is documented and nothing else', () => {
-    const tally = tallyLifecycle(new Map([[0, zeiss], [1, glass], [2, ra], [3, single]]), 143)
+    const tally = tallyLifecycle([zeiss, glass, ra, single], 143)
     expect(tally.withLaterLife).toBe(3)
     expect(tally.counts).toEqual({ decline: 0, withdrawal: 2, end_of_use: 0, abandonment: 1, revival: 0 })
     expect(tally.statedUnknown).toBe(2)

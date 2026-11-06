@@ -93,12 +93,15 @@ export interface LifeTally {
   statedUnknown: number
 }
 
-/** Counts what the evidence actually holds. This is computed, so it grows with the research. */
-export function tallyLifecycle(records: Map<number, LifeRecord>, total: number): LifeTally {
+/**
+ * Counts what the evidence actually holds, across all the research, whether or not an entry
+ * has a place on the chart yet. This is computed, so it grows with the research.
+ */
+export function tallyLifecycle(records: Iterable<LifeRecord>, total: number): LifeTally {
   const counts: LifeTally['counts'] = { decline: 0, withdrawal: 0, end_of_use: 0, abandonment: 0, revival: 0 }
   let withLaterLife = 0
   let statedUnknown = 0
-  for (const record of records.values()) {
+  for (const record of records) {
     if (hasLaterLife(record)) withLaterLife++
     for (const key of Object.keys(counts) as (keyof LifeTally['counts'])[]) {
       if (record.status[key] === 'documented') counts[key]++

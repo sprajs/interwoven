@@ -16,7 +16,11 @@ Then open http://localhost:5174. The other commands below run from this `web` fo
 - Time runs left to right. **Compressed** gives more room to recent centuries and to periods with more entries; **Linear** gives every year the same width. The bar in the bottom right shows how many years its length covers at the middle of the view, because on a compressed axis that changes as you move.
 - Vertical position has no scale. It comes from the links and shared labels, so related work drifts together without forming categories.
 - A solid dot is a technology and an open ring is science. Science titles are set in italic.
-- A thin bar with end marks is a date range. A short fine stroke either side of a mark means the date is provisional: no anchor has been selected yet. A broken line is a link still awaiting review.
+- A thin bar with end marks is a date range. A broken line is a link still awaiting review.
+- A short fine thread leaving a mark is a link to an entry with no date yet. It has nowhere to go until that date is researched, so all these threads are one length. Right is what the entry led to, and left is what it built on.
+- Only entries with a selected, researched date appear on the chart. **Awaiting a date**, under the chart, holds the rest as a small row of marks, and opens as an index of everything still to be placed. Pointing at an entry there lights what it is already linked to on the chart.
+
+The type, spacing and rules are explained in [DESIGN.md](DESIGN.md).
 
 ## Folding the sheet
 
@@ -56,7 +60,7 @@ Dragging either end of the bracket in the strip at the bottom stretches it, whic
 
 Going deeper reveals more of the science. First come more entries, then dates, then a sentence, then the whole note and what each link claims, written on the chart. This depends on how many entries share the page rather than on a zoom number, so a filtered chart gets there sooner. The four dots at the bottom jump to each depth of detail.
 
-**Keys:** `1`-`5` views, `l` labels, `/` or `⌘K` find, `f` follow the selected entry, `u` unfold, `r` redraw slowly, `0` fit and unfold, `+` `-` zoom, `[` `]` zoom time, `{` `}` zoom height, arrows pan or step through a story, `Esc` closes.
+**Keys:** `1`-`5` views, `l` labels, `w` entries awaiting a date, `/` or `⌘K` find, `f` follow the selected entry, `u` unfold, `r` redraw slowly, `0` fit and unfold, `+` `-` zoom, `[` `]` zoom time, `{` `}` zoom height, arrows pan or step through a story, `Esc` closes.
 
 Find works on the chart rather than over it. Matches light up where they are as you type. A year goes there, and a period opens it.
 
@@ -94,7 +98,7 @@ npm run validate
 npm run import:lifecycle
 ```
 
-It only lists entries the research says something about beyond "not yet researched", so an entry missing from it reads as unresearched. Without the file the chart still works, and every later life reads as not researched. `?data=seed` and `?stress=N` do not use it. Pass a path if the research data is elsewhere, as in a worktree that does not hold it: `npm run import:lifecycle -- ../path/to/science-technology-graph`.
+It only lists entries the research says something about beyond "not yet researched", so an entry missing from it reads as unresearched. Without the file the chart still works, and every later life reads as not researched. `?stress=N` does not use it. Pass a path if the research data is elsewhere: `npm run import:lifecycle -- ../path/to/science-technology-graph`.
 
 ## Testing with other data
 

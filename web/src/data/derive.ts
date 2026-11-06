@@ -33,15 +33,15 @@ export function computeReach(nodes: readonly Dated[], edges: readonly LinkLike[]
   const direct = Float64Array.from(year)
   const firm = Float64Array.from(year)
   const any = Float64Array.from(year)
-  // Latest first, so one pass nearly always settles it. A few more cover links that run
-  // against date order, and the cap keeps a cycle in hand-edited data from spinning.
+  // Latest first, so one pass nearly always settles it. More cover links that run against
+  // date order or through undated entries, and the cap keeps a cycle from spinning.
   const order = Int32Array.from({ length: n }, (_, i) => i).sort((a, b) => year[b]! - year[a]!)
   const out: LinkLike[][] = Array.from({ length: n }, () => [])
   for (const edge of edges) {
     out[edge.source]!.push(edge)
     if (!edge.tentative && year[edge.target]! > direct[edge.source]!) direct[edge.source] = year[edge.target]!
   }
-  for (let pass = 0; pass < 8; pass++) {
+  for (let pass = 0; pass < 32; pass++) {
     let changed = false
     for (const i of order) {
       for (const edge of out[i]!) {

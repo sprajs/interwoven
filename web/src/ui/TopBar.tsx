@@ -1,22 +1,32 @@
 import { motion } from 'motion/react'
 import type { Mode } from '../engine/Engine.ts'
 import { useApp } from '../store.ts'
+import { BrokenMark, LooseMark, Mark, MARK_SIZE, RangeMark } from './icons.tsx'
 import { ViewGlyph } from './ViewGlyph.tsx'
 
 const MODES: { id: Mode; label: string; hint: string }[] = [
-  { id: 'threads', label: 'Threads', hint: 'Every entry and how each builds on the last (1)' },
+  { id: 'threads', label: 'Threads', hint: 'Every placed entry and how each builds on the last (1)' },
   { id: 'story', label: 'Stories', hint: 'One thread at a time, as something to read (2)' },
   { id: 'reach', label: 'Reach', hint: 'How long each entry went on being built on, and what is documented about its end (3)' },
   { id: 'density', label: 'Density', hint: 'Where activity gathers in time (4)' },
   { id: 'landmarks', label: 'Landmarks', hint: 'The most prominent entries alone (5)' },
 ]
 
-const TEXT_BUTTON = 'relative whitespace-nowrap pb-0.5 text-[15.5px] min-[760px]:text-[17px] leading-none transition-colors'
+/** What the marks mean, set small under the name of the chart. */
+function Key() {
+  return (
+    <ul className="note hidden items-center gap-3 whitespace-nowrap corner:flex" aria-label="Key">
+      <li className="flex items-center gap-1"><Mark kind="technology" size={MARK_SIZE.note} />technology</li>
+      <li className="science flex items-center gap-1"><Mark kind="science" size={MARK_SIZE.note} />science</li>
+      <li className="flex items-center gap-1"><RangeMark />date range</li>
+      <li className="flex items-center gap-1"><BrokenMark />awaiting review</li>
+      <li className="flex items-center gap-1"><LooseMark />linked to an entry not yet placed</li>
+    </ul>
+  )
+}
 
 export function TopBar() {
   const model = useApp((s) => s.model)
-  const title = model?.title ?? ''
-  const description = model?.description ?? ''
   const mode = useApp((s) => s.mode)
   const setMode = useApp((s) => s.setMode)
   const labelsOpen = useApp((s) => s.labelsOpen)
@@ -24,34 +34,35 @@ export function TopBar() {
   const setSearchOpen = useApp((s) => s.setSearchOpen)
   const searchOpen = useApp((s) => s.searchOpen)
   const labelCount = useApp((s) => s.activeLabels.size + s.hiddenKinds.size)
+  const plain = 'whitespace-nowrap pb-1 text-body transition-colors'
 
   return (
-    <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-end gap-x-3 gap-y-1 px-[22px] pt-2.5 min-[760px]:flex-nowrap min-[760px]:gap-x-7 min-[760px]:px-14">
-      <div className="flex flex-1 items-baseline gap-3 min-[760px]:flex-none min-[760px]:self-center">
-        <h1 className="text-[27px] font-medium leading-none tracking-[-0.01em]">{title}</h1>
-        <p className="caption hidden text-[15px] 2xl:block">{description}</p>
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-wrap items-end gap-x-4 px-6 pt-2 compact:flex-nowrap compact:gap-x-8 compact:px-18">
+      <div className="flex-1 compact:flex-none compact:self-start">
+        <h1 className="text-title">{model?.title}</h1>
+        <div className="-mt-1 pointer-events-auto"><Key /></div>
       </div>
-      <div className="hidden flex-1 min-[760px]:block" />
-      <nav className="pointer-events-auto order-last flex basis-full items-end gap-[14px] min-[760px]:order-none min-[760px]:basis-auto min-[900px]:gap-5" aria-label="View">
+      <div className="hidden flex-1 compact:block" />
+      <nav className="pointer-events-auto order-last flex basis-full items-end gap-4 compact:order-none compact:basis-auto wide:gap-6" aria-label="View">
         {MODES.map((m) => {
           const active = mode === m.id
           return (
-            <button key={m.id} title={m.hint} aria-pressed={active} onClick={() => setMode(m.id)} className={`group relative flex flex-col items-start gap-[3px] pb-[3px] transition-colors ${active ? 'text-ink' : 'text-ink-3 hover:text-ink'}`}>
-              <span className={`hidden transition-opacity min-[900px]:block ${active ? 'opacity-100' : 'opacity-55 group-hover:opacity-100'}`}>
+            <button key={m.id} title={m.hint} aria-pressed={active} onClick={() => setMode(m.id)} className={`group relative flex flex-col items-start gap-1 pb-1 transition-colors ${active ? 'text-ink' : 'text-ink-3 hover:text-ink'}`}>
+              <span className={`hidden transition-opacity wide:block ${active ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`}>
                 <ViewGlyph model={model} mode={m.id} />
               </span>
-              <span className="whitespace-nowrap text-[15.5px] leading-none min-[760px]:text-[16.5px]">{m.label}</span>
+              <span className="whitespace-nowrap text-body">{m.label}</span>
               {active && <motion.span layoutId="mode-underline" className="absolute inset-x-0 bottom-0 h-px bg-ink" transition={{ type: 'spring', stiffness: 500, damping: 40 }} />}
             </button>
           )
         })}
       </nav>
-      <span className="mb-[3px] hidden h-8 w-px bg-rule min-[760px]:block" aria-hidden />
-      <div className="pointer-events-auto flex items-end gap-4 min-[760px]:gap-5">
-        <button onClick={() => setLabelsOpen(!labelsOpen)} aria-expanded={labelsOpen} className={`${TEXT_BUTTON} pb-[3px] ${labelsOpen || labelCount ? 'text-ink' : 'text-ink-3 hover:text-ink'}`} title="Follow labels through the chart (l)">
+      <span className="mb-1 hidden h-12 w-px bg-rule compact:block" aria-hidden />
+      <div className="pointer-events-auto flex items-end gap-6">
+        <button onClick={() => setLabelsOpen(!labelsOpen)} aria-expanded={labelsOpen} className={`${plain} ${labelsOpen || labelCount ? 'text-ink' : 'text-ink-3 hover:text-ink'}`} title="Follow labels through the chart (l)">
           Labels{labelCount > 0 ? ` (${labelCount})` : ''}
         </button>
-        <button onClick={() => setSearchOpen(!searchOpen)} aria-expanded={searchOpen} className={`${TEXT_BUTTON} pb-[3px] ${searchOpen ? 'text-ink' : 'text-ink-3 hover:text-ink'}`} title="Find an entry, a year or a period (/)">
+        <button onClick={() => setSearchOpen(!searchOpen)} aria-expanded={searchOpen} className={`${plain} ${searchOpen ? 'text-ink' : 'text-ink-3 hover:text-ink'}`} title="Find an entry, a year or a period (/)">
           Find
         </button>
       </div>

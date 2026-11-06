@@ -39,7 +39,10 @@ async function load(): Promise<void> {
     // The sidecar is optional. Without it every later life simply reads as not researched.
     if (usesResearch) {
       const response = await fetch(`${import.meta.env.BASE_URL}data/lifecycle.json`).catch(() => null)
-      if (response?.ok) useApp.getState().setLife(indexLifecycle((await response.json()) as LifecycleFile, model.indexById))
+      if (response?.ok) {
+        const file = (await response.json()) as LifecycleFile
+        useApp.getState().setLife(indexLifecycle(file, model.indexById), file.records)
+      }
     }
   } catch (e) {
     setError(e instanceof Error ? e.message : String(e))
@@ -97,6 +100,9 @@ function useKeyboard(): void {
           break
         case 'u':
           engine?.unfoldAll()
+          break
+        case 'w':
+          app.setUnplacedOpen(!app.unplacedOpen)
           break
         case 'r':
           engine?.redraw()
@@ -172,9 +178,9 @@ export function App() {
       <SearchPalette />
       {error && (
         <div className="absolute inset-0 z-50 grid place-items-center p-6">
-          <div className="sheet max-w-lg border border-rule p-6" role="alert">
-            <h1 className="text-xl font-medium">The chart could not be drawn</h1>
-            <p className="mt-2 leading-snug text-ink-2">{error}</p>
+          <div className="sheet max-w-lg border border-rule p-8" role="alert">
+            <h1 className="text-head">The chart could not be drawn</h1>
+            <p className="mt-2 text-ink-2">{error}</p>
           </div>
         </div>
       )}
