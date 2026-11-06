@@ -35,17 +35,18 @@
     "6": "14 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "7": "6 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "8": "8 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "9": "5 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary."
+    "9": "5 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
+    "11": "1 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary."
   },
   "summary": {
-    "candidate_and_integrated_cases": 224,
+    "candidate_and_integrated_cases": 225,
     "by_status": {
       "proposed": 158,
-      "integrated": 64,
+      "integrated": 65,
       "insufficient": 2
     },
     "by_pod": {
-      "A": 67,
+      "A": 68,
       "B": 47,
       "C": 47,
       "D": 63
@@ -13143,6 +13144,23 @@
         "global_comparison_status": "frontier_supported",
         "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
       }
+    },
+    {
+      "id": "INTEGRATED-cont-a-mendeleev-predictive-periodic-system",
+      "title": "Mendeleev’s predictive periodic system",
+      "owner": "/root/lifecycle_terra",
+      "pod": "A",
+      "wave": 11,
+      "source_leads": [],
+      "status": "integrated",
+      "canonical_node_id": "cont-a-mendeleev-predictive-periodic-system",
+      "review_ledger": "reviews/continuation-11.json",
+      "accepted_scope": "Mendeleev’s periodic organization of chemical elements by atomic weight and chemical analogy, including provisional missing-element and weight-correction claims in 1869 and more detailed property estimates in the 1871–1872 treatment. The later eka-aluminium estimate included atomic weight about 68 and specific gravity about 6.0.",
+      "entry_event_id": "cont-a-mendeleev-predictive-periodic-system--meyer-1870-recognition",
+      "frontier_review": {
+        "global_comparison_status": "frontier_supported",
+        "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
+      }
     }
   ],
   "existing_graph_priorities": [
@@ -13203,12 +13221,12 @@
   "research_baseline_commit": "4c5a10531d3f01a6d51df45bc53aa7f331cc1672",
   "maintenance": "Single current register. Prospective hypotheses and source leads are not accepted historical facts. Historical assertion acceptance and frontier eligibility are separate. Integrated cases are updated in place and linked to exact reviews.",
   "current_canonical": {
-    "nodes": 274,
-    "events": 523,
+    "nodes": 275,
+    "events": 528,
     "relationships": 132,
-    "sources": 629,
-    "nodes_sha256": "1cc92426e5eacc982a871fa904cf7a544fb9833f917385c5391bafe2fd20933f",
-    "new_entries_integrated": 64,
+    "sources": 637,
+    "nodes_sha256": "7445ce94d665488aee64e249c42c85ff6232c136c4c81ae54b086e958aeeff0c",
+    "new_entries_integrated": 65,
     "confirmed_identity_consolidations": 3,
     "assessment_record": "reviews/frontier-audit.json",
     "identity_refinements": 3,
@@ -13868,6 +13886,34 @@
       "updated_sources": [
         "entry-src-micrologic-life"
       ]
+    },
+    {
+      "review_ledger": "reviews/continuation-11.json",
+      "wave": 11,
+      "source_manifest_sha256": "6694c1131bcdef1e45b09fab6b2d784f7238649bbecb96be074ac2f13e1feb21",
+      "integrated_node_ids": [
+        "cont-a-mendeleev-predictive-periodic-system"
+      ],
+      "integrated_event_ids": [
+        "cont-a-mendeleev-predictive-periodic-system--periodic-predictions-publication",
+        "cont-a-mendeleev-predictive-periodic-system--rammelsberg-uranium-discussion",
+        "cont-a-mendeleev-predictive-periodic-system--gallium-density-recognition",
+        "cont-a-mendeleev-predictive-periodic-system--publication-1869",
+        "cont-a-mendeleev-predictive-periodic-system--meyer-1870-recognition"
+      ],
+      "integrated_relationship_ids": [],
+      "entry_policy": "Best supported community entry with scope/approximation/open bounds; frontier comparison is separate.",
+      "independent_reviews": [
+        {
+          "name": "A4",
+          "review_file_sha256": "3685afaeb3aab96573de42710a02920bae77a53005d3dd3de6dcbf3a8e76268e",
+          "proposal_file_sha256": "c86d6b28be0672c675a0d003566194c65a2a449d99543f22678af58cd617356c"
+        }
+      ],
+      "updated_nodes": [],
+      "updated_events": [],
+      "updated_relationships": [],
+      "updated_sources": []
     }
   ],
   "completion_boundary": {
