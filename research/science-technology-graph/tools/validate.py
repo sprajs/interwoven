@@ -25,6 +25,8 @@ LIFECYCLE = (
     "acceptance", "decline", "withdrawal", "end_of_use", "abandonment", "revival",
 )
 SCIENTIFIC = {"discovery", "observation", "formulation", "publication", "presentation", "experimental_confirmation", "acceptance"}
+REVIEW_AXES = ("historical_claim", "lifecycle_classification")
+REVIEW_FIELDS = {"id", "type", "historical_claim", "lifecycle_classification", "proposition_sha256"}
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -166,9 +168,9 @@ def _time(bound, latest=False):
 
 def _date_checks(record, path, errors, concerns):
     d = record["date"]
-    if "earliest" not in d or "latest" not in d:
-        return
     for name in ("earliest", "latest"):
+        if name not in d:
+            continue
         b = d[name]
         month, day = b.get("month"), b.get("day")
         if month is not None and day is not None:
@@ -180,16 +182,24 @@ def _date_checks(record, path, errors, concerns):
             errors.append(issue(path + ".date." + name, "day precision requires month and day", "date"))
         if d["precision"] == "month" and month is None:
             errors.append(issue(path + ".date." + name, "month precision requires month", "date"))
-    if _time(d["earliest"]) > _time(d["latest"], True):
-        errors.append(issue(path + ".date", "earliest bound follows latest bound", "date_order"))
-    if d["status"] == "known" and d["earliest"] != d["latest"]:
-        concerns.append(issue(path + ".date", "known has unequal bounds; consider bounded or explain the precision convention", "known_range"))
+    if "earliest" in d and "latest" in d:
+        if _time(d["earliest"]) > _time(d["latest"], True):
+            errors.append(issue(path + ".date", "earliest bound follows latest bound", "date_order"))
+        if d["status"] == "known" and d["earliest"] != d["latest"]:
+            concerns.append(issue(path + ".date", "known has unequal bounds; consider bounded or explain the precision convention", "known_range"))
+
+
+def _definitely_after(source_date, receiving_date):
+    """Only supplied decisive bounds establish reversed event chronology."""
+    return ("earliest" in source_date and "latest" in receiving_date
+            and _time(source_date["earliest"]) > _time(receiving_date["latest"], True))
 
 
 def validate_records(records, schema_path=None, optional_jsonschema=True):
     """Return errors, review concerns, coverage counts for in-memory records.
 
     Does not mutate inputs or infer lifecycle acceptance from historical review.
+    Repository file and review-ledger checks are performed by validate_repository.
     """
     schema_path = Path(schema_path or DEFAULT_ROOT / "schema.json")
     schema = _read_json(schema_path.read_text())
@@ -268,6 +278,13 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
                 allowed = SCIENTIFIC if anchor["policy"] == "scientific_event" else {anchor["policy"]}
                 if event["event_type"] not in allowed:
                     errors.append(issue(path + ".graph_anchor.event_id", f"{event['event_type']!r} is not eligible for {anchor['policy']!r}; do not substitute invention/adoption for commercial availability", "anchor_type"))
+                stage = event["event_type"] if anchor["policy"] == "scientific_event" else anchor["policy"]
+                if stage in node["lifecycle"]:
+                    entry = node["lifecycle"][stage]
+                    if entry["status"] != "documented" or eid not in entry["event_ids"]:
+                        errors.append(issue(path + ".graph_anchor.event_id", f"selected anchor must occur in the documented {stage!r} lifecycle entry", "anchor_lifecycle"))
+                if event["date"]["status"] not in {"known", "approximate", "bounded"}:
+                    errors.append(issue(path + ".graph_anchor.event_id", "selected anchor requires a known, approximate or bounded usable event date", "anchor_date"))
             if anchor["policy"] == "practical_deployment":
                 applicability = node["commercial_applicability"]
                 if applicability["status"] not in ("nonmarket", "not_applicable") or not applicability["evidence"]:
@@ -289,7 +306,7 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
                     errors.append(issue(path + "." + side + ".event_id", f"event {eid!r} does not belong to {nid!r}", "event_membership"))
                 elif eid in valid_ids["events"]:
                     dated.append(events[eid][0]["date"])
-        if len(dated) == 2 and "earliest" in dated[0] and "latest" in dated[1] and _time(dated[0]["earliest"]) > _time(dated[1]["latest"], True):
+        if len(dated) == 2 and _definitely_after(dated[0], dated[1]):
             concerns.append(issue(path, "source event is later than receiving event; review temporal_note and relation direction (commercial display anchors were not compared)", "event_chronology"))
         if edge["relation"] in {"supersedes", "revival-of", "abandonment-of"}:
             inspected = any(sources.get(e["source_id"], ({}, ""))[0].get("inspected_passages") for e in edge["evidence"])
@@ -332,10 +349,61 @@ def _read_json(text):
     return json.loads(text, object_pairs_hook=_unique_object, parse_constant=_reject_constant)
 
 
+def proposition_sha256(record):
+    """Hash the complete current proposition, excluding only top-level review."""
+    proposition = {key: value for key, value in record.items() if key != "review"}
+    encoded = json.dumps(proposition, ensure_ascii=False, sort_keys=True,
+                         separators=(",", ":"), allow_nan=False).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _review_ledger(target, root, errors):
+    """Index normalized decisions; heterogeneous auxiliary reviews stay auxiliary."""
+    strict = target == root / "reviews/current-evidence.json"
+    path = str(target.relative_to(root))
+    try:
+        document = _read_json(target.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        if strict:
+            errors.append(issue(path, f"cannot read current review ledger: {e}", "review_ledger"))
+        return {} if strict else None
+    rows = document.get("records") if isinstance(document, dict) else None
+    normalized = strict or (isinstance(rows, list) and any(
+        isinstance(row, dict) and REVIEW_FIELDS <= row.keys() for row in rows))
+    if not normalized:
+        return None
+    if not isinstance(rows, list):
+        errors.append(issue(path, "normalized current review ledger requires a records array", "review_ledger"))
+        return {}
+    entries, duplicate = {}, set()
+    for i, row in enumerate(rows):
+        rp = f"{path}.records[{i}]"
+        if not isinstance(row, dict) or not REVIEW_FIELDS <= row.keys():
+            if strict:
+                errors.append(issue(rp, "normalized review entry requires id, type, both review axes and proposition_sha256", "review_ledger"))
+            continue
+        if (not isinstance(row["id"], str) or not row["id"]
+                or row["type"] not in ("node", "event", "relationship")
+                or row["historical_claim"] not in ("accepted", "candidate", "withheld")
+                or row["lifecycle_classification"] not in ("accepted", "needs_review", "withheld")
+                or not isinstance(row["proposition_sha256"], str)
+                or not re.fullmatch(r"[a-fA-F0-9]{64}", row["proposition_sha256"])):
+            errors.append(issue(rp, "invalid normalized review entry fields", "review_ledger"))
+            continue
+        key = (row["type"], row["id"])
+        if key in entries:
+            errors.append(issue(rp, f"duplicate normalized review decision for {key!r}", "review_ledger"))
+            duplicate.add(key)
+        else:
+            entries[key] = row
+    return {key: row for key, row in entries.items() if key not in duplicate}
+
+
 def verify_local_files(records, root):
-    """Check current review paths and source copies without consulting the web."""
+    """Check review decisions, proposition hashes and local source copies."""
     root = Path(root).resolve()
-    errors, verified, reviewed, actual_hashes = [], set(), set(), {}
+    errors, verified, reviewed, actual_hashes, ledgers = [], set(), set(), {}, {}
+    current_reviews = 0
 
     def contained_file(relative, path):
         rel = Path(relative)
@@ -356,6 +424,12 @@ def verify_local_files(records, root):
                 continue
             review = record.get("review")
             if isinstance(review, dict) and isinstance(review.get("records"), list):
+                matched = False
+                try:
+                    expected = proposition_sha256(record)
+                except (TypeError, ValueError) as e:
+                    expected = None
+                    errors.append(issue(path, f"cannot hash current proposition: {e}", "review_proposition"))
                 for j, relative in enumerate(review["records"]):
                     if not isinstance(relative, str):
                         continue
@@ -364,8 +438,33 @@ def verify_local_files(records, root):
                     if target is not None:
                         if target.is_file():
                             reviewed.add(target)
+                            if target not in ledgers:
+                                ledgers[target] = _review_ledger(target, root, errors)
+                            ledger = ledgers[target]
+                            if ledger is None:
+                                continue
+                            if not isinstance(record.get("id"), str):
+                                continue
+                            decision = ledger.get((KINDS[kind], record.get("id")))
+                            if decision is None:
+                                errors.append(issue(rp, f"normalized ledger has no decision for {KINDS[kind]} {record.get('id')!r}", "review_membership"))
+                                continue
+                            consistent = True
+                            for axis in REVIEW_AXES:
+                                if decision[axis] != review.get(axis):
+                                    errors.append(issue(rp, f"{axis} differs from normalized ledger decision", "review_status"))
+                                    consistent = False
+                            if expected is None or decision["proposition_sha256"].lower() != expected:
+                                errors.append(issue(rp, "normalized review proposition hash does not match the current record", "review_proposition"))
+                                consistent = False
+                            matched = matched or consistent
                         else:
                             errors.append(issue(rp, "current review record is missing or is not a file", "review_file"))
+                if kind != "sources" and isinstance(record.get("id"), str):
+                    if matched:
+                        current_reviews += 1
+                    else:
+                        errors.append(issue(path + ".review.records", "at least one matching normalized current review decision is required", "review_coverage"))
             if kind == "sources" and isinstance(record.get("local_copy"), dict):
                 copy = record["local_copy"]
                 if not isinstance(copy.get("path"), str) or not isinstance(copy.get("sha256"), str) or not re.fullmatch(r"[a-fA-F0-9]{64}", copy["sha256"]):
@@ -386,7 +485,7 @@ def verify_local_files(records, root):
                         errors.append(issue(cp, f"hash mismatch for {copy['path']}: actual {actual}", "local_copy_hash"))
                     else:
                         verified.add(target)
-    return errors, len(verified), len(reviewed)
+    return errors, len(verified), len(reviewed), current_reviews
 
 
 def validate_repository(root=DEFAULT_ROOT, optional_jsonschema=True):
@@ -412,10 +511,11 @@ def validate_repository(root=DEFAULT_ROOT, optional_jsonschema=True):
                 records[kind].append({})
     result = validate_records(records, root / "schema.json", optional_jsonschema)
     result["errors"][:0] = parsing
-    file_errors, verified, reviewed = verify_local_files(records, root)
+    file_errors, verified, reviewed, current_reviews = verify_local_files(records, root)
     result["errors"].extend(file_errors)
     result["counts"]["source_copies_verified"] = verified
     result["counts"]["review_files_verified"] = reviewed
+    result["counts"]["current_review_records_verified"] = current_reviews
     result["valid"] = not result["errors"]
     return result
 

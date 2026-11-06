@@ -22,7 +22,7 @@ def evidence(source_id="source-1"):
 
 
 def review():
-    return {"historical_claim": "accepted", "lifecycle_classification": "needs_review", "records": []}
+    return {"historical_claim": "accepted", "lifecycle_classification": "needs_review", "records": ["reviews/current-evidence.json"]}
 
 
 def provenance():
@@ -32,6 +32,13 @@ def provenance():
 def historical_date(year=1900):
     return {"status": "known", "precision": "year", "calendar": "historical-BCE-CE", "label": str(year),
             "basis": "Synthetic year supplied by a fixture.", "earliest": {"year": year}, "latest": {"year": year}}
+
+
+def one_sided_date(supplied, bound, missing_status="unknown", precision="day"):
+    missing = "earliest" if supplied == "latest" else "latest"
+    return {"status": "bounded", "precision": precision, "calendar": "historical-BCE-CE",
+            "label": "By the supplied date" if supplied == "latest" else "From the supplied date",
+            "basis": "The fixture supports one limit only.", supplied: bound, missing + "_status": missing_status}
 
 
 def event(event_id="event-1", node_id="node-1", event_type="invention", year=1900):
@@ -208,6 +215,88 @@ class GraphValidationTests(unittest.TestCase):
         entry["as_of"] = "2026-02-30"
         self.assertInvalid(records, "date")
 
+    def test_non_documented_lifecycle_states_do_not_claim_events(self):
+        for status in ("unknown", "not_yet_researched", "not_applicable"):
+            with self.subTest(status=status):
+                records = fixture()
+                entry = records["nodes"][0]["lifecycle"]["invention"]
+                entry.update(status=status, evidence=[evidence()])
+                self.assertInvalid(records, "schema")
+                entry["event_ids"] = []
+                self.assertValid(records)
+
+    def test_unknown_lifecycle_requires_evidence_of_researched_uncertainty(self):
+        records = fixture()
+        entry = records["nodes"][0]["lifecycle"]["first_commercial_availability"]
+        entry.update(status="unknown", rationale="The inspected source leaves the first sale unresolved.")
+        self.assertInvalid(records, "schema")
+        entry["evidence"] = [evidence()]
+        self.assertValid(records)
+
+    def test_selected_technology_anchor_requires_documented_lifecycle_membership(self):
+        for policy in ("first_commercial_availability", "practical_deployment"):
+            for status in ("unknown", "not_yet_researched", "not_applicable", "ongoing"):
+                with self.subTest(policy=policy, status=status):
+                    events = [event(event_type=policy)]
+                    records = fixture()
+                    records.update(nodes=[node(events)], events=events)
+                    current = records["nodes"][0]
+                    if policy == "practical_deployment":
+                        current["commercial_applicability"].update(status="nonmarket", evidence=[evidence()])
+                    select_anchor(current, "event-1", policy)
+                    current["lifecycle"][policy].update(status=status, event_ids=[], evidence=[evidence()])
+                    if status == "ongoing":
+                        current["lifecycle"][policy]["as_of"] = "2026-11-06"
+                    self.assertInvalid(records, "anchor_lifecycle")
+
+    def test_selected_anchor_id_must_occur_in_its_documented_lifecycle_entry(self):
+        events = [event("first", event_type="first_commercial_availability"),
+                  event("other", event_type="first_commercial_availability", year=1901)]
+        records = fixture()
+        records.update(nodes=[node(events)], events=events)
+        current = records["nodes"][0]
+        select_anchor(current, "first")
+        current["lifecycle"]["first_commercial_availability"]["event_ids"] = ["other"]
+        self.assertInvalid(records, "anchor_lifecycle")
+
+    def test_science_anchor_lifecycle_agrees_except_presentation_has_no_key(self):
+        for milestone in ("discovery", "presentation"):
+            with self.subTest(milestone=milestone):
+                events = [event(event_type=milestone)]
+                records = fixture()
+                records.update(nodes=[node(events, kind="science")], events=events)
+                select_anchor(records["nodes"][0], "event-1", "scientific_event")
+                if milestone == "discovery":
+                    records["nodes"][0]["lifecycle"][milestone].update(status="unknown", event_ids=[], evidence=[evidence()])
+                    self.assertInvalid(records, "anchor_lifecycle")
+                else:
+                    self.assertValid(records)
+
+    def test_all_selected_anchors_require_a_usable_event_date(self):
+        for stage, kind, policy in (("first_commercial_availability", "technology", "first_commercial_availability"),
+                ("practical_deployment", "technology", "practical_deployment"),
+                ("discovery", "science", "scientific_event"), ("presentation", "science", "scientific_event")):
+            for status in ("unknown", "not_yet_researched", "not_applicable"):
+                with self.subTest(stage=stage, status=status):
+                    events = [event(event_type=stage)]
+                    records = fixture()
+                    records.update(nodes=[node(events, kind=kind)], events=events)
+                    current = records["nodes"][0]
+                    if stage == "practical_deployment":
+                        current["commercial_applicability"].update(status="nonmarket", evidence=[evidence()])
+                    select_anchor(current, "event-1", policy)
+                    events[0]["date"] = {"status": status, "precision": "unknown", "calendar": "historical-BCE-CE",
+                        "label": "Unresolved date", "basis": "The fixture supplies no usable limit."}
+                    self.assertInvalid(records, "anchor_date")
+
+    def test_selected_anchor_accepts_an_explicit_one_sided_usable_date(self):
+        records = fixture()
+        records["events"][0]["event_type"] = "first_commercial_availability"
+        records["events"][0]["date"] = one_sided_date("latest", {"year": 1900}, precision="year")
+        records["nodes"] = [node(records["events"])]
+        select_anchor(records["nodes"][0], "event-1")
+        self.assertValid(records)
+
     def test_all_lifecycle_statuses_are_explicit_and_documented_requires_event(self):
         for change in ("missing", "null", "undocumented"):
             with self.subTest(change=change):
@@ -226,6 +315,21 @@ class GraphValidationTests(unittest.TestCase):
             self.assertEqual({"accepted": 1}, result["counts"]["review"][kind]["historical_claim"])
             self.assertEqual({"needs_review": 1}, result["counts"]["review"][kind]["lifecycle_classification"])
 
+    def test_review_requires_a_pointer(self):
+        records = fixture()
+        records["nodes"][0]["review"]["records"] = []
+        self.assertInvalid(records, "schema")
+
+    def test_proposition_hash_is_compact_utf8_and_excludes_only_top_level_review(self):
+        record = {"id": "é", "review": {"historical_claim": "candidate"}, "configuration": {"review": "kept"}}
+        encoded = '{"configuration":{"review":"kept"},"id":"é"}'.encode("utf-8")
+        expected = hashlib.sha256(encoded).hexdigest()
+        self.assertEqual(expected, validator.proposition_sha256(record))
+        record["review"] = {"historical_claim": "accepted", "records": ["different-file.json"]}
+        self.assertEqual(expected, validator.proposition_sha256(record))
+        record["configuration"]["review"] = "changed"
+        self.assertNotEqual(expected, validator.proposition_sha256(record))
+
     def test_reversed_commercial_display_order_accepts_valid_historical_events(self):
         result = self.assertValid(linked_fixture())
         self.assertEqual([], result["concerns"])
@@ -241,11 +345,102 @@ class GraphValidationTests(unittest.TestCase):
         records["events"][0]["date"] = {"status": "unknown", "precision": "unknown", "calendar": "historical-BCE-CE",
             "label": "Date unresolved", "basis": "The inspected source does not resolve the date."}
         self.assertValid(records)
-        for key, value in (("earliest", {"year": 1900}), ("latest", {"year": 1900}), ("precision", "year")):
+        for key, value in (("earliest", {"year": 1900}), ("latest", {"year": 1900}), ("precision", "year"),
+                           ("earliest_status", "unknown"), ("latest_status", "not_yet_researched")):
             with self.subTest(key=key):
                 bad = deepcopy(records)
                 bad["events"][0]["date"][key] = value
                 self.assertInvalid(bad, "schema")
+
+    def test_bounded_by_date_does_not_infer_an_unknown_earliest_bound(self):
+        for missing_status in ("unknown", "not_yet_researched"):
+            with self.subTest(missing_status=missing_status):
+                records = fixture()
+                records["events"][0]["date"] = one_sided_date("latest", {"year": 2023, "month": 3, "day": 15}, missing_status)
+                before = deepcopy(records)
+                result = self.assertValid(records)
+                self.assertEqual(before, records)
+                self.assertNotIn("earliest", records["events"][0]["date"])
+                self.assertEqual([], result["concerns"])
+
+    def test_bounded_from_date_does_not_infer_an_unknown_latest_bound(self):
+        for missing_status in ("unknown", "not_yet_researched"):
+            with self.subTest(missing_status=missing_status):
+                records = fixture()
+                records["events"][0]["date"] = one_sided_date("earliest", {"year": 2023, "month": 3, "day": 15}, missing_status)
+                before = deepcopy(records)
+                result = self.assertValid(records)
+                self.assertEqual(before, records)
+                self.assertNotIn("latest", records["events"][0]["date"])
+                self.assertEqual([], result["concerns"])
+
+    def test_one_sided_date_requires_the_correct_explicit_missing_limit_status(self):
+        for supplied in ("earliest", "latest"):
+            missing = "latest" if supplied == "earliest" else "earliest"
+            for change in ("omitted", "wrong_side", "not_applicable", "null"):
+                with self.subTest(supplied=supplied, change=change):
+                    records = fixture()
+                    date = one_sided_date(supplied, {"year": 2023}, precision="year")
+                    if change == "omitted":
+                        del date[missing + "_status"]
+                    elif change == "wrong_side":
+                        date[supplied + "_status"] = date.pop(missing + "_status")
+                    else:
+                        date[missing + "_status"] = None if change == "null" else change
+                    records["events"][0]["date"] = date
+                    self.assertInvalid(records)
+
+    def test_supplied_bounds_do_not_allow_missing_limit_statuses(self):
+        for name in ("earliest", "latest"):
+            with self.subTest(name=name):
+                records = fixture()
+                records["events"][0]["date"]["status"] = "bounded"
+                self.assertValid(records)
+                records["events"][0]["date"][name + "_status"] = "unknown"
+                self.assertInvalid(records, "schema")
+
+    def test_bounded_date_requires_at_least_one_real_limit(self):
+        records = fixture()
+        records["events"][0]["date"] = {"status": "bounded", "precision": "year", "calendar": "historical-BCE-CE",
+            "label": "No supported limit", "basis": "Neither endpoint is established.",
+            "earliest_status": "unknown", "latest_status": "not_yet_researched"}
+        self.assertInvalid(records, "schema")
+
+    def test_known_and_approximate_dates_still_require_both_limits(self):
+        for status in ("known", "approximate"):
+            for supplied in ("earliest", "latest"):
+                with self.subTest(status=status, supplied=supplied):
+                    records = fixture()
+                    records["events"][0]["date"] = one_sided_date(supplied, {"year": 2023}, precision="year")
+                    records["events"][0]["date"]["status"] = status
+                    self.assertInvalid(records)
+
+    def test_each_supplied_one_sided_limit_checks_precision_and_possible_days(self):
+        for supplied in ("earliest", "latest"):
+            for precision, bound in (("day", {"year": 2023, "month": 4, "day": 31}),
+                    ("day", {"year": 2023, "month": 3}), ("month", {"year": 2023}),
+                    ("year", {"year": 0}), ("month", {"year": 2023, "month": 13})):
+                with self.subTest(supplied=supplied, precision=precision, bound=bound):
+                    records = fixture()
+                    records["events"][0]["date"] = one_sided_date(supplied, bound, precision=precision)
+                    self.assertInvalid(records)
+
+    def test_one_sided_chronology_uses_only_supplied_decisive_limits(self):
+        cases = [
+            (one_sided_date("latest", {"year": 1930}, precision="year"), historical_date(1920), False),
+            (historical_date(1930), one_sided_date("earliest", {"year": 1920}, precision="year"), False),
+            (one_sided_date("earliest", {"year": 1930}, precision="year"),
+             one_sided_date("latest", {"year": 1920}, precision="year"), True),
+        ]
+        for source_date, receiving_date, reversed_events in cases:
+            with self.subTest(source=source_date, receiving=receiving_date):
+                records = linked_fixture()
+                records["events"][0]["date"] = source_date
+                records["events"][2]["date"] = receiving_date
+                before = deepcopy(records)
+                result = self.assertValid(records)
+                self.assertEqual(before, records)
+                self.assertEqual(["event_chronology"] if reversed_events else [], [c["code"] for c in result["concerns"]])
 
     def test_year_zero_impossible_month_and_reversed_dates_are_rejected(self):
         dates = [historical_date(0), historical_date(1900), historical_date(1900), historical_date(1900)]
@@ -398,10 +593,31 @@ class RepositoryValidationTests(unittest.TestCase):
         (self.root / "data").mkdir()
         self.records = fixture()
         self.write_records()
+        self.write_ledger()
 
     def write_records(self):
         for kind, rows in self.records.items():
             (self.root / "data" / (kind + ".jsonl")).write_text("".join(json.dumps(row) + "\n" for row in rows))
+
+    def write_ledger(self):
+        rows = []
+        for kind in ("nodes", "events", "relationships"):
+            for record in self.records[kind]:
+                proposition = {key: value for key, value in record.items() if key != "review"}
+                digest = hashlib.sha256(json.dumps(proposition, ensure_ascii=False, sort_keys=True,
+                    separators=(",", ":"), allow_nan=False).encode("utf-8")).hexdigest()
+                rows.append({"id": record["id"], "type": validator.KINDS[kind],
+                    "historical_claim": record["review"]["historical_claim"],
+                    "lifecycle_classification": record["review"]["lifecycle_classification"], "proposition_sha256": digest})
+        path = self.root / "reviews/current-evidence.json"
+        path.parent.mkdir(exist_ok=True)
+        path.write_text(json.dumps({"records": rows}, ensure_ascii=False), encoding="utf-8")
+
+    def change_ledger(self, modify):
+        path = self.root / "reviews/current-evidence.json"
+        document = json.loads(path.read_text())
+        modify(document["records"])
+        path.write_text(json.dumps(document), encoding="utf-8")
 
     def local_copy(self, path="evidence/source.txt", content=b"Inspected original source.\n"):
         target = self.root / path
@@ -470,21 +686,83 @@ class RepositoryValidationTests(unittest.TestCase):
                 self.write_records()
                 self.assertFalse(self.check()["valid"])
 
-    def test_current_review_paths_are_checked(self):
-        review_path = self.root / "reviews/fixture.json"
-        review_path.parent.mkdir()
-        review_path.write_text('{"decision":"candidate"}')
-        for kind in ("nodes", "events"):
-            self.records[kind][0]["review"]["records"] = ["reviews/fixture.json"]
+    def test_excerpt_copy_requires_explicit_original_identity_and_page_mapping(self):
+        self.records["sources"][0]["local_copy"] = dict(self.local_copy(), representation="excerpt",
+            original_sha256="a" * 64, original_page_count=40,
+            page_mapping=[{"source_page": 12, "excerpt_page": 1}], extraction_method="Selected page copied without resizing.")
         self.write_records()
         result = self.check()
         self.assertTrue(result["valid"], result["errors"])
-        self.assertEqual(1, result["counts"]["review_files_verified"])
+        self.assertEqual(1, result["counts"]["source_copies_verified"])
+        del self.records["sources"][0]["local_copy"]["page_mapping"]
+        self.write_records()
+        self.assertFalse(self.check()["valid"])
+
+    def test_current_review_paths_are_checked(self):
+        review_path = self.root / "reviews/fixture.json"
+        review_path.write_text('{"decision":"candidate"}')
+        for kind in ("nodes", "events"):
+            self.records[kind][0]["review"]["records"].append("reviews/fixture.json")
+        self.write_records()
+        result = self.check()
+        self.assertTrue(result["valid"], result["errors"])
+        self.assertEqual(2, result["counts"]["review_files_verified"])
         review_path.unlink()
         self.assertIn("review_file", {e["code"] for e in self.check()["errors"]})
         self.records["nodes"][0]["review"]["records"] = ["../outside.json"]
         self.write_records()
         self.assertIn("local_path", {e["code"] for e in self.check()["errors"]})
+
+    def test_normalized_review_covers_each_node_event_and_relationship(self):
+        self.records = linked_fixture()
+        self.write_records()
+        self.write_ledger()
+        result = self.check()
+        self.assertTrue(result["valid"], result["errors"])
+        self.assertEqual(7, result["counts"]["current_review_records_verified"])
+        self.change_ledger(lambda rows: rows.pop())
+        self.assertIn("review_membership", {e["code"] for e in self.check()["errors"]})
+
+    def test_review_ledger_must_contain_the_referring_id_and_type(self):
+        for field, value in (("id", "different-node"), ("type", "event")):
+            with self.subTest(field=field):
+                self.write_ledger()
+                self.change_ledger(lambda rows: rows[0].update({field: value}))
+                codes = {e["code"] for e in self.check()["errors"]}
+                self.assertIn("review_membership", codes)
+                self.assertIn("review_coverage", codes)
+
+    def test_review_ledger_rejects_a_stale_proposition_hash(self):
+        self.records["nodes"][0]["configuration"] = "The current proposition changed."
+        self.write_records()
+        self.assertIn("review_proposition", {e["code"] for e in self.check()["errors"]})
+
+    def test_review_axes_must_agree_even_though_the_hash_excludes_review(self):
+        for axis, value in (("historical_claim", "candidate"), ("lifecycle_classification", "accepted")):
+            with self.subTest(axis=axis):
+                self.records = fixture()
+                self.records["nodes"][0]["review"][axis] = value
+                self.write_records()
+                codes = {e["code"] for e in self.check()["errors"]}
+                self.assertIn("review_status", codes)
+                self.assertNotIn("review_proposition", codes)
+
+    def test_auxiliary_human_reviews_do_not_replace_current_normalized_decisions(self):
+        path = self.root / "reviews/human.json"
+        path.write_text(json.dumps({"records": [{"id": "node-1", "verdict": "repair", "proposition_sha256": "0" * 64}]}))
+        for kind in ("nodes", "events"):
+            self.records[kind][0]["review"]["records"] = ["reviews/human.json"]
+        self.write_records()
+        result = self.check()
+        self.assertIn("review_coverage", {e["code"] for e in result["errors"]})
+        self.assertNotIn("review_ledger", {e["code"] for e in result["errors"]})
+
+    def test_current_ledger_rejects_incomplete_and_duplicate_normalized_decisions(self):
+        self.change_ledger(lambda rows: rows[0].pop("proposition_sha256"))
+        self.assertIn("review_ledger", {e["code"] for e in self.check()["errors"]})
+        self.write_ledger()
+        self.change_ledger(lambda rows: rows.append(deepcopy(rows[0])))
+        self.assertIn("review_ledger", {e["code"] for e in self.check()["errors"]})
 
     def test_malformed_json_blank_lines_duplicate_keys_and_non_json_numbers_are_rejected(self):
         for text in ('{"id":', '{"id":"a","id":"b"}\n', '{"id":"a","classification":{"number":NaN}}\n', "\n", "[]\n"):
@@ -507,6 +785,7 @@ class RepositoryValidationTests(unittest.TestCase):
     def test_cli_json_and_strict_concerns_exit_status(self):
         self.records["events"][0]["date"]["latest"] = {"year": 1901}
         self.write_records()
+        self.write_ledger()
         for strict, expected in ((False, 0), (True, 1)):
             with self.subTest(strict=strict), redirect_stdout(io.StringIO()) as output:
                 args = ["--root", str(self.root), "--json", "--stdlib-only"]
