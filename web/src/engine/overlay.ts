@@ -36,6 +36,8 @@ function nameFont(node: RawNode): string {
   }
   return value
 }
+/** In tight rows every name is the small size, and rank shows in its weight. */
+const rowFont = (node: RawNode): string => font('note', node.level === 0 ? 600 : 500, node.kind === 'science')
 const nameStep = (node: RawNode): TypeStep => (NAME_STYLE[node.level] ?? NAME_STYLE[3]!).step
 
 /** A date short enough to read at a glance. The sheet gives its full wording and basis. */
@@ -273,8 +275,8 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
     if (py < top || py > bottom) return
     if (px < -LAYOUT.column || px > W + LAYOUT.column) return
     const shape = boxed ? shapeOf(ctx, i, node) : null
-    const width = shape ? shape.width : measure(ctx, node.title, nameFont(node))
-    const height = shape ? shape.height : TYPE[nameStep(node)].size
+    const width = shape ? shape.width : measure(ctx, node.title, rowFont(node))
+    const height = shape ? shape.height : TYPE.note.size
     if (boxed) {
       // A box flies like a flag above or below its mark, its solid edge the pole at the date.
       const lift = radius[i]! + BOX.lift + height / 2
@@ -331,7 +333,7 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
   if (engine.view.searchHits) for (const i of engine.view.searchHits) tryPlace(i, false)
 
   const area = Math.max(1, W - cam.insets.left - cam.insets.right) * Math.max(1, bottom - top)
-  const allowance = densityMode ? 16 : inReach ? MAX_NAMES : Math.max(8, Math.min(MAX_NAMES, Math.round(area / NAME_AREA)))
+  const allowance = densityMode ? 16 : Math.max(8, Math.min(MAX_NAMES, Math.round((area / NAME_AREA) * (inReach ? 2 : 1))))
 
   // Names already showing go first within each rank, so they do not flicker as the view moves.
   let visited = 0
@@ -439,7 +441,7 @@ function drawBox(engine: Engine, ctx: CanvasRenderingContext2D, i: number, px: n
 /** In tight rows there is no room for a box, so a name is set directly on the page. */
 function drawRowName(engine: Engine, ctx: CanvasRenderingContext2D, i: number, x: number, y: number, alpha: number): void {
   const node = engine.model!.nodes[i]!
-  ctx.font = nameFont(node)
+  ctx.font = rowFont(node)
   ctx.lineWidth = HALO
   ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA * alpha})`
   ctx.strokeText(node.title, x, y)

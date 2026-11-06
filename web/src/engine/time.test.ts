@@ -46,18 +46,27 @@ describe('formatYear', () => {
 
 describe('pickTicks', () => {
   it('keeps ticks apart on screen', () => {
-    const ticks = pickTicks((y) => (y + 3000) * 0.2, -3000, 2030, 1006, 70)
+    const ticks = pickTicks((y) => (y + 3000) * 0.2, -3000, 2030, 70)
     expect(ticks.length).toBeGreaterThan(4)
     for (let i = 1; i < ticks.length; i++) expect(ticks[i]!.x - ticks[i - 1]!.x).toBeGreaterThanOrEqual(70)
   })
-})
 
-describe('pickTicks with a rejected stretch', () => {
-  it('lets ticks that can show take the room of those that cannot', () => {
+  it('divides a stretch evenly when it has room', () => {
+    const years = pickTicks((y) => (y - 1800) * 4, 1800, 1900, 60).map((t) => t.year)
+    const steps = new Set(years.slice(1).map((y, k) => y - years[k]!))
+    expect(steps.size).toBe(1)
+  })
+
+  it('reaches a period opened by a fold, even with nothing either side', () => {
+    // Everything is squeezed flat except 1800 to 1860.
+    const toX = (y: number) => (y < 1800 ? y * 0.0001 : y > 1860 ? 1000 + y * 0.0001 : (y - 1800) * 16)
+    const years = pickTicks(toX, -5000, 2026, 60).map((t) => t.year)
+    expect(years.filter((y) => y > 1800 && y < 1860).length).toBeGreaterThan(3)
+  })
+
+  it('leaves out what cannot hold a tick', () => {
     const toX = (year: number) => year - 1000
-    const all = pickTicks(toX, 1000, 2000, 1000, 100).map((t) => t.year)
-    const some = pickTicks(toX, 1000, 2000, 1000, 100, (x) => x < 200).map((t) => t.year)
-    expect(all).toContain(1000)
+    const some = pickTicks(toX, 1000, 2000, 100, (x) => x < 200).map((t) => t.year)
     expect(some.every((year) => year >= 1200)).toBe(true)
     expect(some.length).toBeGreaterThan(2)
   })

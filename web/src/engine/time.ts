@@ -121,36 +121,68 @@ export function formatYear(year: number): string {
   return String(y)
 }
 
-const TICK_STEPS = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+/** Each step divides the one above it evenly, so neighbouring ticks share a step. */
+const TICK_STEPS = [5000, 1000, 500, 100, 50, 10, 5, 1]
 
 /**
- * Picks round-numbered ticks with even on-screen spacing, even on a warped axis:
- * coarse steps are placed first and finer ones only fill the gaps they leave.
+ * Picks round-numbered years for the ruler. The axis is warped, so one even step cannot suit all
+ * of it. Each stretch divides at the coarsest step that has room, working back from its recent
+ * end where there is most room, then each part divides again. That keeps the ruler regular where
+ * it can be: 1800, 1850, 1900, and never 1800, 1820, 1850.
  */
 export function pickTicks(
   yearToX: (year: number) => number,
   yearStart: number,
   yearEnd: number,
-  width: number,
   minGap: number,
-  /** Positions that cannot hold a tick, which must not crowd out those that can. */
+  /** Positions that cannot hold a tick. */
   reject?: (x: number) => boolean,
-): { year: number; x: number; step: number }[] {
-  const cell = minGap
-  const cols = Math.ceil(width / cell) + 3
-  const taken = new Uint8Array(cols)
-  const ticks: { year: number; x: number; step: number }[] = []
-  for (const step of TICK_STEPS) {
-    const first = Math.ceil(yearStart / step) * step
-    if ((yearEnd - first) / step > 4000) continue
-    for (let y = first; y <= yearEnd; y += step) {
-      const x = yearToX(y)
-      if (x < 0 || x > width || reject?.(x)) continue
-      const c = Math.floor(x / cell) + 1
-      if (taken[c - 1] || taken[c] || taken[c + 1]) continue
-      taken[c] = 1
-      ticks.push({ year: y, x, step })
+): { year: number; x: number }[] {
+  const top = TICK_STEPS[0]!
+  // Years past the end of the axis have no position, so they never limit the division.
+  const place = (year: number) => (year > yearEnd ? Infinity : yearToX(year))
+  const years: number[] = []
+  const divide = (a: number, b: number): void => {
+    const start = place(a)
+    for (const step of TICK_STEPS) {
+      if (step >= b - a || (b - a) % step !== 0) continue
+      const kept: number[] = []
+      let right = place(b)
+      for (let y = b - step; y > a; y -= step) {
+        const x = place(y)
+        if (right - x >= minGap && x - start >= minGap) {
+          kept.push(y)
+          right = x
+        } else if (kept.length > 0) {
+          // Older years have less room. Stopping here keeps the run of ticks regular.
+          break
+        }
+      }
+      if (kept.length === 0) {
+        // Only a wide stretch is worth a finer step. It may hold a period opened by a fold.
+        if (place(b) - start < 3 * minGap) return
+        continue
+      }
+      let upper = b
+      for (const y of kept) {
+        years.push(y)
+        divide(y, upper)
+        upper = y
+      }
+      divide(a, upper)
+      return
     }
   }
-  return ticks.sort((a, b) => a.x - b.x)
+  const first = Math.floor(yearStart / top) * top
+  const last = Math.ceil(yearEnd / top) * top
+  for (let a = first; a < last; a += top) {
+    years.push(a)
+    divide(a, a + top)
+  }
+  years.push(last)
+  return years
+    .filter((year) => year >= yearStart && year <= yearEnd)
+    .sort((p, q) => p - q)
+    .map((year) => ({ year, x: yearToX(year) }))
+    .filter((tick) => !reject?.(tick.x))
 }

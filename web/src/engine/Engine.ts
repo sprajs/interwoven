@@ -1125,7 +1125,8 @@ export class Engine {
       // A folded stretch cannot hold a readable cell. Its own note says how much it hides.
       const reject = this.foldTo.pleats.length ? (x: number) => this.inPleat(this.foldNow.invert(x / scale)) : undefined
       const toX = (year: number) => this.toV(time.u(year, this.warp)) * scale
-      this.axisTicks = pickTicks(toX, time.min, time.now, scale * 1.001, cam.width < 700 ? 40 : 54, reject).map((t, k) => ({ year: t.year, v: t.x / scale, odd: k % 2 === 1 }))
+      const thisYear = new Date().getFullYear()
+      this.axisTicks = pickTicks(toX, time.min, thisYear, cam.width < 700 ? 58 : 66, reject).map((t, k) => ({ year: t.year, v: t.x / scale, odd: k % 2 === 1 }))
     }
     const all = this.axisTicks
     this.ticks.length = 0
