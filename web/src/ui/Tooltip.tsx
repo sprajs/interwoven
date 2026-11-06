@@ -1,5 +1,5 @@
 import { formatYear } from '../engine/time.ts'
-import { getEngine, useApp } from '../store.ts'
+import { useApp } from '../store.ts'
 import { EvidenceBadge } from './icons.tsx'
 
 const firstSentence = (text: string) => {
@@ -17,7 +17,7 @@ export function Tooltip() {
   if (!hover || !model || hover.index === selected) return null
   const node = model.nodes[hover.index]
   if (!node) return null
-  const reachEnd = getEngine()?.reach?.any[hover.index]
+  const reachEnd = model.reach.any[hover.index]
   const loose = model.links.filter((link) => (link.from === node.id && !model.indexById.has(link.to)) || (link.to === node.id && !model.indexById.has(link.from))).length
   const flip = hover.x + WIDTH + 24 > window.innerWidth
   const left = flip ? hover.x - WIDTH - 12 : hover.x + 12

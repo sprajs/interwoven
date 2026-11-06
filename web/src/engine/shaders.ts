@@ -1,10 +1,7 @@
 import { MAX_FOLD_POINTS } from './folds.ts'
 import { LUT_SIZE } from './time.ts'
 
-/**
- * GLSL for the chart: pen strokes and inked marks on a sheet of paper.
- * Nothing here glows. Strokes multiply onto the page, so crossings darken as real ink does.
- */
+/** GLSL for the chart: flat ink on paper. Lines multiply onto the page, as real ink does. */
 export const TEX_WIDTH = 1024
 
 const HEADER = /* glsl */ `#version 300 es
@@ -24,7 +21,6 @@ uniform float uDpr;
 uniform sampler2D uNodeA;
 uniform sampler2D uNodeB;
 uniform sampler2D uState;
-uniform vec4 uReveal;
 uniform sampler2D uTimeLut;
 uniform vec2 uFold[${MAX_FOLD_POINTS}];
 uniform int uFoldCount;
@@ -63,23 +59,9 @@ vec4 pxToClip(vec2 p) {
 ivec2 texel(int id) {
   return ivec2(id % ${TEX_WIDTH}, id / ${TEX_WIDTH});
 }
-// state: x = passes filters, y = faded, z = emphasised, w = shown regardless of zoom
-float visible(vec4 state, float level) {
-  return state.x * max(uReveal[int(level)], state.w);
-}
-float hash(float n) {
-  return fract(sin(n * 12.9898) * 43758.5453);
-}
-// Smooth 1D noise for the slight unsteadiness of a hand.
-float wander(float x) {
-  float i = floor(x);
-  float f = fract(x);
-  f = f * f * (3.0 - 2.0 * f);
-  return mix(hash(i), hash(i + 1.0), f) * 2.0 - 1.0;
-}
 `
 
-/** The graphite the page falls back to when something is faded. */
+/** The grey the page falls back to when something is faded. */
 const GRAPHITE = 'vec3(0.56, 0.53, 0.49)'
 
 export const NODE_VS = HEADER + WORLD + /* glsl */ `
@@ -87,11 +69,12 @@ layout(location = 0) in vec2 aCorner;
 uniform float uNodeAlpha;
 uniform int uHover;
 uniform int uSelected;
-uniform float uDrawU;
 uniform float uMarkCap;
+uniform float uTail;
 flat out vec3 vColor;
-flat out vec4 vInfo;
-flat out vec3 vExtra;
+flat out vec3 vInfo;
+flat out float vTail;
+flat out float vMark;
 out vec2 vPx;
 
 void main() {
@@ -99,20 +82,17 @@ void main() {
   ivec2 tc = texel(id);
   vec4 a = texelFetch(uNodeA, tc, 0);
   vec4 b = texelFetch(uNodeB, tc, 0);
+  // state: x = passes filters, y = faded, z = emphasised
   vec4 s = texelFetch(uState, tc, 0);
-  float v = visible(s, b.a);
   float mark = id == uSelected ? 1.0 : (id == uHover ? 0.7 : 0.0);
-  float u = timeU(a.x);
-  float drawn = smoothstep(u - 0.004, u + 0.004, uDrawU);
-  // Below the current depth a node is only a faint point on its thread.
-  float alpha = max(s.x * mix(0.42, 1.0, v) * mix(1.0, 0.3, s.y) * uNodeAlpha, mark) * drawn;
+  float alpha = max(s.x * mix(1.0, 0.3, s.y) * uNodeAlpha, mark);
   if (alpha < 0.01) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
-  float r = min(a.z, uMarkCap) * uDpr * mix(0.5, 1.0, v) * (1.0 + 0.2 * s.z);
+  float r = min(a.z, uMarkCap) * uDpr * (1.0 + 0.2 * s.z);
   float bound = floor(mod(a.w, 8.0) / 2.0);
-  float halfSize = r * (bound > 0.5 ? 3.4 : 1.6) + 2.0 * uDpr + mark * (r + 7.0 * uDpr);
+  float halfSize = r * 1.6 + (bound > 0.5 ? 9.0 : 2.0) * uDpr + mark * 7.0 * uDpr;
   vec2 c = worldToPx(a.x, a.y);
   if (c.x < -halfSize || c.x > uRes.x + halfSize || c.y < -halfSize || c.y > uRes.y + halfSize) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
@@ -121,8 +101,9 @@ void main() {
   vPx = aCorner * halfSize;
   gl_Position = pxToClip(c + vPx);
   vColor = mix(${GRAPHITE}, b.rgb, mix(1.0, 0.25, s.y));
-  vInfo = vec4(a.w, r, alpha, hash(float(id) + 3.1) * 6.283);
-  vExtra = vec3(mark, v, b.a);
+  vInfo = vec3(a.w, r, alpha);
+  vMark = mark;
+  vTail = max(uTail, s.z);
 }
 `
 
@@ -130,8 +111,9 @@ export const NODE_FS = HEADER + /* glsl */ `
 uniform float uDpr;
 uniform vec3 uPaper;
 flat in vec3 vColor;
-flat in vec4 vInfo;
-flat in vec3 vExtra;
+flat in vec3 vInfo;
+flat in float vMark;
+flat in float vTail;
 in vec2 vPx;
 out vec4 fragColor;
 
@@ -140,63 +122,51 @@ void main() {
   float bound = floor(mod(vInfo.x, 8.0) / 2.0);
   float strength = floor(vInfo.x / 8.0);
   float r = vInfo.y;
-  float alpha = vInfo.z;
-  float seed = vInfo.w;
-  float mark = vExtra.x;
+  float aa = 0.7 * uDpr;
+  float line = 1.4 * uDpr;
+  vec2 p = abs(vPx);
+  float square = max(p.x, p.y);
+  float circle = length(vPx);
 
-  float dist = length(vPx);
-  float angle = atan(vPx.y, vPx.x);
-  // No hand draws a perfect circle.
-  float edge = r * (1.0 + 0.05 * sin(angle * 2.0 + seed) + 0.03 * sin(angle * 3.0 + seed * 2.0));
-  float aa = 0.75 * uDpr;
-
-  vec3 rgb = uPaper;
-  float a = 0.0;
-
-  float disc = 1.0 - smoothstep(edge - aa, edge + aa, dist);
+  // Every mark carries a paper centre or none, so lines stop cleanly at its edge.
+  float edge;
+  float open = 1.0;
+  float gap = 1.0;
   if (strength > 1.5) {
-    // Awareness opportunity only: a hollow diamond, never an ordinary uptake dot.
-    float diamond = abs(vPx.x) + abs(vPx.y);
-    a = 1.0 - smoothstep(0.45 * uDpr, 1.2 * uDpr, abs(diamond - r * 1.4));
-    rgb = vColor;
+    // An awareness proxy: a hollow diamond, never an ordinary mark of use.
+    edge = (p.x + p.y) / 1.3;
   } else if (strength > 0.5) {
-    // Contextual use/availability inference: a visibly broken ring.
-    float ring = 1.0 - smoothstep(0.35 * uDpr, 1.05 * uDpr, abs(dist - r));
-    a = ring * smoothstep(-0.25, 0.15, sin(angle * 5.0 + seed));
-    rgb = vColor;
+    // A scoped inference: a square drawn only at its corners.
+    edge = square;
+    gap = smoothstep(r * 0.25, r * 0.4, min(p.x, p.y));
   } else if (kind < 0.5) {
-    // Technology: a solid drop of ink.
-    rgb = vColor;
-    a = disc;
+    // Technology: a solid square of ink.
+    edge = square;
+    open = 0.0;
   } else {
-    // Science: an open ring, thick and thin as a broad nib turns around it.
-    float nib = abs(sin(angle + 0.7));
-    float thick = max(0.9 * uDpr, r * (0.2 + 0.26 * nib));
-    float inner = 1.0 - smoothstep(edge - thick - aa, edge - thick + aa, dist);
-    rgb = mix(vColor, uPaper, inner);
-    a = disc;
+    // Science: an open circle.
+    edge = circle;
   }
 
-  if (bound > 0.5) {
-    // Short open arrows qualify a supplied limit; they are not finite date spans.
-    vec2 p = vec2(vPx.x * (bound < 1.5 ? -1.0 : 1.0), vPx.y);
-    float stem = (1.0 - smoothstep(0.3 * uDpr, 0.9 * uDpr, abs(p.y))) * step(r + uDpr, p.x) * step(p.x, r * 3.0);
-    float head = (1.0 - smoothstep(0.35 * uDpr, 0.95 * uDpr, abs(abs(p.y) - (r * 3.0 - p.x)) * 0.707)) * step(r * 2.0, p.x) * step(p.x, r * 3.0);
-    float arrow = max(stem, head);
-    rgb = mix(rgb, vColor, arrow);
-    a = max(a, arrow);
+  float outer = 1.0 - smoothstep(r - aa, r + aa, edge);
+  float inner = 1.0 - smoothstep(r - line - aa, r - line + aa, edge);
+  vec3 rgb = mix(vColor, uPaper, max(inner * open, (1.0 - gap)));
+  float a = outer;
+
+  if (bound > 0.5 && vTail > 0.01) {
+    // A short tail says the date is a limit on one side only. It is not a span of time.
+    float along = vPx.x * (bound < 1.5 ? -1.0 : 1.0);
+    float tail = (1.0 - smoothstep(0.35 * uDpr, 0.95 * uDpr, abs(vPx.y))) * step(r, along) * step(along, r + 7.0 * uDpr);
+    rgb = mix(rgb, vColor, tail * (1.0 - a));
+    a = max(a, tail * 0.8 * vTail);
   }
 
-  if (mark > 0.0) {
-    // A fine circle drawn around whatever has your attention.
-    float ringR = r + 5.5 * uDpr;
-    float wobble = ringR * (1.0 + 0.03 * sin(angle * 2.0 + seed));
-    float nib = 0.55 + 0.45 * abs(sin(angle + 0.7));
-    float ring = 1.0 - smoothstep(0.35 * uDpr, 1.15 * uDpr, abs(dist - wobble) / nib);
-    rgb = mix(rgb, vec3(0.15, 0.13, 0.11), ring * (1.0 - a));
-    a = max(a, ring * mark);
+  if (vMark > 0.0) {
+    float ring = 1.0 - smoothstep(0.5 * uDpr, 1.2 * uDpr, abs(max(square, circle * 0.86) - (r + 4.5 * uDpr)));
+    rgb = mix(rgb, vec3(0.12, 0.105, 0.086), ring * (1.0 - a));
+    a = max(a, ring * vMark);
   }
-  fragColor = vec4(rgb * a, a) * alpha;
+  fragColor = vec4(rgb * a, a) * vInfo.z;
 }
 `
 
@@ -206,20 +176,18 @@ layout(location = 1) in uvec2 aEdge;
 layout(location = 2) in float aTentative;
 uniform float uEdgeAlpha;
 uniform float uStrokeScale;
-// 0 draws a free curve. uWeave straightens it to a stitch falling from the parent's rule.
+// 0 draws a line along the parent's row that turns late into the child's.
+// uWeave straightens it to a line falling from the parent's rule.
 // uElbow turns it to a corner that drops from the parent and runs along to the child.
 uniform float uWeave;
 uniform float uElbow;
 out float vSide;
 out float vT;
-out float vU;
 flat out vec3 vColorA;
 flat out vec3 vColorB;
-flat out vec4 vInfo;
-flat out vec2 vExtra;
+flat out vec3 vInfo;
+flat out float vLength;
 out float vHalf;
-
-const float NIB_ANGLE = -0.62;
 
 void main() {
   int si = int(aEdge.x);
@@ -235,8 +203,7 @@ void main() {
 
   float boost = min(ss.z, ts.z);
   float faded = max(ss.y, ts.y);
-  float match = min(ss.x, ts.x);
-  float alpha = match * mix(1.0, 0.16, faded) * max(uEdgeAlpha, boost);
+  float alpha = min(ss.x, ts.x) * mix(1.0, 0.16, faded) * max(uEdgeAlpha, boost);
   if (alpha < 0.008) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
@@ -251,16 +218,12 @@ void main() {
     return;
   }
 
-  float seed = hash(float(gl_InstanceID) * 1.37 + 0.5);
   vec2 chord = p3 - p0;
   float len = length(chord) + 1.0;
-  // A hand reaches forward along time, then settles into the next mark.
-  // Steep links curve as one gentle arc, so short jumps do not read as hooks.
-  float handle = abs(chord.x) * 0.46 + 3.0 * uDpr;
-  float steep = smoothstep(0.6, 2.2, abs(chord.y) / (abs(chord.x) + 1.0));
-  vec2 bow = vec2(-chord.y, chord.x) / len * len * mix(0.04, 0.13, steep) * (seed < 0.5 ? -1.0 : 1.0) * (0.6 + 0.4 * seed);
-  vec2 p1 = p0 + vec2(handle, chord.y * mix(0.1, 0.33, steep)) + bow;
-  vec2 p2 = p3 - vec2(handle, chord.y * mix(0.1, 0.33, steep)) + bow;
+  // Keeps to the parent's row for most of the way, as a line on a transit map does.
+  float reach = sign(chord.x + 0.001) * max(abs(chord.x), abs(chord.y) * 0.3);
+  vec2 p1 = p0 + vec2(reach * 0.72, 0.0);
+  vec2 p2 = p3 - vec2(reach * 0.18, 0.0);
   if (uElbow > 0.0) {
     p1 = mix(p1, p0 + vec2(0.0, chord.y * 0.86), uElbow);
     p2 = mix(p2, vec2(p0.x + chord.x * 0.14, p3.y), uElbow);
@@ -276,68 +239,39 @@ void main() {
   float it = 1.0 - t;
   vec2 pos = it * it * it * p0 + 3.0 * it * it * t * p1 + 3.0 * it * t * t * p2 + t * t * t * p3;
   vec2 tangent = 3.0 * it * it * (p1 - p0) + 6.0 * it * t * (p2 - p1) + 3.0 * t * t * (p3 - p2);
-  float angle = atan(tangent.y, tangent.x);
-  vec2 normal = vec2(-sin(angle), cos(angle));
+  vec2 normal = normalize(vec2(-tangent.y, tangent.x) + vec2(0.0, 0.0001));
 
-  float along = t * len / uDpr;
-  // Keeps the ends pinned to their marks while the middle wavers slightly.
-  float pin = smoothstep(0.0, 0.12, t) * smoothstep(1.0, 0.88, t) * (1.0 - 0.7 * uWeave);
-  pos += normal * pin * uDpr * (wander(along / 70.0 + seed * 91.0) * 1.5 + wander(along / 21.0 + seed * 37.0) * 0.45);
-
-  // A broad nib makes the stroke thick or thin depending on its direction of travel.
-  float nib = abs(sin(angle - NIB_ANGLE));
-  // Pressure eases off as the stroke runs on, and the pen lifts at the end.
-  float pressure = (1.0 - 0.32 * t) * smoothstep(1.0, 0.94, t) * (0.72 + 0.28 * smoothstep(0.0, 0.05, t));
-  float base = mix(1.2, 2.0, boost) * uStrokeScale;
-  float halfWidth = uDpr * base * (0.2 + 0.8 * nib) * pressure * (1.0 + 0.12 * wander(along / 34.0 + seed * 13.0));
+  float halfWidth = uDpr * mix(0.8, 1.35, boost) * uStrokeScale;
   float expand = halfWidth + 1.1 * uDpr;
-
   gl_Position = pxToClip(pos + normal * aVert.y * expand);
   vSide = aVert.y * expand;
   vHalf = halfWidth;
   vT = t;
-  // In screen terms, the time position lets the opening animation draw strokes left to right.
-  vU = mix(timeU(sa.x), timeU(ta.x), t);
   vColorA = mix(${GRAPHITE}, sb.rgb, mix(1.0, 0.2, faded));
   vColorB = mix(${GRAPHITE}, tb.rgb, mix(1.0, 0.2, faded));
-  vInfo = vec4(seed, alpha, boost, aTentative);
-  vExtra = vec2(len / uDpr, 0.0);
+  vInfo = vec3(alpha, boost, aTentative);
+  vLength = len / uDpr;
 }
 `
 
 export const EDGE_FS = HEADER + /* glsl */ `
 uniform float uDpr;
-uniform float uDrawU;
 in float vSide;
 in float vT;
-in float vU;
 in float vHalf;
 flat in vec3 vColorA;
 flat in vec3 vColorB;
-flat in vec4 vInfo;
-flat in vec2 vExtra;
+flat in vec3 vInfo;
+flat in float vLength;
 out vec4 fragColor;
 
-float hash2(vec2 p) {
-  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
 void main() {
-  if (vU > uDrawU) discard;
-  float alpha = vInfo.y;
   float cover = 1.0 - smoothstep(vHalf - 0.55 * uDpr, vHalf + 0.55 * uDpr, abs(vSide));
-  float along = vT * vExtra.x;
-  if (vInfo.w > 0.5) {
-    // Unreviewed links: the pen touching down in short, uneven strokes.
-    float jitter = hash2(vec2(floor(along / 8.0), vInfo.x)) * 0.25;
-    cover *= step(0.34 + jitter, fract(along / 8.0));
-  }
-  // Ink thins where the nib runs dry.
-  float grain = hash2(floor(gl_FragCoord.xy / uDpr) + vInfo.x * 40.0);
-  float ink = cover * alpha * (0.86 + 0.14 * grain);
+  // A link still awaiting review is drawn broken.
+  if (vInfo.z > 0.5) cover *= step(0.4, fract(vT * vLength / 7.0));
   vec3 color = mix(vColorA, vColorB, smoothstep(0.15, 0.85, vT));
   // Multiply blending: white leaves the paper untouched, ink darkens what is under it.
-  fragColor = vec4(mix(vec3(1.0), color, ink), 1.0);
+  fragColor = vec4(mix(vec3(1.0), color, cover * vInfo.x), 1.0);
 }
 `
 
@@ -345,7 +279,6 @@ export const SPAN_VS = HEADER + WORLD + /* glsl */ `
 layout(location = 0) in vec2 aVert;
 layout(location = 1) in vec2 aRange;
 layout(location = 2) in uint aId;
-uniform float uDrawU;
 flat out vec3 vColor;
 flat out float vAlpha;
 out vec2 vLocal;
@@ -357,15 +290,15 @@ void main() {
   vec4 a = texelFetch(uNodeA, tc, 0);
   vec4 b = texelFetch(uNodeB, tc, 0);
   vec4 s = texelFetch(uState, tc, 0);
-  float alpha = visible(s, b.a) * mix(1.0, 0.25, s.y);
+  float alpha = s.x * mix(1.0, 0.25, s.y);
   float x0 = worldToPx(aRange.x, a.y).x;
   float x1 = worldToPx(aRange.y, a.y).x;
   float y = worldToPx(a.x, a.y).y;
-  if (alpha < 0.01 || x1 - x0 < 5.0 * uDpr || x1 < 0.0 || x0 > uRes.x || timeU(aRange.x) > uDrawU) {
+  if (alpha < 0.01 || x1 - x0 < 5.0 * uDpr || x1 < 0.0 || x0 > uRes.x) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
-  float tick = 2.6 * uDpr;
+  float tick = 3.5 * uDpr;
   vec2 p = vec2(mix(x0 - uDpr, x1 + uDpr, aVert.x * 0.5 + 0.5), y + aVert.y * tick);
   gl_Position = pxToClip(p);
   vLocal = vec2(p.x - x0, aVert.y * tick);
@@ -384,11 +317,11 @@ flat in vec2 vSize;
 out vec4 fragColor;
 
 void main() {
-  // A thin bar with a small serif at each end, as in Priestley's Chart of Biography.
-  float line = 1.0 - smoothstep(0.3 * uDpr, 0.8 * uDpr, abs(vLocal.y));
+  // A bar with an end stop at each side, for a date known only as a range.
+  float line = 1.0 - smoothstep(0.6 * uDpr, 1.1 * uDpr, abs(vLocal.y));
   float end = min(abs(vLocal.x), abs(vLocal.x - vSize.x));
-  float serif = 1.0 - smoothstep(0.35 * uDpr, 0.95 * uDpr, end);
-  float ink = max(line * 0.62, serif) * vAlpha;
+  float stop = 1.0 - smoothstep(0.4 * uDpr, 1.0 * uDpr, end);
+  float ink = max(line * 0.55, stop) * vAlpha;
   fragColor = vec4(mix(vec3(1.0), vColor, ink), 1.0);
 }
 `
@@ -399,7 +332,6 @@ layout(location = 0) in vec2 aVert;
 layout(location = 1) in vec2 aRange;
 layout(location = 2) in uint aId;
 layout(location = 3) in float aStyle;
-uniform float uDrawU;
 uniform float uWarpAlpha;
 flat out vec3 vColor;
 flat out float vAlpha;
@@ -418,7 +350,7 @@ void main() {
   float x0 = worldToPx(aRange.x, a.y).x;
   float x1 = worldToPx(aRange.y, a.y).x;
   float y = worldToPx(a.x, a.y).y;
-  if (alpha < 0.01 || x1 < 0.0 || x0 > uRes.x || timeU(aRange.x) > uDrawU) {
+  if (alpha < 0.01 || x1 < 0.0 || x0 > uRes.x) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
@@ -432,7 +364,7 @@ void main() {
   vHalf = half_;
   vAlong = (px - x0) / uDpr;
   vStyle = aStyle;
-  vColor = aStyle > 2.5 ? vec3(0.15, 0.13, 0.11) : mix(${GRAPHITE}, b.rgb, 0.78);
+  vColor = aStyle > 2.5 ? vec3(0.12, 0.105, 0.086) : mix(${GRAPHITE}, b.rgb, 0.78);
   vAlpha = alpha;
 }
 `
@@ -451,65 +383,6 @@ void main() {
   float cover = 1.0 - smoothstep(vHalf - 0.5 * uDpr, vHalf + 0.5 * uDpr, abs(vSide));
   if (vStyle > 1.5 && vStyle < 2.5) cover *= step(0.42, fract(vAlong / 6.0));
   fragColor = vec4(mix(vec3(1.0), vColor, cover * vAlpha), 1.0);
-}
-`
-
-/** Breaks one of the two lines where a stitch crosses a rule it has nothing to do with. */
-export const CROSS_VS = HEADER + WORLD + /* glsl */ `
-layout(location = 0) in vec2 aVert;
-layout(location = 1) in vec2 aCross;
-layout(location = 2) in uint aId;
-uniform float uCrossAlpha;
-uniform vec2 uCrossSize;
-flat out vec3 vColor;
-flat out float vAlpha;
-out vec2 vLocal;
-
-void main() {
-  int id = int(aId);
-  ivec2 tc = texel(id);
-  vec4 a = texelFetch(uNodeA, tc, 0);
-  vec4 b = texelFetch(uNodeB, tc, 0);
-  vec4 s = texelFetch(uState, tc, 0);
-  float alpha = s.x * uCrossAlpha;
-  if (alpha < 0.01) {
-    gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
-    return;
-  }
-  vec2 c = worldToPx(aCross.x, a.y);
-  vec2 size = uCrossSize * uDpr;
-  vLocal = aVert * size;
-  gl_Position = pxToClip(c + vLocal);
-  vColor = mix(${GRAPHITE}, b.rgb, 0.78);
-  vAlpha = alpha;
-}
-`
-
-export const CROSS_FS = HEADER + /* glsl */ `
-uniform float uDpr;
-uniform vec3 uPaper;
-uniform float uRedraw;
-flat in vec3 vColor;
-flat in float vAlpha;
-in vec2 vLocal;
-out vec4 fragColor;
-
-void main() {
-  vec3 rgb = uPaper;
-  if (uRedraw > 0.5) {
-    float line = 1.0 - smoothstep(0.3 * uDpr, 0.8 * uDpr, abs(vLocal.y));
-    rgb = mix(uPaper, vColor, line);
-  }
-  fragColor = vec4(rgb, 1.0) * vAlpha;
-}
-`
-
-const FULLSCREEN_VS = HEADER + /* glsl */ `
-layout(location = 0) in vec2 aCorner;
-out vec2 vUv;
-void main() {
-  vUv = aCorner * 0.5 + 0.5;
-  gl_Position = vec4(aCorner, 0.0, 1.0);
 }
 `
 
@@ -533,41 +406,5 @@ flat in vec4 vColor;
 out vec4 fragColor;
 void main() {
   fragColor = vec4(vColor.rgb * vColor.a, vColor.a);
-}
-`
-
-export const PAPER_VS = FULLSCREEN_VS
-export const PAPER_FS = HEADER + /* glsl */ `
-uniform vec3 uPaper;
-uniform float uDpr;
-in vec2 vUv;
-out vec4 fragColor;
-
-float hash(vec2 p) {
-  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-float noise(vec2 p) {
-  vec2 i = floor(p);
-  vec2 f = fract(p);
-  f = f * f * (3.0 - 2.0 * f);
-  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
-}
-void main() {
-  vec2 p = gl_FragCoord.xy / uDpr;
-  // Paper is barely textured: long horizontal fibres and fine tooth, near the threshold of notice.
-  float fibre = noise(p * vec2(0.09, 0.22)) * 0.5 + noise(p * vec2(0.37, 0.61)) * 0.3;
-  float tooth = noise(p * 1.1) * 0.2;
-  float shade = (fibre + tooth - 0.5) * 0.009;
-  fragColor = vec4(uPaper + shade, 1.0);
-}
-`
-
-export const COPY_VS = FULLSCREEN_VS
-export const COPY_FS = HEADER + /* glsl */ `
-uniform sampler2D uTex;
-in vec2 vUv;
-out vec4 fragColor;
-void main() {
-  fragColor = texture(uTex, vUv);
 }
 `

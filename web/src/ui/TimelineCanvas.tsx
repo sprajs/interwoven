@@ -25,13 +25,7 @@ export function TimelineCanvas() {
           if (!followEntry(index)) useApp.getState().select(index)
         },
         onFolds: (count) => useApp.getState().setOpenPeriods(count),
-        onFrame: (e) => {
-          // The depth readout is the only per-frame value React needs, and it changes rarely.
-          let depth = 1
-          for (let level = 2; level <= 3; level++) if ((e.reveal[level] ?? 0) > 0.5) depth = level
-          if (depth !== useApp.getState().depth) useApp.getState().setDepth(depth)
-          emitFrame(e)
-        },
+        onFrame: emitFrame,
         onFatal: (message) => useApp.getState().setError(message),
       })
     } catch (e) {
@@ -71,14 +65,12 @@ export function TimelineCanvas() {
 
     let lastModel = useApp.getState().model
     if (lastModel) engine.setModel(lastModel)
-    engine.setLife(useApp.getState().life)
     sync()
     const unsubscribe = useApp.subscribe((s, prev) => {
       if (s.model !== lastModel && s.model) {
         lastModel = s.model
         engine.setModel(s.model)
       }
-      if (s.life !== prev.life) engine.setLife(s.life)
       if (
         s.mode !== prev.mode ||
         s.compressed !== prev.compressed ||

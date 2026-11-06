@@ -130,64 +130,6 @@ export function rowPositions(rows: Int32Array): Float32Array {
   return y
 }
 
-/**
- * Whether a staircase of rows leaves the top right and bottom left of the sheet empty, so that
- * notes can sit there. Dense or reordered rows fill them, and the notes then need their own sheet.
- */
-export function cornersFree(rows: Int32Array, nodes: readonly Dated[], reach: Reach, u: (year: number) => number, width = 0.3): boolean {
-  const n = rows.length
-  if (n === 0) return true
-  let intruders = 0
-  rows.forEach((node, row) => {
-    const position = row / Math.max(1, n - 1)
-    if (position < 0.48 && u(reach.any[node]!) > 1 - width) intruders++
-    if (position > 0.52 && u(nodes[node]!.year) < width) intruders++
-  })
-  return intruders <= Math.max(1, n * 0.02)
-}
-
-export interface Crossing {
-  /** The stitch's date. */
-  year: number
-  /** The row it crosses. */
-  y: number
-  /** The crossed row's node. */
-  node: number
-  over: boolean
-}
-
-/**
- * Where a link's vertical stitch passes over the rule of an entry it has nothing to do with.
- * Breaking one of the two lines at each crossing is a drafting convention: it shows that
- * crossing lines are not connected. Which line goes over carries no meaning.
- */
-export function findCrossings(
-  rows: Int32Array,
-  y: Float32Array,
-  nodes: readonly Dated[],
-  reach: Reach,
-  edges: readonly Pick<LinkLike, 'source' | 'target'>[],
-  budget = 40000,
-): Crossing[] {
-  const rowOf = new Int32Array(rows.length)
-  rows.forEach((node, row) => {
-    rowOf[node] = row
-  })
-  const out: Crossing[] = []
-  edges.forEach((e, column) => {
-    const a = Math.min(rowOf[e.source]!, rowOf[e.target]!)
-    const b = Math.max(rowOf[e.source]!, rowOf[e.target]!)
-    const year = nodes[e.target]!.year
-    for (let r = a + 1; r < b && out.length < budget; r++) {
-      const node = rows[r]!
-      if (nodes[node]!.year < year && reach.any[node]! > year) {
-        out.push({ year, y: y[node]!, node, over: (r + column) % 2 === 0 })
-      }
-    }
-  })
-  return out
-}
-
 // ---------------------------------------------------------------- stories
 
 export interface StoryInput {

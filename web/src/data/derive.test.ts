@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { computeReach, connectedComponents, cornersFree, findCrossings, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
-import { documentedSpan, hasLaterLife, indexLifecycle, isFinal, readEventDate, tallyLifecycle, type LifeEvent, type LifeRecord } from './lifecycle.ts'
+import { computeReach, connectedComponents, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
+import { buildLifeRecords, documentedSpan, hasLaterLife, isFinal, readEventDate, tallyLifecycle, type LifeEvent, type LifeRecord } from './lifecycle.ts'
 
 const dated = (...years: number[]) => years.map((year) => ({ year }))
 const edge = (source: number, target: number, tentative = false) => ({ source, target, tentative })
@@ -72,37 +72,6 @@ describe('rows', () => {
       expect(v).toBeGreaterThanOrEqual(0)
       expect(v).toBeLessThanOrEqual(1)
     }
-  })
-
-  it('only counts a crossing where the crossed rule actually exists at that date', () => {
-    // Rows 0, 1, 2 from the top. The stitch from 0 to 2 falls in 1900 and passes row 1.
-    const rows = Int32Array.from([0, 1, 2])
-    const y = rowPositions(rows)
-    const long = computeReach(dated(1800, 1850, 1900, 1950), [edge(0, 2), edge(1, 3)])
-    const hit = findCrossings(rows, y, dated(1800, 1850, 1900, 1950), long, [edge(0, 2)])
-    expect(hit).toHaveLength(1)
-    expect(hit[0]!.node).toBe(1)
-    const short = computeReach(dated(1800, 1850, 1900), [edge(0, 2)])
-    expect(findCrossings(rows, y, dated(1800, 1850, 1900), short, [edge(0, 2)])).toHaveLength(0)
-  })
-})
-
-describe('cornersFree', () => {
-  const u = (year: number) => (year - 1000) / 1000
-
-  it('sees the empty corners a staircase leaves', () => {
-    const nodes = dated(...Array.from({ length: 100 }, (_, i) => 1000 + i * 10))
-    const reach = computeReach(nodes, [])
-    const rows = rowOrder(nodes, adjacency(100, []).children, adjacency(100, []).parents, reach, 'origin')
-    expect(cornersFree(rows, nodes, reach, u)).toBe(true)
-  })
-
-  it('sees long rules crossing the top right', () => {
-    const nodes = dated(...Array.from({ length: 100 }, (_, i) => 1000 + i * 10))
-    const edges = Array.from({ length: 40 }, (_, i) => edge(i, 99))
-    const reach = computeReach(nodes, edges)
-    const { children, parents } = adjacency(100, edges)
-    expect(cornersFree(rowOrder(nodes, children, parents, reach, 'origin'), nodes, reach, u)).toBe(false)
   })
 })
 
@@ -230,8 +199,14 @@ describe('lifecycle', () => {
     expect(isFinal({ ...ra, status: { abandonment: 'documented', end_of_use: 'unknown' } })).toBe(false)
   })
 
-  it('drops records for entries that are not on the chart', () => {
-    const index = indexLifecycle({ meta: { entries: 2 }, records: { here: zeiss, gone: glass } }, new Map([['here', 7]]))
-    expect([...index.keys()]).toEqual([7])
+  it('builds a record only for what the research actually says', () => {
+    const entry = (id: string, lifecycle: Record<string, { status: string; event_ids: string[] }>) => ({ id, lifecycle }) as never
+    const records = buildLifeRecords(
+      [entry('silent', { decline: { status: 'not_yet_researched', event_ids: [] } }), entry('used', {}), entry('unknown', { end_of_use: { status: 'unknown', event_ids: [] } })],
+      { a: { id: 'a', node_id: 'used', event_type: 'practical_use', date_label: 'by 1200', date_status: 'bounded', date: { status: 'bounded', latest: { year: 1200 } } } },
+    )
+    expect(records.has('silent')).toBe(false)
+    expect(records.get('used')!.events[0]).toMatchObject({ role: 'use', bound: 'by', start: 1200 })
+    expect(records.get('unknown')!.status.end_of_use).toBe('unknown')
   })
 })

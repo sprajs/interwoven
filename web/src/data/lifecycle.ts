@@ -1,7 +1,9 @@
+import type { RawEvent, TimelineEntry } from './types.ts'
+
 /**
- * The documented lives of entries, read from a sidecar file written by
- * `npm run import:lifecycle`. An entry that is not in the file has no later-life evidence,
- * which must always read as "not researched" and never as "it ended" or "it continued".
+ * The documented lives of entries, read from the research's lifecycle stages and dated events.
+ * An entry with no record has no later-life evidence, which must always read as "not researched"
+ * and never as "it ended" or "it continued".
  */
 
 /** How the research describes each stage: documented, unknown, ongoing, and so on. */
@@ -32,11 +34,6 @@ export interface LifeRecord {
   events: LifeEvent[]
 }
 
-export interface LifecycleFile {
-  meta: { provenance?: string; entries: number }
-  records: Record<string, LifeRecord>
-}
-
 /**
  * Reads a research event's date. A bounded date such as "by 15 March 2023" has only one end,
  * and it stays marked as such, so it cannot be mistaken for the day the event happened.
@@ -52,6 +49,9 @@ export function readEventDate(date: { earliest?: { year: number }; latest?: { ye
 
 export const ROLE_OF_EVENT: Record<string, EventRole> = {
   commercial_offer: 'use',
+  commercial_availability: 'use',
+  public_availability: 'use',
+  practical_use: 'use',
   first_commercial_availability: 'use',
   practical_deployment: 'use',
   adoption: 'use',
@@ -65,11 +65,11 @@ export const ROLE_OF_EVENT: Record<string, EventRole> = {
   revival: 'revival',
 }
 
-/** The event types that say something about a thing's life after it first appeared. */
-export const isLaterLife = (type: string): boolean => type in ROLE_OF_EVENT
-
 export const EVENT_NAMES: Record<string, string> = {
   commercial_offer: 'Offered for sale',
+  commercial_availability: 'On sale',
+  public_availability: 'Publicly available',
+  practical_use: 'In use',
   first_commercial_availability: 'First on sale',
   practical_deployment: 'Put to use',
   adoption: 'Adopted',
@@ -143,13 +143,38 @@ export function documentedSpan(record: LifeRecord | undefined): DocumentedSpan |
 export const isFinal = (record: LifeRecord | undefined): boolean =>
   Boolean(record?.status.end_of_use !== 'unknown' && record?.events.some((e) => e.type === 'abandonment' || e.type === 'end_of_use'))
 
-/** Joins the sidecar to the loaded entries. Records for entries not on the chart are dropped. */
-export function indexLifecycle(file: LifecycleFile | null, indexById: Map<string, number>): Map<number, LifeRecord> {
-  const out = new Map<number, LifeRecord>()
-  if (!file) return out
-  for (const [id, record] of Object.entries(file.records)) {
-    const i = indexById.get(id)
-    if (i !== undefined) out.set(i, record)
+/** A record for each entry the research says something about, by id. */
+export function buildLifeRecords(entries: readonly TimelineEntry[], events: Record<string, RawEvent>): Map<string, LifeRecord> {
+  const byNode = new Map<string, RawEvent[]>()
+  for (const event of Object.values(events)) {
+    const list = byNode.get(event.node_id) ?? []
+    list.push(event)
+    byNode.set(event.node_id, list)
   }
-  return out
+  const records = new Map<string, LifeRecord>()
+  for (const entry of entries) {
+    const dated: LifeEvent[] = []
+    for (const event of byNode.get(entry.id) ?? []) {
+      const when = readEventDate(event.date)
+      if (!when) continue
+      dated.push({
+        id: event.id,
+        type: event.event_type,
+        role: ROLE_OF_EVENT[event.event_type] ?? 'origin',
+        ...when,
+        label: event.date_label,
+        statement: event.statement ?? '',
+        review: event.review ?? 'candidate',
+        ...(event.uncertainty ? { uncertainty: event.uncertainty } : {}),
+      })
+    }
+    dated.sort((a, b) => a.start - b.start)
+    const status: LifeRecord['status'] = {}
+    for (const stage of LATER_STAGES) {
+      const value = entry.lifecycle?.[stage]?.status as LifeStatus | undefined
+      if (value && value !== 'not_yet_researched') status[stage] = value
+    }
+    if (Object.keys(status).length > 0 || dated.some((e) => e.role !== 'origin')) records.set(entry.id, { status, events: dated })
+  }
+  return records
 }

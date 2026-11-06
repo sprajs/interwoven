@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { buildModel, countDescendants, layoutThreads, modelReach, walk } from './model.ts'
+import { buildModel, countDescendants, walk } from './model.ts'
 import type { RawDataset, RawNode } from './types.ts'
 import { validateDataset } from './validate.ts'
-import { TimeScale } from '../engine/time.ts'
 
 function node(id: string, year: number, labels: string[] = ['a'], level: RawNode['level'] = 1): RawNode {
   return {
@@ -55,49 +54,6 @@ describe('buildModel', () => {
 
   it('keeps disconnected entries', () => {
     expect(buildModel(dataset([node('alone', 1500)])).n).toBe(1)
-  })
-})
-
-describe('modelReach', () => {
-  it('follows a link through an undated entry on to a dated one, and is not extended by it', () => {
-    const data = dataset([node('first', 1800), node('last', 1900)], [])
-    const undated = { id: 'between', title: 'between', kind: 'technology', level: 1, date_label: 'Unplaced', labels: ['a'], summary: '', regions: [], review: 'accepted', sources: [], anchor_status: 'not_yet_researched', placement_reason: 'Anchor not yet researched.' } as const
-    const tie = (from: string, to: string) => ({ from, to, relation: 'builds on', tentative: false })
-    const model = buildModel({ ...data, unplaced: [{ ...undated, labels: ['a'], regions: [], sources: [] }], links: [tie('first', 'between'), tie('between', 'last')] })
-    expect(model.edges).toHaveLength(0)
-    expect(modelReach(model).any[model.indexById.get('first')!]).toBe(1900)
-    expect(modelReach(model).any[model.indexById.get('last')!]).toBe(1900)
-  })
-})
-
-describe('layoutThreads', () => {
-  const nodes = Array.from({ length: 40 }, (_, i) => node(`n${i}`, 1500 + i * 12, [i % 2 ? 'a' : 'b']))
-  const edges = nodes.slice(1).map((_, i) => ({ source: i, target: i + 1 }))
-  const time = TimeScale.fromYears(nodes.map((n) => n.year))
-
-  it('is deterministic and stays on the sheet', () => {
-    const first = layoutThreads(nodes, edges, time)
-    expect([...layoutThreads(nodes, edges, time)]).toEqual([...first])
-    for (const y of first) {
-      expect(y).toBeGreaterThanOrEqual(0)
-      expect(y).toBeLessThanOrEqual(1)
-    }
-  })
-
-  it('stays fast at scale', () => {
-    const many = Array.from({ length: 50000 }, (_, i) => node(`m${i}`, 1500 + (i % 500), ['a'], 3))
-    const links = many.slice(1).map((_, i) => ({ source: i, target: i + 1 }))
-    const scale = TimeScale.fromYears(many.map((n) => n.year))
-    const start = performance.now()
-    layoutThreads(many, links, scale)
-    expect(performance.now() - start).toBeLessThan(8000)
-  })
-
-  it('brings linked entries closer than unlinked ones', () => {
-    const linked = layoutThreads(nodes, edges, time)
-    const unlinked = layoutThreads(nodes, [], time)
-    const gap = (y: Float32Array) => edges.reduce((sum, e) => sum + Math.abs(y[e.source]! - y[e.target]!), 0)
-    expect(gap(linked)).toBeLessThan(gap(unlinked))
   })
 })
 

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { rowOrder, storyIndex } from '../data/derive.ts'
-import { modelReach, type Model } from '../data/model.ts'
+import type { Model } from '../data/model.ts'
 import type { Mode } from '../engine/Engine.ts'
 
 const W = 42
@@ -24,11 +24,6 @@ function drawGlyph(model: Model, mode: Mode): string {
       .map((e) => `M${fmt(x(e.source))} ${fmt(model.y[e.source]! * H)}L${fmt(x(e.target))} ${fmt(model.y[e.target]! * H)}`)
       .join('')
   }
-  if (mode === 'landmarks') {
-    return sampled(model.landmarks)
-      .map((i) => `M${fmt(x(i))} ${fmt(model.y[i]! * H)}h.01`)
-      .join('')
-  }
   if (mode === 'density') {
     const bins = new Float32Array(Math.floor(W / 2))
     for (const node of sampled(model.nodes)) bins[Math.min(bins.length - 1, Math.floor(model.time.compressed(node.year) * bins.length))]! += 1
@@ -41,7 +36,7 @@ function drawGlyph(model: Model, mode: Mode): string {
       .join('')
   }
   if (mode === 'reach') {
-    const reach = modelReach(model)
+    const reach = model.reach
     const rows = rowOrder(model.nodes, model.children, model.parents, reach, 'thread')
     const n = rows.length
     return sampled([...rows.keys()])
@@ -68,10 +63,9 @@ function drawGlyph(model: Model, mode: Mode): string {
 
 export function ViewGlyph({ model, mode }: { model: Model | null; mode: Mode }) {
   const path = useMemo(() => (model ? drawGlyph(model, mode) : ''), [model, mode])
-  const dotted = mode === 'landmarks'
   return (
     <svg width={W} height={H} viewBox={`0 ${-0.5} ${W} ${H + 1}`} aria-hidden className="block overflow-visible">
-      <path d={path} fill="none" stroke="currentColor" strokeWidth={dotted ? 2.4 : mode === 'density' ? 1 : mode === 'threads' ? 0.6 : 0.75} strokeLinecap="round" strokeLinejoin="round" />
+      <path d={path} fill="none" stroke="currentColor" strokeWidth={mode === 'density' ? 1 : mode === 'threads' ? 0.6 : 0.75} strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }

@@ -1,11 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { RowOrder } from '../data/derive.ts'
 import { hasLaterLife, tallyLifecycle } from '../data/lifecycle.ts'
-import { LAYOUT, UNIT } from '../design.ts'
-import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusEntry, useApp } from '../store.ts'
-import { CARTOUCHE_WIDTH, COMPACT_WIDTH, reachCornersFree, SHEET_WIDTH } from './layout.ts'
+import { COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
 
 const ORDERS: { id: RowOrder; label: string; hint: string }[] = [
   { id: 'thread', label: 'by thread', hint: 'Connected work together, each entry near what it builds on' },
@@ -63,48 +61,17 @@ export function ReachSheet() {
   const setRowOrder = useApp((s) => s.setRowOrder)
   const width = useWidth()
   const [open, setOpen] = useState(width >= COMPACT_WIDTH)
-  const lifeById = useApp((s) => s.lifeById)
   const total = model ? model.n + model.unplaced.length : 0
-  const tally = useMemo(() => tallyLifecycle(Object.values(lifeById), total), [lifeById, total])
+  const tally = useMemo(() => tallyLifecycle(model?.life.values() ?? [], total), [model, total])
   // Every documented life in the research, placed or not, in order of its first dated event.
   const documented = useMemo(() => {
     if (!model) return []
-    return Object.entries(lifeById)
-      .filter(([, record]) => hasLaterLife(record))
-      .sort((a, b) => a[1].events[0]!.start - b[1].events[0]!.start)
-  }, [lifeById, model])
-  const cornerRef = useRef<HTMLDivElement>(null)
-  const asideRef = useRef<HTMLElement>(null)
-  // Zooming fills the corners with chart, so what sits in them steps aside until you return.
-  useEffect(() => {
-    return onEngineFrame((engine) => {
-      const state = useApp.getState()
-      if (window.innerWidth < CARTOUCHE_WIDTH || !reachCornersFree(state.model, state.rowOrder)) {
-        // A sheet of its own never needs to step aside, and may have just stopped being a corner.
-        for (const el of [cornerRef.current, asideRef.current]) {
-          if (!el) continue
-          el.style.opacity = ''
-          el.style.pointerEvents = ''
-        }
-        return
-      }
-      const zoomed = engine.camera.logZoom > 0.12 || engine.camera.logY > 0.12 || engine.pleats.length > 0
-      for (const el of [cornerRef.current, asideRef.current]) {
-        if (!el) continue
-        el.style.opacity = zoomed ? '0' : '1'
-        el.style.pointerEvents = zoomed ? 'none' : ''
-      }
-    })
-  }, [])
+    return [...model.life].filter(([, record]) => hasLaterLife(record)).sort((a, b) => a[1].events[0]!.start - b[1].events[0]!.start)
+  }, [model])
   if (!model) return null
 
   const compact = width < COMPACT_WIDTH
-  const corner = width >= CARTOUCHE_WIDTH && reachCornersFree(model, rowOrder)
-  const placement = compact
-    ? 'absolute inset-x-0 bottom-0 z-20 max-h-[56vh] border-t border-rule px-6 pt-3'
-    : corner
-      ? 'absolute right-18 top-36 z-10 max-h-[calc(100vh-216px)]'
-      : 'absolute bottom-0 right-0 top-18 z-20 border-l border-t border-rule px-8 pt-4'
+  const placement = compact ? 'absolute inset-x-0 bottom-0 z-20 max-h-[56vh] border-t border-rule px-6 pt-3' : 'absolute bottom-0 right-0 top-18 z-20 border-l border-t border-rule px-8 pt-4'
 
   const keys = (
     <>
@@ -126,18 +93,7 @@ export function ReachSheet() {
   )
 
   return (
-    <>
-      {corner && (
-        <div ref={cornerRef} className="absolute bottom-30 left-18 z-10 w-84 select-text bg-paper transition-opacity duration-200">
-          {keys}
-        </div>
-      )}
-      <aside
-        ref={asideRef}
-        style={{ width: compact ? undefined : corner ? LAYOUT.column + 7 * UNIT : SHEET_WIDTH }}
-        className={`thin-scroll select-text overflow-y-auto pb-3 transition-opacity duration-200 ${corner ? 'bg-paper' : 'sheet'} ${placement}`}
-        aria-label="About the reach view"
-      >
+      <aside style={{ width: compact ? undefined : SHEET_WIDTH }} className={`sheet thin-scroll select-text overflow-y-auto pb-3 ${placement}`} aria-label="About the reach view">
         <div className="flex items-baseline justify-between gap-3">
           <h2 className="text-head">Reach</h2>
           <div className="flex items-baseline gap-3 text-note" role="group" aria-label="Order of rows">
@@ -167,7 +123,7 @@ export function ReachSheet() {
 
         {open && (
           <>
-            {!corner && <div className="mt-4">{keys}</div>}
+            <div className="mt-4">{keys}</div>
 
             <table className="figures mt-4 w-full border-t border-rule text-note text-ink-2">
               <caption className="sr-only">Documented later-life events</caption>
@@ -189,7 +145,7 @@ export function ReachSheet() {
 
             {documented.length > 0 && (
               <>
-                <h3 className="section-head mt-4">The documented lives, placed or not</h3>
+                <h3 className="section-head mt-4">The documented lives</h3>
                 <ul>
                   {documented.map(([id, record]) => {
                     const entry = model.entryById.get(id)
@@ -212,6 +168,5 @@ export function ReachSheet() {
           </>
         )}
       </aside>
-    </>
   )
 }

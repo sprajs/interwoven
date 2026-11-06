@@ -1,42 +1,10 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useMemo } from 'react'
 import { formatYear } from '../engine/time.ts'
-import { focusNode, getEngine, passes, useApp } from '../store.ts'
-import { Mark } from './icons.tsx'
+import { getEngine, passes, useApp } from '../store.ts'
 import { SHEET_WIDTH } from './layout.ts'
 import { ReachSheet } from './ReachSheet.tsx'
 import { StorySheet } from './StorySheet.tsx'
-
-function LandmarkRail() {
-  const model = useApp((s) => s.model)
-  const hiddenKinds = useApp((s) => s.hiddenKinds)
-  const activeLabels = useApp((s) => s.activeLabels)
-  if (!model) return null
-  const items = model.landmarks.filter((i) => passes(model.nodes[i]!, { hiddenKinds, activeLabels }))
-  return (
-    <>
-      <h2 className="text-head">Landmarks</h2>
-      <p className="note mt-1">The entries the research marks as most prominent. Choose one to trace what led to it and what followed.</p>
-      <ol className="mt-4 border-t border-rule">
-        {items.map((i) => {
-          const node = model.nodes[i]!
-          return (
-            <li key={i} className="border-b border-rule-soft">
-              <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 py-1 text-left text-body">
-                <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
-                  <Mark kind={node.kind} strength={node.evidence_strength} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
-                </span>
-                <span className={`link-hover min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
-                <span className="note shrink-0">{node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year)}</span>
-              </button>
-            </li>
-          )
-        })}
-      </ol>
-      {items.length === 0 && <p className="note mt-2">None match the chosen labels.</p>}
-    </>
-  )
-}
 
 const DECADE_LIST = 10
 /** Below this, a list of the busiest decades would be ranking ones and twos. */
@@ -97,7 +65,7 @@ export function Rails() {
   const mode = useApp((s) => s.mode)
   const selected = useApp((s) => s.selected)
   const unplacedSelected = useApp((s) => s.unplacedSelected)
-  const show = selected === null && unplacedSelected === null && (mode === 'density' || mode === 'landmarks')
+  const show = selected === null && unplacedSelected === null && mode === 'density'
   return (
     <AnimatePresence>
       {mode === 'story' && <StorySheet key="story" />}
@@ -112,7 +80,7 @@ export function Rails() {
           style={{ width: SHEET_WIDTH }}
           className="sheet thin-scroll absolute bottom-0 right-0 top-18 z-20 hidden overflow-y-auto border-l border-t border-rule px-8 pb-8 pt-4 compact:block"
         >
-          {mode === 'landmarks' ? <LandmarkRail /> : <DensityRail />}
+          <DensityRail />
         </motion.aside>
       )}
     </AnimatePresence>
