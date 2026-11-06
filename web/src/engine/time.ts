@@ -146,6 +146,10 @@ export function pickTicks(
     const start = place(a)
     for (const step of TICK_STEPS) {
       if (step >= b - a || (b - a) % step !== 0) continue
+      // A step too fine everywhere stays too fine at any finer step, so division ends here.
+      let widest = 0
+      for (let y = a; y < b; y += step) widest = Math.max(widest, place(y + step) - place(y))
+      if (widest < minGap) return
       const kept: number[] = []
       let right = place(b)
       for (let y = b - step; y > a; y -= step) {
@@ -158,11 +162,8 @@ export function pickTicks(
           break
         }
       }
-      if (kept.length === 0) {
-        // Only a wide stretch is worth a finer step. It may hold a period opened by a fold.
-        if (place(b) - start < 3 * minGap) return
-        continue
-      }
+      // Nothing fits at this step only where a fold squeezes the stretch, so look closer.
+      if (kept.length === 0) continue
       let upper = b
       for (const y of kept) {
         years.push(y)

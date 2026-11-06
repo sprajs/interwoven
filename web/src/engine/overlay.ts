@@ -1,6 +1,6 @@
 import { documentedSpan, EVENT_NAMES, isFinal, type LifeEvent } from '../data/lifecycle.ts'
 import type { RawNode } from '../data/types.ts'
-import { BOX, FONT_FAMILY, hexRgb, INK as INK_HEX, LAYOUT, LINE, NAME_AREA, NAME_STYLE, PAPER as PAPER_HEX, RULE_ALPHA, RULER_LIGHT, SHEET as SHEET_HEX, TYPE, UNIT, type TypeStep } from '../design.ts'
+import { BOX, BREAK, FONT_FAMILY, hexRgb, INK as INK_HEX, LAYOUT, LINE, NAME_AREA, NAME_STYLE, PAPER as PAPER_HEX, RULE_ALPHA, RULER_LIGHT, SHEET as SHEET_HEX, TYPE, UNIT, type TypeStep } from '../design.ts'
 import type { Engine } from './Engine.ts'
 import { formatYear } from './time.ts'
 
@@ -288,7 +288,8 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       ]
       const previous = lastPlace.get(i)
       if (previous) flags.sort((a, b) => Number(b.dx === previous.dx && b.dy === previous.dy) - Number(a.dx === previous.dx && a.dy === previous.dy))
-      const limit = must ? Infinity : (MAY_COVER[node.level] ?? 1)
+      // A small screen has marks everywhere, and needs its key names more than clear marks.
+      const limit = must || W < BREAK.compact ? Infinity : (MAY_COVER[node.level] ?? 1)
       let best: { dx: number; dy: number } | null = null
       let least = Infinity
       for (const flag of flags) {
@@ -518,14 +519,17 @@ function drawNotes(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, wa
 function drawCount(engine: Engine, ctx: CanvasRenderingContext2D, named: number, W: number, bottom: number): void {
   const model = engine.model!
   const cam = engine.camera
-  let inView = 0
-  for (let i = 0; i < model.n; i++) {
-    if (engine.state[i * 4]! < 0.5) continue
-    const x = cam.toX(engine.nodeV(i))
-    const y = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
-    if (x >= 0 && x <= W && y >= cam.insets.top && y <= bottom) inView++
+  let inView = model.n
+  if (model.n <= MARK_AVOID_LIMIT) {
+    inView = 0
+    for (let i = 0; i < model.n; i++) {
+      if (engine.state[i * 4]! < 0.5) continue
+      const x = cam.toX(engine.nodeV(i))
+      const y = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
+      if (x >= 0 && x <= W && y >= cam.insets.top && y <= bottom) inView++
+    }
   }
-  const text = named >= inView ? `All ${inView} entries in view are named` : `${named} of ${inView} entries in view are named. Zoom in to name more.`
+  const text = named >= inView ? `All ${inView} in view are named` : `${named} of ${inView} in view are named. Zoom in for more.`
   ctx.font = font('note')
   const width = measure(ctx, text, ctx.font)
   const x = cam.insets.left

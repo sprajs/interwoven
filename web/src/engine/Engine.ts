@@ -40,6 +40,7 @@ export interface EngineCallbacks {
 
 export const PAPER = hexUnit(PAPER_HEX)
 const RULE_COLOR = hexUnit(INK.primary)
+const MARK_MIN = 2.5
 const HATCH_COLOR = hexUnit(INK.muted)
 const PLEAT_TONE_ALPHA = 0.04
 const PLEAT_FOLD_ALPHA = 0.13
@@ -1263,8 +1264,9 @@ export class Engine {
     gl.uniform1i(P.node.u.uHover!, this.hovered ?? -1)
     gl.uniform1i(P.node.u.uSelected!, this.view.selected ?? -1)
     gl.uniform3f(P.node.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
-    // Rows are tight at a distance, so marks keep within their row.
-    gl.uniform1f(P.node.u.uMarkCap!, 100 + (Math.max(1.5, rowPx * 0.55) - 100) * weave)
+    // Rows are tight at a distance, so marks keep within their row and can still be told apart.
+    const strandPx = model.rowStep * this.camera.yScale
+    gl.uniform1f(P.node.u.uMarkCap!, Math.max(MARK_MIN, strandPx * 0.62) + (Math.max(1.5, rowPx * 0.55) - Math.max(MARK_MIN, strandPx * 0.62)) * weave)
     gl.bindVertexArray(this.quadVao)
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
     gl.bindVertexArray(null)

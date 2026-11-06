@@ -3,9 +3,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { parseYearQuery, type YearQuery } from '../data/derive.ts'
 import type { Model } from '../data/model.ts'
 import { isPlacedNode, type TimelineEntry } from '../data/types.ts'
+import { shortDate } from '../engine/overlay.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusEntry, getEngine, useApp } from '../store.ts'
-import { EvidenceBadge, Mark } from './icons.tsx'
+import { Mark } from './icons.tsx'
 
 const MAX_RESULTS = 50
 /** Past this many matches, lighting them on the chart says nothing. */
@@ -149,7 +150,7 @@ export function SearchPalette() {
                   </button>
                 </li>
               )}
-              {!query.trim() && <li className="note px-4 pb-1 pt-1">Landmarks</li>}
+              {!query.trim() && <li className="note px-4 pb-1 pt-1">Key discoveries</li>}
               {results.map((node, k) => {
                 const position = k + offset
                 return (
@@ -158,8 +159,8 @@ export function SearchPalette() {
                       <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
                         <Mark kind={node.kind} strength={node.evidence_strength} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                       </span>
-                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title} <EvidenceBadge strength={node.evidence_strength} /></span>
-                      <span className="note shrink-0">{isPlacedNode(node) ? node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year) : 'awaiting a date'}</span>
+                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
+                      <span className="note shrink-0">{isPlacedNode(node) ? shortDate(node) : 'awaiting a date'}</span>
                     </button>
                   </li>
                 )

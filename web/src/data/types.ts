@@ -112,7 +112,7 @@ export interface RawLink {
   relation: string
   statement?: string
   temporal_note?: string
-  /** Softer or still unreviewed links are drawn broken, as a pen lifting off the page. */
+  /** Softer or still unreviewed links are drawn broken. */
   tentative: boolean
 }
 

@@ -3,6 +3,7 @@ import type { Model } from '../data/model.ts'
 import { isPlacedNode, type RawLink, type TimelineEntry } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
 import { documentedSpan, EVENT_NAMES, hasLaterLife, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
+import { shortDate } from '../engine/overlay.ts'
 import { focusEntry, followEntry, useApp } from '../store.ts'
 import { dateLimitNote, entryReasonLabel, evidenceLabel } from './entryText.ts'
 import { CloseButton, EvidenceBadge, Mark } from './icons.tsx'
@@ -34,7 +35,7 @@ function LinkList({ title, links, side, model }: { title: string; links: RawLink
                   <Mark kind={node.kind} strength={node.evidence_strength} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                 </span>
                 <span className={`link-hover min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
-                <span className="note shrink-0">{isPlacedNode(node) ? node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year) : 'not yet placed'}</span>
+                <span className="note shrink-0">{isPlacedNode(node) ? shortDate(node) : 'not yet placed'}</span>
               </button>
               {link.statement && (
                 <p className="mt-1 pl-4 text-note text-ink-2">

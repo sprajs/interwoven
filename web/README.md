@@ -13,17 +13,16 @@ Then open http://localhost:5174. The other commands below run from this `web` fo
 
 ## Reading the chart
 
-- Time runs left to right. **Compressed** gives more room to recent centuries and to periods with more entries; **Linear** gives every year the same width. The bar in the bottom right shows how many years its length covers at the middle of the view, because on a compressed axis that changes as you move.
-- Vertical position has no scale. It comes from the links and shared labels, so related work drifts together without forming categories.
-- A solid dot is a technology and an open ring is science. Science titles are set in italic.
-- A thin bar with end marks is a date range. A broken line is a link still awaiting review.
-- A hollow diamond and `[proxy]` label mark an awareness opportunity, such as a justified publication proxy. A broken ring and `[inferred]` label mark contextual use/availability inference. Their community, evidence, justification and uncertainty appear in details.
-- A left-pointing arrow is a known-by upper date limit; a right-pointing arrow is a “not before” lower limit. A lower limit establishes neither continuing use nor a later endpoint. The unknown opposite end stays omitted.
-- Zooming brings in deeper levels, from landmarks to fine detail.
-- A short fine thread leaving a mark is a link to an entry with no date yet. It has nowhere to go until that date is researched, so all these threads are one length. Right is what the entry led to, and left is what it built on.
-- Only entries with a selected, researched date appear on the chart. **Awaiting a date**, under the chart when anything is waiting, holds the rest as a small row of marks, and opens as an index of everything still to be placed. Pointing at an entry there lights what it is already linked to on the chart.
+- Time runs left to right, on the ruler and in the bands below it. **Compressed** gives more room to recent centuries and to periods with more entries. **Linear** gives every year the same width. The bar at the bottom right shows how many years its length covers at the middle of the view.
+- Rows are grouped by subject family, and a thread stays on one strand where it can. Lines are only ever links the research states.
+- Key discoveries are named first. Zooming in names more of what lies beneath them, and every other entry still shows as a mark.
+- A named entry is a flag on a pole at its date. A solid square is technology and an open circle is science, whose names are in italic.
+- A square drawn only at its corners, or a box with a broken border, is a use or availability inferred from context. A hollow diamond, or a dotted border, is an awareness proxy such as a publication. Their community, evidence and uncertainty are in the entry's details.
+- A date reading "by 1200" is an upper limit, and "from 1200" a lower one. The other end is unknown, and a lower limit establishes neither continuing use nor an endpoint. A short tail on the mark says the same once rows have room for it.
+- A broken line is a link still awaiting review.
+- If an entry has no defensible date yet, **Awaiting a date** appears under the chart and opens as an index of what is waiting.
 
-The type, spacing and rules are explained in [DESIGN.md](DESIGN.md).
+The type, spacing and chart rules are explained in [DESIGN.md](DESIGN.md).
 
 ## Folding the sheet
 
@@ -35,15 +34,14 @@ Drag again to open a second period beside the first, up to three, and they share
 
 | Key | View | What it shows |
 | --- | --- | --- |
-| `1` | **Threads** | Everything, placed by links and labels |
+| `1` | **Threads** | Everything, on strands grouped by subject |
 | `2` | **Stories** | One thread lifted out and laid out to read, with its text beside it |
 | `3` | **Reach** | One row per entry: how long it went on being built on, and what is documented about its end |
 | `4` | **Density** | Entries per year as a hatched silhouette |
-| `5` | **Landmarks** | The most prominent entries alone |
 
 **Stories.** Choose a thread from the list, or click any entry twice (or press `f`) to follow what led to it and what it made possible. Each entry gets its own row in date order, and links turn into corners that drop from a parent and run to its child, so no line crosses a title. A story keeps to one scale of real years. Gaps too long to fit are folded and say how long they are. Arrow keys move through it.
 
-**Reach.** Links become vertical stitches hanging from horizontal rules, which is where the name of the chart comes from. Two things are drawn separately and must not be confused:
+**Reach.** Links become vertical lines hanging from horizontal rules. Two things are drawn separately and must not be confused:
 
 - **Influence reach**, worked out from the links: a rule from an entry to its latest descendant. It is firmer as far as something was built on directly, fine through later entries, and broken where it rests only on links awaiting review. It measures how long something went on being built on in the research so far, not how long it existed.
 - **Documented life**, from dated events: a heavy stroke over the stretch the evidence covers, a short upright for evidence of use or sale, a closing bracket for withdrawal from sale, a cross for abandonment. A date such as "by 2023" keeps a dotted tail, because it is only a latest date.
@@ -61,9 +59,9 @@ Where the evidence stops, three dots and a question mark say so. They are the sa
 
 Dragging either end of the bracket in the strip at the bottom stretches it, which also zooms time alone.
 
-Going deeper reveals more of the science. First come more entries, then dates, then a sentence, then the whole note and what each link claims, written on the chart. This depends on how many entries share the page rather than on a zoom number, so a filtered chart gets there sooner. The four dots at the bottom jump to each depth of detail.
+Going deeper reveals more of the science: first more names, then a sentence, then an entry's whole summary.
 
-**Keys:** `1`-`5` views, `l` labels, `w` entries awaiting a date, `/` or `⌘K` find, `f` follow the selected entry, `u` unfold, `r` redraw slowly, `0` fit and unfold, `+` `-` zoom, `[` `]` zoom time, `{` `}` zoom height, arrows pan or step through a story, `Esc` closes.
+**Keys:** `1`-`4` views, `l` labels, `w` entries awaiting a date, `/` or `⌘K` find, `f` follow the selected entry, `u` unfold slowly, `0` fit and unfold, `+` `-` zoom, `[` `]` zoom time, `{` `}` zoom height, arrows pan or step through a story, `Esc` closes.
 
 Find works on the chart rather than over it. Matches light up where they are as you type. A year goes there, and a period opens it.
 
@@ -89,6 +87,7 @@ npm run validate
 - **Invalid selections:** the importer reports a selected choice that fails its community/evidence/date contract and leaves the last generated chart intact. It never silently downgrades that choice into a dated invention.
 - **Relationships:** all source and receiving event references are retained in details. Community-entry display order does not determine whether a historical relationship is valid. Disconnected entries remain available.
 - **Levels:** the research `tier` sets the zoom level, and a missing tier counts as level 2.
+- **Families:** each label belongs to one subject family in `FAMILIES` in `scripts/import-research.ts`, which sets its ink and where it sits on the chart.
 - **Labels:** the research data has no labels yet, so they come from the rules in `scripts/import-research.ts`. Each node can match several, and the first sets its ink. To set a node's labels yourself, add it to `data/label-overrides.json`:
 
   ```json
@@ -99,13 +98,7 @@ npm run validate
 
 ### Lifecycle evidence
 
-`public/data/lifecycle.json` is a separate generated file, read alongside the timeline:
-
-```bash
-npm run import:lifecycle
-```
-
-It only lists entries the research says something about beyond "not yet researched", so an entry missing from it reads as unresearched. Without the file the chart still works, and every later life reads as not researched. `?stress=N` does not use it. Pass a path if the research data is elsewhere: `npm run import:lifecycle -- ../path/to/science-technology-graph`.
+Every entry's lifecycle stages and dated events are in `timeline.json`. The app treats an entry with nothing beyond "not yet researched" as unresearched, never as ended or continuing.
 
 ## Testing with other data
 
@@ -120,16 +113,17 @@ npm run build
 
 | Path | Purpose |
 | --- | --- |
-| `src/data/model.ts` | Builds the graph and the force-based vertical layout |
-| `src/data/derive.ts` | Reach, rows, crossings, stories and reading a typed date |
-| `src/data/lifecycle.ts` | The lifecycle sidecar and what counts as evidence of a later life |
+| `src/data/model.ts` | Builds the graph the chart draws from the data file |
+| `src/data/layout.ts` | Places entries on strands, grouped by subject family |
+| `src/data/derive.ts` | Reach, rows, stories and reading a typed date |
+| `src/data/lifecycle.ts` | What counts as evidence of a later life |
 | `src/engine/folds.ts` | The piecewise map that folds the time axis, shared with the shaders |
 | `src/engine/camera.ts` | Separate time and height zoom, and flights |
 | `src/engine/wheel.ts` | Telling a trackpad from a mouse wheel |
 | `src/engine/time.ts` | The time axis, shared with the shaders through a lookup table |
-| `src/engine/shaders.ts` | Pen strokes, marks, date spans and paper, in GLSL |
+| `src/engine/shaders.ts` | Lines, marks and date spans, in GLSL |
 | `src/engine/Engine.ts` | WebGL 2 rendering, input and animation |
-| `src/engine/overlay.ts` | Canvas text placement and the axis |
+| `src/engine/overlay.ts` | Flags, progressive names and the ruler, on a canvas above the GL layer |
 | `src/ui/` | React interface |
 
 The stack is Vite, React, TypeScript, Tailwind and WebGL 2. Node data lives in GPU textures, so nodes and links read from one source and frames are only drawn when something changes. Views differ by a position per entry that eases in the texture, a fold map applied in the vertex shaders, and two uniforms that turn each link from a curve into a stitch or a corner, so moving between views is one continuous drawing.

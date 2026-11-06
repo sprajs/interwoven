@@ -6,7 +6,7 @@ import { BrokenMark, Mark, MARK_SIZE, RangeMark } from './icons.tsx'
 import { ViewGlyph } from './ViewGlyph.tsx'
 
 const MODES: { id: Mode; label: string; hint: string }[] = [
-  { id: 'threads', label: 'Threads', hint: 'Every placed entry and how each builds on the last (1)' },
+  { id: 'threads', label: 'Threads', hint: 'Every entry and how each builds on the last (1)' },
   { id: 'story', label: 'Stories', hint: 'One thread at a time, as something to read (2)' },
   { id: 'reach', label: 'Reach', hint: 'How long each entry went on being built on, and what is documented about its end (3)' },
   { id: 'density', label: 'Density', hint: 'Where activity gathers in time (4)' },

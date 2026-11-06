@@ -177,7 +177,7 @@ layout(location = 2) in float aTentative;
 uniform float uEdgeAlpha;
 uniform float uStrokeScale;
 // 0 draws a line along the parent's row that turns late into the child's.
-// uWeave straightens it to a stitch falling from the parent's rule.
+// uWeave straightens it to a line falling from the parent's rule.
 // uElbow turns it to a corner that drops from the parent and runs along to the child.
 uniform float uWeave;
 uniform float uElbow;
