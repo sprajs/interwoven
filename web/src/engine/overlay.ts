@@ -1,5 +1,6 @@
 import { formatYear } from './time.ts'
 import type { Engine } from './Engine.ts'
+import type { RawNode } from '../data/types.ts'
 
 const SERIF = '"EB Garamond Variable", Georgia, "Times New Roman", serif'
 const INK = { primary: '38,33,28', secondary: '78,70,60', muted: '106,97,86' }
@@ -7,6 +8,7 @@ const PAPER = '244,239,230'
 const CELL = 7
 const MAX_LABELS = 140
 const VISIT_BUDGET = 9000
+const labelText = (node: RawNode) => node.title + (node.evidence_strength === 'awareness_proxy' ? ' [proxy]' : node.evidence_strength === 'scoped_inference' ? ' [inferred]' : '')
 
 /** Serif roman for technology and italic for science, as maps set towns and rivers apart. */
 function labelFont(level: number, italic: boolean): string {
@@ -115,8 +117,8 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const py = (ys[i]! - cam.cy) * yScale + cy
     if (px < -40 || px > W + 40 || py < top || py > bottom) return
     const font = labelFont(node.level, node.kind === 'science')
-    const gap = radius[i]! + 5
-    const width = measure(ctx, node.title, font)
+    const gap = radius[i]! * (node.date_kind === 'known_by' || node.date_kind === 'known_from' ? 3.2 : 1) + 5
+    const width = measure(ctx, labelText(node), font)
     const height = (node.level === 0 ? 19 : 15)
     const rightX = px + gap
     const leftX = px - gap - width
@@ -188,19 +190,20 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const alpha = a * Math.min(1, v) * (1 - faded * 0.82)
     if (alpha < 0.02) continue
     const font = labelFont(node.level, node.kind === 'science')
-    const gap = radius[i]! + 5
-    const width = measure(ctx, node.title, font)
+    const gap = radius[i]! * (node.date_kind === 'known_by' || node.date_kind === 'known_from' ? 3.2 : 1) + 5
+    const text = labelText(node)
+    const width = measure(ctx, text, font)
     const x = sideOf.get(i) === -1 ? px - gap - width : px + gap
 
     ctx.font = font
     // A little clear paper around the words, as if the lines were drawn around them.
     ctx.lineWidth = 3.5
     ctx.strokeStyle = `rgba(${PAPER},${0.9 * alpha})`
-    ctx.strokeText(node.title, x, py)
+    ctx.strokeText(text, x, py)
     const emphasised = state[i * 4 + 2]! > 0.3
     const ink = node.level <= 1 || emphasised ? INK.primary : node.level === 2 ? INK.secondary : INK.muted
     ctx.fillStyle = `rgba(${ink},${alpha})`
-    ctx.fillText(node.title, x, py)
+    ctx.fillText(text, x, py)
   }
 }
 

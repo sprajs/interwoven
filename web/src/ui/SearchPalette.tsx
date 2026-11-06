@@ -4,7 +4,7 @@ import type { Model } from '../data/model.ts'
 import { isPlacedNode, type TimelineEntry } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusEntry, useApp } from '../store.ts'
-import { Mark } from './icons.tsx'
+import { EvidenceBadge, Mark } from './icons.tsx'
 
 const MAX_RESULTS = 50
 
@@ -103,10 +103,10 @@ export function SearchPalette() {
                       className={`flex w-full items-baseline gap-3 px-5 py-1.5 text-left text-[17px] leading-tight ${position === active ? 'bg-ink/[0.06]' : ''}`}
                     >
                       <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
-                        <Mark kind={node.kind} size={9} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
+                        <Mark kind={node.kind} strength={node.evidence_strength} size={9} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                       </span>
-                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
-                      <span className="shrink-0 text-[15px] text-ink-3">{isPlacedNode(node) ? formatYear(node.year) : 'Unplaced'}</span>
+                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title} <EvidenceBadge strength={node.evidence_strength} /></span>
+                      <span className="shrink-0 text-[15px] text-ink-3">{isPlacedNode(node) ? node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year) : 'Unplaced'}</span>
                     </button>
                   </li>
                 )

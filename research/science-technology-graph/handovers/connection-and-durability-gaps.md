@@ -5,21 +5,21 @@
 
 ## Why this exists
 
-Szymon expected this chart to be far more interconnected, and it is not yet. The graph has 143 entries and 103 relationships, split into 47 separate fragments, and 19 entries have no relationship at all. Almost nothing says how long a technology lasted. Run this for current numbers:
+Szymon expected this chart to be more interconnected and to show how long technologies lasted. The initial audit found 143 entries, 103 relationships, 47 fragments and 19 isolated entries. Those are the original audit figures, not a live count. Run this for current numbers:
 
 ```bash
 python3 tools/gap_audit.py --write
 ```
 
-Szymon has decided that only entries with a selected anchor appear on the chart. Today that is 28 entries and just 12 of the 103 relationships, because a link needs both ends on the chart. So **selecting anchors comes first**: it is what makes existing work visible.
+Only entries with a selected, usable community-entry anchor appear on the chart; a drawn link needs both ends placed. Selecting defensible anchors makes existing research visible. One-sided dates are supported.
 
 Your job is to investigate these gaps and record what the evidence supports. **The aim is a truer graph, not a denser one.** Every proposed link below is a question and none of them is a claim. A well-supported "no documented link" counts as a result.
 
-All existing rules in `README.md` and `SCHEMA-CONTRACT.md` still apply. In particular, keep failed and disconnected branches, and never add a link only to reduce the fragment count.
+The current rules are in `README.md` and the single version-1 `schema.json`. Keep failed and disconnected branches, and never add a link only to reduce the fragment count.
 
 ## 1. Select anchors
 
-Start with entries that already have relationships, tier 0 and tier 1 first, because each anchor can bring several links onto the chart. Follow the anchor rules in the contract exactly: a missing commercial date stays missing rather than being replaced by an invention or prototype date. An anchor needs both date limits to be placed.
+Start with entries that already have relationships, tier 0 and tier 1 first, because each anchor can bring several links onto the chart. Use the best supported availability, actual use, adoption, recognition or explicitly qualified awareness in a named community. Do not select an invention, private demonstration or modern catalogue access date merely because it is available. First commercial availability remains separate. Retain approximate and open bounds; do not invent a second limit.
 
 ## 2. Answer the candidate questions
 
@@ -79,15 +79,15 @@ The chart needs to show how long technologies lasted and how they gave way to ea
 
 Replacement is rarely total, so record where something survived, and remember that one supplier's withdrawal is not the end of a technology.
 
-## 5. Questions for you to check
+## 5. Rejected and unresolved links
 
-- **Withheld relationships.** Earlier `migration/withheld-relationships.json` and `legacy/v1/` existed in this folder and were never committed, and they are no longer here. If you moved or removed them deliberately, say where they are. The withheld links are strong candidates for this work, and if they have been lost, tell Szymon.
+The current `BACKLOG.md` preserves the substantive unanswered transfer questions. Unsupported Hertz-result-to-Marconi, exact Andrus–Bond-to-Fairchild, Jena-to-Powell-and-Lealand and Joule-1843-to-Thomson-1848 links must not be restored from chronology or shared terminology. Research new evidence for each specific contribution. Superseded authoring and migration products are not part of the current contract.
 
 ## 6. Finishing
 
 1. Run `python3 tools/validate.py --json` and `python3 -m unittest discover -s tests`.
 2. Run `python3 tools/gap_audit.py --write`. It flags open questions that are already linked, and questions pointing at entries that no longer exist.
-3. Commit explicit paths only. Other agents share this checkout, so check `git status` first and leave `web/` alone.
+3. Commit explicit paths only. Other agents share this checkout, so check `git status` first. The designated integrator owns canonical files and Git; web changes are coordinated separately. Do not push or publish during this session.
 4. Report the before and after numbers from the audit, and which questions remain open.
 
 The chart picks up your changes to `data/*.jsonl` automatically, so you do not need to touch `web/`.

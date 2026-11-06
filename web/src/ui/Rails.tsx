@@ -22,10 +22,10 @@ function LandmarkRail() {
             <li key={i} className="border-b border-rule/50">
               <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2.5 py-[6px] text-left text-[16px] leading-tight">
                 <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
-                  <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
+                  <Mark kind={node.kind} strength={node.evidence_strength} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
                 </span>
                 <span className={`min-w-0 flex-1 group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
-                <span className="shrink-0 text-[14px] text-ink-3">{formatYear(node.year)}</span>
+                <span className="shrink-0 text-[14px] text-ink-3">{node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year)}</span>
               </button>
             </li>
           )
@@ -59,7 +59,7 @@ function DensityRail() {
   return (
     <>
       <h2 className="text-[21px] font-medium leading-none">Density</h2>
-      <p className="caption mt-2 leading-snug">The hatching grows with the number of placed entries per year, on a root scale so quiet eras stay visible. Move across the chart to count them. Further research remains available in Unplaced.</p>
+      <p className="caption mt-2 leading-snug">The hatching counts selected community-entry choices, including labelled awareness estimates and contextual inferences. Move across the chart to count them; details give their community and evidence. Further research remains available in Unplaced.</p>
       <h3 className="mt-4 flex items-baseline justify-between border-b border-rule pb-1 text-[15px] italic text-ink-3">
         Busiest decades
         <span>entries</span>

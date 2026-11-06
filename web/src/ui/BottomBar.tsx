@@ -32,11 +32,14 @@ export function BottomBar() {
 
   return (
     <div className="pointer-events-none absolute bottom-[47px] z-10 flex items-center gap-5 text-ink-3 transition-[left,right] duration-300" style={margins}>
-      <ul className={`items-center gap-4 whitespace-nowrap text-[14.5px] ${crowded ? 'hidden' : 'hidden lg:flex'}`} aria-label="Key">
+      <ul className={`items-center gap-4 whitespace-nowrap text-[14.5px] ${crowded || sheetOpen ? 'hidden' : 'hidden xl:flex'}`} aria-label="Key">
         <li className="flex items-center gap-1.5"><Mark kind="technology" size={8} />Technology</li>
         <li className="flex items-center gap-1.5 italic"><Mark kind="science" size={9} />Science</li>
         <li className="flex items-center gap-1.5"><RangeMark />Date range</li>
         <li className="flex items-center gap-1.5"><BrokenMark />Link awaiting review</li>
+        <li className="flex items-center gap-1.5"><Mark kind="science" strength="awareness_proxy" size={10} />Awareness proxy</li>
+        <li className="flex items-center gap-1.5"><Mark kind="science" strength="scoped_inference" size={10} />Scoped inference</li>
+        <li className="flex items-center gap-1.5">← By / not before →</li>
       </ul>
 
       <div className="flex-1" />

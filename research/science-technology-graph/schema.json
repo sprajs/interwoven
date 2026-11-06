@@ -650,18 +650,66 @@
           ]
         },
         "policy": {
-          "enum": [
-            "first_commercial_availability",
-            "practical_deployment",
-            "scientific_event"
-          ]
-        },
-        "rationale": {
-          "type": "string",
-          "minLength": 1
+          "const": "community_entry"
         },
         "event_id": {
           "$ref": "#/$defs/id"
+        },
+        "entry_basis": {
+          "enum": [
+            "first_commercial_availability",
+            "commercial_availability",
+            "practical_use",
+            "adoption",
+            "public_availability",
+            "recognition",
+            "public_awareness"
+          ]
+        },
+        "evidence_strength": {
+          "enum": [
+            "direct",
+            "scoped_inference",
+            "awareness_proxy"
+          ]
+        },
+        "date_interpretation": {
+          "enum": [
+            "event_date",
+            "known_by",
+            "known_from"
+          ]
+        },
+        "community": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "uncertainty": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "proxy_justification": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
         }
       },
       "required": [
@@ -684,7 +732,14 @@
           },
           "then": {
             "required": [
-              "event_id"
+              "event_id",
+              "entry_basis",
+              "evidence_strength",
+              "date_interpretation",
+              "community",
+              "scope",
+              "evidence",
+              "uncertainty"
             ]
           },
           "else": {
@@ -694,8 +749,30 @@
               ]
             }
           }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidence_strength": {
+                "enum": [
+                  "scoped_inference",
+                  "awareness_proxy"
+                ]
+              }
+            },
+            "required": [
+              "evidence_strength"
+            ]
+          },
+          "then": {
+            "required": [
+              "proxy_justification",
+              "uncertainty"
+            ]
+          }
         }
-      ]
+      ],
+      "description": "A deliberate, evidenced entry into availability, actual use, uptake or awareness in a named community. Invention, discovery and demonstration alone are not community-entry anchors. Bound interpretation preserves the selected event date while qualifying the entry claim."
     },
     "endpoint": {
       "type": "object",
@@ -971,33 +1048,13 @@
               },
               "graph_anchor": {
                 "properties": {
-                  "policy": {
-                    "const": "scientific_event"
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "technology"
-              }
-            },
-            "required": [
-              "kind"
-            ]
-          },
-          "then": {
-            "properties": {
-              "graph_anchor": {
-                "properties": {
-                  "policy": {
+                  "entry_basis": {
                     "enum": [
-                      "first_commercial_availability",
-                      "practical_deployment"
+                      "practical_use",
+                      "adoption",
+                      "recognition",
+                      "public_awareness",
+                      "public_availability"
                     ]
                   }
                 }
@@ -1047,9 +1104,14 @@
             "launch",
             "commercial_offer",
             "support_end",
-            "presentation"
+            "presentation",
+            "commercial_availability",
+            "practical_use",
+            "public_availability",
+            "recognition",
+            "public_disclosure"
           ],
-          "description": "Event stages are distinct claims. A commercial offer does not establish first commercial availability; launch does not establish the construction completion date; support end does not establish end of use. Dated assertion leaves the stage unresolved."
+          "description": "Distinct lifecycle and community-entry facts. Commercial offers need not establish FIRST availability. Practical use and recognition require their own community-scoped claims; an archaeological discovery is not silently turned into ancient use. Public disclosure may support only an explicitly labelled awareness proxy. Launch does not establish the construction completion date; support end does not establish end of use."
         },
         "date": {
           "$ref": "#/$defs/date"

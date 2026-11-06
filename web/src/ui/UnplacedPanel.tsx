@@ -24,7 +24,7 @@ export function UnplacedPanel() {
             <h2 className="text-[21px] font-medium leading-none">Unplaced entries</h2>
             <CloseButton onClick={() => setOpen(false)} label="Close unplaced entries" />
           </div>
-          <p className="caption mt-2 leading-snug">These entries remain in the research. A selected, supported anchor with both date limits is needed to place a mark.</p>
+          <p className="caption mt-2 leading-snug">These entries await a defensible community-entry choice and a usable date. Researched one-sided bounds can be plotted without inventing another limit.</p>
           <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Filter unplaced entries"
             placeholder="Find an unplaced entry" className="mt-3 w-full border-b border-rule bg-transparent py-1 text-[16px] outline-none placeholder:italic placeholder:text-ink-3" />
           <p className="mt-2 text-[14px] text-ink-3">{entries.length} of {model.unplaced.length} unplaced entries</p>
@@ -32,7 +32,7 @@ export function UnplacedPanel() {
             {entries.map((entry) => (
               <li key={entry.id} className="border-b border-rule/50">
                 <button onClick={() => focusEntry(entry.id)} className="group flex w-full items-start gap-2.5 py-2 text-left">
-                  <span className="mt-1.5 shrink-0"><Mark kind={entry.kind} size={8} color={model.labelById.get(entry.labels[0] ?? '')?.ink} /></span>
+                  <span className="mt-1.5 shrink-0"><Mark kind={entry.kind} strength={entry.evidence_strength} size={8} color={model.labelById.get(entry.labels[0] ?? '')?.ink} /></span>
                   <span>
                     <span className={`block text-[16px] leading-tight group-hover:underline ${entry.kind === 'science' ? 'italic' : ''}`}>{entry.title}</span>
                     <span className="mt-1 block text-[13.5px] leading-snug text-ink-3">{entry.placement_reason}</span>

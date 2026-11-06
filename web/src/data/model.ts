@@ -285,6 +285,13 @@ export function buildModel(data: RawDataset, synthetic = false): Model {
 
 export const SHAPE_BY_KIND = new Map(KINDS.map((k) => [k.id, k.shape]))
 
+/** Independent style flags: kind, explicit date bound, then evidence strength. */
+export function nodeMarkStyle(node: RawNode): number {
+  const bound = node.date_kind === 'known_by' ? 1 : node.date_kind === 'known_from' ? 2 : 0
+  const strength = node.evidence_strength === 'scoped_inference' ? 1 : node.evidence_strength === 'awareness_proxy' ? 2 : 0
+  return (SHAPE_BY_KIND.get(node.kind) ?? 0) + bound * 2 + strength * 8
+}
+
 /** Hops from `start` along `adjacency`, up to `maxHops`. The start node maps to 0. */
 export function walk(start: number, adjacency: number[][], maxHops: number): Map<number, number> {
   const hops = new Map<number, number>([[start, 0]])

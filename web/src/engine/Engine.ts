@@ -1,4 +1,4 @@
-import { SHAPE_BY_KIND, walk, type Model } from '../data/model.ts'
+import { nodeMarkStyle, walk, type Model } from '../data/model.ts'
 import { Camera, type Insets } from './camera.ts'
 import { createDataTexture, createProgram, createTarget, deleteTarget, type Program, type Target } from './gl.ts'
 import { drawOverlay } from './overlay.ts'
@@ -218,7 +218,7 @@ export class Engine {
     const a = new Float32Array(S.TEX_WIDTH * height * 4)
     const b = new Float32Array(S.TEX_WIDTH * height * 4)
     model.nodes.forEach((node, i) => {
-      a.set([node.year, model.y[i]!, model.radius[i]!, SHAPE_BY_KIND.get(node.kind) ?? 0], i * 4)
+      a.set([node.year, model.y[i]!, model.radius[i]!, nodeMarkStyle(node)], i * 4)
       b.set([model.ink[i * 3]!, model.ink[i * 3 + 1]!, model.ink[i * 3 + 2]!, node.level], i * 4)
     })
     if (this.texA) gl.deleteTexture(this.texA)
@@ -265,13 +265,13 @@ export class Engine {
     gl.vertexAttribDivisor(2, 1)
 
     // Date ranges are drawn as spans. Exact years have none.
-    const ranged = model.nodes.flatMap((node, i) => (node.end > node.start ? [{ i, node }] : []))
+    const ranged = model.nodes.flatMap((node, i) => (node.start !== undefined && node.end !== undefined && node.end > node.start ? [{ i, start: node.start, end: node.end }] : []))
     this.spanCount = ranged.length
     const ranges = new Float32Array(ranged.length * 2)
     const rangeIds = new Uint32Array(ranged.length)
-    ranged.forEach(({ i, node }, k) => {
-      ranges[k * 2] = node.start
-      ranges[k * 2 + 1] = node.end
+    ranged.forEach(({ i, start, end }, k) => {
+      ranges[k * 2] = start
+      ranges[k * 2 + 1] = end
       rangeIds[k] = i
     })
     if (this.spanVao) gl.deleteVertexArray(this.spanVao)

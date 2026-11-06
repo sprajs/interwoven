@@ -91,7 +91,8 @@ void main() {
     return;
   }
   float r = a.z * uDpr * mix(0.5, 1.0, v) * (1.0 + 0.2 * s.z);
-  float halfSize = r * 1.25 + 2.0 * uDpr + mark * (r + 7.0 * uDpr);
+  float bound = floor(mod(a.w, 8.0) / 2.0);
+  float halfSize = r * (bound > 0.5 ? 3.4 : 1.6) + 2.0 * uDpr + mark * (r + 7.0 * uDpr);
   vec2 c = worldToPx(a.x, a.y);
   if (c.x < -halfSize || c.x > uRes.x + halfSize || c.y < -halfSize || c.y > uRes.y + halfSize) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
@@ -115,7 +116,9 @@ in vec2 vPx;
 out vec4 fragColor;
 
 void main() {
-  float kind = vInfo.x;
+  float kind = mod(vInfo.x, 2.0);
+  float bound = floor(mod(vInfo.x, 8.0) / 2.0);
+  float strength = floor(vInfo.x / 8.0);
   float r = vInfo.y;
   float alpha = vInfo.z;
   float seed = vInfo.w;
@@ -131,7 +134,17 @@ void main() {
   float a = 0.0;
 
   float disc = 1.0 - smoothstep(edge - aa, edge + aa, dist);
-  if (kind < 0.5) {
+  if (strength > 1.5) {
+    // Awareness opportunity only: a hollow diamond, never an ordinary uptake dot.
+    float diamond = abs(vPx.x) + abs(vPx.y);
+    a = 1.0 - smoothstep(0.45 * uDpr, 1.2 * uDpr, abs(diamond - r * 1.4));
+    rgb = vColor;
+  } else if (strength > 0.5) {
+    // Contextual use/availability inference: a visibly broken ring.
+    float ring = 1.0 - smoothstep(0.35 * uDpr, 1.05 * uDpr, abs(dist - r));
+    a = ring * smoothstep(-0.25, 0.15, sin(angle * 5.0 + seed));
+    rgb = vColor;
+  } else if (kind < 0.5) {
     // Technology: a solid drop of ink.
     rgb = vColor;
     a = disc;
@@ -142,6 +155,16 @@ void main() {
     float inner = 1.0 - smoothstep(edge - thick - aa, edge - thick + aa, dist);
     rgb = mix(vColor, uPaper, inner);
     a = disc;
+  }
+
+  if (bound > 0.5) {
+    // Short open arrows qualify a supplied limit; they are not finite date spans.
+    vec2 p = vec2(vPx.x * (bound < 1.5 ? -1.0 : 1.0), vPx.y);
+    float stem = (1.0 - smoothstep(0.3 * uDpr, 0.9 * uDpr, abs(p.y))) * step(r + uDpr, p.x) * step(p.x, r * 3.0);
+    float head = (1.0 - smoothstep(0.35 * uDpr, 0.95 * uDpr, abs(abs(p.y) - (r * 3.0 - p.x)) * 0.707)) * step(r * 2.0, p.x) * step(p.x, r * 3.0);
+    float arrow = max(stem, head);
+    rgb = mix(rgb, vColor, arrow);
+    a = max(a, arrow);
   }
 
   if (mark > 0.0) {
