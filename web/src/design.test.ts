@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { CHAR_WIDTH, contrast, INK, LAYOUT, MARK_RADIUS, PAPER, RULER_LIGHT, SHEET, TYPE, UNIT, X_HEIGHT } from './design.ts'
+import { CHAR_WIDTH, contrast, INK, LAYOUT, MARK_RADIUS, PAPER, RULER_DARK, RULER_LIGHT, SHEET, TYPE, UNIT, X_HEIGHT } from './design.ts'
 
 const root = import.meta.dirname
 const css = readFileSync(join(root, 'styles.css'), 'utf8')
@@ -62,6 +62,7 @@ describe('ink', () => {
 
   it('keeps the ruler readable in both of its shades', () => {
     expect(contrast(INK.primary, RULER_LIGHT)).toBeGreaterThanOrEqual(4.5)
+    expect(contrast(INK.primary, RULER_DARK)).toBeGreaterThanOrEqual(4.5)
   })
 
   it('matches the stylesheet', () => {

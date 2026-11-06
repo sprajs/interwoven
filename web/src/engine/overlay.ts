@@ -1,6 +1,6 @@
 import { EVENT_NAMES, plottedLifeEvents, type LifeEvent } from '../data/lifecycle.ts'
 import type { RawNode } from '../data/types.ts'
-import { BOX, BREAK, FONT_FAMILY, hexRgb, INK as INK_HEX, LAYOUT, LINE, NAME_AREA, NAME_STYLE, PAPER as PAPER_HEX, RULE_ALPHA, RULER_LIGHT, SHEET as SHEET_HEX, TYPE, UNIT, type TypeStep } from '../design.ts'
+import { BOX, BREAK, FONT_FAMILY, hexRgb, INK as INK_HEX, LAYOUT, LINE, NAME_AREA, NAME_STYLE, PAPER as PAPER_HEX, RULE_ALPHA, RULER_DARK, RULER_LIGHT, SHEET as SHEET_HEX, TYPE, UNIT, type TypeStep } from '../design.ts'
 import type { Engine } from './Engine.ts'
 import { formatYear } from './time.ts'
 
@@ -753,7 +753,7 @@ function drawPleats(engine: Engine, ctx: CanvasRenderingContext2D): void {
   }
 }
 
-/** The ruler: cells of dark and light, like a map's scale bar, each headed by the year it starts. */
+/** The ruler: cells of two quiet tones, like a map's scale bar, each headed by the year it starts. */
 function drawRuler(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
   const frame = engine.frameBounds()
   const y0 = frame.top - LAYOUT.ruler
@@ -769,14 +769,14 @@ function drawRuler(engine: Engine, ctx: CanvasRenderingContext2D, W: number): vo
     const a = Math.max(0, cell.x)
     const b = Math.min(W, end)
     if (cell.odd) {
-      ctx.fillStyle = `rgb(${INK.primary})`
+      ctx.fillStyle = RULER_DARK
       ctx.fillRect(a, y0, b - a, LAYOUT.ruler)
     }
     const text = formatYear(cell.year)
     const width = measure(ctx, text, yearFont)
     if (b - a < width + UNIT) continue
     // The year keeps to the left edge of the view while its cell is still in sight.
-    ctx.fillStyle = cell.odd ? RULER_LIGHT : INK_HEX.primary
+    ctx.fillStyle = INK_HEX.primary
     ctx.fillText(text, Math.min(a, b - width - 2 * UNIT) + UNIT, y0 + LAYOUT.ruler / 2 + 0.5)
   }
   ctx.fillStyle = `rgb(${INK.primary})`

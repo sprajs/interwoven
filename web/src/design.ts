@@ -23,6 +23,8 @@ export const PAPER = '#f4efe6'
 export const SHEET = '#fbf8f1'
 /** The ruler's light cells. Its dark cells are the primary ink. */
 export const RULER_LIGHT = '#e4dccb'
+/** The ruler's other cell: enough to mark the step, without a hard edge across the top of the page. */
+export const RULER_DARK = '#d2c8b4'
 
 /** Lines. A rule structures the page, and a fine rule divides rows within it. */
 export const LINE = { hair: 0.75, rule: 1, stroke: 1.5 } as const
