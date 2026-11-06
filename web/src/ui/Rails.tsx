@@ -4,6 +4,8 @@ import { formatYear } from '../engine/time.ts'
 import { focusNode, getEngine, passes, useApp } from '../store.ts'
 import { Mark } from './icons.tsx'
 import { SHEET_WIDTH } from './layout.ts'
+import { ReachSheet } from './ReachSheet.tsx'
+import { StorySheet } from './StorySheet.tsx'
 
 function LandmarkRail() {
   const model = useApp((s) => s.model)
@@ -85,9 +87,11 @@ function DensityRail() {
 export function Rails() {
   const mode = useApp((s) => s.mode)
   const selected = useApp((s) => s.selected)
-  const show = selected === null && mode !== 'threads'
+  const show = selected === null && (mode === 'density' || mode === 'landmarks')
   return (
     <AnimatePresence>
+      {mode === 'story' && <StorySheet key="story" />}
+      {mode === 'reach' && selected === null && <ReachSheet key="reach" />}
       {show && (
         <motion.aside
           key={mode}
@@ -96,7 +100,7 @@ export function Rails() {
           exit={{ x: SHEET_WIDTH }}
           transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
           style={{ width: SHEET_WIDTH }}
-          className="sheet thin-scroll absolute bottom-0 right-0 top-[46px] z-20 hidden overflow-y-auto border-l border-t border-rule px-5 pb-6 pt-4 min-[760px]:block"
+          className="sheet thin-scroll absolute bottom-0 right-0 top-[54px] z-20 hidden overflow-y-auto border-l border-t border-rule px-5 pb-6 pt-4 min-[760px]:block"
         >
           {mode === 'landmarks' ? <LandmarkRail /> : <DensityRail />}
         </motion.aside>

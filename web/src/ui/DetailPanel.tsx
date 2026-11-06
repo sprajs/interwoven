@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'motion/react'
 import type { Edge, Model } from '../data/model.ts'
 import { formatYear } from '../engine/time.ts'
-import { focusNode, useApp } from '../store.ts'
+import { documentedSpan, EVENT_NAMES, hasLaterLife, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
+import { focusNode, followEntry, getEngine, useApp } from '../store.ts'
 import { CloseButton, Mark } from './icons.tsx'
 import { SHEET_WIDTH } from './layout.ts'
 
@@ -40,6 +41,64 @@ function LinkList({ title, edges, side, model }: { title: string; edges: Edge[];
   )
 }
 
+const STAGE_NAMES: Record<LaterStage, string> = {
+  adoption: 'adoption',
+  decline: 'decline',
+  withdrawal: 'withdrawal',
+  end_of_use: 'last use',
+  abandonment: 'abandonment',
+  revival: 'revival',
+}
+
+/** Two different things, kept apart: what the links imply, and what the evidence says. */
+function LifeSection({ index, model }: { index: number; model: Model }) {
+  const life = useApp((s) => s.life.get(index))
+  const reach = getEngine()?.reach
+  const node = model.nodes[index]!
+  if (node.kind !== 'technology' && !life && !reach) return null
+  const latest = reach?.any[index] ?? node.year
+  const span = Math.round(latest - node.year)
+  const later = life && hasLaterLife(life) ? life.events.filter((e) => e.role !== 'origin') : []
+  const documented = documentedSpan(life)
+  const unresearched = LATER_STAGES.filter((stage) => !life?.status[stage] && !later.some((e) => e.type === stage))
+  const stated = LATER_STAGES.filter((stage) => life?.status[stage] === 'unknown')
+  return (
+    <section className="mt-5">
+      <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">How long it lasted</h3>
+      <p className="mt-2 text-[15px] leading-snug text-ink-2">
+        {span > 0 ? (
+          <>
+            <span className="text-ink">Reach:</span> built on until {formatYear(latest)}, {span.toLocaleString('en-US')} {span === 1 ? 'year' : 'years'} on. This comes from the links in the research so far, and says nothing about how long it stayed in use.
+          </>
+        ) : (
+          <>
+            <span className="text-ink">Reach:</span> nothing later in the research builds on it yet.
+          </>
+        )}
+      </p>
+      {later.length > 0 && (
+        <>
+          <p className="mt-2 text-[15px] leading-snug text-ink-2">
+            <span className="text-ink">Documented life:</span> {documented ? `${formatYear(documented.start)} to ${formatYear(documented.end)}` : 'only these dated events'}.
+          </p>
+          <ul className="mt-1.5 space-y-1.5">
+            {later.map((event) => (
+              <li key={event.id} className="text-[14.5px] leading-snug text-ink-2">
+                <span className="text-ink">{EVENT_NAMES[event.type] ?? event.type}</span>, {event.label}. {event.statement}
+                {event.review !== 'accepted' && <em className="text-ink-3"> Awaiting review.</em>}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <p className="mt-2 text-[14.5px] italic leading-snug text-ink-3">
+        {stated.length > 0 && `Researched and still unknown: ${stated.map((s) => STAGE_NAMES[s]).join(', ')}. `}
+        {unresearched.length > 0 && `Not yet researched: ${unresearched.map((s) => STAGE_NAMES[s]).join(', ')}.`}
+      </p>
+    </section>
+  )
+}
+
 export function DetailPanel() {
   const model = useApp((s) => s.model)
   const selected = useApp((s) => s.selected)
@@ -48,17 +107,19 @@ export function DetailPanel() {
   const toggleLabel = useApp((s) => s.toggleLabel)
   const node = model && selected !== null ? model.nodes[selected] : null
   const impactIsFull = model && node ? model.n <= 4000 || node.level === 0 : false
+  const mode = useApp((s) => s.mode)
+  const linked = model && selected !== null && model.parents[selected]!.length + model.children[selected]!.length > 0
 
   return (
     <AnimatePresence>
-      {node && model && selected !== null && (
+      {node && model && selected !== null && mode !== 'story' && (
         <motion.aside
           key="detail"
           initial={{ x: SHEET_WIDTH }}
           animate={{ x: 0 }}
           exit={{ x: SHEET_WIDTH }}
           transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
-          className="sheet thin-scroll absolute inset-x-0 bottom-0 z-30 max-h-[48vh] select-text overflow-y-auto border-t border-rule px-5 pb-8 pt-4 min-[760px]:inset-x-auto min-[760px]:bottom-0 min-[760px]:right-0 min-[760px]:top-[46px] min-[760px]:border-t min-[760px]:max-h-none min-[760px]:border-l"
+          className="sheet thin-scroll absolute inset-x-0 bottom-0 z-30 max-h-[48vh] select-text overflow-y-auto border-t border-rule px-5 pb-8 pt-4 min-[760px]:inset-x-auto min-[760px]:bottom-0 min-[760px]:right-0 min-[760px]:top-[54px] min-[760px]:border-t min-[760px]:max-h-none min-[760px]:border-l"
           style={{ width: window.innerWidth >= 760 ? SHEET_WIDTH : undefined }}
           aria-label={`About ${node.title}`}
         >
@@ -96,8 +157,17 @@ export function DetailPanel() {
             </p>
           )}
 
+          {linked && (
+            <button onClick={() => followEntry(selected)} className="group mt-3 flex items-baseline gap-2 text-[17px] text-ink" title="Lay this thread out on its own (f, or click the entry twice)">
+              <span className="underline decoration-[0.5px] underline-offset-[3px] group-hover:decoration-[1.5px]">Follow this thread</span>
+              <span aria-hidden className="text-ink-3 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+            </button>
+          )}
+
           <LinkList title="Built on" edges={model.edgesInto[selected]!} side="source" model={model} />
           <LinkList title="Led to" edges={model.edgesOutOf[selected]!} side="target" model={model} />
+
+          <LifeSection index={selected} model={model} />
 
           <section className="mt-5">
             <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">How this is dated</h3>

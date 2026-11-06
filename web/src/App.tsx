@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 import { buildModel } from './data/model.ts'
 import { makeStressDataset } from './data/stress.ts'
 import type { RawDataset } from './data/types.ts'
+import { indexLifecycle, type LifecycleFile } from './data/lifecycle.ts'
 import { validateDataset } from './data/validate.ts'
-import { getEngine, useApp } from './store.ts'
+import { followEntry, getEngine, stepStory, useApp } from './store.ts'
 import { BottomBar } from './ui/BottomBar.tsx'
 import { DetailPanel } from './ui/DetailPanel.tsx'
 import { LabelsPanel } from './ui/LabelsPanel.tsx'
@@ -20,6 +21,7 @@ async function load(): Promise<void> {
     const params = new URLSearchParams(location.search)
     const stress = Number(params.get('stress'))
     let data: RawDataset
+    const usesResearch = !(stress > 0) && params.get('data') !== 'seed'
     if (stress > 0) {
       data = makeStressDataset(Math.min(stress, 500000))
     } else {
@@ -32,7 +34,13 @@ async function load(): Promise<void> {
     const errors = issues.filter((i) => i.severity === 'error')
     if (errors.length) throw new Error(`The dataset has ${errors.length} error(s). First: ${errors[0]!.message}`)
     issues.forEach((i) => console.warn(`[data] ${i.message}`))
-    setModel(buildModel(data, stress > 0))
+    const model = buildModel(data, stress > 0)
+    setModel(model)
+    // The sidecar is optional. Without it every later life simply reads as not researched.
+    if (usesResearch) {
+      const response = await fetch(`${import.meta.env.BASE_URL}data/lifecycle.json`).catch(() => null)
+      if (response?.ok) useApp.getState().setLife(indexLifecycle((await response.json()) as LifecycleFile, model.indexById))
+    }
   } catch (e) {
     setError(e instanceof Error ? e.message : String(e))
   }
@@ -49,15 +57,20 @@ function useKeyboard(): void {
       }
       if (e.key === 'Escape') {
         if (app.searchOpen) app.setSearchOpen(false)
-        else if (app.selected !== null) app.select(null)
+        else if (app.mode === 'story' && app.story) {
+          app.setStory(null)
+          app.select(null)
+        } else if (app.selected !== null) app.select(null)
         else if (app.labelsOpen) app.setLabelsOpen(false)
+        else if (app.openPeriods > 0) getEngine()?.unfoldAll()
         return
       }
       const target = e.target as HTMLElement
       if (target.tagName === 'INPUT' || e.metaKey || e.ctrlKey || e.altKey) return
       const engine = getEngine()
       // A shortcut changes the view, so a focus ring left on the last button would mislead.
-      if (['1', '2', '3'].includes(e.key) && target instanceof HTMLButtonElement) target.blur()
+      if (['1', '2', '3', '4', '5'].includes(e.key) && target instanceof HTMLButtonElement) target.blur()
+      const inStory = app.mode === 'story' && app.story !== null
       switch (e.key) {
         case '/':
           e.preventDefault()
@@ -67,10 +80,54 @@ function useKeyboard(): void {
           app.setMode('threads')
           break
         case '2':
-          app.setMode('density')
+          app.setMode('story')
           break
         case '3':
+          app.setMode('reach')
+          break
+        case '4':
+          app.setMode('density')
+          break
+        case '5':
           app.setMode('landmarks')
+          break
+        case 'f':
+          if (app.selected !== null) followEntry(app.selected)
+          break
+        case 'u':
+          engine?.unfoldAll()
+          break
+        case 'ArrowLeft':
+          e.preventDefault()
+          if (inStory) stepStory(-1)
+          else engine?.panByKeys(e.shiftKey ? 240 : 80, 0)
+          break
+        case 'ArrowRight':
+          e.preventDefault()
+          if (inStory) stepStory(1)
+          else engine?.panByKeys(e.shiftKey ? -240 : -80, 0)
+          break
+        case 'ArrowUp':
+          e.preventDefault()
+          if (inStory) stepStory(-1)
+          else engine?.panByKeys(0, 80)
+          break
+        case 'ArrowDown':
+          e.preventDefault()
+          if (inStory) stepStory(1)
+          else engine?.panByKeys(0, -80)
+          break
+        case '[':
+          engine?.zoomBy(1 / 1.5, 'time')
+          break
+        case ']':
+          engine?.zoomBy(1.5, 'time')
+          break
+        case '{':
+          engine?.zoomBy(1 / 1.4, 'height')
+          break
+        case '}':
+          engine?.zoomBy(1.4, 'height')
           break
         case 'l':
           app.setLabelsOpen(!app.labelsOpen)
