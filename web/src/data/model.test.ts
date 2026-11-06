@@ -72,6 +72,15 @@ describe('layoutThreads', () => {
     }
   })
 
+  it('stays fast at scale', () => {
+    const many = Array.from({ length: 50000 }, (_, i) => node(`m${i}`, 1500 + (i % 500), ['a'], 3))
+    const links = many.slice(1).map((_, i) => ({ source: i, target: i + 1 }))
+    const scale = TimeScale.fromYears(many.map((n) => n.year))
+    const start = performance.now()
+    layoutThreads(many, links, scale)
+    expect(performance.now() - start).toBeLessThan(8000)
+  })
+
   it('brings linked entries closer than unlinked ones', () => {
     const linked = layoutThreads(nodes, edges, time)
     const unlinked = layoutThreads(nodes, [], time)

@@ -94,15 +94,26 @@ export function layoutThreads(nodes: RawNode[], edges: Pick<Edge, 'source' | 'ta
   )
   const labelCount = labelIndex.size
 
-  const order = Int32Array.from({ length: n }, (_, i) => i).sort((a, b) => x[a]! - x[b]!)
   const force = new Float32Array(n)
   const sum = new Float32Array(labelCount)
   const weight = new Float32Array(labelCount)
 
-  const iterations = n > 8000 ? 60 : 480
-  const REACH = 0.06
+  const iterations = n > 8000 ? 30 : 480
+  const REACH = Math.min(0.06, 6 / Math.sqrt(n + 1))
   const SPACING = Math.min(0.045, 0.62 / Math.sqrt(n + 16))
   const ROOM = [0.85, 0.6, 0.34, 0.26]
+
+  const cellHeight = SPACING * 1.7
+  const cols = Math.ceil(1 / REACH) + 1
+  const rows = Math.ceil(1.2 / cellHeight) + 1
+  const head = new Int32Array(cols * rows)
+  const next = new Int32Array(n)
+  const NEIGHBOURS = [[0, 1], [1, -1], [1, 0], [1, 1]] as const
+  const cellOf = (i: number): number => {
+    const col = Math.min(cols - 1, Math.floor(x[i]! / REACH))
+    const row = Math.max(0, Math.min(rows - 1, Math.floor((y[i]! + 0.1) / cellHeight)))
+    return row * cols + col
+  }
 
   for (let it = 0; it < iterations; it++) {
     const cool = 1 - it / iterations
@@ -130,22 +141,38 @@ export function layoutThreads(nodes: RawNode[], edges: Pick<Edge, 'source' | 'ta
       for (const l of nodeLabels[i]!) force[i]! += ((sum[l]! / weight[l]!) - y[i]!) * 0.007
     }
 
-    for (let a = 0; a < n; a++) {
-      const i = order[a]!
-      for (let b = a + 1; b < n; b++) {
-        const j = order[b]!
-        const dx = x[j]! - x[i]!
-        if (dx > REACH) break
-        const closeness = 1 - dx / REACH
-        const dy = y[i]! - y[j]!
-        // Prominent entries carry large text and need more room than fine detail does.
-        const min = SPACING * closeness * ((ROOM[nodes[i]!.level] ?? 0.5) + (ROOM[nodes[j]!.level] ?? 0.5))
-        const abs = Math.abs(dy)
-        if (abs >= min) continue
-        const dir = dy === 0 ? (random() < 0.5 ? -1 : 1) : Math.sign(dy)
-        const push = (min - abs) * 0.34 * dir
-        force[i]! += push
-        force[j]! -= push
+    // Only nearby marks can push on each other, so a grid keeps this close to linear.
+    head.fill(-1)
+    for (let i = 0; i < n; i++) {
+      const c = cellOf(i)
+      next[i] = head[c]!
+      head[c] = i
+    }
+    const repel = (i: number, j: number): void => {
+      const dx = Math.abs(x[j]! - x[i]!)
+      if (dx > REACH) return
+      const closeness = 1 - dx / REACH
+      const dy = y[i]! - y[j]!
+      // Prominent entries carry large text and need more room than fine detail does.
+      const min = SPACING * closeness * ((ROOM[nodes[i]!.level] ?? 0.5) + (ROOM[nodes[j]!.level] ?? 0.5))
+      const abs = Math.abs(dy)
+      if (abs >= min) return
+      const dir = dy === 0 ? (random() < 0.5 ? -1 : 1) : Math.sign(dy)
+      const push = (min - abs) * 0.34 * dir
+      force[i]! += push
+      force[j]! -= push
+    }
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        for (let i = head[row * cols + col]!; i !== -1; i = next[i]!) {
+          for (let j = next[i]!; j !== -1; j = next[j]!) repel(i, j)
+          for (const [dc, dr] of NEIGHBOURS) {
+            const nc = col + dc
+            const nr = row + dr
+            if (nc < 0 || nc >= cols || nr < 0 || nr >= rows) continue
+            for (let j = head[nr * cols + nc]!; j !== -1; j = next[j]!) repel(i, j)
+          }
+        }
       }
     }
 
