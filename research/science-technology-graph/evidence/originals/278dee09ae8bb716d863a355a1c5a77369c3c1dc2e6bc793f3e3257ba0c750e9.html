@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="Xia497Zl-aGu9FWg3TZ6IaF2-sWcB51l2F9aGTZeLso" />
+  
+  <title>
+    
+    </title>
+  <meta name="description" content="">
+  <!-- include bootstrap from CDN-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- fontawesome icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- include local css in static/style.css -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="shortcut icon" href="/static/img/wh.png" />
+  
+  
+
+
+
+  
+  
+
+</head>
+
+<body class="  d-flex flex-column min-vh-100">
+<!--[if IE]>
+  <div class="alert alert-warning">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="nav-link" href="/">
+      <img class="logo-graphic" src="/static/img/logo_white.png"/> 
+    </a>
+    <a class="nav-link" href="/">
+
+    </a>
+  </div>
+</header>
+
+<nav class="navbar navbar-expand-lg p-0 navbar-light">
+  <div class="container mobile-btn-container">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse justify-content-between" id="navbarMain">
+
+      <ul class="navbar-nav">
+
+        
+
+        <li class="p-4 ps-md-0 nav-item">
+          <a class="h3 text-white text-decoration-none" href="/">Home </a>
+        </li>
+
+        <li class="p-4 nav-item">
+          <a class="h3 text-white text-decoration-none" href="/objects/">Objects</a>
+        </li>
+
+
+
+
+
+        <li class="p-4 nav-item">
+          <a class="h3 text-white text-decoration-none" href="/documents">Trade Literature </a>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav secondary-nav ">
+
+        
+
+        
+        <!-- Modal -->
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-0">
+        <div class="modal-header rounded-0 bg-1">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Dashboard Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="page-form">
+  
+              <div id="loginMessage"></div>
+              <form method="post" id="loginForm">
+              
+
+<input type="hidden" name="csrfmiddlewaretoken" value="g1UufCQdrdlENTXjJ69fhaSk1AC1TXurgHiM8ELrcMXeuSczXfpJyfv7phpxGWkf"> <div id="div_id_username" class="mb-3"> <label
+                for="id_username" class="form-label requiredField">
+                E-mail address<span class="asteriskField">*</span> </label> <input type="email" name="username" maxlength="320" class="emailinput form-control" required id="id_username"> </div> <div id="div_id_password" class="mb-3"> <label
+                for="id_password" class="form-label requiredField">
+                Password<span class="asteriskField">*</span> </label> <input type="password" name="password" class="passwordinput form-control" required id="id_password"> </div>
+
+              <p>You need to be logged in with an account to save items to lists. If you don't already have an account, please <a class="text-1" target="_blank" href="/register/">sign up</a>.</p>
+  
+              <div class="submit-group d-flex justify-content-between">
+                <button type="submit" id="loginSubmit"  class="btn btn-gradient text-white m-1 rounded-0">Login</button>
+                <p class="mt-2"><a href="/password_reset/" target="_blank" class="text-1">Forgotten your password?</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get the form element
+    var loginForm = document.getElementById('loginForm');
+
+    // Add event listener to the form's submit event
+    loginForm.addEventListener('submit', function (event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get form data
+      var formData = new FormData(loginForm);
+
+      // Make your AJAX request here
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/dashboard/login/', true);
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          var data = JSON.parse(xhr.responseText);
+          // Redirect or perform other actions based on the response
+          if (data.success) {
+            // Authentication successful
+            window.location.href = '/dashboard/';
+          } else {
+            // Authentication failed
+            alert('Authentication failed. Please try again.');
+          }
+        } else {
+          // Handle HTTP errors
+          console.error('HTTP Error: ' + xhr.status);
+        }
+      };
+
+      xhr.onerror = function () {
+        // Handle network errors
+        console.error('Network Error');
+      };
+
+      xhr.send(formData);
+    });
+  });
+</script>
+          <li class="nav-item sec-nav-button  p-4">
+            <span class="pointer text-white text-decoration-none h3"  id="modal-link" data-bs-toggle="modal" data-bs-target="#loginModal">Login</span>
+          </li>
+        
+
+        
+          <li class="nav-item sec-nav-button p-4 border-start border-dark">
+            <a class="text-decoration-none text-white h3" href="/register/">Register</a>
+          </li>
+        
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+<div class="container d-flex min-vh-100 flex-column flex-md-row">
+<div class="container col-12 order-2 order-md-1 col-md-8">
+
+
+    
+<a href="/objects/"><i class="fas fa-arrow-left fs-3 text-white bg-1 p-2 mt-1"></i></a>
+    
+        <div class="row fs-5 mt-3 pe-md-5">
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Accession No</p><p class="col-12 col-md-8">0833</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold" >Brief Description</p><p class="col-12 col-md-8">circular logarithmic scale “circles of proportion”, and horizontal instrument, by Elias Allen, designed by William Oughtred, English, c. 1635</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap">
+            <p class="col-12 col-md-4 fw-bold">Origin</p><p class="col-12 col-md-8">England; London; The Strand</p>
+            </div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Maker</p><p  class="col-12 col-md-8">
+              Allen, Elias [maker]
+          
+              Oughtred, William [designer]
+          </p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p  class="col-12 col-md-4 fw-bold">Class</p><p class="col-12 col-md-8">mathematics; calculating</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Earliest Date</p><p class="col-12 col-md-8">
+              1635</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Latest Date</p><p class="col-12 col-md-8">1635</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Inscription Date</p><p class="col-12 col-md-8">
+
+            </p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Material</p><p class="col-12 col-md-8">
+              metal (brass)
+          </p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Dimensions</p><p class="col-12 col-md-8">diameter 314mm</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Special Collection</p><p class="col-12 col-md-8">Cavendish Collection?</p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Provenance</p><p class="col-12 col-md-8">probably part of the W.H. Wollaston collection although the information in the history file is confused between this collection and the Hutchinson collection. Cambridge University Reporter, 20 May 1876, p.498, suggests that it is from the Wollaston collection, transferred to the Cavendish in that year.</div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Inscription</p><p class="col-12 col-md-8">‘Elias Allen fecit’ (reverse)</div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Description Notes</p><p class="col-12 col-md-8">Circular logarithmic scale “circles of proportion”, and horizontal instrument, made by Elias Allen, designed by William Oughtred, c. 1635.<br /><br />Circular brass disc with suspension ring and shackle.  Circles of proportion has double index arm, other side has single index arm.<br />Obverse: concentric scales reading from the rim inwards.<br />1. log scale of sines, divided anticlockwise [6˚] - 90˚, numbered by 10˚; 6 - 60˚ subdivided to 5´, 60˚ - 70˚ subdivided to 10´, 70˚ - 80˚ subdivided to 30´, 80˚ - 85˚ subdivided to 1˚.  <br />2. log scale of tangents split over two circles, divided anticlockwise[6˚] - 45˚ and 45˚ - 84˚, numbered by 10˚ and at 45 and 84; subdivided to 5´.<br />3. log scale of numbers, divided anticlockwise 1 10,numbered by 1; 1 - 7 subdivided to 0.01, 7 - 10 subdivided to 0.02.<br />4. scale of equal numbers, divided anticlockwise 1 - 10, numbered by 1, subdivided to 0.01.<br />5. log scale of tangents, divided anticlockwise 84˚ - [89˚ 20´], numbered by 1˚, subdivided to 5´.<br />6. log scale of tangents, divided anticlockwise [40´] - 6˚, numbered by 1˚, subdivided to 5´.<br />7. log scale of sines, divided anticlockwise [40´] - 6˚, numbered by 1˚, subdivided to 5´.<br />Central three circles form a nocturnal:<br />circle of hours, divided anticlockwise 1 - 12, 1 - 12, numbered by 1, subdivided to 15 minutes.<br />circle of months with named months, numbered clockwise 10-20-28, 30 or 31 as appropriate, subdivided to 1 day.  <br />Circle of important stars.<br />Two index arms with bevelled edges, moving together with friction-tight adjustment in a flat hinge; marked ‘S, T, T, N, E, T, T, S’ to correspond to the log scales.<br />Reverse: Oughtred’s horizontal instrument for 52˚ N.<br />Degree circle divided 90˚ - [0] - 90˚ [ 0] - 90˚, numbered by 10˚, subdivided to 15´.<br />Lines of declination, uncalibrated, tropic to tropic across the equator, divided to 1˚ with 30´ subdivisions marked on crossing lines.<br />Circle of ecliptic with named months, numbered 10-20-28, 30 or 31 as appropriate, subdivided to 1 day.  Equinoxes at 10 March and 12 September.<br />Hour lines perpendicular to lines of declination and only drawn between the Tropics; numbered by hour, subdivided to 4 minutes.<br />Construction line down centre of instrument with centres from which circles of declination have been drawn.  Three named points: ‘PII’, ‘PW’, ‘PI’.<br />Single index arm with bevelled edge, marked for solar altitude towards centre, divided [0] - [62˚], numbered by 10˚, subdivided to 30´.<br /><br />Condition good; complete.<br /><br />[NOTE: On 15/04/2015 XRF analysis was conducted on this instrument. Results and analysis are given in the ‘Notes’ field.]<br /></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">References</p><p class="col-12 col-md-8"></p></div>
+            <hr></hr>
+            <div class="d-flex flex-wrap flex-md-nowrap"><p class="col-12 col-md-4 fw-bold">Events</p><div class="d-flex flex-column"><p class="col-12">
+              <b>Description</b> 
+              <br />
+              John Napier’s invention of logarithms, published in 1614, was acclaimed throughout Europe.  It provided a new and immensely powerful computational tool.  In 1623 Gunter suggested that Napier’s “artificial numbers” could be usd by sailors in an instrumental form.  He set out logarithmically divided lines of certain trigonometrical functions on the limb of a cross-staff.  William Oughtred improved Gunter’s idea and invented the first circular and linear logarithmic slide rules.  The detailed design of Oughtred’s “circles of proportion”, published in 1632, was influenced by the London instrument-maker Elias Allen.  At Allen’s request, Oughtred re-designed the circular slide rule so that the pairs of concentric sliding scales, which were demanding to construct, were replaced by a single set of scales and a pair of radial arms. 
+              <br />
+              
+              <br />
+              
+            </p>
+            
+            
+            </div></div>
+            <hr class="mb-0"></hr>
+            <div class="d-flex justify-content-end"><p class="fs-6">FM:39866</p></div>
+            
+            <p>Images (Click to view full size):</p>
+            <div id="images" class="d-flex container flex-wrap">
+            
+            <div class="d-flex col-12 col-md-4 flex-column">
+                <a href="/media/library_images/web/20823_0833.jpg">
+                <img class="m-1 img-fluid" src="/media/library_images/thumbnail/20823_0833.jpg" style="object-fit: contain; width: 250px; height: 200px;" alt="Thumbnail Image"></a>
+                
+            </div>
+            
+            <div class="d-flex col-12 col-md-4 flex-column">
+                <a href="/media/library_images/web/20824_0833.png">
+                <img class="m-1 img-fluid" src="/media/library_images/thumbnail/20824_0833.png" style="object-fit: contain; width: 250px; height: 200px;" alt="Thumbnail Image"></a>
+                
+            </div>
+            
+            <div class="d-flex col-12 col-md-4 flex-column">
+                <a href="/media/library_images/web/20825_0833a.png">
+                <img class="m-1 img-fluid" src="/media/library_images/thumbnail/20825_0833a.png" style="object-fit: contain; width: 250px; height: 200px;" alt="Thumbnail Image"></a>
+                
+            </div>
+            
+            <div class="d-flex col-12 col-md-4 flex-column">
+                <a href="/media/library_images/web/20826_0833c.png">
+                <img class="m-1 img-fluid" src="/media/library_images/thumbnail/20826_0833c.png" style="object-fit: contain; width: 250px; height: 200px;" alt="Thumbnail Image"></a>
+                
+            </div>
+            
+            </div>
+        </div>
+        <div class="modal fade" id="AddtoImageListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content rounded-0">
+                <div class="modal-header rounded-0 bg-1">
+                  <h5 class="modal-title text-white" id="exampleModalLabel">Add to Image List</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="image-list-modal-body" data-image-id>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+</div>
+<div class="container order-1 order-md-2 col-12 col-md-4 right-panel">
+  
+
+  <div class="mb-2">
+      <div class="container-fluid d-flex justify-content-center px-0 mb-2">
+    <img class="mb-2 img-fluid" src="/media/library_images/thumbnail/20823_0833.jpg"></img>
+  </div>
+    
+    <a class="btn btn-secondary col-12" href="#images">View 4 Images</a>
+  </div>
+
+
+<div class="d-flex row g-1 mt-1 ">
+    <div class="col-6">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://collections.whipplemuseum.cam.ac.uk/objects/" target="_blank" class="col-12 btn btn-facebook">
+        <i class="fa-brands me-2 fa-facebook-f"></i><span>Share</span></a>
+    </div>
+    <div class="col-6">
+    <a href="https://twitter.com/intent/tweet?text=Look at this amazing item from the Whipple Collection!&amp;url=https://collections.whipplemuseum.cam.ac.uk/objects/" target="_blank" class="col-12 btn bg-dark text-white btn-twitter">
+        <i class="fa-brands me-2 fa-x-twitter"></i><span>Share</span></a>
+    </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<footer class="text-white">
+
+    <section class="footer-upper">
+        <div class="row">
+        <div class="my-2 my-md-0 col-12 col-md-4 d-flex justify-content-center">
+        <img width="300" height="65" src="/static/img/arts_council_logo.png" /></div>
+        <div class="my-2 my-md-0 col-12 col-md-4 d-flex justify-content-center">
+        <img width="300" height="65" src="/static/img/research_england_logo.png" /></div>
+        <div class="my-2 my-md-0 col-12 col-md-4 d-flex justify-content-center">
+        <img width="300" height="65" src="/static/img/university_logo_reversed.png" /></div>
+        </div>
+    </section>
+
+    <section class="footer-lower">
+    <div class="container">
+        <p>&copy; Whipple Museum 2023 </p>
+    </div>
+    </section>
+
+</footer>
+
+
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js" type="text/javascript"></script>
+<script>
+var config = {
+  necessaryCookies: ['csrftoken', 'sessionid'],
+  apiKey: '63f0962fd941b56964c8ac3ee6b2106458904da1',
+  product: 'PRO',
+  position: 'left',
+  initialState: 'open',
+  rejectButton: false,
+  acceptButton: false,
+    text: {
+    title: 'We use essential cookies only',
+    intro: 'Only strictly necessary cookies are used to ensure the site works correctly.',
+    closeLabel: 'Close this notice'
+  },
+  statement: {
+        description: 'For more detailed information, please check our',
+        name: 'Cookie Statement',
+        url: 'https://collections.whipplemuseum.cam.ac.uk/cookies',
+        updated: '13/08/2025',
+    },
+};
+
+CookieControl.load( config );
+</script>
+
+
+</html>

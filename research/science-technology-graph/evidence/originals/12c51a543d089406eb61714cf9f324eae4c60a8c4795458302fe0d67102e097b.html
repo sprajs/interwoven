@@ -1,0 +1,765 @@
+ <!DOCTYPE html>
+
+
+<html>
+
+<head>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>progetto fibonacci - traduzione-01-testo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Bluefish 2.2.10" />
+
+<link href="../../../css/char.css" type="text/css" rel="stylesheet">
+<link href="../../../css/frame_button.css" type="text/css" rel="stylesheet"> 
+<link href="../../../css/enlarge.css" type="text/css" rel="stylesheet">
+<link href="../../../css/tooltip.css" type="text/css" rel="stylesheet">
+
+<style>
+
+body {
+	background-color: transparent;/*#fce7ae;#e6dc8c;#c1b2a0;*/
+	background-image: url("../../../img/backperga2.jpg");
+	background-attachment: fixed;
+	font-family: Sawasdee-Bold, Sawasdee, Helvetica, Arial, sans-serif;
+	font-size: medium;
+	margin: 0;
+	overflow: auto;
+	}
+	
+ul {
+	list-style-type: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+hr {
+border-color: #fb0606;
+
+height: 1px;
+border-width: 1px;
+}
+
+table.marg {
+	background-image: url(../../../img/margineBluRed50.png);
+	background-position: left top;
+	background-repeat: repeat-y;
+	background-size: 45px;
+}
+
+td.redbordsu {
+	border-style: solid; 
+	border-color: #FB0606; 
+	border-width: 1px;
+	border-right-width: 0;
+	border-left-width: 1px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+td.redbordsul {
+	border-style: solid; 
+	border-color: #FB0606; 
+	border-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+td.redbordgiu {
+	border-style: solid; 
+	border-color: #FB0606; 
+	border-width: 1px;
+	border-right-width: 0;
+	border-left-width: 1px;
+	border-top-width: 0;
+	border-bottom-width: 1px;
+}
+td.redbordgiul {
+	border-style: solid; 
+	border-color: #FB0606; 
+	border-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-width: 0;
+	border-bottom-width: 1px;
+}
+</style>
+
+<!-- -----------------------------------------------------------------------
+
+nota giusti:       COPIARE TUTTA LA STRINGA  INCOLLARLA DOPO  <span class="R17Bnora">(XX.NN</span></a>  SENZA SPAZI E POI MODIFICARE IL TESTO
+
+<span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;Y.m</span><span class="R17Bnora">)</span>
+
+IL TESTO DA MODIFICARE È SOLO IL NUMERO :       Y.m  (in questo caso)    IL RESTO DEVE RESTARE IDENTICO
+
+-----------------------------------------------------------------------
+
+ nota traduzione :    COPIARE TUTTO E POI INCOLLARE, SENZA SPAZI AGGIUNTI, DOPO LA PAROLA.  POI MODIFICARE IL TESTO
+
+<div class="tradtip">
+ 		<span class="G15nota"><sup>(PdA)</sup></span>
+  		<span class="tradtiptext "> 
+  					<div align="left" style="padding-left: 10px; padding-right: 10px;" class="W14Bnora">
+  					
+			  				Leonardo usa costantemente <I>arismetrica</I> al posto del latino classico <I>arithmetica</I> <span class="W13sc600">&nbsp;[PdA,pag.4]</span>
+			  				
+			  		</div>
+  		</span> 
+</div>
+
+  	QUESTO SOTTO È IL TESTO DELLA NOTA DA MODIFICARE        
+  	USARE SOLO  <I> e </I>  SE SERVE    <B> E <strong> NON FUNZIONANO QUI
+  	
+TESTO-NOTA:     		Leonardo usa costantemente <I>arismetrica</I> al posto del latino classico <I>arithmetica</I>         
+			  				
+
+-----------------------------------------------------------------------  -->	
+
+</head>
+
+<body  >
+
+<a name="torna"></a>  
+<div class="fix-DLnobox">
+<a href="#torna"  title="TORNA SU"><img src="../../../img/tornasu18.png" width="10" height="11" alt=""></a> 
+</div>
+
+<div style="margin-left: 20px; margin-top: 20px;" > 
+
+
+<table cellspacing="10" border="0" align="left" width="100%" class="marg">
+<tr>
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left:25px; " width="12%" align="center" valign="top">pg.1
+	</td>
+
+ 	<td class="O17b" width="73%" align="center" valign="top">
+ 	 <div align="center">Inizia il Liber abaci composto da Leonardo figlio di Bonacci Pisano nell’anno 1202</div>
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+ </tr>  
+ 
+
+<tr align="left" valign="top" >
+ 	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left:25px; " width="12%" align="center" valign="top"><a name="scoto"></a>
+  		
+  		<a href='#scoto' onClick="window.open('../../../skede/cap_1/scoto.html','miaFinestra','width=950,height=500, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');">  <img src="../../../img/ico_s-man_1.png" width="60" height="110" alt=""><br><br>
+  <span class="R12Bc">Michele Scoto</span></a>
+  
+ 	</td>
+ 	 
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_01"></a>
+ 	<a href='#i_01' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_01.png','latI01','width=950,height=250, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I01)" title="testo in Latino(I01)" id="I01"><span class="R17Bnora">(I.1</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.1</span><span class="R17Bnora">)</span>
+ 	<span class="O24Bobnora">M</span>io signore e maestro, sommo filosofo, Michael Scottus mi avete scritto di copiare per voi il libro sul numero che ho scritto tempo fa, per cui, assecondando la vostra richiesta, esaminandolo con accuratezza, l’ho corretto in vostro onore e per renderlo utile a molti altri. Durante la correzione ho aggiunto qualcosa di necessario e tagliato qualcosa di superfluo. In esso ho reso nota l’intera dottrina dei numeri secondo il metodo indiano, metodo che ho scelto come il più efficiente in questa scienza.
+ 		
+ 	</td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Dedica a Michele Scoto	
+ 	</td>
+</tr> 
+ 
+<tr align="left" valign="top" >
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left:25px; " width="12%" align="center" valign="top">
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_02"></a>
+ 	 <a href='#i_02' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_02.png','latI02','width=950,height=550, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I02)" title="testo in Latino(I02)" id="I02"><span class="R17Bnora">(I.2</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.3</span><span class="R17Bnora">)</span>
+ 	 <span class="A24Bobnora">E</span> poiché la scienza aritmetica<div class="tradtip">
+ 		<span class="G15nota"><sup>(PdA)</sup></span>
+  		<span class="tradtiptext "> 
+  					<div align="left" style="padding-left: 10px; padding-right: 10px;" class="W14Bnora">
+  					
+			  				Leonardo usa costantemente <I>arismetrica</I> al posto del latino classico <I>arithmetica</I> <span class="W13sc600">&nbsp;[PdA,pag4]</span>
+			  				
+			  		</div>
+  		</span> 
+</div>
+ 			  		 
+e quella geometrica sono connesse e si sostengono a vicenda, non si può trasmettere una piena dottrina del numero se non intersecandola con alcuni concetti di geometria o spettanti alla geometria, che in questo caso pratica il giusto modo di operare sui numeri; modo che è assunto per molte argomentazioni e dimostrazioni che si fanno con le figure geometriche. Proprio in un altro libro che ho composto sulla pratica geometrica, spiegavo ciò che è pertinente alla geometria e a molte altre cose, descrivendolo con la singola figura, dimostrando ogni singola cosa con dimostrazioni geometriche poste sotto. Senz’altro questo libro spetta più alla teoria che alla pratica.Così chi volesse conoscere bene la pratica di questa scienza dovrà applicarsi con uso continuo ed esercizio giornaliero nella pratica di essa, perché se la conoscenza si muta in abitudine attraverso la pratica, la memoria e l’intelligenza concordano a tal punto con le mani e i segni che quasi in un unico impulso e anelito, in uno stesso istante, si accordano naturalmente su tutto; e allora quando il discepolo avrà conseguito un abito mentale, a poco a poco potrà pervenire facilmente alla perfezione di questa. E per rendere più facile la dottrina ho suddiviso questo libro in quindici capitoli, affinché il lettore possa più agevolmente rintracciare da essi qualsiasi cosa voglia. Inoltre se in questa opera si ravvisa qualche mancanza o difetto, li sottopongo alla vostra correzione. 
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Importanza della geometria
+ 	</td>
+ </tr>  
+ 
+<tr>
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left:25px; " width="12%" align="center" valign="top">
+  		
+ 	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_03"></a>
+ 	 <a href='#i_03' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_03.png','latI03','width=950,height=550, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I03)" title="testo in Latino(I03)" id="I03"><span class="R17Bnora">(I.3</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.7</span><span class="R17Bnora">)</span>  
+ 	 <span class="O24Bobnora">Q</span>uando mio padre fu nominato dalla patria pubblico scrivano nella dogana di Bugia per tutelare gli interessi dei mercanti pisani che vi affluivano, mi fece andare da lui, durante la mia fanciullezza, valutando l’utilità e il vantaggio futuro, e volle che mi fermassi lì per qualche tempo, per essere istruito nello studio dell’abbaco. Qui, introdotto nell’arte da uno straordinario insegnamento basato sulle nove figure degli Indiani mi piacque sopra ogni altra cosa, la conoscenza dell’arte e tanto compresi a suo riguardo che imparai con grande impegno e attraverso il contraddittorio delle dispute. qualunque cosa si studiasse di essa in Egitto, Siria, Grecia, Sicilia e Provenza con i loro diversi modi, luoghi di commercio in cui successivamente io mi recai spesso per affari. Ma io considerai addirittura tutto questo sapere e anche l’algoritmo e gli archi di Pitagora<div class="tradtip">
+ 		<span class="G15nota"><sup>(PdA)</sup></span>
+  		<span class="tradtiptext "> 
+  					<div align="left" style="padding-left: 10px; padding-right: 10px;" class="W14Bnora">
+  					
+			  				<I>Pictagore </I>anziché <I>Pythagor(a)e </I>: la vocale y era stata tra le ultime lettere a entrare nell'alfabeto latino (sec.I a.C) <span class="W13sc600">[PdA,pag.1]</span>
+			  				
+			  		</div>
+  		</span> 
+</div> 
+	 quasi un errore rispetto al metodo degli indiani. Quindi abbracciando in modo più stretto il metodo stesso degli Indiani e studiandolo più attentamente, aggiungendo in esso alcuni concetti in senso più specifico e inserendo anche alcune delle sottigliezze della geometria di Euclide, mi sono sforzato di comporre la totalità  di questo libro, distinta in quindici capitoli, nel modo più comprensibile possibile dimostrando quasi tutto ciò che ho inserito con prove certe, affinché possano essere istruiti in questa scienza, con un  metodo perfetto al di sopra di tutti gli altri, coloro che lo desiderano, e la gente latina d’altra parte, come accaduto finora, non vi si trovi del tutto esclusa. Se per caso ho inserito qualcosa meno o più del giusto o del necessario, vi prego di essere indulgenti con me, poiché non vi è alcuno che sia privo di difetti e che sia cauto in tutto sotto ogni aspetto.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Note
+biografiche
+ 	</td>
+ </tr>   
+
+<tr>
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left: 25px; " width="12%" align="center" valign="top">
+		
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="center" valign="top"><br>
+ 	 	<div align="center"><br><span class="O17b"><em>Fine del prologo. Iniziano i capitoli</em></span></div>
+   </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+</tr> 
+ 
+ 
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">pg.2
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_04"></a>
+ 	<a href='#i_04' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_04.png','latI04','width=950,height=700, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I04)" title="testo in Latino(I04)" id="I04"><span class="R17Bnora">(I.4</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.11</span><span class="R17Bnora">)</span>
+ 	 
+ 	 <ul>
+ 		<li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulla conoscenza delle nove figure indiane, e come con esse si scriva ogni numero, e quali numeri, e come si debbano tenere sulle mani e introduzione dell’abaco
+ 
+</li>
+ 		 
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ulla moltiplicazione dei numeri interi.
+</li> 
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulla addizione dei numeri interi.
+</li> 
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ulla sottrazione di numeri minori da numeri maggiori.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulla divisione di numeri interi per numeri interi.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ulla moltiplicazione di numeri interi per frazioni e di frazioni   senza interi.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulla addizione, sottrazione e divisione di numeri interi con frazioni e riduzione delle parti dei numeri in singole parti.
+</li> 
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ull’acquisto e vendita di merci e simili.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ui baratti delle merci, acquisto di bolzonaglie e alcune regole simili.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ulle società fatte fra consoci.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulla fusione di monete e delle loro regole, pertinenti alla fusione.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ulla soluzione di questioni di varia natura dette erratiche.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulla regola della doppia falsa posizione, come per essa si possano risolvere quasi tutte le varie questioni erratiche.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="O24Bobnora">S</span>ulla determinazione delle radici quadrate e cubiche e la moltiplicazione e divisione e somma e estrazione di queste radici tra di loro e dei recisi e delle loro radici.
+</li>
+ <li  style="padding-top:10px; padding-left:10px; text-indent:0;" ><span class="A24Bobnora">S</span>ulle regole e proporzioni pertinenti alla geometria: questioni di algebra e almuchabala.</li>
+</ul>
+
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Indice del Liber abaci
+ 	</td>
+ </tr>   
+ 
+
+<tr>
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left: 25px; " width="12%" align="center" valign="top">
+		
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="center" valign="top"><br>
+ 	 	<div align="center"> 	 <span class="O17b"><em>Inizia il primo capitolo</em></span></div>
+   </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+</tr> 
+ 
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+  	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_05"></a>
+ 	 <a href='#i_05' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_05.png','latI05','width=950,height=600, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I05)" title="testo in Latino(I05)" id="I05"><span class="R17Bnora">(I.5</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.13</span><span class="R17Bnora">)</span>
+ 	 <!-- <div align="center"> 	 <span class="O17b"><em>Inizia il primo capitolo</em></span></div> -->
+ 	 <span class="O24Bobnora">L</span>e nove figure degli Indiani sono queste
+<table cellpadding="10" cellspacing="10" align="center" class="O17b">
+<!-- <tr>
+	<td>viiii</td><td>viii</td><td>vii</td><td>vi</td><td>v</td><td>iiii</td><td>iii</td><td>ii</td><td>i</td>
+</tr> -->
+<tr>
+	<td>9</td><td>8</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td>
+</tr>
+</table>
+
+	</td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">I nove simboli
+indiani<br>per scrivere tutti i numeri
+ 	</td>
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"> 
+
+ Pertanto con queste nove figure, e con questo segno 0, che gli Arabi chiamano zefiro, si scrive qualunque numero, come è mostrato più sotto. Infatti il numero è una raccolta fatta di unità o un insieme di unità, che per le sue posizioni sale all’infinito. La prima fra queste è formata dalle unità, che sono da uno fino a dieci. La seconda dalle decine che sono da dieci fino a cento. La terza si ha dalle centinaia che sono da cento fino a mille. La quarta dalle migliaia che sono da mille a diecimila, e così ognuna delle qualsiasi posizioni all’infinito consiste nel decuplo del suo antecedente. Nella scrittura dei numeri il primo posto comincia da destra. Il secondo invero, segue il primo verso sinistra. Il terzo segue il secondo. Il quarto il terzo, e il quinto il quarto, e sempre così verso sinistra un posto segue un posto. Pertanto la figura che si trova nel primo posto rappresenta se stessa, cioè se nel primo posto ci sarà la figura dell’uno esso rappresenta uno; se quello del due, due; se quello del tre, tre; e così nell’ordine che seguono fino a nove se c’è il nove: le nove figure poi che saranno nel secondo posto rappresentano tante decine quante nel primo le unità; cioè se la figura dell’unità occupa il secondo posto, indica dieci, se due, venti, se tre trenta, se nove, novanta.
+
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Scrittura posizionale<br>dei numeri interi
+
+ 	</td>
+ </tr>  
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">pg.3
+  		
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_06"></a>
+ 	 <a href='#i_06' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_06.png','latI06','width=950,height=200, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I06)" title="testo in Latino(I06)" id="I06"><span class="R17Bnora">(I.6</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.16</span><span class="R17Bnora">)</span>
+ 	 <span class="A24Bobnora">I</span>nfatti la figura che sarà nel terzo posto, indica tante centinaia, quante nel secondo le decine o nel primo e unità. E così la figura dell’unità [ <i>indica</i> ] cento; se due, duecento; se tre, trecento; e nove, novecento. Lo stesso dunque che si troverà nel quarto posto indica tante migliaia quante nel terzo le centinaia, o nel secondo le decine o nel primo le unità; e così sempre, mutando il posto, il numero sale moltiplicando per dieci.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+ </tr> 
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+  	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_07"></a>
+ 	 <a href='#i_07' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_07.png','latI07','width=950,height=650, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I07)" title="testo in Latino(I07)" id="I07"><span class="R17Bnora">(I.7</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.17</span><span class="R17Bnora">)</span>
+ 	 <span class="O24Bobnora">E</span> affinché si mostri in modo più chiaro ciò che è stato detto, andiamo a illustrare il concetto stesso con le figure. Se la figura del sette sarà nel primo posto e del tre nel secondo, entrambi insieme rappresentano il 37; o al contrario: la figura del tre nel primo, e del sette nel secondo, ambedue insieme rappresentano il 73.  Ancora se la figura del 4 sarà nella prima posizione e dell’unità in seconda così: 14, senza dubbio indicherà XIIII:  oppure se la figura dell’uno sarà nella prima e del quattro nella seconda così: 41, indicherà XLI. Ancora, 7 al primo posto
+ 	 <span class="tooltip"><span class="R15nota"><sup>[NdT]</sup></span>
+  			<span class="tooltiptext W13Bnora">La frase ci sembra mal trascritta <br>&nbsp;&nbsp;e abbiamo tradotto secondo <br>&nbsp;&nbsp;il senso che si impone.</strong></span>
+	</span>
+ 	  e 2 al secondo fanno 27; al contrario 2 nel primo e 7 nel secondo fa 72.  Se  figura del 7, così: 70; se ottanta, lo zefiro segua la figura dell’otto così 80: pertanto con questa dimostrazione puoi scrivere qualsivoglia numero da dieci fino a cento con due figure. Invece con tre si scrive da cento fino a mille; che se la figura dell’otto sarà nella prima posizione, e del cinque nella seconda, e dell’uno nella terza 158, sarà indicato il centocinquantotto; e al contrario: se la figura dell’uno sarà in prima posizione e del cinque in seconda e dell’otto in terza 851, indicheranno ottocentocinquantuno; o al contrario: se la figura dell’otto sarà nella prima posizione, e dell’uno in seconda e del cinque in terza, sarà denotato il 518. Ugualmente se cambiando, la figura del cinque sarà in prima posizione, dell’otto in seconda, e dell’uno in terza, sarà indicato il 185. Ugualmente se la figura dell’uno sarà nella prima, dell’otto nella seconda e del cinque in terza, certamente sarà indicato [ <i>581</i> ]; ma tre unità così 111, fanno centoundici.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Esempi di<br>scrittura posizionale
+ 	</td>
+ </tr>  
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+  	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_08"></a>
+ 	 <a href='#i_08' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_08.png','latI08','width=950,height=550, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I08)" title="testo in Latino(I08)" id="I08"><span class="R17Bnora">(I.8</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.21</span><span class="R17Bnora">)</span>
+ 	  <span class="A24Bobnora">M</span>a se vorrai scrivere solo cinquecento, nella prima e seconda posizione poni gli zefiri, e nella terza la figura del cinque in questo modo: 500; e così con due zefiri potrai scrivere qualunque numero delle centinaia. E se vorrai scrivere le centinaia con le decine o le unità, poni in prima posizione lo zefiro, in seconda le decine e in terza le centinaia che vorrai. Per esempio: se in prima posizione ci fosse lo zefiro e nella seconda la figura del nove nella terza del due, indicheranno 290. Se invece vorrai scrivere senza decine le centinaia con le unità, porrai in seconda posizione, cioè al posto delle decine lo zefiro, e nella prima il numero delle unità che vorrai e nella terza delle centinaia: così nella prima posizione ci sarà la figura del nove e nella seconda lo zefiro e nel terzo quella del due 209; e così secondo la suddetta dimostrazione scriverai qualunque numero vorrai, da cento fino a mille con tre figure. E infatti con quattro da mille a diecimila, come si dimostra di seguito con le figure con i numeri soprascritti.<br>
+ 	  <br> <div align="center"><img src="../fig_num/cap_01/tab_num_rom-arab3tras.png" width="831" height="99" alt=""></div> 
+
+	 	   
+<!-- -------------inizio tavola numeri ----------------------- -->
+<!--  	   
+ 	 <br>  
+ <div align="center">
+<table cellpadding="10" cellspacing="0" align="center"> 
+	<tr align="center" valign="middle" class="B17b"> 	
+  		<td class="redbordsu" align="center" valign="middle">MI</td>
+		<td class="redbordsu" align="center" valign="middle">MMXXIII</td>
+		<td class="redbordsu" align="center" valign="middle">MMMXXII</td>
+		<td class="redbordsu" align="center" valign="middle">MMMXX</td>
+		<td class="redbordsu" align="center" valign="middle">MMMMMDC</td>
+		<td class="redbordsu" align="center" valign="middle">MMM</td>
+		<td class="redbordsu" align="center" valign="middle">MCXI</td>
+		<td class="redbordsu" align="center" valign="middle">MCCXXXIIII</td>
+		<td class="redbordsul" align="center" valign="middle">MMMMCCCXXI</td>
+	</tr>
+	
+	<tr align="center" valign="middle" class="O18b">
+		<td class="redbordgiu" align="center" valign="middle">1001</td>
+		<td class="redbordgiu" align="center" valign="middle">2023</td>
+		<td class="redbordgiu" align="center" valign="middle">3022</td>
+		<td class="redbordgiu" align="center" valign="middle">3020</td>
+		<td class="redbordgiu" align="center" valign="middle">5600</td>
+		<td class="redbordgiu" align="center" valign="middle">3000</td>
+		<td class="redbordgiu" align="center" valign="middle">1111</td>
+		<td class="redbordgiu" align="center" valign="middle">1234</td>
+		<td class="redbordgiul" align="center" valign="middle">4321</td>          
+	</tr>
+</table>  
+</div>  
+--> 	   
+<!-- -------------fine tavola numeri ----------------------- --> 
+	  
+ 	  <br>
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Il ruolo dello
+zero
+ 	</td>
+ </tr> 
+ 
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_09"></a>
+ 	 <a href='#i_09' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_09.png','latI09','width=950,height=250, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I09)" title="testo in Latino(I09)" id="I09"><span class="R17Bnora">(I.9</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.23</span><span class="R17Bnora">)</span>
+ 	 <span class="O24Bobnora">E</span> così si deve procedere nei restanti numeri. Infatti con cinque figure si scrivono tutti i numeri, cominciando da diecimila fino a centomila. Invece con sei, da centomila fino a mille migliaia, e così di seguito, aggiungendo una figura alle figure, il numero gradualmente sale di dieci. Per cui se capitasse che qualcuno non sia in grado di leggere o capire un qualche numero con molte figure per una gran quantità delle figure, procurerò di mostrare come si debba leggere e capire lo stesso.
+
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+ </tr>  
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">pg.4
+  	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_10"></a>
+ 	 <a href='#i_10' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_10.png','latI10','width=950,height=700, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I10)" title="testo in Latino(I10)" id="I10"><span class="R17Bnora">(I.10</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.24</span><span class="R17Bnora">)</span>
+ 	<ul> 
+<li>Pertanto, <span class="A20Bobnora">D</span>ella prima figura, cioè della figura in prima posizione, si dica uno</li>
+<li><span class="O20Bobnora">D</span>ella seconda, che è in seconda posizione, si dica dieci.</li>
+<li><span class="A20Bobnora">D</span>ella terza, che sarà al terzo posto, si dica cento, e la si accenti nella parte superiore</li>
+<li><span class="O20Bobnora">D</span>ella quarta figura poi dello stesso numero si dica mille, e la si accenti nella parte inferiore.</li>
+<li><span class="A20Bobnora">D</span>ella quinta si dica invece diecimila.</li>
+<li><span class="O20Bobnora">D</span>ella sesta pertanto centomila, e la si accenti nella parte superiore.</li>
+<li><span class="A20Bobnora">D</span>ella settima si dica mille migliaia, e lo si accenti di nuovo nella parte inferiore.</li>
+<li><span class="O20Bobnora">D</span>ell’ottava si dica diecimila migliaia.</li>
+<li><span class="A20Bobnora">D</span>ella nona dica centomila migliaia, e lo si accenti nella parte superiore.</li>
+<li><span class="O20Bobnora">D</span>ella decima si dica mille migliaia di migliaia [ <i>mille milioni</i> ], e lo accenti nella parte inferiore.</li>
+	</ul>
+	E così sempre con questi tre numeri, cioè  le migliaia, le decine di migliaia, e  le centinaia di migliaia, accentando le migliaia nella parte inferiore, le centinaia di migliaia nella superiore, si abbia cura di accentare fino all’ultima posizione. E da qui si comincia a leggere il numero dall’ultima posizione dello stesso attraverso gli accenti menzionati, dicendo sempre dagli accenti inferiori tanti milioni quanti accenti siano davanti agli stessi nella parte inferiore verso la prima posizione, e leggendo dagli accenti superiori, tante centinaia di migliaia, quanti siano gli accenti davanti alla stessa  nella parte inferiore verso la prima posizione; e di quelle figure che non sono state accentate dopo la quarta posizione del numero si leggano tante decine di migliaia, quante siano davanti a loro stesse nella parte inferiore; e così si potrà conoscere e leggere qualunque numero di molte figure.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Come leggere numeri<br>comunque grandi
+ 	</td>
+ </tr> 
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_11"></a>
+ 	 <a href='#i_11' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_11.png','latI11','width=950,height=500, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I11)" title="testo in Latino(I11)" id="I11"><span class="R17Bnora">(I.11</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.28</span><span class="R17Bnora">)</span>
+ 	 <span class="A24Bobnora">E</span> perché ciò si intenda meglio, proponiamo un numero di otto figure 87,<b>&#180;</b>654,<b>&#180;</b>321
+ 	 <span class="tooltip"><span class="R15nota"><sup>[NdT]</sup></span>
+  			<span class="tooltiptext W13Bnora">Abbiamo aggiunto gli accenti <br>&nbsp;&nbsp;come indicato nel testo .</span>
+	</span>. 
+	E così dell’uno che è in prima posizione si legga uno; del due 2 che è in seconda posizione si dica dieci, del tre 3 che è in terza si dica cento, e anche sono accentate nella parte superiore. Del quattro che è in quarta posizione si legga mille, che si accentano nella parte inferiore, come si mostra nel numero sopra scritto. Del cinque che è in quinta posizione si dica dieci migliaia; del sei che è in sesta posizione si dirà cento migliaia, che è accentata nella parte superiore; del sette che è in settima posizione si dirà in mille migliaia, ed è accentato nella parte inferiore; dell’otto che è in ultima posizione, si dirà dieci migliaia di migliaia. Dunque si ha nel numero sopra indicato ottantasette migliaia di migliaia per i due accenti inferiori, dei quali uno è sotto il sette e l’altro sotto il quattro, e inoltre seicentocinquantaquattromila, e poi CCCXXI.
+
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Come si legge<br>
+87,<b>&#180;</b>654,<b>&#180;</b>321
+ 	</td>
+ </tr> 
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+  		<img src="../../../img/ico_m-man_1.png" width="68" height="70" alt="">
+ 		<p align="center"> 
+ 		Matematica</p>
+ 		<br><br><br><br><br>pg.5
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_12"></a>
+ 	 <a href='#i_12' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_12.png','latI12','width=950,height=550, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I12)" title="testo in Latino(I12)" id="I12"><span class="R17Bnora">(I.12</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.30</span><span class="R17Bnora">)</span>
+ 	 <span class="O24Bobnora">U</span>gualmente proponiamo un altro numero di nove figure 257,<b>&#180;</b>604,<b>&#180;</b>813, del quale, attraverso l’ordine degli accenti, si sa che in esso vi sono duecentocinquantasette migliaia di migliaia, e seicentoquattro migliaia, e ottocentotredici. Parimenti si proponga un altro numero di tredici figure 1,<b>&#180;</b>007,<b>&#180;</b>543,<b>&#180;</b>289,<b>&#180;</b>081, attraverso i cui accenti si riconosce che il numero stesso è mille, sette migliaia di migliaia di migliaia, e cinquecentoquarantatre migliaia di migliaia, e duecentoottantanovemila e ottantuno. Infatti possiamo riferire un’altra regola facile con cui potrai leggere un numero di più figure. Per esempio: proponiamo il numero di 15 figure&nbsp;<img src="../fig_num/cap_01/formula.png" width="137" height="16" alt="">: tralasciate le prime tre figure, cioè 296, sopra qualunque delle altre tre riporta una lineetta come un arco come nell’esempio prima esposto; e davanti a qualsiasi lineetta dirai [ <i>migliaia</i> ], e quelle tre figure che all’inizio hai tralasciato le leggerai come stanno; e così dirai seicentosettantotto migliaia di migliaia di migliaia di migliaia, poiché le lineette sono quattro e novecentotrentacinque migliaia di migliaia di migliaia, perché ci sono solo tre lineette e settecentottantaquattro migliaia di migliaia, essendoci due<a name="pg"></a> linee e 105 mila, perché c’è solo una lineetta, e 296 per quelle tre figure che all’inizio hai trascurato:  e se dopo l’ultimo arco rimangono una o due figure, porrai le stesse sotto l’ultima lineetta, e leggerai tutte queste IIII o tutte e cinque insieme, e cosi potrai leggere un numero di tutte le figure che vorrai.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Esempi di numeri<br> con pi&ugrave; di 10 cifre
+ 	</td>
+ </tr> 
+ 
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">
+  		<a href='#i_13' onClick="window.open('../../../skede/cap_1/contare.html','miaFinestra','width=1250,height=500, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');">  <img src="../../../img/ico_s-man_1.png" width="60" height="110" alt=""><br>
+  <span class="R12Bc">contare<br>con le mani</span></a>
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_13"></a>
+ 	 <a href='#i_13' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_13.png','latI13','width=950,height=750, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I13)" title="testo in Latino(I13)" id="I13"><span class="R17Bnora">(I.13</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.33</span><span class="R17Bnora">)</span>
+ 	 <span class="A24Bobnora">B</span>en apprese le figure suddette e le loro posizioni secondo la materia sopra descritta usandole frequentemente, è opportuno che quelli che vogliono usare l'arte dell’abaco, perché appaiano più abili e ingegnosi sappiano far di conto con i segni delle mani, escogitati in modo assai saggio nell’antichità secondo l’uso dei maestri d’abaco. Questi sono i segni. La curvatura del dito mignolo della mano sinistra sopra il centro del palmo della mano indica l’uno, a curvatura dello stesso con l’anulare similmente sopra il centro del palmo, indica due, quando con essi si curva il medio, indica tre. La curvatura poi dell’anulare e del medio similmente sopra il centro del palmo, indica quattro. Ma la curvatura soltanto del medio, cinque. Dell’anulare sei. E poi la posizione del mignolo verso l’alto sopra il palmo indica il sette, sopra questo posto quando si pone il mignolo e l’anulare si indica l’otto: la posizione dei medesimi con il medio sopra il medesimo posto, il 9. Quando dall’estremità dell’indice e dal pollice si fa un cerchio sul nodo del pollice, indica il dieci. Quando l’indice e il pollice sono dritti e si toccano, indicano 20. Quando dall’estremità degli stessi si fa un cerchio, il 30. Quando si pone il pollice sopra l’indice nella parte esterna dell’indice 40. La curvatura del pollice sopra l’inizio dell’indice 50. La curvatura dell’indice sopra il pollice curvato 60. La creatura dell’indice sopra l’estremità del pollice teso 70. E così la curvatura dell’indice sopra l’unghia del pollice teso, ottanta. Parimenti la curvatura di tutto l’indice su sé stesso 90. Anche le centinaia e le migliaia si formano sulla mano destra nel medesimo ordine, cioè il segno dell’uno sulla mano destra corrisponde a 100; del due allora 200; del dieci, invece, mille, e il segno del novanta, corrisponde a 9000, come si dimostra nella 
+ 	 <a href="#i_13" onClick="window.open('numeri-mano.html', 'miaFinestra','width=750,height=600, toolbar=no, titlebar=no, scrollbar=auto, directories=no, location=float, status=no, menubar=no');" alt="contare con le mani" title="[cliccando appare la pagina con le figure delle dita]">seguente pagina</a> con i disegni delle mani.
+ 	   
+ 	   Dunque con le mani con questi segni si compongono tutti gli altri numeri che ci sono da dieci fino a diecimila in questo modo: dal segno del venti e dal segno del 3 si compone 23; e dal segno del tremila e dal segno del cinquecento si compongono sulla mano destra tremilacinquecento, e così capisci negli altri.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">Come rappresentare<br>i numeri con le mani<br><br>
+ 		<img src="../../../img/numeri700.jpg"  alt="far di conto con le mani" id="myImg" style="width:100%;max-width:150px;" >
+ 	</td>
+ </tr> 
+
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc"><a name="portepy">
+	</a><br><br><br>pg.6
+	<br><br>
+	
+		<a href='#portepy' onClick="window.open('../../../python/porte_del_piu_py.html', 'miaFinestra3','width=900,height=500, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');">
+	<img src="../../../img/IF1.png" width="47" height="200" alt="">
+ 		<p align="center"> 
+ 		<span class="R12Bc">porte_del_piu.py</span></p></a>
+ 		<br>
+ 		<a href='#portepy' onClick="window.open('../../../python/moltiplicazione_1_cifra.html', 'miaFinestra3','width=900,height=500, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');">
+	<img src="../../../img/IF1.png" width="47" height="200" alt="">
+ 		<p align="center"> 
+ 		<span class="R12Bc">moltiplicazioni<br>cifra x cifra</span></p></a>
+	</td>
+ 	 
+ 	<td class="B15nj10in" width="73%" align="left" valign="top">
+ 	<a name="t_1"></a>
+ 	 <a href='#t_1' onClick="window.open('../lat/lat2img/cap_01/T_01.png','latT01','width=550,height=700, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I13)" title="testo in Latino(T01)" id="T01"><span class="R17Bnora">(T.1</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.37</span><span class="R17Bnora">)</span>
+ 	 <div align="center"> <span class="O17b"><em>Introduzione nell’addizione e moltiplicazione dei numeri</em></span></div>
+  <br>
+  
+  <div align="center"><img src="../fig_num/cap_01/tab_piu-per_tras.png" width="745" height="1082" alt=""></div>
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+ </tr> 
+    
+<tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc">pg.7
+	</td>
+ 	 
+ 	<td class="B15nj10in" width="73%" align="left" valign="top"><a name="i_14"></a>
+ 	 <a href='#i_14' onClick="window.open('../lat/lat2img/cap_01/conlabel/I_14.png','latI14','width=950,height=150, toolbar=no, titlebar=no,directories=no, location=float, status=no, menubar=no');" alt="testo in Latino(I14)" title="testo in Latino(I14)" id="I14"><span class="R17Bnora">(I.14</span></a><span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;I.44</span><span class="R17Bnora">)</span> 
+ 	 <span class="O24Bobnora">E</span> così imparando le somme e le moltiplicazioni scritte nelle tavole sempre facciano uso di raccogliere nelle mani, in modo che l’animo insieme alle mani divenga più veloce nelle addizioni e moltiplicazioni di qualsiasi numero.
+    </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+ </tr> 
+ 
+ <tr>
+	<td colspan="1" rowspan="1"  style="padding-left:25px; " width="12%" align="center" valign="top" class="R12Bc"><br><br>
+  		
+	</td>
+ 	 
+ 	<td class="B15nj150"  width="73%" align="left" valign="top">
+ 		
+   </td>	
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+ </tr>
+ 
+ <tr>
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left: 25px; " width="12%" align="center" valign="top">
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="center" valign="top"><br>
+		<div align="center" >
+ 	 		<span class="O17bobl">Termina il primo capitolo. </span>
+		</div>
+   </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="bottom">
+ 		<a href="#torna" title="TORNA SU"><img src="../../../img/tornasu18.png" width="16" height="18" alt=""></a>
+ 	</td>
+</tr> 
+
+  <tr>
+ 	<td colspan="3" height="20" valign="top"><br><br><br><br>
+ </tr>
+ 
+ </table> 
+ 
+</div>
+
+
+
+ 
+
+  <div class="modal"  id="myModal" >
+  <span class="close" style="margin-top: 70px; position: fixed;"><span class="O50b">&times;</span></span>
+  <img class="modal-content" id="img01" >
+  <div id="caption" class="R12n_900"></div>
+</div>
+
+
+<script language="javascript">
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script> 
+
+
+<!-- PROTOTIPI
+
+aperta 13px		<span class="parbigu">&#9127;<span class="parbigd">&#9129;</span></span>
+chiusa 13px		<span class="parbigu">&#9131;<span class="parbigd">&#9133;</span></span>
+
+graffa aperta grande 20px
+			<span class="parbiggru"><span class="R20n">&#9127;</span> <span class="parbiggrc"><span class="R20n">&#9128;</span></span> <span class="parbiggrd"><span class="R20n">&#9129;</span></span></span>
+			
+graffa chiusa grande 20px
+		<span class="parbiggru"><span class="R20n">&#9131;</span> <span class="parbiggrc"><span class="R20n">&#9132;</span></span> <span class="parbiggrd"><span class="R20n">&#9133;</span></span></span>
+
+
+*******************************************************************
+
+fsempl  
+		red		<span class="frO O15Bc"><span><div class="thin"></div>1<div class="thin"></div></span><span class="fdO">805</span></span>		
+		
+		black		<span class="frB B15b"><span><div class="thin"></div>1<div class="thin"></div></span><span class="fdB">805</span></span>		
+		
+		dark		<span class="frR R15Bc"><span><div class="thin"></div>1<div class="thin"></div></span><span class="fdR">805</span></span>
+		
+		white		<span class="frW W15B"><span><div class="thin"></div>0<div class="thin"></div></span><span class="fdW">219</span></span>
+
+fmulti	
+		red	<span class="frO O15Bc"><span><div class="thin"></div>1<div class="em"></div>0<div class="em"></div>0<div class="thin"></div></span>
+				<span class="fdO"><div class="thin"></div>5<div class="em"></div>7<div class="em"></div>23<div class="thin"></div></span></span>
+				 
+		dark	<span class="frR R15Bc"><span><div class="thin"></div>1<div class="em"></div>0<div class="em"></div><div class="thin"></div>0&nbsp;</span>
+				<span class="fdR"><div class="thin"></div>5<div class="em"></div>7<div class="em"></div>23<div clfsemplass="thin"></div></span></span>
+				
+		black	<span class="frB B15Bc"><span><div class="thin"></div>1<div class="em"></div>0<div class="em"></div><div class="thin"></div>0&nbsp;</span>
+				<span class="fdB"><div class="thin"></div>5<div class="em"></div>7<div class="em"></div>23<div class="thin"></div></span></span>
+				
+sottolineata
+		red
+					<span class="frO O15Bc">
+	 	  				<span><div class="thin"></div><u>1</u><div class="em"></div><u>1</u><div class="em"></div><u>1</u><div class="em"></div>5<div class="thin"></div></span>
+						<span class="fdO "><div class="thin"></div>5<div class="em"></div>4<div class="em"></div>3<div class="em"></div>9<div class="thin"></div></span>
+					</span>
+
+
+ -----------------------------------------------------------------------
+
+nota giusti:       COPIARE TUTTA LA STRINGA  INCOLLARLA DOPO  <span class="R17Bnora">(XX.NN</span></a>  SENZA SPAZI E POI MODIFICARE IL TESTO
+
+<span title="Corrispondente paragrafo in Giusti" class="DG15nota"><span class="DG17Bobnora">&thinsp;;&thinsp;G</span>:&thinsp;Y.m</span><span class="R17Bnora">)</span>
+
+IL TESTO DA MODIFICARE È SOLO IL NUMERO :       Y.m  (in questo caso)    IL RESTO DEVE RESTARE IDENTICO
+
+-----------------------------------------------------------------------
+
+ nota traduzione :    COPIARE TUTTO E POI INCOLLARE, SENZA SPAZI AGGIUNTI, DOPO LA PAROLA.  POI MODIFICARE IL TESTO
+
+<div class="tradtip">
+ 		<span class="G15nota"><sup>(PdA)</sup></span>
+  		<span class="tradtiptext "> 
+  					<div align="left" style="padding-left: 10px; padding-right: 10px;" class="W14Bnora">
+  					
+			  				Leonardo usa costantemente <I>arismetrica</I> al posto del latino classico <I>arithmetica</I> <span class="W13sc600">&nbsp;[PdA,pag.4]</span>
+			  				
+			  		</div>
+  		</span> 
+</div>
+
+  	QUESTO SOTTO È IL TESTO DELLA NOTA DA MODIFICARE        
+  	USARE SOLO  <I> e </I>  SE SERVE    <B> E <strong> NON FUNZIONANO QUI
+  	
+TESTO-NOTA:     		Leonardo usa costantemente <I>arismetrica</I> al posto del latino classico <I>arithmetica</I>         
+			  				
+
+----------------------------------------------------------------------- 
+
+fnota	 
+<span class="tooltip">
+ 		<span class="R15nota"><sup>[NdT]</sup></span>
+  		<span class="tooltiptext W13Bnora"> 
+  					<div align="left" style="padding-left: 10px; padding-right: 10px;">
+			  				1 <strong>Cantaro</strong>  = 100 Rotoli
+			  		</div>
+  		</span> 
+</span>
+	    
+titoletto	
+<tr>
+	<td colspan="1" rowspan="1" class="R12Bc" style="padding-left: 25px; " width="12%" align="center" valign="top">
+	</td>
+
+ 	<td class="B15nj10in" width="73%" align="center" valign="top"><br>
+ 	 	<div align="center" >
+ 	 		<span class="O17bobl">Regola generale per trovare le composizioni dei numeri dispari</span>
+		</div>
+   </td>
+ 		
+ 	<td class="R14nl" width="15%" align="left" valign="top">
+ 	</td>
+</tr>
+
+/*+++++++++++++++++++++ spazi +++++++++++++++++++++ */
+.thin {
+  display: inline-block;
+  width: 0.1em;
+}
+.nb { 
+  display: inline-block;
+  width: 0.2em;
+}
+.en {
+  display: inline-block;
+  width: 0.3em;
+}
+.nb2 { 
+  display: inline-block;
+  width: 0.4em;
+}
+.en2 {
+  display: inline-block;
+  width: 0.6em;
+}
+.nb4 { 
+  display: inline-block;
+  width: 0.8em;
+}
+.nb5 { 
+  display: inline-block;
+  width: 1.0em;
+}
+.en3 {
+  display: inline-block;
+  width: 1.2em;
+}
+.em {
+  display: inline-block;
+  width: 1.5em;
+}
+.emen {
+  display: inline-block;
+  width: 1.8em;
+ }
+.em2 {
+  display: inline-block;
+  width: 2.0em;
+}
+.emen2 {
+  display: inline-block;
+  width: 2.1em;
+ }
+
+  -->
+     
+</body>
+</html>
