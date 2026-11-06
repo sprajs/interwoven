@@ -1,9 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { Engine } from '../engine/Engine.ts'
 import { emitFrame } from '../engine/frames.ts'
+import { clearTextCache } from '../engine/overlay.ts'
 import { setEngine, useApp } from '../store.ts'
 
 const COMPACT_WIDTH = 760
+export const SHEET_WIDTH = 348
+export const LABELS_WIDTH = 268
 
 /** Mounts the engine and mirrors app state into it. */
 export function TimelineCanvas() {
@@ -32,24 +35,25 @@ export function TimelineCanvas() {
       return
     }
     setEngine(engine)
+    if (import.meta.env.DEV) (window as unknown as { engine: Engine }).engine = engine
 
     const sync = () => {
       const s = useApp.getState()
       const compact = window.innerWidth < COMPACT_WIDTH
-      const panel = !compact && (s.selected !== null || s.mode !== 'network')
+      const panel = !compact && (s.selected !== null || s.mode !== 'threads')
+      const labels = !compact && s.labelsOpen
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
       const sheet = compact && s.selected !== null
       engine.setInsets({
-        top: compact ? 104 : 112,
-        bottom: sheet ? window.innerHeight * 0.5 : compact ? 92 : 108,
-        left: compact ? 36 : 172,
-        right: panel ? 344 : compact ? 20 : 44,
+        top: compact ? 118 : 104,
+        bottom: sheet ? window.innerHeight * 0.5 : compact ? 104 : 96,
+        left: labels ? LABELS_WIDTH + 36 : compact ? 22 : 56,
+        right: panel ? SHEET_WIDTH + 36 : compact ? 22 : 56,
       })
       engine.setView({
         mode: s.mode,
         compressed: s.compressed,
-        hiddenDomains: s.hiddenDomains,
-        hiddenTypes: s.hiddenTypes,
+        hiddenKinds: s.hiddenKinds,
         activeLabels: s.activeLabels,
         selected: s.selected,
       })
@@ -66,18 +70,22 @@ export function TimelineCanvas() {
       if (
         s.mode !== prev.mode ||
         s.compressed !== prev.compressed ||
-        s.hiddenDomains !== prev.hiddenDomains ||
-        s.hiddenTypes !== prev.hiddenTypes ||
+        s.hiddenKinds !== prev.hiddenKinds ||
         s.activeLabels !== prev.activeLabels ||
-        s.selected !== prev.selected
+        s.selected !== prev.selected ||
+        s.labelsOpen !== prev.labelsOpen
       ) {
         sync()
       }
     })
     window.addEventListener('resize', sync)
 
-    // Text measured before the web fonts load has the wrong width.
-    void document.fonts.ready.then(() => engine.invalidate())
+    // Text measured before the web fonts arrive has the wrong width.
+    const fonts = ['400 14px "EB Garamond Variable"', 'italic 400 14px "EB Garamond Variable"', '500 17px "EB Garamond Variable"']
+    void Promise.all(fonts.map((font) => document.fonts.load(font))).then(() => {
+      clearTextCache()
+      engine.invalidate()
+    })
 
     return () => {
       unsubscribe()
@@ -88,7 +96,7 @@ export function TimelineCanvas() {
   }, [])
 
   return (
-    <div className="absolute inset-0" role="img" aria-label="Interactive timeline of science and technology. Use search to browse the entries as a list.">
+    <div className="absolute inset-0" role="img" aria-label="A chart of how science and technology build on one another. Use search to browse the entries as a list.">
       <canvas ref={glRef} className="absolute inset-0" />
       <canvas ref={overlayRef} className="absolute inset-0 touch-none" style={{ cursor: 'grab' }} />
     </div>

@@ -1,41 +1,53 @@
-import type { Level, NodeType, RawDataset, RawNode } from './types.ts'
+import type { Level, NodeKind, RawDataset, RawLink, RawNode } from './types.ts'
 
 /** Deterministic synthetic data for `?stress=N`, used only to test rendering at scale. */
-export function makeStressDataset(base: RawDataset, count: number): RawDataset {
+export function makeStressDataset(count: number): RawDataset {
   let seed = 42
   const rand = () => {
     seed = (seed * 1664525 + 1013904223) >>> 0
     return seed / 4294967296
   }
-  const types: NodeType[] = ['discovery', 'theory', 'instrument', 'invention', 'system']
+  const inks = ['#265a96', '#b0472d', '#0c8269', '#a8761a', '#83406f', '#55772b']
+  const labels = Array.from({ length: 12 }, (_, i) => ({ id: `group-${i}`, name: `Group ${i}`, ink: inks[i % inks.length]! }))
   const nodes: RawNode[] = []
-  const end = 2026
   for (let i = 0; i < count; i++) {
-    // Most entries are recent, with a long thin tail into the past.
-    const year = Math.round((end - 30 * (Math.exp(rand() * 5.4) - 1)) * 10) / 10
+    const year = Math.round((2026 - 30 * (Math.exp(rand() * 5.4) - 1)) * 10) / 10
     const pick = rand()
     const level = (pick < 0.002 ? 0 : pick < 0.02 ? 1 : pick < 0.2 ? 2 : 3) as Level
+    const kind: NodeKind = rand() < 0.3 ? 'science' : 'technology'
     nodes.push({
       id: `s${i}`,
       title: `Synthetic ${i}`,
-      year,
+      kind,
       level,
-      type: types[Math.floor(rand() * types.length)]!,
-      domain: base.domains[Math.floor(rand() * base.domains.length)]!.id,
+      year,
+      start: year,
+      end: year,
+      date_label: String(Math.round(year)),
+      placed_by: 'synthetic',
+      anchored: false,
       labels: [`group-${Math.floor(rand() * 12)}`],
-      builds_on: [],
       summary: 'Generated for performance testing. Not real data.',
+      regions: [],
+      review: 'candidate',
+      sources: [],
     })
   }
   nodes.sort((a, b) => a.year - b.year)
+  const links: RawLink[] = []
   nodes.forEach((node, i) => {
     if (i === 0) return
-    const links = 1 + Math.floor(rand() * 2.6)
-    for (let k = 0; k < links; k++) {
+    const count = 1 + Math.floor(rand() * 2.6)
+    for (let k = 0; k < count; k++) {
       const back = Math.floor(Math.pow(rand(), 3) * Math.min(i, 4000)) + 1
       const parent = nodes[i - back]
-      if (parent && !node.builds_on.includes(parent.id)) node.builds_on.push(parent.id)
+      if (parent) links.push({ from: parent.id, to: node.id, relation: 'synthetic', tentative: false })
     }
   })
-  return { ...base, meta: { title: `Stress test: ${count.toLocaleString('en-US')} synthetic nodes` }, nodes }
+  return {
+    meta: { title: 'Interwoven', description: `Stress test: ${count.toLocaleString('en-US')} synthetic nodes` },
+    labels,
+    nodes,
+    links,
+  }
 }

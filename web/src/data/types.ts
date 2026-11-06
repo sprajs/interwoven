@@ -1,53 +1,67 @@
-/** The on-disk dataset format. See web/README.md for how to add data. */
-export type NodeType = 'discovery' | 'theory' | 'instrument' | 'invention' | 'system'
+/** The dataset format the app reads. `npm run import` builds it from the research graph. */
+export type NodeKind = 'science' | 'technology'
 
-/** 0 = step change, 1 = major, 2 = technology, 3 = underlying science and detail. */
+/** 0 is most prominent. Deeper levels appear as you zoom in. */
 export type Level = 0 | 1 | 2 | 3
 
 export interface RawNode {
   id: string
   title: string
-  /** Decimal year. Negative is BCE. There is no year 0 in display, but values are not adjusted. */
-  year: number
+  kind: NodeKind
   level: Level
-  type: NodeType
-  domain: string
-  labels: string[]
-  /** Direct prerequisites. Drawn as solid links. */
-  builds_on: string[]
-  /** Softer intellectual influence. Drawn as dashed links. */
-  informed_by?: string[]
-  summary: string
-  /** Why this reshaped what came after. Presence marks the node as a step change. */
-  step_change?: string
-}
-
-export interface RawDomain {
-  id: string
-  label: string
-  color: string
-}
-
-export interface RawEpoch {
-  id: string
-  label: string
+  /** Where the mark sits: the midpoint of `start` and `end`. Negative is BCE. */
+  year: number
   start: number
   end: number
+  date_label: string
+  date_basis?: string
+  /** The kind of event that dates this node, such as "demonstration". */
+  placed_by: string
+  /** True if the source data selected this date as the node's anchor, not just its earliest record. */
+  anchored: boolean
+  /** One or more overlapping labels. The first sets the ink colour. */
+  labels: string[]
+  summary: string
+  regions: string[]
+  uncertainty?: string
+  review: 'accepted' | 'candidate' | 'withheld'
+  /** Why this entry changed what followed, where that has been written. */
+  note?: string
+  sources: string[]
+}
+
+export interface RawLink {
+  from: string
+  to: string
+  relation: string
+  statement?: string
+  /** Softer or still unreviewed links are drawn broken, as a pen lifting off the page. */
+  tentative: boolean
+}
+
+export interface RawLabel {
+  id: string
+  name: string
+  ink: string
+}
+
+export interface RawSource {
+  title: string
+  url?: string
+  year?: string | number
 }
 
 export interface RawDataset {
-  meta: { title: string; description?: string }
-  domains: RawDomain[]
-  epochs: RawEpoch[]
+  meta: { title: string; description?: string; provenance?: string }
+  labels: RawLabel[]
   nodes: RawNode[]
+  links: RawLink[]
+  sources?: Record<string, RawSource>
 }
 
-export const NODE_TYPES: { id: NodeType; label: string; shape: number }[] = [
-  { id: 'discovery', label: 'Discovery', shape: 0 },
-  { id: 'theory', label: 'Theory', shape: 1 },
-  { id: 'instrument', label: 'Instrument', shape: 2 },
-  { id: 'invention', label: 'Invention', shape: 3 },
-  { id: 'system', label: 'System', shape: 4 },
+export const KINDS: { id: NodeKind; name: string; plural: string; shape: number }[] = [
+  { id: 'technology', name: 'Technology', plural: 'Technologies', shape: 0 },
+  { id: 'science', name: 'Science', plural: 'Science', shape: 1 },
 ]
 
-export const LEVEL_NAMES = ['Step changes', 'Major advances', 'Technologies', 'Science & detail'] as const
+export const LEVEL_NAMES = ['Landmarks', 'Major advances', 'Supporting work', 'Fine detail'] as const

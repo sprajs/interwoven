@@ -1,15 +1,15 @@
-import { SHAPE_BY_TYPE, walk, type Model } from '../data/model.ts'
+import { SHAPE_BY_KIND, walk, type Model } from '../data/model.ts'
 import { Camera, type Insets } from './camera.ts'
 import { createDataTexture, createProgram, createTarget, deleteTarget, type Program, type Target } from './gl.ts'
 import { drawOverlay } from './overlay.ts'
 import * as S from './shaders.ts'
+import { LUT_SIZE, pickTicks } from './time.ts'
 
-export type Mode = 'network' | 'density' | 'steps'
+export type Mode = 'threads' | 'density' | 'landmarks'
 
 export interface ViewState {
   mode: Mode
-  hiddenDomains: ReadonlySet<string>
-  hiddenTypes: ReadonlySet<string>
+  hiddenKinds: ReadonlySet<string>
   activeLabels: ReadonlySet<string>
   selected: number | null
   compressed: boolean
@@ -23,24 +23,24 @@ export interface EngineCallbacks {
 }
 
 /** Zoom factor at which each level has fully appeared, on the compressed time scale. */
-const REVEAL_ZOOM = [0, 0, 1.75, 3.4]
+const REVEAL_ZOOM = [0, 0, 1.7, 3]
 /** Linear time packs the recent past into a sliver, so levels appear later there. */
 const LINEAR_REVEAL_FACTOR = 8
-const BLOOM_LEVELS = 4
-const BG = [0.02, 0.028, 0.051] as const
-const MODE_MIX: Record<Mode, { haze: number; nodes: number; edges: number; bloom: number; contours: number; beams: number }> = {
-  network: { haze: 0.2, nodes: 1, edges: 1, bloom: 0.7, contours: 0, beams: 0 },
-  density: { haze: 0.85, nodes: 0.55, edges: 0.16, bloom: 0.3, contours: 1, beams: 0 },
-  steps: { haze: 0.14, nodes: 1, edges: 0.75, bloom: 0.85, contours: 0, beams: 1 },
+export const PAPER = [0.957, 0.937, 0.902] as const
+const RULE_COLOR = [0.2, 0.18, 0.16] as const
+const OPENING_SECONDS = 2.4
+const MODE_MIX: Record<Mode, { stipple: number; nodes: number; edges: number; rules: number }> = {
+  threads: { stipple: 0, nodes: 1, edges: 0.9, rules: 1 },
+  density: { stipple: 1, nodes: 0.5, edges: 0.2, rules: 1 },
+  landmarks: { stipple: 0, nodes: 1, edges: 0.5, rules: 1 },
 }
 
 export class Engine {
   readonly camera = new Camera()
   model: Model | null = null
   view: ViewState = {
-    mode: 'network',
-    hiddenDomains: new Set(),
-    hiddenTypes: new Set(),
+    mode: 'threads',
+    hiddenKinds: new Set(),
     activeLabels: new Set(),
     selected: null,
     compressed: true,
@@ -49,41 +49,47 @@ export class Engine {
   pointer: { x: number; y: number } | null = null
   warp = 1
   dpr = 1
-  /** Current per-node state: match, dim, boost, force. */
+  /** Current per-node state: match, faded, emphasised, forced visible. */
   state = new Float32Array(0)
   reveal = [1, 1, 0, 0]
-  mix = { ...MODE_MIX.network }
-  /** Emphasised nodes, ordered closest first, so their labels are placed before others. */
+  mix = { ...MODE_MIX.threads }
+  /** Emphasised nodes, closest first, so their text is placed before anything else. */
   emphasis: number[] = []
   labelAlpha = new Float32Array(0)
   uLinear = new Float32Array(0)
   uCompressed = new Float32Array(0)
+  ticks: { year: number; x: number; step: number }[] = []
   frameMs = 0
-  drawCalls = 0
+  /** How far along the time axis the opening drawing has reached. */
+  drawU = 2
+  /** Set by the overlay while any text is still fading. */
+  labelsAnimating = false
 
   private gl!: WebGL2RenderingContext
-  private programs!: Record<'node' | 'edge' | 'density' | 'rect' | 'haze' | 'down' | 'up' | 'composite', Program>
-  private quad!: WebGLBuffer
-  private nodeVao!: WebGLVertexArrayObject
-  private fsVao!: WebGLVertexArrayObject
+  private programs!: Record<'node' | 'edge' | 'span' | 'density' | 'stipple' | 'rect' | 'paper' | 'copy', Program>
+  private quadVao!: WebGLVertexArrayObject
   private rectVao!: WebGLVertexArrayObject
   private rectBuffer!: WebGLBuffer
-  private rectData = new Float32Array(9 * 400)
+  private rectData = new Float32Array(8 * 300)
+  private spanVao: WebGLVertexArrayObject | null = null
+  private spanCount = 0
   private edgeVao: WebGLVertexArrayObject | null = null
   private edgeVertCount = 0
   private texA: WebGLTexture | null = null
   private texB: WebGLTexture | null = null
   private texState: WebGLTexture | null = null
+  private texLut: WebGLTexture | null = null
   private texHeight = 1
   private floatTargets = false
-  private scene: Target | null = null
+  private paperTarget: Target | null = null
   private densityTarget: Target | null = null
-  private bloomChain: Target[] = []
   private targetState = new Float32Array(0)
   private stateUpload = new Float32Array(0)
   private stateDirty = true
   private raf = 0
   private lastTime = 0
+  private openingT = 1
+  private openingStart = 0
   private reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
   private drag: { id: number; x: number; y: number; t: number; vx: number; vy: number; moved: number } | null = null
   private pinch = new Map<number, { x: number; y: number }>()
@@ -93,7 +99,7 @@ export class Engine {
   private readonly callbacks: EngineCallbacks
   private readonly canvas: HTMLCanvasElement
   readonly overlay: HTMLCanvasElement
-  private readonly hazeNorm = { kernel: 40, gain: 1 }
+  private densityScale = { kernel: 40, gain: 1 }
 
   constructor(canvas: HTMLCanvasElement, overlay: HTMLCanvasElement, callbacks: EngineCallbacks) {
     this.canvas = canvas
@@ -145,65 +151,63 @@ export class Engine {
     this.programs = {
       node: createProgram(gl, S.NODE_VS, S.NODE_FS),
       edge: createProgram(gl, S.EDGE_VS, S.EDGE_FS),
+      span: createProgram(gl, S.SPAN_VS, S.SPAN_FS),
       density: createProgram(gl, S.DENSITY_VS, S.DENSITY_FS),
+      stipple: createProgram(gl, S.STIPPLE_VS, S.STIPPLE_FS),
       rect: createProgram(gl, S.RECT_VS, S.RECT_FS),
-      haze: createProgram(gl, S.HAZE_VS, S.HAZE_FS),
-      down: createProgram(gl, S.BLOOM_DOWN_VS, S.BLOOM_DOWN_FS),
-      up: createProgram(gl, S.BLOOM_UP_VS, S.BLOOM_UP_FS),
-      composite: createProgram(gl, S.COMPOSITE_VS, S.COMPOSITE_FS),
+      paper: createProgram(gl, S.PAPER_VS, S.PAPER_FS),
+      copy: createProgram(gl, S.COPY_VS, S.COPY_FS),
     }
-    this.quad = gl.createBuffer()!
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.quad)
+    const quad = gl.createBuffer()!
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad)
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
 
-    this.nodeVao = gl.createVertexArray()!
-    gl.bindVertexArray(this.nodeVao)
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.quad)
-    gl.enableVertexAttribArray(0)
-    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
-
-    this.fsVao = gl.createVertexArray()!
-    gl.bindVertexArray(this.fsVao)
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.quad)
+    this.quadVao = gl.createVertexArray()!
+    gl.bindVertexArray(this.quadVao)
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad)
     gl.enableVertexAttribArray(0)
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
 
     this.rectVao = gl.createVertexArray()!
     gl.bindVertexArray(this.rectVao)
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.quad)
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad)
     gl.enableVertexAttribArray(0)
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
     this.rectBuffer = gl.createBuffer()!
     gl.bindBuffer(gl.ARRAY_BUFFER, this.rectBuffer)
     gl.bufferData(gl.ARRAY_BUFFER, this.rectData.byteLength, gl.DYNAMIC_DRAW)
-    const stride = 9 * 4
     gl.enableVertexAttribArray(1)
-    gl.vertexAttribPointer(1, 4, gl.FLOAT, false, stride, 0)
+    gl.vertexAttribPointer(1, 4, gl.FLOAT, false, 32, 0)
     gl.vertexAttribDivisor(1, 1)
     gl.enableVertexAttribArray(2)
-    gl.vertexAttribPointer(2, 4, gl.FLOAT, false, stride, 16)
+    gl.vertexAttribPointer(2, 4, gl.FLOAT, false, 32, 16)
     gl.vertexAttribDivisor(2, 1)
-    gl.enableVertexAttribArray(3)
-    gl.vertexAttribPointer(3, 1, gl.FLOAT, false, stride, 32)
-    gl.vertexAttribDivisor(3, 1)
     gl.bindVertexArray(null)
     gl.disable(gl.DEPTH_TEST)
   }
 
   private createTargets(): void {
     const gl = this.gl
-    deleteTarget(gl, this.scene)
+    deleteTarget(gl, this.paperTarget)
     deleteTarget(gl, this.densityTarget)
-    this.bloomChain.forEach((t) => deleteTarget(gl, t))
-    this.bloomChain = []
     const w = Math.max(1, this.canvas.width)
     const h = Math.max(1, this.canvas.height)
+    this.paperTarget = createTarget(gl, w, h, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE)
     const internal = this.floatTargets ? gl.RGBA16F : gl.RGBA8
     const type = this.floatTargets ? gl.HALF_FLOAT : gl.UNSIGNED_BYTE
-    const make = (tw: number, th: number) => createTarget(gl, Math.max(1, tw), Math.max(1, th), internal, gl.RGBA, type)
-    this.scene = make(w, h)
-    this.densityTarget = make(Math.ceil(w / 3), Math.ceil(h / 3))
-    for (let i = 1; i <= BLOOM_LEVELS; i++) this.bloomChain.push(make(w >> i, h >> i))
+    this.densityTarget = createTarget(gl, Math.max(1, Math.ceil(w / 3)), Math.max(1, Math.ceil(h / 3)), internal, gl.RGBA, type)
+
+    // The sheet only changes size, never content, so it is drawn once.
+    const P = this.programs.paper
+    gl.bindFramebuffer(gl.FRAMEBUFFER, this.paperTarget.fbo)
+    gl.viewport(0, 0, w, h)
+    gl.disable(gl.BLEND)
+    gl.useProgram(P.handle)
+    gl.uniform3f(P.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
+    gl.uniform1f(P.u.uDpr!, this.dpr)
+    gl.bindVertexArray(this.quadVao)
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null)
   }
 
   private uploadModel(): void {
@@ -216,9 +220,8 @@ export class Engine {
     const a = new Float32Array(S.TEX_WIDTH * height * 4)
     const b = new Float32Array(S.TEX_WIDTH * height * 4)
     model.nodes.forEach((node, i) => {
-      const lane = model.lanes[model.domainIndex[i]!]!
-      a.set([node.year, model.y[i]!, model.radius[i]!, SHAPE_BY_TYPE.get(node.type) ?? 0], i * 4)
-      b.set([lane.rgb[0], lane.rgb[1], lane.rgb[2], node.level], i * 4)
+      a.set([node.year, model.y[i]!, model.radius[i]!, SHAPE_BY_KIND.get(node.kind) ?? 0], i * 4)
+      b.set([model.ink[i * 3]!, model.ink[i * 3 + 1]!, model.ink[i * 3 + 2]!, node.level], i * 4)
     })
     if (this.texA) gl.deleteTexture(this.texA)
     if (this.texB) gl.deleteTexture(this.texB)
@@ -228,37 +231,67 @@ export class Engine {
     this.texState = createDataTexture(gl, S.TEX_WIDTH, height, new Float32Array(S.TEX_WIDTH * height * 4))
     this.stateDirty = true
 
+    const lut = new Float32Array(LUT_SIZE * 4)
+    model.time.lut.forEach((u, i) => (lut[i * 4] = u))
+    if (this.texLut) gl.deleteTexture(this.texLut)
+    this.texLut = createDataTexture(gl, LUT_SIZE, 1, lut)
+
     const edges = model.edges
-    const segments = edges.length < 6000 ? 36 : edges.length < 40000 ? 18 : 9
+    const segments = edges.length < 6000 ? 48 : edges.length < 40000 ? 20 : 9
     const verts = new Float32Array((segments + 1) * 4)
     for (let i = 0; i <= segments; i++) verts.set([i / segments, -1, i / segments, 1], i * 4)
     this.edgeVertCount = (segments + 1) * 2
     const ids = new Uint32Array(edges.length * 2)
-    const soft = new Float32Array(edges.length)
+    const tentative = new Float32Array(edges.length)
     edges.forEach((e, i) => {
       ids[i * 2] = e.source
       ids[i * 2 + 1] = e.target
-      soft[i] = e.soft ? 1 : 0
+      tentative[i] = e.tentative ? 1 : 0
     })
     if (this.edgeVao) gl.deleteVertexArray(this.edgeVao)
     this.edgeVao = gl.createVertexArray()!
     gl.bindVertexArray(this.edgeVao)
-    const vb = gl.createBuffer()!
-    gl.bindBuffer(gl.ARRAY_BUFFER, vb)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
     gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW)
     gl.enableVertexAttribArray(0)
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
-    const ib = gl.createBuffer()!
-    gl.bindBuffer(gl.ARRAY_BUFFER, ib)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
     gl.bufferData(gl.ARRAY_BUFFER, ids, gl.STATIC_DRAW)
     gl.enableVertexAttribArray(1)
     gl.vertexAttribIPointer(1, 2, gl.UNSIGNED_INT, 0, 0)
     gl.vertexAttribDivisor(1, 1)
-    const sb = gl.createBuffer()!
-    gl.bindBuffer(gl.ARRAY_BUFFER, sb)
-    gl.bufferData(gl.ARRAY_BUFFER, soft, gl.STATIC_DRAW)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, tentative, gl.STATIC_DRAW)
     gl.enableVertexAttribArray(2)
     gl.vertexAttribPointer(2, 1, gl.FLOAT, false, 0, 0)
+    gl.vertexAttribDivisor(2, 1)
+
+    // Date ranges are drawn as spans. Exact years have none.
+    const ranged = model.nodes.flatMap((node, i) => (node.end > node.start ? [{ i, node }] : []))
+    this.spanCount = ranged.length
+    const ranges = new Float32Array(ranged.length * 2)
+    const rangeIds = new Uint32Array(ranged.length)
+    ranged.forEach(({ i, node }, k) => {
+      ranges[k * 2] = node.start
+      ranges[k * 2 + 1] = node.end
+      rangeIds[k] = i
+    })
+    if (this.spanVao) gl.deleteVertexArray(this.spanVao)
+    this.spanVao = gl.createVertexArray()!
+    gl.bindVertexArray(this.spanVao)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(0)
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, ranges, gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(1)
+    gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 0, 0)
+    gl.vertexAttribDivisor(1, 1)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, rangeIds, gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(2)
+    gl.vertexAttribIPointer(2, 1, gl.UNSIGNED_INT, 0, 0)
     gl.vertexAttribDivisor(2, 1)
     gl.bindVertexArray(null)
   }
@@ -272,13 +305,16 @@ export class Engine {
     this.labelAlpha = new Float32Array(model.n)
     this.uLinear = Float32Array.from(model.nodes, (node) => model.time.linear(node.year))
     this.uCompressed = Float32Array.from(model.nodes, (node) => model.time.compressed(node.year))
-    // Keep total haze energy comparable between small and huge datasets.
-    this.hazeNorm.kernel = 44 * Math.pow(290 / Math.max(290, model.n), 0.18)
-    this.hazeNorm.gain = Math.pow(290 / Math.max(290, model.n), 0.62)
+    this.densityScale.kernel = 46 * Math.pow(140 / Math.max(140, model.n), 0.2)
+    this.densityScale.gain = 0.9 * Math.pow(140 / Math.max(140, model.n), 0.6)
     this.uploadModel()
     this.computeTargets()
     this.state.set(this.targetState)
     this.stateDirty = true
+    // The first thing you see is the chart being drawn, left to right.
+    this.openingT = this.reducedMotion ? 1 : 0
+    this.openingStart = 0
+    this.drawU = this.reducedMotion ? 2 : -0.02
     this.invalidate()
   }
 
@@ -299,15 +335,14 @@ export class Engine {
   }
 
   passesFilters(i: number): boolean {
-    const model = this.model!
-    const node = model.nodes[i]!
-    const { hiddenDomains, hiddenTypes, activeLabels } = this.view
-    if (hiddenDomains.has(node.domain) || hiddenTypes.has(node.type)) return false
+    const node = this.model!.nodes[i]!
+    const { hiddenKinds, activeLabels } = this.view
+    if (hiddenKinds.has(node.kind)) return false
     if (activeLabels.size > 0 && !node.labels.some((l) => activeLabels.has(l))) return false
     return true
   }
 
-  /** Works out the state each node should animate toward from filters, mode and focus. */
+  /** Works out the state each node should ease toward from filters, mode and focus. */
   private computeTargets(): void {
     const model = this.model
     if (!model) return
@@ -315,8 +350,7 @@ export class Engine {
     const target = this.targetState
     const focus = selected ?? this.hovered
     const isHover = selected === null && this.hovered !== null
-    const stepMode = mode === 'steps'
-    const stepSet = stepMode ? new Set(model.stepChanges) : null
+    const landmarkMode = mode === 'landmarks'
 
     let hops: Map<number, number> | null = null
     this.emphasis = []
@@ -332,28 +366,28 @@ export class Engine {
     for (let i = 0; i < model.n; i++) {
       const o = i * 4
       const match = this.passesFilters(i) ? 1 : 0
-      let dim = 0
+      let faded = 0
       let boost = 0
       let force = 0
       if (hops) {
         const h = hops.get(i)
         if (h === undefined) {
-          dim = isHover ? 0.68 : 0.94
+          faded = isHover ? 0.55 : 1
         } else {
-          boost = h === 0 ? 1 : h === 1 ? 0.72 : h === 2 ? 0.34 : 0.14
-          if (isHover) boost *= 0.8
-          force = h <= (isHover ? 1 : 2) ? 1 : 0
+          boost = h <= 1 ? 1 : h === 2 ? 0.8 : 0.6
+          if (isHover) boost *= 0.85
+          force = h <= (isHover ? 1 : 3) ? 1 : 0
         }
-      } else if (stepSet) {
-        if (stepSet.has(i)) {
-          boost = 0.4
+      } else if (landmarkMode) {
+        if (model.nodes[i]!.level === 0) {
+          boost = 0.6
           force = 1
         } else {
-          dim = 0.72
+          faded = 0.8
         }
       }
       target[o] = match
-      target[o + 1] = dim
+      target[o + 1] = faded
       target[o + 2] = boost
       target[o + 3] = force
     }
@@ -361,7 +395,7 @@ export class Engine {
 
   private animateState(dt: number): boolean {
     const n = this.state.length
-    const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 10)
+    const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 11)
     let changed = false
     const cur = this.state
     const tgt = this.targetState
@@ -377,7 +411,7 @@ export class Engine {
 
   private animateMix(dt: number): boolean {
     const goal = MODE_MIX[this.view.mode]
-    const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 6)
+    const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 7)
     let changed = false
     const mix = this.mix as Record<string, number>
     for (const key of Object.keys(goal) as (keyof typeof goal)[]) {
@@ -393,6 +427,20 @@ export class Engine {
       this.warp = Math.abs(dw) < 0.001 ? warpGoal : this.warp + dw * (this.reducedMotion ? 1 : 1 - Math.exp(-dt * 5))
     }
     return changed
+  }
+
+  /** Runs on wall-clock time, so a throttled or background tab still finishes the drawing. */
+  private animateOpening(now: number): boolean {
+    if (this.openingT >= 1) {
+      this.drawU = 2
+      return false
+    }
+    if (this.openingStart === 0) this.openingStart = now
+    this.openingT = Math.min(1, (now - this.openingStart) / (OPENING_SECONDS * 1000))
+    const t = this.openingT
+    const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
+    this.drawU = t >= 1 ? 2 : -0.02 + e * 1.06
+    return true
   }
 
   // ---------------------------------------------------------------- geometry
@@ -413,12 +461,11 @@ export class Engine {
         continue
       }
       const at = Math.log(threshold * factor)
-      const t = Math.min(1, Math.max(0, (lz - (at - 0.42)) / 0.42))
+      const t = Math.min(1, Math.max(0, (lz - (at - 0.4)) / 0.4))
       this.reveal[level] = t * t * (3 - 2 * t)
     }
   }
 
-  /** How many of the four levels are currently showing, for the depth indicator. */
   revealZoomFor(level: number): number {
     const factor = LINEAR_REVEAL_FACTOR + (1 - LINEAR_REVEAL_FACTOR) * this.warp
     return (REVEAL_ZOOM[level] ?? 0) * factor
@@ -441,12 +488,12 @@ export class Engine {
     let best: number | null = null
     let bestScore = Infinity
     for (let i = 0; i < model.n; i++) {
-      if (this.state[i * 4]! < 0.5 || this.state[i * 4 + 1]! > 0.8) continue
+      if (this.state[i * 4]! < 0.5 || this.state[i * 4 + 1]! > 0.9) continue
       const px = (this.nodeU(i) - cam.cu) * xs + cx
       const py = (model.y[i]! - cam.cy) * ys + cy
       const dx = px - x
       const dy = py - y
-      const r = model.radius[i]! + 7
+      const r = model.radius[i]! + 8
       const d2 = dx * dx + dy * dy
       if (d2 > r * r) continue
       const score = d2 / (r * r) - (3 - model.nodes[i]!.level) * 0.05
@@ -463,14 +510,13 @@ export class Engine {
   flyToNode(i: number): void {
     const model = this.model
     if (!model) return
-    const level = model.nodes[i]!.level
-    const needed = this.revealZoomFor(level)
+    const needed = this.revealZoomFor(model.nodes[i]!.level)
     const lz = Math.max(this.camera.logZoom, needed > 0 ? Math.log(needed * 1.25) : 0, 0.6)
     this.camera.flyTo(this.nodeU(i), model.y[i]!, lz, this.reducedMotion)
     this.invalidate()
   }
 
-  /** Fits a span of years centred in the view. */
+  /** Fits a span of years in the view. */
   flyToYears(start: number, end: number): void {
     const model = this.model
     if (!model) return
@@ -597,9 +643,8 @@ export class Engine {
     this.drag = null
     if (d.moved <= 3) {
       const p = this.localPoint(e)
-      const hit = this.pick(p.x, p.y)
-      // Touch has no hover, so a tap needs its own hit test; empty space clears selection.
-      this.callbacks.onSelect(hit)
+      // Touch has no hover, so a tap needs its own hit test. Empty space clears selection.
+      this.callbacks.onSelect(this.pick(p.x, p.y))
     } else if (!this.reducedMotion && e.timeStamp - d.t < 80) {
       this.camera.fling(d.vx, d.vy)
       this.invalidate()
@@ -634,7 +679,7 @@ export class Engine {
     const width = parent.clientWidth
     const height = parent.clientHeight
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
-    if (this.camera.width === width && this.camera.height === height && this.dpr === dpr && this.scene) return
+    if (this.camera.width === width && this.camera.height === height && this.dpr === dpr && this.paperTarget) return
     this.dpr = dpr
     for (const c of [this.canvas, this.overlay]) {
       c.width = Math.max(1, Math.round(width * dpr))
@@ -656,39 +701,45 @@ export class Engine {
     const cameraMoving = this.camera.update(dt)
     const stateMoving = this.animateState(dt)
     const mixMoving = this.animateMix(dt)
-    const flowing = !this.reducedMotion && (this.view.selected !== null || this.hovered !== null)
+    const opening = this.animateOpening(time)
     this.computeReveal()
 
     if (this.model && this.gl && !this.gl.isContextLost()) {
-      this.render(time)
-      this.drawCalls = drawOverlay(this, this.overlayCtx, dt)
+      this.computeTicks()
+      this.render()
+      drawOverlay(this, this.overlayCtx, dt)
       this.callbacks.onFrame(this)
     }
     this.frameMs = performance.now() - start
 
-    const labelsMoving = this.labelsAnimating
-    if (cameraMoving || stateMoving || mixMoving || flowing || labelsMoving) {
+    if (cameraMoving || stateMoving || mixMoving || opening || this.labelsAnimating) {
       this.raf = requestAnimationFrame(this.frame)
     } else {
       this.lastTime = 0
     }
   }
 
-  /** Set by the overlay while any label is still fading. */
-  labelsAnimating = false
+  private computeTicks(): void {
+    const model = this.model!
+    const cam = this.camera
+    const toX = (year: number) => cam.toX(model.time.u(year, this.warp))
+    const at = (x: number) => model.time.year(Math.min(1, Math.max(0, cam.fromX(x))), this.warp)
+    this.ticks = pickTicks(toX, at(0), at(cam.width), cam.width, cam.width < 700 ? 58 : 78)
+  }
 
-  private setWorldUniforms(p: Program, width: number, height: number): void {
+  private setWorldUniforms(p: Program): void {
     const gl = this.gl
     const cam = this.camera
     const dpr = this.dpr
     const model = this.model!
-    gl.uniform2f(p.u.uRes!, width, height)
+    gl.uniform2f(p.u.uRes!, this.canvas.width, this.canvas.height)
     gl.uniform2f(p.u.uCam!, cam.cu, cam.cy)
     gl.uniform2f(p.u.uScale!, cam.xScale * dpr, cam.yScale * dpr)
     gl.uniform2f(p.u.uCenter!, cam.centerX * dpr, cam.centerY * dpr)
     gl.uniform4f(p.u.uTimeScale!, model.time.min, model.time.now, model.time.tau, model.time.logSpan)
     gl.uniform1f(p.u.uWarp!, this.warp)
     if (p.u.uDpr) gl.uniform1f(p.u.uDpr, dpr)
+    if (p.u.uDrawU) gl.uniform1f(p.u.uDrawU, this.drawU)
     if (p.u.uReveal) gl.uniform4f(p.u.uReveal, this.reveal[0]!, this.reveal[1]!, this.reveal[2]!, this.reveal[3]!)
     gl.activeTexture(gl.TEXTURE0)
     gl.bindTexture(gl.TEXTURE_2D, this.texA)
@@ -699,6 +750,9 @@ export class Engine {
     gl.activeTexture(gl.TEXTURE2)
     gl.bindTexture(gl.TEXTURE_2D, this.texState)
     if (p.u.uState) gl.uniform1i(p.u.uState, 2)
+    gl.activeTexture(gl.TEXTURE3)
+    gl.bindTexture(gl.TEXTURE_2D, this.texLut)
+    if (p.u.uTimeLut) gl.uniform1i(p.u.uTimeLut, 3)
     gl.activeTexture(gl.TEXTURE0)
   }
 
@@ -708,32 +762,29 @@ export class Engine {
     const gl = this.gl
     const model = this.model!
     if (model.n === 0) return
-    gl.activeTexture(gl.TEXTURE2)
-    gl.bindTexture(gl.TEXTURE_2D, this.texState)
     const rows = this.texHeight
     const size = S.TEX_WIDTH * rows * 4
     if (this.stateUpload.length !== size) this.stateUpload = new Float32Array(size)
     this.stateUpload.set(this.state)
+    gl.activeTexture(gl.TEXTURE2)
+    gl.bindTexture(gl.TEXTURE_2D, this.texState)
     gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, S.TEX_WIDTH, rows, gl.RGBA, gl.FLOAT, this.stateUpload)
     gl.activeTexture(gl.TEXTURE0)
   }
 
-  private render(time: number): void {
+  private render(): void {
     const gl = this.gl
     const model = this.model!
     const cam = this.camera
     const W = this.canvas.width
     const H = this.canvas.height
-    const dpr = this.dpr
     const P = this.programs
     const mix = this.mix
 
     this.uploadState()
 
-    // Density field, drawn from every node regardless of zoom. In the network view it
-    // appears as a faint haze hinting at what zooming in will reveal.
-    const showHaze = mix.haze > 0.005 && model.n > 0
-    if (showHaze) {
+    const showStipple = mix.stipple > 0.01 && model.n > 0
+    if (showStipple) {
       const t = this.densityTarget!
       gl.bindFramebuffer(gl.FRAMEBUFFER, t.fbo)
       gl.viewport(0, 0, t.width, t.height)
@@ -742,155 +793,96 @@ export class Engine {
       gl.enable(gl.BLEND)
       gl.blendFunc(gl.ONE, gl.ONE)
       gl.useProgram(P.density.handle)
-      this.setWorldUniforms(P.density, W, H)
-      const kernel = this.hazeNorm.kernel * dpr * Math.pow(cam.zoom, 0.38)
-      gl.uniform1f(P.density.u.uKernel!, kernel)
-      gl.bindVertexArray(this.nodeVao)
+      this.setWorldUniforms(P.density)
+      gl.uniform1f(P.density.u.uKernel!, this.densityScale.kernel * this.dpr * Math.pow(cam.zoom, 0.38))
+      gl.bindVertexArray(this.quadVao)
       gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
     }
 
-    gl.bindFramebuffer(gl.FRAMEBUFFER, this.scene!.fbo)
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null)
     gl.viewport(0, 0, W, H)
-    gl.clearColor(BG[0], BG[1], BG[2], 1)
-    gl.clear(gl.COLOR_BUFFER_BIT)
+
+    // The sheet.
+    gl.disable(gl.BLEND)
+    gl.useProgram(P.copy.handle)
+    gl.activeTexture(gl.TEXTURE0)
+    gl.bindTexture(gl.TEXTURE_2D, this.paperTarget!.tex)
+    gl.uniform1i(P.copy.u.uTex!, 0)
+    gl.bindVertexArray(this.quadVao)
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     gl.enable(gl.BLEND)
 
-    this.drawBackdrop(W, H)
+    this.drawRules(W, H)
 
-    if (showHaze) {
-      gl.blendFunc(gl.ONE, gl.ONE)
-      gl.useProgram(P.haze.handle)
+    // Everything inked multiplies onto the page.
+    gl.blendFunc(gl.DST_COLOR, gl.ZERO)
+
+    if (showStipple) {
+      gl.useProgram(P.stipple.handle)
       gl.activeTexture(gl.TEXTURE0)
       gl.bindTexture(gl.TEXTURE_2D, this.densityTarget!.tex)
-      gl.uniform1i(P.haze.u.uTex!, 0)
-      const gain = this.hazeNorm.gain * Math.pow(cam.zoom, 0.25 + 0.35 * mix.contours) * (0.5 - 0.08 * mix.contours)
-      gl.uniform1f(P.haze.u.uGain!, gain)
-      gl.uniform1f(P.haze.u.uIntensity!, mix.haze)
-      if (P.haze.u.uContours) gl.uniform1f(P.haze.u.uContours, mix.contours)
-      gl.bindVertexArray(this.fsVao)
+      gl.uniform1i(P.stipple.u.uTex!, 0)
+      gl.uniform2f(P.stipple.u.uRes!, W, H)
+      gl.uniform1f(P.stipple.u.uDpr!, this.dpr)
+      gl.uniform1f(P.stipple.u.uGain!, this.densityScale.gain * Math.pow(cam.zoom, 0.55))
+      gl.uniform1f(P.stipple.u.uIntensity!, mix.stipple)
+      // The dots travel with the page rather than shimmering when it moves.
+      gl.uniform2f(P.stipple.u.uOffset!, -cam.toX(0), -cam.toY(0))
+      gl.bindVertexArray(this.quadVao)
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     }
 
     if (this.edgeVao && model.edges.length) {
-      gl.blendFunc(gl.ONE, gl.ONE)
       gl.useProgram(P.edge.handle)
-      this.setWorldUniforms(P.edge, W, H)
-      const base = Math.min(0.42, Math.max(0.05, 0.42 * Math.sqrt(450 / model.edges.length)))
-      gl.uniform1f(P.edge.u.uEdgeAlpha!, base * mix.edges)
-      gl.uniform1f(P.edge.u.uTimeS!, this.reducedMotion ? 0 : time / 1000)
+      this.setWorldUniforms(P.edge)
+      gl.uniform1f(P.edge.u.uEdgeAlpha!, mix.edges * (model.edges.length > 2000 ? 0.3 : 1))
       gl.bindVertexArray(this.edgeVao)
       gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, this.edgeVertCount, model.edges.length)
     }
 
+    if (this.spanVao && this.spanCount) {
+      gl.useProgram(P.span.handle)
+      this.setWorldUniforms(P.span)
+      gl.bindVertexArray(this.spanVao)
+      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, this.spanCount)
+    }
+
+    // Marks sit on top with their own paper-coloured centres, so rings stay open.
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
     gl.useProgram(P.node.handle)
-    this.setWorldUniforms(P.node, W, H)
+    this.setWorldUniforms(P.node)
     gl.uniform1f(P.node.u.uNodeAlpha!, mix.nodes)
     gl.uniform1i(P.node.u.uHover!, this.hovered ?? -1)
     gl.uniform1i(P.node.u.uSelected!, this.view.selected ?? -1)
-    gl.bindVertexArray(this.nodeVao)
+    gl.uniform3f(P.node.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
+    gl.bindVertexArray(this.quadVao)
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
-
-    this.drawBloom()
-
-    gl.bindFramebuffer(gl.FRAMEBUFFER, null)
-    gl.viewport(0, 0, W, H)
-    gl.disable(gl.BLEND)
-    gl.useProgram(P.composite.handle)
-    gl.activeTexture(gl.TEXTURE0)
-    gl.bindTexture(gl.TEXTURE_2D, this.scene!.tex)
-    gl.uniform1i(P.composite.u.uScene!, 0)
-    gl.activeTexture(gl.TEXTURE1)
-    gl.bindTexture(gl.TEXTURE_2D, this.bloomChain[0]!.tex)
-    gl.uniform1i(P.composite.u.uBloom!, 1)
-    gl.uniform1f(P.composite.u.uBloomAmount!, mix.bloom)
-    gl.bindVertexArray(this.fsVao)
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
-    gl.activeTexture(gl.TEXTURE0)
     gl.bindVertexArray(null)
   }
 
-  private drawBackdrop(W: number, H: number): void {
+  /** Fine pencil lines at the axis ticks, ruled before anything is inked. */
+  private drawRules(W: number, H: number): void {
     const gl = this.gl
-    const model = this.model!
     const cam = this.camera
     const dpr = this.dpr
-    const time = model.time
     const data = this.rectData
     let count = 0
-    const push = (x0: number, y0: number, x1: number, y1: number, r: number, g: number, b: number, a: number, kind = 0) => {
-      if (count >= 400) return
-      data.set([x0 * dpr, y0 * dpr, x1 * dpr, y1 * dpr, r, g, b, a, kind], count * 9)
+    const top = cam.insets.top - 4
+    const bottom = cam.height - cam.insets.bottom + 4
+    for (const tick of this.ticks) {
+      if (count >= 300 || tick.x < 0 || tick.x > cam.width) continue
+      const x = tick.x
+      data.set([x * dpr - 0.5, top * dpr, x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.055 * this.mix.rules], count * 8)
       count++
     }
-    const toX = (year: number) => cam.toX(time.u(year, this.warp))
-
-    model.epochs.forEach((epoch, i) => {
-      if (i % 2 === 0) return
-      const x0 = Math.max(0, toX(epoch.start))
-      const x1 = Math.min(cam.width, toX(epoch.end))
-      if (x1 > x0) push(x0, 0, x1, cam.height, 0.5, 0.6, 0.85, 0.022)
-    })
-
-    for (const lane of model.lanes) {
-      const y = cam.toY(lane.y0 - 0.006)
-      if (lane.index > 0 && y > cam.insets.top - 40 && y < cam.height) {
-        push(0, y - 0.5 / dpr, cam.width, y + 0.5 / dpr, 0.55, 0.65, 0.85, 0.055)
-      }
-    }
-
-    if (this.mix.beams > 0.01) {
-      for (const i of model.stepChanges) {
-        if (!this.passesFilters(i)) continue
-        const lane = model.lanes[model.domainIndex[i]!]!
-        const x = cam.toX(this.nodeU(i))
-        if (x < -40 || x > cam.width + 40) continue
-        push(x - 26, cam.insets.top - 10, x + 26, cam.height, lane.rgb[0], lane.rgb[1], lane.rgb[2], 0.09 * this.mix.beams, 1)
-      }
-    }
-
     if (count === 0) return
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
     gl.useProgram(this.programs.rect.handle)
     gl.uniform2f(this.programs.rect.u.uRes!, W, H)
     gl.bindVertexArray(this.rectVao)
     gl.bindBuffer(gl.ARRAY_BUFFER, this.rectBuffer)
-    gl.bufferSubData(gl.ARRAY_BUFFER, 0, data.subarray(0, count * 9))
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, data.subarray(0, count * 8))
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, count)
-  }
-
-  private drawBloom(): void {
-    const gl = this.gl
-    const { down, up } = this.programs
-    const chain = this.bloomChain
-    gl.disable(gl.BLEND)
-    gl.bindVertexArray(this.fsVao)
-    gl.useProgram(down.handle)
-    gl.activeTexture(gl.TEXTURE0)
-    gl.uniform1i(down.u.uTex!, 0)
-    let source = this.scene!
-    chain.forEach((target, i) => {
-      gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo)
-      gl.viewport(0, 0, target.width, target.height)
-      gl.bindTexture(gl.TEXTURE_2D, source.tex)
-      gl.uniform2f(down.u.uTexel!, 1 / source.width, 1 / source.height)
-      gl.uniform1f(down.u.uThreshold!, i === 0 ? 0.62 : 0)
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
-      source = target
-    })
-    gl.enable(gl.BLEND)
-    gl.blendFunc(gl.ONE, gl.ONE)
-    gl.useProgram(up.handle)
-    gl.uniform1i(up.u.uTex!, 0)
-    for (let i = chain.length - 1; i > 0; i--) {
-      const from = chain[i]!
-      const to = chain[i - 1]!
-      gl.bindFramebuffer(gl.FRAMEBUFFER, to.fbo)
-      gl.viewport(0, 0, to.width, to.height)
-      gl.bindTexture(gl.TEXTURE_2D, from.tex)
-      gl.uniform2f(up.u.uTexel!, 0.5 / from.width, 0.5 / from.height)
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
-    }
   }
 
   // ---------------------------------------------------------------- context loss
@@ -902,11 +894,11 @@ export class Engine {
   }
 
   private onContextRestored = (): void => {
-    this.scene = null
+    this.paperTarget = null
     this.densityTarget = null
-    this.bloomChain = []
-    this.texA = this.texB = this.texState = null
+    this.texA = this.texB = this.texState = this.texLut = null
     this.edgeVao = null
+    this.spanVao = null
     this.initGL()
     this.createTargets()
     this.uploadModel()

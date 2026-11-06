@@ -1,14 +1,19 @@
-import { formatYear, pickTicks } from './time.ts'
+import { formatYear } from './time.ts'
 import type { Engine } from './Engine.ts'
 
-const FONT_FAMILY = '"Geist Variable", ui-sans-serif, system-ui, sans-serif'
-const MONO_FAMILY = '"Geist Mono Variable", ui-monospace, monospace'
-const LABEL_FONT = [`600 13px ${FONT_FAMILY}`, `500 11.5px ${FONT_FAMILY}`, `450 11px ${FONT_FAMILY}`, `400 10.5px ${FONT_FAMILY}`]
-const INK = { primary: '236,241,250', secondary: '170,182,204', muted: '112,124,148' }
-const BG = '5,7,13'
-const CELL = 8
-const MAX_LABELS = 160
+const SERIF = '"EB Garamond Variable", Georgia, "Times New Roman", serif'
+const INK = { primary: '38,33,28', secondary: '78,70,60', muted: '106,97,86' }
+const PAPER = '244,239,230'
+const CELL = 7
+const MAX_LABELS = 140
 const VISIT_BUDGET = 9000
+
+/** Serif roman for technology and italic for science, as maps set towns and rivers apart. */
+function labelFont(level: number, italic: boolean): string {
+  const size = [17, 14.5, 13.5, 12.5][level] ?? 12.5
+  const weight = level === 0 ? 500 : 400
+  return `${italic ? 'italic ' : ''}${weight} ${size}px ${SERIF}`
+}
 
 let occupancy = new Uint8Array(0)
 let cols = 0
@@ -39,20 +44,24 @@ function occupy(x0: number, y0: number, x1: number, y1: number): void {
   for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) occupancy[r * cols + c] = 1
 }
 
-function measure(ctx: CanvasRenderingContext2D, text: string, level: number): number {
-  const key = `${level}|${text}`
+function measure(ctx: CanvasRenderingContext2D, text: string, font: string): number {
+  const key = `${font}|${text}`
   let w = widthCache.get(key)
   if (w === undefined) {
-    ctx.font = LABEL_FONT[level] ?? LABEL_FONT[3]!
+    ctx.font = font
     w = ctx.measureText(text).width
     widthCache.set(key, w)
   }
   return w
 }
 
-/** Draws text and axes above the GL layer. Returns the number of labels drawn. */
-export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: number): number {
-  const model = engine.model!
+/** Forgets widths measured with a fallback font before the web font arrived. */
+export function clearTextCache(): void {
+  widthCache.clear()
+}
+
+/** Draws text and the axis above the GL layer. */
+export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: number): void {
   const cam = engine.camera
   const W = cam.width
   const H = cam.height
@@ -61,35 +70,25 @@ export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: n
   ctx.clearRect(0, 0, W, H)
   ctx.textBaseline = 'middle'
 
-  const yearToX = (year: number) => cam.toX(model.time.u(year, engine.warp))
-  const yearAt = (x: number) => model.time.year(Math.min(1, Math.max(0, cam.fromX(x))), engine.warp)
-  const compact = W < 700
-
-  const drawn = drawNodeLabels(engine, ctx, dt, W, H)
-  drawLaneLabels(engine, ctx, W, H, compact)
-  drawAxis(engine, ctx, yearToX, yearAt, W, compact)
-  if (engine.view.mode === 'density' && engine.pointer) drawDensityProbe(engine, ctx, yearAt, W, H)
-  return drawn
+  drawNodeLabels(engine, ctx, dt, W, H)
+  drawAxis(engine, ctx, W)
+  if (engine.view.mode === 'density' && engine.pointer && engine.hovered === null) drawDensityProbe(engine, ctx, W, H)
 }
 
-function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W: number, H: number): number {
+function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W: number, H: number): void {
   const model = engine.model!
   const cam = engine.camera
-  const { nodes, y: ys, radius, byPriority, labelAlpha: alphaOf } = {
-    nodes: model.nodes,
-    y: model.y,
-    radius: model.radius,
-    byPriority: model.byPriority,
-    labelAlpha: engine.labelAlpha,
-  }
+  const nodes = model.nodes
+  const ys = model.y
+  const radius = model.radius
+  const byPriority = model.byPriority
+  const alphaOf = engine.labelAlpha
   const state = engine.state
-  const top = cam.insets.top - 6
-  const bottom = H - cam.insets.bottom + 22
-  const densityMode = engine.mix.contours > 0.5
-  // Labels near the right edge flip left instead of running under an open panel.
-  const rightLimit = W - cam.insets.right + 28
-  // The lane names own the left column.
-  const leftLimit = cam.insets.left - 12
+  const top = cam.insets.top - 2
+  const bottom = H - cam.insets.bottom + 6
+  const densityMode = engine.mix.stipple > 0.5
+  const landmarkMode = engine.view.mode === 'landmarks'
+  const rightLimit = W - cam.insets.right + 16
   resetOccupancy(W, H)
 
   const xs = cam.xScale
@@ -98,36 +97,37 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
   const cy = cam.centerY
   const wanted = new Set<number>()
   let placed = 0
+  const drawU = engine.drawU
 
   const tryPlace = (i: number, must: boolean): void => {
     if (wanted.has(i)) return
     const node = nodes[i]!
     const v = engine.nodeVisibility(i)
-    if (v < 0.25 && !must) return
-    if (!must && state[i * 4 + 1]! > 0.6) return
+    if (v < 0.3 && !must) return
+    if (!must && state[i * 4 + 1]! > 0.5) return
     if (!must && densityMode && node.level > 1) return
+    if (engine.nodeU(i) > drawU) return
     const px = (engine.nodeU(i) - cam.cu) * xs + cx
     const py = (ys[i]! - cam.cy) * yScale + cy
-    if (px < -80 || px > W + 40 || py < top || py > bottom) return
-    const r = radius[i]! + (node.level === 0 ? 11 : 5)
-    const width = measure(ctx, node.title, node.level) + (node.level === 0 ? 40 : 0)
-    const height = node.level === 0 ? 17 : 14
-    const fitsRight = px + r + width < rightLimit
-    const x0 = fitsRight ? px + r : px - r - width
+    if (px < -40 || px > W + 40 || py < top || py > bottom) return
+    const font = labelFont(node.level, node.kind === 'science')
+    const gap = radius[i]! + 5
+    const width = measure(ctx, node.title, font)
+    const height = (node.level === 0 ? 19 : 15)
+    const fitsRight = px + gap + width < rightLimit
+    const x0 = fitsRight ? px + gap : px - gap - width
     const x1 = x0 + width
-    if (!must && x0 < leftLimit) return
-    if (blocked(x0, py - height / 2, x1, py + height / 2) && !must) return
-    occupy(x0, py - height / 2, x1, py + height / 2)
+    if (!must && blocked(x0 - 2, py - height / 2, x1 + 2, py + height / 2)) return
+    occupy(x0 - 2, py - height / 2, x1 + 2, py + height / 2)
     wanted.add(i)
     placed++
   }
 
-  // Nodes themselves count as occupied, so labels do not cover important marks.
-  for (const i of engine.emphasis.slice(0, 40)) tryPlace(i, i === engine.view.selected || i === engine.hovered)
   if (engine.view.selected !== null) tryPlace(engine.view.selected, true)
   if (engine.hovered !== null) tryPlace(engine.hovered, true)
+  for (const i of engine.emphasis.slice(0, 50)) tryPlace(i, false)
 
-  // Within each level, labels already showing go first so they do not flicker off.
+  // Within each level, text already showing goes first so it does not flicker off.
   let start = 0
   let visited = 0
   const n = byPriority.length
@@ -135,6 +135,7 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const level = nodes[byPriority[start]!]!.level
     let end = start
     while (end < n && nodes[byPriority[end]!]!.level === level) end++
+    if (landmarkMode && level > 0) break
     for (let k = start; k < end && placed < MAX_LABELS; k++) {
       const i = byPriority[k]!
       if (alphaOf[i]! > 0.3) tryPlace(i, false)
@@ -147,20 +148,19 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     start = end
   }
 
-  const fade = Math.min(1, dt * 11)
+  const fade = Math.min(1, dt * 10)
   let animating = false
   for (let i = 0; i < alphaOf.length; i++) {
     const goal = wanted.has(i) ? 1 : 0
     const a = alphaOf[i]!
     if (a === goal) continue
-    const next = Math.abs(goal - a) < 0.01 ? goal : a + (goal - a) * fade
-    alphaOf[i] = next
+    alphaOf[i] = Math.abs(goal - a) < 0.01 ? goal : a + (goal - a) * fade
     animating = true
   }
   engine.labelsAnimating = animating
 
   ctx.lineJoin = 'round'
-  let count = 0
+  ctx.textAlign = 'left'
   for (let i = 0; i < alphaOf.length; i++) {
     const a = alphaOf[i]!
     if (a <= 0.01) continue
@@ -168,142 +168,55 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const px = (engine.nodeU(i) - cam.cu) * xs + cx
     const py = (ys[i]! - cam.cy) * yScale + cy
     if (px < -200 || px > W + 200 || py < top - 10 || py > bottom + 10) continue
-    const emphasised = state[i * 4 + 2]! > 0.2
-    const v = Math.min(1, Math.max(engine.nodeVisibility(i), i === engine.view.selected ? 1 : 0))
-    const dim = 1 - state[i * 4 + 1]! * 0.85
-    const alpha = a * v * dim
+    const v = Math.max(engine.nodeVisibility(i), i === engine.view.selected || i === engine.hovered ? 1 : 0)
+    const faded = state[i * 4 + 1]!
+    const alpha = a * Math.min(1, v) * (1 - faded * 0.82)
     if (alpha < 0.02) continue
-    const r = radius[i]! + (node.level === 0 ? 11 : 5)
-    const titleWidth = measure(ctx, node.title, node.level)
-    const totalWidth = titleWidth + (node.level === 0 ? 40 : 0)
-    const fitsRight = px + r + totalWidth < rightLimit
-    const x = fitsRight ? px + r : px - r - totalWidth
+    const font = labelFont(node.level, node.kind === 'science')
+    const gap = radius[i]! + 5
+    const width = measure(ctx, node.title, font)
+    const fitsRight = px + gap + width < rightLimit
+    const x = fitsRight ? px + gap : px - gap - width
 
-    ctx.font = LABEL_FONT[node.level] ?? LABEL_FONT[3]!
-    ctx.lineWidth = 3
-    ctx.strokeStyle = `rgba(${BG},${0.82 * alpha})`
+    ctx.font = font
+    // A little clear paper around the words, as if the lines were drawn around them.
+    ctx.lineWidth = 3.5
+    ctx.strokeStyle = `rgba(${PAPER},${0.9 * alpha})`
     ctx.strokeText(node.title, x, py)
+    const emphasised = state[i * 4 + 2]! > 0.3
     const ink = node.level <= 1 || emphasised ? INK.primary : node.level === 2 ? INK.secondary : INK.muted
     ctx.fillStyle = `rgba(${ink},${alpha})`
     ctx.fillText(node.title, x, py)
-    if (node.level === 0) {
-      ctx.font = `400 10.5px ${MONO_FAMILY}`
-      ctx.fillStyle = `rgba(${INK.secondary},${alpha * 0.85})`
-      ctx.fillText(formatYear(node.year), x + titleWidth + 7, py + 0.5)
-    }
-    count++
   }
-  return count
 }
 
-function drawLaneLabels(engine: Engine, ctx: CanvasRenderingContext2D, W: number, H: number, compact: boolean): void {
-  const model = engine.model!
+function drawAxis(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
   const cam = engine.camera
-  // The bottom edge fades out behind the legend and overview strip.
-  const fadeTop = H - cam.insets.bottom - 6
-  const fade = ctx.createLinearGradient(0, fadeTop, 0, H)
-  fade.addColorStop(0, `rgba(${BG},0)`)
-  fade.addColorStop(0.3, `rgba(${BG},0.86)`)
-  fade.addColorStop(1, `rgba(${BG},0.98)`)
-  ctx.fillStyle = fade
-  ctx.fillRect(0, fadeTop, W, H - fadeTop)
+  const lineY = cam.insets.top - 16
 
-  const fadeWidth = cam.insets.left + 10
-  const g = ctx.createLinearGradient(0, 0, fadeWidth, 0)
-  g.addColorStop(0, `rgba(${BG},0.94)`)
-  g.addColorStop(0.65, `rgba(${BG},0.6)`)
-  g.addColorStop(1, `rgba(${BG},0)`)
-  ctx.fillStyle = g
-  ctx.fillRect(0, 0, fadeWidth, H)
+  ctx.fillStyle = `rgba(${INK.primary},0.55)`
+  ctx.fillRect(0, lineY, W, 0.75)
 
-  const top = cam.insets.top
-  const bottom = H - cam.insets.bottom
-  for (const lane of model.lanes) {
-    const y0 = cam.toY(lane.y0)
-    const y1 = cam.toY(lane.y1)
-    if (y1 < top || y0 > bottom) continue
-    const y = Math.min(bottom - 12, Math.max(top + 12, cam.toY(lane.center)))
-    const hidden = engine.view.hiddenDomains.has(lane.id)
-    const alpha = hidden ? 0.3 : 1
-    ctx.fillStyle = lane.color
-    ctx.globalAlpha = alpha
-    ctx.beginPath()
-    ctx.arc(20, y, 3.5, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.globalAlpha = 1
-    if (compact) continue
-    ctx.font = `500 12px ${FONT_FAMILY}`
-    ctx.fillStyle = `rgba(${INK.primary},${0.86 * alpha})`
-    ctx.fillText(lane.label, 32, y)
-  }
-  void W
-}
-
-function drawAxis(
-  engine: Engine,
-  ctx: CanvasRenderingContext2D,
-  yearToX: (year: number) => number,
-  yearAt: (x: number) => number,
-  W: number,
-  compact: boolean,
-): void {
-  const model = engine.model!
-  const cam = engine.camera
-  const bandBottom = cam.insets.top - 6
-  const g = ctx.createLinearGradient(0, 0, 0, bandBottom + 14)
-  g.addColorStop(0, `rgba(${BG},0.97)`)
-  g.addColorStop(0.72, `rgba(${BG},0.82)`)
-  g.addColorStop(1, `rgba(${BG},0)`)
-  ctx.fillStyle = g
-  ctx.fillRect(0, 0, W, bandBottom + 14)
-
-  const epochY = bandBottom - 34
-  const tickY = bandBottom - 13
   ctx.textAlign = 'center'
-
-  // Epoch names sit in the visible part of their band and hide when they would not fit.
-  ctx.font = `500 11px ${FONT_FAMILY}`
-  for (const epoch of model.epochs) {
-    const x0 = Math.max(cam.insets.left * 0.4, yearToX(epoch.start))
-    const x1 = Math.min(W, yearToX(epoch.end))
-    if (x1 <= x0) continue
-    const text = epoch.label
-    if (ctx.measureText(text).width + 14 > x1 - x0) continue
-    ctx.fillStyle = `rgba(${INK.secondary},0.92)`
-    ctx.fillText(text, (x0 + x1) / 2, epochY)
-    const edge = yearToX(epoch.start)
-    if (edge > 0 && edge < W) {
-      ctx.fillStyle = `rgba(${INK.muted},0.5)`
-      ctx.fillRect(edge, epochY - 7, 1, 14)
-    }
-  }
-
-  const left = compact ? 0 : Math.max(0, cam.insets.left * 0.4)
-  const ticks = pickTicks(yearToX, yearAt(left), yearAt(W), W, compact ? 54 : 66)
-  ctx.font = `400 10.5px ${MONO_FAMILY}`
-  for (const tick of ticks) {
-    if (tick.x < left + 12 || tick.x > W - 14) continue
-    ctx.fillStyle = `rgba(${INK.muted},1)`
-    ctx.fillText(formatYear(tick.year), tick.x, tickY)
-    ctx.fillStyle = `rgba(${INK.muted},0.45)`
-    ctx.fillRect(tick.x, tickY + 8, 1, 5)
+  ctx.font = `400 13px ${SERIF}`
+  for (const tick of engine.ticks) {
+    if (tick.x < 14 || tick.x > W - 14) continue
+    ctx.fillStyle = `rgba(${INK.secondary},1)`
+    ctx.fillText(formatYear(tick.year), tick.x, lineY - 11)
+    ctx.fillStyle = `rgba(${INK.primary},0.6)`
+    ctx.fillRect(tick.x - 0.4, lineY, 0.8, 5)
   }
   ctx.textAlign = 'left'
 }
 
-function drawDensityProbe(
-  engine: Engine,
-  ctx: CanvasRenderingContext2D,
-  yearAt: (x: number) => number,
-  W: number,
-  H: number,
-): void {
+function drawDensityProbe(engine: Engine, ctx: CanvasRenderingContext2D, W: number, H: number): void {
   const pointer = engine.pointer!
   const cam = engine.camera
   const model = engine.model!
   if (pointer.y < cam.insets.top || pointer.y > H - cam.insets.bottom) return
 
   const reach = 40
+  const yearAt = (x: number) => model.time.year(Math.min(1, Math.max(0, cam.fromX(x))), engine.warp)
   const a = yearAt(pointer.x - reach)
   const b = yearAt(pointer.x + reach)
   let count = 0
@@ -312,30 +225,28 @@ function drawDensityProbe(
     if (year >= a && year <= b && engine.passesFilters(i)) count++
   }
 
-  ctx.fillStyle = 'rgba(236,241,250,0.05)'
-  ctx.fillRect(pointer.x - reach, cam.insets.top, reach * 2, H - cam.insets.top - cam.insets.bottom)
-  ctx.fillStyle = 'rgba(236,241,250,0.35)'
-  ctx.fillRect(pointer.x, cam.insets.top, 1, H - cam.insets.top - cam.insets.bottom)
+  const y0 = cam.insets.top - 16
+  const y1 = H - cam.insets.bottom
+  ctx.fillStyle = `rgba(${INK.primary},0.55)`
+  ctx.fillRect(pointer.x - reach, y0, 0.75, y1 - y0)
+  ctx.fillRect(pointer.x + reach, y0, 0.75, y1 - y0)
 
   const primary = `${count.toLocaleString('en-US')} ${count === 1 ? 'entry' : 'entries'}`
   const secondary = `${formatYear(a)} to ${formatYear(b)}`
-  ctx.font = `400 10.5px ${MONO_FAMILY}`
-  const sw = ctx.measureText(secondary).width
-  ctx.font = `600 12.5px ${FONT_FAMILY}`
-  const pw = ctx.measureText(primary).width
-  const boxW = Math.max(sw, pw) + 20
-  const boxX = pointer.x + boxW + 16 > W ? pointer.x - boxW - 10 : pointer.x + 10
-  const boxY = Math.max(cam.insets.top + 4, pointer.y - 24)
-  ctx.fillStyle = 'rgba(14,18,30,0.92)'
-  ctx.beginPath()
-  ctx.roundRect(boxX, boxY, boxW, 44, 9)
-  ctx.fill()
-  ctx.strokeStyle = 'rgba(160,180,220,0.18)'
-  ctx.lineWidth = 1
-  ctx.stroke()
+  const right = pointer.x + reach + 8
+  const flip = right + 150 > W - cam.insets.right
+  ctx.textAlign = flip ? 'right' : 'left'
+  const textX = flip ? pointer.x - reach - 8 : right
+  ctx.lineWidth = 4
+  ctx.lineJoin = 'round'
+  ctx.strokeStyle = `rgba(${PAPER},0.95)`
+  ctx.font = `500 16px ${SERIF}`
+  ctx.strokeText(primary, textX, y0 + 18)
   ctx.fillStyle = `rgba(${INK.primary},1)`
-  ctx.fillText(primary, boxX + 10, boxY + 15)
-  ctx.font = `400 10.5px ${MONO_FAMILY}`
+  ctx.fillText(primary, textX, y0 + 18)
+  ctx.font = `italic 400 13.5px ${SERIF}`
+  ctx.strokeText(secondary, textX, y0 + 36)
   ctx.fillStyle = `rgba(${INK.secondary},1)`
-  ctx.fillText(secondary, boxX + 10, boxY + 31)
+  ctx.fillText(secondary, textX, y0 + 36)
+  ctx.textAlign = 'left'
 }

@@ -2,43 +2,36 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useMemo } from 'react'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, getEngine, passes, useApp } from '../store.ts'
-import { ShapeIcon } from './icons.tsx'
+import { Mark } from './icons.tsx'
+import { SHEET_WIDTH } from './TimelineCanvas.tsx'
 
-const PANEL = 'glass thin-scroll absolute bottom-[7.2rem] right-3 top-[4.1rem] z-20 hidden w-[20rem] overflow-y-auto rounded-2xl p-3 min-[760px]:right-4 min-[760px]:block'
-
-function StepRail() {
+function LandmarkRail() {
   const model = useApp((s) => s.model)
-  const hiddenDomains = useApp((s) => s.hiddenDomains)
-  const hiddenTypes = useApp((s) => s.hiddenTypes)
+  const hiddenKinds = useApp((s) => s.hiddenKinds)
   const activeLabels = useApp((s) => s.activeLabels)
   if (!model) return null
-  const items = model.stepChanges.filter((i) => passes(model.nodes[i]!, { hiddenDomains, hiddenTypes, activeLabels }))
+  const items = model.landmarks.filter((i) => passes(model.nodes[i]!, { hiddenKinds, activeLabels }))
   return (
     <>
-      <h2 className="px-2 pt-1 text-[15px] font-semibold tracking-tight">Step changes</h2>
-      <p className="mt-1 px-2 text-xs leading-relaxed text-ink-2">Advances that changed what was possible next. Select one to trace what led to it and what followed.</p>
-      <ol className="mt-3">
+      <h2 className="text-[21px] font-medium leading-none">Landmarks</h2>
+      <p className="caption mt-2 leading-snug">The entries the research marks as most prominent. Choose one to trace what led to it and what followed.</p>
+      <ol className="mt-4 border-t border-rule">
         {items.map((i) => {
           const node = model.nodes[i]!
-          const lane = model.lanes[model.domainIndex[i]!]!
           return (
-            <li key={i}>
-              <button onClick={() => focusNode(i)} className="group flex w-full gap-2.5 rounded-xl px-2 py-2 text-left transition hover:bg-white/7">
-                <span className="mt-1 grid w-3 shrink-0 place-items-center">
-                  <ShapeIcon type={node.type} color={lane.color} size={12} />
+            <li key={i} className="border-b border-rule/50">
+              <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2.5 py-[6px] text-left text-[16px] leading-tight">
+                <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
+                  <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
                 </span>
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-baseline justify-between gap-2">
-                    <span className="truncate text-[13.5px] font-medium">{node.title}</span>
-                    <span className="shrink-0 font-mono text-[11px] text-ink-3">{formatYear(node.year)}</span>
-                  </span>
-                  <span className="mt-0.5 block text-xs leading-snug text-ink-2">{node.step_change}</span>
-                </span>
+                <span className={`min-w-0 flex-1 group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
+                <span className="shrink-0 text-[14px] text-ink-3">{formatYear(node.year)}</span>
               </button>
             </li>
           )
         })}
       </ol>
+      {items.length === 0 && <p className="mt-3 text-[15px] italic text-ink-3">None match the chosen labels.</p>}
     </>
   )
 }
@@ -47,53 +40,44 @@ const DECADE_LIST = 10
 
 function DensityRail() {
   const model = useApp((s) => s.model)
-  const hiddenDomains = useApp((s) => s.hiddenDomains)
-  const hiddenTypes = useApp((s) => s.hiddenTypes)
+  const hiddenKinds = useApp((s) => s.hiddenKinds)
   const activeLabels = useApp((s) => s.activeLabels)
 
-  const { decades, total } = useMemo(() => {
+  const decades = useMemo(() => {
     const counts = new Map<number, number>()
-    let total = 0
     if (model) {
-      const f = { hiddenDomains, hiddenTypes, activeLabels }
       for (const node of model.nodes) {
-        if (!passes(node, f)) continue
+        if (!passes(node, { hiddenKinds, activeLabels })) continue
         const d = Math.floor(node.year / 10) * 10
         counts.set(d, (counts.get(d) ?? 0) + 1)
-        total++
       }
     }
-    const decades = [...counts].sort((a, b) => b[1] - a[1] || b[0] - a[0]).slice(0, DECADE_LIST)
-    return { decades, total }
-  }, [model, hiddenDomains, hiddenTypes, activeLabels])
+    return [...counts].sort((a, b) => b[1] - a[1] || b[0] - a[0]).slice(0, DECADE_LIST)
+  }, [model, hiddenKinds, activeLabels])
 
   const max = decades[0]?.[1] ?? 1
   return (
     <>
-      <h2 className="px-2 pt-1 text-[15px] font-semibold tracking-tight">Density</h2>
-      <p className="mt-1 px-2 text-xs leading-relaxed text-ink-2">
-        Brighter regions hold more entries, coloured by domain. Move across the timeline to count what falls under the cursor.
-      </p>
-      <h3 className="mb-1 mt-4 flex justify-between px-2 text-[11px] font-medium text-ink-3">
+      <h2 className="text-[21px] font-medium leading-none">Density</h2>
+      <p className="caption mt-2 leading-snug">Stippling gathers where entries gather. Move across the chart to count what lies under the pointer. This reflects what has been researched so far, not all of history.</p>
+      <h3 className="mt-4 flex items-baseline justify-between border-b border-rule pb-1 text-[15px] italic text-ink-3">
         Busiest decades
         <span>entries</span>
       </h3>
       <ol>
         {decades.map(([decade, count]) => (
-          <li key={decade}>
-            <button onClick={() => getEngine()?.flyToYears(decade - 20, decade + 30)} className="w-full rounded-lg px-2 py-1.5 text-left transition hover:bg-white/7">
-              <span className="flex items-baseline justify-between text-[13px]">
-                <span>{decade < 0 ? formatYear(decade) : `${decade}s`}</span>
-                <span className="font-mono text-[11px] text-ink-2">{count.toLocaleString('en-US')}</span>
+          <li key={decade} className="border-b border-rule/50">
+            <button onClick={() => getEngine()?.flyToYears(decade - 15, decade + 25)} className="group w-full py-[5px] text-left">
+              <span className="flex items-baseline justify-between text-[16px] leading-tight">
+                <span className="group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2">{decade < 0 ? formatYear(decade) : `${decade}s`}</span>
+                <span className="text-[14px] text-ink-3">{count.toLocaleString('en-US')}</span>
               </span>
-              <span className="mt-1 block h-1 overflow-hidden rounded-full bg-white/7">
-                <span className="block h-full rounded-full bg-accent/80" style={{ width: `${(count / max) * 100}%` }} />
-              </span>
+              <span className="mt-1 block h-[3px] rounded-r-[2px] bg-ink-2" style={{ width: `${(count / max) * 100}%` }} />
             </button>
           </li>
         ))}
       </ol>
-      {total === 0 && <p className="px-2 text-[13px] text-ink-2">No entries match the current filters.</p>}
+      {decades.length === 0 && <p className="mt-3 text-[15px] italic text-ink-3">None match the chosen labels.</p>}
     </>
   )
 }
@@ -101,19 +85,20 @@ function DensityRail() {
 export function Rails() {
   const mode = useApp((s) => s.mode)
   const selected = useApp((s) => s.selected)
-  const show = selected === null && mode !== 'network'
+  const show = selected === null && mode !== 'threads'
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {show && (
         <motion.aside
           key={mode}
-          initial={{ opacity: 0, x: 14 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 14 }}
-          transition={{ duration: 0.16, ease: 'easeOut' }}
-          className={PANEL}
+          initial={{ x: SHEET_WIDTH }}
+          animate={{ x: 0 }}
+          exit={{ x: SHEET_WIDTH }}
+          transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
+          style={{ width: SHEET_WIDTH }}
+          className="sheet thin-scroll absolute inset-y-0 right-0 z-20 hidden overflow-y-auto border-l border-rule px-5 pb-6 pt-4 min-[760px]:block"
         >
-          {mode === 'steps' ? <StepRail /> : <DensityRail />}
+          {mode === 'landmarks' ? <LandmarkRail /> : <DensityRail />}
         </motion.aside>
       )}
     </AnimatePresence>

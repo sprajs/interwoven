@@ -1,54 +1,46 @@
 import { TimeScale } from '../engine/time.ts'
-import { NODE_TYPES, type RawDataset, type RawEpoch, type RawNode } from './types.ts'
-
-export interface Lane {
-  index: number
-  id: string
-  label: string
-  color: string
-  rgb: [number, number, number]
-  y0: number
-  y1: number
-  center: number
-  count: number
-}
+import { KINDS, type RawDataset, type RawLabel, type RawLink, type RawNode } from './types.ts'
 
 export interface Edge {
   source: number
   target: number
-  soft: boolean
+  tentative: boolean
+  link: RawLink
 }
 
 export interface Model {
   title: string
+  description: string
   synthetic: boolean
   nodes: RawNode[]
   n: number
   edges: Edge[]
-  lanes: Lane[]
-  epochs: RawEpoch[]
-  labels: { id: string; count: number }[]
+  labels: (RawLabel & { count: number })[]
+  labelById: Map<string, RawLabel>
+  sources: NonNullable<RawDataset['sources']>
   time: TimeScale
   parents: number[][]
   children: number[][]
-  /** Layout position per node, 0..1 top to bottom. */
+  edgesInto: Edge[][]
+  edgesOutOf: Edge[][]
+  /** Position per node, 0..1 top to bottom. */
   y: Float32Array
-  /** Node radius in CSS pixels. */
+  /** Mark radius in CSS pixels. */
   radius: Float32Array
-  domainIndex: Uint8Array
-  /** Number of transitive descendants. Filled for every node on small datasets, step changes otherwise. */
+  ink: Float32Array
+  /** Transitive descendants of each node. */
   impact: Int32Array
-  /** Node indices with the most important first. Used to place labels greedily. */
+  /** Most important first. Used to place text greedily. */
   byPriority: Int32Array
-  stepChanges: number[]
+  landmarks: number[]
   indexById: Map<string, number>
 }
 
-const LEVEL_RADIUS = [10, 7, 5, 3.8]
-const LANE_GAP = 0.012
+const LEVEL_RADIUS = [4.4, 3.3, 2.6, 2.1]
+const FALLBACK_INK = '#4a433b'
 const FULL_IMPACT_LIMIT = 4000
 
-function hexToRgb(hex: string): [number, number, number] {
+export function hexToRgb(hex: string): [number, number, number] {
   const v = parseInt(hex.replace('#', ''), 16)
   return [((v >> 16) & 255) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255]
 }
@@ -69,178 +61,194 @@ export function countDescendants(start: number, children: number[][], seen: Int3
   return count
 }
 
+function seededRandom(seed: number): () => number {
+  let s = seed >>> 0
+  return () => {
+    s = (s * 1664525 + 1013904223) >>> 0
+    return s / 4294967296
+  }
+}
+
 /**
- * Assigns each node a vertical position within its domain's lane. Important nodes
- * claim the centre rows first, so deeper nodes spread outward as the view zooms in
- * and the lane grows taller. Each node is pulled toward the rows of its neighbours
- * in the same lane, which shortens links.
+ * Finds vertical positions from the graph itself. Time fixes x, and y settles under
+ * four forces: links pull connected work together, shared labels pull gently so related
+ * threads drift near each other without forming bands, nearby marks push apart so the
+ * text has room, and a weak pull keeps everything on the sheet.
  */
-export function layoutLanes(model: Pick<Model, 'nodes' | 'lanes' | 'time' | 'parents' | 'domainIndex'>): Float32Array {
-  const { nodes, lanes, time, parents, domainIndex } = model
-  const y = new Float32Array(nodes.length)
-  const row = new Int32Array(nodes.length)
-  const CELLS = 1536
-  const CLAIM_WIDTH = [0.05, 0.03, 0.018, 0.012]
+export function layoutThreads(nodes: RawNode[], edges: Pick<Edge, 'source' | 'target'>[], time: TimeScale): Float32Array {
+  const n = nodes.length
+  const y = new Float32Array(n)
+  if (n === 0) return y
 
-  for (const lane of lanes) {
-    const members: number[] = []
-    for (let i = 0; i < nodes.length; i++) if (domainIndex[i] === lane.index) members.push(i)
-    members.sort((a, b) => nodes[a]!.level - nodes[b]!.level || nodes[a]!.year - nodes[b]!.year)
+  const random = seededRandom(7)
+  const x = Float32Array.from(nodes, (node) => time.compressed(node.year))
+  for (let i = 0; i < n; i++) y[i] = random()
 
-    const rowCount = Math.max(5, Math.min(61, Math.ceil(Math.sqrt(members.length) * 2.4)) | 1)
-    const half = (rowCount - 1) / 2
-    const occupied: Uint8Array[] = Array.from({ length: rowCount }, () => new Uint8Array(CELLS))
+  // Everything sharing a label is tied to that label's centre rather than to every peer.
+  const labelIndex = new Map<string, number>()
+  const nodeLabels: number[][] = nodes.map((node) =>
+    node.labels.map((label) => {
+      if (!labelIndex.has(label)) labelIndex.set(label, labelIndex.size)
+      return labelIndex.get(label)!
+    }),
+  )
+  const labelCount = labelIndex.size
 
-    for (const i of members) {
-      const node = nodes[i]!
-      const u = time.compressed(node.year)
-      const w = CLAIM_WIDTH[node.level] ?? 0.012
-      const c0 = Math.max(0, Math.floor((u - w) * CELLS))
-      const c1 = Math.min(CELLS - 1, Math.ceil((u + w) * CELLS))
+  const order = Int32Array.from({ length: n }, (_, i) => i).sort((a, b) => x[a]! - x[b]!)
+  const force = new Float32Array(n)
+  const sum = new Float32Array(labelCount)
+  const weight = new Float32Array(labelCount)
 
-      let sum = 0
-      let weight = 0
-      for (const p of parents[i]!) {
-        if (domainIndex[p] === lane.index) {
-          sum += row[p]!
-          weight++
-        }
-      }
-      const preferred = weight ? Math.round(sum / weight) : 0
-      // Deep-level nodes stay off the central rows so step changes keep clear space.
-      const minOffset = node.level >= 3 ? 1 : 0
+  const iterations = n > 8000 ? 60 : 480
+  const REACH = 0.06
+  const SPACING = Math.min(0.045, 0.62 / Math.sqrt(n + 16))
+  const ROOM = [0.85, 0.6, 0.34, 0.26]
 
-      let chosen = NaN
-      let leastLoad = Infinity
-      let leastRow = preferred
-      search: for (let d = 0; d <= rowCount; d++) {
-        for (const s of d === 0 ? [0] : [1, -1]) {
-          const candidate = preferred + s * d
-          if (Math.abs(candidate) > half || Math.abs(candidate) < minOffset) continue
-          const cells = occupied[candidate + half]!
-          let load = 0
-          for (let c = c0; c <= c1; c++) load += cells[c]!
-          if (load === 0) {
-            chosen = candidate
-            break search
-          }
-          if (load < leastLoad) {
-            leastLoad = load
-            leastRow = candidate
-          }
-        }
-      }
-      const r = Number.isNaN(chosen) ? leastRow : chosen
-      row[i] = r
-      const cells = occupied[r + half]!
-      for (let c = c0; c <= c1; c++) cells[c] = 1
+  for (let it = 0; it < iterations; it++) {
+    const cool = 1 - it / iterations
+    force.fill(0)
+
+    for (const e of edges) {
+      const d = y[e.target]! - y[e.source]!
+      // A long jump through time may travel further than a short one.
+      const slack = 0.006 + Math.abs(x[e.target]! - x[e.source]!) * 0.3
+      if (Math.abs(d) < slack) continue
+      const pull = (d - Math.sign(d) * slack) * 0.3
+      force[e.source]! += pull
+      force[e.target]! -= pull
     }
 
-    const laneHeight = lane.y1 - lane.y0
-    const pitch = (laneHeight * 0.92) / Math.max(1, rowCount - 1)
-    for (const i of members) y[i] = lane.center + row[i]! * pitch
+    sum.fill(0)
+    weight.fill(0)
+    for (let i = 0; i < n; i++) {
+      for (const l of nodeLabels[i]!) {
+        sum[l]! += y[i]!
+        weight[l]!++
+      }
+    }
+    for (let i = 0; i < n; i++) {
+      for (const l of nodeLabels[i]!) force[i]! += ((sum[l]! / weight[l]!) - y[i]!) * 0.007
+    }
+
+    for (let a = 0; a < n; a++) {
+      const i = order[a]!
+      for (let b = a + 1; b < n; b++) {
+        const j = order[b]!
+        const dx = x[j]! - x[i]!
+        if (dx > REACH) break
+        const closeness = 1 - dx / REACH
+        const dy = y[i]! - y[j]!
+        // Prominent entries carry large text and need more room than fine detail does.
+        const min = SPACING * closeness * ((ROOM[nodes[i]!.level] ?? 0.5) + (ROOM[nodes[j]!.level] ?? 0.5))
+        const abs = Math.abs(dy)
+        if (abs >= min) continue
+        const dir = dy === 0 ? (random() < 0.5 ? -1 : 1) : Math.sign(dy)
+        const push = (min - abs) * 0.34 * dir
+        force[i]! += push
+        force[j]! -= push
+      }
+    }
+
+    for (let i = 0; i < n; i++) {
+      force[i]! += (0.5 - y[i]!) * 0.004
+      y[i] = Math.min(1.1, Math.max(-0.1, y[i]! + force[i]! * (0.35 + 0.65 * cool)))
+    }
   }
-  return y
+
+  // Spread to fill the sheet, half measured and half by rank, so a tight cluster
+  // cannot squeeze the rest of the page into a thin strip.
+  const ranked = Int32Array.from({ length: n }, (_, i) => i).sort((a, b) => y[a]! - y[b]!)
+  const lo = y[ranked[0]!]!
+  const hi = y[ranked[n - 1]!]!
+  const range = Math.max(1e-6, hi - lo)
+  const out = new Float32Array(n)
+  ranked.forEach((i, rank) => {
+    const measured = (y[i]! - lo) / range
+    const byRank = n > 1 ? rank / (n - 1) : 0.5
+    out[i] = 0.02 + 0.96 * (measured * 0.72 + byRank * 0.28)
+  })
+  return out
 }
 
 export function buildModel(data: RawDataset, synthetic = false): Model {
   const nodes = data.nodes
   const n = nodes.length
   const indexById = new Map(nodes.map((node, i) => [node.id, i]))
-  const domainOrder = new Map(data.domains.map((d, i) => [d.id, i]))
-  const domainIndex = new Uint8Array(n)
+  const labelById = new Map(data.labels.map((label) => [label.id, label]))
   const parents: number[][] = Array.from({ length: n }, () => [])
   const children: number[][] = Array.from({ length: n }, () => [])
+  const edgesInto: Edge[][] = Array.from({ length: n }, () => [])
+  const edgesOutOf: Edge[][] = Array.from({ length: n }, () => [])
   const edges: Edge[] = []
   const labelCounts = new Map<string, number>()
-  const domainCounts = new Array<number>(data.domains.length).fill(0)
 
-  nodes.forEach((node, i) => {
-    const d = domainOrder.get(node.domain) ?? 0
-    domainIndex[i] = d
-    domainCounts[d]!++
+  nodes.forEach((node) => {
     for (const label of node.labels) labelCounts.set(label, (labelCounts.get(label) ?? 0) + 1)
-    const add = (ids: string[] | undefined, soft: boolean) => {
-      for (const id of ids ?? []) {
-        const p = indexById.get(id)
-        if (p === undefined) continue
-        edges.push({ source: p, target: i, soft })
-        parents[i]!.push(p)
-        children[p]!.push(i)
-      }
-    }
-    add(node.builds_on, false)
-    add(node.informed_by, true)
   })
-
-  // Lane height follows the square root of membership: busy domains get more room
-  // without squeezing small ones out of sight.
-  const weights = domainCounts.map((c) => Math.sqrt(c + 4))
-  const total = weights.reduce((a, b) => a + b, 0)
-  const usable = 1 - LANE_GAP * (data.domains.length - 1)
-  let cursor = 0
-  const lanes: Lane[] = data.domains.map((d, index) => {
-    const h = (weights[index]! / total) * usable
-    const lane: Lane = {
-      index,
-      id: d.id,
-      label: d.label,
-      color: d.color,
-      rgb: hexToRgb(d.color),
-      y0: cursor,
-      y1: cursor + h,
-      center: cursor + h / 2,
-      count: domainCounts[index]!,
-    }
-    cursor += h + LANE_GAP
-    return lane
-  })
+  for (const link of data.links) {
+    const source = indexById.get(link.from)
+    const target = indexById.get(link.to)
+    if (source === undefined || target === undefined) continue
+    const edge: Edge = { source, target, tentative: link.tentative, link }
+    edges.push(edge)
+    parents[target]!.push(source)
+    children[source]!.push(target)
+    edgesInto[target]!.push(edge)
+    edgesOutOf[source]!.push(edge)
+  }
 
   const time = TimeScale.fromYears(nodes.map((node) => node.year))
-  const y = layoutLanes({ nodes, lanes, time, parents, domainIndex })
+  const y = layoutThreads(nodes, edges, time)
 
   const radius = new Float32Array(n)
+  const ink = new Float32Array(n * 3)
   const impact = new Int32Array(n)
   const seen = new Int32Array(n).fill(-1)
-  const stepChanges: number[] = []
+  const landmarks: number[] = []
   nodes.forEach((node, i) => {
-    if (node.step_change || node.level === 0) stepChanges.push(i)
-    if (n <= FULL_IMPACT_LIMIT || node.level === 0) impact[i] = countDescendants(i, children, seen, i)
-    else impact[i] = children[i]!.length
-    const base = LEVEL_RADIUS[node.level] ?? 3.9
-    radius[i] = base * (1 + Math.min(0.35, Math.log1p(children[i]!.length) * 0.06))
+    if (node.level === 0) landmarks.push(i)
+    impact[i] = n <= FULL_IMPACT_LIMIT || node.level === 0 ? countDescendants(i, children, seen, i) : children[i]!.length
+    radius[i] = (LEVEL_RADIUS[node.level] ?? 2.4) * (1 + Math.min(0.25, Math.log1p(children[i]!.length) * 0.05))
+    const primary = labelById.get(node.labels[0] ?? '')
+    ink.set(hexToRgb(primary?.ink ?? FALLBACK_INK), i * 3)
   })
-  stepChanges.sort((a, b) => nodes[a]!.year - nodes[b]!.year)
+  landmarks.sort((a, b) => nodes[a]!.year - nodes[b]!.year)
 
   const byPriority = Int32Array.from(nodes.keys()).sort(
     (a, b) => nodes[a]!.level - nodes[b]!.level || children[b]!.length - children[a]!.length,
   )
 
-  const labels = [...labelCounts].map(([id, count]) => ({ id, count })).sort((a, b) => b.count - a.count || a.id.localeCompare(b.id))
+  const labels = data.labels
+    .map((label) => ({ ...label, count: labelCounts.get(label.id) ?? 0 }))
+    .filter((label) => label.count > 0)
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
 
   return {
     title: data.meta?.title ?? 'Timeline',
+    description: data.meta?.description ?? '',
     synthetic,
     nodes,
     n,
     edges,
-    lanes,
-    epochs: data.epochs ?? [],
     labels,
+    labelById,
+    sources: data.sources ?? {},
     time,
     parents,
     children,
+    edgesInto,
+    edgesOutOf,
     y,
     radius,
-    domainIndex,
+    ink,
     impact,
     byPriority,
-    stepChanges,
+    landmarks,
     indexById,
   }
 }
 
-export const SHAPE_BY_TYPE = new Map(NODE_TYPES.map((t) => [t.id, t.shape]))
+export const SHAPE_BY_KIND = new Map(KINDS.map((k) => [k.id, k.shape]))
 
 /** Hops from `start` along `adjacency`, up to `maxHops`. The start node maps to 0. */
 export function walk(start: number, adjacency: number[][], maxHops: number): Map<number, number> {

@@ -1,4 +1,9 @@
-/** GLSL for the timeline. Node data lives in textures so nodes and links read one source of truth. */
+import { LUT_SIZE } from './time.ts'
+
+/**
+ * GLSL for the chart: pen strokes and inked marks on a sheet of paper.
+ * Nothing here glows. Strokes multiply onto the page, so crossings darken as real ink does.
+ */
 export const TEX_WIDTH = 1024
 
 const HEADER = /* glsl */ `#version 300 es
@@ -19,10 +24,14 @@ uniform sampler2D uNodeA;
 uniform sampler2D uNodeB;
 uniform sampler2D uState;
 uniform vec4 uReveal;
+uniform sampler2D uTimeLut;
 
 float timeU(float t) {
   float lin = (t - uTimeScale.x) / (uTimeScale.y - uTimeScale.x);
-  float compressed = 1.0 - log(1.0 + (uTimeScale.y - t) / uTimeScale.z) / uTimeScale.w;
+  float position = clamp(log(1.0 + (uTimeScale.y - t) / uTimeScale.z) / uTimeScale.w, 0.0, 1.0);
+  float f = position * ${LUT_SIZE - 1}.0;
+  int i = min(int(f), ${LUT_SIZE - 2});
+  float compressed = mix(texelFetch(uTimeLut, ivec2(i, 0), 0).r, texelFetch(uTimeLut, ivec2(i + 1, 0), 0).r, f - float(i));
   return mix(lin, compressed, uWarp);
 }
 vec2 worldToPx(float t, float y) {
@@ -35,26 +44,34 @@ vec4 pxToClip(vec2 p) {
 ivec2 texel(int id) {
   return ivec2(id % ${TEX_WIDTH}, id / ${TEX_WIDTH});
 }
-// state: x = passes filters, y = dimmed, z = emphasised, w = shown regardless of zoom
+// state: x = passes filters, y = faded, z = emphasised, w = shown regardless of zoom
 float visible(vec4 state, float level) {
   return state.x * max(uReveal[int(level)], state.w);
 }
-// Nodes below the current depth stay as faint dust, so the whole network is always
-// present and zooming brings detail into focus rather than popping it into existence.
-const float DUST = 0.3;
-float presence(vec4 state, float level) {
-  return state.x * mix(DUST, 1.0, max(uReveal[int(level)], state.w));
+float hash(float n) {
+  return fract(sin(n * 12.9898) * 43758.5453);
+}
+// Smooth 1D noise for the slight unsteadiness of a hand.
+float wander(float x) {
+  float i = floor(x);
+  float f = fract(x);
+  f = f * f * (3.0 - 2.0 * f);
+  return mix(hash(i), hash(i + 1.0), f) * 2.0 - 1.0;
 }
 `
+
+/** The graphite the page falls back to when something is faded. */
+const GRAPHITE = 'vec3(0.56, 0.53, 0.49)'
 
 export const NODE_VS = HEADER + WORLD + /* glsl */ `
 layout(location = 0) in vec2 aCorner;
 uniform float uNodeAlpha;
 uniform int uHover;
 uniform int uSelected;
+uniform float uDrawU;
 flat out vec3 vColor;
 flat out vec4 vInfo;
-flat out vec2 vExtra;
+flat out vec3 vExtra;
 out vec2 vPx;
 
 void main() {
@@ -64,17 +81,17 @@ void main() {
   vec4 b = texelFetch(uNodeB, tc, 0);
   vec4 s = texelFetch(uState, tc, 0);
   float v = visible(s, b.a);
-  float alpha = presence(s, b.a) * mix(1.0, 0.1, s.y) * uNodeAlpha;
-  float mark = id == uSelected ? 1.0 : (id == uHover ? 0.65 : 0.0);
-  alpha = max(alpha, mark);
-  if (alpha < 0.004) {
+  float mark = id == uSelected ? 1.0 : (id == uHover ? 0.7 : 0.0);
+  float u = timeU(a.x);
+  float drawn = smoothstep(u - 0.004, u + 0.004, uDrawU);
+  // Below the current depth a node is only a faint point on its thread.
+  float alpha = max(s.x * mix(0.42, 1.0, v) * mix(1.0, 0.3, s.y) * uNodeAlpha, mark) * drawn;
+  if (alpha < 0.01) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
-  float r = a.z * uDpr * (0.42 + 0.58 * v) * (1.0 + 0.4 * s.z + 0.18 * mark);
-  // Quads stay tight: with tens of thousands of nodes, fill rate is the main GPU cost.
-  bool wide = b.a < 0.5 || mark > 0.0 || s.z > 0.05;
-  float halfSize = wide ? r * 2.9 + 8.0 * uDpr : r * 2.0 + 2.0 * uDpr;
+  float r = a.z * uDpr * mix(0.5, 1.0, v) * (1.0 + 0.2 * s.z);
+  float halfSize = r * 1.25 + 2.0 * uDpr + mark * (r + 7.0 * uDpr);
   vec2 c = worldToPx(a.x, a.y);
   if (c.x < -halfSize || c.x > uRes.x + halfSize || c.y < -halfSize || c.y > uRes.y + halfSize) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
@@ -82,87 +99,79 @@ void main() {
   }
   vPx = aCorner * halfSize;
   gl_Position = pxToClip(c + vPx);
-  vColor = b.rgb;
-  vInfo = vec4(a.w, r, alpha, s.z);
-  vExtra = vec2(mark, b.a);
+  vColor = mix(${GRAPHITE}, b.rgb, mix(1.0, 0.25, s.y));
+  vInfo = vec4(a.w, r, alpha, hash(float(id) + 3.1) * 6.283);
+  vExtra = vec3(mark, v, b.a);
 }
 `
 
 export const NODE_FS = HEADER + /* glsl */ `
 uniform float uDpr;
+uniform vec3 uPaper;
 flat in vec3 vColor;
 flat in vec4 vInfo;
-flat in vec2 vExtra;
+flat in vec3 vExtra;
 in vec2 vPx;
 out vec4 fragColor;
 
-float sdHexagon(vec2 p, float r) {
-  const vec3 k = vec3(-0.866025404, 0.5, 0.577350269);
-  p = abs(p);
-  p -= 2.0 * min(dot(k.xy, p), 0.0) * k.xy;
-  p -= vec2(clamp(p.x, -k.z * r, k.z * r), r);
-  return length(p) * sign(p.y);
-}
-float sdRoundBox(vec2 p, float r, float round_) {
-  vec2 q = abs(p) - vec2(r - round_);
-  return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - round_;
-}
-float shapeDistance(float shape, vec2 p, float r) {
-  if (shape < 0.5) return length(p) - r;                    // discovery: disc
-  if (shape < 1.5) return abs(length(p) - r * 0.8) - r * 0.26; // theory: ring
-  if (shape < 2.5) return sdRoundBox(p, r * 0.88, r * 0.22);  // instrument: square
-  if (shape < 3.5) return (abs(p.x) + abs(p.y)) * 0.7071 - r * 0.86; // invention: diamond
-  return sdHexagon(p.yx, r * 0.92);                          // system: hexagon
-}
-
 void main() {
-  float shape = vInfo.x;
+  float kind = vInfo.x;
   float r = vInfo.y;
   float alpha = vInfo.z;
-  float boost = vInfo.w;
+  float seed = vInfo.w;
   float mark = vExtra.x;
-  bool stepNode = vExtra.y < 0.5;
-
-  float d = shapeDistance(shape, vPx, r);
-  float aa = 0.9 * uDpr;
-  float fill = 1.0 - smoothstep(-aa, aa, d);
-
-  vec3 lifted = mix(vColor, vec3(1.0), 0.16);
-  vec3 body = lifted * (1.05 + 0.5 * boost);
-  // A brighter rim gives small shapes a crisp edge against the glow.
-  float rim = (1.0 - smoothstep(0.0, 1.4 * uDpr, abs(d + 0.9 * uDpr))) * fill;
-  body += mix(vColor, vec3(1.0), 0.6) * rim * 0.4;
-
-  float outside = max(d, 0.0);
-  float glow = exp(-outside / (r * 0.75 + 1.5 * uDpr)) * (0.13 + 0.5 * boost + (stepNode ? 0.2 : 0.0));
-  vec3 rgb = body * fill + vColor * glow * (1.0 - fill);
-  float a = fill;
 
   float dist = length(vPx);
-  if (stepNode) {
-    float halo = 1.0 - smoothstep(0.0, 1.2 * uDpr, abs(dist - r * 1.72));
-    rgb += mix(vColor, vec3(1.0), 0.3) * halo * 0.65;
+  float angle = atan(vPx.y, vPx.x);
+  // No hand draws a perfect circle.
+  float edge = r * (1.0 + 0.05 * sin(angle * 2.0 + seed) + 0.03 * sin(angle * 3.0 + seed * 2.0));
+  float aa = 0.75 * uDpr;
+
+  vec3 rgb = uPaper;
+  float a = 0.0;
+
+  float disc = 1.0 - smoothstep(edge - aa, edge + aa, dist);
+  if (kind < 0.5) {
+    // Technology: a solid drop of ink.
+    rgb = vColor;
+    a = disc;
+  } else {
+    // Science: an open ring, thick and thin as a broad nib turns around it.
+    float nib = abs(sin(angle + 0.7));
+    float thick = max(0.9 * uDpr, r * (0.2 + 0.26 * nib));
+    float inner = 1.0 - smoothstep(edge - thick - aa, edge - thick + aa, dist);
+    rgb = mix(vColor, uPaper, inner);
+    a = disc;
   }
+
   if (mark > 0.0) {
-    float ring = 1.0 - smoothstep(0.5 * uDpr, 1.9 * uDpr, abs(dist - (r * 1.4 + 3.5 * uDpr)));
-    rgb += vec3(1.0) * ring * mark;
+    // A fine circle drawn around whatever has your attention.
+    float ringR = r + 5.5 * uDpr;
+    float wobble = ringR * (1.0 + 0.03 * sin(angle * 2.0 + seed));
+    float nib = 0.55 + 0.45 * abs(sin(angle + 0.7));
+    float ring = 1.0 - smoothstep(0.35 * uDpr, 1.15 * uDpr, abs(dist - wobble) / nib);
+    rgb = mix(rgb, vec3(0.15, 0.13, 0.11), ring * (1.0 - a));
     a = max(a, ring * mark);
   }
-  fragColor = vec4(rgb, a) * alpha;
+  fragColor = vec4(rgb * a, a) * alpha;
 }
 `
 
 export const EDGE_VS = HEADER + WORLD + /* glsl */ `
 layout(location = 0) in vec2 aVert;
 layout(location = 1) in uvec2 aEdge;
-layout(location = 2) in float aSoft;
+layout(location = 2) in float aTentative;
 uniform float uEdgeAlpha;
 out float vSide;
 out float vT;
+out float vU;
 flat out vec3 vColorA;
 flat out vec3 vColorB;
 flat out vec4 vInfo;
-flat out float vLen;
+flat out vec2 vExtra;
+out float vHalf;
+
+const float NIB_ANGLE = -0.62;
 
 void main() {
   int si = int(aEdge.x);
@@ -176,71 +185,153 @@ void main() {
   vec4 ss = texelFetch(uState, sc, 0);
   vec4 ts = texelFetch(uState, tc, 0);
 
-  float vis = min(presence(ss, sb.a), presence(ts, tb.a));
   float boost = min(ss.z, ts.z);
-  float dim = max(ss.y, ts.y);
-  float alpha = vis * mix(1.0, 0.05, dim) * (uEdgeAlpha + boost * 0.7);
-  if (alpha < 0.006) {
+  float faded = max(ss.y, ts.y);
+  float match = min(ss.x, ts.x);
+  float alpha = match * mix(1.0, 0.16, faded) * max(uEdgeAlpha, boost);
+  if (alpha < 0.008) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
 
   vec2 p0 = worldToPx(sa.x, sa.y);
   vec2 p3 = worldToPx(ta.x, ta.y);
-  float margin = 60.0 * uDpr;
+  float margin = 40.0 * uDpr;
   if ((p0.x < -margin && p3.x < -margin) || (p0.x > uRes.x + margin && p3.x > uRes.x + margin) ||
       (p0.y < -margin && p3.y < -margin) || (p0.y > uRes.y + margin && p3.y > uRes.y + margin)) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
 
-  // Horizontal tangents at both ends make links read as flow along time.
-  float handle = max((p3.x - p0.x) * 0.5, 14.0 * uDpr);
-  vec2 p1 = p0 + vec2(handle, 0.0);
-  vec2 p2 = p3 - vec2(handle, 0.0);
+  float seed = hash(float(gl_InstanceID) * 1.37 + 0.5);
+  vec2 chord = p3 - p0;
+  float len = length(chord) + 1.0;
+  // A hand reaches forward along time, then settles into the next mark.
+  // Steep links curve as one gentle arc, so short jumps do not read as hooks.
+  float handle = abs(chord.x) * 0.46 + 3.0 * uDpr;
+  float steep = smoothstep(0.6, 2.2, abs(chord.y) / (abs(chord.x) + 1.0));
+  vec2 bow = vec2(-chord.y, chord.x) / len * len * mix(0.04, 0.13, steep) * (seed < 0.5 ? -1.0 : 1.0) * (0.6 + 0.4 * seed);
+  vec2 p1 = p0 + vec2(handle, chord.y * mix(0.1, 0.33, steep)) + bow;
+  vec2 p2 = p3 - vec2(handle, chord.y * mix(0.1, 0.33, steep)) + bow;
+
   float t = aVert.x;
   float it = 1.0 - t;
   vec2 pos = it * it * it * p0 + 3.0 * it * it * t * p1 + 3.0 * it * t * t * p2 + t * t * t * p3;
   vec2 tangent = 3.0 * it * it * (p1 - p0) + 6.0 * it * t * (p2 - p1) + 3.0 * t * t * (p3 - p2);
-  vec2 normal = normalize(vec2(-tangent.y, tangent.x) + vec2(1e-5, 0.0));
+  float angle = atan(tangent.y, tangent.x);
+  vec2 normal = vec2(-sin(angle), cos(angle));
 
-  float halfWidth = (0.55 + 0.75 * boost) * uDpr;
-  float expand = halfWidth + 1.2 * uDpr;
+  float along = t * len / uDpr;
+  // Keeps the ends pinned to their marks while the middle wavers slightly.
+  float pin = smoothstep(0.0, 0.12, t) * smoothstep(1.0, 0.88, t);
+  pos += normal * pin * uDpr * (wander(along / 70.0 + seed * 91.0) * 1.5 + wander(along / 21.0 + seed * 37.0) * 0.45);
+
+  // A broad nib makes the stroke thick or thin depending on its direction of travel.
+  float nib = abs(sin(angle - NIB_ANGLE));
+  // Pressure eases off as the stroke runs on, and the pen lifts at the end.
+  float pressure = (1.0 - 0.32 * t) * smoothstep(1.0, 0.94, t) * (0.72 + 0.28 * smoothstep(0.0, 0.05, t));
+  float base = mix(0.95, 1.8, boost);
+  float halfWidth = uDpr * base * (0.28 + 0.72 * nib) * pressure * (1.0 + 0.12 * wander(along / 34.0 + seed * 13.0));
+  float expand = halfWidth + 1.1 * uDpr;
+
   gl_Position = pxToClip(pos + normal * aVert.y * expand);
   vSide = aVert.y * expand;
+  vHalf = halfWidth;
   vT = t;
-  vColorA = sb.rgb;
-  vColorB = tb.rgb;
-  vLen = distance(p0, p3) + 1.0;
-  // Long links recede unless emphasised, so distant connections do not become a hairball.
-  float recede = mix(1.0, 0.3, smoothstep(220.0 * uDpr, 1100.0 * uDpr, vLen));
-  vInfo = vec4(halfWidth, alpha * mix(recede, 1.0, boost), boost, aSoft);
+  // In screen terms, the time position lets the opening animation draw strokes left to right.
+  vU = mix(timeU(sa.x), timeU(ta.x), t);
+  vColorA = mix(${GRAPHITE}, sb.rgb, mix(1.0, 0.2, faded));
+  vColorB = mix(${GRAPHITE}, tb.rgb, mix(1.0, 0.2, faded));
+  vInfo = vec4(seed, alpha, boost, aTentative);
+  vExtra = vec2(len / uDpr, 0.0);
 }
 `
 
 export const EDGE_FS = HEADER + /* glsl */ `
 uniform float uDpr;
-uniform float uTimeS;
+uniform float uDrawU;
 in float vSide;
 in float vT;
+in float vU;
+in float vHalf;
 flat in vec3 vColorA;
 flat in vec3 vColorB;
 flat in vec4 vInfo;
-flat in float vLen;
+flat in vec2 vExtra;
+out vec4 fragColor;
+
+float hash2(vec2 p) {
+  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+void main() {
+  if (vU > uDrawU) discard;
+  float alpha = vInfo.y;
+  float cover = 1.0 - smoothstep(vHalf - 0.55 * uDpr, vHalf + 0.55 * uDpr, abs(vSide));
+  float along = vT * vExtra.x;
+  if (vInfo.w > 0.5) {
+    // Unreviewed links: the pen touching down in short, uneven strokes.
+    float jitter = hash2(vec2(floor(along / 8.0), vInfo.x)) * 0.25;
+    cover *= step(0.34 + jitter, fract(along / 8.0));
+  }
+  // Ink thins where the nib runs dry.
+  float grain = hash2(floor(gl_FragCoord.xy / uDpr) + vInfo.x * 40.0);
+  float ink = cover * alpha * (0.86 + 0.14 * grain);
+  vec3 color = mix(vColorA, vColorB, smoothstep(0.15, 0.85, vT));
+  // Multiply blending: white leaves the paper untouched, ink darkens what is under it.
+  fragColor = vec4(mix(vec3(1.0), color, ink), 1.0);
+}
+`
+
+export const SPAN_VS = HEADER + WORLD + /* glsl */ `
+layout(location = 0) in vec2 aVert;
+layout(location = 1) in vec2 aRange;
+layout(location = 2) in uint aId;
+uniform float uDrawU;
+flat out vec3 vColor;
+flat out float vAlpha;
+out vec2 vLocal;
+flat out vec2 vSize;
+
+void main() {
+  int id = int(aId);
+  ivec2 tc = texel(id);
+  vec4 a = texelFetch(uNodeA, tc, 0);
+  vec4 b = texelFetch(uNodeB, tc, 0);
+  vec4 s = texelFetch(uState, tc, 0);
+  float alpha = visible(s, b.a) * mix(1.0, 0.25, s.y);
+  float x0 = worldToPx(aRange.x, a.y).x;
+  float x1 = worldToPx(aRange.y, a.y).x;
+  float y = worldToPx(a.x, a.y).y;
+  if (alpha < 0.01 || x1 - x0 < 5.0 * uDpr || x1 < 0.0 || x0 > uRes.x || timeU(aRange.x) > uDrawU) {
+    gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
+    return;
+  }
+  float tick = 2.6 * uDpr;
+  vec2 p = vec2(mix(x0 - uDpr, x1 + uDpr, aVert.x * 0.5 + 0.5), y + aVert.y * tick);
+  gl_Position = pxToClip(p);
+  vLocal = vec2(p.x - x0, aVert.y * tick);
+  vSize = vec2(x1 - x0, tick);
+  vColor = b.rgb;
+  vAlpha = alpha;
+}
+`
+
+export const SPAN_FS = HEADER + /* glsl */ `
+uniform float uDpr;
+flat in vec3 vColor;
+flat in float vAlpha;
+in vec2 vLocal;
+flat in vec2 vSize;
 out vec4 fragColor;
 
 void main() {
-  float halfWidth = vInfo.x;
-  float alpha = vInfo.y;
-  float boost = vInfo.z;
-  float edge = 1.0 - smoothstep(halfWidth - 0.6 * uDpr, halfWidth + 0.8 * uDpr, abs(vSide));
-  float along = vT * vLen / uDpr;
-  if (vInfo.w > 0.5) edge *= step(0.42, fract(along / 7.0));
-  vec3 color = mix(vColorA, vColorB, vT);
-  // Pulses travel from cause to effect along emphasised links.
-  float pulse = pow(0.5 + 0.5 * sin((along / 54.0 - uTimeS * 0.9) * 6.2832), 8.0);
-  color = mix(color, vec3(1.0), 0.12) * (1.0 + pulse * boost * 2.2);
-  fragColor = vec4(color * edge * alpha, 0.0);
+  // A thin bar with a small serif at each end, as in Priestley's Chart of Biography.
+  float line = 1.0 - smoothstep(0.3 * uDpr, 0.8 * uDpr, abs(vLocal.y));
+  float end = min(abs(vLocal.x), abs(vLocal.x - vSize.x));
+  float serif = 1.0 - smoothstep(0.35 * uDpr, 0.95 * uDpr, end);
+  float ink = max(line * 0.62, serif) * vAlpha;
+  fragColor = vec4(mix(vec3(1.0), vColor, ink), 1.0);
 }
 `
 
@@ -257,12 +348,8 @@ void main() {
   vec4 b = texelFetch(uNodeB, tc, 0);
   vec4 s = texelFetch(uState, tc, 0);
   float w = s.x * mix(1.0, 0.25, s.y);
-  if (w < 0.01) {
-    gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
-    return;
-  }
   vec2 c = worldToPx(a.x, a.y);
-  if (c.x < -uKernel || c.x > uRes.x + uKernel || c.y < -uKernel || c.y > uRes.y + uKernel) {
+  if (w < 0.01 || c.x < -uKernel || c.x > uRes.x + uKernel || c.y < -uKernel || c.y > uRes.y + uKernel) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
@@ -279,41 +366,8 @@ out vec4 fragColor;
 void main() {
   float d = dot(vP, vP);
   if (d > 1.0) discard;
-  float k = exp(-d * 4.0) - 0.0183;
+  float k = (exp(-d * 3.2) - 0.0408);
   fragColor = vec4(vColor * k, k);
-}
-`
-
-export const RECT_VS = HEADER + /* glsl */ `
-layout(location = 0) in vec2 aCorner;
-layout(location = 1) in vec4 aRect;
-layout(location = 2) in vec4 aColor;
-layout(location = 3) in float aKind;
-uniform vec2 uRes;
-out vec2 vUv;
-flat out vec4 vColor;
-flat out float vKind;
-void main() {
-  vec2 uv = aCorner * 0.5 + 0.5;
-  vec2 p = mix(aRect.xy, aRect.zw, uv);
-  vec2 c = p / uRes * 2.0 - 1.0;
-  gl_Position = vec4(c.x, -c.y, 0.0, 1.0);
-  vUv = uv;
-  vColor = aColor;
-  vKind = aKind;
-}
-`
-
-export const RECT_FS = HEADER + /* glsl */ `
-in vec2 vUv;
-flat in vec4 vColor;
-flat in float vKind;
-out vec4 fragColor;
-void main() {
-  float a = 1.0;
-  // Beam: bright centre fading sideways and towards the bottom.
-  if (vKind > 0.5) a = pow(1.0 - abs(vUv.x * 2.0 - 1.0), 2.0) * pow(1.0 - vUv.y, 1.2);
-  fragColor = vec4(vColor.rgb * vColor.a * a, vColor.a * a);
 }
 `
 
@@ -326,91 +380,107 @@ void main() {
 }
 `
 
-export const HAZE_VS = FULLSCREEN_VS
-export const HAZE_FS = HEADER + /* glsl */ `
+export const STIPPLE_VS = FULLSCREEN_VS
+export const STIPPLE_FS = HEADER + /* glsl */ `
 uniform sampler2D uTex;
+uniform vec2 uRes;
+uniform float uDpr;
 uniform float uGain;
 uniform float uIntensity;
-uniform float uContours;
+uniform vec2 uOffset;
 in vec2 vUv;
 out vec4 fragColor;
+
+vec2 hash22(vec2 p) {
+  p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
+  return fract(sin(p) * 43758.5453);
+}
+
 void main() {
-  vec4 s = texture(uTex, vUv);
-  float amount = s.a * uGain;
-  // Chromatic average keeps colours saturated however many nodes overlap.
-  vec3 hue = s.a > 1e-4 ? s.rgb / s.a : vec3(0.0);
-  float level = 1.0 - exp(-amount);
-  vec3 color = hue * level + vec3(1.0) * pow(level, 7.0) * 0.14;
-  // Thin iso-density contours make the field readable as a measure, not only a glow.
-  if (uContours > 0.001 && amount > 0.012) {
-    float v = log2(amount) * 0.9;
-    float width = fwidth(v);
-    float line = 1.0 - smoothstep(width * 0.4, width * 1.4, abs(fract(v) - 0.5));
-    color += (hue * 0.8 + 0.1) * line * 0.09 * uContours * smoothstep(0.02, 0.1, amount);
+  // Density as engraver's stipple: hand-placed dots that grow and crowd where entries do.
+  float cell = 5.0 * uDpr;
+  vec2 fc = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y) + uOffset * uDpr;
+  vec2 id = floor(fc / cell);
+  float ink = 0.0;
+  vec3 color = vec3(0.3, 0.27, 0.24);
+  for (int y = -1; y <= 1; y++) {
+    for (int x = -1; x <= 1; x++) {
+      vec2 c = id + vec2(float(x), float(y));
+      vec2 h = hash22(c);
+      vec2 center = (c + 0.2 + 0.6 * h) * cell;
+      vec2 screen = center - uOffset * uDpr;
+      vec2 uv = vec2(screen.x, uRes.y - screen.y) / uRes;
+      vec4 s = texture(uTex, uv);
+      float amount = 1.0 - exp(-s.a * uGain);
+      float keep = step(hash22(c + 7.7).x, amount * 1.5);
+      float r = (0.34 + 1.05 * sqrt(amount)) * uDpr * keep;
+      float d = length(fc - center);
+      float dot_ = 1.0 - smoothstep(r - 0.6 * uDpr, r + 0.6 * uDpr, d);
+      if (dot_ > ink) {
+        ink = dot_;
+        if (s.a > 1e-4) color = s.rgb / s.a;
+      }
+    }
   }
-  fragColor = vec4(color * uIntensity, 0.0);
+  fragColor = vec4(mix(vec3(1.0), color, ink * uIntensity * 0.8), 1.0);
 }
 `
 
-export const BLOOM_DOWN_VS = FULLSCREEN_VS
-export const BLOOM_DOWN_FS = HEADER + /* glsl */ `
-uniform sampler2D uTex;
-uniform vec2 uTexel;
-uniform float uThreshold;
-in vec2 vUv;
-out vec4 fragColor;
-void main() {
-  vec3 c = texture(uTex, vUv).rgb * 4.0;
-  c += texture(uTex, vUv + uTexel * vec2(-1.0, -1.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(1.0, -1.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(-1.0, 1.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(1.0, 1.0)).rgb;
-  c /= 8.0;
-  if (uThreshold > 0.0) c = max(c - uThreshold, 0.0);
-  fragColor = vec4(c, 1.0);
-}
-`
-
-export const BLOOM_UP_VS = FULLSCREEN_VS
-export const BLOOM_UP_FS = HEADER + /* glsl */ `
-uniform sampler2D uTex;
-uniform vec2 uTexel;
-in vec2 vUv;
-out vec4 fragColor;
-void main() {
-  vec3 c = texture(uTex, vUv + uTexel * vec2(-2.0, 0.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(2.0, 0.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(0.0, -2.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(0.0, 2.0)).rgb;
-  c += texture(uTex, vUv + uTexel * vec2(-1.0, -1.0)).rgb * 2.0;
-  c += texture(uTex, vUv + uTexel * vec2(1.0, -1.0)).rgb * 2.0;
-  c += texture(uTex, vUv + uTexel * vec2(-1.0, 1.0)).rgb * 2.0;
-  c += texture(uTex, vUv + uTexel * vec2(1.0, 1.0)).rgb * 2.0;
-  fragColor = vec4(c / 12.0, 1.0);
-}
-`
-
-export const COMPOSITE_VS = FULLSCREEN_VS
-export const COMPOSITE_FS = HEADER + /* glsl */ `
-uniform sampler2D uScene;
-uniform sampler2D uBloom;
-uniform float uBloomAmount;
+export const RECT_VS = HEADER + /* glsl */ `
+layout(location = 0) in vec2 aCorner;
+layout(location = 1) in vec4 aRect;
+layout(location = 2) in vec4 aColor;
 uniform vec2 uRes;
+flat out vec4 vColor;
+void main() {
+  vec2 uv = aCorner * 0.5 + 0.5;
+  vec2 p = mix(aRect.xy, aRect.zw, uv);
+  vec2 c = p / uRes * 2.0 - 1.0;
+  gl_Position = vec4(c.x, -c.y, 0.0, 1.0);
+  vColor = aColor;
+}
+`
+
+export const RECT_FS = HEADER + /* glsl */ `
+flat in vec4 vColor;
+out vec4 fragColor;
+void main() {
+  fragColor = vec4(vColor.rgb * vColor.a, vColor.a);
+}
+`
+
+export const PAPER_VS = FULLSCREEN_VS
+export const PAPER_FS = HEADER + /* glsl */ `
+uniform vec3 uPaper;
+uniform float uDpr;
 in vec2 vUv;
 out vec4 fragColor;
 
+float hash(vec2 p) {
+  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
 float noise(vec2 p) {
-  return fract(52.9829189 * fract(dot(p, vec2(0.06711056, 0.00583715))));
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
 }
 void main() {
-  vec3 c = texture(uScene, vUv).rgb + texture(uBloom, vUv).rgb * uBloomAmount;
-  // Soft shoulder: values stay faithful up to 0.7, then roll off rather than clip.
-  vec3 over = max(c - 0.7, 0.0);
-  c = min(c, 0.7) + 0.3 * (1.0 - exp(-over / 0.3));
-  vec2 q = vUv - 0.5;
-  c *= 1.0 - dot(q, q) * 0.38;
-  // Dithering prevents banding in dark gradients.
-  c += (noise(gl_FragCoord.xy) - 0.5) / 255.0;
-  fragColor = vec4(c, 1.0);
+  vec2 p = gl_FragCoord.xy / uDpr;
+  // Paper is barely textured: long horizontal fibres and fine tooth, near the threshold of notice.
+  float fibre = noise(p * vec2(0.09, 0.22)) * 0.5 + noise(p * vec2(0.37, 0.61)) * 0.3;
+  float tooth = noise(p * 1.1) * 0.2;
+  float shade = (fibre + tooth - 0.5) * 0.009;
+  fragColor = vec4(uPaper + shade, 1.0);
+}
+`
+
+export const COPY_VS = FULLSCREEN_VS
+export const COPY_FS = HEADER + /* glsl */ `
+uniform sampler2D uTex;
+in vec2 vUv;
+out vec4 fragColor;
+void main() {
+  fragColor = texture(uTex, vUv);
 }
 `

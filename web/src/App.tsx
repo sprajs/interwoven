@@ -6,7 +6,7 @@ import { validateDataset } from './data/validate.ts'
 import { getEngine, useApp } from './store.ts'
 import { BottomBar } from './ui/BottomBar.tsx'
 import { DetailPanel } from './ui/DetailPanel.tsx'
-import { FilterPanel } from './ui/FilterPanel.tsx'
+import { LabelsPanel } from './ui/LabelsPanel.tsx'
 import { Overview } from './ui/Overview.tsx'
 import { Rails } from './ui/Rails.tsx'
 import { SearchPalette } from './ui/SearchPalette.tsx'
@@ -17,18 +17,22 @@ import { TopBar } from './ui/TopBar.tsx'
 async function load(): Promise<void> {
   const { setModel, setError } = useApp.getState()
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}data/timeline.json`)
-    if (!response.ok) throw new Error(`Could not load data/timeline.json (HTTP ${response.status}).`)
-    let data = (await response.json()) as RawDataset
-
-    const stress = Number(new URLSearchParams(location.search).get('stress'))
-    if (stress > 0) data = makeStressDataset(data, Math.min(stress, 500000))
-
+    const params = new URLSearchParams(location.search)
+    const stress = Number(params.get('stress'))
+    let data: RawDataset
+    if (stress > 0) {
+      data = makeStressDataset(Math.min(stress, 500000))
+    } else {
+      const file = params.get('data') === 'seed' ? 'seed' : 'timeline'
+      const response = await fetch(`${import.meta.env.BASE_URL}data/${file}.json`)
+      if (!response.ok) throw new Error(`Could not load data/${file}.json (HTTP ${response.status}).`)
+      data = (await response.json()) as RawDataset
+    }
     const issues = validateDataset(data)
     const errors = issues.filter((i) => i.severity === 'error')
-    if (errors.length) throw new Error(`Dataset has ${errors.length} error(s). First: ${errors[0]!.message}`)
+    if (errors.length) throw new Error(`The dataset has ${errors.length} error(s). First: ${errors[0]!.message}`)
     issues.forEach((i) => console.warn(`[data] ${i.message}`))
-    setModel(buildModel(data, stress > 0), issues.map((i) => i.message))
+    setModel(buildModel(data, stress > 0))
   } catch (e) {
     setError(e instanceof Error ? e.message : String(e))
   }
@@ -46,7 +50,7 @@ function useKeyboard(): void {
       if (e.key === 'Escape') {
         if (app.searchOpen) app.setSearchOpen(false)
         else if (app.selected !== null) app.select(null)
-        else if (app.filtersOpen) app.setFiltersOpen(false)
+        else if (app.labelsOpen) app.setLabelsOpen(false)
         return
       }
       const target = e.target as HTMLElement
@@ -60,16 +64,16 @@ function useKeyboard(): void {
           app.setSearchOpen(true)
           break
         case '1':
-          app.setMode('network')
+          app.setMode('threads')
           break
         case '2':
           app.setMode('density')
           break
         case '3':
-          app.setMode('steps')
+          app.setMode('landmarks')
           break
-        case 'f':
-          app.setFiltersOpen(!app.filtersOpen)
+        case 'l':
+          app.setLabelsOpen(!app.labelsOpen)
           break
         case '0':
           engine?.fit()
@@ -90,7 +94,6 @@ function useKeyboard(): void {
 
 export function App() {
   const error = useApp((s) => s.error)
-  const synthetic = useApp((s) => s.model?.synthetic)
   useKeyboard()
   useEffect(() => void load(), [])
 
@@ -98,23 +101,18 @@ export function App() {
     <main className="relative h-full w-full select-none overflow-hidden">
       <TimelineCanvas />
       <TopBar />
-      <FilterPanel />
-      <Rails />
-      <DetailPanel />
       <BottomBar />
       <Overview />
+      <LabelsPanel />
+      <Rails />
+      <DetailPanel />
       <Tooltip />
       <SearchPalette />
-      {synthetic && (
-        <div className="glass pointer-events-none absolute left-1/2 top-[4.1rem] z-30 -translate-x-1/2 rounded-full px-3 py-1 text-xs text-ink-2">
-          Synthetic stress-test data. Not real entries.
-        </div>
-      )}
       {error && (
         <div className="absolute inset-0 z-50 grid place-items-center p-6">
-          <div className="glass max-w-lg rounded-2xl p-6" role="alert">
-            <h1 className="text-base font-semibold">The timeline could not start</h1>
-            <p className="mt-2 text-sm leading-relaxed text-ink-2">{error}</p>
+          <div className="sheet max-w-lg border border-rule p-6" role="alert">
+            <h1 className="text-xl font-medium">The chart could not be drawn</h1>
+            <p className="mt-2 leading-snug text-ink-2">{error}</p>
           </div>
         </div>
       )}

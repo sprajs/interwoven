@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import type { Model } from './data/model.ts'
+import type { RawNode } from './data/types.ts'
 import type { Engine, Mode } from './engine/Engine.ts'
 
 export interface Hover {
@@ -11,29 +12,26 @@ export interface Hover {
 interface AppState {
   model: Model | null
   error: string | null
-  warnings: string[]
   mode: Mode
   compressed: boolean
-  hiddenDomains: ReadonlySet<string>
-  hiddenTypes: ReadonlySet<string>
+  hiddenKinds: ReadonlySet<string>
   activeLabels: ReadonlySet<string>
   selected: number | null
   hover: Hover | null
-  filtersOpen: boolean
+  labelsOpen: boolean
   searchOpen: boolean
-  /** Deepest level currently appearing as you zoom, 0 to 3. */
+  /** Deepest level currently showing, 0 to 3. */
   depth: number
-  setModel(model: Model, warnings: string[]): void
+  setModel(model: Model): void
   setError(message: string): void
   setMode(mode: Mode): void
   setCompressed(compressed: boolean): void
-  toggleDomain(id: string): void
-  toggleType(id: string): void
+  toggleKind(id: string): void
   toggleLabel(id: string): void
   clearFilters(): void
   select(index: number | null): void
   setHover(hover: Hover | null): void
-  setFiltersOpen(open: boolean): void
+  setLabelsOpen(open: boolean): void
   setSearchOpen(open: boolean): void
   setDepth(depth: number): void
 }
@@ -48,28 +46,25 @@ function toggled<T>(set: ReadonlySet<T>, value: T): Set<T> {
 export const useApp = create<AppState>((set) => ({
   model: null,
   error: null,
-  warnings: [],
-  mode: 'network',
+  mode: 'threads',
   compressed: true,
-  hiddenDomains: new Set(),
-  hiddenTypes: new Set(),
+  hiddenKinds: new Set(),
   activeLabels: new Set(),
   selected: null,
   hover: null,
-  filtersOpen: false,
+  labelsOpen: false,
   searchOpen: false,
   depth: 1,
-  setModel: (model, warnings) => set({ model, warnings, error: null }),
+  setModel: (model) => set({ model, error: null }),
   setError: (error) => set({ error }),
   setMode: (mode) => set({ mode }),
   setCompressed: (compressed) => set({ compressed }),
-  toggleDomain: (id) => set((s) => ({ hiddenDomains: toggled(s.hiddenDomains, id) })),
-  toggleType: (id) => set((s) => ({ hiddenTypes: toggled(s.hiddenTypes, id) })),
+  toggleKind: (id) => set((s) => ({ hiddenKinds: toggled(s.hiddenKinds, id) })),
   toggleLabel: (id) => set((s) => ({ activeLabels: toggled(s.activeLabels, id) })),
-  clearFilters: () => set({ hiddenDomains: new Set(), hiddenTypes: new Set(), activeLabels: new Set() }),
+  clearFilters: () => set({ hiddenKinds: new Set(), activeLabels: new Set() }),
   select: (selected) => set({ selected }),
   setHover: (hover) => set({ hover }),
-  setFiltersOpen: (filtersOpen) => set({ filtersOpen }),
+  setLabelsOpen: (labelsOpen) => set({ labelsOpen }),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
   setDepth: (depth) => set({ depth }),
 }))
@@ -87,13 +82,7 @@ export function focusNode(index: number): void {
   engine?.flyToNode(index)
 }
 
-export const isFilterActive = (s: Pick<AppState, 'hiddenDomains' | 'hiddenTypes' | 'activeLabels'>): boolean =>
-  s.hiddenDomains.size + s.hiddenTypes.size + s.activeLabels.size > 0
+type Filters = Pick<AppState, 'hiddenKinds' | 'activeLabels'>
 
-export const passes = (
-  node: { domain: string; type: string; labels: string[] },
-  s: Pick<AppState, 'hiddenDomains' | 'hiddenTypes' | 'activeLabels'>,
-): boolean =>
-  !s.hiddenDomains.has(node.domain) &&
-  !s.hiddenTypes.has(node.type) &&
-  (s.activeLabels.size === 0 || node.labels.some((l) => s.activeLabels.has(l)))
+export const passes = (node: Pick<RawNode, 'kind' | 'labels'>, f: Filters): boolean =>
+  !f.hiddenKinds.has(node.kind) && (f.activeLabels.size === 0 || node.labels.some((l) => f.activeLabels.has(l)))

@@ -1,32 +1,35 @@
 import { AnimatePresence, motion } from 'motion/react'
-import { LEVEL_NAMES, NODE_TYPES } from '../data/types.ts'
-import type { Model } from '../data/model.ts'
+import type { Edge, Model } from '../data/model.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, useApp } from '../store.ts'
-import { Icon, ShapeIcon } from './icons.tsx'
+import { CloseButton, Mark } from './icons.tsx'
+import { SHEET_WIDTH } from './TimelineCanvas.tsx'
 
-function NodeList({ title, items, model }: { title: string; items: number[]; model: Model }) {
-  if (items.length === 0) return null
-  const sorted = [...items].sort((a, b) => model.nodes[a]!.year - model.nodes[b]!.year)
+function LinkList({ title, edges, side, model }: { title: string; edges: Edge[]; side: 'source' | 'target'; model: Model }) {
+  if (edges.length === 0) return null
+  const sorted = [...edges].sort((a, b) => model.nodes[a[side]]!.year - model.nodes[b[side]]!.year)
   return (
     <section className="mt-5">
-      <h3 className="mb-1 flex items-baseline justify-between px-2 text-[11px] font-medium text-ink-3">
-        {title}
-        <span className="font-mono">{items.length}</span>
-      </h3>
+      <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">{title}</h3>
       <ul>
-        {sorted.map((i) => {
+        {sorted.map((edge) => {
+          const i = edge[side]
           const node = model.nodes[i]!
-          const lane = model.lanes[model.domainIndex[i]!]!
           return (
-            <li key={i}>
-              <button onClick={() => focusNode(i)} className="flex w-full items-center gap-2.5 rounded-lg px-2 py-1.5 text-left text-[13px] text-ink transition hover:bg-white/7">
-                <span className="grid w-3 shrink-0 place-items-center">
-                  <ShapeIcon type={node.type} color={lane.color} size={11} />
+            <li key={`${edge.source}-${edge.target}`} className="border-b border-rule/50 py-2">
+              <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 text-left text-[16px] leading-tight">
+                <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
+                  <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
                 </span>
-                <span className="min-w-0 flex-1 truncate">{node.title}</span>
-                <span className="font-mono text-[11px] text-ink-3">{formatYear(node.year)}</span>
+                <span className={`min-w-0 flex-1 group-hover:underline group-hover:decoration-[0.5px] group-hover:underline-offset-2 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
+                <span className="shrink-0 text-[14px] text-ink-3">{formatYear(node.year)}</span>
               </button>
+              {edge.link.statement && (
+                <p className="mt-1 pl-[18px] text-[14px] leading-snug text-ink-2">
+                  {edge.link.statement}
+                  {edge.tentative && <em className="text-ink-3"> Awaiting review.</em>}
+                </p>
+              )}
             </li>
           )
         })}
@@ -39,70 +42,96 @@ export function DetailPanel() {
   const model = useApp((s) => s.model)
   const selected = useApp((s) => s.selected)
   const select = useApp((s) => s.select)
+  const activeLabels = useApp((s) => s.activeLabels)
+  const toggleLabel = useApp((s) => s.toggleLabel)
   const node = model && selected !== null ? model.nodes[selected] : null
-  const lane = model && selected !== null ? model.lanes[model.domainIndex[selected]!] : null
-  const typeLabel = node ? NODE_TYPES.find((t) => t.id === node.type)?.label : ''
-  // Large synthetic sets only compute full impact for step changes.
   const impactIsFull = model && node ? model.n <= 4000 || node.level === 0 : false
 
   return (
     <AnimatePresence>
-      {node && lane && model && selected !== null && (
+      {node && model && selected !== null && (
         <motion.aside
           key="detail"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 12 }}
-          transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="glass thin-scroll absolute inset-x-3 bottom-3 z-30 max-h-[46vh] select-text overflow-y-auto rounded-2xl p-3 min-[760px]:inset-x-auto min-[760px]:bottom-[7.2rem] min-[760px]:right-4 min-[760px]:top-[4.1rem] min-[760px]:max-h-none min-[760px]:w-[20rem]"
-          aria-label={`Details for ${node.title}`}
+          initial={{ x: SHEET_WIDTH }}
+          animate={{ x: 0 }}
+          exit={{ x: SHEET_WIDTH }}
+          transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
+          className="sheet thin-scroll absolute inset-x-0 bottom-0 z-30 max-h-[48vh] select-text overflow-y-auto border-t border-rule px-5 pb-8 pt-4 min-[760px]:inset-x-auto min-[760px]:inset-y-0 min-[760px]:right-0 min-[760px]:max-h-none min-[760px]:border-l min-[760px]:border-t-0"
+          style={{ width: window.innerWidth >= 760 ? SHEET_WIDTH : undefined }}
+          aria-label={`About ${node.title}`}
         >
-          <div className="flex items-start gap-2 px-2 pt-1">
-            <div className="min-w-0 flex-1">
-              <p className="font-mono text-xs text-ink-2">{formatYear(node.year)}</p>
-              <h2 className="mt-1 text-[19px] font-semibold leading-tight tracking-tight">{node.title}</h2>
-            </div>
-            <button onClick={() => select(null)} className="-mr-1 -mt-0.5 rounded-md p-1 text-ink-2 hover:bg-white/6 hover:text-ink" aria-label="Close details">
-              <Icon name="close" />
-            </button>
+          <div className="flex items-baseline justify-between gap-3">
+            <p className="text-[16px] text-ink-3">{node.date_label}</p>
+            <CloseButton onClick={() => select(null)} label="Close" />
           </div>
+          <h2 className={`mt-1 text-[27px] font-medium leading-[1.1] tracking-[-0.005em] ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</h2>
+          <p className="mt-1 text-[15px] text-ink-3">
+            {node.kind === 'science' ? 'Science' : 'Technology'}
+            {node.regions.length > 0 && <> · {node.regions.join('; ')}</>}
+          </p>
 
-          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 px-2 text-xs text-ink-2">
-            <span className="flex items-center gap-1.5">
-              <ShapeIcon type={node.type} color={lane.color} size={11} />
-              {typeLabel}
-            </span>
-            <span>{lane.label}</span>
-            <span>{LEVEL_NAMES[node.level]}</span>
-          </div>
+          <p className="mt-3 text-[17px] leading-[1.32]">{node.summary}</p>
+          {node.note && <p className="mt-2 text-[16px] italic leading-snug text-ink-2">{node.note}</p>}
 
-          <p className="mt-3 px-2 text-[13.5px] leading-relaxed text-ink">{node.summary}</p>
-
-          {node.step_change && (
-            <div className="mx-1 mt-3 rounded-xl border border-white/10 bg-white/4 p-2.5">
-              <h3 className="text-[11px] font-medium text-ink-2">Why it was a step change</h3>
-              <p className="mt-1 text-[13px] leading-relaxed text-ink">{node.step_change}</p>
-            </div>
-          )}
-
-          {impactIsFull && model.impact[selected]! > 0 && (
-            <p className="mt-3 px-2 text-xs text-ink-2">
-              <span className="font-mono text-ink">{model.impact[selected]!.toLocaleString('en-US')}</span> later {model.impact[selected] === 1 ? 'entry traces' : 'entries trace'} back to this.
+          {node.labels.length > 0 && (
+            <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5 text-[15px]">
+              {node.labels.map((id) => {
+                const label = model.labelById.get(id)
+                const on = activeLabels.has(id)
+                return (
+                  <button key={id} onClick={() => toggleLabel(id)} aria-pressed={on} className="flex items-baseline gap-1.5 text-ink-2 hover:text-ink">
+                    <span className="size-1.5 shrink-0 translate-y-[-2px] rounded-full" style={{ background: label?.ink }} />
+                    <span className={on ? 'text-ink underline decoration-[0.5px] underline-offset-2' : ''}>{label?.name ?? id}</span>
+                  </button>
+                )
+              })}
             </p>
           )}
 
-          {node.labels.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1 px-2">
-              {node.labels.map((label) => (
-                <span key={label} className="rounded-full border border-white/10 px-2 py-0.5 text-[11px] text-ink-2">
-                  {label.replace(/-/g, ' ')}
-                </span>
-              ))}
-            </div>
+          {impactIsFull && model.impact[selected]! > 0 && (
+            <p className="mt-3 text-[15px] text-ink-2">
+              {model.impact[selected]!.toLocaleString('en-US')} later {model.impact[selected] === 1 ? 'entry traces' : 'entries trace'} back to this one.
+            </p>
           )}
 
-          <NodeList title="Built on" items={model.parents[selected]!} model={model} />
-          <NodeList title="Led to" items={model.children[selected]!} model={model} />
+          <LinkList title="Built on" edges={model.edgesInto[selected]!} side="source" model={model} />
+          <LinkList title="Led to" edges={model.edgesOutOf[selected]!} side="target" model={model} />
+
+          <section className="mt-5">
+            <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">How this is dated</h3>
+            <p className="mt-2 text-[14.5px] leading-snug text-ink-2">
+              {node.anchored
+                ? `Placed by its selected anchor, a ${node.placed_by}.`
+                : `Placed by its earliest dated record, a ${node.placed_by}. No anchor date has been selected yet, so this is not a claim of first availability.`}
+              {node.date_basis ? ` ${node.date_basis}` : ''}
+            </p>
+            {node.review !== 'accepted' && <p className="mt-1.5 text-[14.5px] italic leading-snug text-ink-3">This claim is still awaiting review.</p>}
+            {node.uncertainty && <p className="mt-1.5 text-[14.5px] leading-snug text-ink-2">{node.uncertainty}</p>}
+          </section>
+
+          {node.sources.length > 0 && (
+            <section className="mt-5">
+              <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">Sources</h3>
+              <ul className="mt-1.5 space-y-1.5">
+                {node.sources.map((id) => {
+                  const source = model.sources[id]
+                  if (!source) return null
+                  return (
+                    <li key={id} className="text-[14.5px] leading-snug text-ink-2">
+                      {source.url ? (
+                        <a href={source.url} target="_blank" rel="noreferrer">
+                          {source.title}
+                        </a>
+                      ) : (
+                        source.title
+                      )}
+                      {source.year ? ` (${source.year})` : ''}
+                    </li>
+                  )
+                })}
+              </ul>
+            </section>
+          )}
         </motion.aside>
       )}
     </AnimatePresence>

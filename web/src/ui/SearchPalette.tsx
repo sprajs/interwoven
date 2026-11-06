@@ -3,13 +3,13 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Model } from '../data/model.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, useApp } from '../store.ts'
-import { Icon, ShapeIcon } from './icons.tsx'
+import { Mark } from './icons.tsx'
 
-const MAX_RESULTS = 40
+const MAX_RESULTS = 50
 
 export function searchNodes(model: Model, query: string): number[] {
   const q = query.trim().toLowerCase()
-  if (!q) return [...model.stepChanges]
+  if (!q) return [...model.landmarks]
   const scored: { i: number; score: number }[] = []
   for (let i = 0; i < model.n; i++) {
     const node = model.nodes[i]!
@@ -19,8 +19,9 @@ export function searchNodes(model: Model, query: string): number[] {
     else if (title.startsWith(q)) score = 80
     else if (title.includes(` ${q}`)) score = 65
     else if (title.includes(q)) score = 50
-    else if (String(node.year) === q) score = 45
+    else if (String(Math.round(node.year)) === q) score = 45
     else if (node.labels.some((l) => l.includes(q))) score = 30
+    else if (node.regions.some((r) => r.toLowerCase().includes(q))) score = 25
     else if (node.summary.toLowerCase().includes(q)) score = 20
     if (score >= 0) scored.push({ i, score: score + (3 - node.level) })
   }
@@ -58,7 +59,7 @@ export function SearchPalette() {
     <AnimatePresence>
       {open && model && (
         <motion.div
-          className="absolute inset-0 z-50 flex items-start justify-center bg-black/40 px-4 pt-[14vh]"
+          className="absolute inset-0 z-50 flex items-start justify-center bg-[rgb(244_239_230/0.72)] px-4 pt-[13vh]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -67,65 +68,52 @@ export function SearchPalette() {
             if (e.target === e.currentTarget) setOpen(false)
           }}
         >
-          <motion.div
-            role="dialog"
-            aria-label="Search the timeline"
-            className="glass w-full max-w-xl overflow-hidden rounded-2xl"
-            initial={{ y: -10, scale: 0.985 }}
-            animate={{ y: 0, scale: 1 }}
-            exit={{ y: -6, scale: 0.99 }}
-            transition={{ type: 'spring', stiffness: 520, damping: 38 }}
-          >
-            <div className="flex items-center gap-3 border-b border-white/8 px-4 text-ink-2">
-              <Icon name="search" />
-              <input
-                autoFocus
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'ArrowDown') {
-                    e.preventDefault()
-                    setActive((a) => Math.min(results.length - 1, a + 1))
-                  } else if (e.key === 'ArrowUp') {
-                    e.preventDefault()
-                    setActive((a) => Math.max(0, a - 1))
-                  } else if (e.key === 'Enter') {
-                    choose(results[active])
-                  }
-                }}
-                placeholder="Search technologies, science, labels or a year"
-                aria-label="Search"
-                role="combobox"
-                aria-expanded="true"
-                aria-controls="search-results"
-                className="h-13 w-full bg-transparent text-[15px] text-ink outline-none placeholder:text-ink-3"
-              />
-            </div>
-            <ul id="search-results" ref={listRef} role="listbox" className="thin-scroll max-h-[46vh] overflow-y-auto p-1.5">
-              {!query.trim() && <li className="px-3 pb-1 pt-2 text-[11px] font-medium text-ink-3">Step changes</li>}
+          <div role="dialog" aria-label="Search the chart" className="sheet w-full max-w-[34rem] border border-rule">
+            <input
+              autoFocus
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowDown') {
+                  e.preventDefault()
+                  setActive((a) => Math.min(results.length - 1, a + 1))
+                } else if (e.key === 'ArrowUp') {
+                  e.preventDefault()
+                  setActive((a) => Math.max(0, a - 1))
+                } else if (e.key === 'Enter') {
+                  choose(results[active])
+                }
+              }}
+              placeholder="Search for an entry, a place, a label or a year"
+              aria-label="Search"
+              role="combobox"
+              aria-expanded="true"
+              aria-controls="search-results"
+              className="w-full border-b border-rule bg-transparent px-5 py-3.5 text-[21px] text-ink outline-none placeholder:italic placeholder:text-ink-3"
+            />
+            <ul id="search-results" ref={listRef} role="listbox" className="thin-scroll max-h-[48vh] overflow-y-auto py-1">
+              {!query.trim() && <li className="px-5 pb-1 pt-2 text-[15px] italic text-ink-3">Landmarks</li>}
               {results.map((i, position) => {
                 const node = model.nodes[i]!
-                const lane = model.lanes[model.domainIndex[i]!]!
                 return (
                   <li key={i} role="option" aria-selected={position === active} data-index={position}>
                     <button
                       onClick={() => choose(i)}
                       onPointerMove={() => setActive(position)}
-                      className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left ${position === active ? 'bg-white/9' : ''}`}
+                      className={`flex w-full items-baseline gap-3 px-5 py-1.5 text-left text-[17px] leading-tight ${position === active ? 'bg-ink/[0.06]' : ''}`}
                     >
-                      <ShapeIcon type={node.type} color={lane.color} size={12} />
-                      <span className="min-w-0 flex-1">
-                        <span className="block truncate text-[13.5px] text-ink">{node.title}</span>
-                        <span className="block truncate text-xs text-ink-2">{lane.label}</span>
+                      <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
+                        <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
                       </span>
-                      <span className="font-mono text-[11px] text-ink-2">{formatYear(node.year)}</span>
+                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
+                      <span className="shrink-0 text-[15px] text-ink-3">{formatYear(node.year)}</span>
                     </button>
                   </li>
                 )
               })}
-              {results.length === 0 && <li className="px-3 py-6 text-center text-[13px] text-ink-2">No entries match “{query}”.</li>}
+              {results.length === 0 && <li className="px-5 py-5 text-[16px] italic text-ink-3">Nothing matches “{query}”.</li>}
             </ul>
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -3,14 +3,13 @@ import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
 import { getEngine, passes, useApp } from '../store.ts'
 
-const BINS = 150
-const HEIGHT = 56
+const HEIGHT = 30
+const TICK_BY_LEVEL = [20, 15, 10, 7]
 
-/** Whole-history strip: stacked activity per domain, with a draggable window on the current view. */
+/** The whole of history along one ruled line: one fine tick per entry, with the current view bracketed. */
 export function Overview() {
   const model = useApp((s) => s.model)
-  const hiddenDomains = useApp((s) => s.hiddenDomains)
-  const hiddenTypes = useApp((s) => s.hiddenTypes)
+  const hiddenKinds = useApp((s) => s.hiddenKinds)
   const activeLabels = useApp((s) => s.activeLabels)
   const compressed = useApp((s) => s.compressed)
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -18,7 +17,6 @@ export function Overview() {
   const boxRef = useRef<HTMLDivElement>(null)
   const [probe, setProbe] = useState<{ x: number; text: string } | null>(null)
   const dragging = useRef<number | null>(null)
-  const binsRef = useRef<Int32Array>(new Int32Array(BINS))
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -37,46 +35,26 @@ export function Overview() {
       ctx.clearRect(0, 0, width, HEIGHT)
 
       const warp = compressed ? 1 : 0
-      const laneCount = model.lanes.length
-      const counts = new Int32Array(BINS * laneCount)
-      const totals = new Int32Array(BINS)
-      const f = { hiddenDomains, hiddenTypes, activeLabels }
+      const baseline = HEIGHT - 3.5
+      ctx.fillStyle = 'rgba(38,33,28,0.55)'
+      ctx.fillRect(0, baseline, width, 0.75)
+
+      const f = { hiddenKinds, activeLabels }
+      const alpha = model.n > 4000 ? 0.12 : 0.85
       model.nodes.forEach((node, i) => {
         if (!passes(node, f)) return
-        const b = Math.min(BINS - 1, Math.max(0, Math.floor(model.time.u(node.year, warp) * BINS)))
-        counts[b * laneCount + model.domainIndex[i]!]!++
-        totals[b]!++
+        const x = model.time.u(node.year, warp) * width
+        const h = TICK_BY_LEVEL[node.level] ?? 7
+        ctx.fillStyle = `rgba(${model.ink[i * 3]! * 255},${model.ink[i * 3 + 1]! * 255},${model.ink[i * 3 + 2]! * 255},${alpha})`
+        ctx.fillRect(x - 0.4, baseline - h, 0.8, h)
       })
-      binsRef.current = totals
-      const max = Math.max(1, ...totals)
-
-      // Bars carry a 1px gap so the strip reads as discrete counts at this width.
-      const barWidth = width / BINS
-      const chartHeight = HEIGHT - 6
-      for (let b = 0; b < BINS; b++) {
-        if (totals[b] === 0) continue
-        const barHeight = Math.max(2, Math.sqrt(totals[b]! / max) * chartHeight)
-        let y = HEIGHT - 3
-        for (let l = 0; l < laneCount; l++) {
-          const c = counts[b * laneCount + l]!
-          if (c === 0) continue
-          const h = (c / totals[b]!) * barHeight
-          ctx.fillStyle = model.lanes[l]!.color
-          ctx.globalAlpha = 0.85
-          ctx.fillRect(b * barWidth + 0.5, y - h, Math.max(1, barWidth - 1), h)
-          y -= h
-        }
-      }
-      ctx.globalAlpha = 1
-      ctx.fillStyle = 'rgba(170,190,230,0.14)'
-      ctx.fillRect(0, HEIGHT - 2, width, 1)
     }
 
     draw()
     const observer = new ResizeObserver(draw)
     observer.observe(box)
     return () => observer.disconnect()
-  }, [model, hiddenDomains, hiddenTypes, activeLabels, compressed])
+  }, [model, hiddenKinds, activeLabels, compressed])
 
   useEffect(() => {
     return onEngineFrame((engine) => {
@@ -85,12 +63,12 @@ export function Overview() {
       if (!box || !win) return
       const cam = engine.camera
       const width = box.clientWidth
-      const left = cam.fromX(cam.insets.left) * width
-      const right = cam.fromX(cam.width - cam.insets.right) * width
-      const x0 = Math.max(0, left)
-      const x1 = Math.min(width, right)
+      const x0 = Math.max(0, cam.fromX(cam.insets.left) * width)
+      const x1 = Math.min(width, cam.fromX(cam.width - cam.insets.right) * width)
       win.style.transform = `translateX(${x0}px)`
-      win.style.width = `${Math.max(6, x1 - x0)}px`
+      win.style.width = `${Math.max(5, x1 - x0)}px`
+      // At full extent the bracket says nothing, so it stays out of the way.
+      win.style.opacity = x1 - x0 > width * 0.985 ? '0' : '1'
     })
   }, [])
 
@@ -102,13 +80,13 @@ export function Overview() {
   if (!model) return null
 
   return (
-    <div className="glass absolute inset-x-3 bottom-3 z-20 rounded-xl px-2 py-1 sm:inset-x-4">
+    <div className="absolute inset-x-[22px] bottom-3 z-10 min-[760px]:inset-x-14">
       <div
         ref={boxRef}
         className="relative touch-none"
         style={{ height: HEIGHT, cursor: 'ew-resize' }}
         role="slider"
-        aria-label="Timeline position"
+        aria-label="Position in time"
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round((getEngine()?.camera.cu ?? 0.5) * 100)}
@@ -130,16 +108,8 @@ export function Overview() {
           if (!engine) return
           const u = localU(e.clientX)
           if (dragging.current === e.pointerId) engine.panToU(u)
-          const warp = compressed ? 1 : 0
-          const bin = Math.min(BINS - 1, Math.floor(u * BINS))
-          const a = model.time.year(bin / BINS, warp)
-          const b = model.time.year((bin + 1) / BINS, warp)
-          const count = binsRef.current[bin] ?? 0
           const rect = boxRef.current!.getBoundingClientRect()
-          setProbe({
-            x: u * rect.width,
-            text: `${formatYear(a)} to ${formatYear(b)}: ${count.toLocaleString('en-US')} ${count === 1 ? 'entry' : 'entries'}`,
-          })
+          setProbe({ x: u * rect.width, text: formatYear(model.time.year(u, compressed ? 1 : 0)) })
         }}
         onPointerUp={() => {
           dragging.current = null
@@ -147,15 +117,9 @@ export function Overview() {
         onPointerLeave={() => setProbe(null)}
       >
         <canvas ref={canvasRef} className="absolute inset-0" />
-        <div
-          ref={windowRef}
-          className="pointer-events-none absolute inset-y-0 left-0 rounded-md border border-white/35 bg-white/7 shadow-[0_0_18px_rgb(141_180_255/0.2)]"
-        />
+        <div ref={windowRef} className="pointer-events-none absolute inset-y-0 left-0 border-x border-ink/60 bg-ink/[0.045]" />
         {probe && (
-          <div
-            className="glass pointer-events-none absolute -top-9 whitespace-nowrap rounded-lg px-2 py-1 font-mono text-[11px] text-ink"
-            style={{ left: probe.x, transform: `translateX(${probe.x < 140 ? '0' : probe.x > (boxRef.current?.clientWidth ?? 0) - 140 ? '-100%' : '-50%'})` }}
-          >
+          <div className="pointer-events-none absolute -top-[22px] -translate-x-1/2 whitespace-nowrap text-[14px] text-ink-2" style={{ left: probe.x }}>
             {probe.text}
           </div>
         )}

@@ -16,7 +16,7 @@ const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 
 export class Camera {
   width = 1
   height = 1
-  insets: Insets = { top: 112, bottom: 104, left: 168, right: 40 }
+  insets: Insets = { top: 112, bottom: 84, left: 56, right: 56 }
   cu = 0.5
   cy = 0.5
   logZoom = 0

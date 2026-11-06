@@ -1,40 +1,48 @@
-import { LEVEL_NAMES, NODE_TYPES } from '../data/types.ts'
+import { LEVEL_NAMES } from '../data/types.ts'
 import { getEngine, useApp } from '../store.ts'
-import { Icon, ShapeIcon } from './icons.tsx'
+import { Mark } from './icons.tsx'
 
-/** Shape legend, semantic-depth readout and view controls, just above the overview. */
+const SMALL = 'text-[15px] leading-none transition-colors'
+
+function RangeMark() {
+  return (
+    <svg width="20" height="8" viewBox="0 0 20 8" aria-hidden>
+      <path d="M1 1v6M19 1v6M1 4h18" stroke="currentColor" strokeWidth="0.9" fill="none" />
+    </svg>
+  )
+}
+
+function BrokenMark() {
+  return (
+    <svg width="22" height="6" viewBox="0 0 22 6" aria-hidden>
+      <path d="M1 3h4.5M8 3h5M15.5 3h5.5" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+/** The key to the marks, the current depth and the view controls, under the chart. */
 export function BottomBar() {
   const depth = useApp((s) => s.depth)
   const compressed = useApp((s) => s.compressed)
   const setCompressed = useApp((s) => s.setCompressed)
 
   return (
-    <div className="pointer-events-none absolute inset-x-3 bottom-[4.65rem] z-20 flex items-center gap-3 sm:inset-x-4">
-      <ul className="hidden items-center gap-3 lg:flex" aria-label="Node types">
-        {NODE_TYPES.map((t) => (
-          <li key={t.id} className="flex items-center gap-1.5 text-[11.5px] text-ink-2">
-            <ShapeIcon type={t.id} color="#aab6cc" size={10} />
-            {t.label}
-          </li>
-        ))}
+    <div className="pointer-events-none absolute inset-x-[22px] bottom-[50px] z-10 flex items-center gap-5 text-ink-3 min-[760px]:inset-x-14">
+      <ul className="hidden items-center gap-4 text-[14.5px] lg:flex" aria-label="Key">
+        <li className="flex items-center gap-1.5"><Mark kind="technology" size={8} />Technology</li>
+        <li className="flex items-center gap-1.5 italic"><Mark kind="science" size={9} />Science</li>
+        <li className="flex items-center gap-1.5"><RangeMark />Date range</li>
+        <li className="flex items-center gap-1.5"><BrokenMark />Link awaiting review</li>
       </ul>
 
       <div className="flex-1" />
 
-      <div
-        className="hidden items-center gap-2 text-[11.5px] text-ink-2 sm:flex"
-        title="Zoom in to reveal deeper levels"
-        aria-label={`Showing down to ${LEVEL_NAMES[depth]}`}
-      >
-        <span className="flex gap-1" aria-hidden>
-          {LEVEL_NAMES.map((_, i) => (
-            <span key={i} className={`h-1 w-3.5 rounded-full transition-colors duration-300 ${i <= depth ? 'bg-accent' : 'bg-white/14'}`} />
-          ))}
-        </span>
-        <span className="w-[6.8rem]">{LEVEL_NAMES[depth]}</span>
-      </div>
+      <p className="hidden text-[14.5px] italic sm:block" aria-live="polite">
+        Showing down to {LEVEL_NAMES[depth]?.toLowerCase()}
+        {depth < 3 ? '. Zoom in for more.' : '.'}
+      </p>
 
-      <div className="glass pointer-events-auto flex rounded-full p-0.5 text-xs" role="group" aria-label="Time scale">
+      <div className="pointer-events-auto flex items-center gap-2" role="group" aria-label="Time scale">
         {[
           { on: true, label: 'Compressed', hint: 'Recent centuries get more room' },
           { on: false, label: 'Linear', hint: 'Every year is the same width' },
@@ -44,23 +52,17 @@ export function BottomBar() {
             title={option.hint}
             aria-pressed={compressed === option.on}
             onClick={() => setCompressed(option.on)}
-            className={`rounded-full px-2.5 py-1 transition-colors ${compressed === option.on ? 'bg-white/12 text-ink' : 'text-ink-2 hover:text-ink'}`}
+            className={`${SMALL} ${compressed === option.on ? 'text-ink underline decoration-[0.5px] underline-offset-[3px]' : 'hover:text-ink'}`}
           >
             {option.label}
           </button>
         ))}
       </div>
 
-      <div className="glass pointer-events-auto flex rounded-full p-0.5 text-ink-2">
-        <button onClick={() => getEngine()?.zoomBy(1 / 1.6)} className="rounded-full p-1.5 hover:bg-white/8 hover:text-ink" aria-label="Zoom out">
-          <Icon name="minus" size={14} />
-        </button>
-        <button onClick={() => getEngine()?.fit()} className="rounded-full p-1.5 hover:bg-white/8 hover:text-ink" aria-label="Fit everything">
-          <Icon name="fit" size={14} />
-        </button>
-        <button onClick={() => getEngine()?.zoomBy(1.6)} className="rounded-full p-1.5 hover:bg-white/8 hover:text-ink" aria-label="Zoom in">
-          <Icon name="plus" size={14} />
-        </button>
+      <div className="pointer-events-auto flex items-center gap-3 text-[18px] leading-none">
+        <button onClick={() => getEngine()?.zoomBy(1 / 1.6)} className="px-0.5 transition-colors hover:text-ink" aria-label="Zoom out">−</button>
+        <button onClick={() => getEngine()?.fit()} className={`${SMALL} hover:text-ink`} aria-label="Fit everything">Fit</button>
+        <button onClick={() => getEngine()?.zoomBy(1.6)} className="px-0.5 transition-colors hover:text-ink" aria-label="Zoom in">+</button>
       </div>
     </div>
   )
