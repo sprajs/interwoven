@@ -1,0 +1,3244 @@
+{
+  "schema_version": 1,
+  "scope": "Current identity consolidations; prior witness provenance and source uncertainty are preserved.",
+  "proposal_sha256": "008cb2338663438a2b5f30b8ccf931fbcb2213f43a5018bef0402f69ce8fa9ef",
+  "independent_review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+  "independent_assessment": {
+    "review_scope": "Independent exact identity-consolidation recheck against current integrated canonical data and both reviewed placement inputs; no canonical writes.",
+    "proposal": {
+      "path": "/tmp/big-idea-entry/identity-consolidation.json",
+      "sha256": "008cb2338663438a2b5f30b8ccf931fbcb2213f43a5018bef0402f69ce8fa9ef"
+    },
+    "hash_algorithm": "SHA-256 of UTF-8 json.dumps(value, sort_keys=True, separators=(comma,colon), ensure_ascii=False), without newline.",
+    "node_reviews": [
+      {
+        "node_id": "elec-intel-4004-cpu-1971",
+        "duplicate_node_id": "intel-4004",
+        "verdict": "accept",
+        "reason": "Both records concern the Intel 4004 CPU. The merged class preserves participant attributions, the earlier working iteration, and the later advertised stock offer; actual first merchant or Busicom sale and mask identity remain unproved.",
+        "projection_sha256": "e10a5636432a437b8c84ca242477274ea34bc4503719b476bc9bbc0f73661ab7",
+        "reviewed_projection": {
+          "canonical_node_id": "elec-intel-4004-cpu-1971",
+          "remove_duplicate_node_id": "intel-4004",
+          "identity": "Same Intel 4004 CPU; development mask and merchant-offer hardware remain separated by event scope.",
+          "canonical_before_sha256": "f4f444e0a770c9234518672c020122afd293ca0e7cd45f122d321c89e886fe68",
+          "duplicate_before_sha256": "5199b61223d411754638486f5d0dfd7830e96b01f3a7daf24c0a4d8ba27ef2a8",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-intel-4004-cpu-1971",
+            "label": "Intel 4004 CPU",
+            "kind": "technology",
+            "configuration": "The Intel 4004 four-bit silicon-gate CPU, including early development iterations and later merchant offers as separately scoped events; peripheral chips remained part of MCS-4. Intel museum history credits Hoff and Mazor with developing the architecture and Faggin with Shima with implementing the design.",
+            "regions": [
+              "Intel, California, United States; Busicom collaboration, Japan"
+            ],
+            "event_ids": [
+              "intel-4004-prototype-1971",
+              "intel-4004-merchant-1971"
+            ],
+            "lifecycle": {
+              "invention": {
+                "status": "unknown",
+                "event_ids": [],
+                "rationale": "Working early 4004 silicon is documented separately; no unique invention date is inferred from it.",
+                "evidence": [
+                  {
+                    "source_id": "src-intel-history",
+                    "locator": "IEEE Micro December 1996, printed pp. 16–17/PDF pp. 7–8, The 4004 comes to life",
+                    "supports": "Project participants describe early 4004 chips that worked in January 1971, bug fixes and fully functional iteration in March."
+                  }
+                ]
+              },
+              "first_commercial_availability": {
+                "status": "unknown",
+                "event_ids": [],
+                "rationale": "The 15 November advertisement proves an in-stock offer by that date, but not the first day of merchant availability. Earlier contractual Busicom commerce is also unresolved.",
+                "evidence": [
+                  {
+                    "source_id": "src-intel-ad",
+                    "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+                    "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+                  },
+                  {
+                    "source_id": "src-intel-history",
+                    "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+                    "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+                  }
+                ]
+              },
+              "practical_deployment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "adoption": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "discovery": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "observation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "formulation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "publication": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "experimental_confirmation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "acceptance": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "decline": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "withdrawal": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "end_of_use": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "abandonment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "revival": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              }
+            },
+            "commercial_applicability": {
+              "status": "applicable",
+              "rationale": "The documented product sale or offer establishes market applicability, without establishing first commercial availability of the complete configuration.",
+              "evidence": [
+                {
+                  "source_id": "src-intel-ad",
+                  "locator": "15 November 1971 stock offer",
+                  "supports": "The 4004 was offered as part of the in-stock MCS-4 family."
+                }
+              ]
+            },
+            "graph_anchor": {
+              "status": "selected",
+              "policy": "community_entry",
+              "event_id": "intel-4004-merchant-1971",
+              "entry_basis": "commercial_availability",
+              "evidence_strength": "direct",
+              "date_interpretation": "known_by",
+              "community": "Prospective Intel merchant-market buyers outside desktop calculators",
+              "scope": {
+                "regions": [
+                  "United States",
+                  "Belgium",
+                  "Japan"
+                ],
+                "configuration": "Intel 4004 CPU offered as part of the MCS-4 family; the advertisement does not identify a mask or physical iteration.",
+                "applications": [
+                  "Non-desktop-calculator commercial uses"
+                ],
+                "market": {
+                  "status": "specified",
+                  "value": "Merchant component sales outside exclusive desktop-calculator applications"
+                },
+                "population": {
+                  "status": "not_yet_researched"
+                }
+              },
+              "evidence": [
+                {
+                  "source_id": "src-intel-ad",
+                  "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+                  "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+                },
+                {
+                  "source_id": "src-intel-history",
+                  "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+                  "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+                }
+              ],
+              "rationale": "The 15 November 1971 advertisement says the Intel MCS-4 family, including the 4004, was in stock at named offices.",
+              "uncertainty": "This is a dated offer and available-by evidence, not proof of the first possible sale or first Busicom delivery. Named offices do not prove equal stock or actual transactions in each country."
+            },
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-4004-cpu",
+                "elec-chm-silicon-gate",
+                "src-intel-ad",
+                "src-intel-history"
+              ],
+              "note": "Four-bit CPU identity merges architecture and product contexts; exact development and market stages remain separate. Contributor attributions are preserved from the removed dated assertion and its elec-chm-4004-cpu and elec-chm-silicon-gate evidence."
+            },
+            "uncertainty": "The early working iteration and merchant-offered devices are not asserted to have identical masks. First merchant or Busicom availability and first sale remain unknown.",
+            "tier": 0,
+            "tier_reason": "Overview convergence of circuit integration, process engineering and processor design.",
+            "icon": "computer"
+          }
+        }
+      },
+      {
+        "node_id": "elec-fairchild-physical-isolation-1960",
+        "duplicate_node_id": "fairchild-micrologic-prototype",
+        "verdict": "accept",
+        "reason": "Both records concern the physically isolated four-transistor Micrologic design. The May prototype and 1961 picture are separately scoped; the picture supports only visual exposure and does not prove readers learned the concealed isolation method or that the pictured die was sold.",
+        "projection_sha256": "ee992830b2d960380b16ee393892ad643f907f4b117400ade2ab71f4a7cc4440",
+        "reviewed_projection": {
+          "canonical_node_id": "elec-fairchild-physical-isolation-1960",
+          "remove_duplicate_node_id": "fairchild-micrologic-prototype",
+          "identity": "Same physically isolated four-transistor Micrologic design; working May sample, photographed sample and commercial Type F remain different physical claims.",
+          "canonical_before_sha256": "01a9a955b82a2dfc67d396b86b5716fd208b9c5781b02cff606f998c3f6fa25b",
+          "duplicate_before_sha256": "fad0647ef5e0d0619c4c42471aa25560a3a97fbbd371c59b03dc31bb10250d37",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-fairchild-physical-isolation-1960",
+            "label": "Physically isolated Micrologic flip-flop",
+            "kind": "technology",
+            "configuration": "Fairchild’s physically isolated monolithic four-transistor flip-flop design, including rear-etched epoxy-filled channels; distinct from the later junction-isolated implementation and not identified with an initial Type F sale.",
+            "regions": [
+              "Fairchild Semiconductor, California, United States"
+            ],
+            "event_ids": [
+              "micrologic-prototype-1960",
+              "entry-calculation-fairchild-micrologic-prototype"
+            ],
+            "lifecycle": {
+              "invention": {
+                "status": "unknown",
+                "event_ids": [],
+                "rationale": "Prototype is dated, but no unique earlier invention date was established for the exact prototype.",
+                "evidence": [
+                  {
+                    "source_id": "src-chm-sector",
+                    "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+                    "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+                  }
+                ]
+              },
+              "first_commercial_availability": {
+                "status": "unknown",
+                "event_ids": [],
+                "rationale": "The available record does not prove that this exact 1960 artifact was the 1961 unit sold; commercial product is a separate node.",
+                "evidence": [
+                  {
+                    "source_id": "src-chm-sector",
+                    "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+                    "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+                  },
+                  {
+                    "source_id": "src-electronics-1961",
+                    "locator": "Printed p. 76, PDF p. 78, New on the Market",
+                    "supports": "Says first Micrologic flip-flop now available, introductory price $120, while other elements were to follow."
+                  }
+                ]
+              },
+              "practical_deployment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "adoption": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "discovery": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "observation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "formulation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "publication": {
+                "status": "documented",
+                "event_ids": [
+                  "entry-calculation-fairchild-micrologic-prototype"
+                ],
+                "rationale": "A published Life photograph was later identified as a physically isolated early sample; it is not evidence that the article disclosed the isolation method.",
+                "evidence": [
+                  {
+                    "source_id": "entry-elec-ic-fifty",
+                    "locator": "Printed p. 22, March 10 Life photograph and retrospective museum caption",
+                    "supports": "Reproduces a photograph identified retrospectively by the museum as a physically isolated Micrologic sample and dates its appearance in Life."
+                  },
+                  {
+                    "source_id": "entry-elec-micrologic-panel",
+                    "locator": "Printed p. 33, March 1961 chronology",
+                    "supports": "The participant chronology identifies an earlier physically isolated device in the Life photograph."
+                  },
+                  {
+                    "source_id": "entry-src-micrologic-life",
+                    "locator": "Printed p. 33, March 1961 chronology; p. 25, Last discussing the Life photograph",
+                    "supports": "Identifies the 10 March Life image as an earlier physically isolated device."
+                  },
+                  {
+                    "source_id": "src-chm-sector",
+                    "locator": "PDF p. 84, Jay Last account",
+                    "supports": "Confirms that the image showed an epoxy-isolated device in a TO-18 can."
+                  }
+                ]
+              },
+              "experimental_confirmation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "acceptance": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "decline": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "withdrawal": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "end_of_use": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "abandonment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "revival": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              }
+            },
+            "commercial_applicability": {
+              "status": "not_yet_assessed",
+              "rationale": "The preserved event does not establish whether this configuration was marketed or belongs to a nonmarket deployment; no market applicability is inferred.",
+              "evidence": []
+            },
+            "graph_anchor": {
+              "status": "selected",
+              "policy": "community_entry",
+              "event_id": "entry-calculation-fairchild-micrologic-prototype",
+              "entry_basis": "public_awareness",
+              "evidence_strength": "awareness_proxy",
+              "date_interpretation": "known_by",
+              "community": "Life magazine readers interested in electronics",
+              "scope": {
+                "regions": [
+                  "United States"
+                ],
+                "configuration": "Photographed Micrologic flip-flop sample later identified by participants and the museum as physically isolated; this scope concerns its visual exposure, not disclosure of the rear-etched epoxy method.",
+                "applications": [],
+                "market": {
+                  "status": "not_yet_researched"
+                },
+                "population": {
+                  "status": "not_yet_researched"
+                }
+              },
+              "evidence": [
+                {
+                  "source_id": "entry-elec-ic-fifty",
+                  "locator": "Printed p. 22, March 10 Life photograph and retrospective museum caption",
+                  "supports": "Reproduces a photograph identified retrospectively by the museum as a physically isolated Micrologic sample and dates its appearance in Life."
+                },
+                {
+                  "source_id": "entry-elec-micrologic-panel",
+                  "locator": "Printed p. 33, March 1961 chronology",
+                  "supports": "The participant chronology identifies an earlier physically isolated device in the Life photograph."
+                },
+                {
+                  "source_id": "entry-src-micrologic-life",
+                  "locator": "Printed p. 33, March 1961 chronology; p. 25, Last discussing the Life photograph",
+                  "supports": "Identifies the 10 March Life image as an earlier physically isolated device."
+                },
+                {
+                  "source_id": "src-chm-sector",
+                  "locator": "PDF p. 84, Jay Last account",
+                  "supports": "Confirms that the image showed an epoxy-isolated device in a TO-18 can."
+                }
+              ],
+              "rationale": "The 1961 published photograph is a qualified proxy for visual exposure to this pictured device, whose physical-isolation identity was established in later sources.",
+              "uncertainty": "The identification of the photographed device as physically isolated is retrospective. The original Life article and caption were not inspected, and readers are not shown to have learned the rear-etched epoxy method. The photographed sample is not established as the first-working May die or a sold Type F die.",
+              "proxy_justification": "Readers could see a photograph of a device later identified as physically isolated; this does not establish that the article explained its hidden isolation method, that readers understood that method, customer use or a sale."
+            },
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-ic",
+                "entry-elec-ic-fifty",
+                "entry-elec-micrologic-panel",
+                "src-chm-sector",
+                "entry-src-micrologic-life",
+                "src-electronics-1961"
+              ],
+              "note": "One physically isolated design; specimen-specific prototype, photo and later commercial product claims remain distinct."
+            },
+            "uncertainty": "The May specimen, the photographed March 1961 sample, and the first sold Type F die are not established as the same physical object or mask.",
+            "tier": 2,
+            "tier_reason": "Exposes an actual isolation alternative hidden by a generic first-IC node.",
+            "icon": "logic"
+          }
+        }
+      },
+      {
+        "node_id": "elec-hoerni-planar-transistor-1959",
+        "duplicate_node_id": "hoerni-precommercial-planar",
+        "verdict": "accept",
+        "reason": "The explicitly broadened retained-oxide transistor class includes the unnamed 1959 prototype and a distinct later 2N1613 product; neither physical identity nor same polarity/mask is asserted. The 1957 conception remains a separate node and event.",
+        "projection_sha256": "1b14b9065705bc532df82927fef532ce88ae01f0a130b28e48a040c4702d5175",
+        "reviewed_projection": {
+          "canonical_node_id": "elec-hoerni-planar-transistor-1959",
+          "remove_duplicate_node_id": "hoerni-precommercial-planar",
+          "identity": "Widen to a retained-oxide transistor configuration class containing the unnamed prototype as a specifically scoped event; distinct 2N1613 product and 1957 conception remain separate nodes.",
+          "canonical_before_sha256": "f476046cdb9249b4669c2d3cd64b014db85d17b366bdcbe5fcecae18d473b47b",
+          "duplicate_before_sha256": "f88d0b3e74d9207a6bd5ce8a781cb3c3c7b71571d108a0f986731914c72a2b8d",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-hoerni-planar-transistor-1959",
+            "label": "Fairchild retained-oxide planar transistor configuration",
+            "kind": "technology",
+            "configuration": "Silicon planar transistor configuration with diffused junction edges protected by retained oxide and patterned contact openings, encompassing a March 1959 prototype and the distinct later 2N1613 product.",
+            "regions": [
+              "Fairchild Semiconductor, California, United States"
+            ],
+            "event_ids": [
+              "hoerni-prototype-1959",
+              "elec-hoerni-planar-transistor-1959--community-entry",
+              "entry-calculation-hoerni-precommercial-planar"
+            ],
+            "lifecycle": {
+              "invention": {
+                "status": "unknown",
+                "event_ids": [],
+                "rationale": "A dated conception and working prototype are separately documented; a unique invention date for this artifact was not established.",
+                "evidence": [
+                  {
+                    "source_id": "src-ieee-planar",
+                    "locator": "1957 notebook discussion",
+                    "supports": "Documents conception of oxide-protected transistor junctions."
+                  },
+                  {
+                    "source_id": "src-ieee-planar",
+                    "locator": "1959 development and prototype paragraphs",
+                    "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+                  }
+                ]
+              },
+              "first_commercial_availability": {
+                "status": "unknown",
+                "event_ids": [],
+                "rationale": "The April 1960 2N1613 sale establishes available-by for this class, but not the first commercial offer for every retained-oxide implementation; the 1959 prototype is a separate specimen.",
+                "evidence": [
+                  {
+                    "source_id": "src-ieee-planar",
+                    "locator": "1959 development and prototype paragraphs",
+                    "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+                  },
+                  {
+                    "source_id": "src-chip-history",
+                    "locator": "IC History Dates, 1959 and 1960 entries",
+                    "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
+                  }
+                ]
+              },
+              "practical_deployment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "adoption": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "discovery": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "observation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "formulation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "publication": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "experimental_confirmation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "acceptance": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "decline": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "withdrawal": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "end_of_use": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "abandonment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "revival": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              }
+            },
+            "commercial_applicability": {
+              "status": "applicable",
+              "rationale": "The documented product sale or offer establishes market applicability, without establishing first commercial availability of the complete configuration.",
+              "evidence": [
+                {
+                  "source_id": "src-ieee-planar",
+                  "locator": "April 1960 2N1613 sale",
+                  "supports": "A later product implementing the refined class was sold in April 1960."
+                }
+              ]
+            },
+            "graph_anchor": {
+              "status": "selected",
+              "policy": "community_entry",
+              "event_id": "elec-hoerni-planar-transistor-1959--community-entry",
+              "entry_basis": "commercial_availability",
+              "evidence_strength": "direct",
+              "date_interpretation": "known_by",
+              "community": "Customers of Fairchild 2N1613 planar transistors",
+              "scope": {
+                "regions": [
+                  "United States"
+                ],
+                "configuration": "Fairchild 2N1613 NPN silicon planar transistor, an instance of the retained-oxide configuration; the unnamed March 1959 prototype is a separate witness.",
+                "applications": [
+                  "semiconductor electronic circuits"
+                ],
+                "market": {
+                  "status": "not_yet_researched"
+                },
+                "population": {
+                  "status": "not_yet_researched"
+                }
+              },
+              "evidence": [
+                {
+                  "source_id": "src-ieee-planar",
+                  "locator": "1959 prototype and April 1960 sales paragraphs; initial marketing caption",
+                  "supports": "Reports commercial sale of Fairchild 2N1613 planar transistors in April 1960."
+                },
+                {
+                  "source_id": "src-fairchild-leadwire",
+                  "locator": "April 1960 front page, PDF p. 20",
+                  "supports": "Fairchild identifies its publicly introduced NPN transistor as 2N1613."
+                },
+                {
+                  "source_id": "elec-hoerni-patent-3025589",
+                  "locator": "Columns 1–2, oxide-covered junctions and contacts",
+                  "supports": "Describes the relevant planar configuration."
+                }
+              ],
+              "rationale": "A documented sale of a later distinct product implementing the same broadly defined process provides real customer availability; the 1959 prototype remains a separate witness.",
+              "uncertainty": "The 1959 specimen’s polarity and identity are unproved; an April 1960 product sale does not establish the first commercial availability of the entire configuration class."
+            },
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-process",
+                "elec-hoerni-patent-3025589",
+                "src-fairchild-leadwire",
+                "src-ieee-planar",
+                "src-chip-history",
+                "entry-src-hoerni-1960"
+              ],
+              "note": "Class-level node with explicitly scoped prototype and later product witnesses; 1957 conception remains a separate node."
+            },
+            "uncertainty": "The March 1959 prototype’s polarity and product identity are not established. Class-level availability through the 2N1613 does not imply a sale of the original specimen or prove the first class-wide sale.",
+            "tier": 0,
+            "tier_reason": "Overview manufacturing landmark with defined geometry and a demonstrated implementation.",
+            "icon": "chip"
+          }
+        }
+      }
+    ],
+    "event_reviews": [
+      {
+        "event_id": "intel-4004-prototype-1971",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "3900e1ecf343f05898117e22c08d48974986454a193cec473ec717264d1bfb2a",
+        "reviewed_projection": {
+          "id": "intel-4004-prototype-1971",
+          "proposed_record": {
+            "id": "intel-4004-prototype-1971",
+            "node_id": "elec-intel-4004-cpu-1971",
+            "event_type": "prototype",
+            "date": {
+              "status": "known",
+              "precision": "month",
+              "calendar": "historical-BCE-CE",
+              "label": "January 1971",
+              "basis": "Participant account describes working wafer run in January and subsequent correction of minor bugs.",
+              "earliest": {
+                "year": 1971,
+                "month": 1
+              },
+              "latest": {
+                "year": 1971,
+                "month": 1
+              }
+            },
+            "scope": {
+              "regions": [
+                "United States"
+              ],
+              "configuration": "Early Intel 4004 working silicon with minor bugs, not the later corrected production mask",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "A 4004 silicon run worked in January 1971; subsequent tests found and corrected minor errors.",
+            "evidence": [
+              {
+                "source_id": "src-intel-history",
+                "locator": "IEEE Micro December 1996, printed pp. 16–17/PDF pp. 7–8, The 4004 comes to life",
+                "supports": "Project participants describe early 4004 chips that worked in January 1971, bug fixes and fully functional iteration in March."
+              }
+            ],
+            "uncertainty": "The participants describe a working early iteration; this event is not a claim that it was the final mask sold in November.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "schema_version": 1,
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-intel-history"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "intel-4004-merchant-1971",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "e912140be92efaa1bc89905304ef59fdd179c306af0f76afd02038386c8f0b35",
+        "reviewed_projection": {
+          "id": "intel-4004-merchant-1971",
+          "proposed_record": {
+            "id": "intel-4004-merchant-1971",
+            "node_id": "elec-intel-4004-cpu-1971",
+            "event_type": "commercial_offer",
+            "date": {
+              "status": "known",
+              "precision": "day",
+              "calendar": "historical-BCE-CE",
+              "label": "15 November 1971",
+              "basis": "Intel advertisement reports the MCS-4 family in stock on this day.",
+              "earliest": {
+                "year": 1971,
+                "month": 11,
+                "day": 15
+              },
+              "latest": {
+                "year": 1971,
+                "month": 11,
+                "day": 15
+              }
+            },
+            "scope": {
+              "regions": [
+                "United States",
+                "Belgium",
+                "Japan"
+              ],
+              "configuration": "Intel 4004 CPU offered as part of the MCS-4 family; the advertisement does not identify a mask or physical iteration.",
+              "applications": [
+                "Non-desktop-calculator commercial uses"
+              ],
+              "market": {
+                "status": "specified",
+                "value": "Merchant component sales outside exclusive desktop-calculator applications"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "On 15 November 1971 Intel advertised the MCS-4 family, including the 4004, as in stock for its merchant market.",
+            "evidence": [
+              {
+                "source_id": "src-intel-ad",
+                "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+                "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+              },
+              {
+                "source_id": "src-intel-history",
+                "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+                "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+              }
+            ],
+            "uncertainty": "The first day of merchant sales and possible earlier private merchant offers are unresolved. Earlier availability to Busicom under its contract is a different market scope.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "schema_version": 1,
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-intel-ad",
+                "src-intel-history"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "micrologic-prototype-1960",
+        "verdict": "accept",
+        "reason": "CHM chronology and participant accounts support May 26, 1960 for the working physical-isolation flip-flop; exact day is retrospective, not direct inspection of the original notebook.",
+        "projection_sha256": "671e1ba5ee1a1d82c77445e02dd4720a7216d6fca059eda4859799c53b320248",
+        "reviewed_projection": {
+          "id": "micrologic-prototype-1960",
+          "proposed_record": {
+            "id": "micrologic-prototype-1960",
+            "node_id": "elec-fairchild-physical-isolation-1960",
+            "event_type": "prototype",
+            "date": {
+              "status": "known",
+              "precision": "day",
+              "calendar": "historical-BCE-CE",
+              "label": "26 May 1960",
+              "basis": "The museum chronology dates the first working physically isolated monolithic circuit to 26 May; Jay Last independently places the relevant sample in May. The exact day relies on a retrospective institutional account.",
+              "earliest": {
+                "year": 1960,
+                "month": 5,
+                "day": 26
+              },
+              "latest": {
+                "year": 1960,
+                "month": 5,
+                "day": 26
+              }
+            },
+            "scope": {
+              "regions": [
+                "United States"
+              ],
+              "configuration": "Physically isolated four-transistor Norman flip-flop development device, with rear-etched epoxy-filled channels.",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Last’s team produced a working physically isolated monolithic Micrologic flip-flop.",
+            "evidence": [
+              {
+                "source_id": "src-chm-sector",
+                "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+                "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+              },
+              {
+                "source_id": "elec-chm-planar-ic",
+                "locator": "Main narrative paragraphs 1–3",
+                "supports": "Team, circuit and physical-isolation demonstration."
+              }
+            ],
+            "uncertainty": "The exact day is retrospective; no original fabrication notebook was inspected. This specimen is not equated with the first sold Type F die.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "schema_version": 1,
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-chm-sector",
+                "elec-chm-planar-ic"
+              ],
+              "note": "Both source accounts describe the same scoped historical occurrence; supporting evidence is combined."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "entry-calculation-fairchild-micrologic-prototype",
+        "verdict": "accept",
+        "reason": "The 1961 publication concerned a photographed device retrospectively identified as physically isolated. Original caption and article are uninspected; no contemporary knowledge of the hidden epoxy method is inferred.",
+        "projection_sha256": "2059bd8ef86aa34e399749ea8bca1aa9d61d9c15b34524ca803032d3360306ba",
+        "reviewed_projection": {
+          "id": "entry-calculation-fairchild-micrologic-prototype",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "entry-calculation-fairchild-micrologic-prototype",
+            "node_id": "elec-fairchild-physical-isolation-1960",
+            "event_type": "publication",
+            "date": {
+              "status": "known",
+              "precision": "day",
+              "calendar": "historical-BCE-CE",
+              "label": "1961-03-10",
+              "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence.",
+              "earliest": {
+                "year": 1961,
+                "month": 3,
+                "day": 10
+              },
+              "latest": {
+                "year": 1961,
+                "month": 3,
+                "day": 10
+              }
+            },
+            "scope": {
+              "regions": [
+                "United States"
+              ],
+              "configuration": "Photographed Micrologic flip-flop sample later identified by participants and the museum as physically isolated; this scope concerns its visual exposure, not disclosure of the rear-etched epoxy method.",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Life published a Micrologic photograph on 10 March 1961; later museum and participant accounts identify the pictured sample as physically isolated.",
+            "evidence": [
+              {
+                "source_id": "entry-elec-ic-fifty",
+                "locator": "Printed p. 22, March 10 Life photograph and retrospective museum caption",
+                "supports": "Reproduces a photograph identified retrospectively by the museum as a physically isolated Micrologic sample and dates its appearance in Life."
+              },
+              {
+                "source_id": "entry-elec-micrologic-panel",
+                "locator": "Printed p. 33, March 1961 chronology",
+                "supports": "The participant chronology identifies an earlier physically isolated device in the Life photograph."
+              },
+              {
+                "source_id": "entry-src-micrologic-life",
+                "locator": "Printed p. 33, March 1961 chronology; p. 25, Last discussing the Life photograph",
+                "supports": "Identifies the 10 March Life image as an earlier physically isolated device."
+              },
+              {
+                "source_id": "src-chm-sector",
+                "locator": "PDF p. 84, Jay Last account",
+                "supports": "Confirms that the image showed an epoxy-isolated device in a TO-18 can."
+              }
+            ],
+            "uncertainty": "The identification of the photographed device as physically isolated is retrospective. The original Life article and caption were not inspected, and readers are not shown to have learned the rear-etched epoxy method. The photographed sample is not established as the first-working May die or a sold Type F die.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "entry-elec-ic-fifty",
+                "entry-elec-micrologic-panel",
+                "entry-src-micrologic-life",
+                "src-chm-sector"
+              ],
+              "note": "Retrospective identification of the pictured device supports the publication claim; the original Life caption and article were not independently inspected."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "hoerni-prototype-1959",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "a98170852ebd1f1d098ea4eb97c8ffc23ead7d91259414bff02cbc6d839f2614",
+        "reviewed_projection": {
+          "id": "hoerni-prototype-1959",
+          "proposed_record": {
+            "id": "hoerni-prototype-1959",
+            "node_id": "elec-hoerni-planar-transistor-1959",
+            "event_type": "prototype",
+            "date": {
+              "status": "known",
+              "precision": "month",
+              "calendar": "historical-BCE-CE",
+              "label": "March 1959",
+              "basis": "IEEE places the demonstration the week after a 2 March notebook entry; Chip History gives 12 March.",
+              "earliest": {
+                "year": 1959,
+                "month": 3
+              },
+              "latest": {
+                "year": 1959,
+                "month": 3
+              }
+            },
+            "scope": {
+              "regions": [
+                "United States"
+              ],
+              "configuration": "Unnamed March 1959 Fairchild retained-oxide planar transistor prototype, with polarity and later product identity not established.",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Hoerni demonstrated an early planar transistor prototype.",
+            "evidence": [
+              {
+                "source_id": "src-ieee-planar",
+                "locator": "1959 development and prototype paragraphs",
+                "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+              },
+              {
+                "source_id": "src-chip-history",
+                "locator": "IC History Dates, 1959 and 1960 entries",
+                "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
+              },
+              {
+                "source_id": "elec-chm-planar-process",
+                "locator": "Main narrative: March 1959 working device",
+                "supports": "Demonstration date."
+              },
+              {
+                "source_id": "elec-hoerni-patent-3025589",
+                "locator": "Columns 1–2",
+                "supports": "Diffusion, retained-oxide protection and contacts."
+              }
+            ],
+            "uncertainty": "The unnamed working specimen is not established as a 2N1613; a 1962 patent publication does not date the working prototype.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "schema_version": 1,
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-ieee-planar",
+                "src-chip-history",
+                "elec-chm-planar-process",
+                "elec-hoerni-patent-3025589"
+              ],
+              "note": "Both source accounts describe the same scoped historical occurrence; supporting evidence is combined."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "elec-hoerni-planar-transistor-1959--community-entry",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "012a939f62ed5b96be711f4c90828af5ceb912252599a7e29e76c6b3290c057c",
+        "reviewed_projection": {
+          "id": "elec-hoerni-planar-transistor-1959--community-entry",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-hoerni-planar-transistor-1959--community-entry",
+            "node_id": "elec-hoerni-planar-transistor-1959",
+            "event_type": "commercial_availability",
+            "date": {
+              "status": "bounded",
+              "precision": "month",
+              "calendar": "historical-BCE-CE",
+              "label": "by 1960-04",
+              "basis": "Latest documented community-use or recognition bound; no earliest date is established.",
+              "latest": {
+                "year": 1960,
+                "month": 4
+              },
+              "earliest_status": "unknown"
+            },
+            "scope": {
+              "regions": [
+                "United States"
+              ],
+              "configuration": "Fairchild 2N1613 NPN silicon planar transistor, an instance of the retained-oxide configuration; the unnamed March 1959 prototype is a separate witness.",
+              "applications": [
+                "semiconductor electronic circuits"
+              ],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Fairchild had sold the 2N1613, a planar silicon transistor of this general configuration, by April 1960.",
+            "evidence": [
+              {
+                "source_id": "src-ieee-planar",
+                "locator": "1959 prototype and April 1960 sales paragraphs; initial marketing caption",
+                "supports": "Reports commercial sale of Fairchild 2N1613 planar transistors in April 1960."
+              },
+              {
+                "source_id": "src-fairchild-leadwire",
+                "locator": "April 1960 front page, PDF p. 20",
+                "supports": "Fairchild identifies its publicly introduced NPN transistor as 2N1613."
+              },
+              {
+                "source_id": "elec-hoerni-patent-3025589",
+                "locator": "Columns 1–2, oxide-covered junctions and contacts",
+                "supports": "Describes the relevant planar configuration."
+              }
+            ],
+            "uncertainty": "The 1959 specimen’s polarity and identity are unproved; an April 1960 product sale does not establish the first commercial availability of the entire configuration class.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-ieee-planar",
+                "src-fairchild-leadwire",
+                "elec-hoerni-patent-3025589"
+              ],
+              "note": "Candidate configuration-class availability; first availability and specimen identity remain separate."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "entry-calculation-hoerni-precommercial-planar",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "f739c254dfd3891c08675ecbc37b7f5ba1fe747eeb00282821fb65e678667b15",
+        "reviewed_projection": {
+          "id": "entry-calculation-hoerni-precommercial-planar",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "entry-calculation-hoerni-precommercial-planar",
+            "node_id": "elec-hoerni-planar-transistor-1959",
+            "event_type": "presentation",
+            "date": {
+              "status": "known",
+              "precision": "month",
+              "calendar": "historical-BCE-CE",
+              "label": "October 1960",
+              "basis": "Evidence dates the scoped event.",
+              "earliest": {
+                "year": 1960,
+                "month": 10
+              },
+              "latest": {
+                "year": 1960,
+                "month": 10
+              }
+            },
+            "scope": {
+              "regions": [
+                "Washington, DC, United States"
+              ],
+              "configuration": "Hoerni’s retained-oxide planar transistor design as technically presented in 1960; the specific March 1959 specimen is not identified.",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Hoerni presented the planar transistor design and its characteristics at an electron-devices meeting.",
+            "evidence": [
+              {
+                "source_id": "entry-src-hoerni-1960",
+                "locator": "Printed p. 39, paragraphs on March 1959 prototypes and Hoerni’s October 1960 paper",
+                "supports": "Records the technical meeting and presentation of the planar design."
+              }
+            ],
+            "uncertainty": "The presentation describes the design, not proof that the particular 1959 prototype was shown or became the 2N1613.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "entry-src-hoerni-1960"
+              ],
+              "note": "Proposed community-entry record; date and scope require independent review."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "elec-hoerni-planar-conception-1957--event-01",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "1b01d33a03003c75d05af253a360f237fa17ea5a270aa404f957d8b1884be54a",
+        "reviewed_projection": {
+          "id": "elec-hoerni-planar-conception-1957--event-01",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-hoerni-planar-conception-1957--event-01",
+            "node_id": "elec-hoerni-planar-conception-1957",
+            "event_type": "conception",
+            "date": {
+              "status": "known",
+              "precision": "day",
+              "calendar": "historical-BCE-CE",
+              "label": "1 December 1957",
+              "basis": "Retrospective identifies Hoerni notebook date.",
+              "earliest": {
+                "year": 1957,
+                "month": 12,
+                "day": 1
+              },
+              "latest": {
+                "year": 1957,
+                "month": 12,
+                "day": 1
+              }
+            },
+            "scope": {
+              "regions": [
+                "Fairchild Semiconductor, California, United States"
+              ],
+              "configuration": "Hoerni proposed leaving oxide over the junction edges while opening contact areas, instead of stripping the oxide after diffusion.",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Hoerni proposed leaving oxide over the junction edges while opening contact areas, instead of stripping the oxide after diffusion.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-planar-process",
+                "locator": "Main narrative: December 1957 notebook entry",
+                "supports": "Conception date and retained oxide."
+              },
+              {
+                "source_id": "elec-moore-fairchild-1998",
+                "locator": "p. 58, planar-transistor discussion",
+                "supports": "Proposed geometry and departure from previous processing."
+              },
+              {
+                "source_id": "src-ieee-planar",
+                "locator": "1957 notebook discussion",
+                "supports": "Documents conception of oxide-protected transistor junctions."
+              }
+            ],
+            "uncertainty": "The day is reported in a retrospective IEEE account; the original notebook itself was not inspected.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-process",
+                "elec-moore-fairchild-1998",
+                "src-ieee-planar"
+              ],
+              "note": "Both source accounts describe the same scoped historical occurrence; supporting evidence is combined."
+            }
+          }
+        }
+      },
+      {
+        "event_id": "elec-hoerni-planar-conception-1957--community-entry",
+        "verdict": "accept",
+        "reason": "Scoped event and evidence preserve the original occurrence and uncertainty; this does not establish first commercial availability or identify distinct specimens.",
+        "projection_sha256": "44713d5147ef606f7178c6ebd749228b477fec98070ac253b4e91602dd1a6d79",
+        "reviewed_projection": {
+          "id": "elec-hoerni-planar-conception-1957--community-entry",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-hoerni-planar-conception-1957--community-entry",
+            "node_id": "elec-hoerni-planar-conception-1957",
+            "event_type": "practical_use",
+            "date": {
+              "status": "known",
+              "precision": "day",
+              "calendar": "historical-BCE-CE",
+              "label": "1960-05-26",
+              "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence.",
+              "earliest": {
+                "year": 1960,
+                "month": 5,
+                "day": 26
+              },
+              "latest": {
+                "year": 1960,
+                "month": 5,
+                "day": 26
+              }
+            },
+            "scope": {
+              "regions": [
+                "California, United States"
+              ],
+              "configuration": "Hoerni proposed leaving oxide over the junction edges while opening contact areas, instead of stripping the oxide after diffusion.",
+              "applications": [],
+              "market": {
+                "status": "not_yet_researched"
+              },
+              "population": {
+                "status": "not_yet_researched"
+              }
+            },
+            "statement": "Last team applied Hoerni planar processing to a working integrated flip-flop.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-planar-ic",
+                "locator": "Main narrative, August 1959 project and 26 May 1960 result",
+                "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
+              }
+            ],
+            "uncertainty": "Use is specialist research use, not evidence of external commercial availability.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-ic"
+              ],
+              "note": "Candidate community-entry event; needs independent review."
+            }
+          }
+        }
+      }
+    ],
+    "event_resolution_reviews": [
+      {
+        "removed_event_id": "elec-intel-4004-cpu-1971--event-01",
+        "verdict": "accept",
+        "reason": "The reviewed replacement event or merged node preserves the original dated proposition, evidence and stage; the 4004 contributor attributions are retained explicitly in the node.",
+        "projection_sha256": "230d0d6bdd30425d9e179ab47036409ac5293e755d574daf2da734b6d4ecf997",
+        "reviewed_projection": {
+          "remove": "elec-intel-4004-cpu-1971--event-01",
+          "retained_in": "4004 node configuration, provenance, and prototype/offer events",
+          "reason": "Undifferentiated 1971 description is retained as node context and evidence, not as a duplicate occurrence; do not attach the source’s general 1971 attribution to the January day."
+        }
+      },
+      {
+        "removed_event_id": "elec-intel-4004-cpu-1971--community-entry",
+        "verdict": "accept",
+        "reason": "The reviewed replacement event or merged node preserves the original dated proposition, evidence and stage; the 4004 contributor attributions are retained explicitly in the node.",
+        "projection_sha256": "920e048bd10b3dcf400734f3c11bf0f5247967983cd1b84cfcac8d5641cdeae3",
+        "reviewed_projection": {
+          "remove": "elec-intel-4004-cpu-1971--community-entry",
+          "replace_with": "intel-4004-merchant-1971",
+          "reason": "Both describe the 15 November 1971 advertisement and stock claim."
+        }
+      },
+      {
+        "removed_event_id": "elec-fairchild-physical-isolation-1960--event-01",
+        "verdict": "accept",
+        "reason": "The reviewed replacement event or merged node preserves the original dated proposition, evidence and stage; the 4004 contributor attributions are retained explicitly in the node.",
+        "projection_sha256": "b055b02df9ff48b9dd30d2a11935ff677012634bbdac4487b9d5a827df473713",
+        "reviewed_projection": {
+          "remove": "elec-fairchild-physical-isolation-1960--event-01",
+          "replace_with": "micrologic-prototype-1960",
+          "reason": "Same May physical-isolation flip-flop occurrence; combine May and retrospective day evidence."
+        }
+      },
+      {
+        "removed_event_id": "elec-fairchild-physical-isolation-1960--community-entry",
+        "verdict": "accept",
+        "reason": "The reviewed replacement event or merged node preserves the original dated proposition, evidence and stage; the 4004 contributor attributions are retained explicitly in the node.",
+        "projection_sha256": "e58403a36d6d3d810327c7e931c19953475ea9f0aa3e529f9607d508e607c0e6",
+        "reviewed_projection": {
+          "remove": "elec-fairchild-physical-isolation-1960--community-entry",
+          "replace_with": "entry-calculation-fairchild-micrologic-prototype",
+          "reason": "Both describe the same Life photo on 10 March 1961; merge source evidence and preserve limits."
+        }
+      },
+      {
+        "removed_event_id": "elec-hoerni-planar-transistor-1959--event-01",
+        "verdict": "accept",
+        "reason": "The reviewed replacement event or merged node preserves the original dated proposition, evidence and stage; the 4004 contributor attributions are retained explicitly in the node.",
+        "projection_sha256": "7bebe426ed306f8ca6a2a7dd753b7ea915e54445a06fb7835ec8ce9e71fc36b7",
+        "reviewed_projection": {
+          "remove": "elec-hoerni-planar-transistor-1959--event-01",
+          "replace_with": "hoerni-prototype-1959",
+          "reason": "Both describe the unnamed March 1959 working transistor; merge evidence without naming a 2N1613."
+        }
+      },
+      {
+        "removed_event_id": "hoerni-conception-1957",
+        "verdict": "accept",
+        "reason": "The reviewed replacement event or merged node preserves the original dated proposition, evidence and stage; the 4004 contributor attributions are retained explicitly in the node.",
+        "projection_sha256": "7d19664080fc28c9d6eae25c23723dcb596fdfe1e8cb7390cc80381c104b9594",
+        "reviewed_projection": {
+          "remove": "hoerni-conception-1957",
+          "replace_with": "elec-hoerni-planar-conception-1957--event-01",
+          "reason": "Same 1957 notebook conception; merge evidence into separate concept node."
+        }
+      }
+    ],
+    "additional_node_reviews": [
+      {
+        "node_id": "elec-hoerni-planar-conception-1957",
+        "verdict": "accept",
+        "reason": "The 1957 conception remains a distinct historical node, with its conception and later use events preserved.",
+        "projection_sha256": "34b15e321297d3b2f883f9057cea8b80765411b4fb15a11b406d338c690de543",
+        "reviewed_projection": {
+          "node_id": "elec-hoerni-planar-conception-1957",
+          "before_sha256": "18b286409242ab52819f91c558ae7f0dd2b7669b3abe5894bbce5c46a030ea3c",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-hoerni-planar-conception-1957",
+            "label": "Retained-oxide planar conception",
+            "kind": "technology",
+            "configuration": "Hoerni proposed leaving oxide over the junction edges while opening contact areas, instead of stripping the oxide after diffusion.",
+            "regions": [
+              "Fairchild Semiconductor, California, United States"
+            ],
+            "event_ids": [
+              "elec-hoerni-planar-conception-1957--event-01",
+              "elec-hoerni-planar-conception-1957--community-entry"
+            ],
+            "lifecycle": {
+              "invention": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "first_commercial_availability": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "practical_deployment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "adoption": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "discovery": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "observation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "formulation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "publication": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "experimental_confirmation": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "acceptance": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "decline": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "withdrawal": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "end_of_use": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "abandonment": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              },
+              "revival": {
+                "status": "not_yet_researched",
+                "event_ids": [],
+                "rationale": "This distinct lifecycle question has not been established by the preserved dated configuration.",
+                "evidence": []
+              }
+            },
+            "commercial_applicability": {
+              "status": "not_yet_assessed",
+              "rationale": "The preserved event does not establish whether this configuration was marketed or belongs to a nonmarket deployment; no market applicability is inferred.",
+              "evidence": []
+            },
+            "graph_anchor": {
+              "status": "selected",
+              "policy": "community_entry",
+              "event_id": "elec-hoerni-planar-conception-1957--community-entry",
+              "entry_basis": "practical_use",
+              "evidence_strength": "direct",
+              "date_interpretation": "known_by",
+              "community": "Fairchild integrated-circuit development team",
+              "scope": {
+                "regions": [
+                  "California, United States"
+                ],
+                "configuration": "Hoerni proposed leaving oxide over the junction edges while opening contact areas, instead of stripping the oxide after diffusion.",
+                "applications": [],
+                "market": {
+                  "status": "not_yet_researched"
+                },
+                "population": {
+                  "status": "not_yet_researched"
+                }
+              },
+              "evidence": [
+                {
+                  "source_id": "elec-chm-planar-ic",
+                  "locator": "Main narrative, August 1959 project and 26 May 1960 result",
+                  "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
+                }
+              ],
+              "rationale": "A separate development team actually used the retained-oxide planar approach in a working circuit.",
+              "uncertainty": "Use is specialist research use, not evidence of external commercial availability."
+            },
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-process",
+                "elec-moore-fairchild-1998",
+                "elec-chm-planar-ic",
+                "src-ieee-planar"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            },
+            "uncertainty": "The day is reported in a retrospective IEEE account; the original notebook itself was not inspected.",
+            "tier": 2,
+            "tier_reason": "Separates the design idea used by Noyce from the later physical demonstration.",
+            "icon": "chip"
+          },
+          "reason": "Retain the separate conceptual node and combine duplicate 1957 notebook evidence."
+        }
+      }
+    ],
+    "relationship_reviews": [
+      {
+        "relationship_id": "elec-silicon-gate-to-4004",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "94f5b8d57c620dc3542994212e15bee38331a6d885647c49576a8f498a7bec77",
+        "reviewed_projection": {
+          "relationship_id": "elec-silicon-gate-to-4004",
+          "before_sha256": "4bc40467d74b9691f8b1f172152169b4948bd3f167efed961e9ffe41a5af1977",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-silicon-gate-to-4004",
+            "from": {
+              "node_id": "elec-fairchild-silicon-gate-3708-1968",
+              "event_id": "elec-fairchild-silicon-gate-3708-1968--event-01"
+            },
+            "to": {
+              "node_id": "elec-intel-4004-cpu-1971"
+            },
+            "relation": "documented-transmission",
+            "statement": "Faggin carried silicon-gate expertise to Intel and added logic-process features used to implement the 4004.",
+            "scope": "Fairchild to Intel, 1968–71; process knowledge, with Faggin joining Intel in 1970.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-silicon-gate",
+                "locator": "Main narrative paragraph 3",
+                "supports": "Intel adoption, Faggin transfer and buried-contact enhancement."
+              },
+              {
+                "source_id": "elec-chm-4004-cpu",
+                "locator": "Main narrative paragraphs 2–3",
+                "supports": "CPU design and silicon-gate implementation."
+              }
+            ],
+            "confidence": "high",
+            "necessity": "Contribution to this CPU’s implementation; not the claim that computing or every CPU requires this process.",
+            "alternatives": "AL1 CPU slices and MP944 multi-chip processing were contemporary alternatives.",
+            "uncertainty": "The multiplexer circuit itself was not a CPU component; the transmitted contribution was process/design capability. Architecture had distinct contributors.",
+            "temporal_note": "1968 deployment and 1970 transfer precede the 1971 CPU.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-4004-cpu",
+                "elec-chm-silicon-gate"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "relationship_id": "edge-planar-to-2n1613",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "4f6d560ed70ee44b8e4946da8aadf58707041409d5bb86359562df53a5289631",
+        "reviewed_projection": {
+          "relationship_id": "edge-planar-to-2n1613",
+          "before_sha256": "d7ddfa3e74002f9d36312ca4ae85d534ee9a1c373023d01ed7990397e9022fb2",
+          "proposed_record": {
+            "id": "edge-planar-to-2n1613",
+            "from": {
+              "node_id": "elec-hoerni-planar-transistor-1959",
+              "event_id": "hoerni-prototype-1959"
+            },
+            "to": {
+              "node_id": "fairchild-2n1613",
+              "event_id": "2n1613-commercial-1960"
+            },
+            "relation": "documented-development",
+            "statement": "The 1959 Fairchild planar prototype preceded the commercial 2N1613 in development of the planar transistor.",
+            "scope": "Fairchild planar transistor development and 2N1613 commercial embodiment.",
+            "evidence": [
+              {
+                "source_id": "src-chip-history",
+                "locator": "IC History Dates, 1959 and 1960 entries",
+                "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
+              },
+              {
+                "source_id": "src-ieee-planar",
+                "locator": "1959 development and prototype paragraphs",
+                "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+              },
+              {
+                "source_id": "src-ieee-planar",
+                "locator": "1959 prototype and April 1960 sales paragraphs",
+                "supports": "Says Fairchild sold the first planar transistor, the 2N1613, in April 1960."
+              }
+            ],
+            "confidence": "medium",
+            "necessity": "Not assessed; this documents a development lineage, not exclusive technical necessity.",
+            "alternatives": "Other contributions and development stages are not exhaustively enumerated.",
+            "uncertainty": "The prototype and 2N1613 share the broader retained-oxide planar configuration, but the exact device, polarity, mask and product identity are not established as the same.",
+            "temporal_note": "Prototype preceded 1960 commercial sale.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-chip-history",
+                "src-ieee-planar"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            },
+            "schema_version": 1
+          }
+        }
+      },
+      {
+        "relationship_id": "elec-planar-concept-to-device",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "4cd203f9a2b814b54b93e181b383604313fe1e4a3e76fe87c46644c7caea7bf1",
+        "reviewed_projection": {
+          "relationship_id": "elec-planar-concept-to-device",
+          "before_sha256": "d730e29c66e6737f73be6fbb619b1fe125f71fa6d808df748c8a025fe6da1777",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-planar-concept-to-device",
+            "from": {
+              "node_id": "elec-hoerni-planar-conception-1957",
+              "event_id": "elec-hoerni-planar-conception-1957--event-01"
+            },
+            "to": {
+              "node_id": "elec-hoerni-planar-transistor-1959",
+              "event_id": "hoerni-prototype-1959"
+            },
+            "relation": "documented-development",
+            "statement": "Hoerni’s retained-oxide proposal was developed into a working planar transistor.",
+            "scope": "Fairchild, December 1957–March 1959.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-planar-process",
+                "locator": "Main narrative: notebook, disclosure and working device",
+                "supports": "Sequence from conception to implementation."
+              }
+            ],
+            "confidence": "high",
+            "necessity": "Development of this device, not a universal requirement for transistors.",
+            "alternatives": "Mesa transistors remained a working manufacturing route.",
+            "uncertainty": "The original notebook was not inspected.",
+            "temporal_note": "Concept in December 1957; working device in March 1959.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-process"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "relationship_id": "elec-planar-device-to-physical-ic",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "7452c516ddb4fa039c69ebb34d652570144e7970690021e2f35ecb16265b7ec6",
+        "reviewed_projection": {
+          "relationship_id": "elec-planar-device-to-physical-ic",
+          "before_sha256": "3a63a644cc338a5a92aaa5551ab3d6490ad9e317e6d4416066f50d5c685f59b9",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-planar-device-to-physical-ic",
+            "from": {
+              "node_id": "elec-hoerni-planar-transistor-1959"
+            },
+            "to": {
+              "node_id": "elec-fairchild-physical-isolation-1960",
+              "event_id": "micrologic-prototype-1960"
+            },
+            "relation": "process-enables-production",
+            "statement": "Last’s IC project explicitly used Hoerni’s planar process to fabricate its circuit components.",
+            "scope": "Fairchild project initiated August 1959; May 1960 monolithic implementation.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-planar-ic",
+                "locator": "Main narrative paragraphs 1–3",
+                "supports": "Project basis and working physical-isolation circuit."
+              }
+            ],
+            "confidence": "high",
+            "necessity": "Contribution to this implementation, not the only possible integration route.",
+            "alternatives": "The team first demonstrated a multi-chip circuit; Kilby used separate wired elements.",
+            "uncertainty": "Circuit design and isolation required additional work beyond making a planar transistor.",
+            "temporal_note": "March transistor precedes the August project and May 1960 circuit.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-ic"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "relationship_id": "elec-noyce-design-to-physical-ic",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "890430a10e6b8c956095f2e271904587243e22aa61fb04c6bff9c24a1aa1731c",
+        "reviewed_projection": {
+          "relationship_id": "elec-noyce-design-to-physical-ic",
+          "before_sha256": "9fd6a90225e943bb81b67fa1f354146e5b2b84db84d9e89bb331e7a75fd8903a",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-noyce-design-to-physical-ic",
+            "from": {
+              "node_id": "elec-noyce-planar-interconnection-1959",
+              "event_id": "elec-noyce-planar-interconnection-1959--event-01"
+            },
+            "to": {
+              "node_id": "elec-fairchild-physical-isolation-1960",
+              "event_id": "micrologic-prototype-1960"
+            },
+            "relation": "documented-development",
+            "statement": "Last’s project implemented the monolithic approach specified by Noyce’s patent.",
+            "scope": "Fairchild, August 1959–May 1960.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-planar-ic",
+                "locator": "Main narrative paragraphs 1–3",
+                "supports": "Noyce patent named as project basis."
+              }
+            ],
+            "confidence": "high",
+            "necessity": "Design contribution, not a claim that the patent alone solved fabrication.",
+            "alternatives": "The project’s first multi-chip demonstration preceded the monolithic device.",
+            "uncertainty": "The fabricated isolation method is recorded separately from the patent’s illustrative structures.",
+            "temporal_note": "July 1959 filing precedes project initiation and 1960 implementation.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-ic"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "relationship_id": "elec-physical-to-junction-isolation",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "55f46ee7f7ed5a7c299c3691059959131c20a4996bc88751a14c4e32cdecb318",
+        "reviewed_projection": {
+          "relationship_id": "elec-physical-to-junction-isolation",
+          "before_sha256": "52c082ad84797631c84d4205403fac24cc44fc5521fcfa0d6177c21e8b6b1603",
+          "proposed_record": {
+            "schema_version": 1,
+            "id": "elec-physical-to-junction-isolation",
+            "from": {
+              "node_id": "elec-fairchild-physical-isolation-1960",
+              "event_id": "micrologic-prototype-1960"
+            },
+            "to": {
+              "node_id": "elec-fairchild-junction-isolation-1960",
+              "event_id": "elec-fairchild-junction-isolation-1960--event-01"
+            },
+            "relation": "documented-development",
+            "statement": "The same flip-flop programme progressed from physical isolation to a working junction-isolated production approach.",
+            "scope": "Fairchild, May–September 1960.",
+            "evidence": [
+              {
+                "source_id": "elec-chm-planar-ic",
+                "locator": "Main narrative paragraphs 3–4",
+                "supports": "Sequential working implementations and preferred isolation method."
+              }
+            ],
+            "confidence": "high",
+            "necessity": "Development sequence, not physical isolation as a necessary prerequisite for junction isolation.",
+            "alternatives": "Epoxy-filled channels and p–n junctions are alternative ways to separate components.",
+            "uncertainty": "No claim that the May device caused the underlying junction-isolation idea.",
+            "temporal_note": "Exact dates establish May before September despite equal year anchors.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "elec-chm-planar-ic"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            }
+          }
+        }
+      },
+      {
+        "relationship_id": "edge-micrologic-prototype-to-f",
+        "verdict": "accept",
+        "reason": "The retargeted node and event endpoints retain the supported original proposition and distinguish class, physical witness and later product as applicable.",
+        "projection_sha256": "e78da16248b623b5fbb1fed53eb0544ded203f5df6e0d66407354ae8e246c07d",
+        "reviewed_projection": {
+          "relationship_id": "edge-micrologic-prototype-to-f",
+          "before_sha256": "6930e00429daf8d94497b0a51c1ec413f755220160b4a7968ee949e31c423f63",
+          "proposed_record": {
+            "id": "edge-micrologic-prototype-to-f",
+            "from": {
+              "node_id": "elec-fairchild-physical-isolation-1960",
+              "event_id": "micrologic-prototype-1960"
+            },
+            "to": {
+              "node_id": "fairchild-micrologic-type-f",
+              "event_id": "micrologic-f-commercial-1961"
+            },
+            "relation": "documented-development",
+            "statement": "The physically isolated 1960 Micrologic sample was a development antecedent of the Type F flip-flop made available in March 1961; this does not identify that particular prototype die or its isolation as the earliest sold configuration.",
+            "scope": "Fairchild Micrologic flip-flop development 1960–1961.",
+            "evidence": [
+              {
+                "source_id": "src-chm-sector",
+                "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+                "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+              },
+              {
+                "source_id": "src-electronics-1961",
+                "locator": "Printed p. 76, PDF p. 78, New on the Market",
+                "supports": "Says first Micrologic flip-flop now available, introductory price $120, while other elements were to follow."
+              },
+              {
+                "source_id": "src-electronic-design-1961",
+                "locator": "1961 reprinted text, first four paragraphs",
+                "supports": "Says the Fairchild Micrologic flip-flop was being sold in evaluation quantities on 29 March 1961."
+              },
+              {
+                "source_id": "src-chm-sector",
+                "locator": "PDF p. 19, March 1961 Micrologic entry and Type F identifier",
+                "supports": "Identifies the first March 1961 Micrologic flip-flop as Type F; does not identify the isolation or mask of the earliest sold die."
+              }
+            ],
+            "confidence": "high",
+            "necessity": "Not assessed.",
+            "alternatives": "Diffused-isolation version was developed later in 1960.",
+            "uncertainty": "The accounts distinguish physical-isolation development and later diffused-isolation work; they do not identify the exact earliest sold die or establish exclusive necessity.",
+            "temporal_note": "Prototype May 1960 preceded evaluation sales in March 1961.",
+            "review": {
+              "historical_claim": "candidate",
+              "lifecycle_classification": "needs_review",
+              "records": [
+                "reviews/current-evidence.json"
+              ]
+            },
+            "provenance": {
+              "method": "source-evidence",
+              "source_ids": [
+                "src-chm-sector",
+                "src-electronic-design-1961",
+                "src-electronics-1961"
+              ],
+              "note": "The stated claim is supported by the identified passages; historical and lifecycle acceptance are assessed separately."
+            },
+            "schema_version": 1
+          }
+        }
+      }
+    ],
+    "source_audit": [
+      {
+        "source_id": "elec-chm-4004-cpu",
+        "verdict": "accepted",
+        "metadata_sha256": "f9a0d1e1bb319d4e2a3aa215b2ba23c6269b7979d70e6ae377bf6d38d13f8cba",
+        "local_copy_verified": true,
+        "access_limit": "Institutional retrospective with bibliography; narrative inspected through web tool. Local download returned HTTP 403. Bibliographic references are leads, not claims of reading their originals."
+      },
+      {
+        "source_id": "elec-chm-planar-ic",
+        "verdict": "accepted",
+        "metadata_sha256": "02a3d9c84d08b5c893fc46aae7763a07e81327dd384dc5b5883f7d637868ab50",
+        "local_copy_verified": true,
+        "access_limit": "Institutional retrospective with bibliography; narrative inspected through web tool. Local download returned HTTP 403. Bibliographic references are leads, not claims of reading their originals."
+      },
+      {
+        "source_id": "elec-chm-planar-process",
+        "verdict": "accepted",
+        "metadata_sha256": "80e95ed693dfff15196cfc9955195dc987532e823645ca69b4c31b17953d6335",
+        "local_copy_verified": true,
+        "access_limit": "Institutional retrospective with bibliography; narrative inspected through web tool. Local download returned HTTP 403. Bibliographic references are leads, not claims of reading their originals."
+      },
+      {
+        "source_id": "elec-chm-silicon-gate",
+        "verdict": "accepted",
+        "metadata_sha256": "8394bbb264da7bb9948de9c71c540f06c8df70e25a05ca9a5d421c08100b1e0c",
+        "local_copy_verified": true,
+        "access_limit": "Institutional retrospective with bibliography; narrative inspected through web tool. Local download returned HTTP 403. Bibliographic references are leads, not claims of reading their originals."
+      },
+      {
+        "source_id": "elec-hoerni-patent-3025589",
+        "verdict": "accepted",
+        "metadata_sha256": "21af14a564068e42bbd0de55c6a974d403266f7d820af4d9dd5d22151b3fbe4c",
+        "local_copy_verified": true,
+        "access_limit": "Contemporary patent disclosure. Its claims establish a disclosed process, not the date of successful operation; those dates come from separately identified historical evidence."
+      },
+      {
+        "source_id": "elec-moore-fairchild-1998",
+        "verdict": "accepted",
+        "metadata_sha256": "b5e5916595345bfbd54387c5978c7ff426099d920dbda6332c85536ffc4ec33d",
+        "local_copy_verified": true,
+        "access_limit": "Participant account written decades later. Moore expressly says he missed the Noyce meeting; that passage is not eyewitness testimony. Used for explicit technical/process relationships, with contemporary patents or experiments where available."
+      },
+      {
+        "source_id": "entry-elec-ic-fifty",
+        "verdict": "accepted",
+        "metadata_sha256": "1d52835e24bf5bdddcb02850892115d90823ecbb203c8a405f2c2b73a4bdd154",
+        "local_copy_verified": true,
+        "access_limit": "Institutional retrospective; photo does not establish that initial sold Type F die used physical isolation."
+      },
+      {
+        "source_id": "entry-elec-micrologic-panel",
+        "verdict": "accepted",
+        "metadata_sha256": "b5b46370f8dbf02ffc0ced544c00c9c0c5700abc0b47e9ee46ba155df374b56e",
+        "local_copy_verified": true,
+        "access_limit": "2007 participant timeline quotes excerpts from contemporaneous 1960 reports; complete original reports were not independently inspected. Nall evaluates the isolation approach, not necessarily the same physical flip-flop."
+      },
+      {
+        "source_id": "entry-src-hoerni-1960",
+        "verdict": "accepted",
+        "metadata_sha256": "8cec6c2a6f3b59c68de20e29f049b8c7a35354ed9048fd973c1945b00a41d278",
+        "local_copy_verified": true,
+        "access_limit": "Full source bytes retained as acquired; only the specified passages were inspected."
+      },
+      {
+        "source_id": "entry-src-micrologic-life",
+        "verdict": "accepted",
+        "metadata_sha256": "8f7e6f086906aabaf570bf9be4f54f1727c19a3664b85f19ebba98ed9808554e",
+        "local_copy_verified": true,
+        "access_limit": "Full source bytes retained as acquired; only the specified passages were inspected."
+      },
+      {
+        "source_id": "src-chip-history",
+        "verdict": "accepted",
+        "metadata_sha256": "9888fc45f1d4781d394fb6d77a4d732f3af9db9ec01c0e936f43326789c6474d",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/e290b6bfd4d9bee13faf357aa7018bd053a6c11cf5f8596e517695ffc64c0719.html; SHA-256 e290b6bfd4d9bee13faf357aa7018bd053a6c11cf5f8596e517695ffc64c0719. Only identified passages inspected."
+      },
+      {
+        "source_id": "src-chm-sector",
+        "verdict": "accepted",
+        "metadata_sha256": "0abc5e687d74d43d2f55b9ab88711809e6acd5d7fa7585bd08da4d9d14f6e8c4",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/b6ff265748687fde427ac581a18750e40fa8a13ad122d5aca7bde7195063cb22.pdf; SHA-256 b6ff265748687fde427ac581a18750e40fa8a13ad122d5aca7bde7195063cb22. Only identified passages inspected."
+      },
+      {
+        "source_id": "src-electronic-design-1961",
+        "verdict": "accepted",
+        "metadata_sha256": "e416c6fb0143c2eadc8d889176aeb79b6b6a7d988c5643184511576b446d7b6b",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/bdf6c8a12486d6df8e8af14247edd799a8351db19a44210de3012902929366eb.html; SHA-256 bdf6c8a12486d6df8e8af14247edd799a8351db19a44210de3012902929366eb. Only identified passages inspected."
+      },
+      {
+        "source_id": "src-electronics-1961",
+        "verdict": "accepted",
+        "metadata_sha256": "a4f50d0bf6216ef99db060728291ec1674730a6f791d1d6e474952713e48b3da",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/dabd134ff33035e0c6dd8100b1c82da6c5cac94f91f3728f7c22ee56df9f0710.pdf; SHA-256 dabd134ff33035e0c6dd8100b1c82da6c5cac94f91f3728f7c22ee56df9f0710. Only identified passages inspected."
+      },
+      {
+        "source_id": "src-fairchild-leadwire",
+        "verdict": "accepted",
+        "metadata_sha256": "92c17df5a97f6e6a36fefd6b3b0714c37ce95379e38e4202afff40202d9b92fd",
+        "local_copy_verified": true,
+        "access_limit": "Selected-page excerpt of the source whose original SHA-256 is 58f8658007a688befd1b17f89c69c09b2449c528487f75d0afecf6cca30076ae. The current bytes and source-to-excerpt page mapping are recorded in local_copy. Only the listed passages were inspected; the complete source is not included."
+      },
+      {
+        "source_id": "src-ieee-planar",
+        "verdict": "accepted",
+        "metadata_sha256": "6ac4db2991a4a7dcb7d5759fb6e4d5bac945b65928e4666b95d4b15d80b3699c",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/52bdb0230bdd688936e7f5248c83a88d7466c76ba540d4a121d4ba976c40107e.html; SHA-256 52bdb0230bdd688936e7f5248c83a88d7466c76ba540d4a121d4ba976c40107e. Only identified passages inspected."
+      },
+      {
+        "source_id": "src-intel-ad",
+        "verdict": "accepted",
+        "metadata_sha256": "66868e9e5ed68366022619e7cf6a50149ce0c2f08152a741a48a401370280b06",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/3abdc7c6e811310ede57b2a7a3ab8ac27bcce0df4120f1055933b40a2164f723.html; SHA-256 3abdc7c6e811310ede57b2a7a3ab8ac27bcce0df4120f1055933b40a2164f723. Only identified passages inspected."
+      },
+      {
+        "source_id": "src-intel-history",
+        "verdict": "accepted",
+        "metadata_sha256": "02c386336b7e2c7b72dea97b4a7cba8b037aeafc82adfd05076dcd4da1d2f3ff",
+        "local_copy_verified": true,
+        "access_limit": "Cached at evidence/originals/dc4507971cfd3c3b4ea0c6b95c22b68c0e5a0717599be644b34e3101b7c9022d.pdf; SHA-256 dc4507971cfd3c3b4ea0c6b95c22b68c0e5a0717599be644b34e3101b7c9022d. Only identified passages inspected."
+      }
+    ],
+    "same_underlying_occurrence_review": [
+      {
+        "verdict": "accept",
+        "projection_sha256": "04ca81c00e6e1b315a8a6d438521bacb19bc66a4fb5aab02dc679e0d7f0e0760",
+        "reviewed_projection": {
+          "class_event": "elec-hoerni-planar-transistor-1959--community-entry",
+          "product_event": "2n1613-commercial-1960",
+          "note": "These are scoped class and specific-product claims grounded in the same April 1960 2N1613 sale, not independent transactions. Current schema requires anchor event ownership by each distinct node."
+        },
+        "reason": "The class and distinct product entries concern the same evidence for a 2N1613 sale, not separate demonstrated transactions."
+      }
+    ],
+    "summary": {
+      "accepted_node_merges": 3,
+      "accepted_event_projections": 9,
+      "accepted_event_resolutions": 6,
+      "accepted_relationship_retargets": 7,
+      "accepted_additional_node_updates": 1,
+      "reviewed_source_records": 18,
+      "full_in_memory_graph_validation": "Passed with zero schema, referential, chronology, and lifecycle errors after applying the proposal to the current integrated data.",
+      "limits": "Acceptance binds only the exact proposals; historical and lifecycle statuses must be updated independently during integration."
+    }
+  },
+  "removed_nodes": [
+    {
+      "id": "intel-4004",
+      "retained_as": "elec-intel-4004-cpu-1971",
+      "before_sha256": "5199b61223d411754638486f5d0dfd7830e96b01f3a7daf24c0a4d8ba27ef2a8",
+      "reason": "Same Intel 4004 CPU; development mask and merchant-offer hardware remain separated by event scope."
+    },
+    {
+      "id": "fairchild-micrologic-prototype",
+      "retained_as": "elec-fairchild-physical-isolation-1960",
+      "before_sha256": "fad0647ef5e0d0619c4c42471aa25560a3a97fbbd371c59b03dc31bb10250d37",
+      "reason": "Same physically isolated four-transistor Micrologic design; working May sample, photographed sample and commercial Type F remain different physical claims."
+    },
+    {
+      "id": "hoerni-precommercial-planar",
+      "retained_as": "elec-hoerni-planar-transistor-1959",
+      "before_sha256": "f88d0b3e74d9207a6bd5ce8a781cb3c3c7b71571d108a0f986731914c72a2b8d",
+      "reason": "Widen to a retained-oxide transistor configuration class containing the unnamed prototype as a specifically scoped event; distinct 2N1613 product and 1957 conception remain separate nodes."
+    }
+  ],
+  "removed_events": [
+    {
+      "remove": "elec-intel-4004-cpu-1971--event-01",
+      "retained_in": "4004 node configuration, provenance, and prototype/offer events",
+      "reason": "Undifferentiated 1971 description is retained as node context and evidence, not as a duplicate occurrence; do not attach the source’s general 1971 attribution to the January day.",
+      "before_proposition_sha256": "ea45d4334b54b6ae00a62d1f68db12a748529e3e4aaedcc02a9a675da3bae6d0",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "230d0d6bdd30425d9e179ab47036409ac5293e755d574daf2da734b6d4ecf997",
+        "matched_as": "event_resolution",
+        "decision": {
+          "decision_path": "event_resolution_reviews.0",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "remove": "elec-intel-4004-cpu-1971--community-entry",
+      "replace_with": "intel-4004-merchant-1971",
+      "reason": "Both describe the 15 November 1971 advertisement and stock claim.",
+      "before_proposition_sha256": "ec3db18dba9c14dde006ef0c5d40bdb3cbc73ab21fe50aa947943912e35c7057",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "920e048bd10b3dcf400734f3c11bf0f5247967983cd1b84cfcac8d5641cdeae3",
+        "matched_as": "event_resolution",
+        "decision": {
+          "decision_path": "event_resolution_reviews.1",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "remove": "elec-fairchild-physical-isolation-1960--event-01",
+      "replace_with": "micrologic-prototype-1960",
+      "reason": "Same May physical-isolation flip-flop occurrence; combine May and retrospective day evidence.",
+      "before_proposition_sha256": "b141075e36c1aa62f4fe2f43392d36739c5f1a15609ed437e70e9b1baca116a7",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "b055b02df9ff48b9dd30d2a11935ff677012634bbdac4487b9d5a827df473713",
+        "matched_as": "event_resolution",
+        "decision": {
+          "decision_path": "event_resolution_reviews.2",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "remove": "elec-fairchild-physical-isolation-1960--community-entry",
+      "replace_with": "entry-calculation-fairchild-micrologic-prototype",
+      "reason": "Both describe the same Life photo on 10 March 1961; merge source evidence and preserve limits.",
+      "before_proposition_sha256": "bcd42726f009d8b90b0613c694fcec591d4c4106f6571637bb871fae5621385f",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "e58403a36d6d3d810327c7e931c19953475ea9f0aa3e529f9607d508e607c0e6",
+        "matched_as": "event_resolution",
+        "decision": {
+          "decision_path": "event_resolution_reviews.3",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "remove": "elec-hoerni-planar-transistor-1959--event-01",
+      "replace_with": "hoerni-prototype-1959",
+      "reason": "Both describe the unnamed March 1959 working transistor; merge evidence without naming a 2N1613.",
+      "before_proposition_sha256": "29289f2c17e180bbb381d556a534b3fb6b4880d88dfe73511e3aa633fe01909e",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "7bebe426ed306f8ca6a2a7dd753b7ea915e54445a06fb7835ec8ce9e71fc36b7",
+        "matched_as": "event_resolution",
+        "decision": {
+          "decision_path": "event_resolution_reviews.4",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "remove": "hoerni-conception-1957",
+      "replace_with": "elec-hoerni-planar-conception-1957--event-01",
+      "reason": "Same 1957 notebook conception; merge evidence into separate concept node.",
+      "before_proposition_sha256": "fbe2b922d488daea6bf9dcbcca155fd190a98af02f2d70a4688b9473a7930c26",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "7d19664080fc28c9d6eae25c23723dcb596fdfe1e8cb7390cc80381c104b9594",
+        "matched_as": "event_resolution",
+        "decision": {
+          "decision_path": "event_resolution_reviews.5",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    }
+  ],
+  "composition": [
+    {
+      "type": "node",
+      "id": "elec-intel-4004-cpu-1971",
+      "before_proposition_sha256": "0b319668c4c7083685fc817374fa266765084e30de6db8aa83536867b3b33576",
+      "proposed_full_record_sha256": "2a5611fc1f0141d87ba3957a34fac6200e0471453bf9626167719f1aa8594d26",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "e10a5636432a437b8c84ca242477274ea34bc4503719b476bc9bbc0f73661ab7",
+        "matched_as": "node_decision",
+        "decision": {
+          "decision_path": "node_reviews.0",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "node",
+      "id": "elec-fairchild-physical-isolation-1960",
+      "before_proposition_sha256": "fe6d21fcdb69aa81f41425353083864833cb93eb72ec4da251e51d746927637a",
+      "proposed_full_record_sha256": "5c1bcd9869853059dbf94b89e31f139ee5de67768f51dbe0c6efef9ab59a96e3",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "ee992830b2d960380b16ee393892ad643f907f4b117400ade2ab71f4a7cc4440",
+        "matched_as": "node_decision",
+        "decision": {
+          "decision_path": "node_reviews.1",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "node",
+      "id": "elec-hoerni-planar-transistor-1959",
+      "before_proposition_sha256": "a5f506dd438e53d5fb021679e9035862b4cd884c1f6d73af410a5b7460ed124f",
+      "proposed_full_record_sha256": "9691a2754e8d1bdc28f979ff0184991c9f1ecf10fd597234498e4263cac4e756",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "1b14b9065705bc532df82927fef532ce88ae01f0a130b28e48a040c4702d5175",
+        "matched_as": "node_decision",
+        "decision": {
+          "decision_path": "node_reviews.2",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "node",
+      "id": "elec-hoerni-planar-conception-1957",
+      "before_proposition_sha256": "7cccf32e3a560fbd4ad7076729af37b3a09240861dead78d55d2d42c80daa8bb",
+      "proposed_full_record_sha256": "aa105f4f6f30545c98da27953814e52175e3a7dfc9cf3b29d307205322833ba0",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "34b15e321297d3b2f883f9057cea8b80765411b4fb15a11b406d338c690de543",
+        "matched_as": "node_update",
+        "decision": {
+          "decision_path": "additional_node_reviews.0",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "intel-4004-prototype-1971",
+      "before_proposition_sha256": "944fde277b111f07927f0705f8d6de248d2df131bd8e5d74d51bfddef08451c8",
+      "proposed_full_record_sha256": "3a24e5397f27ce964d946a8a6e1e35d5a2fefc96e2b911b8151c46da1e49a31a",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "3900e1ecf343f05898117e22c08d48974986454a193cec473ec717264d1bfb2a",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.0",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "intel-4004-merchant-1971",
+      "before_proposition_sha256": "22b7ffbfe964bafb04f860a6eb74de30f352b99a1a39be59defa504511dfd29f",
+      "proposed_full_record_sha256": "009545240ab9a14f3d495e65388674e1122993167466580cb10cd49ac33779be",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "e912140be92efaa1bc89905304ef59fdd179c306af0f76afd02038386c8f0b35",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.1",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "micrologic-prototype-1960",
+      "before_proposition_sha256": "a7a9bd243b0f51bc6a92e2bf159b7f1fcf3c9905b8b6e25091c8caacfe93fe73",
+      "proposed_full_record_sha256": "6f40f36c44e07291e4985eafcf1a7f1ad2b72d22026748b6293b9c14614d0c60",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "671e1ba5ee1a1d82c77445e02dd4720a7216d6fca059eda4859799c53b320248",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.2",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "entry-calculation-fairchild-micrologic-prototype",
+      "before_proposition_sha256": "336214e4c8c5a32ae02b34a66e64c0b5653ef0cd1878fbc4a24cd043bab11205",
+      "proposed_full_record_sha256": "32b40541fad64c9e38411dc1311574a6d7b54ca70c5080d06f7edcd49e0e4e32",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "2059bd8ef86aa34e399749ea8bca1aa9d61d9c15b34524ca803032d3360306ba",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.3",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "hoerni-prototype-1959",
+      "before_proposition_sha256": "3007c68e4b0b8144d9aa5f8bdd29ec870991d479e07378be47250295ebf06bcf",
+      "proposed_full_record_sha256": "95a18dd9d7bb8eaa3d45b62483f6f90a78c7fd597156c98c753fe0f834c722f2",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "a98170852ebd1f1d098ea4eb97c8ffc23ead7d91259414bff02cbc6d839f2614",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.4",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "elec-hoerni-planar-transistor-1959--community-entry",
+      "before_proposition_sha256": "66073846d8c22524cde6b227f192cbf5daf8362c8bb5e6f3d0a2a5a3cc78c65c",
+      "proposed_full_record_sha256": "882fb5dcb380bf02a9737a3f8c05856a7999e2502bcf2d3030f330f046617cb7",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "012a939f62ed5b96be711f4c90828af5ceb912252599a7e29e76c6b3290c057c",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.5",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "entry-calculation-hoerni-precommercial-planar",
+      "before_proposition_sha256": "f84e7fad6d789fd7f6f02aceaa096d2555190f9dcef8698dcba97171e98a9c83",
+      "proposed_full_record_sha256": "1959783538dbb8550511c808852a1364433c6445779da13e8b366eceba71e52d",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "f739c254dfd3891c08675ecbc37b7f5ba1fe747eeb00282821fb65e678667b15",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.6",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "elec-hoerni-planar-conception-1957--event-01",
+      "before_proposition_sha256": "b23f00e7da197b4c04a4c707fd2dd1059514ab7196924e779d491431cefc18c5",
+      "proposed_full_record_sha256": "8268b45f0d28bdcf1e34ec019c14024826b3df48de40ae77c7d691c913b666a6",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "1b01d33a03003c75d05af253a360f237fa17ea5a270aa404f957d8b1884be54a",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.7",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "event",
+      "id": "elec-hoerni-planar-conception-1957--community-entry",
+      "before_proposition_sha256": "b54e3ed7ccd26392ecd7ffd07fb1ccb9ec2b72af1aab14a0f02581c5be017244",
+      "proposed_full_record_sha256": "ea1a4966d9d9099e41879dde21772adc4c2311dcd1e9991b04f0c3516008179e",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "44713d5147ef606f7178c6ebd749228b477fec98070ac253b4e91602dd1a6d79",
+        "matched_as": "event_update",
+        "decision": {
+          "decision_path": "event_reviews.8",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "elec-silicon-gate-to-4004",
+      "before_proposition_sha256": "92b1116f8110e19bbed48e1e52081e42cfc8f8b09945e5feaf342e8621ea4e71",
+      "proposed_full_record_sha256": "c09139014828a3940110cb310e10c93ea3c028f7317303750b94586deba8c36b",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "94f5b8d57c620dc3542994212e15bee38331a6d885647c49576a8f498a7bec77",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.0",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "edge-planar-to-2n1613",
+      "before_proposition_sha256": "f42cc50f92277f32cbd35e2a6f428beecf669505f40d8cb0fdc3dde3349243da",
+      "proposed_full_record_sha256": "89a6f1a470d83d2ae7637a5418afa1dd30cc6ad39caa79a61b2fe2350b347860",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "4f6d560ed70ee44b8e4946da8aadf58707041409d5bb86359562df53a5289631",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.1",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "elec-planar-concept-to-device",
+      "before_proposition_sha256": "46a7c43fc2f703ab03041d12fa0d655a164ed1c7fdc48f8ce4a8bdc137241079",
+      "proposed_full_record_sha256": "848077080a320967fbe81c765399a6288f067e03138c0a8adcf07912ea6f8eab",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "4cd203f9a2b814b54b93e181b383604313fe1e4a3e76fe87c46644c7caea7bf1",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.2",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "elec-planar-device-to-physical-ic",
+      "before_proposition_sha256": "1d1cbc4395490782a0431c2de3769f0fa802afe8c69792a61a70ad0f6f5e5540",
+      "proposed_full_record_sha256": "9d01ed8c849fa17fbdd92ec4948ecdade01a9f5ac1dd0578e26febe51c4e7ce2",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "7452c516ddb4fa039c69ebb34d652570144e7970690021e2f35ecb16265b7ec6",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.3",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "elec-noyce-design-to-physical-ic",
+      "before_proposition_sha256": "8c7952ec8438dd76af4d2172b4a4ec82d997eb74acb9b8bc5935e8ba45d0f25e",
+      "proposed_full_record_sha256": "cdce1f57561f7625edbe905e0d201decf58a5df1547220be3e91c245115c3c9c",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "890430a10e6b8c956095f2e271904587243e22aa61fb04c6bff9c24a1aa1731c",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.4",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "elec-physical-to-junction-isolation",
+      "before_proposition_sha256": "f7179cc812adf4bb7f1ccdabc580bace9fba7c8251549796b337c65ad291b972",
+      "proposed_full_record_sha256": "8525615ff364632a8f4d9b3493fc1bd3d9f8bd58625e9f51d75df2b8130a71b4",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "55f46ee7f7ed5a7c299c3691059959131c20a4996bc88751a14c4e32cdecb318",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.5",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    },
+    {
+      "type": "relationship",
+      "id": "edge-micrologic-prototype-to-f",
+      "before_proposition_sha256": "30dfed8e009b0f05cea95f54fbe0f933e19fc4876cd1e82cf3a12977a38795aa",
+      "proposed_full_record_sha256": "b20027cf4b1c1a995dd08b3831edaff0ff591763b86d43b58cc761f998519880",
+      "accepted_binding": {
+        "review_path": "/tmp/big-idea-entry/identity-final-review.json",
+        "review_sha256": "25dbd180722f5c4e6dd204f272b2635915491514f911d6a44c2318f337579aa3",
+        "final_context": "$",
+        "accepted_projection_sha256": "e78da16248b623b5fbb1fed53eb0544ded203f5df6e0d66407354ae8e246c07d",
+        "matched_as": "relationship_update",
+        "decision": {
+          "decision_path": "relationship_reviews.6",
+          "hash_field": "projection_sha256",
+          "verdict": "accept"
+        }
+      }
+    }
+  ],
+  "same_underlying_occurrence": [
+    {
+      "class_event": "elec-hoerni-planar-transistor-1959--community-entry",
+      "product_event": "2n1613-commercial-1960",
+      "note": "These are scoped class and specific-product claims grounded in the same April 1960 2N1613 sale, not independent transactions. Current schema requires anchor event ownership by each distinct node."
+    }
+  ],
+  "records": [
+    {
+      "id": "elec-fairchild-physical-isolation-1960",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "15ff65da2cebb8bc290bc77c19657c6e391413ad28b53491a1003377e98a11c8",
+      "evidence": [
+        {
+          "source_id": "entry-elec-ic-fifty",
+          "locator": "Printed p. 22, March 10 Life photograph and retrospective museum caption",
+          "supports": "Reproduces a photograph identified retrospectively by the museum as a physically isolated Micrologic sample and dates its appearance in Life."
+        },
+        {
+          "source_id": "entry-elec-micrologic-panel",
+          "locator": "Printed p. 33, March 1961 chronology",
+          "supports": "The participant chronology identifies an earlier physically isolated device in the Life photograph."
+        },
+        {
+          "source_id": "entry-src-micrologic-life",
+          "locator": "Printed p. 33, March 1961 chronology; p. 25, Last discussing the Life photograph",
+          "supports": "Identifies the 10 March Life image as an earlier physically isolated device."
+        },
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 84, Jay Last account",
+          "supports": "Confirms that the image showed an epoxy-isolated device in a TO-18 can."
+        },
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+          "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+        },
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative paragraphs 1–3",
+          "supports": "Team, circuit and physical-isolation demonstration."
+        }
+      ],
+      "limits": "The May specimen, the photographed March 1961 sample, and the first sold Type F die are not established as the same physical object or mask.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-hoerni-planar-conception-1957",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "bf434ffe3a15c0fe10377f052bedc3b9b45e02824ddad98a4b9e2cc401a95e96",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative, August 1959 project and 26 May 1960 result",
+          "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
+        },
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: December 1957 notebook entry",
+          "supports": "Conception date and retained oxide."
+        },
+        {
+          "source_id": "elec-moore-fairchild-1998",
+          "locator": "p. 58, planar-transistor discussion",
+          "supports": "Proposed geometry and departure from previous processing."
+        },
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1957 notebook discussion",
+          "supports": "Documents conception of oxide-protected transistor junctions."
+        }
+      ],
+      "limits": "The day is reported in a retrospective IEEE account; the original notebook itself was not inspected.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-hoerni-planar-transistor-1959",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "fa6ede7ebd520fb6efde005418ffee268f35c76a3c053dc124152bc5d61fc013",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 prototype and April 1960 sales paragraphs; initial marketing caption",
+          "supports": "Reports commercial sale of Fairchild 2N1613 planar transistors in April 1960."
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "April 1960 front page, PDF p. 20",
+          "supports": "Fairchild identifies its publicly introduced NPN transistor as 2N1613."
+        },
+        {
+          "source_id": "elec-hoerni-patent-3025589",
+          "locator": "Columns 1–2, oxide-covered junctions and contacts",
+          "supports": "Describes the relevant planar configuration."
+        },
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 development and prototype paragraphs",
+          "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+        },
+        {
+          "source_id": "src-chip-history",
+          "locator": "IC History Dates, 1959 and 1960 entries",
+          "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
+        },
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: March 1959 working device",
+          "supports": "Demonstration date."
+        },
+        {
+          "source_id": "elec-hoerni-patent-3025589",
+          "locator": "Columns 1–2",
+          "supports": "Diffusion, retained-oxide protection and contacts."
+        },
+        {
+          "source_id": "entry-src-hoerni-1960",
+          "locator": "Printed p. 39, paragraphs on March 1959 prototypes and Hoerni’s October 1960 paper",
+          "supports": "Records the technical meeting and presentation of the planar design."
+        }
+      ],
+      "limits": "The March 1959 prototype’s polarity and product identity are not established. Class-level availability through the 2N1613 does not imply a sale of the original specimen or prove the first class-wide sale.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-intel-4004-cpu-1971",
+      "type": "node",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "b0630f7a8fa9e33e44a461ea739f5ba6b2b6ca0d03cef78e1daa5d87bc09ae9d",
+      "evidence": [
+        {
+          "source_id": "src-intel-ad",
+          "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+          "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+        },
+        {
+          "source_id": "src-intel-history",
+          "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+          "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+        },
+        {
+          "source_id": "src-intel-history",
+          "locator": "IEEE Micro December 1996, printed pp. 16–17/PDF pp. 7–8, The 4004 comes to life",
+          "supports": "Project participants describe early 4004 chips that worked in January 1971, bug fixes and fully functional iteration in March."
+        }
+      ],
+      "limits": "The early working iteration and merchant-offered devices are not asserted to have identical masks. First merchant or Busicom availability and first sale remain unknown.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-hoerni-planar-conception-1957--event-01",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "28a7da7f091f1abd84e4b51e645012e574cd9ccfa419e8c8870d11c5cce69fa4",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: December 1957 notebook entry",
+          "supports": "Conception date and retained oxide."
+        },
+        {
+          "source_id": "elec-moore-fairchild-1998",
+          "locator": "p. 58, planar-transistor discussion",
+          "supports": "Proposed geometry and departure from previous processing."
+        },
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1957 notebook discussion",
+          "supports": "Documents conception of oxide-protected transistor junctions."
+        }
+      ],
+      "limits": "The day is reported in a retrospective IEEE account; the original notebook itself was not inspected.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "hoerni-prototype-1959",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "67b84de2a25d8f35d693247423c1bb3b76d4f3456a3cef039febfcd990a08190",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 development and prototype paragraphs",
+          "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+        },
+        {
+          "source_id": "src-chip-history",
+          "locator": "IC History Dates, 1959 and 1960 entries",
+          "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
+        },
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: March 1959 working device",
+          "supports": "Demonstration date."
+        },
+        {
+          "source_id": "elec-hoerni-patent-3025589",
+          "locator": "Columns 1–2",
+          "supports": "Diffusion, retained-oxide protection and contacts."
+        }
+      ],
+      "limits": "The unnamed working specimen is not established as a 2N1613; a 1962 patent publication does not date the working prototype.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "intel-4004-merchant-1971",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "53a1006c1e3c91a238c44fb3da6a2ffd2cddd86ee1ac10e10799343b43e7f36e",
+      "evidence": [
+        {
+          "source_id": "src-intel-ad",
+          "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+          "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+        },
+        {
+          "source_id": "src-intel-history",
+          "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+          "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+        }
+      ],
+      "limits": "The first day of merchant sales and possible earlier private merchant offers are unresolved. Earlier availability to Busicom under its contract is a different market scope.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "intel-4004-prototype-1971",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "03cbbc49cd4440ee9f348312f2cfddbddcc54c4761d33539ca813aaefed27cc8",
+      "evidence": [
+        {
+          "source_id": "src-intel-history",
+          "locator": "IEEE Micro December 1996, printed pp. 16–17/PDF pp. 7–8, The 4004 comes to life",
+          "supports": "Project participants describe early 4004 chips that worked in January 1971, bug fixes and fully functional iteration in March."
+        }
+      ],
+      "limits": "The participants describe a working early iteration; this event is not a claim that it was the final mask sold in November.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "micrologic-prototype-1960",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "4606eb558d3a7c49d73486da0b51af21faa65c3f956baf7e26e94bf909d38020",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+          "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+        },
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative paragraphs 1–3",
+          "supports": "Team, circuit and physical-isolation demonstration."
+        }
+      ],
+      "limits": "The exact day is retrospective; no original fabrication notebook was inspected. This specimen is not equated with the first sold Type F die.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "entry-calculation-hoerni-precommercial-planar",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "3cc0867754adb100d2dc3b34ca2e6489e133473fee32d0bed97b4beb0a62630b",
+      "evidence": [
+        {
+          "source_id": "entry-src-hoerni-1960",
+          "locator": "Printed p. 39, paragraphs on March 1959 prototypes and Hoerni’s October 1960 paper",
+          "supports": "Records the technical meeting and presentation of the planar design."
+        }
+      ],
+      "limits": "The presentation describes the design, not proof that the particular 1959 prototype was shown or became the 2N1613.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "entry-calculation-fairchild-micrologic-prototype",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "c78f894a1ba4f82737ca95af0a37ddb6e8d7ce7cfacce3e4bf7faf85309f8743",
+      "evidence": [
+        {
+          "source_id": "entry-elec-ic-fifty",
+          "locator": "Printed p. 22, March 10 Life photograph and retrospective museum caption",
+          "supports": "Reproduces a photograph identified retrospectively by the museum as a physically isolated Micrologic sample and dates its appearance in Life."
+        },
+        {
+          "source_id": "entry-elec-micrologic-panel",
+          "locator": "Printed p. 33, March 1961 chronology",
+          "supports": "The participant chronology identifies an earlier physically isolated device in the Life photograph."
+        },
+        {
+          "source_id": "entry-src-micrologic-life",
+          "locator": "Printed p. 33, March 1961 chronology; p. 25, Last discussing the Life photograph",
+          "supports": "Identifies the 10 March Life image as an earlier physically isolated device."
+        },
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 84, Jay Last account",
+          "supports": "Confirms that the image showed an epoxy-isolated device in a TO-18 can."
+        }
+      ],
+      "limits": "The identification of the photographed device as physically isolated is retrospective. The original Life article and caption were not inspected, and readers are not shown to have learned the rear-etched epoxy method. The photographed sample is not established as the first-working May die or a sold Type F die.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-hoerni-planar-conception-1957--community-entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "b54e3ed7ccd26392ecd7ffd07fb1ccb9ec2b72af1aab14a0f02581c5be017244",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative, August 1959 project and 26 May 1960 result",
+          "supports": "Last team applied Hoerni planar processing to a working integrated flip-flop."
+        }
+      ],
+      "limits": "Use is specialist research use, not evidence of external commercial availability.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-hoerni-planar-transistor-1959--community-entry",
+      "type": "event",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "66073846d8c22524cde6b227f192cbf5daf8362c8bb5e6f3d0a2a5a3cc78c65c",
+      "evidence": [
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 prototype and April 1960 sales paragraphs; initial marketing caption",
+          "supports": "Reports commercial sale of Fairchild 2N1613 planar transistors in April 1960."
+        },
+        {
+          "source_id": "src-fairchild-leadwire",
+          "locator": "April 1960 front page, PDF p. 20",
+          "supports": "Fairchild identifies its publicly introduced NPN transistor as 2N1613."
+        },
+        {
+          "source_id": "elec-hoerni-patent-3025589",
+          "locator": "Columns 1–2, oxide-covered junctions and contacts",
+          "supports": "Describes the relevant planar configuration."
+        }
+      ],
+      "limits": "The 1959 specimen’s polarity and identity are unproved; an April 1960 product sale does not establish the first commercial availability of the entire configuration class.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "edge-micrologic-prototype-to-f",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "ac060873a795870ec770e5c4efb86435f41b775f57cc5588888ecb90fb5817a7",
+      "evidence": [
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 84; Jay Last chronology; PDF p. 132 mask layout",
+          "supports": "Documents first working physically isolated Micrologic flip-flop in May 1960 and distinguishes later versions."
+        },
+        {
+          "source_id": "src-electronics-1961",
+          "locator": "Printed p. 76, PDF p. 78, New on the Market",
+          "supports": "Says first Micrologic flip-flop now available, introductory price $120, while other elements were to follow."
+        },
+        {
+          "source_id": "src-electronic-design-1961",
+          "locator": "1961 reprinted text, first four paragraphs",
+          "supports": "Says the Fairchild Micrologic flip-flop was being sold in evaluation quantities on 29 March 1961."
+        },
+        {
+          "source_id": "src-chm-sector",
+          "locator": "PDF p. 19, March 1961 Micrologic entry and Type F identifier",
+          "supports": "Identifies the first March 1961 Micrologic flip-flop as Type F; does not identify the isolation or mask of the earliest sold die."
+        }
+      ],
+      "limits": "The accounts distinguish physical-isolation development and later diffused-isolation work; they do not identify the exact earliest sold die or establish exclusive necessity.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "edge-planar-to-2n1613",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "e792f6ebd4fda5ecb9a9c751a7f7f6c8d1edc259c29fa123935d49ffb254c985",
+      "evidence": [
+        {
+          "source_id": "src-chip-history",
+          "locator": "IC History Dates, 1959 and 1960 entries",
+          "supports": "Describes Hoerni planar transistor prototype as antecedent to 2N1613."
+        },
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 development and prototype paragraphs",
+          "supports": "Distinguishes a spring 1959 prototype from the 1960 2N1613."
+        },
+        {
+          "source_id": "src-ieee-planar",
+          "locator": "1959 prototype and April 1960 sales paragraphs",
+          "supports": "Says Fairchild sold the first planar transistor, the 2N1613, in April 1960."
+        }
+      ],
+      "limits": "The prototype and 2N1613 share the broader retained-oxide planar configuration, but the exact device, polarity, mask and product identity are not established as the same.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-noyce-design-to-physical-ic",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "29139c1e6fb64e55bf6f64aad438c33e5a8e426f48a5137e97bfb1ff62832116",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative paragraphs 1–3",
+          "supports": "Noyce patent named as project basis."
+        }
+      ],
+      "limits": "The fabricated isolation method is recorded separately from the patent’s illustrative structures.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-physical-to-junction-isolation",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "7b057a3cf80b25487061103dc618f0867e619c89caf7571aa055fdca063019ab",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative paragraphs 3–4",
+          "supports": "Sequential working implementations and preferred isolation method."
+        }
+      ],
+      "limits": "No claim that the May device caused the underlying junction-isolation idea.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-planar-concept-to-device",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "20ed64be0f3aeed992b303ad46147332f60534ab0ae2bcb2c53f9b70a0b4e01e",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-process",
+          "locator": "Main narrative: notebook, disclosure and working device",
+          "supports": "Sequence from conception to implementation."
+        }
+      ],
+      "limits": "The original notebook was not inspected.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-planar-device-to-physical-ic",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "b3c2d42d0e8cc970232381688dac0b25e560335491a9e15655233974727f9fc2",
+      "evidence": [
+        {
+          "source_id": "elec-chm-planar-ic",
+          "locator": "Main narrative paragraphs 1–3",
+          "supports": "Project basis and working physical-isolation circuit."
+        }
+      ],
+      "limits": "Circuit design and isolation required additional work beyond making a planar transistor.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    },
+    {
+      "id": "elec-silicon-gate-to-4004",
+      "type": "relationship",
+      "historical_claim": "accepted",
+      "lifecycle_classification": "needs_review",
+      "proposition_sha256": "74a3e013d4be64d9e67bad7b10a8898fde570f38ef9f1926261fb578ae799278",
+      "evidence": [
+        {
+          "source_id": "elec-chm-silicon-gate",
+          "locator": "Main narrative paragraph 3",
+          "supports": "Intel adoption, Faggin transfer and buried-contact enhancement."
+        },
+        {
+          "source_id": "elec-chm-4004-cpu",
+          "locator": "Main narrative paragraphs 2–3",
+          "supports": "CPU design and silicon-gate implementation."
+        }
+      ],
+      "limits": "The multiplexer circuit itself was not a CPU component; the transmitted contribution was process/design capability. Architecture had distinct contributors.",
+      "review_basis": [
+        {
+          "path": "reviews/identity.json",
+          "scope": "Exact independently accepted identity and occurrence consolidation; no new first-sale claim."
+        }
+      ]
+    }
+  ]
+}

@@ -4,10 +4,9 @@ import { isPlacedNode, type RawLink, type TimelineEntry } from '../data/types.ts
 import { formatYear } from '../engine/time.ts'
 import { documentedSpan, EVENT_NAMES, hasLaterLife, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
 import { focusEntry, followEntry, getEngine, useApp } from '../store.ts'
-import { CloseButton, Mark } from './icons.tsx'
+import { dateLimitNote, entryReasonLabel, evidenceLabel } from './entryText.ts'
+import { CloseButton, EvidenceBadge, Mark } from './icons.tsx'
 import { COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
-
-const withArticle = (phrase: string) => `${/^[aeiou]/i.test(phrase) ? 'an' : 'a'} ${phrase}`
 
 function LinkList({ title, links, side, model }: { title: string; links: RawLink[]; side: 'from' | 'to'; model: Model }) {
   if (links.length === 0) return null
@@ -32,10 +31,10 @@ function LinkList({ title, links, side, model }: { title: string; links: RawLink
             <li key={link.id ?? `${link.from}-${link.to}-${n}`} className="border-b border-rule-soft py-2">
               <button onClick={() => focusEntry(node.id)} className="group flex w-full items-baseline gap-2 text-left text-body">
                 <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
-                  <Mark kind={node.kind} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
+                  <Mark kind={node.kind} strength={node.evidence_strength} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                 </span>
                 <span className={`link-hover min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
-                <span className="note shrink-0">{isPlacedNode(node) ? formatYear(node.year) : 'not yet placed'}</span>
+                <span className="note shrink-0">{isPlacedNode(node) ? node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year) : 'not yet placed'}</span>
               </button>
               {link.statement && (
                 <p className="mt-1 pl-4 text-note text-ink-2">
@@ -125,6 +124,7 @@ export function DetailPanel() {
   const impactIsFull = model && node ? model.n <= 4000 || node.level === 0 : false
   const mode = useApp((s) => s.mode)
   const linked = model && selected !== null && model.parents[selected]!.length + model.children[selected]!.length > 0
+  const entryEvent = node?.anchor_event_id ? model?.events[node.anchor_event_id] : undefined
 
   return (
     <AnimatePresence>
@@ -148,6 +148,7 @@ export function DetailPanel() {
             {node.kind === 'science' ? 'Science' : 'Technology'}
             {node.regions.length > 0 && <> · {node.regions.join('; ')}</>}
           </p>
+          <EvidenceBadge strength={node.evidence_strength} />
 
           <p className="mt-4 text-body">{node.summary}</p>
           {node.note && <p className="mt-2 text-body text-ink-2">{node.note}</p>}
@@ -186,20 +187,53 @@ export function DetailPanel() {
           <LifeSection entry={node} index={selected} />
 
           <section>
-            <h3 className="section-head">How this is dated</h3>
+            <h3 className="section-head">Why this date</h3>
             <div className="mt-2 space-y-1 text-note text-ink-2">
               <p>
-                {isPlacedNode(node) ? (node.anchored ? `Placed by its selected anchor, ${withArticle(node.placed_by)}.` : 'Illustrative date supplied by this dataset.') : node.placement_reason}
+                {isPlacedNode(node)
+                  ? node.anchored ? `${entryReasonLabel(node.entry_basis, entryEvent?.event_type, node.date_kind, node.date_label, node.evidence_strength)}. Community: ${node.entry_community ?? 'not yet specified'}.` : 'Illustrative date supplied by this dataset.'
+                  : node.placement_reason}
                 {node.date_basis ? ` ${node.date_basis}` : ''}
               </p>
-              {node.anchor_status && <p>Anchor: {node.anchor_status.replace(/_/g, ' ')}{node.anchor_policy ? `; policy: ${node.anchor_policy.replace(/_/g, ' ')}` : ''}.</p>}
+              {isPlacedNode(node) && dateLimitNote(node.date_kind) && <p>{dateLimitNote(node.date_kind)}</p>}
+              {node.evidence_strength && <p>{evidenceLabel(node.evidence_strength)}.</p>}
               {node.anchor_rationale && <p>{node.anchor_rationale}</p>}
+              {node.proxy_justification && <p>{node.proxy_justification}</p>}
+              {node.entry_uncertainty && <p>{node.entry_uncertainty}</p>}
+              {node.entry_scope && <p className="text-ink-3">
+                Scope: {node.entry_scope.regions.length ? node.entry_scope.regions.join('; ') : 'regions unspecified'}.
+                {' '}Applications: {node.entry_scope.applications.length ? node.entry_scope.applications.join('; ') : 'unspecified'}.
+                {' '}Population: {node.entry_scope.population.value ?? node.entry_scope.population.status.replace(/_/g, ' ')}.
+                {' '}Market: {node.entry_scope.market.value ?? node.entry_scope.market.status.replace(/_/g, ' ')}.
+              </p>}
+              {node.entry_scope && node.entry_scope.configuration !== node.summary && <p className="text-ink-3">Scoped configuration: {node.entry_scope.configuration}</p>}
               {node.commercial_date_status && <p>First commercial availability: {node.commercial_date_status.replace(/_/g, ' ')}{node.commercial_applicability ? `; applicability: ${node.commercial_applicability.replace(/_/g, ' ')}` : ''}.</p>}
               {node.lifecycle_review && <p className="text-ink-3">Historical claim: {node.review}. Lifecycle classification: {node.lifecycle_review.replace(/_/g, ' ')}.</p>}
               {node.review !== 'accepted' && <p className="text-ink-3">This claim is still awaiting review.</p>}
               {node.uncertainty && <p>{node.uncertainty}</p>}
             </div>
           </section>
+
+          {node.entry_evidence && node.entry_evidence.length > 0 && <section>
+            <h3 className="section-head">Entry evidence</h3>
+            <ul className="mt-2 space-y-2">
+              {node.entry_evidence.map((entry, index) => <li key={`${entry.source_id}-${index}`} className="text-note text-ink-2">
+                <p>{model.sources[entry.source_id]?.title ?? entry.source_id} · {entry.locator}</p>
+                <p>{entry.supports}</p>
+              </li>)}
+            </ul>
+          </section>}
+
+          {node.lifecycle && <details className="text-note text-ink-2">
+            <summary className="section-head cursor-pointer">Lifecycle dates and unknowns</summary>
+            <ul className="mt-2 space-y-2">
+              {Object.entries(node.lifecycle).map(([stage, state]) => <li key={stage}>
+                <p>{stage.replace(/_/g, ' ')}: {state.status.replace(/_/g, ' ')}{state.as_of ? ` (as of ${state.as_of})` : ''}.</p>
+                {state.event_ids.map((id) => <p key={id} className="pl-2 text-ink-3">{model.events[id]?.date_label ?? id}</p>)}
+                {state.rationale && <p className="text-ink-3">{state.rationale}</p>}
+              </li>)}
+            </ul>
+          </details>}
 
           {Object.values(model.events).some((event) => event.node_id === node.id) && (
             <section>

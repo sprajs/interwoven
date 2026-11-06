@@ -1,6 +1,6 @@
 import { findCrossings, rowOrder, rowPositions, type Reach, type RowOrder, type Story } from '../data/derive.ts'
 import { documentedSpan, type LifeRecord } from '../data/lifecycle.ts'
-import { modelReach, SHAPE_BY_KIND, walk, type Model } from '../data/model.ts'
+import { modelReach, nodeMarkStyle, walk, type Model } from '../data/model.ts'
 import { hexUnit, INK, LAYOUT, PAPER as PAPER_HEX, UNIT } from '../design.ts'
 import { Camera, type Insets, type ZoomAxis } from './camera.ts'
 import { blendFolds, foldAroundYears, foldFromWindows, FoldMap, MAX_FOLD_POINTS, unfoldPleat, type Pleat } from './folds.ts'
@@ -60,8 +60,8 @@ const REVEAL_ZOOM = [0, 0, 1.7, 3]
 /** Linear time packs the recent past into a sliver, so levels appear later there. */
 const LINEAR_REVEAL_FACTOR = 8
 export const PAPER = hexUnit(PAPER_HEX)
-/** A page this sparse has room for every entry at once, so depth does not hide any of them. */
-const SHOW_ALL_BELOW = 60
+/** Up to this size the page has room for every mark and link at once, so depth hides none. Names give way by collision. */
+const SHOW_ALL_BELOW = 1000
 const RULE_COLOR = hexUnit(INK.primary)
 const HATCH_COLOR = hexUnit(INK.muted)
 /** How strongly the sheet's own marks print, far below any ink carrying data. */
@@ -309,7 +309,7 @@ export class Engine {
     const a = new Float32Array(S.TEX_WIDTH * height * 4)
     const b = new Float32Array(S.TEX_WIDTH * height * 4)
     model.nodes.forEach((node, i) => {
-      a.set([node.year, this.yNow[i] ?? model.y[i]!, model.radius[i]!, SHAPE_BY_KIND.get(node.kind) ?? 0], i * 4)
+      a.set([node.year, this.yNow[i] ?? model.y[i]!, model.radius[i]!, nodeMarkStyle(node)], i * 4)
       b.set([model.ink[i * 3]!, model.ink[i * 3 + 1]!, model.ink[i * 3 + 2]!, node.level], i * 4)
     })
     this.aData = a
@@ -357,13 +357,13 @@ export class Engine {
     gl.vertexAttribDivisor(2, 1)
 
     // Date ranges are drawn as spans. Exact years have none.
-    const ranged = model.nodes.flatMap((node, i) => (node.end > node.start ? [{ i, node }] : []))
+    const ranged = model.nodes.flatMap((node, i) => (node.start !== undefined && node.end !== undefined && node.end > node.start ? [{ i, start: node.start, end: node.end }] : []))
     this.spanCount = ranged.length
     const ranges = new Float32Array(ranged.length * 2)
     const rangeIds = new Uint32Array(ranged.length)
-    ranged.forEach(({ i, node }, k) => {
-      ranges[k * 2] = node.start
-      ranges[k * 2 + 1] = node.end
+    ranged.forEach(({ i, start, end }, k) => {
+      ranges[k * 2] = start
+      ranges[k * 2 + 1] = end
       rangeIds[k] = i
     })
     if (this.spanVao) gl.deleteVertexArray(this.spanVao)
@@ -947,7 +947,7 @@ export class Engine {
     return this.toV(this.nodeU(i))
   }
 
-  /** Whether there is room for everything at any zoom, which is true of a sparse chart. */
+  /** Whether there is room for every mark at any zoom. Only a chart of thousands needs depth. */
   get showsEverything(): boolean {
     return (this.model?.n ?? Infinity) < SHOW_ALL_BELOW
   }

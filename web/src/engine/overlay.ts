@@ -2,6 +2,7 @@ import { documentedSpan, EVENT_NAMES, isFinal, type LifeEvent } from '../data/li
 import { hexRgb, INK as INK_HEX, LAYOUT, LINE, PAPER as PAPER_HEX, ROW_TIER_TYPE, RULE_ALPHA, TIER_INK, TIER_TYPE, TYPE, UNIT, type TypeStep } from '../design.ts'
 import { formatYear } from './time.ts'
 import type { Engine } from './Engine.ts'
+import type { RawNode } from '../data/types.ts'
 
 const SERIF = '"EB Garamond Variable", Georgia, "Times New Roman", serif'
 const INK = { primary: hexRgb(INK_HEX.primary), secondary: hexRgb(INK_HEX.secondary), muted: hexRgb(INK_HEX.muted) }
@@ -32,6 +33,12 @@ function font(step: TypeStep, italic = false): string {
 function tierStep(level: number): TypeStep {
   return (rowsMode ? ROW_TIER_TYPE : TIER_TYPE)[level] ?? 'note'
 }
+
+/** A name, with a plain statement of how far its evidence goes when that is not direct. */
+const labelText = (node: RawNode) => node.title + (node.evidence_strength === 'awareness_proxy' ? ' [proxy]' : node.evidence_strength === 'scoped_inference' ? ' [inferred]' : '')
+
+/** A one-sided date draws an arrow beside its mark, so its name stands clear of the arrow. */
+const labelGap = (node: RawNode, radius: number) => radius * (node.date_kind === 'known_by' || node.date_kind === 'known_from' ? 3.2 : 1) + LABEL_GAP
 
 /** Label fonts are asked for thousands of times a frame, so each is only built once. */
 const labelFonts = new Map<string, string>()
@@ -161,8 +168,8 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const py = (ys[i]! - cam.cy) * yScale + cy
     if (px < -40 || px > W + 40 || py < top || py > bottom) return
     const labelF = labelFont(node.level, node.kind === 'science')
-    const gap = radius[i]! + LABEL_GAP
-    const width = measure(ctx, node.title, labelF)
+    const gap = labelGap(node, radius[i]!)
+    const width = measure(ctx, labelText(node), labelF)
     const height = TYPE[tierStep(node.level)].size
     const rightX = px + gap
     const leftX = px - gap - width
@@ -239,18 +246,19 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const alpha = a * Math.min(1, v) * (1 - faded * 0.82)
     if (alpha < 0.02) continue
     const labelF = labelFont(node.level, node.kind === 'science')
-    const gap = radius[i]! + LABEL_GAP
-    const width = measure(ctx, node.title, labelF)
+    const gap = labelGap(node, radius[i]!)
+    const text = labelText(node)
+    const width = measure(ctx, text, labelF)
     const x = sideOf.get(i) === -1 ? px - gap - width : px + gap
 
     ctx.font = labelF
     ctx.lineWidth = HALO
     ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA * alpha})`
-    ctx.strokeText(node.title, x, py)
+    ctx.strokeText(text, x, py)
     const emphasised = state[i * 4 + 2]! > 0.3
     const ink = INK[emphasised ? 'primary' : (TIER_INK[node.level] ?? 'secondary')]
     ctx.fillStyle = `rgba(${ink},${alpha})`
-    ctx.fillText(node.title, x, py)
+    ctx.fillText(text, x, py)
   }
 
   drawProse(engine, ctx, dt, W, top, bottom, rightLimit, wanted, inStory)
@@ -358,8 +366,8 @@ function drawProse(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       const px = cam.toX(engine.nodeV(i))
       const py = (engine.yNow[i]! - cam.cy) * cam.yScale + cam.centerY
       if (px < -20 || px > W + 20) continue
-      const gap = model.radius[i]! + LABEL_GAP
-      const titleWidth = measure(ctx, node.title, labelFont(node.level, node.kind === 'science'))
+      const gap = labelGap(node, model.radius[i]!)
+      const titleWidth = measure(ctx, labelText(node), labelFont(node.level, node.kind === 'science'))
       const onLeft = sideOf.get(i) === -1
       const titleX = onLeft ? px - gap - titleWidth : px + gap
       const titleH = TYPE[tierStep(node.level)].line / 2

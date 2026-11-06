@@ -3,6 +3,38 @@ export type NodeKind = 'science' | 'technology'
 
 /** 0 is most prominent. Deeper levels appear as you zoom in. */
 export type Level = 0 | 1 | 2 | 3
+export type EntryBasis = 'first_commercial_availability' | 'commercial_availability' | 'practical_use' | 'adoption' | 'public_availability' | 'recognition' | 'public_awareness'
+export type EvidenceStrength = 'direct' | 'scoped_inference' | 'awareness_proxy'
+export type DateInterpretation = 'event_date' | 'known_by' | 'known_from'
+export type DateKind = 'point' | 'interval' | 'known_by' | 'known_from'
+
+export interface HistoricalBound { year: number; month?: number; day?: number }
+export interface HistoricalDate {
+  status: string
+  precision?: string
+  calendar?: string
+  label?: string
+  basis?: string
+  earliest?: HistoricalBound
+  latest?: HistoricalBound
+  earliest_status?: string
+  latest_status?: string
+}
+export interface EntryEvidence { source_id: string; locator: string; supports: string }
+export interface EntryScope {
+  regions: string[]
+  configuration: string
+  applications: string[]
+  market: { status: string; value?: string }
+  population: { status: string; value?: string }
+}
+export interface LifecycleState {
+  status: string
+  event_ids: string[]
+  rationale?: string
+  evidence?: { source_id: string; locator?: string; supports?: string }[]
+  as_of?: string
+}
 
 export interface RawEntry {
   id: string
@@ -15,9 +47,18 @@ export interface RawEntry {
   anchor_policy?: string
   anchor_rationale?: string
   anchor_event_id?: string
+  entry_basis?: EntryBasis
+  evidence_strength?: EvidenceStrength
+  date_interpretation?: DateInterpretation
+  entry_community?: string
+  entry_scope?: EntryScope
+  entry_evidence?: EntryEvidence[]
+  entry_uncertainty?: string
+  proxy_justification?: string
   commercial_date_status?: string
   commercial_applicability?: string
   lifecycle_review?: string
+  lifecycle?: Record<string, LifecycleState>
   /** One or more overlapping labels. The first sets the ink colour. */
   labels: string[]
   summary: string
@@ -30,10 +71,12 @@ export interface RawEntry {
 }
 
 export interface RawNode extends RawEntry {
-  /** The midpoint of the selected anchor's supplied interval. Negative is BCE. */
+  /** Display coordinate: an interval midpoint or the supplied limit of a bound. */
   year: number
-  start: number
-  end: number
+  start?: number
+  end?: number
+  date_kind?: DateKind
+  entry_date?: HistoricalDate
   placed_by: string
   anchored: boolean
 }
@@ -53,7 +96,10 @@ export interface RawEvent {
   date_label: string
   date_status: string
   date_basis?: string
+  date?: HistoricalDate
   statement?: string
+  scope?: EntryScope
+  uncertainty?: string
 }
 
 export interface RawLink {
@@ -85,7 +131,7 @@ export interface RawDataset {
   meta: { title: string; description?: string; provenance?: string }
   labels: RawLabel[]
   nodes: RawNode[]
-  /** Records without a selected, valid, closed anchor interval remain accessible. */
+  /** Records awaiting a defensible selected community-entry choice stay accessible. */
   unplaced?: RawUnplacedNode[]
   links: RawLink[]
   events?: Record<string, RawEvent>

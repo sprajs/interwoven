@@ -1,15 +1,26 @@
-import type { NodeKind } from '../data/types.ts'
+import type { EvidenceStrength, NodeKind } from '../data/types.ts'
 
 /** Sizes at which a mark stands as tall as the lowercase of the text beside it. */
 export const MARK_SIZE = { body: 8, note: 7 } as const
 
 /** The same marks the chart draws: a drop of ink for technology, an open ring for science. */
-export function Mark({ kind, color = 'currentColor', size = MARK_SIZE.body }: { kind: NodeKind; color?: string; size?: number }) {
+export function Mark({ kind, color = 'currentColor', size = MARK_SIZE.body, strength = 'direct' }: { kind: NodeKind; color?: string; size?: number; strength?: EvidenceStrength }) {
   return (
     <svg width={size} height={size} viewBox="0 0 12 12" aria-hidden className="shrink-0">
-      {kind === 'technology' ? <circle cx="6" cy="6" r="5" fill={color} /> : <circle cx="6" cy="6" r="4.2" fill="none" stroke={color} strokeWidth="1.8" />}
+      {strength === 'awareness_proxy'
+        ? <path d="M6 1L11 6 6 11 1 6Z" fill="none" stroke={color} strokeWidth="1.4" />
+        : strength === 'scoped_inference'
+          ? <circle cx="6" cy="6" r="4.4" fill="none" stroke={color} strokeWidth="1.4" strokeDasharray="3 2" />
+          : kind === 'technology' ? <circle cx="6" cy="6" r="5" fill={color} /> : <circle cx="6" cy="6" r="4.2" fill="none" stroke={color} strokeWidth="1.8" />}
     </svg>
   )
+}
+
+export function EvidenceBadge({ strength }: { strength?: EvidenceStrength }) {
+  if (!strength || strength === 'direct') return null
+  return <span className="note inline-flex items-center gap-1 whitespace-nowrap">
+    <Mark kind="science" strength={strength} size={MARK_SIZE.note} />{strength === 'awareness_proxy' ? 'awareness proxy' : 'scoped inference'}
+  </span>
 }
 
 export function CloseButton({ onClick, label }: { onClick: () => void; label: string }) {

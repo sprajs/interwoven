@@ -6,7 +6,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { Level, RawDataset, RawEntry, RawLabel, RawLink, RawNode, RawSource, RawUnplacedNode } from '../src/data/types.ts'
+import type { DateInterpretation, DateKind, EntryBasis, EntryEvidence, EntryScope, EvidenceStrength, HistoricalBound, HistoricalDate, Level, RawDataset, RawEntry, RawLabel, RawLink, RawNode, RawSource, RawUnplacedNode } from '../src/data/types.ts'
 import { validateDataset } from '../src/data/validate.ts'
 
 const INK = {
@@ -50,12 +50,29 @@ const LABEL_RULES: { id: string; name: string; ink: string; test: RegExp }[] = [
   { id: 'knowledge', name: 'Spread of knowledge', ink: INK.moss, test: /latin|teaching|bugia|liber|malindi|hawari|printing|jikji|sutra|bi-sheng/ },
 ]
 
+// Explicit display assignments in data/label-overrides.json use these threads.
+// They do not broaden the existing rules or change an already labelled entry.
+const DISPLAY_LABELS: RawLabel[] = [
+  { id: 'mathematics', name: 'Mathematics', ink: INK.moss },
+  { id: 'transport', name: 'Roads & transport', ink: INK.verdigris },
+  { id: 'communication', name: 'Communication', ink: INK.indigo },
+  { id: 'accounting', name: 'Accounting', ink: INK.moss },
+  { id: 'ceramics', name: 'Ceramics', ink: INK.madder },
+  { id: 'polymers', name: 'Polymers', ink: INK.madder },
+  { id: 'timekeeping', name: 'Timekeeping', ink: INK.moss },
+  { id: 'electric-power', name: 'Electric power', ink: INK.ochre },
+  { id: 'medicine', name: 'Medicine', ink: INK.plum },
+  { id: 'chemistry', name: 'Chemistry', ink: INK.madder },
+]
+
 export interface ResearchEvent {
   id: string
   node_id: string
   event_type: string
-  date?: { status: string; earliest?: { year: number }; latest?: { year: number }; earliest_status?: string; latest_status?: string; label?: string; basis?: string }
+  date?: HistoricalDate
   statement?: string
+  scope?: EntryScope
+  uncertainty?: string
   evidence?: { source_id: string }[]
 }
 
@@ -70,8 +87,10 @@ export interface ResearchNode {
   regions?: string[]
   uncertainty?: string
   event_ids: string[]
-  graph_anchor?: { status: string; policy: string; event_id?: string; rationale?: string }
-  lifecycle?: Record<string, { status: string; event_ids: string[]; evidence?: { source_id: string }[] }>
+  graph_anchor?: { status: string; policy: string; event_id?: string; rationale?: string;
+    entry_basis?: EntryBasis; evidence_strength?: EvidenceStrength; date_interpretation?: DateInterpretation;
+    community?: string; scope?: EntryScope; evidence?: EntryEvidence[]; uncertainty?: string; proxy_justification?: string }
+  lifecycle?: RawEntry['lifecycle']
   commercial_applicability?: { status: string; rationale?: string; evidence?: { source_id: string }[] }
   provenance?: { source_ids: string[] }
   review?: { historical_claim: RawEntry['review']; lifecycle_classification?: string }
@@ -84,43 +103,109 @@ export interface ResearchRecords {
   sources: { id: string; title: string; url?: string; year?: string | number | (string | number)[] }[]
 }
 
-const SCIENTIFIC = new Set(['discovery', 'observation', 'formulation', 'publication', 'presentation', 'experimental_confirmation', 'acceptance'])
+const ENTRY_EVENT_TYPES: Record<EntryBasis, string[]> = {
+  first_commercial_availability: ['first_commercial_availability'],
+  commercial_availability: ['commercial_offer', 'commercial_availability'],
+  practical_use: ['practical_use', 'practical_deployment'],
+  adoption: ['adoption'], public_availability: ['public_availability'],
+  recognition: ['recognition', 'acceptance'], public_awareness: ['publication', 'presentation', 'public_disclosure'],
+}
+const hasText = (value: unknown): value is string => typeof value === 'string' && value.trim().length > 0
+function validScope(value: unknown): value is EntryScope {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false
+  const scope = value as Partial<EntryScope>
+  const scopedValue = (entry: EntryScope['market'] | undefined) => entry && typeof entry === 'object'
+    && ['specified', 'unknown', 'not_yet_researched', 'not_applicable'].includes(entry.status)
+    && (entry.status === 'specified' ? hasText(entry.value) : entry.value === undefined)
+  return hasText(scope.configuration) && Array.isArray(scope.regions) && scope.regions.every(hasText)
+    && Array.isArray(scope.applications) && scope.applications.every(hasText) && Boolean(scopedValue(scope.market)) && Boolean(scopedValue(scope.population))
+}
 
-function selectedAnchor(node: ResearchNode, events: ResearchEvent[]): { event: ResearchEvent; start: number; end: number } | { reason: string } {
+function validBound(bound: HistoricalBound | undefined): bound is HistoricalBound {
+  if (!bound || !Number.isInteger(bound.year) || bound.year === 0) return false
+  if (bound.month !== undefined && (!Number.isInteger(bound.month) || bound.month < 1 || bound.month > 12)) return false
+  if (bound.day !== undefined) {
+    if (bound.month === undefined || !Number.isInteger(bound.day) || bound.day < 1 || bound.day > [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][bound.month - 1]!) return false
+  }
+  return true
+}
+
+function boundLabel(bound: HistoricalBound): string {
+  let label = bound.year < 0 ? `${-bound.year} BCE` : String(bound.year)
+  if (bound.month !== undefined) {
+    label = `${'January February March April May June July August September October November December'.split(' ')[bound.month - 1]} ${label}`
+    if (bound.day !== undefined) label = `${bound.day} ${label}`
+  }
+  return label
+}
+
+/** A bound is a display limit, never an invented closed interval or exact entry date. */
+export function deriveEntryDate(date: HistoricalDate, interpretation: DateInterpretation):
+  { entry_date: HistoricalDate; date_kind: DateKind; year: number; start?: number; end?: number } | { reason: string } {
+  if (!['known', 'approximate', 'bounded'].includes(date.status)) return { reason: `The selected entry date is ${String(date.status ?? 'missing').replace(/_/g, ' ')}.` }
+  if (date.earliest !== undefined && !validBound(date.earliest) || date.latest !== undefined && !validBound(date.latest)) return { reason: 'The selected entry supplies an invalid historical limit.' }
+  for (const limit of [date.earliest, date.latest]) {
+    if (!limit) continue
+    if (date.precision === 'day' && (limit.month === undefined || limit.day === undefined) || date.precision === 'month' && limit.month === undefined) return { reason: 'The supplied entry limit does not match its declared precision.' }
+  }
+  if (date.earliest && date.earliest_status !== undefined || date.latest && date.latest_status !== undefined) return { reason: 'A supplied date limit cannot also be marked unknown.' }
+  if (!date.earliest && !date.latest) return { reason: 'The selected entry has no supplied date limit.' }
+  if (date.status === 'known' && (!date.earliest || !date.latest)) return { reason: 'Known events require both supplied date limits.' }
+  if (date.earliest && date.latest) {
+    const a = date.earliest, b = date.latest
+    const before = a.year < b.year || a.year === b.year && ((a.month ?? 1) < (b.month ?? 12) || (a.month ?? 1) === (b.month ?? 12) && (a.day ?? 1) <= (b.day ?? 31))
+    if (!before) return { reason: 'The selected entry has reversed date limits.' }
+  } else if (!date.earliest && !['unknown', 'not_yet_researched'].includes(date.earliest_status ?? '') || !date.latest && !['unknown', 'not_yet_researched'].includes(date.latest_status ?? '')) {
+    return { reason: 'An omitted date limit needs its explicit uncertainty status.' }
+  }
+  const result = { ...date }
+  const qualification = date.status === 'approximate' ? 'approximately ' : ''
+  if (interpretation === 'known_by') {
+    if (!result.latest) return { reason: 'Known-by entry needs the selected event’s supplied latest limit.' }
+    delete result.earliest; delete result.latest_status
+    result.earliest_status = date.earliest === undefined ? date.earliest_status ?? 'unknown' : 'unknown'; result.status = date.status === 'approximate' ? 'approximate' : 'bounded'
+  } else if (interpretation === 'known_from') {
+    if (!result.earliest) return { reason: 'Known-from entry needs the selected event’s supplied earliest limit.' }
+    delete result.latest; delete result.earliest_status
+    result.latest_status = date.latest === undefined ? date.latest_status ?? 'unknown' : 'unknown'; result.status = date.status === 'approximate' ? 'approximate' : 'bounded'
+  } else if (interpretation !== 'event_date') return { reason: 'The community-entry date interpretation is missing or invalid.' }
+  if (!result.earliest) {
+    result.label = `By ${qualification}${boundLabel(result.latest!)}`
+    return { entry_date: result, date_kind: 'known_by', year: result.latest!.year, end: result.latest!.year }
+  }
+  if (!result.latest) {
+    result.label = `Not before ${qualification}${boundLabel(result.earliest)}`
+    return { entry_date: result, date_kind: 'known_from', year: result.earliest.year, start: result.earliest.year }
+  }
+  return { entry_date: result, date_kind: JSON.stringify(result.earliest) === JSON.stringify(result.latest) ? 'point' : 'interval',
+    year: (result.earliest.year + result.latest.year) / 2, start: result.earliest.year, end: result.latest.year }
+}
+
+function selectedAnchor(node: ResearchNode, events: ResearchEvent[]) {
   const anchor = node.graph_anchor
-  if (anchor?.status !== 'selected') return { reason: `Anchor ${anchor?.status?.replace(/_/g, ' ') ?? 'not recorded'}.` }
+  if (anchor?.status !== 'selected') return { reason: `Community entry ${typeof anchor?.status === 'string' ? anchor.status.replace(/_/g, ' ') : anchor ? 'has an invalid status' : 'not recorded'}.` }
+  if (anchor.policy !== 'community_entry') return { reason: 'A researched community-entry choice is required.' }
+  if (!hasText(anchor.community) || !validScope(anchor.scope) || !hasText(anchor.rationale) || !hasText(anchor.uncertainty)
+      || !Array.isArray(anchor.evidence) || !anchor.evidence.length || anchor.evidence.some((item) => !item || !hasText(item.source_id) || !hasText(item.locator) || !hasText(item.supports))) {
+    return { reason: 'The entry needs its named community, scope, evidence, rationale and explicit uncertainty.' }
+  }
+  const basis = anchor.entry_basis
+  const strength = anchor.evidence_strength
+  if (!basis || !ENTRY_EVENT_TYPES[basis]) return { reason: 'The community-entry basis is missing or unsupported.' }
+  if (!['direct', 'scoped_inference', 'awareness_proxy'].includes(strength ?? '')) return { reason: 'The entry needs an explicit evidence-strength assessment.' }
+  if ((basis === 'public_awareness') !== (strength === 'awareness_proxy')) return { reason: 'Public awareness must be an explicit proxy and must not be called adoption or actual use.' }
+  if (strength === 'scoped_inference' && !['practical_use', 'public_availability'].includes(basis)) return { reason: 'Scoped inference is limited to contextual use or availability.' }
+  if (strength !== 'direct' && !hasText(anchor.proxy_justification)) return { reason: 'The awareness proxy or scoped inference needs an explicit justification.' }
+  if (node.kind === 'science' && !['practical_use', 'adoption', 'public_availability', 'recognition', 'public_awareness'].includes(basis)) return { reason: 'Science entry needs use, uptake, recognition or an explicit awareness proxy.' }
+  if (['first_commercial_availability', 'commercial_availability'].includes(basis) && node.commercial_applicability?.status !== 'applicable') return { reason: 'Commercial entry needs applicable commercial scope.' }
   const event = events.find((entry) => entry.id === anchor.event_id)
-  if (!event || !node.event_ids.includes(event.id)) return { reason: 'The selected anchor event is missing or does not belong to this entry.' }
-  if (node.kind === 'technology') {
-    if (!['first_commercial_availability', 'practical_deployment'].includes(anchor.policy) || event.event_type !== anchor.policy) {
-      return { reason: 'The selected event does not match the technology anchor policy.' }
-    }
-    const applicability = node.commercial_applicability
-    if (anchor.policy === 'first_commercial_availability' && applicability?.status !== 'applicable') {
-      return { reason: 'Commercial applicability has not been established for the selected commercial anchor.' }
-    }
-    if (anchor.policy === 'practical_deployment' && (!['nonmarket', 'not_applicable'].includes(applicability?.status ?? '') || !applicability?.rationale?.trim() || !applicability.evidence?.length)) {
-      return { reason: 'The deployment anchor needs a justified nonmarket applicability decision.' }
-    }
-  } else if (anchor.policy !== 'scientific_event' || !SCIENTIFIC.has(event.event_type)) {
-    return { reason: 'The selected event does not match the scientific anchor policy.' }
-  }
-  const stage = anchor.policy === 'scientific_event' ? event.event_type : anchor.policy
-  const lifecycle = node.lifecycle?.[stage]
-  if (stage !== 'presentation' && (lifecycle?.status !== 'documented' || !lifecycle.event_ids.includes(event.id))) {
-    return { reason: 'The selected anchor is not recorded in its documented lifecycle stage.' }
-  }
-  if (!event.evidence?.length) return { reason: 'The selected anchor event has no supporting evidence.' }
-  if (!['known', 'approximate', 'bounded'].includes(event.date?.status ?? '')) {
-    return { reason: `The selected anchor date is ${event.date?.status?.replace(/_/g, ' ') ?? 'not recorded'}.` }
-  }
-  const start = event.date?.earliest?.year
-  const end = event.date?.latest?.year
-  if (start === undefined || end === undefined) return { reason: 'The selected anchor has an open date bound; a position on the timeline would imply an unsupported limit.' }
-  if (!Number.isInteger(start) || !Number.isInteger(end) || start === 0 || end === 0 || start > end) {
-    return { reason: 'The selected anchor does not supply a valid historical date interval.' }
-  }
-  return { event, start, end }
+  if (!event || !Array.isArray(node.event_ids) || !node.event_ids.includes(event.id)) return { reason: 'The selected entry event is missing or does not belong to this entry.' }
+  if (!ENTRY_EVENT_TYPES[basis].includes(event.event_type)) return { reason: 'The selected event does not establish the chosen community entry; invention or discovery is not a fallback.' }
+  const lifecycle = node.lifecycle?.[event.event_type]
+  if (lifecycle && (lifecycle.status !== 'documented' || !Array.isArray(lifecycle.event_ids) || !lifecycle.event_ids.includes(event.id))) return { reason: 'The selected entry event disagrees with its documented lifecycle stage.' }
+  if (!Array.isArray(event.evidence) || !event.evidence.length || !event.date) return { reason: 'The selected entry event needs supporting evidence and a usable date.' }
+  const placement = deriveEntryDate(event.date, anchor.date_interpretation!)
+  return 'reason' in placement ? placement : { event, ...placement }
 }
 
 /** No record is placed by an unselected invention or other dated event. */
@@ -140,23 +225,34 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
     const haystack = `${node.id} ${node.label} icon:${node.icon ?? ''}`.toLowerCase()
     const labels = overrides[node.id] ?? node.labels ?? LABEL_RULES.filter((rule) => rule.test.test(haystack)).map((rule) => rule.id)
     labels.forEach((label) => usedLabels.add(label))
-    const sourceIds = new Set(node.provenance?.source_ids ?? [])
-    for (const event of events) for (const evidence of event.evidence ?? []) sourceIds.add(evidence.source_id)
-    for (const stage of Object.values(node.lifecycle ?? {})) for (const evidence of stage.evidence ?? []) sourceIds.add(evidence.source_id)
-    for (const evidence of node.commercial_applicability?.evidence ?? []) sourceIds.add(evidence.source_id)
+    const sourceIds = new Set<string>(Array.isArray(node.provenance?.source_ids) ? node.provenance.source_ids.filter(hasText) : [])
+    const cite = (entries: unknown) => { if (Array.isArray(entries)) for (const evidence of entries) if (evidence && hasText(evidence.source_id)) sourceIds.add(evidence.source_id) }
+    for (const event of events) cite(event.evidence)
+    for (const stage of Object.values(node.lifecycle ?? {})) cite(stage?.evidence)
+    cite(node.commercial_applicability?.evidence)
+    cite(node.graph_anchor?.evidence)
     const entry: RawEntry = {
       id: node.id,
       title: node.label,
       kind: node.kind,
       level: node.tier ?? 2,
       date_label: 'Unplaced',
-      anchor_status: node.graph_anchor?.status ?? 'missing',
+      anchor_status: typeof node.graph_anchor?.status === 'string' ? node.graph_anchor.status : 'missing or invalid',
       anchor_policy: node.graph_anchor?.policy,
-      anchor_rationale: node.graph_anchor?.rationale,
-      anchor_event_id: node.graph_anchor?.event_id,
+      anchor_rationale: hasText(node.graph_anchor?.rationale) ? node.graph_anchor.rationale : undefined,
+      anchor_event_id: hasText(node.graph_anchor?.event_id) ? node.graph_anchor.event_id : undefined,
+      entry_basis: node.graph_anchor?.entry_basis,
+      evidence_strength: node.graph_anchor?.evidence_strength,
+      date_interpretation: node.graph_anchor?.date_interpretation,
+      entry_community: hasText(node.graph_anchor?.community) ? node.graph_anchor.community : undefined,
+      entry_scope: validScope(node.graph_anchor?.scope) ? node.graph_anchor.scope : undefined,
+      entry_evidence: Array.isArray(node.graph_anchor?.evidence) ? node.graph_anchor.evidence.filter((item) => item && hasText(item.source_id) && hasText(item.locator) && hasText(item.supports)) : undefined,
+      entry_uncertainty: hasText(node.graph_anchor?.uncertainty) ? node.graph_anchor.uncertainty : undefined,
+      proxy_justification: hasText(node.graph_anchor?.proxy_justification) ? node.graph_anchor.proxy_justification : undefined,
       commercial_date_status: node.lifecycle?.first_commercial_availability?.status,
       commercial_applicability: node.commercial_applicability?.status,
       lifecycle_review: node.review?.lifecycle_classification,
+      lifecycle: node.lifecycle,
       labels,
       summary: node.configuration ?? '',
       regions: node.regions ?? [],
@@ -167,9 +263,9 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
     if ('reason' in anchor) {
       unplaced.push({ ...entry, anchor_status: entry.anchor_status!, placement_reason: anchor.reason })
     } else {
-      nodes.push({ ...entry, year: (anchor.start + anchor.end) / 2, start: anchor.start, end: anchor.end,
-        date_label: anchor.event.date?.label ?? `${anchor.start} to ${anchor.end}`,
-        date_basis: anchor.event.date?.basis, placed_by: anchor.event.event_type.replace(/_/g, ' '), anchored: true })
+      const { event, ...placement } = anchor
+      nodes.push({ ...entry, ...placement, date_label: placement.entry_date.label ?? String(placement.year),
+        date_basis: event.date?.basis, placed_by: event.event_type.replace(/_/g, ' '), anchored: true })
     }
   }
   const links: RawLink[] = records.relationships.map((link) => ({
@@ -183,15 +279,16 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   for (const source of records.sources) if (cited.has(source.id)) sources[source.id] = {
     title: source.title, url: source.url, year: Array.isArray(source.year) ? source.year.join(', ') : source.year,
   }
-  const declared = new Map<string, RawLabel>(LABEL_RULES.map((rule) => [rule.id, { id: rule.id, name: rule.name, ink: rule.ink }]))
+  const declared = new Map<string, RawLabel>([...LABEL_RULES, ...DISPLAY_LABELS].map((label) => [label.id, { id: label.id, name: label.name, ink: label.ink }]))
   return {
-    meta: { title: 'Interwoven', description: 'How science and technology build on one another',
+    meta: { title: 'Interwoven', description: 'Availability, use and recognition across communities',
       provenance: 'Generated from research/science-technology-graph. Do not edit by hand.' },
     labels: [...usedLabels].map((id) => declared.get(id) ?? { id, name: id.replace(/-/g, ' '), ink: '#55524c' }),
     nodes, unplaced, links, sources,
     events: Object.fromEntries(records.events.map((event) => [event.id, { id: event.id, node_id: event.node_id,
       event_type: event.event_type, date_label: event.date?.label ?? 'Date not recorded',
-      date_status: event.date?.status ?? 'missing', date_basis: event.date?.basis, statement: event.statement }])),
+      date_status: event.date?.status ?? 'missing', date_basis: event.date?.basis, date: event.date, statement: event.statement,
+      scope: event.scope, uncertainty: event.uncertainty }])),
   }
 }
 
@@ -204,7 +301,9 @@ function main(): void {
     relationships: readJsonl('relationships.jsonl'), sources: readJsonl('sources.jsonl') }, overrides)
   const issues = validateDataset(dataset)
   for (const issue of issues) console.log(`${issue.severity}: ${issue.message}`)
-  if (issues.some((issue) => issue.severity === 'error')) process.exit(1)
+  const invalidSelections = (dataset.unplaced ?? []).filter((entry) => entry.anchor_status === 'selected')
+  for (const entry of invalidSelections) console.log(`error: selected community entry ${entry.id}: ${entry.placement_reason}`)
+  if (issues.some((issue) => issue.severity === 'error') || invalidSelections.length) process.exit(1)
   const block = (items: unknown[]) => `[\n${items.map((item) => `  ${JSON.stringify(item)}`).join(',\n')}\n]`
   const out = `{\n"meta": ${JSON.stringify(dataset.meta)},\n"labels": ${block(dataset.labels)},\n"nodes": ${block(dataset.nodes)},\n"unplaced": ${block(dataset.unplaced ?? [])},\n"links": ${block(dataset.links)},\n"events": ${JSON.stringify(dataset.events)},\n"sources": ${JSON.stringify(dataset.sources)}\n}\n`
   writeFileSync(join(import.meta.dirname, '../public/data/timeline.json'), out)

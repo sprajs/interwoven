@@ -5,7 +5,7 @@ import type { Model } from '../data/model.ts'
 import { isPlacedNode, type TimelineEntry } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusEntry, getEngine, useApp } from '../store.ts'
-import { Mark } from './icons.tsx'
+import { EvidenceBadge, Mark } from './icons.tsx'
 
 const MAX_RESULTS = 50
 /** Past this many matches, lighting them on the chart says nothing. */
@@ -156,10 +156,10 @@ export function SearchPalette() {
                   <li key={node.id} role="option" aria-selected={position === active} data-index={position}>
                     <button onClick={() => choose(position)} onPointerMove={() => setActive(position)} className={`flex w-full items-baseline gap-2 px-4 py-px text-left text-body ${position === active ? 'bg-tint' : ''}`}>
                       <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
-                        <Mark kind={node.kind} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
+                        <Mark kind={node.kind} strength={node.evidence_strength} color={model.labelById.get(node.labels[0] ?? '')?.ink} />
                       </span>
-                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
-                      <span className="note shrink-0">{isPlacedNode(node) ? formatYear(node.year) : 'awaiting a date'}</span>
+                      <span className={`min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title} <EvidenceBadge strength={node.evidence_strength} /></span>
+                      <span className="note shrink-0">{isPlacedNode(node) ? node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year) : 'awaiting a date'}</span>
                     </button>
                   </li>
                 )

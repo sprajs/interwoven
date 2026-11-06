@@ -24,7 +24,15 @@ LIFECYCLE = (
     "discovery", "observation", "formulation", "publication", "experimental_confirmation",
     "acceptance", "decline", "withdrawal", "end_of_use", "abandonment", "revival",
 )
-SCIENTIFIC = {"discovery", "observation", "formulation", "publication", "presentation", "experimental_confirmation", "acceptance"}
+ENTRY_EVENT_TYPES = {
+    "first_commercial_availability": {"first_commercial_availability"},
+    "commercial_availability": {"commercial_offer", "commercial_availability"},
+    "practical_use": {"practical_use", "practical_deployment"},
+    "adoption": {"adoption"},
+    "public_availability": {"public_availability"},
+    "recognition": {"recognition", "acceptance"},
+    "public_awareness": {"publication", "presentation", "public_disclosure"},
+}
 REVIEW_AXES = ("historical_claim", "lifecycle_classification")
 REVIEW_FIELDS = {"id", "type", "historical_claim", "lifecycle_classification", "proposition_sha256"}
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
@@ -191,7 +199,11 @@ def _date_checks(record, path, errors, concerns):
 
 def _definitely_after(source_date, receiving_date):
     """Only supplied decisive bounds establish reversed event chronology."""
-    return ("earliest" in source_date and "latest" in receiving_date
+    # Approximation has no quantified tolerance, so its nominal year cannot
+    # establish definite ordering against another event's limit.
+    return (source_date.get("status") != "approximate"
+            and receiving_date.get("status") != "approximate"
+            and "earliest" in source_date and "latest" in receiving_date
             and _time(source_date["earliest"]) > _time(receiving_date["latest"], True))
 
 
@@ -275,21 +287,25 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
                 errors.append(issue(path + ".graph_anchor.event_id", f"anchor {eid!r} is not owned by this node", "anchor_membership"))
             elif eid in valid_ids["events"]:
                 event = events[eid][0]
-                allowed = SCIENTIFIC if anchor["policy"] == "scientific_event" else {anchor["policy"]}
+                allowed = ENTRY_EVENT_TYPES[anchor["entry_basis"]]
                 if event["event_type"] not in allowed:
-                    errors.append(issue(path + ".graph_anchor.event_id", f"{event['event_type']!r} is not eligible for {anchor['policy']!r}; do not substitute invention/adoption for commercial availability", "anchor_type"))
-                stage = event["event_type"] if anchor["policy"] == "scientific_event" else anchor["policy"]
+                    errors.append(issue(path + ".graph_anchor.event_id", f"{event['event_type']!r} does not establish {anchor['entry_basis']!r} in a community; invention/discovery/demonstration are not entry anchors", "anchor_type"))
+                stage = event["event_type"]
                 if stage in node["lifecycle"]:
                     entry = node["lifecycle"][stage]
                     if entry["status"] != "documented" or eid not in entry["event_ids"]:
                         errors.append(issue(path + ".graph_anchor.event_id", f"selected anchor must occur in the documented {stage!r} lifecycle entry", "anchor_lifecycle"))
                 if event["date"]["status"] not in {"known", "approximate", "bounded"}:
                     errors.append(issue(path + ".graph_anchor.event_id", "selected anchor requires a known, approximate or bounded usable event date", "anchor_date"))
-            if anchor["policy"] == "practical_deployment":
-                applicability = node["commercial_applicability"]
-                if applicability["status"] not in ("nonmarket", "not_applicable") or not applicability["evidence"]:
-                    errors.append(issue(path + ".graph_anchor", "practical-deployment anchor requires nonmarket/not_applicable status and explicit decision evidence", "anchor_applicability"))
-            elif anchor["policy"] == "first_commercial_availability" and node["commercial_applicability"]["status"] != "applicable":
+                required_bound = {"known_by": "latest", "known_from": "earliest"}.get(anchor["date_interpretation"])
+                if required_bound and required_bound not in event["date"]:
+                    errors.append(issue(path + ".graph_anchor.date_interpretation", f"{anchor['date_interpretation']} needs the selected event's supplied {required_bound} limit", "anchor_date"))
+            basis, strength = anchor["entry_basis"], anchor["evidence_strength"]
+            if (basis == "public_awareness") != (strength == "awareness_proxy"):
+                errors.append(issue(path + ".graph_anchor", "public awareness requires an explicitly justified awareness_proxy; the proxy must never be called adoption/use/recognition", "anchor_strength"))
+            if strength == "scoped_inference" and basis not in {"practical_use", "public_availability"}:
+                errors.append(issue(path + ".graph_anchor", "scoped_inference is limited to contextual practical use or public availability", "anchor_strength"))
+            if basis in {"first_commercial_availability", "commercial_availability"} and node["commercial_applicability"]["status"] != "applicable":
                 errors.append(issue(path + ".graph_anchor", "selected commercial availability requires commercial applicability status applicable", "anchor_applicability"))
     for rid in sorted(valid_ids["relationships"]):
         edge, path = indexes["relationships"][rid]
@@ -325,6 +341,9 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
         "technology_commercial_dates_unresearched": sum(n["kind"] == "technology" and n["lifecycle"]["first_commercial_availability"]["status"] == "not_yet_researched" for n in good_nodes),
         "anchors_unresolved": sum(n["graph_anchor"]["status"] in ("unknown", "not_yet_researched") for n in good_nodes),
         "anchor_status": dict(Counter(n["graph_anchor"]["status"] for n in good_nodes)),
+        "community_entry_basis": dict(Counter(n["graph_anchor"]["entry_basis"] for n in good_nodes if n["graph_anchor"]["status"] == "selected")),
+        "entry_evidence_strength": dict(Counter(n["graph_anchor"]["evidence_strength"] for n in good_nodes if n["graph_anchor"]["status"] == "selected")),
+        "entry_date_interpretation": dict(Counter(n["graph_anchor"]["date_interpretation"] for n in good_nodes if n["graph_anchor"]["status"] == "selected")),
         "lifecycle_status": {stage: dict(Counter(n["lifecycle"][stage]["status"] for n in good_nodes)) for stage in LIFECYCLE},
         "review": reviews,
     }
@@ -475,7 +494,12 @@ def verify_local_files(records, root):
                     continue
                 if target not in actual_hashes:
                     try:
-                        actual_hashes[target] = hashlib.sha256(target.read_bytes()).hexdigest()
+                        copied = target.read_bytes()
+                        if copied:
+                            actual_hashes[target] = hashlib.sha256(copied).hexdigest()
+                        else:
+                            actual_hashes[target] = None
+                            errors.append(issue(cp, "declared local source copy is empty; a matching empty-file hash does not retain a source", "local_copy_empty"))
                     except OSError as e:
                         actual_hashes[target] = None
                         errors.append(issue(cp, f"cannot read local source copy: {e}", "local_copy_hash"))

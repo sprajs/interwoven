@@ -24,10 +24,10 @@ function LandmarkRail() {
             <li key={i} className="border-b border-rule-soft">
               <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 py-1 text-left text-body">
                 <span className="grid w-2 shrink-0 translate-y-px place-items-center self-center">
-                  <Mark kind={node.kind} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
+                  <Mark kind={node.kind} strength={node.evidence_strength} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
                 </span>
                 <span className={`link-hover min-w-0 flex-1 ${node.kind === 'science' ? 'science' : ''}`}>{node.title}</span>
-                <span className="note shrink-0">{formatYear(node.year)}</span>
+                <span className="note shrink-0">{node.date_kind && node.date_kind !== 'point' ? node.date_label : formatYear(node.year)}</span>
               </button>
             </li>
           )
@@ -64,7 +64,7 @@ function DensityRail() {
   return (
     <>
       <h2 className="text-head">Density</h2>
-      <p className="note mt-1">The hatching grows with the number of placed entries per year, on a root scale so quiet eras stay visible. Move across the chart to count them. This shows where research has been dated so far, not how much happened.</p>
+      <p className="note mt-1">The hatching grows with the number of entries per year, on a root scale so quiet eras stay visible. It counts the date each entry was chosen to stand on, including labelled awareness estimates and inferences, so it shows where research has placed things, not how much happened. Move across the chart to count them.</p>
       {few ? (
         <p className="note mt-4">With {model?.n} entries placed, this is still a sketch. It becomes a real picture of activity as more dates are researched.</p>
       ) : (
