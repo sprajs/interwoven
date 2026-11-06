@@ -1,45 +1,43 @@
 # Current research checkpoint
 
-The substantial continuation is active in the current session. The accepted `4c5a105` research baseline had 221 entries; this checkpoint has **210 nodes, 373 events, 124 relationships and 326 sources**, with all 210 entries placed and labelled. The reduction reflects reviewed identity consolidation, not a claim that the remaining graph has completed global-frontier review.
+The substantial continuation is active. The current graph has **224 nodes, 397 events, 126 relationships and 365 sources**, with every node placed and labelled. The accepted 221-node baseline at `4c5a105` was refined by eleven independently reviewed frontier-audit units to 210 nodes; **14 new frontier configurations/results** have now been integrated in reviewed batches. The remaining graph is not certified as a completed global-frontier survey.
 
-Eleven independently approved audit units have been applied. The first five were committed at `140007e`: Hoerni’s conception is consolidated into the same retained-oxide transistor configuration; K1’s faithful copy is consolidated into H4’s configuration while preserving the distinct watches and original event endpoints; Laennec and Lister identities retain their later regional clinical witnesses; circular-zero notation retains Gwalior’s 876 witness alongside the conventionally dated Talang Tuwo 684 witness. No historical event was deleted in those first five units. The remaining six units exclude eight confirmed repetition/reconstruction identities and consolidate the Bloomfield installation witness into the same condenser configuration; their excluded assertions, original decisions, source records and dissent remain self-contained in the current frontier review. Historical events outside the innovation topology remain inspectable there. Two within-identity graph edges are superseded as topology; their complete original assertions, evidence and decisions remain in the current frontier review.
+## Committed audit and current additions
 
-The proposed Bi Sheng merge was withdrawn. Fired type, assembly tooling and alternating workflow remain three enabling contributions; shared textual account alone does not prove duplicate identity. Other regional/reconstruction cases remain under comparison. Global-frontier eligibility and historical-assertion acceptance are separate: missing comparison is unresolved, and geography is not a novelty test.
+`140007e` recorded the first five audit units and corrected lifecycle presentation. `d66eb05` recorded the remaining six approved audit units and targeted comparison context. `1faa0fb` retained the nine captured supporting byte streams and portable mappings. Three equivalent configuration identities were consolidated, eight confirmed repetition/reconstruction identities were excluded, and three broader technology identities retain their earlier/later witnesses. Bi Sheng's three enabling contributions and two relationships remain: shared narrative alone did not prove duplication.
 
-`reviews/frontier-audit.json` embeds exact accepted operations, independent assessments, before/after bindings, retained originals and current decisions. `reviews/frontier-context.json` and `handovers/frontier-audit.md` preserve the current targeted screening, unresolved comparisons and passage/access limits without a duplicate graph baseline or dependence on temporary source packets. `reviews/current-evidence.json` has **707 exact current bindings**, plus 35 explicitly superseded or excluded decisions outside the current-record index. The circular-zero node and its new event retain the independently approved candidate/needs-review axes and scoped epigraphic inference; the other changed medical historical assertions are accepted with incomplete lifecycle classification explicit.
+All valid historical assertions, source evidence and dissent for excluded identities remain in `reviews/frontier-audit.json`, with current targeted comparisons in `reviews/frontier-context.json` and `handovers/frontier-audit.md`. No duplicate graph baseline, migration version or runtime dependence on temporary files was introduced. The audit's 11 units matched all 36 expected after-records. Its 221-ID screening was not 221 completed worldwide comparisons.
 
-There are **301 distinct nonempty retained source files**, all matching declared SHA-256. Nine additional captured files for targeted comparison context are separately retained and SHA-256 mapped in `reviews/frontier-context.json`. Fourteen additional originals support the audit units; two additional retained scholarly papers support explicitly unresolved mathematics comparisons. Existing source evidence is preserved. Source access, indirect editions, conventional dating and uninspected originals remain qualified.
+The current addition ledgers are `reviews/continuation-01.json`. They embed exact accepted input projections, final independent assessments and global predecessor comparisons. Historical assertion acceptance and frontier eligibility remain separate checks. Current node historical review: {'accepted': 223, 'candidate': 1}; the circular-zero inference retains its explicitly reviewed candidate status. Node lifecycle classifications remain incomplete where recorded.
 
-## Current verification
+## Verification
 
-- Strict graph validation: zero errors, zero concerns; all 92 Python tests pass.
-- The audit’s 11 units match all 36 expected after-record propositions, with zero verifier failures. Its broader 221-node screening is not a completed global comparison for every retained node.
-- Unified web import/validation: 210 placed, zero unplaced, 124 links, zero issues; all 114 web tests and the production build pass.
-- All 373 canonical event dates, scopes, evidence and both review axes are preserved into the unified generated dataset and lifecycle records. Approximate and one-sided dates retain their precision and absent limits. The display draws separately reviewed scoped episodes, without manufacturing continuous use between events or a global end from local cessation.
-- Current browser capture will be refreshed after the next content batches. The concurrent design changes and the removal of obsolete captures are preserved. No lifecycle sidecar or second canonical schema was introduced.
+Strict graph validation has zero errors and concerns. All **747 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **340** distinct canonical source-copy paths, plus **9** separately mapped captured comparison files. Their access/representation/inspected-passage limits remain explicit.
 
-## Active research
+The imported dataset matches all **397** canonical event date objects, scopes, evidence and both review axes, with no fabricated opposite limit. All **224** nodes are placed, labelled and assigned tiers. Import/validation passes. The unchanged application code has passed 114 web tests and production build; graph semantics have passed 92 Python tests. Browser verification is refreshed at the next content freeze.
 
-`handovers/research-register.json` is the single current coverage/ownership register. Its 177 scouting leads are explicitly unresolved global-frontier hypotheses, not 80 accepted additions. Four domain pods and focused source researchers are proceeding through several waves; a second Sol scout is extending the frontier-focused slate. The planning range remains 150–250 distinct additions if evidence supports them, never a quota.
+The UI draws reviewed scoped episodes, preserving full precision/approximation/evidence. It does not infer continuous use between events or a global end from local cessation. ALOHAnet's original network ending and Frogmore PM2's retirement are scoped separately from continuing protocol or process families.
 
-The first industrial, material/tool and process/architecture batches have passed independent exact review and await integration; subsequent source-researched waves continue. Modern instrumentation research continues alongside digital architectures; unsupported national-service, specimen and format identities are held or routed to scoped lifecycle evidence. The substantial continuation is not complete.
+## Ongoing waves and limits
+
+`handovers/research-register.json` is the single current coverage/ownership register: 187 prospective or integrated cases, with exact resolution pointers and model provenance. The planning range is 150–250 distinct additions if evidence supports them, never a quota. Several further industrial, materials, imaging and foundational-science waves continue. Regional-first, rediscovery, restoration and individual object witnesses do not qualify alone; uncertain comparisons are held. Failed or extinct novel attempts remain eligible with actual performance/failure stated.
+
+First commercial availability, adoption, decline, end-of-use and revival are separate scoped questions. Current placement does not imply full ancestry, acceptance, continuity or complete lifecycle research. `BACKLOG.md` and live coverage tools preserve the remaining work. This continuation is not complete.
 
 ## Exact artifact hashes
 
-SHA-256 of complete current file bytes:
-
 | Artifact | SHA-256 |
 | --- | --- |
-| `data/nodes.jsonl` | `af696c48a4a21ee2237a0d38aa1bff3efcd86ce2c009611e8b9c652fbad24763` |
-| `data/events.jsonl` | `387a731804b5b44b57779f53ae409f6d863bd068624d705a10530342a6dfb75d` |
-| `data/relationships.jsonl` | `d3c53b0e94e659af28f923c7c31a8f8935e69cedcf5c1d79a2674361c72e5bcc` |
-| `data/sources.jsonl` | `cf2d921e4b4102572cd6a74251cfa1cae2b0e921c8bd24bfac7cdbac3716598d` |
+| `data/nodes.jsonl` | `ff1bd2f57978d01306f01c0014e1f2c5bdadf8bd09c61be588453a05782a1432` |
+| `data/events.jsonl` | `c033a1d9c2e1d0e8c61ae3b0522d49f097a335b7bec930bf049ab3f8684d03d9` |
+| `data/relationships.jsonl` | `32f05d1e964a47cfb20521f5f829cdb3f77e1371a7de0a6da3c399967c9d693f` |
+| `data/sources.jsonl` | `6cb6012fe72eb23491b9e210862215c1aff1c102583eff5fbccd1bff137da84b` |
 | `schema.json` | `315ab1cb21a1a48f198620b79e407f12b9e4cbf49af17bc415a0c99e62c26958` |
-| `reviews/current-evidence.json` | `6c38078d3b072a0de0720f5a952698010f761ae5da6aa6f2c9455114731539ab` |
-| `../../web/public/data/timeline.json` | `96fca49ba4e8947c9e2e866e33def0997d1baffa584081f36e5dc859a5fc14eb` |
+| `reviews/current-evidence.json` | `f15a1a8ac2a14c9d1c9b0d07658836343c0d0f4b04b6a9cf9c579716b67c2113` |
+| `../../web/public/data/timeline.json` | `394c1e9e7d0111147de35ef4ef2d4999c5662ee91d43a19b9b8949828eb262aa` |
 
 ## Repository boundary
 
-The saved repository is authoritative. A normal local merge at `b2a233c9` preserved concurrent design history from remote `d14d7a9` and the unrelated local analysis-dimensions proposal `6514232`; that proposal is not reviewed canonical research. This execution has not pushed. The hosted Site and paused automation are untouched. Root alone stages and commits this team’s work; pending source-research copies and unrelated concurrent files are excluded from each explicit commit.
+The saved repository is authoritative. Concurrent design, trackpad and analysis-proposal changes are preserved; they are not claimed as this research team's work. Other writers have pushed shared history, including earlier local research commits. This execution has not pushed, published the hosted Site or changed the paused automation. Root alone stages this team's explicit paths. Pending unreferenced research caches and unrelated concurrent files remain excluded from each commit.
 
-Run `python3 tools/query.py stats`, `python3 tools/gap_audit.py`, and `python3 tools/coverage.py --baseline 4c5a105` for current coverage. `BACKLOG.md` preserves remaining work. First commercial availability, adoption, decline, end-of-use and revival remain separately scoped questions; placing an entry does not complete its history.
+Run `python3 tools/validate.py --json --strict-concerns`, `python3 tools/query.py stats`, `python3 tools/gap_audit.py`, and `python3 tools/coverage.py --baseline 4c5a105` for current checks and coverage.
