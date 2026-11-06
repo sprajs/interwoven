@@ -53,6 +53,7 @@ function useKeyboard(): void {
           app.setStory(null)
           app.select(null)
         } else if (app.selected !== null || app.unplacedSelected !== null) app.select(null)
+        else if (app.aboutOpen) app.setAboutOpen(false)
         else if (app.unplacedOpen) app.setUnplacedOpen(false)
         else if (app.labelsOpen) app.setLabelsOpen(false)
         else if (app.openPeriods > 0) getEngine()?.unfoldAll()

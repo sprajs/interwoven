@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
+import type { RowOrder } from '../data/derive.ts'
 import type { Model } from '../data/model.ts'
 import { onEngineFrame } from '../engine/frames.ts'
 import { getEngine, useApp } from '../store.ts'
@@ -79,6 +80,46 @@ function UnplacedStrip({ model }: { model: Model }) {
   )
 }
 
+const REACH_ORDERS: { id: RowOrder; label: string; hint: string }[] = [
+  { id: 'thread', label: 'By thread', hint: 'Connected work together, each entry near what it builds on' },
+  { id: 'origin', label: 'By date', hint: 'A staircase of first appearances, as Priestley drew his chart' },
+  { id: 'reach', label: 'By reach', hint: 'The longest influence first' },
+]
+
+/** What the current view offers, kept to one quiet line so the chart keeps the page. */
+function ViewLine() {
+  const mode = useApp((s) => s.mode)
+  const following = useApp((s) => s.story !== null)
+  const aboutOpen = useApp((s) => s.aboutOpen)
+  const setAboutOpen = useApp((s) => s.setAboutOpen)
+  const rowOrder = useApp((s) => s.rowOrder)
+  const setRowOrder = useApp((s) => s.setRowOrder)
+
+  if (mode === 'story' && !following) {
+    return (
+      <p className="pointer-events-auto whitespace-nowrap">
+        <span className="hidden wide:inline">Click an entry to read what led to it and what followed, or </span>
+        <button onClick={() => setAboutOpen(!aboutOpen)} aria-expanded={aboutOpen} className="link hover:text-ink">browse the stories</button>
+      </p>
+    )
+  }
+  if (mode === 'reach') {
+    return (
+      <div className="pointer-events-auto flex items-center gap-4 whitespace-nowrap">
+        <div className="flex items-center gap-2" role="group" aria-label="Order of rows">
+          {REACH_ORDERS.map((option) => (
+            <button key={option.id} title={option.hint} aria-pressed={rowOrder === option.id} onClick={() => setRowOrder(option.id)} className={`transition-colors ${rowOrder === option.id ? 'link text-ink' : 'hover:text-ink'}`}>
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <button onClick={() => setAboutOpen(!aboutOpen)} aria-expanded={aboutOpen} className="link hover:text-ink">Key</button>
+      </div>
+    )
+  }
+  return null
+}
+
 /** The way back to the whole of the unplaced research, and the view controls, under the chart. */
 export function BottomBar() {
   const model = useApp((s) => s.model)
@@ -90,6 +131,7 @@ export function BottomBar() {
 
   return (
     <div className="note pointer-events-none absolute bottom-14 z-10 flex h-8 items-center gap-4 transition-[left,right] duration-300 wide:gap-6" style={margins}>
+      <ViewLine />
       {model && <UnplacedStrip model={model} />}
       <div className="flex-1" />
 

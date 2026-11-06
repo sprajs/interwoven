@@ -1,14 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { RowOrder } from '../data/derive.ts'
 import { hasLifecycleEvidence, lifeDateLabel, plottedLifeEvents, reviewedLifeEvents, tallyLifecycle } from '../data/lifecycle.ts'
 import { focusEntry, useApp } from '../store.ts'
+import { CloseButton } from './icons.tsx'
 import { COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
-
-const ORDERS: { id: RowOrder; label: string; hint: string }[] = [
-  { id: 'thread', label: 'by thread', hint: 'Connected work together, each entry near what it builds on' },
-  { id: 'origin', label: 'by date', hint: 'A staircase of first appearances, as Priestley drew his chart' },
-  { id: 'reach', label: 'by reach', hint: 'The longest influence first' },
-]
 
 /** A small drawing of each thing the rows can say, so the key and the chart read alike. */
 function KeyMark({ kind }: { kind: 'direct' | 'fine' | 'broken' | 'use' | 'withdrawn' | 'abandoned' | 'unknown' }) {
@@ -55,10 +49,8 @@ function useWidth(): number {
 /** Tells the reader what the rows mean and what is actually known about how things ended. */
 export function ReachSheet() {
   const model = useApp((s) => s.model)
-  const rowOrder = useApp((s) => s.rowOrder)
-  const setRowOrder = useApp((s) => s.setRowOrder)
+  const setAboutOpen = useApp((s) => s.setAboutOpen)
   const width = useWidth()
-  const [open, setOpen] = useState(width >= COMPACT_WIDTH)
   const total = model ? model.n + model.unplaced.length : 0
   const tally = useMemo(() => tallyLifecycle(model?.life.values() ?? [], total), [model, total])
   // Separate scoped episodes; their first and last dates never imply a continuous lifespan.
@@ -93,77 +85,55 @@ export function ReachSheet() {
       <aside style={{ width: compact ? undefined : SHEET_WIDTH }} className={`sheet thin-scroll select-text overflow-y-auto pb-3 ${placement}`} aria-label="About the reach view">
         <div className="flex items-baseline justify-between gap-3">
           <h2 className="text-head">Reach</h2>
-          <div className="flex items-baseline gap-3 text-note" role="group" aria-label="Order of rows">
-            {ORDERS.map((option) => (
-              <button
-                key={option.id}
-                title={option.hint}
-                aria-pressed={rowOrder === option.id}
-                onClick={() => setRowOrder(option.id)}
-                className={rowOrder === option.id ? 'link text-ink' : 'text-ink-3 hover:text-ink'}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
+          <CloseButton onClick={() => setAboutOpen(false)} label="Close the key" />
         </div>
 
         <p className="mt-2 text-body text-ink-2">
           Of <span className="figures">{tally.total.toLocaleString('en-US')}</span> entries, <span className="text-ink">{tally.withLifecycleEvidence}</span> have reviewed scoped use, availability or later-stage episodes. Separate episodes do not establish continuous life or a global ending.
         </p>
 
-        {compact && (
-          <button onClick={() => setOpen(!open)} aria-expanded={open} className="note link mt-1">
-            {open ? 'Hide the key' : 'Show the key'}
-          </button>
-        )}
+        <div className="mt-4">{keys}</div>
 
-        {open && (
+        <table className="figures mt-4 w-full border-t border-rule text-note text-ink-2">
+          <caption className="pb-1 text-left">Reviewed scoped episodes</caption>
+          <tbody>
+            {[
+              ['Adoption', tally.counts.adoption],
+              ['Decline', tally.counts.decline],
+              ['Withdrawal', tally.counts.withdrawal],
+              ['End of use within scope', tally.counts.end_of_use],
+              ['Abandonment', tally.counts.abandonment],
+              ['Revival', tally.counts.revival],
+            ].map(([name, count]) => (
+              <tr key={name as string} className="border-b border-rule-soft">
+                <td className="py-px">{name}</td>
+                <td className={`py-px text-right ${count === 0 ? 'text-ink-3' : 'text-ink'}`}>{count === 0 ? 'none documented' : count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {documented.length > 0 && (
           <>
-            <div className="mt-4">{keys}</div>
-
-            <table className="figures mt-4 w-full border-t border-rule text-note text-ink-2">
-              <caption className="pb-1 text-left">Reviewed scoped episodes</caption>
-              <tbody>
-                {[
-                  ['Adoption', tally.counts.adoption],
-                  ['Decline', tally.counts.decline],
-                  ['Withdrawal', tally.counts.withdrawal],
-                  ['End of use within scope', tally.counts.end_of_use],
-                  ['Abandonment', tally.counts.abandonment],
-                  ['Revival', tally.counts.revival],
-                ].map(([name, count]) => (
-                  <tr key={name as string} className="border-b border-rule-soft">
-                    <td className="py-px">{name}</td>
-                    <td className={`py-px text-right ${count === 0 ? 'text-ink-3' : 'text-ink'}`}>{count === 0 ? 'none documented' : count}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            {documented.length > 0 && (
-              <>
-                <h3 className="section-head mt-4">Entries with reviewed episodes</h3>
-                <ul>
-                  {documented.map(([id, record]) => {
-                    const entry = model.entryById.get(id)
-                    if (!entry) return null
-                    const episodes = reviewedLifeEvents(record)
-                    const last = episodes[episodes.length - 1]!
-                    return (
-                      <li key={id} className="border-b border-rule-soft">
-                        <button onClick={() => focusEntry(id)} className="group flex w-full items-baseline gap-2 py-px text-left text-note text-ink">
-                          <span className={`link-hover min-w-0 flex-1 ${entry.kind === 'science' ? 'science' : ''}`}>{entry.title}</span>
-                          <span className="figures shrink-0 text-ink-3">
-                            {episodes.length} {episodes.length === 1 ? 'episode' : 'episodes'} · {lifeDateLabel(last)}
-                          </span>
-                        </button>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </>
-            )}
+            <h3 className="section-head mt-4">Entries with reviewed episodes</h3>
+            <ul>
+              {documented.map(([id, record]) => {
+                const entry = model.entryById.get(id)
+                if (!entry) return null
+                const episodes = reviewedLifeEvents(record)
+                const last = episodes[episodes.length - 1]!
+                return (
+                  <li key={id} className="border-b border-rule-soft">
+                    <button onClick={() => focusEntry(id)} className="group flex w-full items-baseline gap-2 py-px text-left text-note text-ink">
+                      <span className={`link-hover min-w-0 flex-1 ${entry.kind === 'science' ? 'science' : ''}`}>{entry.title}</span>
+                      <span className="figures shrink-0 text-ink-3">
+                        {episodes.length} {episodes.length === 1 ? 'episode' : 'episodes'} · {lifeDateLabel(last)}
+                      </span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
           </>
         )}
       </aside>

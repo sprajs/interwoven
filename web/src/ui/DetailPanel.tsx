@@ -130,12 +130,13 @@ export function DetailPanel() {
   const node = model && selected !== null ? model.nodes[selected] : model?.entryById.get(unplacedSelected ?? '')
   const impactIsFull = model && node ? model.n <= 4000 || node.level === 0 : false
   const entryEvent = node?.anchor_event_id ? model?.events[node.anchor_event_id] : undefined
-  const mode = useApp((s) => s.mode)
+  // A followed story reads its entries in its own sheet.
+  const inStorySheet = useApp((s) => s.mode === 'story' && s.story !== null)
   const linked = model && selected !== null && model.parents[selected]!.length + model.children[selected]!.length > 0
 
   return (
     <AnimatePresence>
-      {node && model && !(mode === 'story' && selected !== null) && (
+      {node && model && !(inStorySheet && selected !== null) && (
         <motion.aside
           key="detail"
           initial={{ x: SHEET_WIDTH }}

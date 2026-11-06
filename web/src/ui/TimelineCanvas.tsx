@@ -3,7 +3,7 @@ import { Engine } from '../engine/Engine.ts'
 import { emitFrame } from '../engine/frames.ts'
 import { clearTextCache } from '../engine/overlay.ts'
 import { followEntry, openThread, setEngine, stepStory, useApp } from '../store.ts'
-import { FONT_FACES, LAYOUT, UNIT } from '../design.ts'
+import { FONT_FACES, LAYOUT } from '../design.ts'
 import { COMPACT_WIDTH, LABELS_WIDTH, rightSheetOpen, SHEET_CLEARANCE, SHEET_WIDTH } from './layout.ts'
 
 
@@ -19,7 +19,12 @@ export function TimelineCanvas() {
     try {
       engine = new Engine(glCanvas, overlay, {
         onHover: (index, x, y) => useApp.getState().setHover(index === null ? null : { index, x, y }),
-        onSelect: (index) => useApp.getState().select(index),
+        onSelect: (index) => {
+          const s = useApp.getState()
+          // Stories opens on the chart alone. Choosing an entry opens what led to it and what followed.
+          if (index !== null && s.mode === 'story' && s.story === null && followEntry(index)) return
+          s.select(index)
+        },
         onFollow: (index) => {
           // An entry with no links has nothing to follow, so the second tap just keeps it selected.
           if (!followEntry(index)) useApp.getState().select(index)
@@ -39,11 +44,10 @@ export function TimelineCanvas() {
       const s = useApp.getState()
       const compact = window.innerWidth < COMPACT_WIDTH
       const panel = !compact && rightSheetOpen(s)
-      const story = s.mode === 'story'
       const labels = !compact && s.labelsOpen
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
-      const sheet = compact && (s.selected !== null || s.unplacedSelected !== null || story)
-      const bottom = s.unplacedOpen ? window.innerHeight * 0.56 : sheet ? window.innerHeight * 0.5 : compact && s.mode === 'reach' ? 26 * UNIT : LAYOUT.frameBottom
+      const sheet = compact && rightSheetOpen(s)
+      const bottom = s.unplacedOpen ? window.innerHeight * 0.56 : sheet ? window.innerHeight * 0.5 : LAYOUT.frameBottom
       engine.setInsets({
         top: (compact ? LAYOUT.frameTopCompact : LAYOUT.frameTop) + LAYOUT.framePad,
         bottom: bottom + LAYOUT.framePad,
@@ -79,6 +83,7 @@ export function TimelineCanvas() {
         s.selected !== prev.selected ||
         s.unplacedSelected !== prev.unplacedSelected ||
         s.unplacedOpen !== prev.unplacedOpen ||
+        s.aboutOpen !== prev.aboutOpen ||
         s.labelsOpen !== prev.labelsOpen ||
         s.rowOrder !== prev.rowOrder ||
         s.story !== prev.story ||

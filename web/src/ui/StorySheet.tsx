@@ -22,10 +22,14 @@ function gapWords(years: number): string | null {
 /** Every thread worth reading on its own. */
 function StoryList({ model }: { model: Model }) {
   const index = useMemo(() => storyIndex(model.nodes, model.edges, 2).slice(0, INDEX_LIMIT), [model])
+  const setAboutOpen = useApp((s) => s.setAboutOpen)
   return (
     <>
-      <h2 className="text-head">Stories</h2>
-      <p className="note mt-1">Each is a set of placed entries joined by links, laid out on its own in reading order. Or click any entry on the chart twice to follow what led to it and what it made possible.</p>
+      <div className="flex items-baseline justify-between gap-3">
+        <h2 className="text-head">Stories</h2>
+        <CloseButton onClick={() => setAboutOpen(false)} label="Close the list of stories" />
+      </div>
+      <p className="note mt-1">Each is a set of placed entries joined by links, laid out on its own in reading order. Or click any entry on the chart to follow what led to it and what it made possible.</p>
       <ol className="mt-4 border-t border-rule">
         {index.map((story) => {
           const first = model.nodes[story.first]!

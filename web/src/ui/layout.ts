@@ -11,11 +11,14 @@ interface SheetState {
   selected: number | null
   unplacedSelected: string | null
   mode: string
+  story: unknown
+  aboutOpen: boolean
 }
 
-/** Whether a side sheet takes room from the chart on the right. */
+/** Whether a side sheet takes room from the chart on the right. One opens only when asked for. */
 export function rightSheetOpen(s: SheetState): boolean {
-  return s.unplacedSelected !== null || s.selected !== null || s.mode !== 'threads'
+  if (s.unplacedSelected !== null || s.selected !== null) return true
+  return (s.mode === 'story' && s.story !== null) || (s.aboutOpen && (s.mode === 'story' || s.mode === 'reach'))
 }
 
 /** The page margins, which widen to clear whichever side sheets are open. */

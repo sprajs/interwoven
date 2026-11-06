@@ -34,6 +34,8 @@ interface AppState {
   labelsOpen: boolean
   searchOpen: boolean
   unplacedOpen: boolean
+  /** Whether the current view's own sheet has been asked for: the list of stories, or the key to reach. */
+  aboutOpen: boolean
   setModel(model: Model): void
   setError(message: string): void
   setMode(mode: Mode): void
@@ -47,6 +49,7 @@ interface AppState {
   setLabelsOpen(open: boolean): void
   setSearchOpen(open: boolean): void
   setUnplacedOpen(open: boolean): void
+  setAboutOpen(open: boolean): void
   setRowOrder(order: RowOrder): void
   setSearchHits(hits: ReadonlySet<number> | null): void
   setPreviewLabel(id: string | null): void
@@ -79,9 +82,10 @@ export const useApp = create<AppState>((set) => ({
   labelsOpen: false,
   searchOpen: false,
   unplacedOpen: false,
+  aboutOpen: false,
   setModel: (model) => set({ model, error: null }),
   setError: (error) => set({ error }),
-  setMode: (mode) => set({ mode }),
+  setMode: (mode) => set((s) => ({ mode, aboutOpen: mode === s.mode ? s.aboutOpen : false })),
   setCompressed: (compressed) => set({ compressed }),
   toggleKind: (id) => set((s) => ({ hiddenKinds: toggled(s.hiddenKinds, id) })),
   toggleLabel: (id) => set((s) => ({ activeLabels: toggled(s.activeLabels, id) })),
@@ -92,6 +96,7 @@ export const useApp = create<AppState>((set) => ({
   setLabelsOpen: (labelsOpen) => set((s) => ({ labelsOpen, unplacedOpen: labelsOpen ? false : s.unplacedOpen })),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
   setUnplacedOpen: (unplacedOpen) => set((s) => ({ unplacedOpen, labelsOpen: unplacedOpen ? false : s.labelsOpen })),
+  setAboutOpen: (aboutOpen) => set({ aboutOpen }),
   setRowOrder: (rowOrder) => set({ rowOrder }),
   setSearchHits: (searchHits) => set({ searchHits }),
   setPreviewLabel: (previewLabel) => set({ previewLabel }),

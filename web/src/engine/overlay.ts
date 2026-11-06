@@ -875,22 +875,30 @@ function drawDensityProbe(engine: Engine, ctx: CanvasRenderingContext2D, W: numb
   const bounds = engine.frameBounds()
   if (pointer.y < bounds.top || pointer.y > bounds.bottom) return
 
-  const reach = 40
-  const a = engine.xToYear(pointer.x - reach)
-  const b = engine.xToYear(pointer.x + reach)
-  let count = 0
+  // One line at one year, read on the ruler, and how much of the record has been reached by then.
+  const year = engine.xToYear(pointer.x)
+  let total = 0
+  let reached = 0
   for (let i = 0; i < model.n; i++) {
-    const year = model.nodes[i]!.year
-    if (year >= a && year <= b && engine.passesFilters(i)) count++
+    if (!engine.passesFilters(i)) continue
+    total++
+    if (model.nodes[i]!.year <= year) reached++
   }
 
   ctx.fillStyle = `rgba(${INK.primary},${RULE_ALPHA.frame})`
-  ctx.fillRect(pointer.x - reach, bounds.top, LINE.hair, bounds.bottom - bounds.top)
-  ctx.fillRect(pointer.x + reach, bounds.top, LINE.hair, bounds.bottom - bounds.top)
+  ctx.fillRect(pointer.x - LINE.hair / 2, bounds.top, LINE.hair, bounds.bottom - bounds.top)
+  drawRulerYear(ctx, formatYear(year), pointer.x, bounds.top - LAYOUT.ruler)
 
-  const right = pointer.x + reach + UNIT
-  const flip = right + (2 * LAYOUT.column) / 3 > W - cam.insets.right
-  ctx.textAlign = flip ? 'right' : 'left'
-  drawNotePair(ctx, `${count.toLocaleString('en-US')} ${count === 1 ? 'entry' : 'entries'}`, `${formatYear(a)} to ${formatYear(b)}`, flip ? pointer.x - reach - UNIT : right, bounds.top + TYPE.body.line)
-  ctx.textAlign = 'left'
+  const text = `${reached.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} entries dated by ${formatYear(year)}`
+  ctx.font = font('note')
+  const width = measure(ctx, text, ctx.font)
+  const right = pointer.x + UNIT
+  const flip = right + width > W - cam.insets.right
+  const x = flip ? pointer.x - UNIT - width : right
+  const y = bounds.top + NOTE_LINE
+  ctx.lineWidth = HALO
+  ctx.strokeStyle = `rgba(${PAPER},${HALO_ALPHA})`
+  ctx.strokeText(text, x, y)
+  ctx.fillStyle = `rgba(${INK.secondary},1)`
+  ctx.fillText(text, x, y)
 }
