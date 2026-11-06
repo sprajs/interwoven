@@ -1,9 +1,8 @@
 // Builds public/data/timeline.json from the research graph.
 // Usage: npm run import [path/to/science-technology-graph]
 //
-// The research data is read only. Labels are not part of it yet, so they come from
-// the rules below, and data/label-overrides.json can replace them for any node.
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+// The research data is read only. Every entry carries explicit reviewed topics.
+import { readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { DateInterpretation, DateKind, EntryBasis, EntryEvidence, EntryScope, EvidenceStrength, HistoricalBound, HistoricalDate, Level, RawDataset, RawEntry, RawLabel, RawLink, RawNode, RawSource, RawUnplacedNode } from '../src/data/types.ts'
@@ -18,61 +17,17 @@ const INK = {
   moss: '#55772b',
 }
 
-/**
- * A node takes every label whose test matches, so one entry can belong to several
- * threads at once. The first match sets its ink, so order runs from specific to broad.
- */
-const LABEL_RULES: { id: string; name: string; ink: string; test: RegExp }[] = [
-  { id: 'genetics', name: 'Genetics', ink: INK.plum, test: /^bio-/ },
-  { id: 'computing', name: 'Computing', ink: INK.plum, test: /4004|micrologic|flip-flop|cpu|kilby|noyce|multiplexer|icon:logic.*elec|icon:computer/ },
-  { id: 'semiconductors', name: 'Semiconductors', ink: INK.indigo, test: /fairchild|hoerni|planar|bardeen|point-contact|oxide|atalla|mos-|kilby|noyce|intel|4004|photolithographic|multiplexer|surface/ },
-  { id: 'radio', name: 'Radio waves', ink: INK.indigo, test: /hertz|marconi|branly|helmholtz|maxwell/ },
-  { id: 'electromagnetism', name: 'Electromagnetism', ink: INK.indigo, test: /oersted|ampere|faraday-(rotation|ring|moving|disc|magneto)|maxwell|helmholtz|hertz|magnetocalorimeter|volta/ },
-  { id: 'batteries', name: 'Batteries', ink: INK.indigo, test: /volta|trough-battery/ },
-  { id: 'wayfinding', name: 'Wayfinding', ink: INK.verdigris, test: /hokulea|mau-|malindi|marshall|korent|planetarium|ra-i-/ },
-  { id: 'water', name: 'Water works', ink: INK.verdigris, test: /muldoons|dholavira|aqueduct/ },
-  { id: 'mills', name: 'Mills', ink: INK.verdigris, test: /mill|barbegal/ },
-  { id: 'metallurgy', name: 'Metals', ink: INK.madder, test: /copper(?!-disc)|bronze|iron(?!-plate)|steel|bessemer|crucible|cofusion|linz|gerlafingen|edsken/ },
-  { id: 'heat', name: 'Heat & energy', ink: INK.ochre, test: /joule|clausius|carnot|clapeyron|thomson|regnault|rumford|friction/ },
-  { id: 'steam', name: 'Steam power', ink: INK.ochre, test: /^mech-(condenser|soho|bloomfield|rotative|double-acting|expansion|papplewick|bersham|wilkinson)|regnault|carnot|clapeyron/ },
-  { id: 'machining', name: 'Precision making', ink: INK.ochre, test: /bersham|wilkinson|engine-shop|rumford/ },
-  { id: 'printing', name: 'Printing', ink: INK.moss, test: /sutra|jikji|bi-sheng/ },
-  { id: 'arithmetic', name: 'Arithmetic', ink: INK.moss, test: /brahmagupta|khwarizmi|uqlidisi|algorizmi|alchorismi|bugia|liber-abaci|ibn-banna|hawari/ },
-  { id: 'calculation', name: 'Calculating tools', ink: INK.moss, test: /napier|briggs|gunter|oughtred|allen/ },
-  { id: 'optics', name: 'Optics & glass', ink: INK.plum, test: /spyglass|telescope|reflector|refraction|(?<!google-)glass|apochromat|eyepiece|optical|zeiss|lunar|jupiter|microscope/ },
-  { id: 'astronomy', name: 'Astronomy', ink: INK.indigo, test: /galileo|telescope|reflector|jupiter|lunar|spyglass/ },
-  { id: 'instruments', name: 'Instruments', ink: INK.moss, test: /calorimeter|apparatus|spyglass|telescope|reflector|detector|objective|eyepiece|gunter|oughtred|allen|diffraction|polymerase/ },
-  // Broad threads last. They cross the specific ones without changing a node's ink.
-  { id: 'energy', name: 'Energy', ink: INK.ochre, test: /steam|engine|condenser|mill|battery|generator|volta|carnot|joule|clausius/ },
-  { id: 'electronics', name: 'Electronics', ink: INK.indigo, test: /fairchild|hoerni|planar|point-contact|atalla|kilby|noyce|intel|multiplexer|marconi|branly/ },
-  { id: 'materials', name: 'Materials', ink: INK.madder, test: /copper(?!-disc)|bronze|iron(?!-plate)|steel|bessemer|crucible|(?<!google-)glass|oxide|silicon|germanium|fired-types/ },
-  { id: 'measurement', name: 'Measurement', ink: INK.moss, test: /joule|regnault|rumford|calorimeter|comparisons|diffraction|base-ratios|survey|observation|absolute-scale/ },
-  { id: 'knowledge', name: 'Spread of knowledge', ink: INK.moss, test: /latin|teaching|bugia|liber|malindi|hawari|printing|jikji|sutra|bi-sheng/ },
-]
-
-// Explicit display assignments in data/label-overrides.json use these threads.
-// They do not broaden the existing rules or change an already labelled entry.
-const DISPLAY_LABELS: RawLabel[] = [
-  { id: 'mathematics', name: 'Mathematics', ink: INK.moss },
-  { id: 'transport', name: 'Roads & transport', ink: INK.verdigris },
-  { id: 'communication', name: 'Communication', ink: INK.indigo },
-  { id: 'accounting', name: 'Accounting', ink: INK.moss },
-  { id: 'ceramics', name: 'Ceramics', ink: INK.madder },
-  { id: 'polymers', name: 'Polymers', ink: INK.madder },
-  { id: 'timekeeping', name: 'Timekeeping', ink: INK.moss },
-  { id: 'electric-power', name: 'Electric power', ink: INK.ochre },
-  { id: 'medicine', name: 'Medicine', ink: INK.plum },
-  { id: 'chemistry', name: 'Chemistry', ink: INK.madder },
-]
+/** Explicit reviewed topic vocabulary; assignments live on canonical entries. */
+const LABEL_CATALOG: RawLabel[] = JSON.parse(readFileSync(join(import.meta.dirname, '../data/label-catalog.json'), 'utf8'))
 
 /** Each label belongs to one subject family, which sets its ink and where it sits on the chart. */
 const FAMILIES: { name: string; ink: string; labels: string[] }[] = [
-  { name: 'Number & print', ink: INK.moss, labels: ['mathematics', 'arithmetic', 'calculation', 'accounting', 'printing', 'knowledge', 'timekeeping', 'measurement'] },
-  { name: 'Water & wayfinding', ink: INK.verdigris, labels: ['water', 'mills', 'wayfinding', 'transport'] },
-  { name: 'Materials', ink: INK.madder, labels: ['metallurgy', 'materials', 'ceramics', 'polymers', 'chemistry'] },
-  { name: 'Heat & power', ink: INK.ochre, labels: ['heat', 'steam', 'energy', 'machining', 'electric-power'] },
-  { name: 'Electricity & computing', ink: INK.indigo, labels: ['electromagnetism', 'radio', 'batteries', 'communication', 'electronics', 'semiconductors', 'computing'] },
-  { name: 'Light & life', ink: INK.plum, labels: ['optics', 'astronomy', 'instruments', 'genetics', 'medicine'] },
+  { name: 'Number & print', ink: INK.moss, labels: ['mathematics', 'arithmetic', 'calculation', 'accounting', 'printing', 'knowledge-transmission', 'timekeeping', 'measurement'] },
+  { name: 'Water & wayfinding', ink: INK.verdigris, labels: ['water', 'mills', 'navigation', 'transport', 'agriculture', 'aquaculture'] },
+  { name: 'Materials', ink: INK.madder, labels: ['metallurgy', 'materials', 'ceramics', 'polymers', 'chemistry', 'glass'] },
+  { name: 'Heat & power', ink: INK.ochre, labels: ['heat', 'steam', 'energy', 'machining', 'electric-power', 'mechanisms'] },
+  { name: 'Electricity & computing', ink: INK.indigo, labels: ['electromagnetism', 'radio', 'batteries', 'communication', 'electronics', 'semiconductors', 'computing', 'integrated-circuits'] },
+  { name: 'Light & life', ink: INK.plum, labels: ['optics', 'astronomy', 'instruments', 'molecular-biology', 'medicine'] },
 ]
 const FAMILY_OF = new Map(FAMILIES.flatMap((family) => family.labels.map((id) => [id, family] as const)))
 
@@ -241,7 +196,7 @@ function selectedAnchor(node: ResearchNode, events: ResearchEvent[]) {
 }
 
 
-export function buildResearchDataset(records: ResearchRecords, overrides: Record<string, string[]> = {}): RawDataset {
+export function buildResearchDataset(records: ResearchRecords): RawDataset {
   const eventsByNode = new Map<string, ResearchEvent[]>()
   for (const event of records.events) {
     const list = eventsByNode.get(event.node_id) ?? []
@@ -254,8 +209,8 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   for (const node of records.nodes) {
     const events = eventsByNode.get(node.id) ?? []
     const anchor = selectedAnchor(node, events)
-    const haystack = `${node.id} ${node.label} icon:${node.icon ?? ''}`.toLowerCase()
-    const labels = overrides[node.id] ?? node.labels ?? LABEL_RULES.filter((rule) => rule.test.test(haystack)).map((rule) => rule.id)
+    const labels = node.labels
+    if (!labels?.length || labels.some((id) => !LABEL_CATALOG.some((label) => label.id === id))) throw new Error(`Entry ${node.id} needs explicit reviewed labels from the topic vocabulary.`)
     labels.forEach((label) => usedLabels.add(label))
     const sourceIds = new Set<string>(Array.isArray(node.provenance?.source_ids) ? node.provenance.source_ids.filter(hasText) : [])
     const cite = (entries: unknown) => { if (Array.isArray(entries)) for (const evidence of entries) if (evidence && hasText(evidence.source_id)) sourceIds.add(evidence.source_id) }
@@ -316,7 +271,7 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   for (const source of records.sources) if (cited.has(source.id)) sources[source.id] = {
     title: source.title, url: source.url, year: Array.isArray(source.year) ? source.year.join(', ') : source.year,
   }
-  const declared = new Map<string, RawLabel>([...LABEL_RULES, ...DISPLAY_LABELS].map((label) => [label.id, { id: label.id, name: label.name, ink: label.ink }]))
+  const declared = new Map<string, RawLabel>(LABEL_CATALOG.map((label) => [label.id, { id: label.id, name: label.name, ink: label.ink }]))
   return {
     meta: { title: 'Interwoven', description: 'A selective, growing record of science, mathematics, technology and practice; dates mark the earliest evidenced record, with community entry shown separately',
       provenance: 'Generated from research/science-technology-graph. Do not edit by hand.' },
@@ -339,10 +294,8 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
 function main(): void {
   const dir = process.argv[2] ?? join(import.meta.dirname, '../../research/science-technology-graph')
   const readJsonl = (name: string) => readFileSync(join(dir, 'data', name), 'utf8').split('\n').filter((line) => line.trim()).map((line) => JSON.parse(line))
-  const overridesPath = join(import.meta.dirname, '../data/label-overrides.json')
-  const overrides = existsSync(overridesPath) ? JSON.parse(readFileSync(overridesPath, 'utf8')) : {}
   const dataset = buildResearchDataset({ nodes: readJsonl('nodes.jsonl'), events: readJsonl('events.jsonl'),
-    relationships: readJsonl('relationships.jsonl'), sources: readJsonl('sources.jsonl') }, overrides)
+    relationships: readJsonl('relationships.jsonl'), sources: readJsonl('sources.jsonl') })
   const issues = validateDataset(dataset)
   for (const issue of issues) console.log(`${issue.severity}: ${issue.message}`)
   const invalidSelections = (dataset.unplaced ?? []).filter((entry) => entry.anchor_status === 'selected')

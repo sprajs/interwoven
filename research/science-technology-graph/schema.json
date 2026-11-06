@@ -1031,6 +1031,54 @@
             ],
             "additionalProperties": false
           }
+        },
+        "labels": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "molecular-biology",
+              "computing",
+              "semiconductors",
+              "radio",
+              "electromagnetism",
+              "batteries",
+              "navigation",
+              "water",
+              "mills",
+              "metallurgy",
+              "heat",
+              "steam",
+              "machining",
+              "printing",
+              "arithmetic",
+              "calculation",
+              "optics",
+              "astronomy",
+              "instruments",
+              "energy",
+              "electronics",
+              "materials",
+              "measurement",
+              "knowledge-transmission",
+              "mathematics",
+              "transport",
+              "communication",
+              "accounting",
+              "ceramics",
+              "polymers",
+              "timekeeping",
+              "electric-power",
+              "medicine",
+              "chemistry",
+              "glass",
+              "integrated-circuits",
+              "agriculture",
+              "mechanisms",
+              "aquaculture"
+            ]
+          }
         }
       },
       "required": [
@@ -1047,7 +1095,8 @@
         "review",
         "provenance",
         "uncertainty",
-        "community_entry"
+        "community_entry",
+        "labels"
       ],
       "additionalProperties": false,
       "allOf": [

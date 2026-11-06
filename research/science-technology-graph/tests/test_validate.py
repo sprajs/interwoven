@@ -57,7 +57,7 @@ def node(events, node_id="node-1", kind="technology"):
             entry = lifecycle[record["event_type"]]
             entry.update(status="documented", rationale="This event is documented by the fixture.", evidence=[evidence()])
             entry["event_ids"].append(record["id"])
-    return {"schema_version": 1, "id": node_id, "label": "Synthetic apparatus", "kind": kind,
+    return {"schema_version": 1, "id": node_id, "label": "Synthetic apparatus", "kind": kind, "labels":["mathematics"],
             "configuration": "Fixture apparatus", "regions": ["Fixture region"], "event_ids": [e["id"] for e in events],
             "lifecycle": lifecycle, "commercial_applicability": {"status": "not_applicable" if kind == "science" else "applicable",
             "rationale": "Scientific claim." if kind == "science" else "A possible commercial apparatus.", "evidence": []},

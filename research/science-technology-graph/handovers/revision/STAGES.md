@@ -106,3 +106,26 @@ result. No second role vocabulary was introduced.
 
 Validation: graph valid, zero concerns; 93 graph tests and 139 web tests passed,
 the draft pilot checker passed, and the production build passed.
+
+## Stage 5 — completed
+
+All 283 canonical entries now carry explicit reviewed `labels`. The regex rules
+and display override file were retired; a new entry without reviewed topics fails
+import. The catalogue in `web/data/label-catalog.json` defines each topic and the
+schema rejects undeclared labels. Brand words, surnames and substrate words no
+longer assign topics.
+
+Optics and Glass are separate. Molecular biology replaces Genetics; Navigation
+and seafaring replaces Wayfinding. Integrated circuits, Agriculture, Mechanisms
+and Medicine and microbiology are explicit topics. Power and energy conversion,
+physical Instruments and Knowledge transmission have bounded definitions.
+Aquaculture distinguishes managed fishpond production. The row-level audit
+mistakes and the later additions were included in the full assignment review.
+
+No substantive analysis labels have been scaled from the one-coder pilot. The
+proposal still requires reliability checks before treating such coding as findings.
+This does not block topic labels or independently sourced history repairs.
+
+Validation: graph valid with zero concerns; 93 graph tests, 140 web tests and the
+production build passed. A regression test rejects unreviewed topics and checks
+that brand words cannot override a reviewed assignment.

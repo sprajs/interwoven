@@ -14,7 +14,7 @@ function event(id: string, nodeId: string, type: string, year: number): Research
 function node(id: string, events: ResearchEvent[], basis: EntryBasis = 'first_commercial_availability', anchorId?: string): ResearchNode {
   const lifecycle = new Set(['invention', 'first_commercial_availability', 'practical_deployment', 'adoption', 'discovery', 'observation', 'formulation', 'publication', 'experimental_confirmation', 'acceptance', 'decline', 'withdrawal', 'end_of_use', 'abandonment', 'revival'])
   return { id, label: `Entry ${id}`, kind: ['recognition', 'public_awareness'].includes(basis) ? 'science' : 'technology',
-    configuration: 'Synthetic configuration.', labels: ['fixture'], event_ids: events.map((entry) => entry.id),
+    configuration: 'Synthetic configuration.', labels: ['mathematics'], event_ids: events.map((entry) => entry.id),
     graph_anchor: { status: anchorId ? 'selected' : 'not_yet_researched', policy: 'earliest_record', event_id: anchorId, date_interpretation: 'event_date', rationale: 'Fixture record', uncertainty: 'Fixture only', scope: { regions: [], configuration: 'Synthetic configuration.', applications: [], market: {status:'unknown'}, population: {status:'unknown'} }, evidence: [{source_id:'source-1',locator:'Fixture p. 1',supports:'Fixture record'}] },
     community_entry: { status: anchorId ? 'selected' : 'not_yet_researched', policy: 'community_entry', event_id: anchorId,
       entry_basis: basis, evidence_strength: basis === 'public_awareness' ? 'awareness_proxy' : 'direct', date_interpretation: 'event_date',
@@ -34,6 +34,16 @@ function records(nodes: ResearchNode[], events: ResearchEvent[]): ResearchRecord
 }
 
 describe('research importer placement', () => {
+  it('uses reviewed topics regardless of brand words and rejects unreviewed entries', () => {
+    const use = event('label-use', 'label-node', 'practical_use', 2000)
+    const entry = node('label-node', [use], 'practical_use', use.id)
+    entry.label = 'Google Glass polymerase engine'
+    entry.labels = ['medicine']
+    expect(buildResearchDataset(records([entry], [use])).nodes[0]!.labels).toEqual(['medicine'])
+    delete entry.labels
+    expect(() => buildResearchDataset(records([entry], [use]))).toThrow(/explicit reviewed labels/)
+  })
+
   it('exports original scoped event evidence and both review axes for lifecycle presentation', () => {
     const use = event('scoped-use', 'scope', 'practical_use', 1910)
     const current = node('scope', [use], 'practical_use', use.id)
