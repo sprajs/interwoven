@@ -32,16 +32,16 @@
     "3": "62 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "4": "33 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "5": "14 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "6": "13 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary."
+    "6": "15 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary."
   },
   "summary": {
-    "candidate_and_integrated_cases": 218,
+    "candidate_and_integrated_cases": 220,
     "by_status": {
       "proposed": 173,
-      "integrated": 45
+      "integrated": 47
     },
     "by_pod": {
-      "A": 67,
+      "A": 69,
       "B": 46,
       "C": 54,
       "D": 51
@@ -12518,6 +12518,40 @@
         "global_comparison_status": "frontier_supported",
         "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
       }
+    },
+    {
+      "id": "INTEGRATED-cont-a-kepler-mars-elliptical-orbit",
+      "title": "Kepler’s elliptical model of Mars",
+      "owner": "/root/lifecycle_terra",
+      "pod": "A",
+      "wave": 6,
+      "source_leads": [],
+      "status": "integrated",
+      "canonical_node_id": "cont-a-kepler-mars-elliptical-orbit",
+      "review_ledger": "reviews/continuation-06.json",
+      "accepted_scope": "A geometrical astronomical model in which Mars follows an ellipse around the Sun, with the Sun at one focus. This differed as a historical proposed orbit from earlier circular and epicyclic models. The 1609 publication is scoped to Mars; later extension to all planets is not bundled into the dated formulation.",
+      "entry_event_id": "cont-a-kepler-mars-elliptical-orbit--lower-harriot-recognition",
+      "frontier_review": {
+        "global_comparison_status": "frontier_supported",
+        "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
+      }
+    },
+    {
+      "id": "INTEGRATED-cont-a-newton-universal-gravitation",
+      "title": "Newton’s universal gravitation",
+      "owner": "/root/lifecycle_terra",
+      "pod": "A",
+      "wave": 6,
+      "source_leads": [],
+      "status": "integrated",
+      "canonical_node_id": "cont-a-newton-universal-gravitation",
+      "review_ledger": "reviews/continuation-06.json",
+      "accepted_scope": "A single dynamical account relates terrestrial falling bodies, the Moon and planetary motion, with mutually attracting matter and an inverse-square dependence. The proposition extends attraction beyond celestial centres to the material parts of bodies; it is not limited to an inverse-square solar analogy.",
+      "entry_event_id": "cont-a-newton-universal-gravitation--locke-review-recognition",
+      "frontier_review": {
+        "global_comparison_status": "frontier_supported",
+        "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
+      }
     }
   ],
   "existing_graph_priorities": [
@@ -12578,12 +12612,12 @@
   "research_baseline_commit": "4c5a10531d3f01a6d51df45bc53aa7f331cc1672",
   "maintenance": "Single current register. Prospective hypotheses and source leads are not accepted historical facts. Historical assertion acceptance and frontier eligibility are separate. Integrated cases are updated in place and linked to exact reviews.",
   "current_canonical": {
-    "nodes": 255,
-    "events": 464,
+    "nodes": 257,
+    "events": 471,
     "relationships": 131,
-    "sources": 518,
-    "nodes_sha256": "a64eff12455305abbcc0e72682f4d37aaac993983316ae70d966edd534298a9f",
-    "new_entries_integrated": 45,
+    "sources": 534,
+    "nodes_sha256": "52e81e26c3fd3c33fb241744be349a69ac1253796c8538e0406c12aff931f27a",
+    "new_entries_integrated": 47,
     "confirmed_identity_consolidations": 3,
     "assessment_record": "reviews/frontier-audit.json",
     "identity_refinements": 3,
@@ -13030,6 +13064,33 @@
           "name": "C6",
           "review_file_sha256": "bbb811dd5502efaf758a9f58004a76cb539a4342c257ecfe86c64f4f4419b8ca",
           "proposal_file_sha256": "ef0f76ff8089259989f33800d3b8a411fde258f014b382e554ab3c8cf4a184b9"
+        }
+      ]
+    },
+    {
+      "review_ledger": "reviews/continuation-06.json",
+      "wave": 6,
+      "source_manifest_sha256": "7c99d4a5c680353a44333e8d8e4fdf746adfd749e3f76adec42cdd5e87927db8",
+      "integrated_node_ids": [
+        "cont-a-kepler-mars-elliptical-orbit",
+        "cont-a-newton-universal-gravitation"
+      ],
+      "integrated_event_ids": [
+        "cont-a-kepler-mars-elliptical-orbit--astronomia-nova-publication",
+        "cont-a-kepler-mars-elliptical-orbit--lower-harriot-recognition",
+        "cont-a-newton-universal-gravitation--principia-book3-publication",
+        "cont-a-newton-universal-gravitation--huygens-critical-recognition",
+        "cont-a-newton-universal-gravitation--whiston-lemmas",
+        "cont-a-newton-universal-gravitation--locke-review-recognition",
+        "cont-a-newton-universal-gravitation--locke-review-publication"
+      ],
+      "integrated_relationship_ids": [],
+      "entry_policy": "Best supported community entry with scope/approximation/open bounds; frontier comparison is separate.",
+      "independent_reviews": [
+        {
+          "name": "A3",
+          "review_file_sha256": "7521ce5133936a0eab6efaf37dd7ea1bb78010e472b51f3ce005991601009f73",
+          "proposal_file_sha256": "199c3488984ab1c3bfb293abd8f5ddff001edc4e12f1324e89c5ea4ac77638c7"
         }
       ]
     }
