@@ -14,7 +14,7 @@ interface LinkLike {
 }
 
 export interface Reach {
-  /** Latest entry built directly on each entry, or the entry's own year if none. */
+  /** Latest entry built directly on each entry by a reviewed link, or its own year if none. */
   direct: Float64Array
   /** Latest descendant through reviewed links only. */
   firm: Float64Array
@@ -39,7 +39,7 @@ export function computeReach(nodes: readonly Dated[], edges: readonly LinkLike[]
   const out: LinkLike[][] = Array.from({ length: n }, () => [])
   for (const edge of edges) {
     out[edge.source]!.push(edge)
-    if (year[edge.target]! > direct[edge.source]!) direct[edge.source] = year[edge.target]!
+    if (!edge.tentative && year[edge.target]! > direct[edge.source]!) direct[edge.source] = year[edge.target]!
   }
   for (let pass = 0; pass < 8; pass++) {
     let changed = false
