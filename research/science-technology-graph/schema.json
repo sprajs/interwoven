@@ -984,7 +984,7 @@
           "$ref": "#/$defs/commercial_applicability"
         },
         "graph_anchor": {
-          "$ref": "#/$defs/anchor"
+          "$ref": "#/$defs/record_anchor"
         },
         "review": {
           "$ref": "#/$defs/review"
@@ -1007,6 +1007,28 @@
         "icon": {
           "type": "string",
           "minLength": 1
+        },
+        "community_entry": {
+          "$ref": "#/$defs/anchor"
+        },
+        "witnesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_id": {
+                "$ref": "#/$defs/id"
+              },
+              "limitation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "event_id",
+              "limitation"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
@@ -1022,7 +1044,8 @@
         "graph_anchor",
         "review",
         "provenance",
-        "uncertainty"
+        "uncertainty",
+        "community_entry"
       ],
       "additionalProperties": false,
       "allOf": [
@@ -1363,6 +1386,89 @@
         "evidence_lineage"
       ],
       "additionalProperties": false
+    },
+    "record_anchor": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "selected",
+            "unknown",
+            "not_yet_researched",
+            "not_applicable"
+          ]
+        },
+        "event_id": {
+          "$ref": "#/$defs/id"
+        },
+        "date_interpretation": {
+          "enum": [
+            "event_date",
+            "known_by",
+            "known_from"
+          ]
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "uncertainty": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "policy": {
+          "const": "earliest_record"
+        }
+      },
+      "required": [
+        "status",
+        "policy",
+        "rationale"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "selected"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "event_id",
+              "date_interpretation",
+              "scope",
+              "evidence",
+              "uncertainty"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "event_id"
+              ]
+            }
+          }
+        }
+      ]
     }
   }
 }

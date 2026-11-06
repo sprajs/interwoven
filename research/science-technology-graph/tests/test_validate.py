@@ -61,7 +61,8 @@ def node(events, node_id="node-1", kind="technology"):
             "configuration": "Fixture apparatus", "regions": ["Fixture region"], "event_ids": [e["id"] for e in events],
             "lifecycle": lifecycle, "commercial_applicability": {"status": "not_applicable" if kind == "science" else "applicable",
             "rationale": "Scientific claim." if kind == "science" else "A possible commercial apparatus.", "evidence": []},
-            "graph_anchor": {"status": "not_yet_researched", "policy": "community_entry",
+            "graph_anchor": {"status":"not_yet_researched", "policy":"earliest_record", "rationale":"Fixture earliest record unresolved."},
+            "community_entry": {"status": "not_yet_researched", "policy": "community_entry",
             "rationale": "No anchor has been researched."}, "review": review(), "provenance": provenance(), "uncertainty": "Fixture only."}
 
 
@@ -79,14 +80,14 @@ def fixture():
 
 def select_anchor(record, event_id, entry_basis="first_commercial_availability", strength=None, interpretation="event_date"):
     strength = strength or ("awareness_proxy" if entry_basis == "public_awareness" else "direct")
-    record["graph_anchor"] = {"status": "selected", "policy": "community_entry", "event_id": event_id,
+    record["community_entry"] = {"status": "selected", "policy": "community_entry", "event_id": event_id,
         "entry_basis": entry_basis, "evidence_strength": strength, "date_interpretation": interpretation,
         "community": "Named fixture community", "scope": {"regions": ["Fixture region"], "configuration": record["configuration"],
         "applications": ["Fixture application"], "market": {"status": "unknown"}, "population": {"status": "specified", "value": "Named fixture community"}},
         "evidence": [evidence()], "rationale": "The inspected fixture supports this deliberate community-entry choice.",
         "uncertainty": "No broader uptake or earlier entry is asserted."}
     if strength != "direct":
-        record["graph_anchor"]["proxy_justification"] = "The fixture supports only this expressly limited community inference or awareness opportunity."
+        record["community_entry"]["proxy_justification"] = "The fixture supports only this expressly limited community inference or awareness opportunity."
 
 
 def relationship(from_node="node-1", from_event="event-1", to_node="node-2", to_event="event-2"):
@@ -111,6 +112,22 @@ def linked_fixture():
 
 
 class GraphValidationTests(unittest.TestCase):
+    def test_earliest_record_can_precede_community_entry(self):
+        records = fixture()
+        earlier = records['events'][0]
+        later = event('later-use', event_type='practical_use', year=1910)
+        records['events'].append(later)
+        records['nodes'][0] = node(records['events'])
+        select_anchor(records['nodes'][0], later['id'], 'practical_use')
+        records['nodes'][0]['graph_anchor'] = {'status':'selected', 'policy':'earliest_record',
+            'event_id':earlier['id'], 'date_interpretation':'event_date', 'scope':earlier['scope'],
+            'evidence':earlier['evidence'], 'rationale':'Earlier scoped record, independently selected.',
+            'uncertainty':'No absolute priority asserted.'}
+        self.assertTrue(validator.validate_records(records, optional_jsonschema=False)['valid'])
+        records['nodes'][0]['witnesses'] = [{'event_id':earlier['id'], 'limitation':'Only a surviving copy.'}]
+        result = validator.validate_records(records, optional_jsonschema=False)
+        self.assertTrue(any(e['code'] == 'witness_anchor' for e in result['errors']))
+
     def check(self, records):
         return validator.validate_records(records, optional_jsonschema=False)
 
@@ -133,7 +150,7 @@ class GraphValidationTests(unittest.TestCase):
         self.assertEqual(before, records)
         self.assertEqual(1, result["counts"]["technology_commercial_dates_unresearched"])
         self.assertEqual(1, result["counts"]["anchors_unresolved"])
-        self.assertNotIn("event_id", records["nodes"][0]["graph_anchor"])
+        self.assertNotIn("event_id", records["nodes"][0]["community_entry"])
 
     def test_disconnected_abandoned_and_extinct_branch_is_valid(self):
         events = [event(), event("abandoned", event_type="abandonment", year=1910),
@@ -172,7 +189,7 @@ class GraphValidationTests(unittest.TestCase):
         records.update(nodes=[node(events)], events=events)
         select_anchor(records["nodes"][0], "adopted", "adoption")
         self.assertValid(records)
-        self.assertEqual("adopted", records["nodes"][0]["graph_anchor"]["event_id"])
+        self.assertEqual("adopted", records["nodes"][0]["community_entry"]["event_id"])
         self.assertEqual(["invented"], records["nodes"][0]["lifecycle"]["invention"]["event_ids"])
 
     def test_scientific_observation_cannot_displace_selected_later_acceptance(self):
@@ -181,7 +198,7 @@ class GraphValidationTests(unittest.TestCase):
         records.update(nodes=[node(events, kind="science")], events=events)
         select_anchor(records["nodes"][0], "accepted", "recognition")
         self.assertValid(records)
-        records["nodes"][0]["graph_anchor"]["event_id"] = "observed"
+        records["nodes"][0]["community_entry"]["event_id"] = "observed"
         self.assertInvalid(records, "anchor_type")
 
     def test_public_disclosure_proxy_is_justified_and_never_called_adoption(self):
@@ -190,7 +207,7 @@ class GraphValidationTests(unittest.TestCase):
         records.update(nodes=[node([disclosure], kind="science")], events=[disclosure])
         select_anchor(records["nodes"][0], disclosure["id"], "public_awareness")
         self.assertValid(records)
-        anchor = records["nodes"][0]["graph_anchor"]
+        anchor = records["nodes"][0]["community_entry"]
         anchor["entry_basis"] = "adoption"
         self.assertInvalid(records, "anchor_strength")
         anchor["entry_basis"] = "public_awareness"
@@ -216,7 +233,7 @@ class GraphValidationTests(unittest.TestCase):
         records = fixture()
         records.update(nodes=[node(events)], events=events)
         select_anchor(records["nodes"][0], "local-use", "practical_use")
-        anchor = records["nodes"][0]["graph_anchor"]
+        anchor = records["nodes"][0]["community_entry"]
         anchor.update(community="Named expedition crew", uncertainty="Use by this crew does not establish adoption outside the failed expedition.")
         anchor["scope"]["population"] = {"status": "specified", "value": "Named expedition crew"}
         self.assertValid(records)
@@ -229,12 +246,12 @@ class GraphValidationTests(unittest.TestCase):
         records = fixture()
         records.update(nodes=[node([use])], events=[use])
         select_anchor(records["nodes"][0], use["id"], "practical_use", strength="scoped_inference", interpretation="known_by")
-        records["nodes"][0]["graph_anchor"].update(community="The named workshop context", uncertainty="Contextual availability is inferred; the layer interval is not the start of manufacture or universal uptake.")
+        records["nodes"][0]["community_entry"].update(community="The named workshop context", uncertainty="Contextual availability is inferred; the layer interval is not the start of manufacture or universal uptake.")
         self.assertValid(records)
         use["event_type"] = "archaeological_evidence"
         self.assertInvalid(records, "anchor_type")
         use["event_type"] = "practical_use"
-        records["nodes"][0]["graph_anchor"]["entry_basis"] = "adoption"
+        records["nodes"][0]["community_entry"]["entry_basis"] = "adoption"
         self.assertInvalid(records, "anchor_strength")
 
     def test_selected_community_entry_requires_explicit_scope_evidence_and_uncertainty(self):
@@ -245,7 +262,7 @@ class GraphValidationTests(unittest.TestCase):
         for field in ("community", "scope", "evidence", "uncertainty", "date_interpretation"):
             with self.subTest(field=field):
                 bad = deepcopy(records)
-                del bad["nodes"][0]["graph_anchor"][field]
+                del bad["nodes"][0]["community_entry"][field]
                 self.assertInvalid(bad, "required")
 
     def test_entry_bound_interpretation_requires_the_corresponding_supplied_limit(self):
@@ -284,7 +301,7 @@ class GraphValidationTests(unittest.TestCase):
         records["nodes"] = [node(records["events"])]
         select_anchor(records["nodes"][0], "event-1", "practical_use")
         self.assertValid(records)
-        records["nodes"][0]["graph_anchor"]["evidence"] = []
+        records["nodes"][0]["community_entry"]["evidence"] = []
         self.assertInvalid(records, "schema")
 
     def test_scientific_entry_uses_uptake_or_an_explicit_awareness_proxy(self):
@@ -307,12 +324,12 @@ class GraphValidationTests(unittest.TestCase):
 
     def test_anchor_policy_must_match_node_kind(self):
         records = fixture()
-        records["nodes"][0]["graph_anchor"]["policy"] = "scientific_event"
+        records["nodes"][0]["community_entry"]["policy"] = "scientific_event"
         self.assertInvalid(records, "schema")
 
     def test_unselected_anchor_must_omit_event_id(self):
         records = fixture()
-        records["nodes"][0]["graph_anchor"]["event_id"] = "event-1"
+        records["nodes"][0]["community_entry"]["event_id"] = "event-1"
         self.assertInvalid(records, "schema")
 
     def test_ongoing_status_requires_valid_as_of_and_evidence(self):
@@ -640,7 +657,7 @@ class GraphValidationTests(unittest.TestCase):
 
     def test_anchor_and_relationship_events_belong_to_their_endpoint_node(self):
         records = linked_fixture()
-        records["nodes"][0]["graph_anchor"]["event_id"] = "b-commercial"
+        records["nodes"][0]["community_entry"]["event_id"] = "b-commercial"
         self.assertInvalid(records, "anchor_membership")
         records = linked_fixture()
         records["relationships"][0]["from"]["event_id"] = "b-commercial"

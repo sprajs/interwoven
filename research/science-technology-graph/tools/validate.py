@@ -280,7 +280,22 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
                     errors.append(issue(lp + ".event_ids", f"event {eid!r} is not owned by this node", "event_membership"))
                 elif events[eid][0].get("event_type") != stage:
                     errors.append(issue(lp + ".event_ids", f"event {eid!r} has type {events[eid][0].get('event_type')!r}, expected {stage!r}", "lifecycle_type"))
-        anchor = node["graph_anchor"]
+        record_anchor = node["graph_anchor"]
+        if record_anchor["status"] == "selected":
+            eid = record_anchor["event_id"]
+            if eid not in owned:
+                errors.append(issue(path + ".graph_anchor.event_id", "earliest record must belong to the node", "anchor_membership"))
+            elif eid in valid_ids["events"]:
+                chosen = events[eid][0]
+                if chosen["date"]["status"] not in {"known", "approximate", "bounded"}:
+                    errors.append(issue(path + ".graph_anchor", "earliest record needs supplied date bounds", "anchor_date"))
+                for witness in node.get("witnesses", []):
+                    if witness["event_id"] == eid:
+                        errors.append(issue(path + ".graph_anchor", "surviving-copy witness is not automatically an earliest-record anchor", "witness_anchor"))
+        for witness in node.get("witnesses", []):
+            if witness["event_id"] not in owned:
+                errors.append(issue(path + ".witnesses", "witness event must belong to node", "event_membership"))
+        anchor = node["community_entry"]
         if anchor["status"] == "selected":
             eid = anchor["event_id"]
             if eid not in owned:
@@ -341,9 +356,9 @@ def validate_records(records, schema_path=None, optional_jsonschema=True):
         "technology_commercial_dates_unresearched": sum(n["kind"] == "technology" and n["lifecycle"]["first_commercial_availability"]["status"] == "not_yet_researched" for n in good_nodes),
         "anchors_unresolved": sum(n["graph_anchor"]["status"] in ("unknown", "not_yet_researched") for n in good_nodes),
         "anchor_status": dict(Counter(n["graph_anchor"]["status"] for n in good_nodes)),
-        "community_entry_basis": dict(Counter(n["graph_anchor"]["entry_basis"] for n in good_nodes if n["graph_anchor"]["status"] == "selected")),
-        "entry_evidence_strength": dict(Counter(n["graph_anchor"]["evidence_strength"] for n in good_nodes if n["graph_anchor"]["status"] == "selected")),
-        "entry_date_interpretation": dict(Counter(n["graph_anchor"]["date_interpretation"] for n in good_nodes if n["graph_anchor"]["status"] == "selected")),
+        "community_entry_basis": dict(Counter(n["community_entry"]["entry_basis"] for n in good_nodes if n["community_entry"]["status"] == "selected")),
+        "entry_evidence_strength": dict(Counter(n["community_entry"]["evidence_strength"] for n in good_nodes if n["community_entry"]["status"] == "selected")),
+        "entry_date_interpretation": dict(Counter(n["community_entry"]["date_interpretation"] for n in good_nodes if n["community_entry"]["status"] == "selected")),
         "lifecycle_status": {stage: dict(Counter(n["lifecycle"][stage]["status"] for n in good_nodes)) for stage in LIFECYCLE},
         "review": reviews,
     }

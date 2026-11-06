@@ -15,7 +15,8 @@ function node(id: string, events: ResearchEvent[], basis: EntryBasis = 'first_co
   const lifecycle = new Set(['invention', 'first_commercial_availability', 'practical_deployment', 'adoption', 'discovery', 'observation', 'formulation', 'publication', 'experimental_confirmation', 'acceptance', 'decline', 'withdrawal', 'end_of_use', 'abandonment', 'revival'])
   return { id, label: `Entry ${id}`, kind: ['recognition', 'public_awareness'].includes(basis) ? 'science' : 'technology',
     configuration: 'Synthetic configuration.', labels: ['fixture'], event_ids: events.map((entry) => entry.id),
-    graph_anchor: { status: anchorId ? 'selected' : 'not_yet_researched', policy: 'community_entry', event_id: anchorId,
+    graph_anchor: { status: anchorId ? 'selected' : 'not_yet_researched', policy: 'earliest_record', event_id: anchorId, date_interpretation: 'event_date', rationale: 'Fixture record', uncertainty: 'Fixture only', scope: { regions: [], configuration: 'Synthetic configuration.', applications: [], market: {status:'unknown'}, population: {status:'unknown'} }, evidence: [{source_id:'source-1',locator:'Fixture p. 1',supports:'Fixture record'}] },
+    community_entry: { status: anchorId ? 'selected' : 'not_yet_researched', policy: 'community_entry', event_id: anchorId,
       entry_basis: basis, evidence_strength: basis === 'public_awareness' ? 'awareness_proxy' : 'direct', date_interpretation: 'event_date',
       community: 'Named local specialist community', scope: { regions: ['Fixture region'], configuration: 'Synthetic configuration.', applications: ['Fixture application'],
         market: { status: 'unknown' }, population: { status: 'specified', value: 'Named local specialist community' } },
@@ -36,7 +37,7 @@ describe('research importer placement', () => {
   it('exports original scoped event evidence and both review axes for lifecycle presentation', () => {
     const use = event('scoped-use', 'scope', 'practical_use', 1910)
     const current = node('scope', [use], 'practical_use', use.id)
-    use.scope = structuredClone(current.graph_anchor!.scope!)
+    use.scope = structuredClone(current.community_entry!.scope!)
     use.evidence = [{ source_id: 'source-1', locator: 'Operating record, p. 4', supports: 'Only the named local users are attested.' }]
     use.review = { historical_claim: 'accepted', lifecycle_classification: 'needs_review' }
     const before = JSON.stringify([current, use])
@@ -51,7 +52,7 @@ describe('research importer placement', () => {
     const data = buildResearchDataset(records([node('u', [invention])], [invention]))
     expect(data.nodes).toEqual([])
     expect(data.unplaced).toHaveLength(1)
-    expect(data.unplaced![0]).toMatchObject({ id: 'u', anchor_status: 'not_yet_researched', placement_reason: 'Community entry not yet researched.', sources: ['source-1'] })
+    expect(data.unplaced![0]).toMatchObject({ id: 'u', anchor_status: 'not_yet_researched', placement_reason: 'Earliest record not yet researched.', sources: ['source-1'] })
     expect(data.unplaced![0]).not.toHaveProperty('year')
     expect(data.events!['u-invention']!.date_label).toBe('1850')
     const model = buildModel(data)
@@ -78,7 +79,7 @@ describe('research importer placement', () => {
     current.commercial_applicability = { status: 'applicable', rationale: 'A market may exist.' }
     const data = buildResearchDataset(records([current], [deployment]))
     expect(data.nodes).toHaveLength(1)
-    current.graph_anchor!.evidence = []
+    current.community_entry!.evidence = []
     expect(buildResearchDataset(records([current], [deployment])).unplaced![0]!.placement_reason).toMatch(/evidence/)
   })
 
@@ -124,7 +125,7 @@ describe('research importer placement', () => {
     const offer = event('o-offer', 'o', 'commercial_offer', 1910)
     const current = node('o', [offer], 'commercial_availability', offer.id)
     current.lifecycle!.first_commercial_availability = { status: 'unknown', event_ids: [], rationale: 'No earlier first sale is established.', evidence: [{ source_id: 'source-1' }] }
-    current.graph_anchor!.date_interpretation = 'known_by'
+    current.community_entry!.date_interpretation = 'known_by'; current.graph_anchor!.date_interpretation = 'known_by'
     const before = JSON.stringify(current)
     const data = buildResearchDataset(records([current], [offer]))
     expect(data.nodes[0]).toMatchObject({ date_kind: 'known_by', date_label: 'By 1910', end: 1910, commercial_date_status: 'unknown', entry_basis: 'commercial_availability' })
@@ -144,7 +145,7 @@ describe('research importer placement', () => {
     use.date = { status: 'approximate', precision: 'year', [supplied]: { year: 325 }, [missing + '_status']: 'unknown',
       label: 'A qualified source date, not parsed for a coordinate.', basis: 'The source supports one approximate limit.' }
     const current = node('approx', [use], 'practical_use', use.id)
-    current.graph_anchor!.date_interpretation = interpretation
+    current.community_entry!.date_interpretation = interpretation; current.graph_anchor!.date_interpretation = interpretation
     const before = JSON.stringify([current, use])
     const data = buildResearchDataset(records([current], [use]))
     expect(data.unplaced).toEqual([])
@@ -175,7 +176,7 @@ describe('research importer placement', () => {
     const events = [event('s-observed', 's', 'observation', 1800), event('s-accepted', 's', 'acceptance', 1850)]
     const current = node('s', events, 'recognition', 's-accepted')
     expect(buildResearchDataset(records([current], events)).nodes[0]).toMatchObject({ year: 1850, entry_basis: 'recognition' })
-    current.graph_anchor!.event_id = 's-observed'
+    current.community_entry!.event_id = 's-observed'
     const invalid = buildResearchDataset(records([current], events))
     expect(invalid.nodes).toEqual([])
     expect(invalid.unplaced![0]!.placement_reason).toMatch(/does not establish/)
@@ -187,10 +188,10 @@ describe('research importer placement', () => {
     const data = buildResearchDataset(records([current], [disclosure]))
     expect(data.nodes[0]).toMatchObject({ evidence_strength: 'awareness_proxy', entry_basis: 'public_awareness', entry_community: 'Named local specialist community', proxy_justification: expect.any(String) })
     expect(nodeMarkStyle(data.nodes[0]!)).toBe(17)
-    current.graph_anchor!.entry_basis = 'adoption'
+    current.community_entry!.entry_basis = 'adoption'
     expect(buildResearchDataset(records([current], [disclosure])).unplaced![0]!.placement_reason).toMatch(/must not be called adoption/)
-    current.graph_anchor!.entry_basis = 'public_awareness'
-    delete current.graph_anchor!.proxy_justification
+    current.community_entry!.entry_basis = 'public_awareness'
+    delete current.community_entry!.proxy_justification
     expect(buildResearchDataset(records([current], [disclosure])).nodes).toEqual([])
   })
 
@@ -222,9 +223,9 @@ describe('research importer placement', () => {
     use.date!.status = 'bounded'
     use.date!.earliest = { year: -1250 }
     const current = node('ancient', [use], 'practical_use', use.id)
-    current.graph_anchor!.evidence_strength = 'scoped_inference'
-    current.graph_anchor!.date_interpretation = 'known_by'
-    current.graph_anchor!.proxy_justification = 'The workshop assemblage supports this limited contextual use inference.'
+    current.community_entry!.evidence_strength = 'scoped_inference'
+    current.community_entry!.date_interpretation = 'known_by'; current.graph_anchor!.date_interpretation = 'known_by'
+    current.community_entry!.proxy_justification = 'The workshop assemblage supports this limited contextual use inference.'
     const data = buildResearchDataset(records([current], [use]))
     expect(data.nodes[0]).toMatchObject({ year: -900, end: -900, date_kind: 'known_by', date_label: 'By 900 BCE', evidence_strength: 'scoped_inference' })
     expect(data.nodes[0]).not.toHaveProperty('start')
@@ -237,8 +238,8 @@ describe('research importer placement', () => {
   it('retains scoped specialist use of a failed branch without implying global adoption', () => {
     const events = [event('trial-use', 'trial', 'practical_use', 1969), event('trial-ended', 'trial', 'abandonment', 1970)]
     const current = node('trial', events, 'practical_use', 'trial-use')
-    current.graph_anchor!.community = 'The named expedition crew'
-    current.graph_anchor!.uncertainty = 'This crew’s scoped use does not establish uptake outside the failed expedition.'
+    current.community_entry!.community = 'The named expedition crew'
+    current.community_entry!.uncertainty = 'This crew’s scoped use does not establish uptake outside the failed expedition.'
     const data = buildResearchDataset(records([current], events))
     expect(data.nodes).toHaveLength(1)
     expect(data.nodes[0]).toMatchObject({ entry_basis: 'practical_use', entry_community: 'The named expedition crew' })
@@ -261,7 +262,7 @@ describe('research importer placement', () => {
     for (const [field, value] of [['community', 42], ['scope', null], ['evidence', {}], ['rationale', ['text']], ['uncertainty', false]] as const) {
       const offer = event('invalid-offer', 'invalid', 'commercial_offer', 1910)
       const current = node('invalid', [offer], 'commercial_availability', offer.id)
-      ;(current.graph_anchor as unknown as Record<string, unknown>)[field] = value
+      ;(current.community_entry as unknown as Record<string, unknown>)[field] = value
       const data = buildResearchDataset(records([current], [offer]))
       expect(data.nodes).toEqual([])
       expect(data.unplaced).toHaveLength(1)

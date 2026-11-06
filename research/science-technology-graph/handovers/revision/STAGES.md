@@ -49,3 +49,29 @@ was not stopped. Initial untracked research acquisitions were not staged.
 The eight historian questions in COMPARISON.md remain held throughout. No code
 change, inaccessible source or missing optional label is treated as a reason to
 stop otherwise independent work. Unknown historical facts stay unknown.
+
+## Stage 3 — completed
+
+The ten examples shown in chat were checked before the remaining pass. The
+Mendeleev 1869 prediction and weight-correction passage was read visually on the
+mapped 1895 reprint pp. 18–19; original journal volumes remain uninspected.
+Other retained early descriptions preserve their source-reported bounds.
+`stage3-dates.json` gives all 283 selections, their retained community events and
+review limits. This is not certification that all lifecycle history or absolute
+priority has been exhaustively researched.
+
+Seven separate chain identities and seven removed links were restored; four
+retargeted links were returned to their distinct endpoints. Folkerts's comparator
+is now LA/LP versus LY, not the lost Arabic original. No duplicate merge was made.
+The India/Japan, Ra I and AD36 eligibility exclusions remain recorded as curation
+exclusions, not accepted same-thing merges. Witness-only objects remain identified
+as objects; general achievements require independently sourced entries in Stage 7.
+
+Four earliest placements are held: the two Muldoons components, Barbegal and
+Humulin. This preserves the unresolved interpretations rather than manufacturing
+an onset. Their previous community events are retained and searchable.
+
+The source-backed record of a theory and its later uptake now appear separately
+in the detail panel. Schema, importer and validator enforce the two fields and
+reject an automatically selected surviving-copy witness. Validation and the
+production build passed; date separation has a dedicated regression test.

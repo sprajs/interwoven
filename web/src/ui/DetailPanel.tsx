@@ -199,13 +199,15 @@ export function DetailPanel() {
             <div className="mt-2 space-y-1 text-note text-ink-2">
               <p>
                 {isPlacedNode(node)
-                  ? node.anchored ? `${entryReasonLabel(node.entry_basis, entryEvent?.event_type, node.date_kind, node.date_label, node.evidence_strength)}. Community: ${node.entry_community ?? 'not yet specified'}.` : 'Synthetic date supplied by this dataset.'
+                  ? node.anchored ? `Earliest evidenced record of this entry. ${entryEvent?.event_type.replace(/_/g, ' ') ?? ''}.` : 'Synthetic date supplied by this dataset.'
                   : `Unplaced. ${node.placement_reason}`}
                 {node.date_basis ? ` ${node.date_basis}` : ''}
               </p>
               {isPlacedNode(node) && dateLimitNote(node.date_kind) && <p>{dateLimitNote(node.date_kind)}</p>}
               {node.evidence_strength && <p>{evidenceLabel(node.evidence_strength)}.</p>}
               {node.anchor_rationale && <p>{node.anchor_rationale}</p>}
+              {node.record_uncertainty && <p>{node.record_uncertainty}</p>}
+              {node.community_date_label && <p>Community entry: {node.community_date_label}. {entryReasonLabel(node.entry_basis)}. Community: {node.entry_community}.</p>}
               {node.proxy_justification && <p>{node.proxy_justification}</p>}
               {node.entry_uncertainty && <p>{node.entry_uncertainty}</p>}
               {node.entry_scope && <p className="text-ink-3">

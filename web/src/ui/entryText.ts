@@ -23,6 +23,6 @@ export const evidenceLabel = (strength: EvidenceStrength | undefined) =>
   strength === 'direct' ? 'Direct evidence' : strength === 'scoped_inference' ? 'Scoped contextual inference' : strength === 'awareness_proxy' ? 'Awareness proxy' : 'Not yet assessed'
 
 export function dateLimitNote(kind: DateKind | undefined): string {
-  return kind === 'known_by' ? 'The mark is an upper date limit for the stated entry claim. Earlier entry remains unresolved.'
+  return kind === 'known_by' ? 'The mark is an upper date limit for the earliest evidenced record. Earlier history remains unresolved.'
     : kind === 'known_from' ? 'This is a lower date limit only. It establishes neither continuing use nor a later endpoint.' : ''
 }

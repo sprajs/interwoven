@@ -47,6 +47,9 @@ export interface RawEntry {
   anchor_policy?: string
   anchor_rationale?: string
   anchor_event_id?: string
+  community_event_id?: string
+  community_date_label?: string
+  record_uncertainty?: string
   entry_basis?: EntryBasis
   evidence_strength?: EvidenceStrength
   date_interpretation?: DateInterpretation

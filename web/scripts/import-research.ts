@@ -99,9 +99,11 @@ export interface ResearchNode {
   regions?: string[]
   uncertainty?: string
   event_ids: string[]
-  graph_anchor?: { status: string; policy: string; event_id?: string; rationale?: string;
+  community_entry?: { status: string; policy: string; event_id?: string; rationale?: string;
     entry_basis?: EntryBasis; evidence_strength?: EvidenceStrength; date_interpretation?: DateInterpretation;
     community?: string; scope?: EntryScope; evidence?: EntryEvidence[]; uncertainty?: string; proxy_justification?: string }
+  graph_anchor?: { status: string; policy: string; event_id?: string; rationale?: string; date_interpretation?: DateInterpretation; scope?: EntryScope; evidence?: EntryEvidence[]; uncertainty?: string }
+  witnesses?: { event_id: string; limitation: string }[]
   lifecycle?: RawEntry['lifecycle']
   commercial_applicability?: { status: string; rationale?: string; evidence?: { source_id: string }[] }
   provenance?: { source_ids: string[] }
@@ -193,8 +195,8 @@ export function deriveEntryDate(date: HistoricalDate, interpretation: DateInterp
     year: (result.earliest.year + result.latest.year) / 2, start: result.earliest.year, end: result.latest.year }
 }
 
-function selectedAnchor(node: ResearchNode, events: ResearchEvent[]) {
-  const anchor = node.graph_anchor
+function selectedCommunity(node: ResearchNode, events: ResearchEvent[]) {
+  const anchor = node.community_entry
   if (anchor?.status !== 'selected') return { reason: `Community entry ${typeof anchor?.status === 'string' ? anchor.status.replace(/_/g, ' ') : anchor ? 'has an invalid status' : 'not recorded'}.` }
   if (anchor.policy !== 'community_entry') return { reason: 'A researched community-entry choice is required.' }
   if (!hasText(anchor.community) || !validScope(anchor.scope) || !hasText(anchor.rationale) || !hasText(anchor.uncertainty)
@@ -220,7 +222,25 @@ function selectedAnchor(node: ResearchNode, events: ResearchEvent[]) {
   return 'reason' in placement ? placement : { event, ...placement }
 }
 
-/** No record is placed by an unselected invention or other dated event. */
+/** The chart uses an explicitly reviewed record; community entry remains separate. */
+function selectedAnchor(node: ResearchNode, events: ResearchEvent[]) {
+  const anchor = node.graph_anchor
+  if (anchor?.status !== 'selected') return { reason: `Earliest record ${anchor?.status?.replace(/_/g, ' ') ?? 'not recorded'}.` }
+  if (anchor.policy !== 'earliest_record') return { reason: 'An earliest-record choice is required.' }
+  if (!hasText(anchor.rationale) || !hasText(anchor.uncertainty) || !validScope(anchor.scope) || !anchor.evidence?.length
+      || anchor.evidence.some((e) => !hasText(e.source_id) || !hasText(e.locator) || !hasText(e.supports))) return { reason: 'The earliest record needs scope, evidence and explicit uncertainty.' }
+  const event = events.find((e) => e.id === anchor.event_id)
+  if (!event?.date || !node.event_ids.includes(event.id) || !event.evidence?.length) return { reason: 'The earliest-record event is missing, lacks evidence, or does not belong to this entry.' }
+  if (node.witnesses?.some((w) => w.event_id === event.id)) return { reason: 'A surviving copy is not automatically an earliest-record anchor.' }
+  if (node.community_entry?.status === 'selected') {
+    const community = selectedCommunity(node, events)
+    if ('reason' in community) return community
+  }
+  const placement = deriveEntryDate(event.date, anchor.date_interpretation!)
+  return 'reason' in placement ? placement : { event, ...placement }
+}
+
+
 export function buildResearchDataset(records: ResearchRecords, overrides: Record<string, string[]> = {}): RawDataset {
   const eventsByNode = new Map<string, ResearchEvent[]>()
   for (const event of records.events) {
@@ -242,7 +262,8 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
     for (const event of events) cite(event.evidence)
     for (const stage of Object.values(node.lifecycle ?? {})) cite(stage?.evidence)
     cite(node.commercial_applicability?.evidence)
-    cite(node.graph_anchor?.evidence)
+    cite(node.community_entry?.evidence)
+    cite(node.community_entry?.evidence)
     const entry: RawEntry = {
       id: node.id,
       title: node.label,
@@ -253,14 +274,17 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
       anchor_policy: node.graph_anchor?.policy,
       anchor_rationale: hasText(node.graph_anchor?.rationale) ? node.graph_anchor.rationale : undefined,
       anchor_event_id: hasText(node.graph_anchor?.event_id) ? node.graph_anchor.event_id : undefined,
-      entry_basis: node.graph_anchor?.entry_basis,
-      evidence_strength: node.graph_anchor?.evidence_strength,
+      community_event_id: node.community_entry?.event_id,
+      community_date_label: events.find((e) => e.id === node.community_entry?.event_id)?.date?.label,
+      record_uncertainty: node.graph_anchor?.uncertainty,
+      entry_basis: node.community_entry?.entry_basis,
+      evidence_strength: node.community_entry?.evidence_strength,
       date_interpretation: node.graph_anchor?.date_interpretation,
-      entry_community: hasText(node.graph_anchor?.community) ? node.graph_anchor.community : undefined,
-      entry_scope: validScope(node.graph_anchor?.scope) ? node.graph_anchor.scope : undefined,
-      entry_evidence: Array.isArray(node.graph_anchor?.evidence) ? node.graph_anchor.evidence.filter((item) => item && hasText(item.source_id) && hasText(item.locator) && hasText(item.supports)) : undefined,
-      entry_uncertainty: hasText(node.graph_anchor?.uncertainty) ? node.graph_anchor.uncertainty : undefined,
-      proxy_justification: hasText(node.graph_anchor?.proxy_justification) ? node.graph_anchor.proxy_justification : undefined,
+      entry_community: hasText(node.community_entry?.community) ? node.community_entry.community : undefined,
+      entry_scope: validScope(node.community_entry?.scope) ? node.community_entry.scope : undefined,
+      entry_evidence: Array.isArray(node.community_entry?.evidence) ? node.community_entry.evidence.filter((item) => item && hasText(item.source_id) && hasText(item.locator) && hasText(item.supports)) : undefined,
+      entry_uncertainty: hasText(node.community_entry?.uncertainty) ? node.community_entry.uncertainty : undefined,
+      proxy_justification: hasText(node.community_entry?.proxy_justification) ? node.community_entry.proxy_justification : undefined,
       commercial_date_status: node.lifecycle?.first_commercial_availability?.status,
       commercial_applicability: node.commercial_applicability?.status,
       lifecycle_review: node.review?.lifecycle_classification,
@@ -293,7 +317,7 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   }
   const declared = new Map<string, RawLabel>([...LABEL_RULES, ...DISPLAY_LABELS].map((label) => [label.id, { id: label.id, name: label.name, ink: label.ink }]))
   return {
-    meta: { title: 'Interwoven', description: 'Availability, use and recognition across communities',
+    meta: { title: 'Interwoven', description: 'A selective, growing record of science, mathematics, technology and practice; dates mark the earliest evidenced record, with community entry shown separately',
       provenance: 'Generated from research/science-technology-graph. Do not edit by hand.' },
     families: FAMILIES.map(({ name, ink }) => ({ name, ink })),
     labels: [...usedLabels].map((id) => {
