@@ -142,4 +142,3 @@ describe('parseYearQuery', () => {
     expect(parseYearQuery('Intel 4004')).toBeNull()
   })
 })
-
