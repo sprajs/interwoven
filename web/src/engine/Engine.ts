@@ -1,11 +1,16 @@
-import { nodeMarkStyle, walk, type Model } from '../data/model.ts'
-import { Camera, type Insets } from './camera.ts'
+import { findCrossings, rowOrder, rowPositions, type Reach, type RowOrder, type Story } from '../data/derive.ts'
+import { documentedSpan, type LifeRecord } from '../data/lifecycle.ts'
+import { modelReach, nodeMarkStyle, walk, type Model } from '../data/model.ts'
+import { hexUnit, INK, LAYOUT, PAPER as PAPER_HEX, UNIT } from '../design.ts'
+import { Camera, type Insets, type ZoomAxis } from './camera.ts'
+import { blendFolds, foldAroundYears, foldFromWindows, FoldMap, MAX_FOLD_POINTS, unfoldPleat, type Pleat } from './folds.ts'
 import { createDataTexture, createProgram, createTarget, deleteTarget, type Program, type Target } from './gl.ts'
 import { drawOverlay } from './overlay.ts'
 import * as S from './shaders.ts'
 import { LUT_SIZE, pickTicks } from './time.ts'
+import { WheelClassifier, wheelNotches } from './wheel.ts'
 
-export type Mode = 'threads' | 'density' | 'landmarks'
+export type Mode = 'threads' | 'story' | 'reach' | 'density' | 'landmarks'
 
 export interface ViewState {
   mode: Mode
@@ -13,12 +18,40 @@ export interface ViewState {
   activeLabels: ReadonlySet<string>
   selected: number | null
   compressed: boolean
+  rowOrder: RowOrder
+  /** The thread being followed, in the story view. */
+  story: Story | null
+  /** Entries matching what is typed in the search box, if anything is. */
+  searchHits: ReadonlySet<number> | null
+  /** A label being pointed at, shown as a preview without choosing it. */
+  previewLabel: string | null
+}
+
+export interface LooseEnd {
+  /** Whether the entry led to the unplaced one, rather than building on it. */
+  out: boolean
+  tentative: boolean
+}
+
+function findLooseEnds(model: Model): LooseEnd[][] {
+  const ends: LooseEnd[][] = model.nodes.map(() => [])
+  for (const link of model.links) {
+    const from = model.indexById.get(link.from)
+    const to = model.indexById.get(link.to)
+    if (from !== undefined && to === undefined) ends[from]!.push({ out: true, tentative: link.tentative })
+    else if (to !== undefined && from === undefined) ends[to]!.push({ out: false, tentative: link.tentative })
+  }
+  return ends
 }
 
 export interface EngineCallbacks {
   onHover(index: number | null, x: number, y: number): void
   onSelect(index: number | null): void
+  /** A second click on an entry: follow its thread. */
+  onFollow(index: number): void
   onFrame(engine: Engine): void
+  /** The number of periods opened by hand changed. */
+  onFolds(count: number): void
   onFatal(message: string): void
 }
 
@@ -26,19 +59,36 @@ export interface EngineCallbacks {
 const REVEAL_ZOOM = [0, 0, 1.7, 3]
 /** Linear time packs the recent past into a sliver, so levels appear later there. */
 const LINEAR_REVEAL_FACTOR = 8
-export const PAPER = [0.957, 0.937, 0.902] as const
-const RULE_COLOR = [0.2, 0.18, 0.16] as const
-const HATCH_COLOR = [0.42, 0.36, 0.29] as const
+export const PAPER = hexUnit(PAPER_HEX)
+/** A page this sparse has room for every entry at once, so depth does not hide any of them. */
+const SHOW_ALL_BELOW = 60
+const RULE_COLOR = hexUnit(INK.primary)
+const HATCH_COLOR = hexUnit(INK.muted)
+/** How strongly the sheet's own marks print, far below any ink carrying data. */
+const TICK_RULE_ALPHA = 0.055
+const PLEAT_TONE_ALPHA = 0.04
+const PLEAT_FOLD_ALPHA = 0.13
+const HATCH_ALPHA = 0.62
 const OPENING_SECONDS = 2.4
+const REDRAW_SECONDS = 12
 const MAX_RECTS = 1400
-const HATCH_SPACING = 3.5
+const HATCH_SPACING = UNIT / 2 + 0.5
 const RATE_BINS = 512
 const RATE_SMOOTHING = 7
-const MODE_MIX: Record<Mode, { hatching: number; nodes: number; edges: number; rules: number }> = {
-  threads: { hatching: 0, nodes: 1, edges: 0.9, rules: 1 },
-  density: { hatching: 1, nodes: 0.75, edges: 0.1, rules: 0.5 },
-  landmarks: { hatching: 0, nodes: 1, edges: 0.5, rules: 1 },
+const FOLD_SECONDS = 0.62
+/** Periods that can be open at once. More than this stops being a comparison. */
+const MAX_OPEN_PERIODS = 3
+/** Beyond this many entries, the over-and-under at crossings is not worth computing. */
+const CROSSING_LIMIT = 6000
+const MODE_MIX: Record<Mode, { hatching: number; nodes: number; edges: number; rules: number; weave: number; elbow: number }> = {
+  threads: { hatching: 0, nodes: 1, edges: 0.9, rules: 1, weave: 0, elbow: 0 },
+  story: { hatching: 0, nodes: 1, edges: 1, rules: 1, weave: 0, elbow: 1 },
+  reach: { hatching: 0, nodes: 1, edges: 0.85, rules: 0.6, weave: 1, elbow: 0 },
+  density: { hatching: 1, nodes: 0.75, edges: 0.1, rules: 0.5, weave: 0, elbow: 0 },
+  landmarks: { hatching: 0, nodes: 1, edges: 0.5, rules: 1, weave: 0, elbow: 0 },
 }
+
+const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 
 export class Engine {
   readonly camera = new Camera()
@@ -49,15 +99,35 @@ export class Engine {
     activeLabels: new Set(),
     selected: null,
     compressed: true,
+    rowOrder: 'thread',
+    story: null,
+    searchHits: null,
+    previewLabel: null,
   }
   hovered: number | null = null
   pointer: { x: number; y: number } | null = null
   warp = 1
   dpr = 1
+  /** Influence reach per entry, worked out from the links. */
+  reach: Reach | null = null
+  /** Documented later lives, from the lifecycle sidecar. */
+  life = new Map<number, LifeRecord>()
+  /** Links per entry whose other end has no place on the chart yet. */
+  looseEnds: LooseEnd[][] = []
+  /** Where each entry currently sits, easing toward the layout the view asks for. */
+  yNow = new Float32Array(0)
+  /** A period being marked out on the ruler, in screen pixels. */
+  bracket: { x0: number; x1: number } | null = null
+  /** The current fold of the sheet. */
+  foldNow = FoldMap.identity()
+  /** Which part of the page the pointer is over. */
+  pointerZone: 'ruler' | 'gutter' | 'chart' | null = null
   /** Current per-node state: match, faded, emphasised, forced visible. */
   state = new Float32Array(0)
   reveal = [1, 1, 0, 0]
   mix = { ...MODE_MIX.threads }
+  /** Periods opened by hand, in years. */
+  openPeriods: [number, number][] = []
   /** Emphasised nodes, closest first, so their text is placed before anything else. */
   emphasis: number[] = []
   labelAlpha = new Float32Array(0)
@@ -71,7 +141,7 @@ export class Engine {
   labelsAnimating = false
 
   private gl!: WebGL2RenderingContext
-  private programs!: Record<'node' | 'edge' | 'span' | 'rect' | 'paper' | 'copy', Program>
+  private programs!: Record<'node' | 'edge' | 'span' | 'rect' | 'paper' | 'copy' | 'warp' | 'cross', Program>
   private quadVao!: WebGLVertexArrayObject
   private rectVao!: WebGLVertexArrayObject
   private rectBuffer!: WebGLBuffer
@@ -80,6 +150,23 @@ export class Engine {
   private spanCount = 0
   private edgeVao: WebGLVertexArrayObject | null = null
   private edgeVertCount = 0
+  private warpVao: WebGLVertexArrayObject | null = null
+  private warpCount = 0
+  private crossVao: { over: WebGLVertexArrayObject | null; under: WebGLVertexArrayObject | null; overCount: number; underCount: number } = { over: null, under: null, overCount: 0, underCount: 0 }
+  private crossKey = ''
+  private aData = new Float32Array(0)
+  private aDirty = false
+  private yGoal = new Float32Array(0)
+  private rowsCache = new Map<RowOrder, { rows: Int32Array; y: Float32Array }>()
+  private foldFrom = FoldMap.identity()
+  private foldTo = FoldMap.identity()
+  private foldT = 1
+  private foldData = new Float32Array(MAX_FOLD_POINTS * 2)
+  private foldCount = 0
+  private foldGain = 0
+  private wheelKind = new WheelClassifier()
+  private lastTap = { index: -1, time: 0 }
+  private pinchSpan = { x: 0, y: 0 }
   private texA: WebGLTexture | null = null
   private texB: WebGLTexture | null = null
   private texState: WebGLTexture | null = null
@@ -95,6 +182,7 @@ export class Engine {
   private lastTime = 0
   private openingT = 1
   private openingStart = 0
+  private openingSeconds = OPENING_SECONDS
   private reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
   private drag: { id: number; x: number; y: number; t: number; vx: number; vy: number; moved: number } | null = null
   private pinch = new Map<number, { x: number; y: number }>()
@@ -122,6 +210,7 @@ export class Engine {
     overlay.addEventListener('pointerleave', this.onPointerLeave)
     overlay.addEventListener('dblclick', this.onDoubleClick)
 
+    this.camera.instant = this.reducedMotion
     this.observer = new ResizeObserver(() => this.resize())
     this.observer.observe(canvas.parentElement!)
     this.resize()
@@ -159,6 +248,8 @@ export class Engine {
       rect: createProgram(gl, S.RECT_VS, S.RECT_FS),
       paper: createProgram(gl, S.PAPER_VS, S.PAPER_FS),
       copy: createProgram(gl, S.COPY_VS, S.COPY_FS),
+      warp: createProgram(gl, S.WARP_VS, S.WARP_FS),
+      cross: createProgram(gl, S.CROSS_VS, S.CROSS_FS),
     }
     const quad = gl.createBuffer()!
     gl.bindBuffer(gl.ARRAY_BUFFER, quad)
@@ -218,9 +309,10 @@ export class Engine {
     const a = new Float32Array(S.TEX_WIDTH * height * 4)
     const b = new Float32Array(S.TEX_WIDTH * height * 4)
     model.nodes.forEach((node, i) => {
-      a.set([node.year, model.y[i]!, model.radius[i]!, nodeMarkStyle(node)], i * 4)
+      a.set([node.year, this.yNow[i] ?? model.y[i]!, model.radius[i]!, nodeMarkStyle(node)], i * 4)
       b.set([model.ink[i * 3]!, model.ink[i * 3 + 1]!, model.ink[i * 3 + 2]!, node.level], i * 4)
     })
+    this.aData = a
     if (this.texA) gl.deleteTexture(this.texA)
     if (this.texB) gl.deleteTexture(this.texB)
     if (this.texState) gl.deleteTexture(this.texState)
@@ -292,6 +384,115 @@ export class Engine {
     gl.vertexAttribIPointer(2, 1, gl.UNSIGNED_INT, 0, 0)
     gl.vertexAttribDivisor(2, 1)
     gl.bindVertexArray(null)
+    this.uploadWarp()
+  }
+
+  /** Builds the rules of the reach view: one or more stretches per entry. */
+  private uploadWarp(): void {
+    const gl = this.gl
+    const model = this.model
+    const reach = this.reach
+    if (!model || !gl || !reach) return
+    const ranges: number[] = []
+    const ids: number[] = []
+    const styles: number[] = []
+    const add = (id: number, a: number, b: number, style: number) => {
+      if (b <= a) return
+      ranges.push(a, b)
+      ids.push(id)
+      styles.push(style)
+    }
+    for (let i = 0; i < model.n; i++) {
+      const y = model.nodes[i]!.year
+      const direct = Math.max(y, reach.direct[i]!)
+      const firm = Math.max(direct, reach.firm[i]!)
+      const any = Math.max(firm, reach.any[i]!)
+      add(i, y, direct, 0)
+      add(i, direct, firm, 1)
+      add(i, firm, any, 2)
+      const span = documentedSpan(this.life.get(i))
+      if (span) add(i, span.start, span.end, 3)
+    }
+    this.warpCount = ids.length
+    if (this.warpVao) gl.deleteVertexArray(this.warpVao)
+    this.warpVao = gl.createVertexArray()!
+    gl.bindVertexArray(this.warpVao)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(0)
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(ranges), gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(1)
+    gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 0, 0)
+    gl.vertexAttribDivisor(1, 1)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, new Uint32Array(ids), gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(2)
+    gl.vertexAttribIPointer(2, 1, gl.UNSIGNED_INT, 0, 0)
+    gl.vertexAttribDivisor(2, 1)
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(styles), gl.STATIC_DRAW)
+    gl.enableVertexAttribArray(3)
+    gl.vertexAttribPointer(3, 1, gl.FLOAT, false, 0, 0)
+    gl.vertexAttribDivisor(3, 1)
+    gl.bindVertexArray(null)
+  }
+
+  /** Rows for an order, worked out the first time they are needed. */
+  rowsFor(order: RowOrder): { rows: Int32Array; y: Float32Array } {
+    let cached = this.rowsCache.get(order)
+    if (!cached) {
+      const model = this.model!
+      const rows = rowOrder(model.nodes, model.children, model.parents, this.reach!, order)
+      cached = { rows, y: rowPositions(rows) }
+      this.rowsCache.set(order, cached)
+    }
+    return cached
+  }
+
+  /** Works out where stitches cross unrelated rules, for the current row order. */
+  private uploadCrossings(): void {
+    const gl = this.gl
+    const model = this.model
+    if (!model || !gl || model.n > CROSSING_LIMIT) return
+    const key = this.view.rowOrder
+    if (this.crossKey === key) return
+    this.crossKey = key
+    const { rows, y } = this.rowsFor(key)
+    const crossings = findCrossings(rows, y, model.nodes, this.reach!, model.edges)
+    const build = (list: typeof crossings) => {
+      const data = new Float32Array(list.length * 2)
+      const ids = new Uint32Array(list.length)
+      list.forEach((c, k) => {
+        data[k * 2] = c.year
+        data[k * 2 + 1] = c.y
+        ids[k] = c.node
+      })
+      const vao = gl.createVertexArray()!
+      gl.bindVertexArray(vao)
+      gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
+      gl.enableVertexAttribArray(0)
+      gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
+      gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+      gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW)
+      gl.enableVertexAttribArray(1)
+      gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 0, 0)
+      gl.vertexAttribDivisor(1, 1)
+      gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+      gl.bufferData(gl.ARRAY_BUFFER, ids, gl.STATIC_DRAW)
+      gl.enableVertexAttribArray(2)
+      gl.vertexAttribIPointer(2, 1, gl.UNSIGNED_INT, 0, 0)
+      gl.vertexAttribDivisor(2, 1)
+      gl.bindVertexArray(null)
+      return vao
+    }
+    const over = crossings.filter((c) => c.over)
+    const under = crossings.filter((c) => !c.over)
+    if (this.crossVao.over) gl.deleteVertexArray(this.crossVao.over)
+    if (this.crossVao.under) gl.deleteVertexArray(this.crossVao.under)
+    this.crossVao = { over: build(over), under: build(under), overCount: over.length, underCount: under.length }
   }
 
   // ---------------------------------------------------------------- data and view
@@ -303,6 +504,12 @@ export class Engine {
     this.labelAlpha = new Float32Array(model.n)
     this.uLinear = Float32Array.from(model.nodes, (node) => model.time.linear(node.year))
     this.uCompressed = Float32Array.from(model.nodes, (node) => model.time.compressed(node.year))
+    this.reach = modelReach(model)
+    this.looseEnds = findLooseEnds(model)
+    this.rowsCache.clear()
+    this.crossKey = ''
+    this.yNow = Float32Array.from(model.y)
+    this.yGoal = Float32Array.from(model.y)
     this.uploadModel()
     this.computeTargets()
     this.state.set(this.targetState)
@@ -314,15 +521,52 @@ export class Engine {
     this.invalidate()
   }
 
+  setLife(life: Map<number, LifeRecord>): void {
+    this.life = life
+    this.uploadWarp()
+    this.invalidate()
+  }
+
   setView(next: Partial<ViewState>): void {
     const prev = this.view
     this.view = { ...prev, ...next }
-    if (next.compressed !== undefined && next.compressed !== prev.compressed) {
-      this.camera.maxLogZoom = Math.log(next.compressed ? 220 : 1500)
+    const view = this.view
+    if (view.compressed !== prev.compressed) {
+      this.camera.maxLogZoom = Math.log(view.compressed ? 220 : 1500)
       this.camera.fit(this.reducedMotion)
     }
+    const modeChanged = view.mode !== prev.mode
+    const storyChanged = view.story !== prev.story
+    if (modeChanged || storyChanged || view.rowOrder !== prev.rowOrder) this.updateLayoutGoal()
+    if (modeChanged || storyChanged || view.compressed !== prev.compressed) this.rebuildFold()
+    // The rows and the folded story each have their own framing, so the page settles on it.
+    const leavingLayout = modeChanged && (prev.mode === 'reach' || prev.mode === 'story')
+    const enteringLayout = modeChanged && view.mode === 'reach'
+    if (storyChanged && view.story) this.frameStory()
+    else if (enteringLayout || leavingLayout || storyChanged) this.camera.fit(this.reducedMotion)
     this.computeTargets()
     this.invalidate()
+  }
+
+  private updateLayoutGoal(): void {
+    const model = this.model
+    if (!model) return
+    const { mode, story, rowOrder: order } = this.view
+    if (mode === 'reach') this.yGoal.set(this.rowsFor(order).y)
+    else this.yGoal.set(model.y)
+    if (mode === 'story' && story) story.members.forEach((i, k) => (this.yGoal[i] = story.y[k]!))
+  }
+
+  /** Opens the story's sheet so that each entry has room for its title. */
+  private frameStory(): void {
+    const story = this.view.story
+    if (!story) return
+    const cam = this.camera
+    const usable = Math.max(1, cam.height - cam.insets.top - cam.insets.bottom)
+    const rowGap = story.y.length > 1 ? story.y[1]! - story.y[0]! : 0.1
+    const logY = Math.log(Math.max(1, 19 / (rowGap * usable)))
+    const firstY = story.y[0] ?? 0.5
+    cam.flyTo(0.5, logY > 0 ? firstY + 0.5 / Math.exp(logY) - 0.04 : 0.5, 0, this.reducedMotion, logY)
   }
 
   setInsets(insets: Insets): void {
@@ -338,16 +582,193 @@ export class Engine {
     return true
   }
 
+  // ---------------------------------------------------------------- folding the sheet
+
+  /** Display position of an axis position, through the current fold. */
+  toV(u: number): number {
+    return this.foldNow.isIdentity ? u : this.foldNow.map(u)
+  }
+
+  /** Axis position at a screen x. */
+  uAtX(x: number): number {
+    return this.foldNow.invert(this.camera.fromX(x))
+  }
+
+  yearToX(year: number): number {
+    return this.camera.toX(this.toV(this.model!.time.u(year, this.warp)))
+  }
+
+  xToYear(x: number): number {
+    return this.model!.time.year(Math.min(1, Math.max(0, this.uAtX(x))), this.warp)
+  }
+
+  /** The stories view only lays a thread out once one is chosen. Until then it is the chart. */
+  private get followingStory(): boolean {
+    return this.view.mode === 'story' && this.view.story !== null
+  }
+
+  private get targetWarp(): number {
+    return this.view.compressed && !this.followingStory ? 1 : 0
+  }
+
+  /** Works out the sheet's fold from the view and any opened periods, then eases to it. */
+  private rebuildFold(): void {
+    const model = this.model
+    if (!model) return
+    const { story } = this.view
+    let map: FoldMap
+    if (this.followingStory) {
+      // A story is read to one scale: real years, with empty stretches folded away.
+      map = foldAroundYears(story!.members.map((i) => model.nodes[i]!.year), { u: (year) => model.time.linear(year) }).map
+    } else {
+      const warp = this.targetWarp
+      map = foldFromWindows(this.openPeriods.map(([a, b]) => [model.time.u(a, warp), model.time.u(b, warp)]))
+    }
+    this.foldFrom = this.foldNow
+    this.foldTo = map
+    // Reduced motion takes one step to arrive: the animation below finishes on its first frame.
+    this.foldT = 0
+    if (this.reducedMotion) {
+      this.foldFrom = map
+      this.foldT = 0.999
+    }
+    this.applyFold(this.foldFrom)
+    this.invalidate()
+  }
+
+  private applyFold(map: FoldMap): void {
+    this.foldNow = map
+    if (map.isIdentity) {
+      this.foldCount = 0
+      return
+    }
+    this.foldCount = map.us.length
+    for (let k = 0; k < map.us.length; k++) {
+      this.foldData[k * 2] = map.us[k]!
+      this.foldData[k * 2 + 1] = map.vs[k]!
+    }
+  }
+
+  /** Whether to mention what the ruler does. Once it has been used, it is never mentioned again. */
+  rulerHint = readRulerHint()
+
+  private animateFold(dt: number): boolean {
+    if (this.foldT >= 1) return false
+    this.foldT = Math.min(1, this.foldT + dt / FOLD_SECONDS)
+    const blended = blendFolds(this.foldFrom, this.foldTo, easeInOut(this.foldT))
+    // Blending a blend could run past what the shader holds, so it jumps instead.
+    this.applyFold(blended.us.length > MAX_FOLD_POINTS ? this.foldTo : blended)
+    let slope = 1
+    const { us, vs } = this.foldNow
+    for (let k = 1; k < us.length; k++) {
+      const du = us[k]! - us[k - 1]!
+      if (du > 1e-9) slope = Math.max(slope, (vs[k]! - vs[k - 1]!) / du)
+    }
+    this.foldGain = this.followingStory ? 0 : Math.log(slope)
+    return true
+  }
+
+  /** Whether an axis position lies inside a pleat. */
+  inPleat(u: number): boolean {
+    const pleats = this.foldTo.pleats
+    for (let k = 0; k < pleats.length; k++) if (u > pleats[k]!.u0 && u < pleats[k]!.u1) return true
+    return false
+  }
+
+  /** Opens a period of years. Everything else pleats, and the sheet fits to the page. */
+  openPeriod(a: number, b: number): void {
+    const model = this.model
+    if (!model) return
+    const start = Math.max(model.time.min, Math.min(a, b))
+    const end = Math.min(model.time.now, Math.max(a, b))
+    if (end <= start) return
+    this.openPeriods = [...this.openPeriods, [start, end] as [number, number]].slice(-MAX_OPEN_PERIODS)
+    this.openPeriods.sort((x, y) => x[0] - y[0])
+    // Overlapping periods read as one.
+    const merged: [number, number][] = []
+    for (const p of this.openPeriods) {
+      const last = merged[merged.length - 1]
+      if (last && p[0] <= last[1]) last[1] = Math.max(last[1], p[1])
+      else merged.push([p[0], p[1]])
+    }
+    this.openPeriods = merged
+    this.rulerHint = false
+    try {
+      localStorage.setItem(RULER_HINT_KEY, '1')
+    } catch {
+      // Only a reminder, so it does not matter if this cannot be saved.
+    }
+    this.callbacks.onFolds(merged.length)
+    this.rebuildFold()
+    this.camera.fit(this.reducedMotion)
+    this.invalidate()
+  }
+
+  unfoldAll(): void {
+    if (this.openPeriods.length === 0) return
+    this.openPeriods = []
+    this.callbacks.onFolds(0)
+    this.rebuildFold()
+    this.invalidate()
+  }
+
+  /** Where the sheet is folded. */
+  get pleats(): readonly Pleat[] {
+    return this.foldTo.pleats
+  }
+
+  /** The pleat under a screen x, if there is one. */
+  pleatAtX(x: number): Pleat | null {
+    const u = this.uAtX(x)
+    return this.foldTo.pleats.find((p) => u >= p.u0 && u <= p.u1) ?? null
+  }
+
+  /** Unfolds one pleat by joining the opened periods either side of it. */
+  private unfold(pleat: Pleat): void {
+    const model = this.model!
+    if (this.followingStory || this.openPeriods.length === 0) return
+    const warp = this.targetWarp
+    const windows = this.openPeriods.map(([a, b]): [number, number] => [model.time.u(a, warp), model.time.u(b, warp)])
+    const next = unfoldPleat(windows, pleat)
+    // A pleat at the very edge joins its window to the end of the axis.
+    const full = next.length === 1 && next[0]![0] <= 1e-6 && next[0]![1] >= 1 - 1e-6
+    this.openPeriods = full ? [] : next.map(([a, b]): [number, number] => [model.time.year(a, warp), model.time.year(b, warp)])
+    this.callbacks.onFolds(this.openPeriods.length)
+    this.rebuildFold()
+    this.invalidate()
+  }
+
+  private animateLayout(dt: number): boolean {
+    const n = this.yNow.length
+    const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 6.5)
+    let changed = false
+    const y = this.yNow
+    const goal = this.yGoal
+    const a = this.aData
+    for (let i = 0; i < n; i++) {
+      const d = goal[i]! - y[i]!
+      if (d === 0) continue
+      changed = true
+      y[i] = Math.abs(d) < 0.0004 ? goal[i]! : y[i]! + d * k
+      a[i * 4 + 1] = y[i]!
+    }
+    if (changed) this.aDirty = true
+    return changed
+  }
+
   /** Works out the state each node should ease toward from filters, mode and focus. */
   private computeTargets(): void {
     const model = this.model
     if (!model) return
     this.computeRate()
-    const { mode, selected } = this.view
+    const { mode, selected, story, searchHits, previewLabel } = this.view
     const target = this.targetState
-    const focus = selected ?? this.hovered
+    const inStory = mode === 'story' && story !== null
+    const members = inStory ? new Set(story!.members) : null
+    const focus = inStory ? null : selected ?? this.hovered
     const isHover = selected === null && this.hovered !== null
     const landmarkMode = mode === 'landmarks'
+    const rowsShown = mode === 'reach'
 
     let hops: Map<number, number> | null = null
     this.emphasis = []
@@ -381,6 +802,39 @@ export class Engine {
           force = 1
         } else {
           faded = 0.8
+        }
+      }
+      // The reach view gives every entry a row, however far in you are.
+      if (rowsShown) force = 1
+      if (searchHits) {
+        if (searchHits.has(i)) {
+          boost = Math.max(boost, 0.8)
+          force = 1
+        } else {
+          faded = Math.max(faded, 0.86)
+        }
+      }
+      if (previewLabel !== null) {
+        if (model.nodes[i]!.labels.includes(previewLabel)) {
+          boost = Math.max(boost, 0.7)
+          force = 1
+        } else {
+          faded = Math.max(faded, 0.86)
+        }
+      }
+      if (members) {
+        // A followed thread is lifted off the page. Everything else stays as a trace of what
+        // it came from, too faint to read or to pick.
+        if (members.has(i)) {
+          faded = 0
+          boost = i === selected ? 0.6 : 0.2
+          force = 1
+        } else {
+          target[o] = match * 0.07
+          target[o + 1] = 1
+          target[o + 2] = 0
+          target[o + 3] = 0
+          continue
         }
       }
       target[o] = match
@@ -448,7 +902,7 @@ export class Engine {
   }
 
   private animateMix(dt: number): boolean {
-    const goal = MODE_MIX[this.view.mode]
+    const goal = MODE_MIX[this.view.mode === 'story' && !this.followingStory ? 'threads' : this.view.mode]
     const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 7)
     let changed = false
     const mix = this.mix as Record<string, number>
@@ -458,7 +912,7 @@ export class Engine {
       changed = true
       mix[key] = Math.abs(d) < 0.002 ? goal[key] : mix[key]! + d * k
     }
-    const warpGoal = this.view.compressed ? 1 : 0
+    const warpGoal = this.targetWarp
     const dw = warpGoal - this.warp
     if (dw !== 0) {
       changed = true
@@ -474,7 +928,7 @@ export class Engine {
       return false
     }
     if (this.openingStart === 0) this.openingStart = now
-    this.openingT = Math.min(1, (now - this.openingStart) / (OPENING_SECONDS * 1000))
+    this.openingT = Math.min(1, (now - this.openingStart) / (this.openingSeconds * 1000))
     const t = this.openingT
     const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
     this.drawU = t >= 1 ? 2 : -0.02 + e * 1.06
@@ -488,10 +942,25 @@ export class Engine {
     return this.uLinear[i]! * (1 - w) + this.uCompressed[i]! * w
   }
 
+  /** An entry's position across the sheet, through any folds. */
+  nodeV(i: number): number {
+    return this.toV(this.nodeU(i))
+  }
+
+  /** Whether there is room for everything at any zoom, which is true of a sparse chart. */
+  get showsEverything(): boolean {
+    return (this.model?.n ?? Infinity) < SHOW_ALL_BELOW
+  }
+
   /** Reveal strength 0..1 per level at the current zoom. */
   private computeReveal(): void {
     const factor = LINEAR_REVEAL_FACTOR + (1 - LINEAR_REVEAL_FACTOR) * this.warp
-    const lz = this.camera.logZoom
+    if (this.showsEverything) {
+      this.reveal.fill(1)
+      return
+    }
+    // Opening a period is as good as zooming into it, so its detail appears as it opens.
+    const lz = this.camera.logZoom + this.foldGain
     for (let level = 0; level < 4; level++) {
       const threshold = REVEAL_ZOOM[level]!
       if (threshold === 0) {
@@ -527,8 +996,8 @@ export class Engine {
     let bestScore = Infinity
     for (let i = 0; i < model.n; i++) {
       if (this.state[i * 4]! < 0.5 || this.state[i * 4 + 1]! > 0.9) continue
-      const px = (this.nodeU(i) - cam.cu) * xs + cx
-      const py = (model.y[i]! - cam.cy) * ys + cy
+      const px = (this.nodeV(i) - cam.cu) * xs + cx
+      const py = (this.yNow[i]! - cam.cy) * ys + cy
       const dx = px - x
       const dy = py - y
       const r = model.radius[i]! + 8
@@ -550,7 +1019,8 @@ export class Engine {
     if (!model) return
     const needed = this.revealZoomFor(model.nodes[i]!.level)
     const lz = Math.max(this.camera.logZoom, needed > 0 ? Math.log(needed * 1.25) : 0, 0.6)
-    this.camera.flyTo(this.nodeU(i), model.y[i]!, lz, this.reducedMotion)
+    const v = this.foldTo.map(this.nodeU(i))
+    this.camera.flyTo(v, this.yGoal[i]!, lz, this.reducedMotion, Math.max(this.camera.logY, lz * 0.55))
     this.invalidate()
   }
 
@@ -558,27 +1028,58 @@ export class Engine {
   flyToYears(start: number, end: number): void {
     const model = this.model
     if (!model) return
-    const a = model.time.u(start, this.warp)
-    const b = model.time.u(end, this.warp)
+    const a = this.foldTo.map(model.time.u(start, this.targetWarp))
+    const b = this.foldTo.map(model.time.u(end, this.targetWarp))
     const zoom = 1 / Math.max(1e-5, b - a)
-    this.camera.flyTo((a + b) / 2, this.camera.cy, Math.log(Math.max(1, zoom)), this.reducedMotion)
+    this.camera.flyTo((a + b) / 2, this.camera.cy, Math.log(Math.max(1, zoom)), this.reducedMotion, this.camera.logY)
     this.invalidate()
   }
 
+  /** Draws the chart again from the beginning, slowly enough to watch history accumulate. */
+  redraw(): void {
+    if (this.reducedMotion) return
+    this.openingSeconds = REDRAW_SECONDS
+    this.openingStart = 0
+    this.openingT = 0
+    this.drawU = -0.02
+    this.invalidate()
+  }
+
+  /** Fits everything in the page and unfolds the sheet. */
   fit(): void {
+    this.unfoldAll()
     this.camera.fit(this.reducedMotion)
     this.invalidate()
   }
 
-  zoomBy(factor: number): void {
-    this.camera.zoomAt(this.camera.centerX, this.camera.centerY, Math.log(factor))
+  zoomBy(factor: number, axis: ZoomAxis = 'both'): void {
+    this.camera.zoomAt(this.camera.centerX, this.camera.centerY, Math.log(factor), axis)
+    this.invalidate()
+  }
+
+  /** Eases to the zoom at which a level of detail has fully appeared. */
+  zoomToDepth(level: number): void {
+    const needed = this.revealZoomFor(level)
+    const lz = needed > 0 ? Math.log(needed * 1.1) : 0
+    this.camera.flyTo(this.camera.cu, this.camera.cy, lz, this.reducedMotion)
+    this.invalidate()
+  }
+
+  panByKeys(dx: number, dy: number): void {
+    this.camera.panBy(dx, dy)
     this.invalidate()
   }
 
   /** Moves the view so `u` is centred, for the overview strip. */
   panToU(u: number): void {
     const cam = this.camera
-    cam.panBy((cam.cu - u) * cam.xScale, 0)
+    cam.panBy((cam.cu - this.toV(u)) * cam.xScale, 0)
+    this.invalidate()
+  }
+
+  /** Fits the view to a stretch of the axis, for the overview strip's handles. */
+  showU(u0: number, u1: number): void {
+    this.camera.showTimeRange(this.toV(Math.min(u0, u1)), this.toV(Math.max(u0, u1)))
     this.invalidate()
   }
 
@@ -596,20 +1097,38 @@ export class Engine {
     return { x: e.clientX - rect.left, y: e.clientY - rect.top }
   }
 
+  /** The ruler zooms time, the left margin zooms height, and the chart zooms both. */
+  private zoneAt(x: number, y: number): 'ruler' | 'gutter' | 'chart' | null {
+    const frame = this.frameBounds()
+    if (y >= frame.top - 5 * UNIT && y <= frame.top + UNIT) return 'ruler'
+    if (y < frame.top || y > frame.bottom) return null
+    if (x < Math.min(this.camera.insets.left - 8, 40)) return 'gutter'
+    return 'chart'
+  }
+
   private onWheel = (e: WheelEvent): void => {
     e.preventDefault()
     const { x, y } = this.localPoint(e)
     const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1
     const dy = e.deltaY * unit
     const dx = e.deltaX * unit
-    // Pinch arrives as ctrl+wheel. Trackpad scrolling has fine, often two-axis deltas;
-    // a notched mouse wheel has large, single-axis ones and should zoom.
-    const isPinch = e.ctrlKey || e.metaKey
-    const isMouseWheel = !isPinch && dx === 0 && Math.abs(dy) >= 50 && Number.isInteger(dy)
-    if (isPinch) this.camera.zoomAt(x, y, -dy * 0.012)
-    else if (isMouseWheel) this.camera.zoomAt(x, y, -dy * 0.0024)
-    else if (e.shiftKey) this.camera.panBy(-dy - dx, 0)
-    else this.camera.panBy(-dx, -dy)
+    const device = this.wheelKind.classify(e as WheelEvent & { wheelDeltaY?: number })
+    const zone = this.zoneAt(x, y)
+    // Option limits any zoom to time, Shift to height. So does where the pointer is.
+    const axis: ZoomAxis = e.altKey || zone === 'ruler' ? 'time' : zone === 'gutter' || (e.shiftKey && device === 'pinch') ? 'height' : 'both'
+    if (device === 'pinch') {
+      this.camera.zoomAt(x, y, -dy * 0.012, axis, true)
+    } else if (device === 'mouse' && !e.shiftKey) {
+      this.camera.zoomAt(x, y, -wheelNotches(e as WheelEvent & { wheelDeltaY?: number }) * 0.26, axis)
+    } else if (e.shiftKey) {
+      this.camera.panBy(-dy - dx, 0)
+    } else if (axis !== 'both') {
+      // Scrolling over the ruler or margin scales that axis, keeping sideways scroll for panning.
+      this.camera.zoomAt(x, y, -dy * 0.006, axis, true)
+      if (dx !== 0) this.camera.panBy(-dx, 0)
+    } else {
+      this.camera.panBy(-dx, -dy)
+    }
     this.setHover(null, 0, 0)
     this.invalidate()
   }
@@ -622,7 +1141,15 @@ export class Engine {
     if (this.pinch.size === 2) {
       const [a, b] = [...this.pinch.values()]
       this.pinchDistance = Math.hypot(a!.x - b!.x, a!.y - b!.y)
+      this.pinchSpan = { x: Math.abs(a!.x - b!.x), y: Math.abs(a!.y - b!.y) }
       this.drag = null
+      this.bracket = null
+      return
+    }
+    this.openingT = 1
+    if (this.zoneAt(p.x, p.y) === 'ruler' && !this.followingStory) {
+      this.bracket = { x0: p.x, x1: p.x }
+      this.invalidate()
       return
     }
     this.drag = { id: e.pointerId, x: p.x, y: p.y, t: e.timeStamp, vx: 0, vy: 0, moved: 0 }
@@ -638,9 +1165,25 @@ export class Engine {
       const [a, b] = [...this.pinch.values()]
       const distance = Math.hypot(a!.x - b!.x, a!.y - b!.y)
       if (this.pinchDistance > 0) {
-        this.camera.zoomAt((a!.x + b!.x) / 2, (a!.y + b!.y) / 2, Math.log(distance / this.pinchDistance))
+        // A sideways pinch stretches time, an upright one stretches height, and a diagonal
+        // one does both, as if the sheet were held between the two fingers.
+        const spanX = Math.abs(a!.x - b!.x)
+        const spanY = Math.abs(a!.y - b!.y)
+        const midX = (a!.x + b!.x) / 2
+        const midY = (a!.y + b!.y) / 2
+        const tilt = Math.min(spanX, spanY) / Math.max(1, Math.max(spanX, spanY))
+        if (tilt > 0.5) this.camera.zoomAt(midX, midY, Math.log(distance / this.pinchDistance), 'both', true)
+        else if (spanX > spanY) this.camera.zoomAt(midX, midY, Math.log(Math.max(1, spanX) / Math.max(1, this.pinchSpan.x)), 'time', true)
+        else this.camera.zoomAt(midX, midY, Math.log(Math.max(1, spanY) / Math.max(1, this.pinchSpan.y)), 'height', true)
+        this.pinchSpan = { x: spanX, y: spanY }
       }
       this.pinchDistance = distance
+      this.invalidate()
+      return
+    }
+
+    if (this.bracket) {
+      this.bracket = { x0: this.bracket.x0, x1: p.x }
       this.invalidate()
       return
     }
@@ -665,10 +1208,19 @@ export class Engine {
     }
 
     if (e.pointerType === 'touch') return
-    const hit = this.pick(p.x, p.y)
+    const zone = this.zoneAt(p.x, p.y)
+    const zoneChanged = zone !== this.pointerZone
+    this.pointerZone = zone
+    if (zone === 'ruler') {
+      this.setHover(null, 0, 0)
+      this.overlay.style.cursor = this.followingStory ? 'default' : this.pleatAtX(p.x) ? 'pointer' : 'col-resize'
+      this.invalidate()
+      return
+    }
+    const hit = zone === 'chart' ? this.pick(p.x, p.y) : null
     this.setHover(hit, p.x, p.y)
-    this.overlay.style.cursor = hit === null ? 'grab' : 'pointer'
-    if (this.view.mode === 'density') this.invalidate()
+    this.overlay.style.cursor = hit !== null ? 'pointer' : zone === 'gutter' ? 'ns-resize' : 'grab'
+    if (this.view.mode === 'density' || zoneChanged) this.invalidate()
   }
 
   private onPointerUp = (e: PointerEvent): void => {
@@ -676,13 +1228,33 @@ export class Engine {
     this.pinch.delete(e.pointerId)
     if (this.pinch.size < 2) this.pinchDistance = 0
     this.overlay.style.cursor = 'grab'
+    if (this.bracket) {
+      const { x0, x1 } = this.bracket
+      this.bracket = null
+      if (Math.abs(x1 - x0) >= 8) {
+        this.openPeriod(this.xToYear(Math.min(x0, x1)), this.xToYear(Math.max(x0, x1)))
+      } else {
+        const pleat = this.pleatAtX(x0)
+        if (pleat) this.unfold(pleat)
+      }
+      this.invalidate()
+      return
+    }
     const d = this.drag
     if (!d || d.id !== e.pointerId || wasPinching) return
     this.drag = null
     if (d.moved <= 3) {
       const p = this.localPoint(e)
       // Touch has no hover, so a tap needs its own hit test. Empty space clears selection.
-      this.callbacks.onSelect(this.pick(p.x, p.y))
+      const hit = this.pick(p.x, p.y)
+      // Two taps on one entry follow its thread.
+      if (hit !== null && hit === this.lastTap.index && e.timeStamp - this.lastTap.time < 420) {
+        this.lastTap = { index: -1, time: 0 }
+        this.callbacks.onFollow(hit)
+      } else {
+        this.lastTap = { index: hit ?? -1, time: e.timeStamp }
+        this.callbacks.onSelect(hit)
+      }
     } else if (!this.reducedMotion && e.timeStamp - d.t < 80) {
       this.camera.fling(d.vx, d.vy)
       this.invalidate()
@@ -691,13 +1263,17 @@ export class Engine {
 
   private onPointerLeave = (): void => {
     this.pointer = null
+    this.pointerZone = null
     this.setHover(null, 0, 0)
     this.invalidate()
   }
 
   private onDoubleClick = (e: MouseEvent): void => {
     const { x, y } = this.localPoint(e)
-    this.camera.zoomAt(x, y, Math.log(2))
+    const zone = this.zoneAt(x, y)
+    if (zone === 'ruler') return
+    if (this.pick(x, y) !== null) return
+    this.camera.zoomAt(x, y, e.altKey ? -Math.log(2) : Math.log(2))
     this.invalidate()
   }
 
@@ -739,6 +1315,8 @@ export class Engine {
     const cameraMoving = this.camera.update(dt)
     const stateMoving = this.animateState(dt)
     const mixMoving = this.animateMix(dt)
+    const layoutMoving = this.animateLayout(dt)
+    const foldMoving = this.animateFold(dt)
     const opening = this.animateOpening(time)
     this.computeReveal()
 
@@ -750,7 +1328,7 @@ export class Engine {
     }
     this.frameMs = performance.now() - start
 
-    if (cameraMoving || stateMoving || mixMoving || opening || this.labelsAnimating) {
+    if (cameraMoving || stateMoving || mixMoving || layoutMoving || foldMoving || opening || this.labelsAnimating) {
       this.raf = requestAnimationFrame(this.frame)
     } else {
       this.lastTime = 0
@@ -758,11 +1336,10 @@ export class Engine {
   }
 
   private computeTicks(): void {
-    const model = this.model!
     const cam = this.camera
-    const toX = (year: number) => cam.toX(model.time.u(year, this.warp))
-    const at = (x: number) => model.time.year(Math.min(1, Math.max(0, cam.fromX(x))), this.warp)
-    this.ticks = pickTicks(toX, at(0), at(cam.width), cam.width, cam.width < 700 ? 58 : 78)
+    // A folded stretch cannot hold a readable tick. Its own note says how much it hides.
+    const reject = this.foldTo.pleats.length ? (x: number) => this.inPleat(this.uAtX(x)) : undefined
+    this.ticks = pickTicks((year) => this.yearToX(year), this.xToYear(0), this.xToYear(cam.width), cam.width, cam.width < 700 ? 58 : 78, reject)
   }
 
   private setWorldUniforms(p: Program): void {
@@ -776,6 +1353,8 @@ export class Engine {
     gl.uniform2f(p.u.uCenter!, cam.centerX * dpr, cam.centerY * dpr)
     gl.uniform4f(p.u.uTimeScale!, model.time.min, model.time.now, model.time.tau, model.time.logSpan)
     gl.uniform1f(p.u.uWarp!, this.warp)
+    gl.uniform2fv(p.u.uFold!, this.foldData)
+    gl.uniform1i(p.u.uFoldCount!, this.foldCount)
     if (p.u.uDpr) gl.uniform1f(p.u.uDpr, dpr)
     if (p.u.uDrawU) gl.uniform1f(p.u.uDrawU, this.drawU)
     if (p.u.uReveal) gl.uniform4f(p.u.uReveal, this.reveal[0]!, this.reveal[1]!, this.reveal[2]!, this.reveal[3]!)
@@ -819,6 +1398,12 @@ export class Engine {
     const mix = this.mix
 
     this.uploadState()
+    if (this.aDirty) {
+      this.aDirty = false
+      gl.activeTexture(gl.TEXTURE0)
+      gl.bindTexture(gl.TEXTURE_2D, this.texA)
+      gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, S.TEX_WIDTH, this.texHeight, gl.RGBA, gl.FLOAT, this.aData)
+    }
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, null)
     gl.viewport(0, 0, W, H)
@@ -843,14 +1428,38 @@ export class Engine {
     // Everything inked multiplies onto the page.
     gl.blendFunc(gl.DST_COLOR, gl.ZERO)
 
+    // The reach view's rules, then a gap at each crossing the stitches pass over.
+    const weave = mix.weave
+    if (weave > 0.01 && this.warpVao && this.warpCount) {
+      gl.useProgram(P.warp.handle)
+      this.setWorldUniforms(P.warp)
+      gl.uniform1f(P.warp.u.uWarpAlpha!, weave)
+      gl.bindVertexArray(this.warpVao)
+      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, this.warpCount)
+    }
+    const rowPx = model.n > 1 ? cam_rowPx(this.camera, model.n) : 0
+    const crossAlpha = weave * Math.min(1, Math.max(0, (rowPx - 3.2) / 2))
+    if (crossAlpha > 0.01) {
+      this.uploadCrossings()
+      this.drawCrossings(this.crossVao.over, this.crossVao.overCount, crossAlpha, false)
+      gl.blendFunc(gl.DST_COLOR, gl.ZERO)
+    }
+
     if (this.edgeVao && model.edges.length) {
       gl.useProgram(P.edge.handle)
       this.setWorldUniforms(P.edge)
+      gl.uniform1f(P.edge.u.uWeave!, weave)
+      gl.uniform1f(P.edge.u.uElbow!, mix.elbow)
       gl.uniform1f(P.edge.u.uEdgeAlpha!, mix.edges * (model.edges.length > 2000 ? 0.3 : 1))
       // A finer nib as the page fills, so dense passages stay open.
       gl.uniform1f(P.edge.u.uStrokeScale!, Math.max(0.6, Math.min(1, Math.pow(160 / model.edges.length, 0.28))))
       gl.bindVertexArray(this.edgeVao)
       gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, this.edgeVertCount, model.edges.length)
+    }
+
+    if (crossAlpha > 0.01) {
+      this.drawCrossings(this.crossVao.under, this.crossVao.underCount, crossAlpha, true)
+      gl.blendFunc(gl.DST_COLOR, gl.ZERO)
     }
 
     if (this.spanVao && this.spanCount) {
@@ -868,16 +1477,36 @@ export class Engine {
     gl.uniform1i(P.node.u.uHover!, this.hovered ?? -1)
     gl.uniform1i(P.node.u.uSelected!, this.view.selected ?? -1)
     gl.uniform3f(P.node.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
+    // Rows are tight at a distance, so marks keep within their row.
+    gl.uniform1f(P.node.u.uMarkCap!, 100 + (Math.max(1.5, rowPx * 0.55) - 100) * weave)
     gl.bindVertexArray(this.quadVao)
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
     gl.bindVertexArray(null)
     gl.disable(gl.SCISSOR_TEST)
   }
 
+  private drawCrossings(vao: WebGLVertexArrayObject | null, count: number, alpha: number, redraw: boolean): void {
+    if (!vao || count === 0) return
+    const gl = this.gl
+    const P = this.programs.cross
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
+    gl.useProgram(P.handle)
+    this.setWorldUniforms(P)
+    gl.uniform1f(P.u.uCrossAlpha!, alpha)
+    // Over: the rule gets a gap wide enough for the stitch. Under: the stitch gets the gap,
+    // and the rule is redrawn across it.
+    if (redraw) gl.uniform2f(P.u.uCrossSize!, 2.6, 1.9)
+    else gl.uniform2f(P.u.uCrossSize!, 2.4, 1.4)
+    gl.uniform1f(P.u.uRedraw!, redraw ? 1 : 0)
+    gl.uniform3f(P.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
+    gl.bindVertexArray(vao)
+    gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, count)
+  }
+
   /** The ruled area of the page that holds the chart, in CSS pixels. */
   frameBounds(): { top: number; bottom: number } {
     const cam = this.camera
-    return { top: cam.insets.top - 16, bottom: cam.height - cam.insets.bottom + 26 }
+    return { top: cam.insets.top - LAYOUT.framePad, bottom: cam.height - cam.insets.bottom + LAYOUT.framePad }
   }
 
   /** Pencil lines at the axis ticks, and in the density view the hatched silhouette of activity. */
@@ -891,8 +1520,23 @@ export class Engine {
     const { top, bottom } = this.frameBounds()
     for (const tick of this.ticks) {
       if (count >= MAX_RECTS || tick.x < 0 || tick.x > cam.width) continue
-      data.set([tick.x * dpr - 0.5, top * dpr, tick.x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.055 * this.mix.rules], count * 8)
+      data.set([tick.x * dpr - 0.5, top * dpr, tick.x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], TICK_RULE_ALPHA * this.mix.rules], count * 8)
       count++
+    }
+
+    // Pleats: a flat tone with fold lines, wherever the sheet is folded.
+    for (const pleat of this.foldTo.pleats) {
+      const x0 = cam.toX(this.foldNow.map(pleat.u0))
+      const x1 = cam.toX(this.foldNow.map(pleat.u1))
+      if (x1 < 0 || x0 > cam.width || x1 - x0 < 1) continue
+      if (count >= MAX_RECTS) break
+      data.set([x0 * dpr, top * dpr, x1 * dpr, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], PLEAT_TONE_ALPHA], count * 8)
+      count++
+      const spacing = Math.max(UNIT / 2, Math.min(UNIT, (x1 - x0) / 6))
+      for (let x = x0; x <= x1 + 0.01 && count < MAX_RECTS; x += spacing) {
+        data.set([x * dpr - 0.5, top * dpr, x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], PLEAT_FOLD_ALPHA], count * 8)
+        count++
+      }
     }
 
     const hatching = this.mix.hatching
@@ -903,7 +1547,7 @@ export class Engine {
       const origin = cam.toX(0)
       const first = origin - Math.ceil(origin / HATCH_SPACING) * HATCH_SPACING
       for (let x = first; x < cam.width && count < MAX_RECTS; x += HATCH_SPACING) {
-        const u = cam.fromX(x)
+        const u = this.uAtX(x)
         if (u < 0 || u > 1) continue
         const h = this.rateAt(model.time.year(u, this.warp))
         if (h < 0.015) continue
@@ -912,7 +1556,7 @@ export class Engine {
         const jitter = Math.sin(key * 12.9898) * 43758.5453
         const wobble = 0.93 + 0.14 * (jitter - Math.floor(jitter))
         const half = h * reach * wobble * hatching
-        data.set([x * dpr - 0.5 * dpr, (middle - half) * dpr, x * dpr + 0.5 * dpr, (middle + half) * dpr, HATCH_COLOR[0], HATCH_COLOR[1], HATCH_COLOR[2], 0.62 * hatching], count * 8)
+        data.set([x * dpr - 0.5 * dpr, (middle - half) * dpr, x * dpr + 0.5 * dpr, (middle + half) * dpr, HATCH_COLOR[0], HATCH_COLOR[1], HATCH_COLOR[2], HATCH_ALPHA * hatching], count * 8)
         count++
       }
     }
@@ -940,9 +1584,27 @@ export class Engine {
     this.texA = this.texB = this.texState = this.texLut = null
     this.edgeVao = null
     this.spanVao = null
+    this.warpVao = null
+    this.crossVao = { over: null, under: null, overCount: 0, underCount: 0 }
+    this.crossKey = ''
     this.initGL()
     this.createTargets()
     this.uploadModel()
     this.invalidate()
+  }
+}
+
+/** Height of one row at the current zoom, in CSS pixels. */
+function cam_rowPx(cam: Camera, n: number): number {
+  return (cam.yScale * 0.976) / Math.max(1, n - 1)
+}
+
+const RULER_HINT_KEY = 'interwoven.ruler-used'
+
+function readRulerHint(): boolean {
+  try {
+    return localStorage.getItem(RULER_HINT_KEY) === null
+  } catch {
+    return true
   }
 }

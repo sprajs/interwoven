@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildModel, countDescendants, layoutThreads, walk } from './model.ts'
+import { buildModel, countDescendants, layoutThreads, modelReach, walk } from './model.ts'
 import type { RawDataset, RawNode } from './types.ts'
 import { validateDataset } from './validate.ts'
 import { TimeScale } from '../engine/time.ts'
@@ -55,6 +55,18 @@ describe('buildModel', () => {
 
   it('keeps disconnected entries', () => {
     expect(buildModel(dataset([node('alone', 1500)])).n).toBe(1)
+  })
+})
+
+describe('modelReach', () => {
+  it('follows a link through an undated entry on to a dated one, and is not extended by it', () => {
+    const data = dataset([node('first', 1800), node('last', 1900)], [])
+    const undated = { id: 'between', title: 'between', kind: 'technology', level: 1, date_label: 'Unplaced', labels: ['a'], summary: '', regions: [], review: 'accepted', sources: [], anchor_status: 'not_yet_researched', placement_reason: 'Anchor not yet researched.' } as const
+    const tie = (from: string, to: string) => ({ from, to, relation: 'builds on', tentative: false })
+    const model = buildModel({ ...data, unplaced: [{ ...undated, labels: ['a'], regions: [], sources: [] }], links: [tie('first', 'between'), tie('between', 'last')] })
+    expect(model.edges).toHaveLength(0)
+    expect(modelReach(model).any[model.indexById.get('first')!]).toBe(1900)
+    expect(modelReach(model).any[model.indexById.get('last')!]).toBe(1900)
   })
 })
 

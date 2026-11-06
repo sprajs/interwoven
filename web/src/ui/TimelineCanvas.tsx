@@ -2,8 +2,9 @@ import { useEffect, useRef } from 'react'
 import { Engine } from '../engine/Engine.ts'
 import { emitFrame } from '../engine/frames.ts'
 import { clearTextCache } from '../engine/overlay.ts'
-import { setEngine, useApp } from '../store.ts'
-import { COMPACT_WIDTH, LABELS_WIDTH, SHEET_WIDTH } from './layout.ts'
+import { followEntry, openThread, setEngine, stepStory, useApp } from '../store.ts'
+import { FONT_FACES, LAYOUT, UNIT } from '../design.ts'
+import { COMPACT_WIDTH, LABELS_WIDTH, rightSheetOpen, SHEET_CLEARANCE, SHEET_WIDTH } from './layout.ts'
 
 
 /** Mounts the engine and mirrors app state into it. */
@@ -19,6 +20,11 @@ export function TimelineCanvas() {
       engine = new Engine(glCanvas, overlay, {
         onHover: (index, x, y) => useApp.getState().setHover(index === null ? null : { index, x, y }),
         onSelect: (index) => useApp.getState().select(index),
+        onFollow: (index) => {
+          // An entry with no links has nothing to follow, so the second tap just keeps it selected.
+          if (!followEntry(index)) useApp.getState().select(index)
+        },
+        onFolds: (count) => useApp.getState().setOpenPeriods(count),
         onFrame: (e) => {
           // The depth readout is the only per-frame value React needs, and it changes rarely.
           let depth = 1
@@ -33,21 +39,22 @@ export function TimelineCanvas() {
       return
     }
     setEngine(engine)
-    if (import.meta.env.DEV) (window as unknown as { engine: Engine }).engine = engine
+    if (import.meta.env.DEV) Object.assign(window, { engine, useApp, followEntry, openThread, stepStory })
 
     const sync = () => {
       const s = useApp.getState()
       const compact = window.innerWidth < COMPACT_WIDTH
-      const selection = s.selected !== null || s.unplacedSelected !== null
-      const panel = !compact && (selection || s.mode !== 'threads')
-      const labels = !compact && (s.labelsOpen || s.unplacedOpen)
+      const panel = !compact && rightSheetOpen(s)
+      const story = s.mode === 'story'
+      const labels = !compact && s.labelsOpen
       // On narrow screens details open as a bottom sheet, so the view makes room above it.
-      const sheet = compact && selection
+      const sheet = compact && (s.selected !== null || s.unplacedSelected !== null || story)
+      const bottom = s.unplacedOpen ? window.innerHeight * 0.56 : sheet ? window.innerHeight * 0.5 : compact && s.mode === 'reach' ? 26 * UNIT : LAYOUT.frameBottom
       engine.setInsets({
-        top: compact ? 146 : 104,
-        bottom: sheet ? window.innerHeight * 0.5 : compact ? 104 : 96,
-        left: labels ? LABELS_WIDTH + 36 : compact ? 22 : 56,
-        right: panel ? SHEET_WIDTH + 36 : compact ? 22 : 56,
+        top: (compact ? LAYOUT.frameTopCompact : LAYOUT.frameTop) + LAYOUT.framePad,
+        bottom: bottom + LAYOUT.framePad,
+        left: labels ? LABELS_WIDTH + SHEET_CLEARANCE : compact ? LAYOUT.marginCompact : LAYOUT.margin,
+        right: panel ? SHEET_WIDTH + SHEET_CLEARANCE : compact ? LAYOUT.marginCompact : LAYOUT.margin,
       })
       engine.setView({
         mode: s.mode,
@@ -55,17 +62,23 @@ export function TimelineCanvas() {
         hiddenKinds: s.hiddenKinds,
         activeLabels: s.activeLabels,
         selected: s.selected,
+        rowOrder: s.rowOrder,
+        story: s.story,
+        searchHits: s.searchHits,
+        previewLabel: s.previewLabel,
       })
     }
 
     let lastModel = useApp.getState().model
     if (lastModel) engine.setModel(lastModel)
+    engine.setLife(useApp.getState().life)
     sync()
     const unsubscribe = useApp.subscribe((s, prev) => {
       if (s.model !== lastModel && s.model) {
         lastModel = s.model
         engine.setModel(s.model)
       }
+      if (s.life !== prev.life) engine.setLife(s.life)
       if (
         s.mode !== prev.mode ||
         s.compressed !== prev.compressed ||
@@ -73,8 +86,12 @@ export function TimelineCanvas() {
         s.activeLabels !== prev.activeLabels ||
         s.selected !== prev.selected ||
         s.unplacedSelected !== prev.unplacedSelected ||
+        s.unplacedOpen !== prev.unplacedOpen ||
         s.labelsOpen !== prev.labelsOpen ||
-        s.unplacedOpen !== prev.unplacedOpen
+        s.rowOrder !== prev.rowOrder ||
+        s.story !== prev.story ||
+        s.searchHits !== prev.searchHits ||
+        s.previewLabel !== prev.previewLabel
       ) {
         sync()
       }
@@ -82,8 +99,7 @@ export function TimelineCanvas() {
     window.addEventListener('resize', sync)
 
     // Text measured before the web fonts arrive has the wrong width.
-    const fonts = ['400 14px "EB Garamond Variable"', 'italic 400 14px "EB Garamond Variable"', '500 17px "EB Garamond Variable"']
-    void Promise.all(fonts.map((font) => document.fonts.load(font))).then(() => {
+    void Promise.all(FONT_FACES.map((face) => document.fonts.load(face))).then(() => {
       clearTextCache()
       engine.invalidate()
     })

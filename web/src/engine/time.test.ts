@@ -51,3 +51,14 @@ describe('pickTicks', () => {
     for (let i = 1; i < ticks.length; i++) expect(ticks[i]!.x - ticks[i - 1]!.x).toBeGreaterThanOrEqual(70)
   })
 })
+
+describe('pickTicks with a rejected stretch', () => {
+  it('lets ticks that can show take the room of those that cannot', () => {
+    const toX = (year: number) => year - 1000
+    const all = pickTicks(toX, 1000, 2000, 1000, 100).map((t) => t.year)
+    const some = pickTicks(toX, 1000, 2000, 1000, 100, (x) => x < 200).map((t) => t.year)
+    expect(all).toContain(1000)
+    expect(some.every((year) => year >= 1200)).toBe(true)
+    expect(some.length).toBeGreaterThan(2)
+  })
+})

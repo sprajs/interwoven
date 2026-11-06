@@ -133,6 +133,8 @@ export function pickTicks(
   yearEnd: number,
   width: number,
   minGap: number,
+  /** Positions that cannot hold a tick, which must not crowd out those that can. */
+  reject?: (x: number) => boolean,
 ): { year: number; x: number; step: number }[] {
   const cell = minGap
   const cols = Math.ceil(width / cell) + 3
@@ -143,7 +145,7 @@ export function pickTicks(
     if ((yearEnd - first) / step > 4000) continue
     for (let y = first; y <= yearEnd; y += step) {
       const x = yearToX(y)
-      if (x < 0 || x > width) continue
+      if (x < 0 || x > width || reject?.(x)) continue
       const c = Math.floor(x / cell) + 1
       if (taken[c - 1] || taken[c] || taken[c + 1]) continue
       taken[c] = 1
