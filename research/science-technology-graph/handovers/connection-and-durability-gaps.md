@@ -11,11 +11,17 @@ Szymon expected this chart to be far more interconnected, and it is not yet. The
 python3 tools/gap_audit.py --write
 ```
 
+Szymon has decided that only entries with a selected anchor appear on the chart. Today that is 28 entries and just 12 of the 103 relationships, because a link needs both ends on the chart. So **selecting anchors comes first**: it is what makes existing work visible.
+
 Your job is to investigate these gaps and record what the evidence supports. **The aim is a truer graph, not a denser one.** Every proposed link below is a question and none of them is a claim. A well-supported "no documented link" counts as a result.
 
 All existing rules in `README.md` and `SCHEMA-CONTRACT.md` still apply. In particular, keep failed and disconnected branches, and never add a link only to reduce the fragment count.
 
-## 1. Answer the candidate questions
+## 1. Select anchors
+
+Start with entries that already have relationships, tier 0 and tier 1 first, because each anchor can bring several links onto the chart. Follow the anchor rules in the contract exactly: a missing commercial date stays missing rather than being replaced by an invention or prototype date. An anchor needs both date limits to be placed.
+
+## 2. Answer the candidate questions
 
 `handovers/candidate-links.jsonl` holds 36 questions: 31 about possible links and 5 about possible duplicate entries. Work through them in file order, because the bridges between major threads come first.
 
@@ -30,7 +36,7 @@ For each question, update its record in place:
 
 The `proposed_relation` is a starting guess. Use whichever relation the evidence supports, and link through intermediate entries rather than one long jump where they exist. For the `identity` questions, decide whether the two records are one configuration or two. Merge or link them accordingly, without losing provenance.
 
-## 2. Fill the holes in the graph
+## 3. Fill the holes in the graph
 
 These are missing entries, not missing links. They are listed by how much they would connect, and they are starting points that you should prioritise using evidence.
 
@@ -52,7 +58,7 @@ These are missing entries, not missing links. They are listed by how much they w
 
 Keep the wide regional scope already here, including non-Western and non-market traditions.
 
-## 3. Research durability
+## 4. Research durability
 
 The chart needs to show how long technologies lasted and how they gave way to each other. Today the evidence is close to empty:
 
@@ -73,12 +79,11 @@ The chart needs to show how long technologies lasted and how they gave way to ea
 
 Replacement is rarely total, so record where something survived, and remember that one supplier's withdrawal is not the end of a technology.
 
-## 4. Questions for you to check
+## 5. Questions for you to check
 
 - **Withheld relationships.** Earlier `migration/withheld-relationships.json` and `legacy/v1/` existed in this folder and were never committed, and they are no longer here. If you moved or removed them deliberately, say where they are. The withheld links are strong candidates for this work, and if they have been lost, tell Szymon.
-- **Dates.** 114 entries have no selected anchor. Selecting anchors matters to the chart as well as the record, so prioritise tier 0 and tier 1.
 
-## 5. Finishing
+## 6. Finishing
 
 1. Run `python3 tools/validate.py --json` and `python3 -m unittest discover -s tests`.
 2. Run `python3 tools/gap_audit.py --write`. It flags open questions that are already linked, and questions pointing at entries that no longer exist.

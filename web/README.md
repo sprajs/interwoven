@@ -27,6 +27,10 @@ Then open http://localhost:5174. The other commands below run from this `web` fo
 
 The app reads `public/data/timeline.json`, which is generated. Do not edit it by hand.
 
+While `npm run dev` runs, the chart updates itself: when anything in `research/science-technology-graph/data/` or `web/data/` changes, it rebuilds the file and reloads the page. This also covers data arriving through `git pull`. If an import fails, for example halfway through an agent's write, the last good chart stays up and the terminal says why.
+
+To rebuild by hand, for example before a production build:
+
 ```bash
 npm run import
 npm run validate

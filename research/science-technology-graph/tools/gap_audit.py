@@ -66,6 +66,9 @@ def audit():
     out += ["", "## Timeline placement", ""]
     anchors = collections.Counter(n["graph_anchor"]["status"] for n in nodes)
     out += [f"- Anchor {status.replace('_', ' ')}: {count}" for status, count in sorted(anchors.items())]
+    anchored = {n["id"] for n in nodes if n["graph_anchor"]["status"] == "selected"}
+    drawable = sum(r["from"]["node_id"] in anchored and r["to"]["node_id"] in anchored for r in relationships)
+    out.append(f"- Relationships with a selected anchor at both ends: {drawable} of {len(relationships)}")
 
     out += ["", "## Durability evidence", "", "| Stage | Documented | Ongoing | Unknown | Not researched | Not applicable |", "| --- | --- | --- | --- | --- | --- |"]
     for stage in DURABILITY:
