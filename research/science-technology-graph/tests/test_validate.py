@@ -450,6 +450,18 @@ class GraphValidationTests(unittest.TestCase):
         result = self.assertValid(records)
         self.assertEqual(["event_chronology"], [e["code"] for e in result["concerns"]])
 
+    def test_approximate_relationship_limits_do_not_establish_definite_reversal(self):
+        for approximate_index in (0, 2):
+            with self.subTest(approximate_endpoint=approximate_index):
+                records = linked_fixture()
+                records["events"][0]["date"] = one_sided_date("earliest", {"year": 1921}, precision="year")
+                records["events"][2]["date"] = one_sided_date("latest", {"year": 1920}, precision="year")
+                records["events"][approximate_index]["date"]["status"] = "approximate"
+                before = deepcopy(records)
+                result = self.assertValid(records)
+                self.assertEqual([], result["concerns"])
+                self.assertEqual(before, records)
+
     def test_unknown_dates_have_explicit_status_and_no_bounds(self):
         records = fixture()
         records["events"][0]["date"] = {"status": "unknown", "precision": "unknown", "calendar": "historical-BCE-CE",
@@ -516,14 +528,29 @@ class GraphValidationTests(unittest.TestCase):
             "earliest_status": "unknown", "latest_status": "not_yet_researched"}
         self.assertInvalid(records, "schema")
 
-    def test_known_and_approximate_dates_still_require_both_limits(self):
-        for status in ("known", "approximate"):
-            for supplied in ("earliest", "latest"):
-                with self.subTest(status=status, supplied=supplied):
+    def test_known_dates_still_require_both_limits(self):
+        for supplied in ("earliest", "latest"):
+            with self.subTest(supplied=supplied):
+                records = fixture()
+                records["events"][0]["date"] = one_sided_date(supplied, {"year": 2023}, precision="year")
+                records["events"][0]["date"]["status"] = "known"
+                self.assertInvalid(records)
+
+    def test_approximate_one_sided_dates_preserve_uncertainty_without_inventing_a_limit(self):
+        for supplied in ("earliest", "latest"):
+            for missing_status in ("unknown", "not_yet_researched"):
+                with self.subTest(supplied=supplied, missing_status=missing_status):
                     records = fixture()
-                    records["events"][0]["date"] = one_sided_date(supplied, {"year": 2023}, precision="year")
-                    records["events"][0]["date"]["status"] = status
-                    self.assertInvalid(records)
+                    missing = "earliest" if supplied == "latest" else "latest"
+                    date = one_sided_date(supplied, {"year": 325}, missing_status, precision="year")
+                    date.update(status="approximate", label="Approximately the supplied date")
+                    records["events"][0]["date"] = date
+                    before = deepcopy(records)
+                    self.assertValid(records)
+                    self.assertEqual(before, records)
+                    self.assertNotIn(missing, date)
+                    del date[missing + "_status"]
+                    self.assertInvalid(records, "required")
 
     def test_each_supplied_one_sided_limit_checks_precision_and_possible_days(self):
         for supplied in ("earliest", "latest"):

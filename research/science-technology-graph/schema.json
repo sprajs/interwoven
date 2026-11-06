@@ -314,8 +314,7 @@
             "properties": {
               "status": {
                 "enum": [
-                  "known",
-                  "approximate"
+                  "known"
                 ]
               }
             },
@@ -349,6 +348,7 @@
             "properties": {
               "status": {
                 "enum": [
+                  "approximate",
                   "bounded"
                 ]
               }
@@ -413,7 +413,7 @@
           }
         }
       ],
-      "description": "Bounded dates may have one supplied limit. Each omitted limit requires its explicit unknown or not_yet_researched status; supplied limits never carry a missing-limit status."
+      "description": "Bounded and approximate dates may have one supplied limit. Approximate status also qualifies that supplied limit. Each omitted limit requires its explicit unknown or not_yet_researched status; supplied limits never carry a missing-limit status. Known dates require both limits."
     },
     "scope": {
       "type": "object",

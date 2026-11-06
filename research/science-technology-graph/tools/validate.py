@@ -199,7 +199,11 @@ def _date_checks(record, path, errors, concerns):
 
 def _definitely_after(source_date, receiving_date):
     """Only supplied decisive bounds establish reversed event chronology."""
-    return ("earliest" in source_date and "latest" in receiving_date
+    # Approximation has no quantified tolerance, so its nominal year cannot
+    # establish definite ordering against another event's limit.
+    return (source_date.get("status") != "approximate"
+            and receiving_date.get("status") != "approximate"
+            and "earliest" in source_date and "latest" in receiving_date
             and _time(source_date["earliest"]) > _time(receiving_date["latest"], True))
 
 

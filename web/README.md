@@ -53,7 +53,7 @@ npm run validate
   { "elec-volta-batteries-1800": ["batteries", "electromagnetism"] }
   ```
 
-  A `labels` array on a research node also takes effect, and overrides win over both. A new label id needs a matching `LABEL_RULES` entry for its name and ink.
+  A `labels` array on a research node also takes effect, and overrides win over both. A new label id needs a matching `LABEL_RULES` or `DISPLAY_LABELS` entry for its name and ink. The explicit display assignments cover entries whose subject is not recognized by the existing rules.
 
 ## Stress test
 

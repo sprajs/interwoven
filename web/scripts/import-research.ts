@@ -50,6 +50,21 @@ const LABEL_RULES: { id: string; name: string; ink: string; test: RegExp }[] = [
   { id: 'knowledge', name: 'Spread of knowledge', ink: INK.moss, test: /latin|teaching|bugia|liber|malindi|hawari|printing|jikji|sutra|bi-sheng/ },
 ]
 
+// Explicit display assignments in data/label-overrides.json use these threads.
+// They do not broaden the existing rules or change an already labelled entry.
+const DISPLAY_LABELS: RawLabel[] = [
+  { id: 'mathematics', name: 'Mathematics', ink: INK.moss },
+  { id: 'transport', name: 'Roads & transport', ink: INK.verdigris },
+  { id: 'communication', name: 'Communication', ink: INK.indigo },
+  { id: 'accounting', name: 'Accounting', ink: INK.moss },
+  { id: 'ceramics', name: 'Ceramics', ink: INK.madder },
+  { id: 'polymers', name: 'Polymers', ink: INK.madder },
+  { id: 'timekeeping', name: 'Timekeeping', ink: INK.moss },
+  { id: 'electric-power', name: 'Electric power', ink: INK.ochre },
+  { id: 'medicine', name: 'Medicine', ink: INK.plum },
+  { id: 'chemistry', name: 'Chemistry', ink: INK.madder },
+]
+
 export interface ResearchEvent {
   id: string
   node_id: string
@@ -135,7 +150,7 @@ export function deriveEntryDate(date: HistoricalDate, interpretation: DateInterp
   }
   if (date.earliest && date.earliest_status !== undefined || date.latest && date.latest_status !== undefined) return { reason: 'A supplied date limit cannot also be marked unknown.' }
   if (!date.earliest && !date.latest) return { reason: 'The selected entry has no supplied date limit.' }
-  if (['known', 'approximate'].includes(date.status) && (!date.earliest || !date.latest)) return { reason: 'Known and approximate events require both supplied date limits.' }
+  if (date.status === 'known' && (!date.earliest || !date.latest)) return { reason: 'Known events require both supplied date limits.' }
   if (date.earliest && date.latest) {
     const a = date.earliest, b = date.latest
     const before = a.year < b.year || a.year === b.year && ((a.month ?? 1) < (b.month ?? 12) || (a.month ?? 1) === (b.month ?? 12) && (a.day ?? 1) <= (b.day ?? 31))
@@ -144,21 +159,22 @@ export function deriveEntryDate(date: HistoricalDate, interpretation: DateInterp
     return { reason: 'An omitted date limit needs its explicit uncertainty status.' }
   }
   const result = { ...date }
+  const qualification = date.status === 'approximate' ? 'approximately ' : ''
   if (interpretation === 'known_by') {
     if (!result.latest) return { reason: 'Known-by entry needs the selected event’s supplied latest limit.' }
     delete result.earliest; delete result.latest_status
-    result.earliest_status = date.earliest === undefined ? date.earliest_status ?? 'unknown' : 'unknown'; result.status = 'bounded'
+    result.earliest_status = date.earliest === undefined ? date.earliest_status ?? 'unknown' : 'unknown'; result.status = date.status === 'approximate' ? 'approximate' : 'bounded'
   } else if (interpretation === 'known_from') {
     if (!result.earliest) return { reason: 'Known-from entry needs the selected event’s supplied earliest limit.' }
     delete result.latest; delete result.earliest_status
-    result.latest_status = date.latest === undefined ? date.latest_status ?? 'unknown' : 'unknown'; result.status = 'bounded'
+    result.latest_status = date.latest === undefined ? date.latest_status ?? 'unknown' : 'unknown'; result.status = date.status === 'approximate' ? 'approximate' : 'bounded'
   } else if (interpretation !== 'event_date') return { reason: 'The community-entry date interpretation is missing or invalid.' }
   if (!result.earliest) {
-    result.label = `By ${boundLabel(result.latest!)}`
+    result.label = `By ${qualification}${boundLabel(result.latest!)}`
     return { entry_date: result, date_kind: 'known_by', year: result.latest!.year, end: result.latest!.year }
   }
   if (!result.latest) {
-    result.label = `Not before ${boundLabel(result.earliest)}`
+    result.label = `Not before ${qualification}${boundLabel(result.earliest)}`
     return { entry_date: result, date_kind: 'known_from', year: result.earliest.year, start: result.earliest.year }
   }
   return { entry_date: result, date_kind: JSON.stringify(result.earliest) === JSON.stringify(result.latest) ? 'point' : 'interval',
@@ -263,7 +279,7 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   for (const source of records.sources) if (cited.has(source.id)) sources[source.id] = {
     title: source.title, url: source.url, year: Array.isArray(source.year) ? source.year.join(', ') : source.year,
   }
-  const declared = new Map<string, RawLabel>(LABEL_RULES.map((rule) => [rule.id, { id: rule.id, name: rule.name, ink: rule.ink }]))
+  const declared = new Map<string, RawLabel>([...LABEL_RULES, ...DISPLAY_LABELS].map((label) => [label.id, { id: label.id, name: label.name, ink: label.ink }]))
   return {
     meta: { title: 'Interwoven', description: 'Availability, use and recognition across communities',
       provenance: 'Generated from research/science-technology-graph. Do not edit by hand.' },

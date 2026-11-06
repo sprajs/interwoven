@@ -64,6 +64,31 @@ class QueryTests(unittest.TestCase):
         self.assertNotIn("latest", result)
         self.assertEqual("unknown", result["latest_status"])
 
+    def test_approximate_one_sided_entry_keeps_qualification_and_unknown_opposite_limit(self):
+        for interpretation, supplied, word in (("known_by", "latest", "By"), ("event_date", "latest", "By"),
+                ("known_from", "earliest", "Not before"), ("event_date", "earliest", "Not before")):
+            with self.subTest(interpretation=interpretation, supplied=supplied):
+                node, event = chosen(interpretation=interpretation)
+                missing = "earliest" if supplied == "latest" else "latest"
+                event["date"] = {"status": "approximate", "precision": "year", supplied: {"year": 325},
+                    missing + "_status": "unknown", "label": "A qualified source date, not parsed for a coordinate."}
+                before = deepcopy(event)
+                result = query.entry_date(node["graph_anchor"], event)
+                self.assertEqual(f"{word} approximately 325", result["label"])
+                self.assertEqual("approximate", result["status"])
+                self.assertNotIn(missing, result)
+                self.assertEqual("unknown", result[missing + "_status"])
+                self.assertEqual(before, event)
+
+    def test_known_by_of_an_approximate_range_keeps_the_limit_approximate(self):
+        node, event = chosen()
+        event["date"].update(status="approximate", earliest={"year": 300}, latest={"year": 325})
+        result = query.entry_date(node["graph_anchor"], event)
+        self.assertEqual("By approximately 325", result["label"])
+        self.assertEqual("approximate", result["status"])
+        self.assertNotIn("earliest", result)
+        self.assertEqual({"year": 300}, event["date"]["earliest"])
+
     def test_entry_filters_expose_community_and_proxy_status(self):
         direct, used = chosen("local-tool", "practical_use", interpretation="event_date")
         proxy, published = chosen("science", "public_awareness", "awareness_proxy", "event_date")

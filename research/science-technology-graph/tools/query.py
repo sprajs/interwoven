@@ -78,20 +78,22 @@ def entry_date(anchor, event):
         raise ValueError("selected community-entry event has no usable date")
     interpretation = anchor.get("date_interpretation")
     result = deepcopy(date)
+    qualification = "approximately " if date["status"] == "approximate" else ""
     if interpretation == "event_date":
         if not any(isinstance(date.get(key), dict) for key in ("earliest", "latest")):
             raise ValueError("selected community-entry event has no supplied limit")
         if "earliest" not in date:
-            result["label"] = "By " + _bound_label(date["latest"])
+            result["label"] = "By " + qualification + _bound_label(date["latest"])
         elif "latest" not in date:
-            result["label"] = "Not before " + _bound_label(date["earliest"])
+            result["label"] = "Not before " + qualification + _bound_label(date["earliest"])
         return result
     if interpretation not in ("known_by", "known_from"):
         raise ValueError("community-entry date interpretation is missing or invalid")
     supplied, missing, word = ("latest", "earliest", "By") if interpretation == "known_by" else ("earliest", "latest", "Not before")
     if not isinstance(date.get(supplied), dict):
         raise ValueError(f"{interpretation} needs the selected event's supplied {supplied} limit")
-    result.update(status="bounded", label=f"{word} {_bound_label(date[supplied])}")
+    result.update(status="approximate" if date["status"] == "approximate" else "bounded",
+                  label=f"{word} {qualification}{_bound_label(date[supplied])}")
     result.pop(missing, None)
     result.pop(supplied + "_status", None)
     result[missing + "_status"] = date.get(missing + "_status", "unknown") if missing not in date else "unknown"

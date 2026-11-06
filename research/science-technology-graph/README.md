@@ -25,6 +25,7 @@ python3 tools/query.py node google-glass-enterprise-2
 python3 tools/query.py traverse elec-oersted-current-magnetism-1820 --depth 2 --direction outgoing
 python3 tools/query.py unresolved-commercial
 python3 tools/query.py community-entries
+python3 tools/coverage.py --baseline 96b3199
 ```
 
 Traversal follows historical relationships. Candidate links are excluded unless `--include-candidates` is specified. Disconnected records are valid.
@@ -59,9 +60,13 @@ The validator checks schema, IDs, event ownership, source references, date bound
 
 Each current review decision binds to a SHA-256 of the complete record, excluding only its top-level review metadata. The accompanying reviews expose the exact historical projections, inspected passages and limits. A changed assertion cannot silently retain a matching review hash.
 
+`reviews/community-entry.json` and `reviews/expansion.json` embed the exact accepted inputs and independent assessments used to compose the records. `reviews/identity.json` preserves duplicate resolutions and original witnesses; `reviews/final-refinements.json` records the later date and tier corrections. `reviews/approximate-dates.json` reconciles the structured status with already qualified approximate bounds. `reviews/connection-questions.json` preserves the assessed candidate links, including insufficient-evidence findings. Source-storage and source-metadata reviews explain byte-preserving changes. Temporary paths in these ledgers are provenance, not dependencies needed to inspect the accepted assertions.
+
 ## Current coverage
 
 Run `python3 tools/query.py stats` for current counts and `python3 tools/gap_audit.py` for connections and lifecycle gaps. The local app in `../../web` imports the same four canonical files and shows the selected community-entry milestones. Its “Why this date” explanation retains the named community, alternative dates and evidence limits. Entries awaiting a defensible anchor remain searchable in **Unplaced**.
+
+`tools/coverage.py` compares placement coverage with the committed placement checkpoint. It groups the supplied upper date limit, or the lower limit when only that exists. A known-by limit does not establish the true onset era; these are neither invention counts nor claims of continuous use. `CHECKPOINT.md` records the verified current counts, hashes and remaining limits.
 
 Historical acceptance is scoped to the recorded propositions and inspected passages; it does not certify complete ancestry, source infallibility or full-document reading. A reviewed community-entry date does not complete the separate research into first commercial availability, adoption, decline, niche survival or last use.
 

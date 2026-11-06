@@ -122,6 +122,35 @@ describe('research importer placement', () => {
     expect(nodeMarkStyle(data.nodes[0]!)).toBe(2)
   })
 
+  it.each([
+    ['known_by', 'latest', 'By approximately 325'], ['event_date', 'latest', 'By approximately 325'],
+    ['known_from', 'earliest', 'Not before approximately 325'], ['event_date', 'earliest', 'Not before approximately 325'],
+  ] as const)('preserves an approximate one-sided date under %s with only %s', (interpretation, supplied, label) => {
+    const use = event('approx-entry', 'approx', 'practical_use', 325)
+    const missing = supplied === 'latest' ? 'earliest' : 'latest'
+    use.date = { status: 'approximate', precision: 'year', [supplied]: { year: 325 }, [missing + '_status']: 'unknown',
+      label: 'A qualified source date, not parsed for a coordinate.', basis: 'The source supports one approximate limit.' }
+    const current = node('approx', [use], 'practical_use', use.id)
+    current.graph_anchor!.date_interpretation = interpretation
+    const before = JSON.stringify([current, use])
+    const data = buildResearchDataset(records([current], [use]))
+    expect(data.unplaced).toEqual([])
+    expect(data.nodes[0]).toMatchObject({ year: 325, date_label: label, date_kind: supplied === 'latest' ? 'known_by' : 'known_from',
+      entry_date: { status: 'approximate', [missing + '_status']: 'unknown' } })
+    expect(data.nodes[0]).not.toHaveProperty(supplied === 'latest' ? 'start' : 'end')
+    expect(data.nodes[0]!.entry_date).not.toHaveProperty(missing)
+    expect(JSON.stringify([current, use])).toBe(before)
+    delete use.date[missing + '_status' as 'earliest_status' | 'latest_status']
+    expect(buildResearchDataset(records([current], [use])).nodes).toEqual([])
+  })
+
+  it('keeps a selected approximate upper limit qualified when the source supplies a range', () => {
+    const date = { status: 'approximate', earliest: { year: 300 }, latest: { year: 325 } }
+    expect(deriveEntryDate(date, 'known_by')).toMatchObject({ date_kind: 'known_by',
+      entry_date: { status: 'approximate', label: 'By approximately 325', earliest_status: 'unknown' }, end: 325 })
+    expect(date.earliest).toEqual({ year: 300 })
+  })
+
   it('deliberately selects later adoption instead of an earlier invention', () => {
     const events = [event('a-invention', 'a', 'invention', 1800), event('a-adoption', 'a', 'adoption', 1850)]
     const data = buildResearchDataset(records([node('a', events, 'adoption', 'a-adoption')], events))
