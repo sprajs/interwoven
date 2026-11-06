@@ -1,0 +1,1077 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:science-technology-graph:schema",
+  "title": "Science and technology graph schema 1",
+  "description": "Initial graph implementation. Each canonical JSONL file selects its record definition.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/node"
+    },
+    {
+      "$ref": "#/$defs/event"
+    },
+    {
+      "$ref": "#/$defs/relationship"
+    },
+    {
+      "$ref": "#/$defs/source"
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/id"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supports": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "source_id",
+        "locator",
+        "supports"
+      ],
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "historical_claim": {
+          "enum": [
+            "accepted",
+            "candidate",
+            "withheld"
+          ]
+        },
+        "lifecycle_classification": {
+          "enum": [
+            "accepted",
+            "needs_review",
+            "withheld"
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "historical_claim",
+        "lifecycle_classification",
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "source-evidence"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "source_ids",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "scoped_value": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "specified",
+            "unknown",
+            "not_yet_researched",
+            "not_applicable"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "specified"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "value"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "bound": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "not": {
+            "const": 0
+          }
+        },
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        }
+      },
+      "required": [
+        "year"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "day"
+            ]
+          },
+          "then": {
+            "required": [
+              "month"
+            ]
+          }
+        }
+      ]
+    },
+    "date": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "known",
+            "approximate",
+            "bounded",
+            "unknown",
+            "not_yet_researched",
+            "not_applicable"
+          ]
+        },
+        "precision": {
+          "enum": [
+            "day",
+            "month",
+            "year",
+            "decade",
+            "century",
+            "range",
+            "unknown"
+          ]
+        },
+        "calendar": {
+          "const": "historical-BCE-CE"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "earliest": {
+          "$ref": "#/$defs/bound"
+        },
+        "latest": {
+          "$ref": "#/$defs/bound"
+        }
+      },
+      "required": [
+        "status",
+        "precision",
+        "calendar",
+        "label",
+        "basis"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "known",
+                  "approximate",
+                  "bounded"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "earliest",
+              "latest"
+            ],
+            "properties": {
+              "precision": {
+                "not": {
+                  "const": "unknown"
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "precision": {
+                "const": "unknown"
+              }
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "earliest"
+                  ]
+                },
+                {
+                  "required": [
+                    "latest"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "configuration": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applications": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "market": {
+          "$ref": "#/$defs/scoped_value"
+        },
+        "population": {
+          "$ref": "#/$defs/scoped_value"
+        }
+      },
+      "required": [
+        "regions",
+        "configuration",
+        "applications",
+        "market",
+        "population"
+      ],
+      "additionalProperties": false
+    },
+    "lifecycle_entry": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "documented",
+            "unknown",
+            "ongoing",
+            "not_applicable",
+            "not_yet_researched"
+          ]
+        },
+        "event_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "status",
+        "event_ids",
+        "rationale",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "documented"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "event_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "ongoing"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "as_of"
+            ],
+            "properties": {
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "commercial_applicability": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "applicable",
+            "nonmarket",
+            "not_applicable",
+            "not_yet_assessed"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "rationale",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "nonmarket"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "anchor": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "selected",
+            "unknown",
+            "not_yet_researched",
+            "not_applicable"
+          ]
+        },
+        "policy": {
+          "enum": [
+            "first_commercial_availability",
+            "practical_deployment",
+            "scientific_event"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_id": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "required": [
+        "status",
+        "policy",
+        "rationale"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "selected"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "event_id"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "event_id"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "endpoint": {
+      "type": "object",
+      "properties": {
+        "node_id": {
+          "$ref": "#/$defs/id"
+        },
+        "event_id": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "required": [
+        "node_id"
+      ],
+      "additionalProperties": false
+    },
+    "local_copy": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "node": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "technology",
+            "science"
+          ]
+        },
+        "configuration": {
+          "type": "string",
+          "minLength": 1
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "event_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "lifecycle": {
+          "type": "object",
+          "properties": {
+            "invention": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "first_commercial_availability": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "practical_deployment": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "adoption": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "discovery": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "observation": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "formulation": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "publication": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "experimental_confirmation": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "acceptance": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "decline": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "withdrawal": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "end_of_use": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "abandonment": {
+              "$ref": "#/$defs/lifecycle_entry"
+            },
+            "revival": {
+              "$ref": "#/$defs/lifecycle_entry"
+            }
+          },
+          "required": [
+            "invention",
+            "first_commercial_availability",
+            "practical_deployment",
+            "adoption",
+            "discovery",
+            "observation",
+            "formulation",
+            "publication",
+            "experimental_confirmation",
+            "acceptance",
+            "decline",
+            "withdrawal",
+            "end_of_use",
+            "abandonment",
+            "revival"
+          ],
+          "additionalProperties": false
+        },
+        "commercial_applicability": {
+          "$ref": "#/$defs/commercial_applicability"
+        },
+        "graph_anchor": {
+          "$ref": "#/$defs/anchor"
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "uncertainty": {
+          "type": "string"
+        },
+        "classification": {},
+        "tier": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "tier_reason": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "label",
+        "kind",
+        "configuration",
+        "regions",
+        "event_ids",
+        "lifecycle",
+        "commercial_applicability",
+        "graph_anchor",
+        "review",
+        "provenance",
+        "uncertainty"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "science"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "commercial_applicability": {
+                "properties": {
+                  "status": {
+                    "const": "not_applicable"
+                  }
+                }
+              },
+              "graph_anchor": {
+                "properties": {
+                  "policy": {
+                    "const": "scientific_event"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "technology"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "graph_anchor": {
+                "properties": {
+                  "policy": {
+                    "enum": [
+                      "first_commercial_availability",
+                      "practical_deployment"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "node_id": {
+          "$ref": "#/$defs/id"
+        },
+        "event_type": {
+          "enum": [
+            "invention",
+            "first_commercial_availability",
+            "practical_deployment",
+            "adoption",
+            "discovery",
+            "observation",
+            "formulation",
+            "publication",
+            "experimental_confirmation",
+            "acceptance",
+            "decline",
+            "withdrawal",
+            "end_of_use",
+            "abandonment",
+            "revival",
+            "conception",
+            "demonstration",
+            "prototype",
+            "production",
+            "documented_description",
+            "archaeological_evidence",
+            "dated_assertion",
+            "launch",
+            "commercial_offer",
+            "support_end",
+            "presentation"
+          ],
+          "description": "Event stages are distinct claims. A commercial offer does not establish first commercial availability; launch does not establish construction; support end does not establish end of use. Dated assertion leaves the stage unresolved."
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "uncertainty": {
+          "type": "string"
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "node_id",
+        "event_type",
+        "date",
+        "scope",
+        "statement",
+        "evidence",
+        "uncertainty",
+        "review"
+      ],
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "relation": {
+          "enum": [
+            "documented-development",
+            "documented-transmission",
+            "instrument-enables-observation",
+            "process-enables-production",
+            "theory-informs-design",
+            "observed-combination",
+            "bounded-technical-requirement",
+            "documented-adaptation",
+            "supersedes",
+            "revival-of",
+            "abandonment-of"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/scope"
+            }
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "necessity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alternatives": {
+          "type": "string"
+        },
+        "uncertainty": {
+          "type": "string"
+        },
+        "temporal_note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "from",
+        "to",
+        "relation",
+        "statement",
+        "scope",
+        "evidence",
+        "confidence",
+        "necessity",
+        "alternatives",
+        "uncertainty",
+        "temporal_note",
+        "review",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "type": "integer"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https?://[^\\s]+$"
+        },
+        "authors": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "year": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "access": {
+          "enum": [
+            "full-text",
+            "partial-text",
+            "abstract",
+            "metadata"
+          ]
+        },
+        "inspected_passages": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "accessed": {
+          "type": "string",
+          "format": "date"
+        },
+        "evidence_lineage": {
+          "type": "string"
+        },
+        "local_copy": {
+          "$ref": "#/$defs/local_copy"
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "title",
+        "url",
+        "authors",
+        "year",
+        "version",
+        "access",
+        "inspected_passages",
+        "accessed",
+        "evidence_lineage"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
