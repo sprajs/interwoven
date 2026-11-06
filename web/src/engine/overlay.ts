@@ -198,7 +198,8 @@ function drawFamilies(engine: Engine, ctx: CanvasRenderingContext2D, W: number):
       ctx.fillStyle = `rgba(${INK.primary},${RULE_ALPHA.rule * alpha})`
       ctx.fillRect(0, line, W, LINE.hair)
     }
-    const x = UNIT * 2
+    // Stays clear of a side sheet on the left, and otherwise sits in the page margin.
+    const x = cam.insets.left > LAYOUT.margin ? cam.insets.left : UNIT * 2
     const text = `${family.name}  ${family.count}`
     const width = measure(ctx, text, heading) * 0.9
     ctx.fillStyle = `rgba(${PAPER},${alpha})`
