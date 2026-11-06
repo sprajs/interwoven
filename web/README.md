@@ -2,12 +2,14 @@
 
 An interactive chart of how science and technology build on one another, drawn as ink on paper.
 
+From the repo root:
+
 ```bash
 npm install
 npm run dev
 ```
 
-Then open http://localhost:5174.
+Then open http://localhost:5174. The other commands below run from this `web` folder.
 
 ## Reading the chart
 
