@@ -33,7 +33,18 @@ function tierStep(level: number): TypeStep {
   return (rowsMode ? ROW_TIER_TYPE : TIER_TYPE)[level] ?? 'note'
 }
 
-const labelFont = (level: number, italic: boolean): string => font(tierStep(level), italic)
+/** Label fonts are asked for thousands of times a frame, so each is only built once. */
+const labelFonts = new Map<string, string>()
+
+function labelFont(level: number, italic: boolean): string {
+  const key = `${rowsMode}${level}${italic}`
+  let value = labelFonts.get(key)
+  if (value === undefined) {
+    value = font(tierStep(level), italic)
+    labelFonts.set(key, value)
+  }
+  return value
+}
 
 let occupancy = new Uint8Array(0)
 let cols = 0
