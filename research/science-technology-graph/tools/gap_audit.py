@@ -41,6 +41,7 @@ def components(ids, relationships):
 
 def audit():
     nodes = read_jsonl(ROOT / "data/nodes.jsonl")
+    events = read_jsonl(ROOT / "data/events.jsonl")
     relationships = read_jsonl(ROOT / "data/relationships.jsonl")
     ids = [n["id"] for n in nodes]
     by_id = {n["id"]: n for n in nodes}
@@ -70,12 +71,40 @@ def audit():
     drawable = sum(r["from"]["node_id"] in anchored and r["to"]["node_id"] in anchored for r in relationships)
     out.append(f"- Relationships with a selected anchor at both ends: {drawable} of {len(relationships)}")
 
-    out += ["", "## Durability evidence", "", "| Stage | Documented | Ongoing | Unknown | Not researched | Not applicable |", "| --- | --- | --- | --- | --- | --- |"]
+    out += ["", "## Durability evidence", "", "### Node-stage assessments", "",
+            "These counts describe node-stage statuses. Scoped event episodes are counted separately below.", "",
+            "| Stage | Documented | Ongoing | Unknown | Not researched | Not applicable |", "| --- | --- | --- | --- | --- | --- |"]
     for stage in DURABILITY:
         counts = collections.Counter(n["lifecycle"][stage]["status"] for n in nodes if stage in n.get("lifecycle", {}))
         out.append(f"| {stage.replace('_', ' ')} | {counts['documented']} | {counts['ongoing']} | {counts['unknown']} | {counts['not_yet_researched']} | {counts['not_applicable']} |")
     relations = collections.Counter(r["relation"] for r in relationships)
     out += ["", f"Supersession, revival or abandonment links: {sum(relations[k] for k in ('supersedes', 'revival-of', 'abandonment-of'))}"]
+
+    out += ["", "### Scoped lifecycle event episodes", "",
+            "Each event is counted once under its recorded type and applies only to its stated configuration, community, application and geographical scope. "
+            "These are not counts of distinct innovations, global endings or continuous use between dates.", "",
+            "Reviewed means both event review axes are accepted. Event counts are independent of node-stage statuses: "
+            "a node can retain unknown overall last use while holding reviewed local last-use episodes.", "",
+            "| Event type | Reviewed episodes | Historical accepted, other classification | Other historical review | Total episodes | Reviewed entries represented |",
+            "| --- | --- | --- | --- | --- | --- |"]
+    reviewed_episodes = []
+    for stage in DURABILITY:
+        episodes = [e for e in events if e["event_type"] == stage]
+        historical = [e for e in episodes if e.get("review", {}).get("historical_claim") == "accepted"]
+        reviewed = [e for e in historical if e.get("review", {}).get("lifecycle_classification") == "accepted"]
+        reviewed_episodes.extend(reviewed)
+        out.append(f"| {stage.replace('_', ' ')} | {len(reviewed)} | {len(historical) - len(reviewed)} | "
+                   f"{len(episodes) - len(historical)} | {len(episodes)} | {len({e['node_id'] for e in reviewed})} |")
+    out += ["", "#### Reviewed episode IDs and scopes", ""]
+    for event in sorted(reviewed_episodes, key=lambda e: (e["event_type"], e["id"])):
+        scope = event["scope"]
+        population = scope["population"].get("value", scope["population"]["status"].replace("_", " "))
+        market = scope["market"].get("value", scope["market"]["status"].replace("_", " "))
+        out.append(f"- `{event['id']}` ({event['event_type'].replace('_', ' ')}; node `{event['node_id']}`; {event['date']['label']}). "
+                   f"Scope: {scope['configuration']} Regions: {'; '.join(scope['regions']) or 'not specified'}. "
+                   f"Applications: {'; '.join(scope['applications']) or 'not specified'}. Population: {population}. Market: {market}.")
+    if not reviewed_episodes:
+        out.append("None recorded.")
 
     candidate_path = ROOT / "handovers/candidate-links.jsonl"
     if candidate_path.exists():

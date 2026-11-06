@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- start of head.php -->
+<head>
+<script>
+(function(){
+  try {
+    var p = window.location.pathname;
+    if (p === '/balcony' || p.indexOf('/balcony/') === 0) {
+      document.documentElement.classList.add('balcony-backend');
+      document.documentElement.classList.remove('theme-dark');
+      return;
+    }
+    var t = localStorage.getItem('hoiTheme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('theme-dark');
+    }
+  } catch (e) {}
+})();
+</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<!--meta name="google-site-verification" content="YZdmhUiDW9vhM5BtLOFcRm-bNGGYchv9DPsM1-3y2Co" / -->
+	<!--meta name="viewport" content="width=device-width, initial-scale=1" -->
+	  
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWZ4778NZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QPWZ4778NZ');
+</script>
+
+  <script>
+
+  /*
+    *  This is the callback function that is called when the google maps api is loaded
+    *  It is called by the google maps api script tag in the html
+    *  see StateMaps.class.php
+    *  Don't rename the function without adjusting the name there as well.
+  */
+  const gMapsMandatoryCallback = async function() {
+    console.log('gMapsMandatoryCallback');
+    
+	//const { Map } = await google.maps.importLibrary("maps");
+    console.log("got Map", Map);
+  }
+
+  
+    </script>
+
+<script>
+        window.onload = () => {
+                console.log("calling defered maps via onload in head");
+                gMapsMandatoryCallback();
+        }
+</script>
+	<meta name="description" content="An interactive, illustrated timeline of historic moments
+                  in humankind's quest for information. With annotations by Jeremy Norman." /><title>History of Information</title><link rel='preload' href='https://fonts.googleapis.com/css?family=Bitter:300,400,700|Montserrat:300,400,700&amp;display=swap' as='style'/> <!-- all -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Bitter:300,400,700|Montserrat:300,400,700&amp;display=swap'/>
+<link rel='preload' href='https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&amp;display=swap' as='style'/> <!-- all -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&amp;display=swap'/>
+<link rel='stylesheet' media='screen' type='text/css' href='/template/styles.css?v=1793218600' /> <!-- all -->
+<link rel='stylesheet' media='print' type='text/css' href='/template/print.css?v=1621096610' /> <!-- all -->
+<link rel='stylesheet' media='screen' type='text/css' href='/css/chardinjs.css?v=1621096610' /> <!-- all: for entry overlay -->
+<link rel='stylesheet' media='screen' type='text/css' href='/css/hamburgermenu.css?v=1629324873' /> <!-- all -->
+<link rel='stylesheet' media='screen' type='text/css' href='/css/nouislider.css?v=1621096610' /> <!-- all: used by pager -->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' /></script> <!-- all -->
+<script src='/js/jquery.highlight-search-terms.min.js?v=1621096610' /></script> <!-- all -->
+<script src='/js/jquery.scrollTo-1.4.3.1-min.js?v=1621096610' /></script> <!-- all -->
+<script src='/js/nouislider.js?v=1621096610' /></script> <!-- all: vertical timeline used by pager -->
+<script src='/js/chardinjs.min.js?v=1621096610' /></script> <!-- all: for entry overlay -->
+<script src='/app/vzm.js?v=1778141216' /></script> <!-- all -->
+<script src='/app/vzm.liveSearch.js?v=1793218600' /></script> <!-- all: search and live search code -->
+<script src='/app/vzm.timeline.js?v=1778134966' /></script> <!-- all: vert slider -->
+<script src='/app/vzm.thememenu.js?v=1787792368' /></script> <!-- all: new theme menu -->
+<script src='/app/vzm.dynamicLoader.js?v=1649496913' /></script> <!-- all: for dynamically loading entries as needed upon scrolling or other events -->
+<script src='/app/vzm.pager.js?v=1793218600' /></script> <!-- all: only need on landing page -->
+<script src='/app/scripts.js?v=1787772353' /></script> <!-- all -->
+    
+  <script>
+
+    // returns the given GET param if a key is passed, else all GET params
+    function phpGET(key = null) {
+      var GET = {"id":"3009"};
+      if (!vzm.isObject(GET)) return null; // should never happen
+      return key ? (GET.hasOwnProperty(key) ? GET[key] : null) : GET;
+  }
+    
+  </script>
+  
+</head>
+<!-- end of head.php -->
+  <body  id="jsNoNavigator"> 
+  <!--- new idex header-->
+
+ <header id='topbar'>
+    <div id = 'logo'  style="height:55px;">
+        <a href="/index.php?home=1">
+            <img id="owl" src ="/assets/coinlogo2.png" alt="Athena's Owl" width="107" height="75" />
+        </a>
+        <a id="hi" class="site-title-link" href="/index.php?home=1"><span id="jeremy">Jeremy Norman’s</span><br/>HistoryofInformation.com
+            <span id="subtitle">Exploring the History of Information and Media through Timelines</span>
+        </a>
+         
+        <form action='' id="searchForm" class="search_form2">
+            <label for='searchControl' style="display:none;">Search Site</label>
+            <input id="searchControl" type="search" name="str" placeholder="Search Entire Site" title="search" 
+            data-position="left"
+            data-intro='Filter by text/captions. &quot;Quote&quot; phrases. Use "Show All" to check all entries'
+            />
+        </form>
+        <div class="header-theme-toggle-wrap">
+            <label class="header-theme-toggle" title="Light / dark appearance">
+                <input type="checkbox" id="headerThemeDark" aria-label="Switch between light and dark appearance">
+                <span class="header-theme-toggle__slider" aria-hidden="true">
+                    <svg class="header-theme-toggle__icon header-theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z"/></svg>
+                    <svg class="header-theme-toggle__icon header-theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd"/></svg>
+                </span>
+            </label>
+        </div>
+    </div>
+    
+    
+    <nav id="navNew">
+        
+        
+        
+        
+        <div class ="nextRow">
+            <span class = "shortmenu" >
+                <button class="hamburger">&#9776;</button>
+                <button class="cross">&#735;</button>
+            </span>
+                 
+                        <span id = 'themeButtons'>
+                <button class='micro js-menuClosed' id='alphaOrder' value='alpha' data-position='bottom' data-intro='Filter entries by one or more Themes'>Select Theme</button> 
+                <button class='micro theme js-cat-browser active' id='cat_all' value='all' data-position='bottom' data-intro='&hellip;or view all entries at once' >Show All</button>
+                <!--<button class='micro js-menuClosed' id='sectionOrder' value='alpha'>by Section</button> -->
+           </span>
+                       
+            <div class="fullmenu">
+                <ul class="">
+                    <li id="index" class="main first"><a href="/index.php?home=1">Home</a></li>
+                    <li id="n-map" class="main"><a href="/maps.php">Maps</a></li>
+                    <li id="guide" class="main"><a href="/guide.php">Tour</a></li>
+                    <li id="recent" class="main"><a href="/recent.php">Recent Additions</a></li>
+                    <li id="about" class="main"><a href="/story.php?t=About"
+                    data-intro="Overview & links to online resources."
+                    >About</a></li>
+                    <li id="essays" class="main"><a href="/story.php?t=Essays"
+                    data-intro="A growing collection of brief essays on this 20 year long effort"
+                    >Essays</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+         
+          <br clear="both">
+
+        
+    </nav>
+
+    <div class="menu"> 
+        <ul>
+            <li id="index" class=" first"><a href="/index.php?home=1">Home</a></li>
+            <li id="n-map" class=""><a href="/maps.php">Maps</a></li>
+            <!--<li id="guide" class=""><a href="/guide.php">Tour</a></li>-->
+            <li id="recent" class=""><a href="/recent.php">Recent Additions</a></li>
+            <li id="about" class=""><a href="/story.php?t=About">About</a></li>
+            <li id="essays" class=""><a href="/story.php?t=Essays">Essays</a></li>
+                        <li class="menu-mobile-filter-tools">
+                <button type="button" class="micro js-menuClosed js-nav-mobile-theme">Select Theme</button>
+                <button type="button" class="micro theme js-nav-mobile-showall" value="all">Show All</button>
+            </li>
+                        
+        </ul>
+    </div>
+    
+
+     <div class="navigatorz" style="display:none;">
+         <div id="slimnavi">
+        </div>
+    </div>
+    <!-- end of nav --> 
+    
+    <nav id = "categoryBrowser"></nav>
+    
+    
+    
+    <!--<nav id = "sectionBrowser">-->
+    <!--    <div id = "sectionCatList"></div>-->
+    <!--</nav>-->
+      </header>
+     
+     
+	  <div class="wrapper entry-detail-layout">
+      
+      <div class='topness'><h1 class='title'>The &quot;New York Tribune&quot; Publishes the First Application of the Linotype</h1><div class='date'><span name='date_3697' class='date_3697'>7/3/1886 </span></div><div class='permalink'><a href ='/detail.php?id=3009' target='_blank'>Permalink</a></div></div><div class='left'><div class="images"><div class="flex-item image""><a href = 'image.php?id=1662' target='_blank'><div class='img-overlay-wrap'><img src = '//historyofinformation.com/images/NY_Herald_first_issue_partly_set_by_Linotype_thumb.jpg' name='image_1662' class='image_1662 thumbnail'  alt='NY Herald first issue partly set by Linotype' title='NY Herald first issue partly set by Linotype'/><content ><svg width="24px" height="24px" viewBox="0 0 24 24" class="magnifying_glass"><path fill="black" stroke="white" stroke-width="1" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"></path></svg></content></div></a><div class='source'></div></div></div></div>      <div class='right'>
+         <div class = 'flex-container'>
+            <div class='flex-item frontend entry full'>
+              
+              <div class="entry-detail-maps" aria-label="Location maps"><img src ='./images/mapcache/22256c2b511cfbf02895b177db859d61.png' class='map detail ' alt='Detail map of Manhattan, New York, New York, United States'>
+<img src ='./images/mapcache/22256c2b511cfbf02895b177db859d61-overview.png' class='map overview ' alt='Overview map of Manhattan, New York, New York, United States'>
+<p style='location'><a href = 'https://www.google.com/maps/place/40.716667,-74' target='_blank'> <span style='color:#d4af37;font-weight:bold'>A: Manhattan, New York, New York, United States</span></a></p></div><div class="first_image"><div class='flex-item image full' style='max-width:738px'><a href = 'image.php?id=1661' target='_blank'><div class='img-overlay-wrap'><img src = '//historyofinformation.com/images/Screen_Shot_2019-01-11_at_9.59.15_AM.png' name='image_1661' class='image_1661 full'  title='Mergenthaler and Whitelaw Reid of the New York Tribune viewing results of the first issue partly typeset by Linotype. Mural In McGraw Rotunda New York City Public Library Main Branch' alt='Mergenthaler and Whitelaw Reid of the New York Tribune viewing results of the first issue partly typeset by Linotype. Mural In McGraw Rotunda New York City Public Library Main Branch' /><content ><svg width="24px" height="24px" viewBox="0 0 24 24" class="magnifying_glass"><path fill="black" stroke="white" stroke-width="1" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"></path></svg></content></div></a><div class='source'><a href = 'http://www.mountainsoftravelphotos.com/USA%20-%20New%20York%20City/18%20Public%20Library/slides/21-2%20The%20Linotype-Mergenthaler%20and%20Whitelaw%20Reid%20of%20the%20New%20York%20Tribune%20Mural%20In%20McGraw%20Rotunda%20New%20York%20City%20Public%20Library%20Main%20Branch.html' class='image_1661' >Image Source: www.mountainsoftravelphotos.com</a></div><div class='newcaption image_1661'><p>Mergenthaler and Whitelaw Reid of the New York Tribune viewing results of the first issue partly typeset by Linotype. Mural In McGraw Rotunda New York City Public Library Main Branch</p></div></div></div><div class='body'><p><a href="https://en.wikipedia.org/wiki/Ottmar_Mergenthaler">Ottmar Mergenthaler's</a>&nbsp;Blower <a href="https://en.wikipedia.org/wiki/Linotype_machine">Linotype</a> composing machine was first used by the <em>New York Tribune</em> newspaper on page four of its issue of July 3, 1886. <a href="https://en.wikipedia.org/wiki/Whitelaw_Reid">Whitelaw Reid</a>, editor and publisher of the&nbsp;<em>New York Tribune,</em> had helped to underwrite the development costs of the machine, and had the machines installed in opposition to the typographic union. The parts of the July 3 issue composed by the Linotype can be distinguished from the hand-set type because of a single wrong-font bold face apostrophe. This appears in only three of the stories in columns two and three of the page.</p>
+<p>Mechanical composing machines resulted in greatly increased production speed, and lowered typesetting cost, resulting in longer newspapers. Because of the time involved in hand-typesetting, and the constant deadlines to be met, before the Linotype no newspaper consisted of more than eight pages.</p>
+<p><iframe src="//www.youtube.com/embed/XJBqekAMIaU?list=PLquOYj_mmMbrab8WupXTTjgd0pwtZxtkW" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p>Schlesinger, ed.,<em> The Biography of Ottmar Mergenthaler, Inventor of the Lintotype </em>(1989) 113-116, with a full-size facsimile of page 4 of the July 3, 1886 issue of the newspaper folded into the volume. Schlesinger, who was an experienced Linotype operator, discovered the first published typesetting done on the Linotype, as the the <em>New York Tribune</em>&nbsp;quietly introduced the new technology without an announcement.</p></div><div style='clear:both'></div><h2>Timeline Themes</h2><div class='category'><div class='flex-item rightBorder'><a href = 'index.php?cat=10'>Book History from 1798 to 1899</a> </div><div class='flex-item rightBorder'><a href = 'index.php?cat=21'>Technology / Engineering</a> </div><div class='flex-item rightBorder'><a href = 'index.php?cat=40'>Publishing</a> </div><div class='flex-item rightBorder'><a href = 'index.php?cat=48'>News Media / Journalism</a> </div><div class='flex-item '><a href = 'index.php?cat=126'>Typography: Typesetting by Machine</a> </div></div><div class="entry-detail-images entry-detail-images--mobile"><div class='flex-item image full' style='max-width:1024px'><a href = 'image.php?id=1662' target='_blank'><div class='img-overlay-wrap'><img src = '//historyofinformation.com/images/NY_Herald_first_issue_partly_set_by_Linotype_big.jpg' name='image_1662' class='image_1662 full'  title='NY Herald first issue partly set by Linotype' alt='NY Herald first issue partly set by Linotype' /><content ><svg width="24px" height="24px" viewBox="0 0 24 24" class="magnifying_glass"><path fill="black" stroke="white" stroke-width="1" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"></path></svg></content></div></a><div class='source'></div></div></div>            </div>
+          </div>
+
+      </div>
+  	 </div>    
+              <!-- start of footer.php -->
+    <div id="footer">
+        <nav class="entries-pager entries-pager--bottom entries-pager--footer" id="entriesPagerBottom" aria-label="Catalog result pages" hidden></nav>
+        <div class="footer__credits">
+        	<span style="flex: 2;">
+        	   Last updated October 24th, 2026 Pacific Time        	</span>
+        	
+        	<span style="flex: 3;">
+          	 &copy; 2004&ndash;2026 Jeremy M. Norman  |  
+        	   <strong><a href="/cdn-cgi/l/email-protection#dcb6b2b3aeb1bdb29cb6b2b3aeb1bdb2f2bfb3b1"><span class="__cf_email__" data-cfemail="2d4743425f404c436d4743425f404c43034e4240">[email&#160;protected]</span></a></strong>
+        	</span>
+        </div>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        if ($('#slimOnly').length) {
+            console.info('slimnavi: showing navigatoer (map & admin only)')
+            $('.navigatorz').show();
+        }
+        if ($('#themeButtons').length) {
+            $('#themeButtons').show();
+        }
+        
+        var requestPath = window.location.pathname;
+        var bMoveWrapperDown = requestPath.includes('balcony');
+        if (typeof bMoveWrapperDown !== 'undefined' && bMoveWrapperDown)
+           $('.wrapper').css('top','2em');
+        
+    </script>
+    
+    <section class="overlay"></section>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a562e638a83734f7',t:'MTc5Mzk1NTUzNg=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a562e638a83734f7',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<!-- end of footer.php -->
+</html>
+  
