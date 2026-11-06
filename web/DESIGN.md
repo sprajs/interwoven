@@ -14,6 +14,10 @@ The research has many short threads and many entries with no links yet. The fami
 
 **A named entry is a flag.** A box flies above or below its mark, with a solid pole at the date running down to it, so the mark and its strand stay visible. It takes whichever of four positions covers fewest other marks, and keeps that position as the page moves. It holds a short date on a tint of the entry's ink, then the name.
 
+**The chart keeps the page.** Every view opens at full width. A side sheet opens only on request, and the view's own options sit on one quiet line under the chart.
+
+**Density is made of entries.** Each mark stays at its true date and stacks on whatever it would otherwise cover, so a shape on the page is always a count that can be checked by eye. No curve, smoothing or scale stands between the record and the reader, which is why the view dropped its hatched silhouette. Names give way to the shape: only what has your attention is named. The pointer reads one year on the ruler, never a range. The caveat stays in sight, because the shape shows where research has reached, not how much happened.
+
 ### What marks and borders say
 
 | | Mark on the strand | Border of its box |

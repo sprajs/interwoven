@@ -37,9 +37,13 @@ Drag again to open a second period beside the first, up to three, and they share
 | `1` | **Threads** | Everything, on strands grouped by subject |
 | `2` | **Stories** | One thread lifted out and laid out to read, with its text beside it |
 | `3` | **Reach** | One row per entry: how long it went on being built on, and what is documented about its end |
-| `4` | **Density** | Entries per year as a hatched silhouette |
+| `4` | **Density** | Every entry as one mark, piled up at its date |
 
-**Stories.** Choose a thread from the list, or click any entry twice (or press `f`) to follow what led to it and what it made possible. Each entry gets its own row in date order, and links turn into corners that drop from a parent and run to its child, so no line crosses a title. A story keeps to one scale of real years. Gaps too long to fit are folded and say how long they are. Arrow keys move through it.
+Every view opens with the chart at full width. A side sheet appears only when something asks for it: an entry you clicked, the list of stories, or the key to reach.
+
+**Density.** Each mark stays at its true date and stacks on the marks it would otherwise cover, so the shape is the record itself, with no smoothing. By subject gives each family a pile on its own ground, at one scale so that heights compare. Together piles them all, last family first, with larger marks so it can fill the page. Moving across the chart shows one line at one year, and how many entries are dated by then. As you zoom in, the piles spread and sink. It shows where research has dated things so far, not how much happened.
+
+**Stories.** Click any entry (or press `f` on one) to follow what led to it and what it made possible, or browse the list of threads. Each entry gets its own row in date order, and links turn into corners that drop from a parent and run to its child, so no line crosses a title. A story keeps to one scale of real years. Gaps too long to fit are folded and say how long they are. Arrow keys move through it.
 
 **Reach.** Links become vertical lines hanging from horizontal rules. Two things are drawn separately and must not be confused:
 

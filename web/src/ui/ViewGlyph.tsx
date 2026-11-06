@@ -28,11 +28,9 @@ function drawGlyph(model: Model, mode: Mode): string {
     const bins = new Float32Array(Math.floor(W / 2))
     for (const node of sampled(model.nodes)) bins[Math.min(bins.length - 1, Math.floor(model.time.compressed(node.year) * bins.length))]! += 1
     const max = Math.max(1, ...bins)
+    // Piles standing on the ground, as in the view itself.
     return [...bins]
-      .map((count, b) => {
-        const h = Math.sqrt(count / max) * H * 0.5
-        return h > 0 ? `M${b * 2 + 1} ${fmt(H / 2 - h)}V${fmt(H / 2 + h)}` : ''
-      })
+      .map((count, b) => (count > 0 ? `M${b * 2 + 1} ${H}V${fmt(H - Math.max(1, (count / max) * H))}` : ''))
       .join('')
   }
   if (mode === 'reach') {

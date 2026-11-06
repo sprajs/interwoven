@@ -122,7 +122,7 @@ export function formatYear(year: number): string {
 }
 
 /** Each step divides the one above it evenly, so neighbouring ticks share a step. */
-const TICK_STEPS = [5000, 1000, 500, 100, 50, 10, 5, 1]
+const TICK_STEPS = [100000, 50000, 10000, 5000, 1000, 500, 100, 50, 10, 5, 1]
 
 /**
  * Picks round-numbered years for the ruler. The axis is warped, so one even step cannot suit all

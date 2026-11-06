@@ -3,6 +3,7 @@ import { layoutStory, lineageOf, threadOf, type RowOrder, type Story } from './d
 import type { Model } from './data/model.ts'
 import type { RawNode } from './data/types.ts'
 import type { Engine, Mode } from './engine/Engine.ts'
+import type { PileForm } from './engine/piles.ts'
 
 export interface Hover {
   index: number
@@ -22,6 +23,8 @@ interface AppState {
   unplacedSelected: string | null
   /** The order of the reach view's rows. */
   rowOrder: RowOrder
+  /** How the density view arranges its piles. */
+  pile: PileForm
   /** The thread being followed, if any. */
   story: Story | null
   /** Entries matching the search box, while something is typed there. */
@@ -51,6 +54,7 @@ interface AppState {
   setUnplacedOpen(open: boolean): void
   setAboutOpen(open: boolean): void
   setRowOrder(order: RowOrder): void
+  setPile(pile: PileForm): void
   setSearchHits(hits: ReadonlySet<number> | null): void
   setPreviewLabel(id: string | null): void
   setOpenPeriods(count: number): void
@@ -74,6 +78,7 @@ export const useApp = create<AppState>((set) => ({
   selected: null,
   unplacedSelected: null,
   rowOrder: 'thread',
+  pile: 'subject',
   story: null,
   searchHits: null,
   previewLabel: null,
@@ -98,6 +103,7 @@ export const useApp = create<AppState>((set) => ({
   setUnplacedOpen: (unplacedOpen) => set((s) => ({ unplacedOpen, labelsOpen: unplacedOpen ? false : s.labelsOpen })),
   setAboutOpen: (aboutOpen) => set({ aboutOpen }),
   setRowOrder: (rowOrder) => set({ rowOrder }),
+  setPile: (pile) => set({ pile }),
   setSearchHits: (searchHits) => set({ searchHits }),
   setPreviewLabel: (previewLabel) => set({ previewLabel }),
   setOpenPeriods: (openPeriods) => set({ openPeriods }),

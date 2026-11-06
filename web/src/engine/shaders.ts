@@ -67,6 +67,7 @@ const GRAPHITE = 'vec3(0.56, 0.53, 0.49)'
 export const NODE_VS = HEADER + WORLD + /* glsl */ `
 layout(location = 0) in vec2 aCorner;
 uniform float uNodeAlpha;
+uniform float uMarkScale;
 uniform int uHover;
 uniform int uSelected;
 uniform float uMarkCap;
@@ -90,7 +91,7 @@ void main() {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
     return;
   }
-  float r = min(a.z, uMarkCap) * uDpr * (1.0 + 0.2 * s.z);
+  float r = min(a.z, uMarkCap) * uMarkScale * uDpr * (1.0 + 0.2 * s.z);
   float bound = floor(mod(a.w, 8.0) / 2.0);
   float halfSize = r * 1.6 + (bound > 0.5 ? 9.0 : 2.0) * uDpr + mark * 7.0 * uDpr;
   vec2 c = worldToPx(a.x, a.y);

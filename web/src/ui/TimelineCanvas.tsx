@@ -61,6 +61,7 @@ export function TimelineCanvas() {
         activeLabels: s.activeLabels,
         selected: s.selected,
         rowOrder: s.rowOrder,
+        pile: s.pile,
         story: s.story,
         searchHits: s.searchHits,
         previewLabel: s.previewLabel,
@@ -86,6 +87,7 @@ export function TimelineCanvas() {
         s.aboutOpen !== prev.aboutOpen ||
         s.labelsOpen !== prev.labelsOpen ||
         s.rowOrder !== prev.rowOrder ||
+        s.pile !== prev.pile ||
         s.story !== prev.story ||
         s.searchHits !== prev.searchHits ||
         s.previewLabel !== prev.previewLabel

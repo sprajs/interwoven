@@ -2,8 +2,9 @@ import { useEffect, useMemo, useRef } from 'react'
 import type { RowOrder } from '../data/derive.ts'
 import type { Model } from '../data/model.ts'
 import { onEngineFrame } from '../engine/frames.ts'
+import type { PileForm } from '../engine/piles.ts'
 import { getEngine, useApp } from '../store.ts'
-import { usePageMargins } from './layout.ts'
+import { rightSheetOpen, usePageMargins } from './layout.ts'
 
 const ROUND_SPANS = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
 const BAR_TARGET = 72
@@ -86,6 +87,11 @@ const REACH_ORDERS: { id: RowOrder; label: string; hint: string }[] = [
   { id: 'reach', label: 'By reach', hint: 'The longest influence first' },
 ]
 
+const PILE_FORMS: { id: PileForm; label: string; hint: string }[] = [
+  { id: 'subject', label: 'By subject', hint: 'A pile for each family of subjects, to see where each one gathers' },
+  { id: 'together', label: 'Together', hint: 'One pile, layered by family, to see where everything gathers' },
+]
+
 /** What the current view offers, kept to one quiet line so the chart keeps the page. */
 function ViewLine() {
   const mode = useApp((s) => s.mode)
@@ -94,6 +100,9 @@ function ViewLine() {
   const setAboutOpen = useApp((s) => s.setAboutOpen)
   const rowOrder = useApp((s) => s.rowOrder)
   const setRowOrder = useApp((s) => s.setRowOrder)
+  const pile = useApp((s) => s.pile)
+  const setPile = useApp((s) => s.setPile)
+  const sheetOpen = useApp((s) => rightSheetOpen(s))
 
   if (mode === 'story' && !following) {
     return (
@@ -114,6 +123,20 @@ function ViewLine() {
           ))}
         </div>
         <button onClick={() => setAboutOpen(!aboutOpen)} aria-expanded={aboutOpen} className="link hover:text-ink">Key</button>
+      </div>
+    )
+  }
+  if (mode === 'density') {
+    return (
+      <div className="flex min-w-0 items-center gap-4 whitespace-nowrap">
+        <div className="pointer-events-auto flex items-center gap-2" role="group" aria-label="Arrangement of the piles">
+          {PILE_FORMS.map((option) => (
+            <button key={option.id} title={option.hint} aria-pressed={pile === option.id} onClick={() => setPile(option.id)} className={`transition-colors ${pile === option.id ? 'link text-ink' : 'hover:text-ink'}`}>
+              {option.label}
+            </button>
+          ))}
+        </div>
+        {!sheetOpen && <p className="hidden corner:block">One mark per dated entry. This shows research so far, not all that happened.</p>}
       </div>
     )
   }

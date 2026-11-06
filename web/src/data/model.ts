@@ -41,6 +41,8 @@ export interface Model {
   byPriority: Int32Array
   /** The key entries in date order, to browse before searching. */
   keyEntries: number[]
+  /** Each entry's subject family, as an index into `families`. */
+  familyOf: Int32Array
   /** Subject families, top to bottom. */
   families: Family[]
   /** The distance between neighbouring rows of the chart, on the same scale as y. */
@@ -108,14 +110,18 @@ export function buildModel(data: RawDataset): Model {
     const label = id === undefined ? undefined : labelById.get(id)
     return label?.family ?? label?.name ?? 'Other'
   }
+  const familyNames = nodes.map((node) => familyOfLabel(node.labels[0]))
   const { y, families, rowStep } = layoutStrands({
     u: Float32Array.from(nodes, (node) => time.compressed(node.year)),
     levels: nodes.map((node) => node.level),
-    family: nodes.map((node) => familyOfLabel(node.labels[0])),
+    family: familyNames,
     label: nodes.map((node) => node.labels[0] ?? ''),
     edges,
     order: data.families ?? [],
   })
+
+  const familyIndex = new Map(families.map((family, k) => [family.name, k]))
+  const familyOf = Int32Array.from(familyNames, (name) => familyIndex.get(name) ?? 0)
 
   const radius = new Float32Array(n)
   const ink = new Float32Array(n * 3)
@@ -164,6 +170,7 @@ export function buildModel(data: RawDataset): Model {
     impact,
     byPriority,
     keyEntries,
+    familyOf,
     families,
     rowStep,
     reach: computeReach(nodes, edges),

@@ -187,8 +187,9 @@ export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: n
 
 /** Each subject family's name, kept at the left of the view, on a rule above its first row. */
 function drawFamilies(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
-  const alpha = 1 - Math.max(engine.mix.weave, engine.mix.hatching, engine.mix.elbow)
+  const alpha = engine.mix.families
   if (alpha < 0.02) return
+  const pile = engine.mix.pile
   const model = engine.model!
   const cam = engine.camera
   const frame = engine.frameBounds()
@@ -197,11 +198,13 @@ function drawFamilies(engine: Engine, ctx: CanvasRenderingContext2D, W: number):
   ctx.font = heading
   ctx.fontVariantCaps = 'all-small-caps'
   ctx.letterSpacing = '0.06em'
-  for (const family of model.families) {
-    const top = (family.top - cam.cy) * cam.yScale + cam.centerY
-    const bottom = (family.bottom - cam.cy) * cam.yScale + cam.centerY
+  model.families.forEach((family, k) => {
+    // In the density view each family has a row of its own, and its heading travels there.
+    const row = engine.pileRows[k]
+    const top = ((row ? family.top + (row.top - family.top) * pile : family.top) - cam.cy) * cam.yScale + cam.centerY
+    const bottom = ((row ? family.bottom + (row.bottom - family.bottom) * pile : family.bottom) - cam.cy) * cam.yScale + cam.centerY
     const y = Math.max(frame.top + NOTE_LINE / 2 + 2, top - NOTE_LINE + 1)
-    if (y > bottom + NOTE_LINE || y > frame.bottom - NOTE_LINE) continue
+    if (y > bottom + NOTE_LINE || y > frame.bottom - NOTE_LINE) return
     const line = y - NOTE_LINE / 2 - 1
     if (top - NOTE_LINE >= frame.top) {
       ctx.fillStyle = `rgba(${INK.primary},${RULE_ALPHA.rule * alpha})`
@@ -209,16 +212,20 @@ function drawFamilies(engine: Engine, ctx: CanvasRenderingContext2D, W: number):
     }
     // Stays clear of a side sheet on the left, and otherwise sits in the page margin.
     const x = cam.insets.left > LAYOUT.margin ? cam.insets.left : UNIT * 2
-    const text = `${family.name}  ${family.count}`
+    const text = `${family.name}  ${row && pile > 0.5 ? row.count : family.count}`
     const width = measure(ctx, text, heading) * 0.9
-    ctx.fillStyle = `rgba(${PAPER},${alpha})`
-    ctx.fillRect(x - 3, y - NOTE_LINE / 2, width + 2 * UNIT + 6, NOTE_LINE)
+    // On a wide page a pile leaves its heading clear, so no patch need cross the time bands.
+    const patch = W < BREAK.wide ? 1 : 1 - pile
+    if (patch > 0) {
+      ctx.fillStyle = `rgba(${PAPER},${alpha * patch})`
+      ctx.fillRect(x - 3, y - NOTE_LINE / 2, width + 2 * UNIT + 6, NOTE_LINE)
+    }
     ctx.fillStyle = `rgba(${hexRgb(family.ink)},${alpha})`
     ctx.fillRect(x, y - 4, 8, 8)
     ctx.fillStyle = `rgba(${INK.secondary},${alpha})`
     ctx.fillText(text, x + 2 * UNIT, y)
     if (alpha > 0.5) occupy(x, y - NOTE_LINE / 2, x + width + 2 * UNIT, y + NOTE_LINE / 2)
-  }
+  })
   ctx.restore()
 }
 
@@ -252,7 +259,8 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
   const frame = engine.frameBounds()
   const top = frame.top + 4
   const bottom = frame.bottom - 4
-  const densityMode = engine.mix.hatching > 0.5
+  // The piles are the picture here, so only what has your attention is named.
+  const densityMode = engine.view.mode === 'density'
   const inReach = engine.view.mode === 'reach'
   const inStory = engine.view.mode === 'story' && engine.view.story !== null
   const boxed = !(inReach || inStory)
@@ -289,7 +297,7 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
     const height = shape ? shape.height : TYPE.note.size
     if (boxed) {
       // A box flies like a flag above or below its mark, its solid edge the pole at the date.
-      const lift = radius[i]! + BOX.lift + height / 2
+      const lift = radius[i]! * engine.mix.marks + BOX.lift + height / 2
       const flags = [
         { dx: 0, dy: -lift },
         { dx: 0, dy: lift },
@@ -323,7 +331,7 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
       wanted.set(i, { dx: best.dx, dy: best.dy, width, height })
       return
     }
-    const gap = radius[i]! + LABEL_GAP
+    const gap = radius[i]! * engine.mix.marks + LABEL_GAP
     // In rows, a name sits to the left of its mark and its rule runs on to the right.
     const rightX = px + gap
     const leftX = px - gap - width
@@ -339,12 +347,12 @@ function drawNames(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W:
 
   if (engine.view.selected !== null) tryPlace(engine.view.selected, true)
   if (engine.hovered !== null) tryPlace(engine.hovered, true)
-  for (const i of engine.emphasis.slice(0, 40)) tryPlace(i, false)
+  if (!densityMode) for (const i of engine.emphasis.slice(0, 40)) tryPlace(i, false)
   if (inStory) for (const i of engine.view.story!.members) if (state[i * 4]! > 0.5) tryPlace(i, true)
   if (engine.view.searchHits) for (const i of engine.view.searchHits) tryPlace(i, false)
 
   const area = Math.max(1, W - cam.insets.left - cam.insets.right) * Math.max(1, bottom - top)
-  const allowance = densityMode ? 16 : Math.max(8, Math.min(MAX_NAMES, Math.round((area / NAME_AREA) * (inReach ? 2 : 1))))
+  const allowance = densityMode ? 0 : Math.max(8, Math.min(MAX_NAMES, Math.round((area / NAME_AREA) * (inReach ? 2 : 1))))
 
   // Names already showing go first within each rank, so they do not flicker as the view moves.
   let visited = 0

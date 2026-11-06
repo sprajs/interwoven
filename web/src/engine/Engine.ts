@@ -5,6 +5,7 @@ import { Camera, type Insets, type ZoomAxis } from './camera.ts'
 import { blendFolds, foldAroundYears, foldFromWindows, FoldMap, MAX_FOLD_POINTS, unfoldPleat, type Pleat } from './folds.ts'
 import { createDataTexture, createProgram, type Program } from './gl.ts'
 import { drawOverlay } from './overlay.ts'
+import { layoutPiles, type PileForm, type PileRow } from './piles.ts'
 import * as S from './shaders.ts'
 import { LUT_SIZE, pickTicks } from './time.ts'
 import { ScrollLock, scrollZoomDelta, WheelClassifier, wheelNotches } from './wheel.ts'
@@ -18,6 +19,8 @@ export interface ViewState {
   selected: number | null
   compressed: boolean
   rowOrder: RowOrder
+  /** Whether the density view gives each family a row, or piles them together. */
+  pile: PileForm
   /** The thread being followed, in the story view. */
   story: Story | null
   /** Entries matching what is typed in the search box, if anything is. */
@@ -40,22 +43,19 @@ export interface EngineCallbacks {
 export const PAPER = hexUnit(PAPER_HEX)
 const RULE_COLOR = hexUnit(INK.primary)
 const MARK_MIN = 2.5
-const HATCH_COLOR = hexUnit(INK.muted)
 const PLEAT_TONE_ALPHA = 0.04
 const PLEAT_FOLD_ALPHA = 0.13
-const HATCH_ALPHA = 0.62
 const MAX_RECTS = 1400
-const HATCH_SPACING = UNIT / 2 + 0.5
-const RATE_BINS = 512
-const RATE_SMOOTHING = 7
+/** How long the page must rest before a pile settles to a new zoom, in milliseconds. */
+const PILE_SETTLE_MS = 140
 const FOLD_SECONDS = 0.62
 /** Periods that can be open at once. More than this stops being a comparison. */
 const MAX_OPEN_PERIODS = 3
-const MODE_MIX: Record<Mode, { hatching: number; nodes: number; edges: number; rules: number; weave: number; elbow: number }> = {
-  threads: { hatching: 0, nodes: 1, edges: 0.85, rules: 1, weave: 0, elbow: 0 },
-  story: { hatching: 0, nodes: 1, edges: 1, rules: 1, weave: 0, elbow: 1 },
-  reach: { hatching: 0, nodes: 1, edges: 0.85, rules: 0.6, weave: 1, elbow: 0 },
-  density: { hatching: 1, nodes: 0.75, edges: 0.1, rules: 0.5, weave: 0, elbow: 0 },
+const MODE_MIX: Record<Mode, { marks: number; pile: number; families: number; nodes: number; edges: number; rules: number; weave: number; elbow: number }> = {
+  threads: { marks: 1, pile: 0, families: 1, nodes: 1, edges: 0.85, rules: 1, weave: 0, elbow: 0 },
+  story: { marks: 1, pile: 0, families: 0, nodes: 1, edges: 1, rules: 1, weave: 0, elbow: 1 },
+  reach: { marks: 1, pile: 0, families: 0, nodes: 1, edges: 0.85, rules: 0.6, weave: 1, elbow: 0 },
+  density: { marks: 1, pile: 1, families: 1, nodes: 1, edges: 0, rules: 1, weave: 0, elbow: 0 },
 }
 
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -70,6 +70,7 @@ export class Engine {
     selected: null,
     compressed: true,
     rowOrder: 'thread',
+    pile: 'subject',
     story: null,
     searchHits: null,
     previewLabel: null,
@@ -89,6 +90,8 @@ export class Engine {
   /** Current per-node state: match, faded, emphasised, forced visible. */
   state = new Float32Array(0)
   mix = { ...MODE_MIX.threads }
+  /** Each family's row in the density view, kept for the way back to the other views. */
+  pileRows: PileRow[] = []
   /** Periods opened by hand, in years. */
   openPeriods: [number, number][] = []
   /** Emphasised nodes, closest first, so their text is placed before anything else. */
@@ -119,6 +122,9 @@ export class Engine {
   private aData = new Float32Array(0)
   private aDirty = false
   private yGoal = new Float32Array(0)
+  private pileKey = ''
+  private pileMarkScale = 1
+  private pileTimer = 0
   private rowsCache = new Map<RowOrder, { rows: Int32Array; y: Float32Array }>()
   private foldFrom = FoldMap.identity()
   private foldTo = FoldMap.identity()
@@ -137,8 +143,6 @@ export class Engine {
   private targetState = new Float32Array(0)
   private tickKey = ''
   private axisTicks: { year: number; v: number; odd: boolean }[] = []
-  private rate = new Float32Array(RATE_BINS)
-  private rateMax = 1
   private stateUpload = new Float32Array(0)
   private stateDirty = true
   private raf = 0
@@ -178,6 +182,7 @@ export class Engine {
 
   dispose(): void {
     cancelAnimationFrame(this.raf)
+    clearTimeout(this.pileTimer)
     this.raf = 0
     this.observer.disconnect()
     this.canvas.removeEventListener('webglcontextlost', this.onContextLost)
@@ -415,13 +420,16 @@ export class Engine {
     }
     const modeChanged = view.mode !== prev.mode
     const storyChanged = view.story !== prev.story
-    if (modeChanged || storyChanged || view.rowOrder !== prev.rowOrder) this.updateLayoutGoal()
+    const pileChanged = view.mode === 'density' && (view.pile !== prev.pile || view.hiddenKinds !== prev.hiddenKinds || view.activeLabels !== prev.activeLabels)
+    if (modeChanged || storyChanged || view.rowOrder !== prev.rowOrder || pileChanged) this.updateLayoutGoal()
     if (modeChanged || storyChanged || view.compressed !== prev.compressed) this.rebuildFold()
     // The rows and the folded story each have their own framing, so the page settles on it.
     const leavingLayout = modeChanged && (prev.mode === 'reach' || prev.mode === 'story')
     const enteringLayout = modeChanged && view.mode === 'reach'
     if (storyChanged && view.story) this.frameStory()
     else if (enteringLayout || leavingLayout || storyChanged) this.camera.fit(this.reducedMotion)
+    // A pile has its own height, but the stretch of time being looked at carries over.
+    else if (modeChanged && (view.mode === 'density' || prev.mode === 'density')) this.camera.flyTo(this.camera.cu, 0.5, this.camera.logZoom, this.reducedMotion, 0)
     this.computeTargets()
     this.invalidate()
   }
@@ -431,8 +439,50 @@ export class Engine {
     if (!model) return
     const { mode, story, rowOrder: order } = this.view
     if (mode === 'reach') this.yGoal.set(this.rowsFor(order).y)
+    else if (mode === 'density') this.yGoal.set(this.computePiles())
     else this.yGoal.set(model.y)
     if (mode === 'story' && story) story.members.forEach((i, k) => (this.yGoal[i] = story.y[k]!))
+  }
+
+  /**
+   * Stacks the entries for the density view, at the zoom the page has now. It is measured against
+   * the whole width, so a sheet opening over the chart does not make the piles shift.
+   */
+  private computePiles(): Float32Array {
+    const model = this.model!
+    const cam = this.camera
+    const w = this.targetWarp
+    const scale = Math.exp(cam.logZoom) * Math.max(1, cam.width - 2 * LAYOUT.margin)
+    const xs = new Float64Array(model.n)
+    for (let i = 0; i < model.n; i++) xs[i] = this.foldTo.map(this.uLinear[i]! * (1 - w) + this.uCompressed[i]! * w) * scale
+    const layout = layoutPiles({
+      xs,
+      family: model.familyOf,
+      families: model.families.length,
+      included: (i) => this.passesFilters(i),
+      form: this.view.pile,
+      height: Math.max(1, cam.height - cam.insets.top - cam.insets.bottom),
+    })
+    if (layout.rows.length) this.pileRows = layout.rows
+    this.pileMarkScale = layout.markScale
+    return layout.y
+  }
+
+  /** Once the page comes to rest at a new zoom, the piles settle: closer in, they spread and sink. */
+  private watchPiles(): void {
+    if (this.view.mode !== 'density') return
+    const cam = this.camera
+    const key = `${cam.logZoom.toFixed(2)}|${this.targetWarp}|${this.foldTo.us.join()}|${cam.width}|${cam.height}`
+    if (key === this.pileKey) return
+    const first = this.pileKey === ''
+    this.pileKey = key
+    if (first) return
+    clearTimeout(this.pileTimer)
+    this.pileTimer = window.setTimeout(() => {
+      if (this.view.mode !== 'density') return
+      this.updateLayoutGoal()
+      this.invalidate()
+    }, PILE_SETTLE_MS)
   }
 
   /** Opens the story's sheet so that each entry has room for its title. */
@@ -622,7 +672,6 @@ export class Engine {
   private computeTargets(): void {
     const model = this.model
     if (!model) return
-    this.computeRate()
     const { mode, selected, story, searchHits, previewLabel } = this.view
     const target = this.targetState
     const inStory = mode === 'story' && story !== null
@@ -688,47 +737,6 @@ export class Engine {
     }
   }
 
-  /**
-   * Entries per year through history, for the density view. Counts are smoothed in log
-   * time, then divided by how many years each step covers, so recent and ancient periods
-   * compare fairly however the axis is stretched.
-   */
-  private computeRate(): void {
-    const model = this.model!
-    const time = model.time
-    const counts = new Float32Array(RATE_BINS)
-    model.nodes.forEach((node, i) => {
-      if (!this.passesFilters(i)) return
-      counts[Math.min(RATE_BINS - 1, Math.round(time.logPosition(node.year) * (RATE_BINS - 1)))]! += 1
-    })
-    const rate = new Float32Array(RATE_BINS)
-    let max = 1e-9
-    for (let b = 0; b < RATE_BINS; b++) {
-      let sum = 0
-      for (let k = -RATE_SMOOTHING * 3; k <= RATE_SMOOTHING * 3; k++) {
-        const c = counts[b + k]
-        if (c) sum += c * Math.exp(-(k * k) / (2 * RATE_SMOOTHING * RATE_SMOOTHING))
-      }
-      const position = b / (RATE_BINS - 1)
-      const yearsBefore = time.tau * (Math.exp(position * time.logSpan) - 1)
-      // Years spanned by one bin at this distance from the present.
-      const span = ((time.tau + yearsBefore) * time.logSpan) / (RATE_BINS - 1)
-      const r = sum / span
-      rate[b] = r
-      if (r > max) max = r
-    }
-    this.rate = rate
-    this.rateMax = max
-  }
-
-  /** Height of the density silhouette at a year, 0 to 1. A square root keeps quiet eras visible. */
-  private rateAt(year: number): number {
-    const f = this.model!.time.logPosition(year) * (RATE_BINS - 1)
-    const i = Math.min(RATE_BINS - 2, Math.floor(f))
-    const r = this.rate[i]! + (this.rate[i + 1]! - this.rate[i]!) * (f - i)
-    return Math.sqrt(r / this.rateMax)
-  }
-
   private animateState(dt: number): boolean {
     const n = this.state.length
     const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 11)
@@ -746,7 +754,8 @@ export class Engine {
   }
 
   private animateMix(dt: number): boolean {
-    const goal = MODE_MIX[this.view.mode === 'story' && !this.followingStory ? 'threads' : this.view.mode]
+    const base = MODE_MIX[this.view.mode === 'story' && !this.followingStory ? 'threads' : this.view.mode]
+    const goal = this.view.mode === 'density' && this.view.pile === 'together' ? { ...base, families: 0, marks: this.pileMarkScale } : base
     const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 7)
     let changed = false
     const mix = this.mix as Record<string, number>
@@ -798,7 +807,7 @@ export class Engine {
       const py = (this.yNow[i]! - cam.cy) * ys + cy
       const dx = px - x
       const dy = py - y
-      const r = model.radius[i]! + 8
+      const r = model.radius[i]! * this.mix.marks + 8
       const d2 = dx * dx + dy * dy
       if (d2 > r * r) continue
       const score = d2 / (r * r) - (3 - model.nodes[i]!.level) * 0.05
@@ -817,7 +826,8 @@ export class Engine {
     if (!model) return
     const lz = Math.max(this.camera.logZoom, 0.8)
     const v = this.foldTo.map(this.nodeU(i))
-    this.camera.flyTo(v, this.yGoal[i]!, lz, this.reducedMotion, Math.max(this.camera.logY, lz * 0.55))
+    const logY = this.view.mode === 'density' ? this.camera.logY : Math.max(this.camera.logY, lz * 0.55)
+    this.camera.flyTo(v, this.view.mode === 'density' ? 0.5 : this.yGoal[i]!, lz, this.reducedMotion, logY)
     this.invalidate()
   }
 
@@ -876,7 +886,7 @@ export class Engine {
     return { x: e.clientX - rect.left, y: e.clientY - rect.top }
   }
 
-  /** The ruler zooms time, the left margin zooms height, and the chart zooms both. */
+  /** The ruler zooms time, the left margin zooms height, and on the chart it depends on the gesture. */
   private zoneAt(x: number, y: number): 'ruler' | 'gutter' | 'chart' | null {
     const frame = this.frameBounds()
     if (y >= frame.top - LAYOUT.ruler && y <= frame.top + UNIT) return 'ruler'
@@ -1097,6 +1107,7 @@ export class Engine {
     const mixMoving = this.animateMix(dt)
     const layoutMoving = this.animateLayout(dt)
     const foldMoving = this.animateFold(dt)
+    if (this.model) this.watchPiles()
 
     if (this.model && this.gl && !this.gl.isContextLost()) {
       this.computeTicks()
@@ -1128,7 +1139,9 @@ export class Engine {
       const reject = this.foldTo.pleats.length ? (x: number) => this.inPleat(this.foldNow.invert(x / scale)) : undefined
       const toX = (year: number) => this.toV(time.u(year, this.warp)) * scale
       const thisYear = new Date().getFullYear()
-      this.axisTicks = pickTicks(toX, time.min, thisYear, cam.width < 700 ? 58 : 66, reject).map((t, k) => ({ year: t.year, v: t.x / scale, odd: k % 2 === 1 }))
+      // Linear time reaches the deep past across the whole ruler, whose years take more room to write.
+      const minGap = this.targetWarp < 0.5 ? 102 : cam.width < 700 ? 58 : 66
+      this.axisTicks = pickTicks(toX, time.min, thisYear, minGap, reject).map((t, k) => ({ year: t.year, v: t.x / scale, odd: k % 2 === 1 }))
     }
     const all = this.axisTicks
     this.ticks.length = 0
@@ -1260,6 +1273,7 @@ export class Engine {
     gl.useProgram(P.node.handle)
     this.setWorldUniforms(P.node)
     gl.uniform1f(P.node.u.uNodeAlpha!, mix.nodes)
+    gl.uniform1f(P.node.u.uMarkScale!, mix.marks)
     // A one-sided date's tail shows once rows are far enough apart for it to read as one.
     gl.uniform1f(P.node.u.uTail!, Math.min(1, Math.max(0, (model.rowStep * this.camera.yScale - 13) / 5)) * (1 - weave))
     gl.uniform1i(P.node.u.uHover!, this.hovered ?? -1)
@@ -1280,13 +1294,12 @@ export class Engine {
     return { top: cam.insets.top - LAYOUT.framePad, bottom: cam.height - cam.insets.bottom + LAYOUT.framePad }
   }
 
-  /** Time as bands of tone behind the chart, and in the density view the hatched silhouette of activity. */
+  /** Time as bands of tone behind the chart. */
   private drawRules(W: number, H: number): void {
     const gl = this.gl
     const cam = this.camera
     const dpr = this.dpr
     const data = this.rectData
-    const model = this.model!
     let count = 0
     const { top, bottom } = this.frameBounds()
     const end = this.axisEndX()
@@ -1311,24 +1324,6 @@ export class Engine {
       const spacing = Math.max(UNIT / 2, Math.min(UNIT, (x1 - x0) / 6))
       for (let x = x0; x <= x1 + 0.01 && count < MAX_RECTS; x += spacing) {
         data.set([x * dpr - 0.5, top * dpr, x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], PLEAT_FOLD_ALPHA], count * 8)
-        count++
-      }
-    }
-
-    const hatching = this.mix.hatching
-    if (hatching > 0.005) {
-      const middle = (top + bottom) / 2
-      const reach = (bottom - top) * 0.46
-      // Strokes are pinned to the page, so they travel with it rather than shimmering.
-      const origin = cam.toX(0)
-      const first = origin - Math.ceil(origin / HATCH_SPACING) * HATCH_SPACING
-      for (let x = first; x < cam.width && count < MAX_RECTS; x += HATCH_SPACING) {
-        const u = this.uAtX(x)
-        if (u < 0 || u > 1) continue
-        const h = this.rateAt(model.time.year(u, this.warp))
-        if (h < 0.015) continue
-        const half = h * reach * hatching
-        data.set([x * dpr - 0.5 * dpr, (middle - half) * dpr, x * dpr + 0.5 * dpr, (middle + half) * dpr, HATCH_COLOR[0], HATCH_COLOR[1], HATCH_COLOR[2], HATCH_ALPHA * hatching], count * 8)
         count++
       }
     }
