@@ -1,0 +1,185 @@
+{
+  "version": "draft-1",
+  "statuses": {
+    "not_yet_researched": "Nobody has established this yet. Never replace it with a guess.",
+    "unknown": "Investigated, and the evidence does not settle it.",
+    "not_applicable": "The question does not apply, for a stated reason."
+  },
+  "basis": {
+    "actor_statement": "The people involved said so in the source.",
+    "historian_judgement": "A cited secondary source argues it.",
+    "reviewer_inference": "The coder inferred it from the evidence. This is interpretation and must be labelled as such."
+  },
+  "entry_facets": {
+    "advance_type": {
+      "question": "What was actually new? An entry can have several values.",
+      "values": {
+        "observation": "A phenomenon or object seen or detected for the first time.",
+        "measurement": "A quantity established, or established more precisely.",
+        "experimental_method": "A new way of finding things out.",
+        "explanation": "A new account of why something happens.",
+        "unification": "Separate bodies of knowledge shown to be one.",
+        "mathematical_method": "A new way of calculating, proving or representing.",
+        "correction": "An accepted idea shown to be wrong or replaced.",
+        "dataset": "A compiled resource others can draw on.",
+        "standard_or_scale": "A unit, scale, classification or interface others adopt.",
+        "field_or_clinical_trial": "A deliberate test in real conditions, on patients or at sea for example.",
+        "operating_principle": "A device that works in a fundamentally new way.",
+        "device_or_configuration": "A new artefact or arrangement using known principles.",
+        "performance_improvement": "The same thing made measurably better.",
+        "material": "A new or newly controllable substance.",
+        "manufacturing_process": "A new way of making something.",
+        "cost_or_scale": "The same thing made cheap or plentiful enough to change who uses it.",
+        "system_integration": "Existing parts combined into a working whole.",
+        "infrastructure": "A shared facility or network that others build on.",
+        "craft_practice": "Skill held in people and practice more than in documents.",
+        "new_application": "An existing thing put to a different use.",
+        "codification_or_teaching": "Knowledge written down or taught so it can spread.",
+        "reconstruction": "Something earlier rebuilt or revived deliberately."
+      }
+    },
+    "change_scale": {
+      "question": "How far did it disturb what came before? Choose one.",
+      "values": {
+        "incremental": "Technology: better within the same design.",
+        "modular": "Technology: one component changes, and the overall design stays.",
+        "architectural": "Technology: known components rearranged in a new way.",
+        "radical": "Technology: new principle and new arrangement.",
+        "extends": "Science: adds to accepted understanding.",
+        "revises": "Science: changes part of accepted understanding.",
+        "overturns": "Science: replaces a core premise.",
+        "opens_field": "Science: makes a new line of enquiry possible."
+      }
+    },
+    "prompted_by": {
+      "question": "What set people working on this? This is the prompt, not the enabler. An entry can have several values.",
+      "values": {
+        "new_capability": "A new instrument, method or material made people go and look.",
+        "prior_theory": "A theory made a prediction or pointed somewhere.",
+        "data_or_measurements": "Existing results demanded better accuracy or explanation.",
+        "anomaly_or_failure": "Something did not fit, or something broke.",
+        "practical_need": "An engineering, medical, navigational or everyday problem.",
+        "market_or_competition": "Commercial opportunity or a rival.",
+        "state_or_military": "A government, war or defence requirement.",
+        "transfer_from_other_field": "An idea carried across from another discipline.",
+        "transmission_from_other_place": "News or an example arriving from elsewhere.",
+        "systematic_search": "A deliberate, broad programme of trying things.",
+        "accident": "An unplanned result that someone recognised.",
+        "curiosity": "Understanding for its own sake, with no stated use."
+      }
+    },
+    "limit_removed": {
+      "question": "Which bottleneck did it relieve? An entry can have several values. Second wave.",
+      "values": {
+        "resolution": "Seeing or separating finer detail.",
+        "precision": "Measuring or making more exactly.",
+        "purity": "Controlling composition.",
+        "power_or_energy": "More energy or better conversion.",
+        "speed": "Doing it faster.",
+        "cost": "Doing it cheaper.",
+        "scale": "Doing more of it, or a larger one.",
+        "reliability": "Doing it dependably.",
+        "access": "Letting more people or places do it.",
+        "conceptual": "A way of thinking was the obstacle."
+      }
+    },
+    "reception": {
+      "question": "How was it received? Choose one. Third wave.",
+      "values": {
+        "immediate": "Taken up quickly by its community.",
+        "gradual": "Spread slowly without a real dispute.",
+        "contested": "Openly disputed before being settled.",
+        "delayed": "Largely ignored, then taken up much later.",
+        "lost_and_recovered": "Knowledge or practice lost, then recovered."
+      }
+    },
+    "end_reason": {
+      "question": "If it ended or declined, why? An entry can have several values. Third wave, and only with documented lifecycle evidence.",
+      "values": {
+        "better_substitute": "Something else did the job better.",
+        "cost": "It became uneconomic.",
+        "input_or_skill_lost": "A material, supplier or skill disappeared.",
+        "regulation_or_safety": "It was restricted or judged unsafe.",
+        "maker_failure": "The company or institution behind it ended.",
+        "social_or_political": "Rejection, conquest, collapse or policy."
+      }
+    },
+    "inclusion_reason": {
+      "question": "Why is this entry in the graph at all? Required for any statistics. Choose one.",
+      "values": {
+        "canonical_landmark": "Included because it is famous or widely cited.",
+        "case_study_chain": "Included to fill out a particular story.",
+        "regional_coverage": "Included to correct a geographic or cultural imbalance.",
+        "counterexample": "Included as a dead end, failure or exception.",
+        "exhaustive_frame": "Included because a defined list requires it, with no selection by the researcher."
+      }
+    }
+  },
+  "link_facets": {
+    "contribution": {
+      "question": "What actually passed from one to the other? A link can have several values.",
+      "values": {
+        "supplied_instrument": "It was the tool used to observe or measure.",
+        "supplied_method": "It provided a technique.",
+        "supplied_material": "It provided a substance.",
+        "supplied_component": "It became a part of the later thing.",
+        "supplied_production_capability": "It made manufacture possible.",
+        "supplied_platform": "It was the base on which the later work took place.",
+        "supplied_theory_or_design_rule": "It told people what to do or expect.",
+        "supplied_data": "Its numbers or results were used.",
+        "supplied_mathematics": "It provided the formal tools.",
+        "posed_problem": "It raised the question being answered.",
+        "challenged_or_refuted": "The later work argued against it.",
+        "improved_on": "The later thing is a better version in the same line.",
+        "replaced": "The later thing displaced it in practice.",
+        "implemented": "An idea or design was turned into a working thing.",
+        "applied_to_new_use": "It was carried into a different purpose.",
+        "taught_or_transmitted": "Knowledge of it was passed on.",
+        "stimulated": "News or example prompted the work without supplying its content."
+      }
+    },
+    "dependence": {
+      "question": "How much did the later thing rely on this? Structured form of the existing free-text necessity field. Choose one.",
+      "values": {
+        "required_in_this_case": "This specific instance could not have happened without it. Not a claim about all possible routes.",
+        "materially_enabled": "It made a real practical difference.",
+        "contributed": "It was one input among several.",
+        "stimulus_only": "It prompted the work, and no content passed."
+      }
+    },
+    "carrier": {
+      "question": "How did the knowledge or thing get across? A link can have several values. Second wave.",
+      "values": {
+        "same_actor_or_team": "The same people did both.",
+        "institutional": "Colleagues within one organisation.",
+        "publication": "A published text.",
+        "news_or_report": "Word of it, without detail.",
+        "correspondence": "Letters or private exchange.",
+        "personal_contact": "People met or discussed it.",
+        "teaching": "Instruction or apprenticeship.",
+        "migration": "A person with the knowledge moved.",
+        "artifact_or_copying": "Someone had the object and copied or studied it.",
+        "patent_or_licence": "A formal transfer of rights.",
+        "commerce": "Buying and selling.",
+        "translation": "Moved between languages."
+      }
+    }
+  },
+  "new_records": {
+    "lineage": "A named family of related entries, such as refracting-telescope. An entry can belong to several.",
+    "open_dependencies": "Known prerequisites that have no entry yet. Each is a research lead, not a claim, until sourced.",
+    "capability": "A measured or claimed performance value for an entry: quantity, value or range, unit, conditions, date, status (measured, claimed or derived), and evidence.",
+    "actor": "A person or organisation with a role on an entry and a type: individual, workshop, guild, court, religious body, university, state laboratory, military, firm, community.",
+    "funder": "Who paid: patron, state, military, church, firm, self, community, unknown.",
+    "place": "A normalised location for an event: settlement, historical polity, modern country, world region.",
+    "parallel_group": "Entries that independently reached the same result, with evidence that they were independent."
+  },
+  "compute_do_not_label": [
+    "Number of downstream entries, reach and centrality",
+    "Time lag between linked events",
+    "Direction of flow between science and technology",
+    "Depth of an enabling chain",
+    "Feedback loops",
+    "Whether a link crosses fields or regions"
+  ]
+}
