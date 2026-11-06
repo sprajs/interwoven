@@ -1,6 +1,6 @@
 # Current research checkpoint
 
-The substantial continuation is active. The current graph has **244 nodes, 441 events, 130 relationships and 447 sources**, with every node placed and labelled. The accepted 221-node baseline at `4c5a105` was refined by eleven independently reviewed frontier-audit units to 210 nodes; **34 new frontier configurations/results** have now been integrated in reviewed batches. The remaining graph is not certified as a completed global-frontier survey.
+The substantial continuation is active. The current graph has **253 nodes, 458 events, 130 relationships and 500 sources**, with every node placed and labelled. The accepted 221-node baseline at `4c5a105` was refined by eleven independently reviewed frontier-audit units to 210 nodes; **43 new frontier configurations/results** have now been integrated in reviewed batches. The remaining graph is not certified as a completed global-frontier survey.
 
 ## Committed audit and current additions
 
@@ -8,19 +8,19 @@ The substantial continuation is active. The current graph has **244 nodes, 441 e
 
 All valid historical assertions, source evidence and dissent for excluded identities remain in `reviews/frontier-audit.json`, with current targeted comparisons in `reviews/frontier-context.json` and `handovers/frontier-audit.md`. No duplicate graph baseline, migration version or runtime dependence on temporary files was introduced. The audit's 11 units matched all 36 expected after-records. Its 221-ID screening was not 221 completed worldwide comparisons.
 
-The current addition ledgers are `reviews/continuation-01.json`, `reviews/continuation-02.json`, `reviews/continuation-03.json`. They embed exact accepted input projections, final independent assessments and global predecessor comparisons. Historical assertion acceptance and frontier eligibility remain separate checks. Current node historical review: {'accepted': 243, 'candidate': 1}; the circular-zero inference retains its explicitly reviewed candidate status. Node lifecycle classifications remain incomplete where recorded.
+The current addition ledgers are `reviews/continuation-01.json`, `reviews/continuation-02.json`, `reviews/continuation-03.json`, `reviews/continuation-04.json`. They embed exact accepted input projections, final independent assessments and global predecessor comparisons. Historical assertion acceptance and frontier eligibility remain separate checks. Current node historical review: {'accepted': 252, 'candidate': 1}; the circular-zero inference retains its explicitly reviewed candidate status. Node lifecycle classifications remain incomplete where recorded.
 
 ## Verification
 
-Strict graph validation has zero errors and concerns. All **815 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **422** distinct canonical source-copy paths, plus **9** separately mapped captured comparison files. Their access/representation/inspected-passage limits remain explicit.
+Strict graph validation has zero errors and concerns. All **841 current proposition bindings** match, with **35** additional superseded/excluded decisions retained outside the canonical index. There are **475** distinct canonical source-copy paths, plus **9** separately mapped captured comparison files. Their access/representation/inspected-passage limits remain explicit.
 
-The imported dataset matches all **441** canonical event date objects, scopes, evidence and both review axes, with no fabricated opposite limit. All **244** nodes are placed, labelled and assigned tiers. Import/validation passes. The unchanged application code has passed 119 web tests and production build; graph semantics have passed 92 Python tests. Browser verification is refreshed at the next content freeze.
+The imported dataset matches all **458** canonical event date objects, scopes, evidence and both review axes, with no fabricated opposite limit. All **253** nodes are placed, labelled and assigned tiers. Import/validation passes. The unchanged application code has passed 119 web tests and production build; graph semantics have passed 92 Python tests. Browser verification is refreshed at the next content freeze.
 
 The UI draws reviewed scoped episodes, preserving full precision/approximation/evidence. It does not infer continuous use between events or a global end from local cessation. ALOHAnet's original network ending and Frogmore PM2's retirement are scoped separately from continuing protocol or process families.
 
 ## Ongoing waves and limits
 
-`handovers/research-register.json` is the single current coverage/ownership register: 207 prospective or integrated cases, with exact resolution pointers and model provenance. The planning range is 150–250 distinct additions if evidence supports them, never a quota. Several further industrial, materials, imaging and foundational-science waves continue. Regional-first, rediscovery, restoration and individual object witnesses do not qualify alone; uncertain comparisons are held. Failed or extinct novel attempts remain eligible with actual performance/failure stated.
+`handovers/research-register.json` is the single current coverage/ownership register: 216 prospective or integrated cases, with exact resolution pointers and model provenance. The planning range is 150–250 distinct additions if evidence supports them, never a quota. Several further industrial, materials, imaging and foundational-science waves continue. Regional-first, rediscovery, restoration and individual object witnesses do not qualify alone; uncertain comparisons are held. Failed or extinct novel attempts remain eligible with actual performance/failure stated.
 
 First commercial availability, adoption, decline, end-of-use and revival are separate scoped questions. Current placement does not imply full ancestry, acceptance, continuity or complete lifecycle research. `BACKLOG.md` and live coverage tools preserve the remaining work. This continuation is not complete.
 
@@ -28,13 +28,13 @@ First commercial availability, adoption, decline, end-of-use and revival are sep
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `data/nodes.jsonl` | `b6c9d40cda7b1c21475941c96c08d7019d5d3a254700236235894feeba051e25` |
-| `data/events.jsonl` | `abf5b00610b532b37b6bcfe6c5cba74a11970a3f7b4b5f1f2b1629b78c5765d3` |
+| `data/nodes.jsonl` | `09900edffaba61b39456a82c57b8202b6a64836f882920cd09d11f44ec19637f` |
+| `data/events.jsonl` | `b70d77ba2794c6418e8978365d0d38f42776ee92a7c5eff0932653d49440bfc2` |
 | `data/relationships.jsonl` | `cf980c25ff00388cba8367bfd1a82f753d853d776617e46300b3f526b574b251` |
-| `data/sources.jsonl` | `96e78984b117084e497f00a8fa95efd2c6169d73d742fce42594d079becbe6a7` |
+| `data/sources.jsonl` | `78f81a6d6dd80af47a16bba8e3fa4f68a96e79d40a8a5359743f1a2ccfc0b216` |
 | `schema.json` | `315ab1cb21a1a48f198620b79e407f12b9e4cbf49af17bc415a0c99e62c26958` |
-| `reviews/current-evidence.json` | `fcfe6978c51188accfd978cb71e9702c430f65dc5f917255872fe731a2170ab3` |
-| `../../web/public/data/timeline.json` | `a31be16dd82c9aaf78bdb02f0ab27b4b57f0a926056776069658c1fcf61203dc` |
+| `reviews/current-evidence.json` | `e701ef165a822adc851505be5600b0b92edcd694bf3943f9e5d28ae4167fdd75` |
+| `../../web/public/data/timeline.json` | `3411089479b9b134f90d0825b400ab27e224da85473ef396e1e8210ad1f9b635` |
 
 ## Repository boundary
 
