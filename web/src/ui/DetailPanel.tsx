@@ -3,9 +3,9 @@ import type { Model } from '../data/model.ts'
 import { isPlacedNode, type RawLink, type TimelineEntry } from '../data/types.ts'
 import { formatYear } from '../engine/time.ts'
 import { documentedSpan, EVENT_NAMES, hasLaterLife, LATER_STAGES, type LaterStage } from '../data/lifecycle.ts'
-import { focusEntry, followEntry, getEngine, useApp } from '../store.ts'
-import { CloseButton, EvidenceBadge, Mark } from './icons.tsx'
+import { focusEntry, followEntry, useApp } from '../store.ts'
 import { dateLimitNote, entryReasonLabel, evidenceLabel } from './entryText.ts'
+import { CloseButton, EvidenceBadge, Mark } from './icons.tsx'
 import { COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
 
 function LinkList({ title, links, side, model }: { title: string; links: RawLink[]; side: 'from' | 'to'; model: Model }) {
@@ -63,8 +63,9 @@ const STAGE_NAMES: Record<LaterStage, string> = {
 
 /** Two different things, kept apart: what the links imply, and what the evidence says. */
 function LifeSection({ entry, index }: { entry: TimelineEntry; index: number | null }) {
-  const life = useApp((s) => s.lifeById[entry.id])
-  const reach = getEngine()?.reach
+  const model = useApp((s) => s.model)
+  const life = model?.life.get(entry.id)
+  const reach = model?.reach
   const year = isPlacedNode(entry) ? entry.year : null
   const latest = (index !== null ? reach?.any[index] : undefined) ?? year ?? 0
   const span = year === null ? 0 : Math.round(latest - year)

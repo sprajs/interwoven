@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
 import type { Model } from '../data/model.ts'
-import { LEVEL_NAMES } from '../data/types.ts'
 import { onEngineFrame } from '../engine/frames.ts'
 import { getEngine, useApp } from '../store.ts'
 import { usePageMargins } from './layout.ts'
@@ -37,20 +36,6 @@ function ScaleBar() {
     <div className="note hidden items-center gap-2 whitespace-nowrap wide:flex" title="The length of this bar in years, at the middle of the view">
       <span ref={barRef} className="block h-1 border-x border-b border-ink-2" style={{ width: BAR_TARGET }} />
       <span ref={textRef} />
-    </div>
-  )
-}
-
-/** Four marks for four depths of detail, from landmarks down. Choosing one zooms there. */
-function DepthMarks() {
-  const depth = useApp((s) => s.depth)
-  return (
-    <div className="pointer-events-auto hidden items-center gap-1 compact:flex" role="group" aria-label="Depth of detail">
-      {[8, 6.8, 5.6, 4].map((size, level) => (
-        <button key={level} onClick={() => getEngine()?.zoomToDepth(level)} title={`${LEVEL_NAMES[level]}${level <= depth ? ', showing' : '. Zoom in to here.'}`} aria-pressed={level <= depth} className="group grid size-6 place-items-center" aria-label={LEVEL_NAMES[level]}>
-          <span className={`block rounded-full transition-colors ${level <= depth ? 'bg-ink-2 group-hover:bg-ink' : 'border border-ink-3 group-hover:border-ink'}`} style={{ width: size, height: size }} />
-        </button>
-      ))}
     </div>
   )
 }
@@ -100,11 +85,8 @@ export function BottomBar() {
   const compressed = useApp((s) => s.compressed)
   const setCompressed = useApp((s) => s.setCompressed)
   const openPeriods = useApp((s) => s.openPeriods)
-  const mode = useApp((s) => s.mode)
-  const depth = useApp((s) => s.depth)
   const following = useApp((s) => s.mode === 'story' && s.story !== null)
   const margins = usePageMargins()
-  const everythingShows = model !== null && getEngine()?.showsEverything === true
 
   return (
     <div className="note pointer-events-none absolute bottom-14 z-10 flex h-8 items-center gap-4 transition-[left,right] duration-300 wide:gap-6" style={margins}>
@@ -131,14 +113,6 @@ export function BottomBar() {
       )}
 
       <ScaleBar />
-
-      <span className="sr-only" aria-live="polite">Showing down to {LEVEL_NAMES[depth]?.toLowerCase()}.</span>
-      {!following && mode !== 'reach' && !everythingShows && <DepthMarks />}
-      {!following && (
-        <button onClick={() => getEngine()?.redraw()} className="pointer-events-auto hidden whitespace-nowrap transition-colors hover:text-ink motion-reduce:hidden corner:block" title="Draw the chart again from the beginning, slowly (r)">
-          Redraw
-        </button>
-      )}
 
       <div className="pointer-events-auto flex items-center gap-3">
         <button onClick={() => getEngine()?.zoomBy(1 / 1.6)} className="px-1 text-body transition-colors hover:text-ink" aria-label="Zoom out">−</button>

@@ -32,7 +32,7 @@ function score(model: Model, q: string): { node: TimelineEntry; score: number }[
 
 export function searchEntries(model: Model, query: string): TimelineEntry[] {
   const q = query.trim().toLowerCase()
-  if (!q) return model.landmarks.map((index) => model.nodes[index]!)
+  if (!q) return model.keyEntries.map((index) => model.nodes[index]!)
   return score(model, q).slice(0, MAX_RESULTS).map((s) => s.node)
 }
 

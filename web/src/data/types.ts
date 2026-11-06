@@ -100,6 +100,7 @@ export interface RawEvent {
   statement?: string
   scope?: EntryScope
   uncertainty?: string
+  review?: string
 }
 
 export interface RawLink {
@@ -119,6 +120,8 @@ export interface RawLabel {
   id: string
   name: string
   ink: string
+  /** The subject family it belongs to, which sets its ink and its place on the chart. */
+  family?: string
 }
 
 export interface RawSource {
@@ -129,6 +132,8 @@ export interface RawSource {
 
 export interface RawDataset {
   meta: { title: string; description?: string; provenance?: string }
+  /** Subject families, top to bottom on the chart. */
+  families?: { name: string; ink: string }[]
   labels: RawLabel[]
   nodes: RawNode[]
   /** Records awaiting a defensible selected community-entry choice stay accessible. */
@@ -143,4 +148,3 @@ export const KINDS: { id: NodeKind; name: string; plural: string; shape: number 
   { id: 'science', name: 'Science', plural: 'Science', shape: 1 },
 ]
 
-export const LEVEL_NAMES = ['Landmarks', 'Major advances', 'Supporting work', 'Fine detail'] as const

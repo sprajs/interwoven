@@ -1,7 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource-variable/eb-garamond/wght.css'
-import '@fontsource-variable/eb-garamond/wght-italic.css'
 import './styles.css'
 import { App } from './App.tsx'
 

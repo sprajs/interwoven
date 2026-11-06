@@ -1,5 +1,21 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Source Serif';
+  src: url('./fonts/source-serif.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif';
+  src: url('./fonts/source-serif-italic.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* The design system. DESIGN.md explains each value, and design.test.ts keeps it honest. */
 @theme {
   /* Every space is a multiple of this: p-2 is 6px, p-4 is 12px, p-8 is 24px. */
@@ -18,15 +34,15 @@
   --text-title--line-height: 36px;
 
   --color-paper: #f4efe6;
-  --color-sheet: #f8f4ec;
-  --color-ink: #26211c;
-  --color-ink-2: #4e463c;
-  --color-ink-3: #6a6156;
-  --color-rule: rgb(38 33 28 / 0.22);
-  --color-rule-soft: rgb(38 33 28 / 0.11);
-  --color-tint: rgb(38 33 28 / 0.06);
+  --color-sheet: #fbf8f1;
+  --color-ink: #1f1b16;
+  --color-ink-2: #443c32;
+  --color-ink-3: #5c5347;
+  --color-rule: rgb(31 27 22 / 0.22);
+  --color-rule-soft: rgb(31 27 22 / 0.11);
+  --color-tint: rgb(31 27 22 / 0.06);
 
-  --font-serif: 'EB Garamond Variable', Georgia, 'Times New Roman', serif;
+  --font-serif: 'Source Serif', Georgia, 'Times New Roman', serif;
 
   --breakpoint-compact: 760px;
   --breakpoint-wide: 1000px;
@@ -49,11 +65,14 @@ body,
   line-height: var(--text-body--line-height);
   -webkit-font-smoothing: antialiased;
   font-kerning: normal;
+  font-optical-sizing: auto;
+  /* Old-style figures sit quietly in running text. Tables and dates ask for lining ones. */
+  font-variant-numeric: oldstyle-nums proportional-nums;
 }
 
 .thin-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgb(38 33 28 / 0.2) transparent;
+  scrollbar-color: rgb(31 27 22 / 0.2) transparent;
 }
 
 button {
@@ -94,6 +113,7 @@ input:focus-visible {
   font-size: var(--text-note);
   line-height: var(--text-note--line-height);
   color: var(--color-ink-3);
+  font-variant-numeric: lining-nums;
 }
 
 /* A section heading stays small, and earns its place through weight, a rule and space. */
@@ -103,13 +123,15 @@ input:focus-visible {
   border-bottom: 1px solid var(--color-rule);
   font-size: var(--text-note);
   line-height: var(--text-note--line-height);
-  font-weight: 500;
+  font-weight: 600;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.06em;
   color: var(--color-ink-2);
 }
 
-/* Counts line up, so columns of them can be compared at a glance. */
+/* Counts and dates line up, so columns of them can be compared at a glance. */
 .figures {
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 /* Science is set in italic everywhere, as maps set water apart from land. */

@@ -65,6 +65,17 @@ const DISPLAY_LABELS: RawLabel[] = [
   { id: 'chemistry', name: 'Chemistry', ink: INK.madder },
 ]
 
+/** Each label belongs to one subject family, which sets its ink and where it sits on the chart. */
+const FAMILIES: { name: string; ink: string; labels: string[] }[] = [
+  { name: 'Number & print', ink: INK.moss, labels: ['mathematics', 'arithmetic', 'calculation', 'accounting', 'printing', 'knowledge', 'timekeeping', 'measurement'] },
+  { name: 'Water & wayfinding', ink: INK.verdigris, labels: ['water', 'mills', 'wayfinding', 'transport'] },
+  { name: 'Materials', ink: INK.madder, labels: ['metallurgy', 'materials', 'ceramics', 'polymers', 'chemistry'] },
+  { name: 'Heat & power', ink: INK.ochre, labels: ['heat', 'steam', 'energy', 'machining', 'electric-power'] },
+  { name: 'Electricity & computing', ink: INK.indigo, labels: ['electromagnetism', 'radio', 'batteries', 'communication', 'electronics', 'semiconductors', 'computing'] },
+  { name: 'Light & life', ink: INK.plum, labels: ['optics', 'astronomy', 'instruments', 'genetics', 'medicine'] },
+]
+const FAMILY_OF = new Map(FAMILIES.flatMap((family) => family.labels.map((id) => [id, family] as const)))
+
 export interface ResearchEvent {
   id: string
   node_id: string
@@ -73,6 +84,7 @@ export interface ResearchEvent {
   statement?: string
   scope?: EntryScope
   uncertainty?: string
+  review?: { historical_claim?: string }
   evidence?: { source_id: string }[]
 }
 
@@ -283,12 +295,17 @@ export function buildResearchDataset(records: ResearchRecords, overrides: Record
   return {
     meta: { title: 'Interwoven', description: 'Availability, use and recognition across communities',
       provenance: 'Generated from research/science-technology-graph. Do not edit by hand.' },
-    labels: [...usedLabels].map((id) => declared.get(id) ?? { id, name: id.replace(/-/g, ' '), ink: '#55524c' }),
+    families: FAMILIES.map(({ name, ink }) => ({ name, ink })),
+    labels: [...usedLabels].map((id) => {
+      const family = FAMILY_OF.get(id)
+      const label = declared.get(id) ?? { id, name: id.replace(/-/g, ' '), ink: '#55524c' }
+      return family ? { ...label, ink: family.ink, family: family.name } : label
+    }),
     nodes, unplaced, links, sources,
     events: Object.fromEntries(records.events.map((event) => [event.id, { id: event.id, node_id: event.node_id,
       event_type: event.event_type, date_label: event.date?.label ?? 'Date not recorded',
       date_status: event.date?.status ?? 'missing', date_basis: event.date?.basis, date: event.date, statement: event.statement,
-      scope: event.scope, uncertainty: event.uncertainty }])),
+      scope: event.scope, uncertainty: event.uncertainty, review: event.review?.historical_claim }])),
   }
 }
 
@@ -305,7 +322,7 @@ function main(): void {
   for (const entry of invalidSelections) console.log(`error: selected community entry ${entry.id}: ${entry.placement_reason}`)
   if (issues.some((issue) => issue.severity === 'error') || invalidSelections.length) process.exit(1)
   const block = (items: unknown[]) => `[\n${items.map((item) => `  ${JSON.stringify(item)}`).join(',\n')}\n]`
-  const out = `{\n"meta": ${JSON.stringify(dataset.meta)},\n"labels": ${block(dataset.labels)},\n"nodes": ${block(dataset.nodes)},\n"unplaced": ${block(dataset.unplaced ?? [])},\n"links": ${block(dataset.links)},\n"events": ${JSON.stringify(dataset.events)},\n"sources": ${JSON.stringify(dataset.sources)}\n}\n`
+  const out = `{\n"meta": ${JSON.stringify(dataset.meta)},\n"families": ${JSON.stringify(dataset.families)},\n"labels": ${block(dataset.labels)},\n"nodes": ${block(dataset.nodes)},\n"unplaced": ${block(dataset.unplaced ?? [])},\n"links": ${block(dataset.links)},\n"events": ${JSON.stringify(dataset.events)},\n"sources": ${JSON.stringify(dataset.sources)}\n}\n`
   writeFileSync(join(import.meta.dirname, '../public/data/timeline.json'), out)
   console.log(`${dataset.nodes.length} placed, ${dataset.unplaced?.length ?? 0} unplaced, ${dataset.links.length} relationships retained`)
 }

@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { contrast, INK, LAYOUT, PAPER, SHEET, TIER_RADIUS, TIER_TYPE, TYPE, UNIT, X_HEIGHT } from './design.ts'
+import { CHAR_WIDTH, contrast, INK, LAYOUT, MARK_RADIUS, PAPER, RULER_LIGHT, SHEET, TYPE, UNIT, X_HEIGHT } from './design.ts'
 
 const root = import.meta.dirname
 const css = readFileSync(join(root, 'styles.css'), 'utf8')
@@ -37,8 +37,7 @@ describe('the type scale', () => {
 })
 
 describe('measure', () => {
-  // Measured from the font: EB Garamond text averages 0.376em a character, spaces included.
-  const characters = (width: number, size: number) => width / (size * 0.376)
+  const characters = (width: number, size: number) => width / (size * CHAR_WIDTH)
 
   it('keeps a sheet of body text within 45 to 90 characters', () => {
     const count = characters(LAYOUT.sheet - 2 * LAYOUT.sheetPad, TYPE.body.size)
@@ -61,6 +60,10 @@ describe('ink', () => {
     }
   })
 
+  it('keeps the ruler readable in both of its shades', () => {
+    expect(contrast(INK.primary, RULER_LIGHT)).toBeGreaterThanOrEqual(4.5)
+  })
+
   it('matches the stylesheet', () => {
     expect(css).toContain(`--color-ink: ${INK.primary};`)
     expect(css).toContain(`--color-ink-2: ${INK.secondary};`)
@@ -71,10 +74,8 @@ describe('ink', () => {
 })
 
 describe('marks', () => {
-  it('stand about as tall as the lowercase of their name', () => {
-    TIER_TYPE.forEach((step, tier) => {
-      expect(TIER_RADIUS[tier]! * 2).toBeCloseTo(TYPE[step].size * X_HEIGHT, -0.2)
-    })
+  it('stand at least as tall as the lowercase of a name, so they can be seen', () => {
+    for (const radius of MARK_RADIUS) expect(radius * 2).toBeGreaterThanOrEqual(TYPE.note.size * X_HEIGHT)
   })
 })
 

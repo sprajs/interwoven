@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import { layoutStory, lineageOf, threadOf, type RowOrder, type Story } from './data/derive.ts'
-import type { LifeRecord } from './data/lifecycle.ts'
 import type { Model } from './data/model.ts'
 import type { RawNode } from './data/types.ts'
 import type { Engine, Mode } from './engine/Engine.ts'
@@ -25,10 +24,6 @@ interface AppState {
   rowOrder: RowOrder
   /** The thread being followed, if any. */
   story: Story | null
-  /** Documented later lives of the entries on the chart, from the lifecycle sidecar. */
-  life: Map<number, LifeRecord>
-  /** The same for every entry in the research, by id, placed or not. */
-  lifeById: Record<string, LifeRecord>
   /** Entries matching the search box, while something is typed there. */
   searchHits: ReadonlySet<number> | null
   /** A label being pointed at. */
@@ -39,8 +34,6 @@ interface AppState {
   labelsOpen: boolean
   searchOpen: boolean
   unplacedOpen: boolean
-  /** Deepest level currently showing, 0 to 3. */
-  depth: number
   setModel(model: Model): void
   setError(message: string): void
   setMode(mode: Mode): void
@@ -54,9 +47,7 @@ interface AppState {
   setLabelsOpen(open: boolean): void
   setSearchOpen(open: boolean): void
   setUnplacedOpen(open: boolean): void
-  setDepth(depth: number): void
   setRowOrder(order: RowOrder): void
-  setLife(life: Map<number, LifeRecord>, lifeById: Record<string, LifeRecord>): void
   setSearchHits(hits: ReadonlySet<number> | null): void
   setPreviewLabel(id: string | null): void
   setOpenPeriods(count: number): void
@@ -81,8 +72,6 @@ export const useApp = create<AppState>((set) => ({
   unplacedSelected: null,
   rowOrder: 'thread',
   story: null,
-  life: new Map(),
-  lifeById: {},
   searchHits: null,
   previewLabel: null,
   openPeriods: 0,
@@ -90,7 +79,6 @@ export const useApp = create<AppState>((set) => ({
   labelsOpen: false,
   searchOpen: false,
   unplacedOpen: false,
-  depth: 1,
   setModel: (model) => set({ model, error: null }),
   setError: (error) => set({ error }),
   setMode: (mode) => set({ mode }),
@@ -104,9 +92,7 @@ export const useApp = create<AppState>((set) => ({
   setLabelsOpen: (labelsOpen) => set((s) => ({ labelsOpen, unplacedOpen: labelsOpen ? false : s.unplacedOpen })),
   setSearchOpen: (searchOpen) => set({ searchOpen }),
   setUnplacedOpen: (unplacedOpen) => set((s) => ({ unplacedOpen, labelsOpen: unplacedOpen ? false : s.labelsOpen })),
-  setDepth: (depth) => set({ depth }),
   setRowOrder: (rowOrder) => set({ rowOrder }),
-  setLife: (life, lifeById) => set({ life, lifeById }),
   setSearchHits: (searchHits) => set({ searchHits }),
   setPreviewLabel: (previewLabel) => set({ previewLabel }),
   setOpenPeriods: (openPeriods) => set({ openPeriods }),

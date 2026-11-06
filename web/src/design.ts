@@ -18,43 +18,54 @@ export const TYPE = {
 export type TypeStep = keyof typeof TYPE
 
 /** Text inks. The numbers are the WCAG contrast each must keep on the paper. */
-export const INK = { primary: '#26211c', secondary: '#4e463c', muted: '#6a6156' } as const
+export const INK = { primary: '#1f1b16', secondary: '#443c32', muted: '#5c5347' } as const
 export const PAPER = '#f4efe6'
-export const SHEET = '#f8f4ec'
+export const SHEET = '#fbf8f1'
+/** The ruler's light cells. Its dark cells are the primary ink. */
+export const RULER_LIGHT = '#e4dccb'
 
 /** Lines. A rule structures the page, and a fine rule divides rows within it. */
 export const LINE = { hair: 0.75, rule: 1, stroke: 1.5 } as const
-export const RULE_ALPHA = { rule: 0.22, soft: 0.11, frame: 0.55 } as const
+export const RULE_ALPHA = { rule: 0.22, soft: 0.11, frame: 0.55, band: 0.045 } as const
 
-/** EB Garamond's x-height, read from the font. Marks are sized from it. */
-export const X_HEIGHT = 0.4
+/** Source Serif 4's measured x-height and average character width, in em. */
+export const X_HEIGHT = 0.475
+export const CHAR_WIDTH = 0.454
 
-/** How entries are ranked on the chart: size for the first three tiers, then ink for the last. */
-export const TIER_TYPE: readonly TypeStep[] = ['lead', 'body', 'note', 'note']
-/** Rows are too close for the largest size, as Priestley's chart kept its names small. */
-export const ROW_TIER_TYPE: readonly TypeStep[] = ['body', 'note', 'note', 'note']
-export const TIER_INK: readonly (keyof typeof INK)[] = ['primary', 'primary', 'primary', 'secondary']
+/** How entries are ranked on the chart: a larger, heavier name for the key discoveries. */
+export const NAME_STYLE: readonly { step: TypeStep; weight: number }[] = [
+  { step: 'body', weight: 600 },
+  { step: 'note', weight: 600 },
+  { step: 'note', weight: 500 },
+  { step: 'note', weight: 500 },
+]
+/** A mark's radius by rank, all large enough to see and pick out at a glance. */
+export const MARK_RADIUS: readonly number[] = [5.5, 4.5, 4, 3.5]
 
-/** A mark's radius, so that it stands as tall as the lowercase of the name beside it. */
-export const TIER_RADIUS: readonly number[] = TIER_TYPE.map((step) => (TYPE[step].size * X_HEIGHT) / 2)
+/** A named entry is a flag: a solid pole at its date, then its date, then its name. */
+export const BOX = { edge: 3, pad: UNIT, border: 1, chipAlpha: 0.14, borderAlpha: 0.6, lift: 3 } as const
+/** Screen area allowed per name. Zooming puts fewer entries in view, so lower ranks earn names. */
+export const NAME_AREA = 230 * 30 * 5
 
+export const FONT_FAMILY = '"Source Serif", Georgia, "Times New Roman", serif'
 /** The cuts the canvas needs loaded before it can measure text. */
-export const FONT_FACES = ['400 14px "EB Garamond Variable"', 'italic 400 14px "EB Garamond Variable"']
+export const FONT_FACES = ['500 14px "Source Serif"', '600 17px "Source Serif"', 'italic 500 14px "Source Serif"', 'italic 600 17px "Source Serif"']
 
 /** Page geometry, all multiples of the unit. */
 export const LAYOUT = {
   header: 9 * UNIT,
   margin: 9 * UNIT,
   marginCompact: 3 * UNIT,
-  /** 53 characters of body text inside its padding. */
-  sheet: 64 * UNIT,
+  /** 49 characters of body text inside its padding. */
+  sheet: 70 * UNIT,
   sheetPad: 4 * UNIT,
   labels: 46 * UNIT,
-  /** 48 characters of note text, the range for text in columns. */
-  column: 42 * UNIT,
-  /** The ruled top of the chart, and how far below the rule its contents stay. */
-  frameTop: 14 * UNIT,
-  frameTopCompact: 15 * UNIT,
+  /** 42 characters of note text, the range for text in columns. */
+  column: 45 * UNIT,
+  /** The top of the chart, under the ruler, and how far below it its contents stay. */
+  frameTop: 16 * UNIT,
+  frameTopCompact: 19 * UNIT,
+  ruler: 5 * UNIT,
   frameBottom: 12 * UNIT,
   framePad: 3 * UNIT,
   overview: 4 * UNIT,

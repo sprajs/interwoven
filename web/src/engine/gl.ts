@@ -37,41 +37,6 @@ export function createProgram(gl: WebGL2RenderingContext, vs: string, fs: string
   return { handle, u }
 }
 
-export interface Target {
-  fbo: WebGLFramebuffer
-  tex: WebGLTexture
-  width: number
-  height: number
-}
-
-export function createTarget(
-  gl: WebGL2RenderingContext,
-  width: number,
-  height: number,
-  internal: number,
-  format: number,
-  type: number,
-): Target {
-  const tex = gl.createTexture()!
-  gl.bindTexture(gl.TEXTURE_2D, tex)
-  gl.texImage2D(gl.TEXTURE_2D, 0, internal, width, height, 0, format, type, null)
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
-  const fbo = gl.createFramebuffer()!
-  gl.bindFramebuffer(gl.FRAMEBUFFER, fbo)
-  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0)
-  gl.bindFramebuffer(gl.FRAMEBUFFER, null)
-  return { fbo, tex, width, height }
-}
-
-export function deleteTarget(gl: WebGL2RenderingContext, target: Target | null): void {
-  if (!target) return
-  gl.deleteFramebuffer(target.fbo)
-  gl.deleteTexture(target.tex)
-}
-
 export function createDataTexture(gl: WebGL2RenderingContext, width: number, height: number, data: Float32Array): WebGLTexture {
   const tex = gl.createTexture()!
   gl.bindTexture(gl.TEXTURE_2D, tex)

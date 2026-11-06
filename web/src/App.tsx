@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { buildModel } from './data/model.ts'
 import { makeStressDataset } from './data/stress.ts'
 import type { RawDataset } from './data/types.ts'
-import { indexLifecycle, type LifecycleFile } from './data/lifecycle.ts'
 import { validateDataset } from './data/validate.ts'
 import { followEntry, getEngine, stepStory, useApp } from './store.ts'
 import { BottomBar } from './ui/BottomBar.tsx'
@@ -22,7 +21,6 @@ async function load(): Promise<void> {
     const params = new URLSearchParams(location.search)
     const stress = Number(params.get('stress'))
     let data: RawDataset
-    const usesResearch = !(stress > 0)
     if (stress > 0) {
       data = makeStressDataset(Math.min(stress, 500000))
     } else {
@@ -34,16 +32,7 @@ async function load(): Promise<void> {
     const errors = issues.filter((i) => i.severity === 'error')
     if (errors.length) throw new Error(`The dataset has ${errors.length} error(s). First: ${errors[0]!.message}`)
     issues.forEach((i) => console.warn(`[data] ${i.message}`))
-    const model = buildModel(data, stress > 0)
-    setModel(model)
-    // The sidecar is optional. Without it every later life simply reads as not researched.
-    if (usesResearch) {
-      const response = await fetch(`${import.meta.env.BASE_URL}data/lifecycle.json`).catch(() => null)
-      if (response?.ok) {
-        const file = (await response.json()) as LifecycleFile
-        useApp.getState().setLife(indexLifecycle(file, model.indexById), file.records)
-      }
-    }
+    setModel(buildModel(data))
   } catch (e) {
     setError(e instanceof Error ? e.message : String(e))
   }
@@ -73,7 +62,7 @@ function useKeyboard(): void {
       if (target.tagName === 'INPUT' || e.metaKey || e.ctrlKey || e.altKey) return
       const engine = getEngine()
       // A shortcut changes the view, so a focus ring left on the last button would mislead.
-      if (['1', '2', '3', '4', '5'].includes(e.key) && target instanceof HTMLButtonElement) target.blur()
+      if (['1', '2', '3', '4'].includes(e.key) && target instanceof HTMLButtonElement) target.blur()
       const inStory = app.mode === 'story' && app.story !== null
       switch (e.key) {
         case '/':
@@ -92,9 +81,6 @@ function useKeyboard(): void {
         case '4':
           app.setMode('density')
           break
-        case '5':
-          app.setMode('landmarks')
-          break
         case 'f':
           if (app.selected !== null) followEntry(app.selected)
           break
@@ -103,9 +89,6 @@ function useKeyboard(): void {
           break
         case 'w':
           if (app.unplacedOpen || app.model?.unplaced.length) app.setUnplacedOpen(!app.unplacedOpen)
-          break
-        case 'r':
-          engine?.redraw()
           break
         case 'ArrowLeft':
           e.preventDefault()
