@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { computeReach, connectedComponents, findCrossings, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
+import { computeReach, connectedComponents, cornersFree, findCrossings, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
 import { documentedSpan, hasLaterLife, indexLifecycle, isFinal, readEventDate, tallyLifecycle, type LifeEvent, type LifeRecord } from './lifecycle.ts'
 
 const dated = (...years: number[]) => years.map((year) => ({ year }))
@@ -84,6 +84,25 @@ describe('rows', () => {
     expect(hit[0]!.node).toBe(1)
     const short = computeReach(dated(1800, 1850, 1900), [edge(0, 2)])
     expect(findCrossings(rows, y, dated(1800, 1850, 1900), short, [edge(0, 2)])).toHaveLength(0)
+  })
+})
+
+describe('cornersFree', () => {
+  const u = (year: number) => (year - 1000) / 1000
+
+  it('sees the empty corners a staircase leaves', () => {
+    const nodes = dated(...Array.from({ length: 100 }, (_, i) => 1000 + i * 10))
+    const reach = computeReach(nodes, [])
+    const rows = rowOrder(nodes, adjacency(100, []).children, adjacency(100, []).parents, reach, 'origin')
+    expect(cornersFree(rows, nodes, reach, u)).toBe(true)
+  })
+
+  it('sees long rules crossing the top right', () => {
+    const nodes = dated(...Array.from({ length: 100 }, (_, i) => 1000 + i * 10))
+    const edges = Array.from({ length: 40 }, (_, i) => edge(i, 99))
+    const reach = computeReach(nodes, edges)
+    const { children, parents } = adjacency(100, edges)
+    expect(cornersFree(rowOrder(nodes, children, parents, reach, 'origin'), nodes, reach, u)).toBe(false)
   })
 })
 

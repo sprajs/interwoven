@@ -4,7 +4,7 @@ import { hasLaterLife, tallyLifecycle } from '../data/lifecycle.ts'
 import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, useApp } from '../store.ts'
-import { CARTOUCHE_WIDTH, COMPACT_WIDTH, SHEET_WIDTH } from './layout.ts'
+import { CARTOUCHE_WIDTH, COMPACT_WIDTH, reachCornersFree, SHEET_WIDTH } from './layout.ts'
 
 const ORDERS: { id: RowOrder; label: string; hint: string }[] = [
   { id: 'thread', label: 'by thread', hint: 'Connected work together, each entry near what it builds on' },
@@ -73,7 +73,16 @@ export function ReachSheet() {
   // Zooming fills the corners with chart, so what sits in them steps aside until you return.
   useEffect(() => {
     return onEngineFrame((engine) => {
-      if (window.innerWidth < CARTOUCHE_WIDTH) return
+      const state = useApp.getState()
+      if (window.innerWidth < CARTOUCHE_WIDTH || !reachCornersFree(state.model, state.rowOrder)) {
+        // A sheet of its own never needs to step aside, and may have just stopped being a corner.
+        for (const el of [cornerRef.current, asideRef.current]) {
+          if (!el) continue
+          el.style.opacity = ''
+          el.style.pointerEvents = ''
+        }
+        return
+      }
       const zoomed = engine.camera.logZoom > 0.12 || engine.camera.logY > 0.12 || engine.pleats.length > 0
       for (const el of [cornerRef.current, asideRef.current]) {
         if (!el) continue
@@ -85,7 +94,7 @@ export function ReachSheet() {
   if (!model) return null
 
   const compact = width < COMPACT_WIDTH
-  const corner = width >= CARTOUCHE_WIDTH
+  const corner = width >= CARTOUCHE_WIDTH && reachCornersFree(model, rowOrder)
   const placement = compact
     ? 'absolute inset-x-0 bottom-0 z-20 max-h-[56vh] border-t border-rule'
     : corner

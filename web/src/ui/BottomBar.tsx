@@ -89,6 +89,7 @@ export function BottomBar() {
   const compressed = useApp((s) => s.compressed)
   const setCompressed = useApp((s) => s.setCompressed)
   const openPeriods = useApp((s) => s.openPeriods)
+  const following = useApp((s) => s.mode === 'story' && s.story !== null)
   const mode = useApp((s) => s.mode)
   const margins = usePageMargins()
   const sheetOpen = useApp((s) => s.selected !== null || s.mode !== 'threads' || s.labelsOpen)
@@ -119,7 +120,7 @@ export function BottomBar() {
         </button>
       )}
 
-      {mode !== 'story' && (
+      {!following && (
         <div className="pointer-events-auto flex items-center gap-2 text-[15px] leading-none" role="group" aria-label="Time scale">
           {[
             { on: true, label: narrow ? 'Compr.' : 'Compressed', hint: 'Recent centuries and busy periods get more room' },
@@ -141,7 +142,12 @@ export function BottomBar() {
       <ScaleBar />
 
       <span className="sr-only" aria-live="polite">Showing down to {LEVEL_NAMES[depth]?.toLowerCase()}.</span>
-      {mode !== 'story' && mode !== 'reach' && <DepthMarks />}
+      {!following && mode !== 'reach' && <DepthMarks />}
+      {!following && (
+        <button onClick={() => getEngine()?.redraw()} className="pointer-events-auto hidden whitespace-nowrap text-[15px] leading-none transition-colors hover:text-ink motion-reduce:hidden min-[1100px]:block" title="Draw the chart again from the beginning, slowly (r)">
+          Redraw
+        </button>
+      )}
 
       <div className="pointer-events-auto flex items-center gap-3 text-[18px] leading-none">
         <button onClick={() => getEngine()?.zoomBy(1 / 1.6)} className="px-0.5 transition-colors hover:text-ink" aria-label="Zoom out">−</button>

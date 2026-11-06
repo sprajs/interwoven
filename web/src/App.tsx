@@ -97,6 +97,9 @@ function useKeyboard(): void {
         case 'u':
           engine?.unfoldAll()
           break
+        case 'r':
+          engine?.redraw()
+          break
         case 'ArrowLeft':
           e.preventDefault()
           if (inStory) stepStory(-1)

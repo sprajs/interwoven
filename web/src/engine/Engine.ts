@@ -45,6 +45,7 @@ export const PAPER = [0.957, 0.937, 0.902] as const
 const RULE_COLOR = [0.2, 0.18, 0.16] as const
 const HATCH_COLOR = [0.42, 0.36, 0.29] as const
 const OPENING_SECONDS = 2.4
+const REDRAW_SECONDS = 12
 const MAX_RECTS = 1400
 const HATCH_SPACING = 3.5
 const RATE_BINS = 512
@@ -154,6 +155,7 @@ export class Engine {
   private lastTime = 0
   private openingT = 1
   private openingStart = 0
+  private openingSeconds = OPENING_SECONDS
   private reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
   private drag: { id: number; x: number; y: number; t: number; vx: number; vy: number; moved: number } | null = null
   private pinch = new Map<number, { x: number; y: number }>()
@@ -515,7 +517,7 @@ export class Engine {
     const leavingLayout = modeChanged && (prev.mode === 'reach' || prev.mode === 'story')
     const enteringLayout = modeChanged && view.mode === 'reach'
     if (storyChanged && view.story) this.frameStory()
-    else if (enteringLayout || leavingLayout) this.camera.fit(this.reducedMotion)
+    else if (enteringLayout || leavingLayout || storyChanged) this.camera.fit(this.reducedMotion)
     this.computeTargets()
     this.invalidate()
   }
@@ -574,19 +576,24 @@ export class Engine {
     return this.model!.time.year(Math.min(1, Math.max(0, this.uAtX(x))), this.warp)
   }
 
+  /** The stories view only lays a thread out once one is chosen. Until then it is the chart. */
+  private get followingStory(): boolean {
+    return this.view.mode === 'story' && this.view.story !== null
+  }
+
   private get targetWarp(): number {
-    return this.view.compressed && this.view.mode !== 'story' ? 1 : 0
+    return this.view.compressed && !this.followingStory ? 1 : 0
   }
 
   /** Works out the sheet's fold from the view and any opened periods, then eases to it. */
   private rebuildFold(): void {
     const model = this.model
     if (!model) return
-    const { mode, story } = this.view
+    const { story } = this.view
     let map: FoldMap
-    if (mode === 'story' && story) {
+    if (this.followingStory) {
       // A story is read to one scale: real years, with empty stretches folded away.
-      map = foldAroundYears(story.members.map((i) => model.nodes[i]!.year), { u: (year) => model.time.linear(year) }).map
+      map = foldAroundYears(story!.members.map((i) => model.nodes[i]!.year), { u: (year) => model.time.linear(year) }).map
     } else {
       const warp = this.targetWarp
       map = foldFromWindows(this.openPeriods.map(([a, b]) => [model.time.u(a, warp), model.time.u(b, warp)]))
@@ -631,7 +638,7 @@ export class Engine {
       const du = us[k]! - us[k - 1]!
       if (du > 1e-9) slope = Math.max(slope, (vs[k]! - vs[k - 1]!) / du)
     }
-    this.foldGain = this.view.mode === 'story' ? 0 : Math.log(slope)
+    this.foldGain = this.followingStory ? 0 : Math.log(slope)
     return true
   }
 
@@ -693,7 +700,7 @@ export class Engine {
   /** Unfolds one pleat by joining the opened periods either side of it. */
   private unfold(pleat: Pleat): void {
     const model = this.model!
-    if (this.view.mode === 'story' || this.openPeriods.length === 0) return
+    if (this.followingStory || this.openPeriods.length === 0) return
     const warp = this.targetWarp
     const windows = this.openPeriods.map(([a, b]): [number, number] => [model.time.u(a, warp), model.time.u(b, warp)])
     const next = unfoldPleat(windows, pleat)
@@ -869,7 +876,7 @@ export class Engine {
   }
 
   private animateMix(dt: number): boolean {
-    const goal = MODE_MIX[this.view.mode]
+    const goal = MODE_MIX[this.view.mode === 'story' && !this.followingStory ? 'threads' : this.view.mode]
     const k = this.reducedMotion ? 1 : 1 - Math.exp(-dt * 7)
     let changed = false
     const mix = this.mix as Record<string, number>
@@ -895,7 +902,7 @@ export class Engine {
       return false
     }
     if (this.openingStart === 0) this.openingStart = now
-    this.openingT = Math.min(1, (now - this.openingStart) / (OPENING_SECONDS * 1000))
+    this.openingT = Math.min(1, (now - this.openingStart) / (this.openingSeconds * 1000))
     const t = this.openingT
     const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
     this.drawU = t >= 1 ? 2 : -0.02 + e * 1.06
@@ -993,6 +1000,16 @@ export class Engine {
     this.invalidate()
   }
 
+  /** Draws the chart again from the beginning, slowly enough to watch history accumulate. */
+  redraw(): void {
+    if (this.reducedMotion) return
+    this.openingSeconds = REDRAW_SECONDS
+    this.openingStart = 0
+    this.openingT = 0
+    this.drawU = -0.02
+    this.invalidate()
+  }
+
   /** Fits everything in the page and unfolds the sheet. */
   fit(): void {
     this.unfoldAll()
@@ -1027,14 +1044,7 @@ export class Engine {
 
   /** Fits the view to a stretch of the axis, for the overview strip's handles. */
   showU(u0: number, u1: number): void {
-    const cam = this.camera
-    const a = this.toV(Math.min(u0, u1))
-    const b = this.toV(Math.max(u0, u1))
-    const zoom = Math.log(Math.max(1, 1 / Math.max(1e-5, b - a)))
-    const current = cam.logZoom
-    cam.panBy(0, 0)
-    cam.zoomAt(cam.centerX, cam.centerY, zoom - current, 'time', true)
-    cam.panBy((cam.cu - (a + b) / 2) * cam.xScale, 0)
+    this.camera.showTimeRange(this.toV(Math.min(u0, u1)), this.toV(Math.max(u0, u1)))
     this.invalidate()
   }
 
@@ -1101,7 +1111,8 @@ export class Engine {
       this.bracket = null
       return
     }
-    if (this.zoneAt(p.x, p.y) === 'ruler' && this.view.mode !== 'story') {
+    this.openingT = 1
+    if (this.zoneAt(p.x, p.y) === 'ruler' && !this.followingStory) {
       this.bracket = { x0: p.x, x1: p.x }
       this.invalidate()
       return
@@ -1167,7 +1178,7 @@ export class Engine {
     this.pointerZone = zone
     if (zone === 'ruler') {
       this.setHover(null, 0, 0)
-      this.overlay.style.cursor = this.view.mode === 'story' ? 'default' : this.pleatAtX(p.x) ? 'pointer' : 'col-resize'
+      this.overlay.style.cursor = this.followingStory ? 'default' : this.pleatAtX(p.x) ? 'pointer' : 'col-resize'
       this.invalidate()
       return
     }
@@ -1291,7 +1302,9 @@ export class Engine {
 
   private computeTicks(): void {
     const cam = this.camera
-    this.ticks = pickTicks((year) => this.yearToX(year), this.xToYear(0), this.xToYear(cam.width), cam.width, cam.width < 700 ? 58 : 78)
+    // A folded stretch cannot hold a readable tick. Its own note says how much it hides.
+    const reject = this.foldTo.pleats.length ? (x: number) => this.inPleat(this.uAtX(x)) : undefined
+    this.ticks = pickTicks((year) => this.yearToX(year), this.xToYear(0), this.xToYear(cam.width), cam.width, cam.width < 700 ? 58 : 78, reject)
   }
 
   private setWorldUniforms(p: Program): void {
@@ -1431,7 +1444,7 @@ export class Engine {
     gl.uniform3f(P.node.u.uPaper!, PAPER[0], PAPER[1], PAPER[2])
     // Rows are tight at a distance, so marks keep within their row.
     gl.uniform1f(P.node.u.uMarkCap!, 100 + (Math.max(1.5, rowPx * 0.55) - 100) * weave)
-    gl.uniform1f(P.node.u.uWhisker!, model.synthetic ? 0 : Math.min(1, Math.max(0, this.camera.logZoom - 0.3)) * (1 - mix.hatching))
+    gl.uniform1f(P.node.u.uWhisker!, model.synthetic ? 0 : (1 - mix.hatching) * (1 - weave))
     gl.bindVertexArray(this.quadVao)
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
     gl.bindVertexArray(null)

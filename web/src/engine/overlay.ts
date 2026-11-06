@@ -89,8 +89,9 @@ export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: n
   drawAxis(engine, ctx, W)
   drawBracket(engine, ctx, W)
   if (engine.view.mode === 'density' && engine.pointer && engine.hovered === null && engine.pointerZone === 'chart') drawDensityProbe(engine, ctx, W)
+  drawPen(engine, ctx)
   if (engine.pointerZone === 'ruler' && engine.pointer && !engine.bracket) drawRulerCursor(engine, ctx)
-  else if (engine.rulerHint && !engine.bracket && engine.drawU > 1 && engine.view.mode !== 'story') drawRulerHint(engine, ctx)
+  else if (engine.rulerHint && !engine.bracket && engine.drawU > 1.02 && !(engine.view.mode === 'story' && engine.view.story)) drawRulerHint(engine, ctx)
 }
 
 function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W: number, H: number): void {
@@ -625,6 +626,27 @@ function drawBracket(engine: Engine, ctx: CanvasRenderingContext2D, W: number): 
   ctx.fillText(note, x, frame.top + 36)
 }
 
+/** While the chart is being drawn, a rule marks where the pen has got to and in what year. */
+function drawPen(engine: Engine, ctx: CanvasRenderingContext2D): void {
+  const u = engine.drawU
+  if (u > 1.02 || u < 0) return
+  const clamped = Math.min(1, u)
+  const x = engine.camera.toX(engine.toV(clamped))
+  const frame = engine.frameBounds()
+  const year = engine.model!.time.year(clamped, engine.warp)
+  ctx.fillStyle = `rgba(${INK.primary},0.5)`
+  ctx.fillRect(x - 0.4, frame.top, 0.8, frame.bottom - frame.top)
+  ctx.font = `500 13.5px ${SERIF}`
+  const text = formatYear(year)
+  const width = measure(ctx, text, ctx.font)
+  ctx.fillStyle = `rgba(${PAPER},1)`
+  ctx.fillRect(x - width / 2 - 5, frame.top - 20, width + 10, 18)
+  ctx.textAlign = 'center'
+  ctx.fillStyle = `rgba(${INK.primary},1)`
+  ctx.fillText(text, x, frame.top - 11)
+  ctx.textAlign = 'left'
+}
+
 /** The one thing nobody would guess, said once, close to where it happens. */
 function drawRulerHint(engine: Engine, ctx: CanvasRenderingContext2D): void {
   const frame = engine.frameBounds()
@@ -656,7 +678,7 @@ function drawRulerCursor(engine: Engine, ctx: CanvasRenderingContext2D): void {
   ctx.fillStyle = `rgba(${INK.primary},1)`
   ctx.fillText(text, pointer.x, lineY - 11)
   ctx.textAlign = 'left'
-  if (engine.view.mode === 'story') return
+  if (engine.view.mode === 'story' && engine.view.story) return
   const pleat = engine.pleatAtX(pointer.x)
   const hint = pleat && engine.openPeriods.length ? 'Click to unfold' : 'Drag along the ruler to open a period'
   ctx.font = `italic 400 13.5px ${SERIF}`
@@ -679,14 +701,8 @@ function drawAxis(engine: Engine, ctx: CanvasRenderingContext2D, W: number): voi
 
   ctx.textAlign = 'center'
   ctx.font = `400 13px ${SERIF}`
-  const pleats = engine.pleats
   for (const tick of engine.ticks) {
     if (tick.x < 14 || tick.x > W - 14) continue
-    // A folded stretch cannot hold a readable tick. Its own note says how much it hides.
-    if (pleats.length) {
-      const u = engine.uAtX(tick.x)
-      if (pleats.some((p) => u > p.u0 && u < p.u1)) continue
-    }
     ctx.fillStyle = `rgba(${INK.secondary},1)`
     ctx.fillText(formatYear(tick.year), tick.x, lineY - 11)
     ctx.fillStyle = `rgba(${INK.primary},0.6)`

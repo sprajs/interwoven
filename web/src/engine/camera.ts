@@ -136,6 +136,18 @@ export class Camera {
     if (axis !== 'time') this.targetLogY = clampRange(this.targetLogY + delta * (axis === 'both' ? Y_ZOOM_EXPONENT : 1), 0, this.maxLogY)
   }
 
+  /** Shows exactly this stretch of the axis, at once, leaving height alone. */
+  showTimeRange(v0: number, v1: number): void {
+    this.fly = null
+    this.anchor = null
+    this.velocity.x = this.velocity.y = 0
+    this.logZoom = clampRange(Math.log(1 / Math.max(1e-6, Math.abs(v1 - v0))), 0, this.maxLogZoom)
+    this.targetLogZoom = this.logZoom
+    this.targetLogY = this.logY
+    this.cu = (v0 + v1) / 2
+    this.clamp()
+  }
+
   panBy(dx: number, dy: number): void {
     this.fly = null
     this.anchor = null

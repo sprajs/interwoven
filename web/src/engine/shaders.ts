@@ -114,7 +114,7 @@ void main() {
   float r = min(a.z, uMarkCap) * uDpr * mix(0.5, 1.0, v) * (1.0 + 0.2 * s.z);
   // Shape: 0 or 1 is the kind, and adding 2 means the date is provisional, which gets a whisker.
   float whisker = (a.w >= 1.5 ? 1.0 : 0.0) * uWhisker * mix(0.0, 1.0, v) * uDpr;
-  float halfSize = r * 1.25 + 2.0 * uDpr + mark * (r + 7.0 * uDpr) + whisker * 7.0;
+  float halfSize = r * 1.25 + 2.0 * uDpr + mark * (r + 7.0 * uDpr) + whisker * 4.5;
   vec2 c = worldToPx(a.x, a.y);
   if (c.x < -halfSize || c.x > uRes.x + halfSize || c.y < -halfSize || c.y > uRes.y + halfSize) {
     gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
@@ -124,7 +124,7 @@ void main() {
   gl_Position = pxToClip(c + vPx);
   vColor = mix(${GRAPHITE}, b.rgb, mix(1.0, 0.25, s.y));
   vInfo = vec4(mod(a.w, 2.0), r, alpha, hash(float(id) + 3.1) * 6.283);
-  vExtra = vec4(mark, v, b.a, whisker * 7.0);
+  vExtra = vec4(mark, v, b.a, whisker * 4.5);
 }
 `
 

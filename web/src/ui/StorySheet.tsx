@@ -115,8 +115,8 @@ function StoryText({ model }: { model: Model }) {
                 <span className={`min-w-0 flex-1 ${current ? 'font-medium' : ''} ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</span>
                 <span className="shrink-0 text-[14px] text-ink-3">{node.date_label}</span>
               </div>
-              {incoming.map((edge) => (
-                <p key={edge.source} className={`mt-1 pl-[18px] text-[14.5px] leading-snug ${edge.tentative ? 'text-ink-3' : 'text-ink-2'}`}>
+              {incoming.map((edge, n) => (
+                <p key={`${edge.source}-${n}`} className={`mt-1 pl-[18px] text-[14.5px] leading-snug ${edge.tentative ? 'text-ink-3' : 'text-ink-2'}`}>
                   <span className="italic text-ink-3">{edge.link.relation}, from {model.nodes[edge.source]!.title}. </span>
                   {current && edge.link.statement}
                   {edge.tentative && <em> Awaiting review.</em>}

@@ -24,6 +24,9 @@ export function Tooltip() {
       <p className="text-[14px] text-ink-3">{node.date_label}</p>
       <h3 className={`text-[17px] font-medium leading-tight ${node.kind === 'science' ? 'italic' : ''}`}>{node.title}</h3>
       <p className="mt-1 text-[14.5px] leading-snug text-ink-2">{firstSentence(node.summary)}</p>
+      {model.parents[hover.index]!.length + model.children[hover.index]!.length > 0 && mode !== 'story' && (
+        <p className="mt-1 text-[13.5px] italic leading-snug text-ink-3">Click twice to follow its thread.</p>
+      )}
       {mode === 'reach' && reachEnd !== undefined && reachEnd > node.year && (
         <p className="mt-1 text-[14px] italic leading-snug text-ink-3">Built on until {formatYear(reachEnd)}. How long it lasted is another question.</p>
       )}

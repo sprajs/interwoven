@@ -47,6 +47,11 @@ a {
   outline-offset: 2px;
 }
 
+/* The search field sits in its own ruled box, and the caret already shows it has focus. */
+input:focus-visible {
+  outline: none;
+}
+
 /* A side sheet: same paper, a single ruled edge, no shadow. */
 .sheet {
   background: var(--color-sheet);

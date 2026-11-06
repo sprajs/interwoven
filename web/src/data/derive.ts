@@ -130,6 +130,22 @@ export function rowPositions(rows: Int32Array): Float32Array {
   return y
 }
 
+/**
+ * Whether a staircase of rows leaves the top right and bottom left of the sheet empty, so that
+ * notes can sit there. Dense or reordered rows fill them, and the notes then need their own sheet.
+ */
+export function cornersFree(rows: Int32Array, nodes: readonly Dated[], reach: Reach, u: (year: number) => number, width = 0.3): boolean {
+  const n = rows.length
+  if (n === 0) return true
+  let intruders = 0
+  rows.forEach((node, row) => {
+    const position = row / Math.max(1, n - 1)
+    if (position < 0.48 && u(reach.any[node]!) > 1 - width) intruders++
+    if (position > 0.52 && u(nodes[node]!.year) < width) intruders++
+  })
+  return intruders <= Math.max(1, n * 0.02)
+}
+
 export interface Crossing {
   /** The stitch's date. */
   year: number

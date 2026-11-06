@@ -15,11 +15,11 @@ function LinkList({ title, edges, side, model }: { title: string; edges: Edge[];
     <section className="mt-5">
       <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">{title}</h3>
       <ul>
-        {sorted.map((edge) => {
+        {sorted.map((edge, n) => {
           const i = edge[side]
           const node = model.nodes[i]!
           return (
-            <li key={`${edge.source}-${edge.target}`} className="border-b border-rule/50 py-2">
+            <li key={`${edge.source}-${edge.target}-${n}`} className="border-b border-rule/50 py-2">
               <button onClick={() => focusNode(i)} className="group flex w-full items-baseline gap-2 text-left text-[16px] leading-tight">
                 <span className="grid w-2.5 shrink-0 translate-y-[1px] place-items-center self-center">
                   <Mark kind={node.kind} size={9} color={`rgb(${model.ink[i * 3]! * 255} ${model.ink[i * 3 + 1]! * 255} ${model.ink[i * 3 + 2]! * 255})`} />
