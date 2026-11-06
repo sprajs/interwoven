@@ -162,6 +162,7 @@ layout(location = 0) in vec2 aVert;
 layout(location = 1) in uvec2 aEdge;
 layout(location = 2) in float aTentative;
 uniform float uEdgeAlpha;
+uniform float uStrokeScale;
 out float vSide;
 out float vT;
 out float vU;
@@ -230,8 +231,8 @@ void main() {
   float nib = abs(sin(angle - NIB_ANGLE));
   // Pressure eases off as the stroke runs on, and the pen lifts at the end.
   float pressure = (1.0 - 0.32 * t) * smoothstep(1.0, 0.94, t) * (0.72 + 0.28 * smoothstep(0.0, 0.05, t));
-  float base = mix(0.95, 1.8, boost);
-  float halfWidth = uDpr * base * (0.28 + 0.72 * nib) * pressure * (1.0 + 0.12 * wander(along / 34.0 + seed * 13.0));
+  float base = mix(1.2, 2.0, boost) * uStrokeScale;
+  float halfWidth = uDpr * base * (0.2 + 0.8 * nib) * pressure * (1.0 + 0.12 * wander(along / 34.0 + seed * 13.0));
   float expand = halfWidth + 1.1 * uDpr;
 
   gl_Position = pxToClip(pos + normal * aVert.y * expand);
@@ -335,94 +336,12 @@ void main() {
 }
 `
 
-export const DENSITY_VS = HEADER + WORLD + /* glsl */ `
-layout(location = 0) in vec2 aCorner;
-uniform float uKernel;
-flat out vec3 vColor;
-out vec2 vP;
-
-void main() {
-  int id = gl_InstanceID;
-  ivec2 tc = texel(id);
-  vec4 a = texelFetch(uNodeA, tc, 0);
-  vec4 b = texelFetch(uNodeB, tc, 0);
-  vec4 s = texelFetch(uState, tc, 0);
-  float w = s.x * mix(1.0, 0.25, s.y);
-  vec2 c = worldToPx(a.x, a.y);
-  if (w < 0.01 || c.x < -uKernel || c.x > uRes.x + uKernel || c.y < -uKernel || c.y > uRes.y + uKernel) {
-    gl_Position = vec4(3.0, 3.0, 3.0, 1.0);
-    return;
-  }
-  vP = aCorner;
-  gl_Position = pxToClip(c + aCorner * uKernel);
-  vColor = b.rgb * w;
-}
-`
-
-export const DENSITY_FS = HEADER + /* glsl */ `
-flat in vec3 vColor;
-in vec2 vP;
-out vec4 fragColor;
-void main() {
-  float d = dot(vP, vP);
-  if (d > 1.0) discard;
-  float k = (exp(-d * 3.2) - 0.0408);
-  fragColor = vec4(vColor * k, k);
-}
-`
-
 const FULLSCREEN_VS = HEADER + /* glsl */ `
 layout(location = 0) in vec2 aCorner;
 out vec2 vUv;
 void main() {
   vUv = aCorner * 0.5 + 0.5;
   gl_Position = vec4(aCorner, 0.0, 1.0);
-}
-`
-
-export const STIPPLE_VS = FULLSCREEN_VS
-export const STIPPLE_FS = HEADER + /* glsl */ `
-uniform sampler2D uTex;
-uniform vec2 uRes;
-uniform float uDpr;
-uniform float uGain;
-uniform float uIntensity;
-uniform vec2 uOffset;
-in vec2 vUv;
-out vec4 fragColor;
-
-vec2 hash22(vec2 p) {
-  p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
-  return fract(sin(p) * 43758.5453);
-}
-
-void main() {
-  // Density as engraver's stipple: hand-placed dots that grow and crowd where entries do.
-  float cell = 5.0 * uDpr;
-  vec2 fc = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y) + uOffset * uDpr;
-  vec2 id = floor(fc / cell);
-  float ink = 0.0;
-  vec3 color = vec3(0.3, 0.27, 0.24);
-  for (int y = -1; y <= 1; y++) {
-    for (int x = -1; x <= 1; x++) {
-      vec2 c = id + vec2(float(x), float(y));
-      vec2 h = hash22(c);
-      vec2 center = (c + 0.2 + 0.6 * h) * cell;
-      vec2 screen = center - uOffset * uDpr;
-      vec2 uv = vec2(screen.x, uRes.y - screen.y) / uRes;
-      vec4 s = texture(uTex, uv);
-      float amount = 1.0 - exp(-s.a * uGain);
-      float keep = step(hash22(c + 7.7).x, amount * 1.5);
-      float r = (0.34 + 1.05 * sqrt(amount)) * uDpr * keep;
-      float d = length(fc - center);
-      float dot_ = 1.0 - smoothstep(r - 0.6 * uDpr, r + 0.6 * uDpr, d);
-      if (dot_ > ink) {
-        ink = dot_;
-        if (s.a > 1e-4) color = s.rgb / s.a;
-      }
-    }
-  }
-  fragColor = vec4(mix(vec3(1.0), color, ink * uIntensity * 0.8), 1.0);
 }
 `
 

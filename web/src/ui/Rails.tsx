@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, getEngine, passes, useApp } from '../store.ts'
 import { Mark } from './icons.tsx'
-import { SHEET_WIDTH } from './TimelineCanvas.tsx'
+import { SHEET_WIDTH } from './layout.ts'
 
 function LandmarkRail() {
   const model = useApp((s) => s.model)
@@ -59,7 +59,7 @@ function DensityRail() {
   return (
     <>
       <h2 className="text-[21px] font-medium leading-none">Density</h2>
-      <p className="caption mt-2 leading-snug">Stippling gathers where entries gather. Move across the chart to count what lies under the pointer. This reflects what has been researched so far, not all of history.</p>
+      <p className="caption mt-2 leading-snug">The hatching grows with the number of entries per year, on a root scale so quiet eras stay visible. Move across the chart to count entries. This shows what has been researched so far, not all of history.</p>
       <h3 className="mt-4 flex items-baseline justify-between border-b border-rule pb-1 text-[15px] italic text-ink-3">
         Busiest decades
         <span>entries</span>
@@ -96,7 +96,7 @@ export function Rails() {
           exit={{ x: SHEET_WIDTH }}
           transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
           style={{ width: SHEET_WIDTH }}
-          className="sheet thin-scroll absolute inset-y-0 right-0 z-20 hidden overflow-y-auto border-l border-rule px-5 pb-6 pt-4 min-[760px]:block"
+          className="sheet thin-scroll absolute bottom-0 right-0 top-[46px] z-20 hidden overflow-y-auto border-l border-t border-rule px-5 pb-6 pt-4 min-[760px]:block"
         >
           {mode === 'landmarks' ? <LandmarkRail /> : <DensityRail />}
         </motion.aside>

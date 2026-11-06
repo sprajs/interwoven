@@ -19,6 +19,8 @@ let occupancy = new Uint8Array(0)
 let cols = 0
 let rows = 0
 const widthCache = new Map<string, number>()
+/** Which side of its mark each node's text sits on: 1 right, -1 left. */
+const sideOf = new Map<number, number>()
 
 function resetOccupancy(width: number, height: number): void {
   cols = Math.ceil(width / CELL) + 1
@@ -58,6 +60,7 @@ function measure(ctx: CanvasRenderingContext2D, text: string, font: string): num
 /** Forgets widths measured with a fallback font before the web font arrived. */
 export function clearTextCache(): void {
   widthCache.clear()
+  sideOf.clear()
 }
 
 /** Draws text and the axis above the GL layer. */
@@ -72,7 +75,7 @@ export function drawOverlay(engine: Engine, ctx: CanvasRenderingContext2D, dt: n
 
   drawNodeLabels(engine, ctx, dt, W, H)
   drawAxis(engine, ctx, W)
-  if (engine.view.mode === 'density' && engine.pointer && engine.hovered === null) drawDensityProbe(engine, ctx, W, H)
+  if (engine.view.mode === 'density' && engine.pointer && engine.hovered === null) drawDensityProbe(engine, ctx, W)
 }
 
 function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: number, W: number, H: number): void {
@@ -84,9 +87,10 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
   const byPriority = model.byPriority
   const alphaOf = engine.labelAlpha
   const state = engine.state
-  const top = cam.insets.top - 2
-  const bottom = H - cam.insets.bottom + 6
-  const densityMode = engine.mix.stipple > 0.5
+  const frame = engine.frameBounds()
+  const top = frame.top + 8
+  const bottom = frame.bottom - 8
+  const densityMode = engine.mix.hatching > 0.5
   const landmarkMode = engine.view.mode === 'landmarks'
   const rightLimit = W - cam.insets.right + 16
   resetOccupancy(W, H)
@@ -99,13 +103,13 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
   let placed = 0
   const drawU = engine.drawU
 
-  const tryPlace = (i: number, must: boolean): void => {
+  const tryPlace = (i: number, must: boolean, allowLeft = true): void => {
     if (wanted.has(i)) return
     const node = nodes[i]!
     const v = engine.nodeVisibility(i)
     if (v < 0.3 && !must) return
     if (!must && state[i * 4 + 1]! > 0.5) return
-    if (!must && densityMode && node.level > 1) return
+    if (!must && densityMode && node.level > 0) return
     if (engine.nodeU(i) > drawU) return
     const px = (engine.nodeU(i) - cam.cu) * xs + cx
     const py = (ys[i]! - cam.cy) * yScale + cy
@@ -114,11 +118,16 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const gap = radius[i]! + 5
     const width = measure(ctx, node.title, font)
     const height = (node.level === 0 ? 19 : 15)
-    const fitsRight = px + gap + width < rightLimit
-    const x0 = fitsRight ? px + gap : px - gap - width
-    const x1 = x0 + width
-    if (!must && blocked(x0 - 2, py - height / 2, x1 + 2, py + height / 2)) return
-    occupy(x0 - 2, py - height / 2, x1 + 2, py + height / 2)
+    const rightX = px + gap
+    const leftX = px - gap - width
+    const free = (x: number) => !blocked(x - 2, py - height / 2, x + width + 2, py + height / 2)
+    // Text keeps the side it was given, then tries the right, then the left.
+    const options = sideOf.get(i) === -1 ? [leftX, rightX] : [rightX, leftX]
+    const usable = options.filter((x) => x + width < rightLimit && x > 4 && (allowLeft || x === rightX))
+    const x0 = usable.find(free) ?? (must ? (usable[0] ?? leftX) : undefined)
+    if (x0 === undefined) return
+    sideOf.set(i, x0 === leftX ? -1 : 1)
+    occupy(x0 - 2, py - height / 2, x0 + width + 2, py + height / 2)
     wanted.add(i)
     placed++
   }
@@ -140,8 +149,14 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
       const i = byPriority[k]!
       if (alphaOf[i]! > 0.3) tryPlace(i, false)
     }
+    // Everything takes its natural place on the right before anything moves to the left,
+    // so a label moving aside cannot crowd out one that fitted where it was.
     for (let k = start; k < end && placed < MAX_LABELS && visited < VISIT_BUDGET; k++) {
       visited++
+      const i = byPriority[k]!
+      if (alphaOf[i]! <= 0.3) tryPlace(i, false, false)
+    }
+    for (let k = start; k < end && placed < MAX_LABELS; k++) {
       const i = byPriority[k]!
       if (alphaOf[i]! <= 0.3) tryPlace(i, false)
     }
@@ -167,7 +182,7 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const node = nodes[i]!
     const px = (engine.nodeU(i) - cam.cu) * xs + cx
     const py = (ys[i]! - cam.cy) * yScale + cy
-    if (px < -200 || px > W + 200 || py < top - 10 || py > bottom + 10) continue
+    if (px < -200 || px > W + 200 || py < top || py > bottom) continue
     const v = Math.max(engine.nodeVisibility(i), i === engine.view.selected || i === engine.hovered ? 1 : 0)
     const faded = state[i * 4 + 1]!
     const alpha = a * Math.min(1, v) * (1 - faded * 0.82)
@@ -175,8 +190,7 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
     const font = labelFont(node.level, node.kind === 'science')
     const gap = radius[i]! + 5
     const width = measure(ctx, node.title, font)
-    const fitsRight = px + gap + width < rightLimit
-    const x = fitsRight ? px + gap : px - gap - width
+    const x = sideOf.get(i) === -1 ? px - gap - width : px + gap
 
     ctx.font = font
     // A little clear paper around the words, as if the lines were drawn around them.
@@ -191,11 +205,12 @@ function drawNodeLabels(engine: Engine, ctx: CanvasRenderingContext2D, dt: numbe
 }
 
 function drawAxis(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
-  const cam = engine.camera
-  const lineY = cam.insets.top - 16
+  const frame = engine.frameBounds()
+  const lineY = frame.top
 
   ctx.fillStyle = `rgba(${INK.primary},0.55)`
   ctx.fillRect(0, lineY, W, 0.75)
+  ctx.fillRect(0, frame.bottom, W, 0.75)
 
   ctx.textAlign = 'center'
   ctx.font = `400 13px ${SERIF}`
@@ -209,11 +224,12 @@ function drawAxis(engine: Engine, ctx: CanvasRenderingContext2D, W: number): voi
   ctx.textAlign = 'left'
 }
 
-function drawDensityProbe(engine: Engine, ctx: CanvasRenderingContext2D, W: number, H: number): void {
+function drawDensityProbe(engine: Engine, ctx: CanvasRenderingContext2D, W: number): void {
   const pointer = engine.pointer!
   const cam = engine.camera
   const model = engine.model!
-  if (pointer.y < cam.insets.top || pointer.y > H - cam.insets.bottom) return
+  const bounds = engine.frameBounds()
+  if (pointer.y < bounds.top || pointer.y > bounds.bottom) return
 
   const reach = 40
   const yearAt = (x: number) => model.time.year(Math.min(1, Math.max(0, cam.fromX(x))), engine.warp)
@@ -225,8 +241,7 @@ function drawDensityProbe(engine: Engine, ctx: CanvasRenderingContext2D, W: numb
     if (year >= a && year <= b && engine.passesFilters(i)) count++
   }
 
-  const y0 = cam.insets.top - 16
-  const y1 = H - cam.insets.bottom
+  const { top: y0, bottom: y1 } = engine.frameBounds()
   ctx.fillStyle = `rgba(${INK.primary},0.55)`
   ctx.fillRect(pointer.x - reach, y0, 0.75, y1 - y0)
   ctx.fillRect(pointer.x + reach, y0, 0.75, y1 - y0)

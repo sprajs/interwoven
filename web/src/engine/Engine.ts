@@ -28,11 +28,16 @@ const REVEAL_ZOOM = [0, 0, 1.7, 3]
 const LINEAR_REVEAL_FACTOR = 8
 export const PAPER = [0.957, 0.937, 0.902] as const
 const RULE_COLOR = [0.2, 0.18, 0.16] as const
+const HATCH_COLOR = [0.42, 0.36, 0.29] as const
 const OPENING_SECONDS = 2.4
-const MODE_MIX: Record<Mode, { stipple: number; nodes: number; edges: number; rules: number }> = {
-  threads: { stipple: 0, nodes: 1, edges: 0.9, rules: 1 },
-  density: { stipple: 1, nodes: 0.5, edges: 0.2, rules: 1 },
-  landmarks: { stipple: 0, nodes: 1, edges: 0.5, rules: 1 },
+const MAX_RECTS = 1400
+const HATCH_SPACING = 3.5
+const RATE_BINS = 512
+const RATE_SMOOTHING = 7
+const MODE_MIX: Record<Mode, { hatching: number; nodes: number; edges: number; rules: number }> = {
+  threads: { hatching: 0, nodes: 1, edges: 0.9, rules: 1 },
+  density: { hatching: 1, nodes: 0.75, edges: 0.1, rules: 0.5 },
+  landmarks: { hatching: 0, nodes: 1, edges: 0.5, rules: 1 },
 }
 
 export class Engine {
@@ -66,11 +71,11 @@ export class Engine {
   labelsAnimating = false
 
   private gl!: WebGL2RenderingContext
-  private programs!: Record<'node' | 'edge' | 'span' | 'density' | 'stipple' | 'rect' | 'paper' | 'copy', Program>
+  private programs!: Record<'node' | 'edge' | 'span' | 'rect' | 'paper' | 'copy', Program>
   private quadVao!: WebGLVertexArrayObject
   private rectVao!: WebGLVertexArrayObject
   private rectBuffer!: WebGLBuffer
-  private rectData = new Float32Array(8 * 300)
+  private rectData = new Float32Array(8 * MAX_RECTS)
   private spanVao: WebGLVertexArrayObject | null = null
   private spanCount = 0
   private edgeVao: WebGLVertexArrayObject | null = null
@@ -80,10 +85,10 @@ export class Engine {
   private texState: WebGLTexture | null = null
   private texLut: WebGLTexture | null = null
   private texHeight = 1
-  private floatTargets = false
   private paperTarget: Target | null = null
-  private densityTarget: Target | null = null
   private targetState = new Float32Array(0)
+  private rate = new Float32Array(RATE_BINS)
+  private rateMax = 1
   private stateUpload = new Float32Array(0)
   private stateDirty = true
   private raf = 0
@@ -99,7 +104,6 @@ export class Engine {
   private readonly callbacks: EngineCallbacks
   private readonly canvas: HTMLCanvasElement
   readonly overlay: HTMLCanvasElement
-  private densityScale = { kernel: 40, gain: 1 }
 
   constructor(canvas: HTMLCanvasElement, overlay: HTMLCanvasElement, callbacks: EngineCallbacks) {
     this.canvas = canvas
@@ -147,13 +151,11 @@ export class Engine {
       return
     }
     this.gl = gl
-    this.floatTargets = !!gl.getExtension('EXT_color_buffer_float')
+    gl.getExtension('EXT_color_buffer_float')
     this.programs = {
       node: createProgram(gl, S.NODE_VS, S.NODE_FS),
       edge: createProgram(gl, S.EDGE_VS, S.EDGE_FS),
       span: createProgram(gl, S.SPAN_VS, S.SPAN_FS),
-      density: createProgram(gl, S.DENSITY_VS, S.DENSITY_FS),
-      stipple: createProgram(gl, S.STIPPLE_VS, S.STIPPLE_FS),
       rect: createProgram(gl, S.RECT_VS, S.RECT_FS),
       paper: createProgram(gl, S.PAPER_VS, S.PAPER_FS),
       copy: createProgram(gl, S.COPY_VS, S.COPY_FS),
@@ -189,13 +191,9 @@ export class Engine {
   private createTargets(): void {
     const gl = this.gl
     deleteTarget(gl, this.paperTarget)
-    deleteTarget(gl, this.densityTarget)
     const w = Math.max(1, this.canvas.width)
     const h = Math.max(1, this.canvas.height)
     this.paperTarget = createTarget(gl, w, h, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE)
-    const internal = this.floatTargets ? gl.RGBA16F : gl.RGBA8
-    const type = this.floatTargets ? gl.HALF_FLOAT : gl.UNSIGNED_BYTE
-    this.densityTarget = createTarget(gl, Math.max(1, Math.ceil(w / 3)), Math.max(1, Math.ceil(h / 3)), internal, gl.RGBA, type)
 
     // The sheet only changes size, never content, so it is drawn once.
     const P = this.programs.paper
@@ -305,8 +303,6 @@ export class Engine {
     this.labelAlpha = new Float32Array(model.n)
     this.uLinear = Float32Array.from(model.nodes, (node) => model.time.linear(node.year))
     this.uCompressed = Float32Array.from(model.nodes, (node) => model.time.compressed(node.year))
-    this.densityScale.kernel = 46 * Math.pow(140 / Math.max(140, model.n), 0.2)
-    this.densityScale.gain = 0.9 * Math.pow(140 / Math.max(140, model.n), 0.6)
     this.uploadModel()
     this.computeTargets()
     this.state.set(this.targetState)
@@ -346,6 +342,7 @@ export class Engine {
   private computeTargets(): void {
     const model = this.model
     if (!model) return
+    this.computeRate()
     const { mode, selected } = this.view
     const target = this.targetState
     const focus = selected ?? this.hovered
@@ -372,7 +369,7 @@ export class Engine {
       if (hops) {
         const h = hops.get(i)
         if (h === undefined) {
-          faded = isHover ? 0.55 : 1
+          faded = isHover ? 0.32 : 1
         } else {
           boost = h <= 1 ? 1 : h === 2 ? 0.8 : 0.6
           if (isHover) boost *= 0.85
@@ -391,6 +388,47 @@ export class Engine {
       target[o + 2] = boost
       target[o + 3] = force
     }
+  }
+
+  /**
+   * Entries per year through history, for the density view. Counts are smoothed in log
+   * time, then divided by how many years each step covers, so recent and ancient periods
+   * compare fairly however the axis is stretched.
+   */
+  private computeRate(): void {
+    const model = this.model!
+    const time = model.time
+    const counts = new Float32Array(RATE_BINS)
+    model.nodes.forEach((node, i) => {
+      if (!this.passesFilters(i)) return
+      counts[Math.min(RATE_BINS - 1, Math.round(time.logPosition(node.year) * (RATE_BINS - 1)))]! += 1
+    })
+    const rate = new Float32Array(RATE_BINS)
+    let max = 1e-9
+    for (let b = 0; b < RATE_BINS; b++) {
+      let sum = 0
+      for (let k = -RATE_SMOOTHING * 3; k <= RATE_SMOOTHING * 3; k++) {
+        const c = counts[b + k]
+        if (c) sum += c * Math.exp(-(k * k) / (2 * RATE_SMOOTHING * RATE_SMOOTHING))
+      }
+      const position = b / (RATE_BINS - 1)
+      const yearsBefore = time.tau * (Math.exp(position * time.logSpan) - 1)
+      // Years spanned by one bin at this distance from the present.
+      const span = ((time.tau + yearsBefore) * time.logSpan) / (RATE_BINS - 1)
+      const r = sum / span
+      rate[b] = r
+      if (r > max) max = r
+    }
+    this.rate = rate
+    this.rateMax = max
+  }
+
+  /** Height of the density silhouette at a year, 0 to 1. A square root keeps quiet eras visible. */
+  private rateAt(year: number): number {
+    const f = this.model!.time.logPosition(year) * (RATE_BINS - 1)
+    const i = Math.min(RATE_BINS - 2, Math.floor(f))
+    const r = this.rate[i]! + (this.rate[i + 1]! - this.rate[i]!) * (f - i)
+    return Math.sqrt(r / this.rateMax)
   }
 
   private animateState(dt: number): boolean {
@@ -775,29 +813,12 @@ export class Engine {
   private render(): void {
     const gl = this.gl
     const model = this.model!
-    const cam = this.camera
     const W = this.canvas.width
     const H = this.canvas.height
     const P = this.programs
     const mix = this.mix
 
     this.uploadState()
-
-    const showStipple = mix.stipple > 0.01 && model.n > 0
-    if (showStipple) {
-      const t = this.densityTarget!
-      gl.bindFramebuffer(gl.FRAMEBUFFER, t.fbo)
-      gl.viewport(0, 0, t.width, t.height)
-      gl.clearColor(0, 0, 0, 0)
-      gl.clear(gl.COLOR_BUFFER_BIT)
-      gl.enable(gl.BLEND)
-      gl.blendFunc(gl.ONE, gl.ONE)
-      gl.useProgram(P.density.handle)
-      this.setWorldUniforms(P.density)
-      gl.uniform1f(P.density.u.uKernel!, this.densityScale.kernel * this.dpr * Math.pow(cam.zoom, 0.38))
-      gl.bindVertexArray(this.quadVao)
-      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
-    }
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, null)
     gl.viewport(0, 0, W, H)
@@ -812,30 +833,22 @@ export class Engine {
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
     gl.enable(gl.BLEND)
 
+    // Ink stays inside the ruled frame, leaving clean margins as on a printed plate.
+    const frame = this.frameBounds()
+    gl.enable(gl.SCISSOR_TEST)
+    gl.scissor(0, Math.round(H - frame.bottom * this.dpr), W, Math.round((frame.bottom - frame.top) * this.dpr))
+
     this.drawRules(W, H)
 
     // Everything inked multiplies onto the page.
     gl.blendFunc(gl.DST_COLOR, gl.ZERO)
 
-    if (showStipple) {
-      gl.useProgram(P.stipple.handle)
-      gl.activeTexture(gl.TEXTURE0)
-      gl.bindTexture(gl.TEXTURE_2D, this.densityTarget!.tex)
-      gl.uniform1i(P.stipple.u.uTex!, 0)
-      gl.uniform2f(P.stipple.u.uRes!, W, H)
-      gl.uniform1f(P.stipple.u.uDpr!, this.dpr)
-      gl.uniform1f(P.stipple.u.uGain!, this.densityScale.gain * Math.pow(cam.zoom, 0.55))
-      gl.uniform1f(P.stipple.u.uIntensity!, mix.stipple)
-      // The dots travel with the page rather than shimmering when it moves.
-      gl.uniform2f(P.stipple.u.uOffset!, -cam.toX(0), -cam.toY(0))
-      gl.bindVertexArray(this.quadVao)
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
-    }
-
     if (this.edgeVao && model.edges.length) {
       gl.useProgram(P.edge.handle)
       this.setWorldUniforms(P.edge)
       gl.uniform1f(P.edge.u.uEdgeAlpha!, mix.edges * (model.edges.length > 2000 ? 0.3 : 1))
+      // A finer nib as the page fills, so dense passages stay open.
+      gl.uniform1f(P.edge.u.uStrokeScale!, Math.max(0.6, Math.min(1, Math.pow(160 / model.edges.length, 0.28))))
       gl.bindVertexArray(this.edgeVao)
       gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, this.edgeVertCount, model.edges.length)
     }
@@ -858,23 +871,52 @@ export class Engine {
     gl.bindVertexArray(this.quadVao)
     gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, model.n)
     gl.bindVertexArray(null)
+    gl.disable(gl.SCISSOR_TEST)
   }
 
-  /** Fine pencil lines at the axis ticks, ruled before anything is inked. */
+  /** The ruled area of the page that holds the chart, in CSS pixels. */
+  frameBounds(): { top: number; bottom: number } {
+    const cam = this.camera
+    return { top: cam.insets.top - 16, bottom: cam.height - cam.insets.bottom + 26 }
+  }
+
+  /** Pencil lines at the axis ticks, and in the density view the hatched silhouette of activity. */
   private drawRules(W: number, H: number): void {
     const gl = this.gl
     const cam = this.camera
     const dpr = this.dpr
     const data = this.rectData
+    const model = this.model!
     let count = 0
-    const top = cam.insets.top - 4
-    const bottom = cam.height - cam.insets.bottom + 4
+    const { top, bottom } = this.frameBounds()
     for (const tick of this.ticks) {
-      if (count >= 300 || tick.x < 0 || tick.x > cam.width) continue
-      const x = tick.x
-      data.set([x * dpr - 0.5, top * dpr, x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.055 * this.mix.rules], count * 8)
+      if (count >= MAX_RECTS || tick.x < 0 || tick.x > cam.width) continue
+      data.set([tick.x * dpr - 0.5, top * dpr, tick.x * dpr + 0.5, bottom * dpr, RULE_COLOR[0], RULE_COLOR[1], RULE_COLOR[2], 0.055 * this.mix.rules], count * 8)
       count++
     }
+
+    const hatching = this.mix.hatching
+    if (hatching > 0.005) {
+      const middle = (top + bottom) / 2
+      const reach = (bottom - top) * 0.46
+      // Strokes are pinned to the page, so they travel with it rather than shimmering.
+      const origin = cam.toX(0)
+      const first = origin - Math.ceil(origin / HATCH_SPACING) * HATCH_SPACING
+      for (let x = first; x < cam.width && count < MAX_RECTS; x += HATCH_SPACING) {
+        const u = cam.fromX(x)
+        if (u < 0 || u > 1) continue
+        const h = this.rateAt(model.time.year(u, this.warp))
+        if (h < 0.015) continue
+        // No two pen strokes come out quite the same length.
+        const key = Math.round((x - origin) / HATCH_SPACING)
+        const jitter = Math.sin(key * 12.9898) * 43758.5453
+        const wobble = 0.93 + 0.14 * (jitter - Math.floor(jitter))
+        const half = h * reach * wobble * hatching
+        data.set([x * dpr - 0.5 * dpr, (middle - half) * dpr, x * dpr + 0.5 * dpr, (middle + half) * dpr, HATCH_COLOR[0], HATCH_COLOR[1], HATCH_COLOR[2], 0.62 * hatching], count * 8)
+        count++
+      }
+    }
+
     if (count === 0) return
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
     gl.useProgram(this.programs.rect.handle)
@@ -895,7 +937,6 @@ export class Engine {
 
   private onContextRestored = (): void => {
     this.paperTarget = null
-    this.densityTarget = null
     this.texA = this.texB = this.texState = this.texLut = null
     this.edgeVao = null
     this.spanVao = null

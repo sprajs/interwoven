@@ -3,7 +3,9 @@ import type { Edge, Model } from '../data/model.ts'
 import { formatYear } from '../engine/time.ts'
 import { focusNode, useApp } from '../store.ts'
 import { CloseButton, Mark } from './icons.tsx'
-import { SHEET_WIDTH } from './TimelineCanvas.tsx'
+import { SHEET_WIDTH } from './layout.ts'
+
+const withArticle = (phrase: string) => `${/^[aeiou]/i.test(phrase) ? 'an' : 'a'} ${phrase}`
 
 function LinkList({ title, edges, side, model }: { title: string; edges: Edge[]; side: 'source' | 'target'; model: Model }) {
   if (edges.length === 0) return null
@@ -56,7 +58,7 @@ export function DetailPanel() {
           animate={{ x: 0 }}
           exit={{ x: SHEET_WIDTH }}
           transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
-          className="sheet thin-scroll absolute inset-x-0 bottom-0 z-30 max-h-[48vh] select-text overflow-y-auto border-t border-rule px-5 pb-8 pt-4 min-[760px]:inset-x-auto min-[760px]:inset-y-0 min-[760px]:right-0 min-[760px]:max-h-none min-[760px]:border-l min-[760px]:border-t-0"
+          className="sheet thin-scroll absolute inset-x-0 bottom-0 z-30 max-h-[48vh] select-text overflow-y-auto border-t border-rule px-5 pb-8 pt-4 min-[760px]:inset-x-auto min-[760px]:bottom-0 min-[760px]:right-0 min-[760px]:top-[46px] min-[760px]:border-t min-[760px]:max-h-none min-[760px]:border-l"
           style={{ width: window.innerWidth >= 760 ? SHEET_WIDTH : undefined }}
           aria-label={`About ${node.title}`}
         >
@@ -101,8 +103,8 @@ export function DetailPanel() {
             <h3 className="border-b border-rule pb-1 text-[15px] italic text-ink-3">How this is dated</h3>
             <p className="mt-2 text-[14.5px] leading-snug text-ink-2">
               {node.anchored
-                ? `Placed by its selected anchor, a ${node.placed_by}.`
-                : `Placed by its earliest dated record, a ${node.placed_by}. No anchor date has been selected yet, so this is not a claim of first availability.`}
+                ? `Placed by its selected anchor, ${withArticle(node.placed_by)}.`
+                : `Placed by its earliest dated record, ${withArticle(node.placed_by)}. No anchor date has been selected yet, so this is not a claim of first availability.`}
               {node.date_basis ? ` ${node.date_basis}` : ''}
             </p>
             {node.review !== 'accepted' && <p className="mt-1.5 text-[14.5px] italic leading-snug text-ink-3">This claim is still awaiting review.</p>}

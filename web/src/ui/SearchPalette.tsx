@@ -89,7 +89,7 @@ export function SearchPalette() {
               role="combobox"
               aria-expanded="true"
               aria-controls="search-results"
-              className="w-full border-b border-rule bg-transparent px-5 py-3.5 text-[21px] text-ink outline-none placeholder:italic placeholder:text-ink-3"
+              className="w-full border-b border-rule bg-transparent px-5 py-3.5 text-[21px] text-ink outline-none focus-visible:outline-none placeholder:italic placeholder:text-ink-3"
             />
             <ul id="search-results" ref={listRef} role="listbox" className="thin-scroll max-h-[48vh] overflow-y-auto py-1">
               {!query.trim() && <li className="px-5 pb-1 pt-2 text-[15px] italic text-ink-3">Landmarks</li>}

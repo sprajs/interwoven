@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { KINDS } from '../data/types.ts'
 import { passes, useApp } from '../store.ts'
 import { CloseButton, Mark } from './icons.tsx'
-import { LABELS_WIDTH } from './TimelineCanvas.tsx'
+import { LABELS_WIDTH } from './layout.ts'
 
 export function LabelsPanel() {
   const open = useApp((s) => s.labelsOpen)
@@ -33,7 +33,7 @@ export function LabelsPanel() {
           exit={{ x: -LABELS_WIDTH }}
           transition={{ duration: 0.26, ease: [0.2, 0.7, 0.2, 1] }}
           style={{ width: `min(${LABELS_WIDTH}px, 100vw)` }}
-          className="sheet thin-scroll absolute inset-y-0 left-0 z-30 overflow-y-auto border-r border-rule px-5 pb-6 pt-4"
+          className="sheet thin-scroll absolute bottom-0 left-0 top-[46px] z-30 overflow-y-auto border-r border-t border-rule px-5 pb-6 pt-4"
           aria-label="Labels"
         >
           <div className="flex items-baseline justify-between">

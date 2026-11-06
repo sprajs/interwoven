@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { onEngineFrame } from '../engine/frames.ts'
 import { formatYear } from '../engine/time.ts'
 import { getEngine, passes, useApp } from '../store.ts'
+import { usePageMargins } from './layout.ts'
 
 const HEIGHT = 30
 const TICK_BY_LEVEL = [20, 15, 10, 7]
@@ -17,6 +18,7 @@ export function Overview() {
   const boxRef = useRef<HTMLDivElement>(null)
   const [probe, setProbe] = useState<{ x: number; text: string } | null>(null)
   const dragging = useRef<number | null>(null)
+  const margins = usePageMargins()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -80,7 +82,7 @@ export function Overview() {
   if (!model) return null
 
   return (
-    <div className="absolute inset-x-[22px] bottom-3 z-10 min-[760px]:inset-x-14">
+    <div className="absolute bottom-3 z-10 transition-[left,right] duration-300" style={margins}>
       <div
         ref={boxRef}
         className="relative touch-none"

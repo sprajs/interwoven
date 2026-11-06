@@ -104,10 +104,13 @@ function buildLut(scale: TimeScale, years: Iterable<number>): Float32Array {
   const lut = new Float32Array(LUT_SIZE)
   let used = 0
   for (let i = 0; i < LUT_SIZE; i++) {
-    lut[i] = 1 - used
+    lut[i] = used
     const density = smoothSum > 0 ? smooth[i]! / smoothSum : 1 / LUT_SIZE
     used += (1 - DENSITY_SHARE) / LUT_SIZE + DENSITY_SHARE * density
   }
+  // Scaled so the axis runs from exactly 1 at the present to exactly 0 at the start.
+  const end = lut[LUT_SIZE - 1]!
+  for (let i = 0; i < LUT_SIZE; i++) lut[i] = 1 - lut[i]! / end
   return lut
 }
 

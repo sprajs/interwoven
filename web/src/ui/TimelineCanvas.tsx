@@ -3,10 +3,8 @@ import { Engine } from '../engine/Engine.ts'
 import { emitFrame } from '../engine/frames.ts'
 import { clearTextCache } from '../engine/overlay.ts'
 import { setEngine, useApp } from '../store.ts'
+import { COMPACT_WIDTH, LABELS_WIDTH, SHEET_WIDTH } from './layout.ts'
 
-const COMPACT_WIDTH = 760
-export const SHEET_WIDTH = 348
-export const LABELS_WIDTH = 268
 
 /** Mounts the engine and mirrors app state into it. */
 export function TimelineCanvas() {

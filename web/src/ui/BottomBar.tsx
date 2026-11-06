@@ -1,6 +1,7 @@
 import { LEVEL_NAMES } from '../data/types.ts'
 import { getEngine, useApp } from '../store.ts'
 import { Mark } from './icons.tsx'
+import { usePageMargins } from './layout.ts'
 
 const SMALL = 'text-[15px] leading-none transition-colors'
 
@@ -25,10 +26,13 @@ export function BottomBar() {
   const depth = useApp((s) => s.depth)
   const compressed = useApp((s) => s.compressed)
   const setCompressed = useApp((s) => s.setCompressed)
+  const margins = usePageMargins()
+  const sheetOpen = useApp((s) => s.selected !== null || s.mode !== 'threads' || s.labelsOpen)
+  const crowded = useApp((s) => (s.selected !== null || s.mode !== 'threads') && s.labelsOpen)
 
   return (
-    <div className="pointer-events-none absolute inset-x-[22px] bottom-[50px] z-10 flex items-center gap-5 text-ink-3 min-[760px]:inset-x-14">
-      <ul className="hidden items-center gap-4 text-[14.5px] lg:flex" aria-label="Key">
+    <div className="pointer-events-none absolute bottom-[47px] z-10 flex items-center gap-5 text-ink-3 transition-[left,right] duration-300" style={margins}>
+      <ul className={`items-center gap-4 whitespace-nowrap text-[14.5px] ${crowded ? 'hidden' : 'hidden lg:flex'}`} aria-label="Key">
         <li className="flex items-center gap-1.5"><Mark kind="technology" size={8} />Technology</li>
         <li className="flex items-center gap-1.5 italic"><Mark kind="science" size={9} />Science</li>
         <li className="flex items-center gap-1.5"><RangeMark />Date range</li>
@@ -37,7 +41,7 @@ export function BottomBar() {
 
       <div className="flex-1" />
 
-      <p className="hidden text-[14.5px] italic sm:block" aria-live="polite">
+      <p className={`whitespace-nowrap text-[14.5px] italic ${sheetOpen ? 'hidden' : 'hidden xl:block'}`} aria-live="polite">
         Showing down to {LEVEL_NAMES[depth]?.toLowerCase()}
         {depth < 3 ? '. Zoom in for more.' : '.'}
       </p>
@@ -52,7 +56,7 @@ export function BottomBar() {
             title={option.hint}
             aria-pressed={compressed === option.on}
             onClick={() => setCompressed(option.on)}
-            className={`${SMALL} ${compressed === option.on ? 'text-ink underline decoration-[0.5px] underline-offset-[3px]' : 'hover:text-ink'}`}
+            className={`${SMALL} whitespace-nowrap ${compressed === option.on ? 'text-ink underline decoration-[0.5px] underline-offset-[3px]' : 'hover:text-ink'}`}
           >
             {option.label}
           </button>
