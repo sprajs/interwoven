@@ -31,19 +31,19 @@
     "2": "36 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "3": "62 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "4": "33 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
-    "5": "12 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
+    "5": "14 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary.",
     "6": "13 registered cases. Prospective source leads remain backlog unless an individual status and exact review pointer records resolution; no additional wave is authorized beyond the assigned-packet completion boundary."
   },
   "summary": {
-    "candidate_and_integrated_cases": 216,
+    "candidate_and_integrated_cases": 218,
     "by_status": {
       "proposed": 173,
-      "integrated": 43
+      "integrated": 45
     },
     "by_pod": {
       "A": 67,
       "B": 46,
-      "C": 52,
+      "C": 54,
       "D": 51
     },
     "status_rule": "Integrated records point to exact current review; proposed leads remain unresolved unless individually updated."
@@ -12484,6 +12484,40 @@
         "global_comparison_status": "frontier_supported",
         "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
       }
+    },
+    {
+      "id": "INTEGRATED-cont-c-next6-vapor-compression-refrigeration",
+      "title": "Closed vapor-compression refrigeration",
+      "owner": "/root/review_terra_mechanics",
+      "pod": "C",
+      "wave": 5,
+      "source_leads": [],
+      "status": "integrated",
+      "canonical_node_id": "cont-c-next6-vapor-compression-refrigeration",
+      "review_ledger": "reviews/continuation-05.json",
+      "accepted_scope": "A volatile fluid evaporates at a cooling surface; a mechanical compressor raises vapor pressure, a condenser returns it to liquid, and a regulator sends the liquid back to the evaporator.",
+      "entry_event_id": "cont-c-next6-vapor-compression-refrigeration--brewery-sale-1857",
+      "frontier_review": {
+        "global_comparison_status": "frontier_supported",
+        "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
+      }
+    },
+    {
+      "id": "INTEGRATED-cont-c-next6-ammonia-vapor-compression",
+      "title": "Ammonia vapor-compression refrigeration",
+      "owner": "/root/review_terra_mechanics",
+      "pod": "C",
+      "wave": 5,
+      "source_leads": [],
+      "status": "integrated",
+      "canonical_node_id": "cont-c-next6-ammonia-vapor-compression",
+      "review_ledger": "reviews/continuation-05.json",
+      "accepted_scope": "A vapor-compression refrigeration loop uses ammonia as its phase-changing working fluid; suitable compressors, seals and heat exchangers manage its pressures and losses.",
+      "entry_event_id": "cont-c-next6-ammonia-vapor-compression--boyle-texas-by-1874",
+      "frontier_review": {
+        "global_comparison_status": "frontier_supported",
+        "qualification": "Independent scoped comparison accepted for this configuration; no claim of exhaustive worldwide proof or a universal invention date."
+      }
     }
   ],
   "existing_graph_priorities": [
@@ -12544,12 +12578,12 @@
   "research_baseline_commit": "4c5a10531d3f01a6d51df45bc53aa7f331cc1672",
   "maintenance": "Single current register. Prospective hypotheses and source leads are not accepted historical facts. Historical assertion acceptance and frontier eligibility are separate. Integrated cases are updated in place and linked to exact reviews.",
   "current_canonical": {
-    "nodes": 253,
-    "events": 458,
-    "relationships": 130,
-    "sources": 500,
-    "nodes_sha256": "09900edffaba61b39456a82c57b8202b6a64836f882920cd09d11f44ec19637f",
-    "new_entries_integrated": 43,
+    "nodes": 255,
+    "events": 464,
+    "relationships": 131,
+    "sources": 518,
+    "nodes_sha256": "a64eff12455305abbcc0e72682f4d37aaac993983316ae70d966edd534298a9f",
+    "new_entries_integrated": 45,
     "confirmed_identity_consolidations": 3,
     "assessment_record": "reviews/frontier-audit.json",
     "identity_refinements": 3,
@@ -12968,6 +13002,34 @@
           "name": "B7",
           "review_file_sha256": "33b4c19bef124fe1447c12f42ee5b5f45b4a1bcc9df8800583b88bea95d1a7f1",
           "proposal_file_sha256": "11634256f3ae12642bf5c0136cab245eaef87523c19d446bf400f99899fa6d99"
+        }
+      ]
+    },
+    {
+      "review_ledger": "reviews/continuation-05.json",
+      "wave": 5,
+      "source_manifest_sha256": "47f9dce8ce31362dfe07b3c7593f2d2f09b63c23a68d78a0e40f6262e95b73a8",
+      "integrated_node_ids": [
+        "cont-c-next6-vapor-compression-refrigeration",
+        "cont-c-next6-ammonia-vapor-compression"
+      ],
+      "integrated_event_ids": [
+        "cont-c-next6-vapor-compression-refrigeration--brewery-sale-1857",
+        "cont-c-next6-ammonia-vapor-compression--boyle-texas-by-1874",
+        "cont-c-next6-ammonia-vapor-compression--sedlmayer-by-1877",
+        "cont-c-next6-ammonia-vapor-compression--linde-adoption-by-1886",
+        "cont-c-next6-ammonia-vapor-compression--society-journal-1868",
+        "cont-c-next6-ammonia-vapor-compression--linde-priced-line-by-1877"
+      ],
+      "integrated_relationship_ids": [
+        "cont-c-next6-compression-to-linde-ammonia"
+      ],
+      "entry_policy": "Best supported community entry with scope/approximation/open bounds; frontier comparison is separate.",
+      "independent_reviews": [
+        {
+          "name": "C6",
+          "review_file_sha256": "bbb811dd5502efaf758a9f58004a76cb539a4342c257ecfe86c64f4f4419b8ca",
+          "proposal_file_sha256": "ef0f76ff8089259989f33800d3b8a411fde258f014b382e554ab3c8cf4a184b9"
         }
       ]
     }
