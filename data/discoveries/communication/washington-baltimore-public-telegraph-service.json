@@ -119,9 +119,43 @@
       "known_from": "sourced",
       "market": "sourced",
       "events": "reviewed",
-      "grain": "recalled"
+      "grain": "recalled",
+      "measures": "reviewed"
     },
-    "note": "Proposed distinct configuration and community entry; requires independent review."
+    "note": "Proposed distinct configuration and community entry; requires independent review. Independent reader checked the postal service opening and the reported tariff against the 1880 Vail transcription. The original tariff schedule remains unverified.",
+    "unresolved": [
+      {
+        "about": "1845 telegraph tariff",
+        "note": "The proposed opening tariff is reported in an 1880 book quoting Vail. Locate the original tariff schedule or surviving contemporary accounts.",
+        "evidence": [
+          {
+            "source": "johnston-1880-telegraphic-tales-washington-receipts",
+            "locator": "Printed pp. 36–37",
+            "supports": "Quotes a reported early April 1845 tariff."
+          }
+        ]
+      }
+    ]
   },
-  "grain": "instance"
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "reported message tariff",
+      "value": 1,
+      "unit": "US cent per four letters or figures",
+      "event": "commercial-availability-1845",
+      "subject": "Washington–Baltimore telegraph in early April 1845",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "johnston-1880-telegraphic-tales-washington-receipts",
+          "locator": "Printed pp. 36–37, Vail manuscript and anecdote",
+          "supports": "Quotes Vail giving a charge of one cent per four letters or figures."
+        }
+      ],
+      "currency": "USD",
+      "money_context": "Nominal 1845 US cent; reported retrospectively, not verified against the tariff schedule.",
+      "conditions": "Letters or figures; no claim about per-word rates, fees on longer messages or affordability."
+    }
+  ]
 }

@@ -80,6 +80,32 @@
           ]
         }
       ]
+    },
+    {
+      "id": "installment-offer-1975",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1975,
+          "month": 7,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 30 July 1975",
+        "basis": "The MITS installment advertisement says the offer expires on this date; its starting date is not given."
+      },
+      "statement": "MITS advertised a kit plan with eight monthly installments and progressive shipment of parts.",
+      "scope": "The advertised kit included 256 words of memory and postage.",
+      "caveats": "The offer is not evidence of a completed sale, delivery, or total cost with peripherals or software. The same PDF also contains an earlier version expiring 30 April; this event concerns the separate July-expiring version on PDF p. 3.",
+      "evidence": [
+        {
+          "source": "mits-1975-altair-users-club",
+          "locator": "PDF p. 3, Altair Time Payment Plan",
+          "supports": "Describes eight payments, included kit components, postage and the expiration date."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -126,6 +152,42 @@
       "subject": "MITS Altair 8800 base computer",
       "currency": "USD",
       "money_context": "Nominal manufacturer offer, 1975; shipping, memory and other extras excluded."
+    },
+    {
+      "quantity": "advertised installment payment",
+      "value": 68.75,
+      "unit": "US dollars per month",
+      "event": "installment-offer-1975",
+      "subject": "MITS kit plan with 256-word memory and postage",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "mits-1975-altair-users-club",
+          "locator": "PDF p. 3, Altair Time Payment Plan",
+          "supports": "Lists eight $68.75 payments for the described kit."
+        }
+      ],
+      "currency": "USD",
+      "money_context": "Nominal 1975 dollars; offer, not confirmed purchase.",
+      "conditions": "Eight monthly payments; parts shipped progressively; no financing charge advertised; offer expires 30 July 1975."
+    },
+    {
+      "quantity": "advertised total installment amount",
+      "value": 550,
+      "unit": "US dollars",
+      "event": "installment-offer-1975",
+      "subject": "MITS kit plan with 256-word memory and postage",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "mits-1975-altair-users-club",
+          "locator": "PDF p. 3, Altair Time Payment Plan",
+          "supports": "Lists $550 total including the basic kit, 256-word memory and $8 postage."
+        }
+      ],
+      "currency": "USD",
+      "money_context": "Nominal 1975 dollars; amount advertised, not a paid invoice.",
+      "conditions": "Eight payments of $68.75; 256-word memory and postage included; input/output peripherals and software not priced."
     }
   ],
   "caveats": "A base price is not the cost of a fully configured system; prices may have changed during 1975.",
@@ -136,12 +198,12 @@
       "domain": "sourced",
       "events": "sourced",
       "advance": "sourced",
-      "measures": "sourced",
+      "measures": "reviewed",
       "organizations": "sourced",
       "grain": "recalled",
       "places": "sourced"
     },
-    "note": "Independent reader checked a November 1974 advance description, 1975 museum account and subsequent MITS advertising; production and shipment dates remain open. Later event and measure enrichment has not yet received independent review."
+    "note": "Independent reader checked a November 1974 advance description, 1975 museum account and subsequent MITS advertising; production and shipment dates remain open. Later event and measure enrichment has not yet received independent review. Independent reader checked the four 1975 offer amounts and the July installment advertisement; the PDF also contains an earlier, separately dated April offer. The offer does not establish sales or a complete system price."
   },
   "organizations": [
     {

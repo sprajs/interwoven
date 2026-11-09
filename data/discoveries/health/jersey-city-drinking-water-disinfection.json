@@ -1,0 +1,60 @@
+{
+  "id": "jersey-city-drinking-water-disinfection",
+  "name": "Jersey City routine drinking-water disinfection",
+  "description": "A municipal water system routinely disinfected community drinking water.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1908
+        },
+        "latest": {
+          "year": 1908
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1908",
+        "basis": "Source date for the documented context; BP conversion uses 1950 as reference where applicable."
+      },
+      "statement": "A municipal water system routinely disinfected community drinking water.",
+      "evidence": [
+        {
+          "source": "cdc-2012-jersey-city-disinfection",
+          "locator": "History of Drinking Water Treatment",
+          "supports": "CDC dates routine community drinking water disinfection at Jersey City to 1908 and describes wider adoption over the subsequent decade; its national disease trends are not a controlled measure of this city."
+        }
+      ],
+      "caveats": "The source gives a city-level date and later national adoption; it does not provide a local population covered or an isolated causal mortality estimate.",
+      "places": [
+        "new-jersey"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Date of the supported scoped case; no global priority is implied."
+  },
+  "caveats": "The source gives a city-level date and later national adoption; it does not provide a local population covered or an isolated causal mortality estimate.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "concept": "reviewed"
+    },
+    "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
+  },
+  "places": [
+    {
+      "place": "new-jersey"
+    }
+  ],
+  "concept": "drinking-water-disinfection"
+}

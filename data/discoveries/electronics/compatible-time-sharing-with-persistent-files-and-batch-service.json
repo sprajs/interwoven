@@ -81,7 +81,7 @@
         "Interactive programming and shared computational research"
       ],
       "population": "Project MAC summer-study visitors from universities, industry and government",
-      "caveats": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service.",
+      "caveats": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service. Access through terminals did not imply ownership of the central computer.",
       "evidence": [
         {
           "source": "van-vleck-2026-project-mac",
@@ -143,8 +143,9 @@
       "societies": "sourced",
       "known_from": "sourced",
       "fate": "recalled",
-      "events": "reviewed",
-      "grain": "recalled"
+      "events": "sourced",
+      "grain": "recalled",
+      "measures": "reviewed"
     },
     "unresolved": [
       {
@@ -179,7 +180,25 @@
         ]
       }
     ],
-    "note": "Candidate historical and lifecycle assertions await independent review."
+    "note": "Candidate historical and lifecycle assertions await independent review. Independent reader checked the 57-person summer-study measure and the participant retrospective’s CTSS access description. The count is not a CTSS-only or simultaneous-user count; other event facets were not re-reviewed in this pass."
   },
-  "grain": "instance"
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "visiting summer-study participants",
+      "value": 57,
+      "unit": "visiting researchers",
+      "event": "practical-deployment-1963",
+      "subject": "Project MAC six-week summer study, July–August 1963",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "van-vleck-2026-project-mac",
+          "locator": "Summer Study",
+          "supports": "Reports 57 visiting researchers exposed to CTSS and another time-sharing system."
+        }
+      ],
+      "conditions": "Count of visitors in a participant retrospective, not count of CTSS-only users or individuals online simultaneously."
+    }
+  ]
 }

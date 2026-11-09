@@ -1,0 +1,154 @@
+{
+  "id": "whirlwind-ferrite-core-memory",
+  "name": "Whirlwind ferrite-core memory",
+  "description": "Random-access computer memory using magnetized ferrite cores to store individual bits.",
+  "kind": "technology",
+  "domain": "electronics.storage",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "demonstration-1953",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1953,
+          "month": 8
+        },
+        "latest": {
+          "year": 1953,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "August 1953",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "MIT’s Whirlwind project demonstrated a 32-by-32 core plane in August 1953.",
+      "places": [
+        "massachusetts"
+      ],
+      "contributions": [
+        {
+          "person": "jay-forrester",
+          "role": "developer",
+          "resource": "Led the Whirlwind project.",
+          "evidence": [
+            {
+              "source": "chm-whirlwind-1953-core-wave4",
+              "locator": "Whirlwind and IBM 737 paragraphs",
+              "supports": "Museum dates the 1024-core Whirlwind plane demonstration to August 1953 and identifies MIT, Navy and Forrester."
+            }
+          ]
+        },
+        {
+          "organization": "united-states-air-force",
+          "role": "funder",
+          "resource": "Major funder of the wider Whirlwind project by the time of the SAGE programme.",
+          "evidence": [
+            {
+              "source": "nrc-1999-whirlwind-funding-wave4",
+              "locator": "Chapter 4, pp. 92–94",
+              "supports": "The National Research Council reports Air Force became major sponsor and 1953 core installation followed."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "chm-whirlwind-1953-core-wave4",
+          "locator": "Whirlwind and IBM 737 paragraphs",
+          "supports": "Museum dates the 1024-core Whirlwind plane demonstration to August 1953 and identifies MIT, Navy and Forrester."
+        }
+      ],
+      "caveats": "The cited Air Force sponsorship concerns the wider Whirlwind project through SAGE; it does not establish a separately earmarked grant for this core-memory demonstration."
+    },
+    {
+      "id": "ibm-737-1954",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1954
+        },
+        "latest": {
+          "year": 1954
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1954",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "IBM announced the 737 core memory unit for rental at $6,100 a month.",
+      "contributions": [
+        {
+          "organization": "ibm",
+          "role": "supplier",
+          "resource": "Announced the 737 core memory unit.",
+          "evidence": [
+            {
+              "source": "chm-whirlwind-1953-core-wave4",
+              "locator": "IBM 737 paragraph",
+              "supports": "Museum identifies IBM as supplier."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "chm-whirlwind-1953-core-wave4",
+          "locator": "IBM 737 paragraph",
+          "supports": "Museum dates commercial 737 announcement and monthly rental."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1953",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "massachusetts"
+    }
+  ],
+  "people": [
+    {
+      "person": "jay-forrester",
+      "role": "contributor"
+    }
+  ],
+  "concept": "magnetic-core-memory",
+  "measures": [
+    {
+      "quantity": "monthly rental",
+      "value": 6100,
+      "unit": "USD per month",
+      "currency": "USD",
+      "money_context": "Nominal 1954 monthly rental, not inflation adjusted.",
+      "event": "ibm-737-1954",
+      "subject": "IBM 737 core memory unit",
+      "status": "claimed",
+      "conditions": "Museum retrospective; announced unit held 4,096 36-bit words.",
+      "evidence": [
+        {
+          "source": "chm-whirlwind-1953-core-wave4",
+          "locator": "IBM 737 paragraph",
+          "supports": "The museum reports $6,100 per month."
+        }
+      ]
+    }
+  ],
+  "caveats": "Earlier magnetic-core work by Wang, Rajchman and others is acknowledged by the source; this is a particular operational development path.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader checked the museum’s demonstration and 737 rental claims and the National Research Council’s project-wide funding account; no separate memory-specific grant is inferred."
+  }
+}

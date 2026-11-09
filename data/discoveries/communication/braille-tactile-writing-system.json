@@ -1,0 +1,105 @@
+{
+  "id": "braille-tactile-writing-system",
+  "name": "Braille tactile writing for words and music",
+  "description": "A tactile writing system organized around a six-dot cell, enabling blind readers to read and write text and music.",
+  "kind": "practice",
+  "domain": "communication.language-writing",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "method-1829",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1829
+        },
+        "latest": {
+          "year": 1829
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1829",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Louis Braille published his method of dot-based writing for words and music.",
+      "places": [
+        "france"
+      ],
+      "population": "Students and teachers at the Paris institution for blind youth",
+      "contributions": [
+        {
+          "person": "louis-braille",
+          "role": "developer",
+          "resource": "Developed and published the method.",
+          "evidence": [
+            {
+              "source": "loc-2020-braille-music-wave4",
+              "locator": "Development and bibliography",
+              "supports": "LOC reprint dates the publication of Braille’s writing and music system to 1829."
+            }
+          ]
+        }
+      ],
+      "caveats": "Early music notation included some dashes and was refined later; the six-dot cell did not appear in modern form overnight.",
+      "evidence": [
+        {
+          "source": "loc-2020-braille-music-wave4",
+          "locator": "Development and bibliography",
+          "supports": "LOC reprint dates the publication of Braille’s writing and music system to 1829."
+        }
+      ]
+    },
+    {
+      "id": "student-access-1852",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1852
+        },
+        "precision": "range",
+        "status": "known",
+        "label": "during Braille’s lifetime, by 1852",
+        "basis": "Source describes use during Braille’s lifetime; 1852 is his death, not a date of first use."
+      },
+      "statement": "A Library of Congress biography reports that students learned the method themselves during Braille’s lifetime because it was not officially taught.",
+      "caveats": "Bounded by Braille’s death in 1852; does not imply no teacher used or taught the system.",
+      "evidence": [
+        {
+          "source": "loc-braille-biography-wave4",
+          "locator": "Biography paragraphs",
+          "supports": "The biography describes informal access during his lifetime."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "method-1829",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "france"
+    }
+  ],
+  "people": [
+    {
+      "person": "louis-braille",
+      "role": "originator"
+    }
+  ],
+  "concept": "tactile-dot-writing",
+  "caveats": "Raised print letters and Barbier’s night writing predated Braille. Published and institutional-acceptance dates should not be conflated.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Initial sourced research; independent review pending. Independent reader checked Library of Congress publication, early music notation and informal student access, bounded only by death."
+  }
+}

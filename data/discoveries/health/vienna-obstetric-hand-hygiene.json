@@ -1,0 +1,142 @@
+{
+  "id": "vienna-obstetric-hand-hygiene",
+  "name": "Vienna obstetric hand hygiene",
+  "description": "The first maternity clinic in Vienna introduced a hand hygiene policy for clinicians in 1847.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1847
+        },
+        "latest": {
+          "year": 1847
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1847",
+        "basis": "Source date for the documented context; BP conversion uses 1950 as reference where applicable."
+      },
+      "statement": "The first maternity clinic in Vienna introduced a hand hygiene policy for clinicians in 1847.",
+      "evidence": [
+        {
+          "source": "gupta-2012-semmelweis-obstetric-care",
+          "locator": "Semmelweis intervention and annual statistics",
+          "supports": "The historical review gives an 1847 hand hygiene intervention in the first Vienna clinic and the reported 1848 annual figures of 45 deaths among 3556 patients. Historical comparisons are observational."
+        }
+      ],
+      "caveats": "The reported changes in maternal mortality are historical observational comparisons; the policy date does not establish when everyday handwashing began.",
+      "places": [
+        "austria"
+      ],
+      "contributions": [
+        {
+          "group": "Clinicians at Vienna’s first maternity clinic",
+          "role": "operator",
+          "resource": "Vienna obstetric hand hygiene",
+          "evidence": [
+            {
+              "source": "gupta-2012-semmelweis-obstetric-care",
+              "locator": "Semmelweis intervention and annual statistics",
+              "supports": "The historical review gives an 1847 hand hygiene intervention in the first Vienna clinic and the reported 1848 annual figures of 45 deaths among 3556 patients. Historical comparisons are observational."
+            }
+          ]
+        },
+        {
+          "role": "developer",
+          "resource": "Clinic hand hygiene policy",
+          "evidence": [
+            {
+              "source": "gupta-2012-semmelweis-obstetric-care",
+              "locator": "Semmelweis intervention and annual statistics",
+              "supports": "The historical review gives an 1847 hand hygiene intervention in the first Vienna clinic and the reported 1848 annual figures of 45 deaths among 3556 patients. Historical comparisons are observational."
+            }
+          ],
+          "person": "ignaz-semmelweis"
+        }
+      ]
+    },
+    {
+      "id": "clinic-1848-statistics",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1848
+        },
+        "latest": {
+          "year": 1848
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1848",
+        "basis": "Annual clinic statistics reported by the source."
+      },
+      "statement": "The historical account reports 45 deaths and 3,556 births in the first maternity clinic during 1848.",
+      "places": [
+        "austria"
+      ],
+      "evidence": [
+        {
+          "source": "gupta-2012-semmelweis-obstetric-care",
+          "locator": "Semmelweis intervention and annual statistics",
+          "supports": "The source table reports 3,556 births and 45 deaths at the first maternity clinic in 1848. Its prose has an apparent 1948 typo."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Date of the supported scoped case; no global priority is implied."
+  },
+  "caveats": "The reported changes in maternal mortality are historical observational comparisons; the policy date does not establish when everyday handwashing began.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed",
+      "concept": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
+  },
+  "places": [
+    {
+      "place": "austria"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "maternal deaths among patients",
+      "value": 45,
+      "unit": "deaths",
+      "event": "clinic-1848-statistics",
+      "subject": "First Vienna maternity clinic",
+      "status": "claimed",
+      "numerator": 45,
+      "denominator": 3556,
+      "denominator_definition": "births in the first Vienna maternity clinic during 1848, as tabulated by Gupta",
+      "conditions": "The source table lists births and deaths for the calendar year 1848; historical comparisons are observational. Its prose contains an apparent 1948 typo.",
+      "evidence": [
+        {
+          "source": "gupta-2012-semmelweis-obstetric-care",
+          "locator": "Semmelweis intervention and annual statistics",
+          "supports": "The source table lists 3,556 births and 45 deaths at the first maternity clinic in 1848."
+        }
+      ]
+    }
+  ],
+  "concept": "clinical-hand-hygiene",
+  "people": [
+    {
+      "person": "ignaz-semmelweis",
+      "role": "contributor"
+    }
+  ]
+}

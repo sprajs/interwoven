@@ -1,0 +1,85 @@
+{
+  "id": "shannon-relay-switching-algebra",
+  "name": "Shannon symbolic relay circuit analysis",
+  "description": "A symbolic method for representing relay and switch circuits using algebra analogous to propositional logic.",
+  "kind": "mathematics",
+  "domain": "electronics.components",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "preprint-1938",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1938,
+          "month": 5,
+          "day": 27
+        },
+        "latest": {
+          "year": 1938,
+          "month": 5,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "27 May 1938",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Shannon’s paper on relay and switching-circuit analysis was made available for preprinting.",
+      "places": [
+        "massachusetts"
+      ],
+      "contributions": [
+        {
+          "person": "claude-shannon",
+          "role": "developer",
+          "resource": "Developed and published the analysis.",
+          "evidence": [
+            {
+              "source": "shannon-1938-relay-analysis-wave4",
+              "locator": "Introduction and footnote",
+              "supports": "The original article describes logic-based relay network analysis and synthesis and says preprints were available 27 May 1938."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "shannon-1938-relay-analysis-wave4",
+          "locator": "Introduction and footnote",
+          "supports": "The original article describes logic-based relay network analysis and synthesis and says preprints were available 27 May 1938."
+        }
+      ],
+      "caveats": "The article says it was made available for preprinting; this does not establish the breadth of access or an exact public distribution date. It summarizes an earlier MIT thesis."
+    }
+  ],
+  "earliest_record": {
+    "event": "preprint-1938",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "massachusetts"
+    }
+  ],
+  "people": [
+    {
+      "person": "claude-shannon",
+      "role": "author"
+    }
+  ],
+  "concept": "switching-algebra",
+  "caveats": "Relay switching and Boolean logic predated the paper; its specific contribution is the formal analysis and synthesis method.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Initial sourced research; independent review pending. Independent reader inspected the facsimile’s introduction and footnote; preprinting availability is not equated with public distribution."
+  }
+}

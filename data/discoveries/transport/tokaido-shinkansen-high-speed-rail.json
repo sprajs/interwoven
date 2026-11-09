@@ -1,0 +1,142 @@
+{
+  "id": "tokaido-shinkansen-high-speed-rail",
+  "name": "Tōkaidō Shinkansen high-speed rail",
+  "description": "A dedicated high-speed railway provided intercity passenger travel in Japan.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "capability",
+  "concept": "dedicated-high-speed-rail",
+  "places": [
+    {
+      "place": "japan",
+      "note": "Modern country or regional reference; historic political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "opening-1964",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1964,
+          "month": 10,
+          "day": 1
+        },
+        "latest": {
+          "year": 1964,
+          "month": 10,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1 October 1964",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "The Tōkaidō Shinkansen opened passenger service in Japan, linking Tokyo and Osaka.",
+      "caveats": "Later service speed and trip times evolved; opening figures are not projected onto all later years.",
+      "evidence": [
+        {
+          "source": "nrm-2026-tokaido-shinkansen",
+          "locator": "Tōkaidō Shinkansen paragraph",
+          "supports": "The National Railway Museum gives the opening day and major cities."
+        }
+      ]
+    },
+    {
+      "id": "loan-1961",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1961,
+          "month": 5,
+          "day": 2
+        },
+        "latest": {
+          "year": 1961,
+          "month": 5,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2 May 1961",
+        "basis": "Dated World Bank press release announcing the loan."
+      },
+      "statement": "The World Bank announced an $80 million equivalent loan to Japanese National Railways for the new Tokaido line.",
+      "caveats": "The loan amount is a nominal commitment, not the final construction cost or evidence of all funds disbursed.",
+      "evidence": [
+        {
+          "source": "world-bank-1961-tokaido-loan",
+          "locator": "pp. 1–2",
+          "supports": "Contemporary lender announces an $80 million loan to Japanese National Railways."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "international-bank-reconstruction-development",
+          "role": "funder",
+          "resource": "Loan to Japanese National Railways for the new line",
+          "evidence": [
+            {
+              "source": "world-bank-1961-tokaido-loan",
+              "locator": "pp. 1–2",
+              "supports": "Bank identifies itself as lender."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "opening-1964",
+    "rationale": "The 1964 opening is the earliest event establishing passenger-service availability for this capability; the 1961 loan is an earlier funding commitment, not operation."
+  },
+  "caveats": "High-speed experiments and train services predated this line; no global priority claimed.",
+  "measures": [
+    {
+      "quantity": "scheduled journey time",
+      "value": 4,
+      "unit": "hours",
+      "event": "opening-1964",
+      "subject": "Tokyo–Osaka at opening",
+      "status": "claimed",
+      "conditions": "JR Central retrospective gives four hours at inauguration; later fastest times differ.",
+      "evidence": [
+        {
+          "source": "jr-central-2024-shinkansen-history",
+          "locator": "JR Central’s History",
+          "supports": "The operator reports four hours at launch."
+        }
+      ]
+    },
+    {
+      "quantity": "announced loan amount",
+      "value": 80000000,
+      "unit": "USD",
+      "event": "loan-1961",
+      "subject": "World Bank loan to Japanese National Railways",
+      "currency": "USD",
+      "money_context": "Nominal 1961 US-dollar equivalent; not total final construction cost.",
+      "conditions": "Lender press release dated 2 May 1961; loan commitment, not proof of disbursement.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "world-bank-1961-tokaido-loan",
+          "locator": "pp. 1–2",
+          "supports": "Press release announces loan equivalent to $80 million."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial sourced admission; classification and interpretations await independent review. Financing is attached to a separate earlier event; service opened in 1964. Independent reader checked event dates, attribution and statements against cited passages; measures only where marked. Event classifications and other facets retain their prior status."
+  }
+}

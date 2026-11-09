@@ -103,6 +103,58 @@
           "supports": "The 1907 account reports first service on 21 January to about 30 subscribers and formal opening on 28 January."
         }
       ]
+    },
+    {
+      "id": "subscription-offer-1878",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1878,
+          "month": 2
+        },
+        "latest": {
+          "year": 1878,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "February 1878",
+        "basis": "De Land reports that the company advertised the annual rate in February 1878."
+      },
+      "statement": "The New Haven exchange advertised an annual telephone rental for offices and homes.",
+      "caveats": "The price does not establish actual household affordability; the retrospective reports shared lines.",
+      "evidence": [
+        {
+          "source": "de-land-1907-notes-development-telephone",
+          "locator": "Section VI, rates and February 1878 advertising",
+          "supports": "Reports the $18 annual rate for office or home telephones and its February advertising."
+        }
+      ]
+    },
+    {
+      "id": "operator-pay-reported-1878",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1878
+        },
+        "latest": {
+          "year": 1878
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1878",
+        "basis": "The retrospective discusses the night operator and pay during early 1878; the precise payroll period is not stated."
+      },
+      "statement": "The retrospective reports the monthly pay and hours of a night operator at the early New Haven exchange.",
+      "caveats": "The exact period and whether pay was typical for other staff are unspecified.",
+      "evidence": [
+        {
+          "source": "de-land-1907-notes-development-telephone",
+          "locator": "Section VI, early operators",
+          "supports": "Reports a night operator’s monthly salary and hours."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -139,9 +191,66 @@
       "fate": "recalled",
       "market": "sourced",
       "events": "reviewed",
-      "grain": "recalled"
+      "grain": "recalled",
+      "measures": "reviewed"
     },
-    "note": "Proposed distinct configuration and community entry; requires independent review."
+    "note": "Proposed distinct configuration and community entry; requires independent review. Independent reader checked the two early opening accounts and both source-scoped price and pay measures. The differing launch counts remain unresolved; affordability is not established.",
+    "unresolved": [
+      {
+        "about": "opening subscriber count",
+        "note": "NPS reports 21 initial subscribers; De Land reports about 30 receiving service on 21 January, before the formal 28 January opening. Check the underlying records and whether the figures use different dates or units.",
+        "evidence": [
+          {
+            "source": "u-s-national-nd-site-first-telephone",
+            "locator": "Exchange opening and early subscribers",
+            "supports": "Reports 21 initial subscribers."
+          },
+          {
+            "source": "de-land-1907-notes-development-telephone",
+            "locator": "Section VI, first service and formal opening",
+            "supports": "Reports about 30 subscribers at first service on 21 January and formal opening on 28 January."
+          }
+        ]
+      }
+    ]
   },
-  "grain": "instance"
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "reported subscriber fee",
+      "value": 18,
+      "unit": "US dollars per year",
+      "event": "subscription-offer-1878",
+      "subject": "New Haven office or house telephone subscription",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "de-land-1907-notes-development-telephone",
+          "locator": "Section VI, rates discussion",
+          "supports": "Reports $18 annually for office or house telephone."
+        }
+      ],
+      "currency": "USD",
+      "money_context": "Nominal 1878 dollars, reported in 1907.",
+      "conditions": "Shared single-wire circuits typically served 10–16 subscribers; price does not establish whether a household could afford it."
+    },
+    {
+      "quantity": "reported night-operator salary",
+      "value": 15,
+      "unit": "US dollars per month",
+      "event": "operator-pay-reported-1878",
+      "subject": "New Haven exchange night operator",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "de-land-1907-notes-development-telephone",
+          "locator": "Section VI, early operators",
+          "supports": "Reports $15 per month and a 5 p.m.–8 a.m. shift."
+        }
+      ],
+      "currency": "USD",
+      "money_context": "Nominal 1878 pay reported retrospectively.",
+      "conditions": "Specific night-operator role; shift reported as 5 p.m. to 8 a.m.; not a general wage or disposable-income estimate."
+    }
+  ]
 }

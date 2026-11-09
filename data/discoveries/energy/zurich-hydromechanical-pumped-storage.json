@@ -1,0 +1,58 @@
+{
+  "id": "zurich-hydromechanical-pumped-storage",
+  "name": "Zürich pumped water storage",
+  "description": "A pump and reservoir stored energy for later release through a turbine.",
+  "kind": "technology",
+  "domain": "energy.storage",
+  "grain": "capability",
+  "concept": "pumped-water-energy-storage",
+  "places": [
+    {
+      "place": "switzerland",
+      "note": "Modern country or regional reference; historic political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "zurich-1882",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1882
+        },
+        "latest": {
+          "year": 1882
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1882",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "A pump, reservoir and turbine operated as a hydro-mechanical energy-storage system at Zürich.",
+      "caveats": "The historical report does not establish electricity generation at this installation, its owner, size or efficiency.",
+      "evidence": [
+        {
+          "source": "doe-2016-pumped-storage-history",
+          "locator": "Section 2.7.1, History and Status of Pumped Storage Hydropower",
+          "supports": "DOE dates the installation and describes storage."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "zurich-1882",
+    "rationale": "Earliest event sourced for this particular record; not a claim of global origin."
+  },
+  "caveats": "Mechanical energy storage is distinct from modern pumped-storage electricity plants; no global first claimed.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked event dates, attribution and statements against cited passages; measures only where marked. Event classifications and other facets retain their prior status."
+  }
+}

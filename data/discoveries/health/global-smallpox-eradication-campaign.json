@@ -1,0 +1,165 @@
+{
+  "id": "global-smallpox-eradication-campaign",
+  "name": "Global smallpox eradication programme",
+  "description": "A coordinated international public-health programme combined vaccination and surveillance; the World Health Assembly declared eradication in 1980.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1967
+        },
+        "latest": {
+          "year": 1967
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1967",
+        "basis": "Source date for the documented context; BP conversion uses 1950 as reference where applicable."
+      },
+      "statement": "WHO launched an intensified smallpox eradication programme in 1967.",
+      "evidence": [
+        {
+          "source": "who-2020-smallpox-eradication-programme",
+          "locator": "Programme and declaration",
+          "supports": "WHO describes a global programme involving health workers, national participation and vaccination, and reports the 1980 World Health Assembly declaration. Its half-billion vaccination figure is a programme-level claim rather than a unique-person count."
+        }
+      ],
+      "caveats": "Programme activities, national contexts and individual experiences varied; the declaration concerns natural disease transmission, and the campaign is distinct from the earlier development of vaccination.",
+      "contributions": [
+        {
+          "group": "Health workers in national programmes",
+          "role": "operator",
+          "resource": "Global smallpox eradication programme",
+          "evidence": [
+            {
+              "source": "who-2020-smallpox-eradication-programme",
+              "locator": "Programme and declaration",
+              "supports": "WHO describes a global programme involving health workers, national participation and vaccination, and reports the 1980 World Health Assembly declaration. Its half-billion vaccination figure is a programme-level claim rather than a unique-person count."
+            }
+          ]
+        },
+        {
+          "organization": "world-health-organization",
+          "role": "operator",
+          "resource": "Intensified international eradication programme",
+          "evidence": [
+            {
+              "source": "who-2020-smallpox-eradication-programme",
+              "locator": "Programme and declaration",
+              "supports": "WHO describes a global programme involving health workers, national participation and vaccination, and reports the 1980 World Health Assembly declaration. Its half-billion vaccination figure is a programme-level claim rather than a unique-person count."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eradication-declaration",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1980,
+          "month": 5,
+          "day": 8
+        },
+        "latest": {
+          "year": 1980,
+          "month": 5,
+          "day": 8
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "8 May 1980",
+        "basis": "WHO commemorates the World Health Assembly declaration."
+      },
+      "statement": "The World Health Assembly declared smallpox eradicated.",
+      "evidence": [
+        {
+          "source": "who-2020-smallpox-eradication-programme",
+          "locator": "Programme and declaration",
+          "supports": "WHO describes a global programme involving health workers, national participation and vaccination, and reports the 1980 World Health Assembly declaration. Its half-billion vaccination figure is a programme-level claim rather than a unique-person count."
+        },
+        {
+          "source": "who-2010-smallpox-eradication-history",
+          "locator": "A reminder of the value of smallpox eradication",
+          "supports": "WHO reports that World Health Assembly resolution WHA33.3 was adopted on 8 May 1980."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Date of the supported scoped case; no global priority is implied."
+  },
+  "caveats": "Programme activities, national contexts and individual experiences varied; the declaration concerns natural disease transmission, and the campaign is distinct from the earlier development of vaccination.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "concept": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
+  },
+  "measures": [
+    {
+      "quantity": "reported vaccinations",
+      "value": 500000000,
+      "unit": "vaccinations",
+      "event": "eradication-declaration",
+      "subject": "Global campaign",
+      "status": "claimed",
+      "conditions": "WHO’s round estimate for the roughly decade-long eradication effort; vaccinations are not necessarily distinct persons.",
+      "evidence": [
+        {
+          "source": "who-2020-smallpox-eradication-programme",
+          "locator": "Programme and declaration",
+          "supports": "WHO describes a global programme involving health workers, national participation and vaccination, and reports the 1980 World Health Assembly declaration. Its half-billion vaccination figure is a programme-level claim rather than a unique-person count."
+        }
+      ]
+    },
+    {
+      "quantity": "estimated programme cost",
+      "value": 300000000,
+      "unit": "US dollars",
+      "currency": "USD",
+      "event": "eradication-declaration",
+      "subject": "Global smallpox eradication programme",
+      "status": "claimed",
+      "conditions": "WHO’s retrospective estimate for 1967–1980; no price base or inflation adjustment is specified. WHO says about two thirds was borne by endemic countries.",
+      "evidence": [
+        {
+          "source": "who-2010-smallpox-eradication-history",
+          "locator": "Eradication saves money",
+          "supports": "WHO estimates the 1967–1980 programme cost at US$300 million and reports that endemic countries bore about two thirds."
+        }
+      ]
+    }
+  ],
+  "concept": "mass-vaccination-and-surveillance",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "jenners-cowpox-based-vaccination",
+      "status": "established",
+      "statement": "The eradication programme built on the smallpox vaccination approach associated with Jenner and combined vaccination with surveillance.",
+      "scope": "Historical relationship between vaccination as a preventive approach and the later international programme; not a claim of an unchanged formulation.",
+      "confidence": "high",
+      "caveats": "Vaccines, delivery systems and programme strategies changed over the intervening period.",
+      "evidence": [
+        {
+          "source": "who-2010-smallpox-eradication-history",
+          "locator": "Background on smallpox eradication",
+          "supports": "WHO identifies Jenner’s 1796 vaccination as an early preventive approach and vaccination as part of the global eradication programme."
+        }
+      ]
+    }
+  ]
+}

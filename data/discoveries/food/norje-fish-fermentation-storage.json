@@ -1,0 +1,93 @@
+{
+  "id": "norje-fish-fermentation-storage",
+  "name": "Norje Sunnansund fish fermentation and storage",
+  "description": "A fish-rich pit at a forager settlement is interpreted as evidence for fermentation and storage of fish.",
+  "kind": "practice",
+  "domain": "food.fermentation",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -7650
+        },
+        "latest": {
+          "year": -6650
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "9600–8600 calibrated years BP",
+        "basis": "Source date for the documented context; BP conversion uses 1950 as reference where applicable."
+      },
+      "statement": "A fish-rich pit at a forager settlement is interpreted as evidence for fermentation and storage of fish.",
+      "evidence": [
+        {
+          "source": "boethius-2021-norje-fish-storage",
+          "locator": "Site background, pit and discussion",
+          "supports": "Norje Sunnansund is dated 9600–8600 calibrated BP; fish remains in a pit are interpreted as fermented and stored. The article reports 16,180 identified fish fragments across the site, not the catch size."
+        }
+      ],
+      "caveats": "The preservation technique and storage duration are inferred from context; the dates cover the site rather than a precisely dated individual production cycle.",
+      "places": [
+        "sweden"
+      ],
+      "contributions": [
+        {
+          "group": "Foragers at Norje Sunnansund",
+          "role": "operator",
+          "resource": "Norje Sunnansund fish fermentation and storage",
+          "evidence": [
+            {
+              "source": "boethius-2021-norje-fish-storage",
+              "locator": "Site background, pit and discussion",
+              "supports": "Norje Sunnansund is dated 9600–8600 calibrated BP; fish remains in a pit are interpreted as fermented and stored. The article reports 16,180 identified fish fragments across the site, not the catch size."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Date of the supported scoped case; no global priority is implied."
+  },
+  "caveats": "The preservation technique and storage duration are inferred from context; the dates cover the site rather than a precisely dated individual production cycle.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "concept": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
+  },
+  "places": [
+    {
+      "place": "sweden"
+    }
+  ],
+  "concept": "fermented-food-and-drink",
+  "measures": [
+    {
+      "quantity": "identified fish-bone fragments",
+      "value": 16180,
+      "unit": "fragments",
+      "event": "documented-evidence",
+      "subject": "Archaeological site assemblage",
+      "status": "claimed",
+      "conditions": "Fragments identified to species or family across the site; only a portion of bones had been analysed and excavated, and this is not an estimate of the number of fish caught.",
+      "evidence": [
+        {
+          "source": "boethius-2021-norje-fish-storage",
+          "locator": "Site background, pit and discussion",
+          "supports": "Norje Sunnansund is dated 9600–8600 calibrated BP; fish remains in a pit are interpreted as fermented and stored. The article reports 16,180 identified fish fragments across the site, not the catch size."
+        }
+      ]
+    }
+  ]
+}

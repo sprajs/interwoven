@@ -1,0 +1,58 @@
+{
+  "id": "ice-refrigerated-rail-food-transport",
+  "name": "Ice-refrigerated rail food transport",
+  "description": "Rail cars carrying ice enabled perishable food to travel under refrigeration.",
+  "kind": "practice",
+  "domain": "transport.logistics",
+  "grain": "capability",
+  "concept": "ice-refrigerated-rail-transport",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Modern country or regional reference; historic political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "ice-cars-1860s",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1860
+        },
+        "latest": {
+          "year": 1869
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "1860s",
+        "basis": "Museum gives a decade for ice-cooled rail cars."
+      },
+      "statement": "Railway refrigerator cars carrying block ice were used to preserve food in the United States.",
+      "caveats": "The museum’s assertion does not identify the specific initial operators, cargo, route or duration.",
+      "evidence": [
+        {
+          "source": "smithsonian-nd-refrigerator-rail",
+          "locator": "Description",
+          "supports": "Smithsonian states that use began in the 1860s."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "ice-cars-1860s",
+    "rationale": "Earliest event sourced for this particular record; not a claim of global origin."
+  },
+  "caveats": "This is a bounded US rail use; earlier cold storage and transport elsewhere are distinct.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "sourced"
+    },
+    "note": "Initial sourced admission; classification and interpretations await independent review."
+  }
+}

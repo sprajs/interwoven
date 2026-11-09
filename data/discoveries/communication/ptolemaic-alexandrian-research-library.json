@@ -1,0 +1,83 @@
+{
+  "id": "ptolemaic-alexandrian-research-library",
+  "name": "Alexandrian research library",
+  "description": "A Ptolemaic scholarly library associated with the Museum in Alexandria, used to collect and study writings.",
+  "kind": "practice",
+  "domain": "communication.records",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "library-third-century-bce",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": -300
+        },
+        "latest": {
+          "year": -201
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "third century BCE",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "A Ptolemaic ruler created a library and Museum for scholars in Alexandria during the third century BCE.",
+      "places": [
+        "egypt"
+      ],
+      "population": "Scholars associated with the Museum",
+      "caveats": "UCL leaves uncertain whether Ptolemy I or II founded it, the terms of access and the full scope of holdings.",
+      "evidence": [
+        {
+          "source": "ucl-alexandrian-library-wave4",
+          "locator": "Opening and research questions",
+          "supports": "UCL dates creation of the Museum and library to the third century BCE, uncertain between Ptolemy I and II."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "library-third-century-bce",
+    "rationale": "The cited institutional account gives an estimated third-century BCE foundation, not the date of the earliest independently secure surviving witness."
+  },
+  "places": [
+    {
+      "place": "egypt"
+    }
+  ],
+  "concept": "scholarly-research-library",
+  "links": [
+    {
+      "type": "requires",
+      "from": "egyptian-papyrus-sheet-roll",
+      "status": "established",
+      "statement": "The library held writings on papyrus scrolls, using a papyrus writing medium.",
+      "scope": "The functional medium represented by the Egyptian papyrus record; no transmission, descent from the surviving blank roll, or exact foundation holdings are established.",
+      "evidence": [
+        {
+          "source": "unesco-hypatia-library-wave4",
+          "locator": "Library paragraph",
+          "supports": "UNESCO describes the library’s papyrus scrolls."
+        },
+        {
+          "source": "met-papyrus-egypt-wave4",
+          "locator": "Writing surface",
+          "supports": "The Met explains the papyrus roll writing medium."
+        }
+      ]
+    }
+  ],
+  "caveats": "Access beyond associated scholars, exact holdings and the date or cause of loss are unresolved; earlier libraries and archives existed. The earliest securely dated documentary witness is not established by this source; the foundation date is a historical reconstruction. Collection-size figures are not established.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "concept": "recalled",
+      "links": "sourced"
+    },
+    "note": "Initial sourced research; independent review pending. Independent reader checked UCL account; founder, holdings, and access remain uncertain."
+  }
+}

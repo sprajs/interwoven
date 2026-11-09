@@ -1,0 +1,110 @@
+{
+  "id": "brooklyn-industrial-air-conditioning",
+  "name": "Brooklyn printing-plant air conditioning",
+  "description": "A plant air-conditioning system controlled humidity and temperature for industrial printing.",
+  "kind": "technology",
+  "domain": "energy.cooling",
+  "grain": "capability",
+  "concept": "industrial-air-conditioning",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Modern country or regional reference; historic political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "printing-plant-1902",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1902
+        },
+        "latest": {
+          "year": 1902
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1902",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "A printing plant in Brooklyn used a system designed by Willis Carrier to control conditions affecting multicolor printing.",
+      "caveats": "The corporate retrospective is associated with the inventor; the initial system used well water and compressor cooling was added in 1903.",
+      "evidence": [
+        {
+          "source": "carrier-nd-brooklyn-conditioning",
+          "locator": "Early air conditioning questions",
+          "supports": "Carrier’s history dates installation and describes the humidity problem."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "willis-carrier",
+          "role": "developer",
+          "resource": "Designed the air-conditioning system",
+          "evidence": [
+            {
+              "source": "carrier-nd-brooklyn-conditioning",
+              "locator": "Early air conditioning questions",
+              "supports": "History credits the design to Carrier."
+            }
+          ]
+        },
+        {
+          "organization": "sackett-wilhelms",
+          "role": "user",
+          "resource": "Used the system in a printing plant",
+          "evidence": [
+            {
+              "source": "carrier-nd-brooklyn-conditioning",
+              "locator": "Early air conditioning questions",
+              "supports": "History identifies the customer plant."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "printing-plant-1902",
+    "rationale": "Earliest event sourced for this particular record; not a claim of global origin."
+  },
+  "caveats": "Earlier refrigeration and climate-control practices exist; this plant is one industrial use.",
+  "measures": [
+    {
+      "quantity": "target relative humidity",
+      "value": 55,
+      "unit": "percent",
+      "event": "printing-plant-1902",
+      "subject": "Brooklyn printing plant",
+      "status": "claimed",
+      "conditions": "Manufacturer retrospective describes a target; not an independently measured year-round performance.",
+      "evidence": [
+        {
+          "source": "carrier-nd-brooklyn-conditioning",
+          "locator": "Early air conditioning questions",
+          "supports": "The company reports a target of 55% relative humidity."
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "willis-carrier",
+      "role": "originator"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "sourced"
+    },
+    "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked event dates, attribution and statements against cited passages; measures only where marked. Event classifications and other facets retain their prior status."
+  }
+}

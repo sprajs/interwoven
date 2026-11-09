@@ -1,0 +1,109 @@
+{
+  "id": "mauna-loa-carbon-dioxide-observations-1958",
+  "name": "Mauna Loa atmospheric carbon dioxide record",
+  "description": "Systematic atmospheric carbon dioxide measurements at Mauna Loa made a long-term concentration record possible.",
+  "kind": "science",
+  "domain": "physical-sciences.earth",
+  "grain": "capability",
+  "concept": "atmospheric-carbon-dioxide-time-series",
+  "people": [
+    {
+      "person": "charles-david-keeling",
+      "role": "originator"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-episode",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1958,
+          "month": 3
+        },
+        "latest": {
+          "year": 1958,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "March 1958",
+        "basis": "Scripps and ACS date the start of Mauna Loa observations to March 1958."
+      },
+      "statement": "A Scripps and U.S. Weather Bureau program began atmospheric carbon dioxide measurements at Mauna Loa in March 1958.",
+      "evidence": [
+        {
+          "source": "w4-scripps-keeling",
+          "locator": "Historical discussion or opening passage",
+          "supports": "Dates Mauna Loa atmospheric carbon dioxide measurements to March 1958, gives first monthly average and acknowledges observatory staff."
+        },
+        {
+          "source": "review-w4-acs-keeling-operations",
+          "locator": "International Geophysical Year and Establishing the Keeling Record at Mauna Loa",
+          "supports": "Describes installation of an infrared gas analyzer in March 1958, Weather Bureau support and staff who measured, maintained equipment and sent data to Scripps."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "charles-david-keeling",
+          "role": "developer",
+          "resource": "Led and developed the Scripps carbon dioxide measurement program.",
+          "evidence": [
+            {
+              "source": "w4-scripps-keeling",
+              "locator": "Historical discussion or opening passage",
+              "supports": "Dates Mauna Loa atmospheric carbon dioxide measurements to March 1958, gives first monthly average and acknowledges observatory staff."
+            }
+          ]
+        },
+        {
+          "group": "U.S. Weather Bureau observatory staff",
+          "role": "operator",
+          "resource": "Operated and maintained the analyzer and transmitted observations for analysis.",
+          "evidence": [
+            {
+              "source": "review-w4-acs-keeling-operations",
+              "locator": "International Geophysical Year and Establishing the Keeling Record at Mauna Loa",
+              "supports": "Describes installation of an infrared gas analyzer in March 1958, Weather Bureau support and staff who measured, maintained equipment and sent data to Scripps."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-episode",
+    "rationale": "A dated witness within the evidence collected here; not a claim of global priority or earliest observation."
+  },
+  "caveats": "This date is the start of this observatory series, not the first atmospheric carbon dioxide measurement. The record depended on Weather Bureau and later NOAA observers as well as Scripps. ACS describes interruptions in the first year and a separate 313 ppm first reading on 29 March; that individual reading is not the March monthly mean.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent reading checked the event, operation and the 315.7 ppm March monthly mean. Grain and other facets remain provisional."
+  },
+  "measures": [
+    {
+      "quantity": "atmospheric carbon dioxide concentration",
+      "value": 315.7,
+      "unit": "ppm",
+      "event": "documented-episode",
+      "subject": "First reported Mauna Loa monthly average",
+      "conditions": "March 1958 monthly mean at Mauna Loa; historical local measurement, not a current global value.",
+      "status": "measured",
+      "evidence": [
+        {
+          "source": "w4-scripps-keeling",
+          "locator": "Mauna Loa first monthly average",
+          "supports": "Dates Mauna Loa atmospheric carbon dioxide measurements to March 1958, gives first monthly average and acknowledges observatory staff."
+        }
+      ]
+    }
+  ]
+}

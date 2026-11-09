@@ -1,0 +1,131 @@
+{
+  "id": "aeg-basf-magnetic-sound-tape",
+  "name": "AEG–BASF magnetic sound recording tape",
+  "description": "Sound recording on a flexible tape coated with magnetic material, using a dedicated recorder and playback equipment.",
+  "kind": "technology",
+  "domain": "communication.recording",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "berlin-show-1935",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1935,
+          "month": 8
+        },
+        "latest": {
+          "year": 1935,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "August 1935",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "AEG presented a Magnetophon recorder with BASF type C tape at the Berlin Radio Show.",
+      "places": [
+        "germany"
+      ],
+      "contributions": [
+        {
+          "organization": "aeg",
+          "role": "developer",
+          "resource": "Developed the recorder.",
+          "evidence": [
+            {
+              "source": "chm-magnetophon-history-wave4",
+              "locator": "1935 exhibition and tape",
+              "supports": "CHM dates the Berlin Radio Show presentation to August 1935 and identifies AEG and BASF roles."
+            }
+          ]
+        },
+        {
+          "organization": "basf",
+          "role": "supplier",
+          "resource": "Developed the acetate-based recording tape.",
+          "evidence": [
+            {
+              "source": "chm-magnetophon-history-wave4",
+              "locator": "1935 exhibition and tape",
+              "supports": "CHM dates the Berlin Radio Show presentation to August 1935 and identifies AEG and BASF roles."
+            }
+          ]
+        }
+      ],
+      "caveats": "CHM calls this the K1; an Audio Engineering Society abstract says K2. The shared date and collaboration are retained while model identity awaits resolution.",
+      "evidence": [
+        {
+          "source": "chm-magnetophon-history-wave4",
+          "locator": "1935 exhibition and tape",
+          "supports": "CHM dates the Berlin Radio Show presentation to August 1935 and identifies AEG and BASF roles."
+        },
+        {
+          "source": "aes-magnetophon-development-wave4",
+          "locator": "Abstract",
+          "supports": "AES abstract also describes a 1935 AEG and BASF system but gives a different model designation."
+        }
+      ]
+    },
+    {
+      "id": "k4-market-1938",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1938
+        },
+        "latest": {
+          "year": 1938
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1938",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "AEG introduced the K4, described by CHM as its first commercially successful tape recorder.",
+      "contributions": [
+        {
+          "organization": "aeg",
+          "role": "supplier",
+          "resource": "Introduced the K4 recorder.",
+          "evidence": [
+            {
+              "source": "chm-magnetophon-history-wave4",
+              "locator": "K4 paragraph",
+              "supports": "Museum identifies AEG."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "chm-magnetophon-history-wave4",
+          "locator": "K4 paragraph",
+          "supports": "Museum dates K4 introduction and describes commercial success."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "berlin-show-1935",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "germany"
+    }
+  ],
+  "concept": "magnetic-sound-recording-tape",
+  "caveats": "Magnetic wire and magnetic coated-paper approaches preceded this implementation; the record is not the origin of all magnetic recording.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Initial sourced research; independent review pending. Independent reader checked CHM dates and AEG/BASF roles; K1 versus K2 source disagreement remains open."
+  }
+}

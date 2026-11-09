@@ -1,0 +1,122 @@
+{
+  "id": "intel-1103-dynamic-ram",
+  "name": "Intel 1103 dynamic random-access memory",
+  "description": "A 1,024-bit dynamic MOS memory integrated circuit sold as computer main memory.",
+  "kind": "technology",
+  "domain": "electronics.components",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "market-1970",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1970
+        },
+        "latest": {
+          "year": 1970
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1970",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Intel introduced the 1103 dynamic MOS random-access memory.",
+      "places": [
+        "california"
+      ],
+      "contributions": [
+        {
+          "organization": "intel",
+          "role": "supplier",
+          "resource": "Introduced the 1103 memory integrated circuit.",
+          "evidence": [
+            {
+              "source": "chm-1970-intel1103-wave4",
+              "locator": "1103 and prior designs",
+              "supports": "Museum describes Intel 1103 and prior MOS DRAM developments."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "chm-1970-intel1103-wave4",
+          "locator": "1103 and prior designs",
+          "supports": "Museum describes Intel 1103 and prior MOS DRAM developments."
+        }
+      ]
+    },
+    {
+      "id": "price-report-1973",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1973,
+          "month": 4,
+          "day": 26
+        },
+        "latest": {
+          "year": 1973,
+          "month": 4,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "26 April 1973",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "A trade-journal profile reported that the 1103 had been introduced at $60 per chip.",
+      "evidence": [
+        {
+          "source": "sideris-1973-intel1103-profile-wave4",
+          "locator": "Price paragraph",
+          "supports": "1973 profile reports an introductory price of $60."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "market-1970",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "california"
+    }
+  ],
+  "concept": "dynamic-ram",
+  "measures": [
+    {
+      "quantity": "reported introductory price",
+      "value": 60,
+      "unit": "USD per chip",
+      "currency": "USD",
+      "money_context": "Nominal price, reported retrospectively in 1973.",
+      "event": "price-report-1973",
+      "subject": "Intel 1103 chip",
+      "status": "claimed",
+      "conditions": "Trade-journal report of introductory price, not the 1973 selling price.",
+      "evidence": [
+        {
+          "source": "sideris-1973-intel1103-profile-wave4",
+          "locator": "Price paragraph",
+          "supports": "The 1973 profile reports introduction at $60."
+        }
+      ]
+    }
+  ],
+  "caveats": "Earlier DRAM devices existed; the 1103 used a three-transistor cell, distinct from later single-transistor commercial cells.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "Initial sourced research; independent review pending. Independent reader checked museum capacity and introduction, and the 1973 profile’s reported introductory price."
+  }
+}

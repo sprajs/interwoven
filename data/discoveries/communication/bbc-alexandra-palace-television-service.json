@@ -1,0 +1,157 @@
+{
+  "id": "bbc-alexandra-palace-television-service",
+  "name": "BBC Alexandra Palace television service",
+  "description": "A scheduled London television broadcasting service initially testing electronic and mechanical transmission systems.",
+  "kind": "practice",
+  "domain": "communication.broadcasting",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "public-service-1936",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1936,
+          "month": 11,
+          "day": 2
+        },
+        "latest": {
+          "year": 1936,
+          "month": 11,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2 November 1936",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The BBC opened its Alexandra Palace television service using competing Baird and Marconi–EMI systems.",
+      "places": [
+        "england"
+      ],
+      "contributions": [
+        {
+          "organization": "british-broadcasting-corporation",
+          "role": "operator",
+          "resource": "Operated the service.",
+          "evidence": [
+            {
+              "source": "bbc-2011-television-history-wave4",
+              "locator": "p. 8, opening and systems",
+              "supports": "BBC account gives the opening date and alternating equipment."
+            }
+          ]
+        }
+      ],
+      "caveats": "Receiving the service required appropriate equipment and local coverage; no household adoption count is inferred.",
+      "evidence": [
+        {
+          "source": "bbc-2011-television-history-wave4",
+          "locator": "p. 8, opening and systems",
+          "supports": "BBC account gives the opening date and alternating equipment."
+        },
+        {
+          "source": "bbc-radiotimes-1936-television-wave4",
+          "locator": "Technology section",
+          "supports": "Contemporary Radio Times describes the two London systems."
+        }
+      ]
+    },
+    {
+      "id": "early-set-cost",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1930
+        },
+        "latest": {
+          "year": 1939
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "1930s service context",
+        "basis": "The BBC places its approximate account of first television sets in a 1930s service retrospective; it does not date a particular model or price quote."
+      },
+      "statement": "The BBC retrospectively reported an approximate £100 price for the first television sets.",
+      "caveats": "The source supplies no precise date, model or specification for this retrospective figure; the 1930s interval reflects context and does not establish the price throughout the period or its affordability.",
+      "evidence": [
+        {
+          "source": "bbc-1930s-television-cost-wave4",
+          "locator": "p. 1, television service",
+          "supports": "BBC gives approximately £100 for first television sets."
+        }
+      ]
+    },
+    {
+      "id": "shutdown-1939",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1939,
+          "month": 9,
+          "day": 1
+        },
+        "latest": {
+          "year": 1939,
+          "month": 9,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1 September 1939",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The BBC shut down the service at the start of the Second World War.",
+      "evidence": [
+        {
+          "source": "bbc-2011-television-history-wave4",
+          "locator": "p. 8, closure",
+          "supports": "The historical account dates shutdown to 1 September 1939."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "public-service-1936",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "concept": "public-television-broadcasting",
+  "caveats": "Earlier television experiments and public broadcasts existed; the record concerns this particular regular service, not television’s world origin.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader checked the BBC’s launch and closure account and the approximate set-price statement; the price interval reflects retrospective context, not a dated model-specific offer."
+  },
+  "measures": [
+    {
+      "quantity": "early television set price",
+      "value": 100,
+      "unit": "GBP per set",
+      "currency": "GBP",
+      "money_context": "Nominal approximate price from BBC retrospective.",
+      "event": "early-set-cost",
+      "subject": "Early television receiving sets",
+      "status": "claimed",
+      "conditions": "BBC 1930s retrospective describes first television sets; no exact date, model, specification or general availability given; not an affordability measure.",
+      "evidence": [
+        {
+          "source": "bbc-1930s-television-cost-wave4",
+          "locator": "p. 1",
+          "supports": "Reports first sets cost about £100."
+        }
+      ]
+    }
+  ]
+}

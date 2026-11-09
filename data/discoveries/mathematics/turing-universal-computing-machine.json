@@ -1,0 +1,85 @@
+{
+  "id": "turing-universal-computing-machine",
+  "name": "Turing universal computing machine",
+  "description": "A mathematical model of computation in which one universal machine can interpret an encoded description of another machine.",
+  "kind": "mathematics",
+  "domain": "mathematics.logic",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "paper-read-1936",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1936,
+          "month": 11,
+          "day": 12
+        },
+        "latest": {
+          "year": 1936,
+          "month": 11,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "12 November 1936",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Turing’s paper on computable numbers was read to the London Mathematical Society and described a universal computing machine.",
+      "places": [
+        "england"
+      ],
+      "contributions": [
+        {
+          "person": "alan-turing",
+          "role": "developer",
+          "resource": "Developed the mathematical construction.",
+          "evidence": [
+            {
+              "source": "turing-1936-computable-numbers-wave4",
+              "locator": "First page; sections 2, 5, 8",
+              "supports": "Manuscript read 12 November 1936 defines a universal computing machine and demonstrates limits of mechanical decision."
+            }
+          ]
+        }
+      ],
+      "caveats": "The paper identifies the reading date; the complete paper’s publication sequence is distinct. This is an abstract construction, not a working physical computer. The paper’s header records the reading, but does not establish who read it aloud.",
+      "evidence": [
+        {
+          "source": "turing-1936-computable-numbers-wave4",
+          "locator": "First page; sections 2, 5, 8",
+          "supports": "Manuscript read 12 November 1936 defines a universal computing machine and demonstrates limits of mechanical decision."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "paper-read-1936",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "people": [
+    {
+      "person": "alan-turing",
+      "role": "author"
+    }
+  ],
+  "concept": "universal-computation",
+  "caveats": "The paper uses its own circle-free and symbol-printing problems; do not conflate these without argument with the modern halting problem.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Initial sourced research; independent review pending. Independent reader checked the paper’s read date and narrowed the author contribution to development; the header does not name the reader."
+  }
+}

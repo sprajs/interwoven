@@ -1,0 +1,65 @@
+{
+  "id": "antrea-bast-fishing-net",
+  "name": "Antrea bast fishing net",
+  "description": "A knotted fishing net made of willow bast provides archaeological evidence of mesh fishing.",
+  "kind": "practice",
+  "domain": "food.fishing",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -8400
+        },
+        "latest": {
+          "year": -8300
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "8400–8300 calibrated BCE",
+        "basis": "Source date for the documented context; BP conversion uses 1950 as reference where applicable."
+      },
+      "statement": "A knotted fishing net made of willow bast provides archaeological evidence of mesh fishing.",
+      "evidence": [
+        {
+          "source": "makela-2025-antrea-net",
+          "locator": "p. 617, Antrea net",
+          "supports": "Fishing net remains of willow bast, with other objects, are dated to 8400–8300 calibrated BCE; the suggested boat context is an interpretation."
+        },
+        {
+          "source": "bender-jorgensen-2023-antrea-net",
+          "locator": "pp. 3–4, Antrea entry",
+          "supports": "The authors report a willow-bast fishing net with knots, floats and sinkers dated 8400–8300 cal BC at Antrea in present-day Russia."
+        }
+      ],
+      "caveats": "The surviving find dates the specific net, not the origin of net fishing; the boat-loss context is interpretive.",
+      "places": [
+        "russia"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Date of the supported scoped case; no global priority is implied."
+  },
+  "caveats": "The surviving find dates the specific net, not the origin of net fishing; the boat-loss context is interpretive.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "concept": "reviewed"
+    },
+    "note": "Independent review checked the reported materials, location and date against a separate archaeological synthesis; the boat-loss context remains interpretive."
+  },
+  "places": [
+    {
+      "place": "russia"
+    }
+  ],
+  "concept": "fishing-net"
+}

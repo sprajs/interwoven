@@ -1,0 +1,118 @@
+{
+  "id": "larderello-geothermal-electricity",
+  "name": "Larderello geothermal electricity",
+  "description": "Steam from a geothermal resource powered a generator for lighting at Larderello.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "capability",
+  "concept": "geothermal-electricity",
+  "places": [
+    {
+      "place": "italy",
+      "note": "Modern country or regional reference; historic political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "demonstration-1904",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1904
+        },
+        "latest": {
+          "year": 1904
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1904",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "At Larderello, a steam-driven generator supplied electricity for five incandescent lamps.",
+      "caveats": "A retrospective report; this demonstration does not itself establish a commercial grid or global first.",
+      "evidence": [
+        {
+          "source": "doe-2010-larderello-history",
+          "locator": "Section 1.3 Larderello",
+          "supports": "DOE reports the 1904 demonstration and five lamps."
+        }
+      ]
+    },
+    {
+      "id": "power-plant-1913",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1913
+        },
+        "latest": {
+          "year": 1913
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1913",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "A geothermal power plant was built at Larderello nine years after the demonstration.",
+      "caveats": "Rated plant power is not annual electricity output.",
+      "evidence": [
+        {
+          "source": "doe-2010-larderello-history",
+          "locator": "Section 1.3 Larderello",
+          "supports": "The history reports the 250 kW plant nine years later."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1904",
+    "rationale": "Earliest event sourced for this particular record; not a claim of global origin."
+  },
+  "caveats": "No inference is made about later grid connection or prior geothermal heat use.",
+  "measures": [
+    {
+      "quantity": "lamps lit",
+      "value": 5,
+      "unit": "lamps",
+      "event": "demonstration-1904",
+      "subject": "1904 demonstration",
+      "status": "claimed",
+      "conditions": "DOE historical account of demonstration, not continuous customer count.",
+      "evidence": [
+        {
+          "source": "doe-2010-larderello-history",
+          "locator": "Section 1.3 Larderello",
+          "supports": "Reports five lamps."
+        }
+      ]
+    },
+    {
+      "quantity": "rated plant power",
+      "value": 250,
+      "unit": "kW",
+      "event": "power-plant-1913",
+      "subject": "Larderello 1913 plant",
+      "status": "claimed",
+      "conditions": "DOE retrospective rating, not measured generation or output in 1904.",
+      "evidence": [
+        {
+          "source": "doe-2010-larderello-history",
+          "locator": "Section 1.3 Larderello",
+          "supports": "Reports 250 kW for the later plant."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked event dates, attribution and statements against cited passages; measures only where marked. Event classifications and other facets retain their prior status."
+  }
+}

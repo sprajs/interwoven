@@ -105,12 +105,17 @@
         "basis": "Date or approximate interval stated by the source for this event."
       },
       "statement": "In the 1978 revision of their paper, the authors reported more than 600 UNIX installations had entered service.",
-      "caveats": "A retrospective minimum, not individual users; source publication spans July–August 1978.",
+      "caveats": "A retrospective minimum, not individual users; source publication spans July–August 1978. The authors say many installations did not charge file-space fees; this does not establish free UNIX licensing, public access, or ownership.",
       "evidence": [
         {
           "source": "ritchie-thompson-1978-unix-system",
           "locator": "1978 revision note and introduction",
           "supports": "Authors report more than 600 installations in their 1978 revision."
+        },
+        {
+          "source": "ritchie-thompson-1978-unix-system",
+          "locator": "Section IV, file-space charges",
+          "supports": "The authors say many installations did not charge for file space."
         }
       ]
     }
@@ -162,8 +167,8 @@
       "events": "sourced",
       "places": "sourced",
       "people": "sourced",
-      "measures": "sourced"
+      "measures": "reviewed"
     },
-    "note": "Source-backed initial research; independent review is pending."
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked the 1978 author account’s installation count and statement that many installations did not charge for file space; these do not establish public access or free software licenses."
   }
 }
