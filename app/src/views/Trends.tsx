@@ -300,7 +300,8 @@ export function Trends() {
           ctx.fillRect(axis.x0, y, axis.x1 - axis.x0, 1)
         }
         ctx.fillStyle = INK_3
-        ctx.fillText(formatValue(value), axis.x0 - 10, y)
+        // Gridlines sit on round values already, so they are labelled exactly.
+        ctx.fillText(value >= 100 ? group(value) : String(value), axis.x0 - 10, y)
       }
       ctx.textAlign = 'left'
 
@@ -673,7 +674,7 @@ function livedBetween(series: Series, t0: number, t1: number): number | null {
  * need no more than five lines, which also gives at least three. Counts never get fractional steps.
  */
 function niceTicks(peak: number, whole: boolean): number[] {
-  const top = peak > 0 ? peak : 1
+  const top = peak > 0 && Number.isFinite(peak) ? peak : 1
   let power = 10 ** (Math.floor(Math.log10(top)) - 1)
   for (;;) {
     for (const m of [1, 2, 2.5, 5]) {
@@ -756,7 +757,7 @@ function formatPeople(n: number): string {
 /** A bin's period, with its ends rounded to well under its own length. */
 function formatPeriod(t0: number, t1: number): string {
   const years = t1 - t0
-  const round = years >= 20000 ? 1000 : years >= 2000 ? 100 : years >= 200 ? 10 : 1
+  const round = years >= 10000 ? 1000 : years >= 1000 ? 100 : years >= 100 ? 10 : 1
   const a = formatYear(t0, round)
   const b = t1 >= PRESENT - 1 ? 'today' : formatYear(t1, round)
   return a === b ? a : `${a} – ${b}`

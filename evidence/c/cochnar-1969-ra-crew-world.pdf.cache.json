@@ -1,0 +1,34 @@
+{
+  "path": "evidence/c/cochnar-1969-ra-crew-world.pdf",
+  "sha256": "dd04e37ad166f714d9701d85547cc36e18c3a7aa950bddd90ca76dcd410b2e6f",
+  "bytes": 2476514,
+  "sources": [
+    "cochnar-1969-ra-crew-world"
+  ],
+  "retrieval": {
+    "kind": "pdf_excerpt",
+    "urls": [
+      "https://dai.mun.ca/PDFs/dailynews/DailyNews19690728.pdf"
+    ],
+    "original_sha256": "e3f578265b172cbe4a752c0cc76a8b50cad993233acdbc923301bd37fb1d4b93",
+    "original_page_count": 16,
+    "page_mapping": [
+      {
+        "excerpt_page": 1,
+        "source_page": 1
+      },
+      {
+        "excerpt_page": 2,
+        "source_page": 9
+      }
+    ],
+    "recorded_extraction_method": "Poppler pdfseparate per requested page, then pdfunite in the listed order.",
+    "note": "Original URL candidates are provenance, not a claim of current availability. Exact historical excerpt-byte reproduction is unverified; fetch --original provides the checksum-verified full source for research.",
+    "last_check": {
+      "date": "2026-11-09",
+      "original_download": "matched_original_sha256",
+      "excerpt_rebuild": "did_not_match_historical_sha256; historical target was not replaced",
+      "tools": "Poppler pdfseparate/pdfunite 26.06.0"
+    }
+  }
+}

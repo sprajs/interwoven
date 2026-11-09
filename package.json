@@ -1,8 +1,11 @@
 {
-  "name": "big-idea",
+  "name": "interwoven",
   "private": true,
   "scripts": {
-    "postinstall": "npm --prefix web install",
-    "dev": "npm --prefix web run dev"
+    "postinstall": "npm --prefix app install",
+    "dev": "npm --prefix app run dev",
+    "build": "npm --prefix app run build",
+    "validate": "python3 tools/validate.py",
+    "test": "python3 -m unittest discover -s tools/tests -t tools && npm --prefix app test"
   }
 }

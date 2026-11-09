@@ -29,6 +29,21 @@ to `main` at any time. Never assume the local checkout is current.
   If network access or permissions prevent syncing or publishing, say so
   explicitly; do not claim the checkout is current or the work is pushed.
 
+## The dataset
+
+- `docs/data-model.md` defines the records and `docs/research-guide.md` says how
+  to add to them. Read both before changing anything in `data/`.
+- Everything people have discovered or invented belongs, in every field, and an
+  achievement does not have to be a world first. Independent reinventions and
+  regional achievements get records of their own, with their `origin` stated.
+- Never invent a date, place, person or link. Leave the facet out. Every facet
+  that has a value records where it came from in `research.basis`; mark anything
+  entered from general knowledge as `recalled`.
+- Run `python3 tools/validate.py` before committing data, and `npm test` before
+  committing code. Both must pass.
+- One discovery and one source per file, so several agents can work at once.
+  Stage only your own files.
+
 ## Simulations: efficient Rust
 
 - Implement all simulations and their numerical kernels in Rust, including
@@ -54,6 +69,9 @@ to `main` at any time. Never assume the local checkout is current.
   so saved results and figures can be regenerated on another machine.
 - Have Rust write structured outputs that Python can consume. Keep simulation
   logic in Rust rather than duplicating it in Python or browser code.
+- The tools in `tools/` are Python with no dependencies beyond the standard
+  library. `tools/build.py` compiles `data/` for the app, which does no research
+  logic of its own.
 - Save useful plots, analysis results, and the metadata needed to trace them
   back to the input data, simulation configuration, and source commit. Label
   axes and units and distinguish measured results from illustrative examples.

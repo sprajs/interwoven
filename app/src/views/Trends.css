@@ -16,6 +16,12 @@
   padding: 14px var(--gutter) 2px;
 }
 
+/* The note wraps inside its own column, so the Measure control never drops a row and moves the chart. */
+.trends-head > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
 .trends-head h2 {
   margin: 0;
   font-size: 17px;

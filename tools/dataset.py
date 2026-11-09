@@ -32,6 +32,9 @@ REGISTER_DEFS = {
     "leads": "lead",
 }
 
+#: Saved copies too large to commit. See tools/evidence.py.
+BINARY_EVIDENCE = (".pdf", ".jpg", ".png")
+
 #: The facets of a discovery whose origin is tracked in ``research.basis``.
 FACETS = (
     "summary",
@@ -262,7 +265,17 @@ class Dataset:
             saved = source.get("file")
             if saved and check_files:
                 target = ROOT / saved["path"]
-                if not target.is_file():
+                descriptor = Path(str(target) + ".cache.json")
+                if target.suffix.lower() in BINARY_EVIDENCE:
+                    # Large files are not committed. Their descriptor says how to fetch them, so a
+                    # machine without the file is still sound as long as the two records agree.
+                    if not descriptor.is_file():
+                        errors.append(f"{where}: {saved['path']} has no .cache.json descriptor")
+                    elif read_json(descriptor).get("sha256") != saved["sha256"]:
+                        errors.append(f"{where}: {saved['path']} and its descriptor give different checksums")
+                    if target.is_file() and sha256(target) != saved["sha256"]:
+                        errors.append(f"{where}: saved copy {saved['path']} does not match its sha256")
+                elif not target.is_file():
                     errors.append(f"{where}: saved copy {saved['path']} is missing")
                 elif sha256(target) != saved["sha256"]:
                     errors.append(f"{where}: saved copy {saved['path']} does not match its sha256")
