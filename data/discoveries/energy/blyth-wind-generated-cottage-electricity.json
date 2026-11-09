@@ -1,0 +1,98 @@
+{
+  "id": "blyth-wind-generated-cottage-electricity",
+  "name": "Blyth wind-generated cottage electricity",
+  "description": "A wind-driven electrical generator supplied a cottage in Marykirk, Scotland, in 1887.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "capability",
+  "concept": "wind-generated-electricity",
+  "events": [
+    {
+      "id": "cottage-power-1887",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1887,
+          "month": 7
+        },
+        "latest": {
+          "year": 1887,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "July 1887",
+        "basis": "APS News dates the cottage wind-powered electricity to July 1887; DOE gives the year."
+      },
+      "statement": "James Blyth used a wind-driven electrical generator to supply his cottage at Marykirk, Scotland.",
+      "caveats": "This month comes from a retrospective; the cited passage does not give an exact day, electrical output, or independently documented operating period.",
+      "evidence": [
+        {
+          "source": "doe-2015-wind-energy-iq",
+          "locator": "First wind powered home answer",
+          "supports": "DOE dates Blyth’s wind engine and its cottage use."
+        },
+        {
+          "source": "garisto-2022-james-blyth-wind",
+          "locator": "Opening and Marykirk paragraphs",
+          "supports": "APS identifies July 1887 and Blyth’s holiday home."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "james-blyth",
+          "role": "developer",
+          "resource": "Built the wind engine for cottage electricity",
+          "evidence": [
+            {
+              "source": "doe-2015-wind-energy-iq",
+              "locator": "First wind powered home answer",
+              "supports": "DOE names Blyth and describes his wind engine powering his cottage."
+            }
+          ]
+        },
+        {
+          "person": "james-blyth",
+          "role": "user",
+          "resource": "Used the generator for his cottage",
+          "evidence": [
+            {
+              "source": "doe-2015-wind-energy-iq",
+              "locator": "First wind powered home answer",
+              "supports": "DOE identifies the cottage as Blyth’s and describes electricity use."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "cottage-power-1887",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "This source is a short institutional account; performance, independently built contemporary systems and further adoption need primary research.",
+  "people": [
+    {
+      "person": "james-blyth",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "scotland",
+      "note": "Present-day place; the location concerns the stated event."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "gps-operational-satellite-navigation",
+  "name": "GPS operational satellite navigation",
+  "description": "A satellite constellation and receiver system provided position and timing information, with initial U.S. operational capability declared in 1993.",
+  "kind": "technology",
+  "domain": "transport.navigation",
+  "grain": "capability",
+  "concept": "satellite-positioning-navigation",
+  "events": [
+    {
+      "id": "initial-operating-1993",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1993,
+          "month": 12,
+          "day": 8
+        },
+        "latest": {
+          "year": 1993,
+          "month": 12,
+          "day": 8
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1993-12-08",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The U.S. Department of Defense declared GPS initial operational capability and made its Standard Positioning Service available to the Department of Transportation.",
+      "caveats": "Initial operational capability is not the first positioning test; civilian service then covered the C/A-code signal, and reception and accuracy varied.",
+      "evidence": [
+        {
+          "source": "gps-1993-cgsic-edinburgh-meeting",
+          "locator": "GPS Status Update",
+          "supports": "GPS meeting record notes initial operational capability declared on 8 December 1993."
+        },
+        {
+          "source": "gps-2020-standard-positioning-service",
+          "locator": "Appendix C, IOC and FOC definitions",
+          "supports": "The standard dates IOC and identifies the government handover and signal scope."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "united-states-air-force",
+          "role": "operator",
+          "resource": "Managed and operated GPS for the U.S. government",
+          "evidence": [
+            {
+              "source": "gps-1993-standard-positioning-specification",
+              "locator": "Section 1, The GPS Standard Positioning Service",
+              "supports": "November 1993 specification identifies the U.S. Air Force as system operator."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "full-operating-1995",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1995,
+          "month": 4,
+          "day": 27
+        },
+        "latest": {
+          "year": 1995,
+          "month": 4,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1995-04-27",
+        "basis": "2020 standard distinguishes the date full operational capability was achieved from its 17 July 1995 public announcement."
+      },
+      "statement": "The GPS satellite constellation reached full operational capability on 27 April 1995; the Department of Defense announced it publicly on 17 July.",
+      "caveats": "The civilian standard service scope was limited to the C/A-code signal.",
+      "evidence": [
+        {
+          "source": "gps-2009-un-copuos-statement",
+          "locator": "GPS policy milestones",
+          "supports": "Government statement identifies 1995 full operational capability."
+        },
+        {
+          "source": "gps-2020-standard-positioning-service",
+          "locator": "Appendix C, IOC and FOC definitions",
+          "supports": "The standard distinguishes achievement and announcement dates, and the civilian signal scope."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "initial-operating-1993",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "The first GPS satellite launched in 1978; a launch alone is not the same as an operational positioning constellation.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

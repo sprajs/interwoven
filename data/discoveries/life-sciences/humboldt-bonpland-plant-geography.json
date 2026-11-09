@@ -1,0 +1,92 @@
+{
+  "id": "humboldt-bonpland-plant-geography",
+  "name": "Humboldt and Bonpland’s geography of plants",
+  "description": "The 1807 plant geography book and associated schematic related vegetation distribution to environmental conditions and altitude.",
+  "kind": "science",
+  "domain": "life-sciences.ecology",
+  "grain": "instance",
+  "concept": "plant-geography-and-altitude",
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1807
+        },
+        "latest": {
+          "year": 1807
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1807",
+        "basis": "Year is the date of the described episode in the cited source, not necessarily the invention or first conception."
+      },
+      "statement": "Humboldt and Bonpland’s German plant geography book appeared in 1807.",
+      "evidence": [
+        {
+          "source": "bhl-1807-humboldt-bonpland-plant-geography",
+          "locator": "Catalog title and publication details",
+          "supports": "1807 German publication names both authors and relates observations to plant geography."
+        },
+        {
+          "source": "moret-2019-tableau-physique-revisited",
+          "locator": "Results and Discussion",
+          "supports": "Identifies inaccuracies in the 1807 Tableau and advises against treating it as a direct modern baseline."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "alexander-von-humboldt",
+          "role": "developer",
+          "resource": "Co-authored the plant geography book.",
+          "evidence": [
+            {
+              "source": "bhl-1807-humboldt-bonpland-plant-geography",
+              "locator": "Catalog title and publication details",
+              "supports": "1807 German publication names both authors and relates observations to plant geography."
+            }
+          ]
+        },
+        {
+          "person": "aime-bonpland",
+          "role": "developer",
+          "resource": "Co-authored the plant geography book.",
+          "evidence": [
+            {
+              "source": "bhl-1807-humboldt-bonpland-plant-geography",
+              "locator": "Catalog title and publication details",
+              "supports": "1807 German publication names both authors and relates observations to plant geography."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest episode established from the sources collected for this scoped record, not a claim of global priority."
+  },
+  "caveats": "The 1807 Tableau is schematic: later examination found substantial inconsistencies with field records. The role of Andean scholars and their prior practices requires separate research; the date is this German edition, not proof of first such work. Moret and colleagues’ reassessment has drawn published scholarly responses; its interpretation should not be treated as uncontested.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "concept": "sourced",
+      "people": "sourced"
+    },
+    "note": "Original BHL catalogue and PNAS paper could not be opened directly during this independent pass; a university repository abstract confirms the critique. Event and other facets remain sourced, not independently reviewed."
+  },
+  "people": [
+    {
+      "person": "alexander-von-humboldt",
+      "role": "originator"
+    },
+    {
+      "person": "aime-bonpland",
+      "role": "originator"
+    }
+  ]
+}

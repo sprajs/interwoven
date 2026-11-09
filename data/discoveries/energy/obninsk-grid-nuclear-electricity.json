@@ -1,0 +1,95 @@
+{
+  "id": "obninsk-grid-nuclear-electricity",
+  "name": "Obninsk grid-connected nuclear electricity",
+  "description": "The Soviet Obninsk power station used a nuclear reactor to generate electricity for a public grid.",
+  "kind": "technology",
+  "domain": "energy.nuclear",
+  "grain": "capability",
+  "concept": "grid-connected-nuclear-power",
+  "events": [
+    {
+      "id": "grid-1954",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1954,
+          "month": 6,
+          "day": 27
+        },
+        "latest": {
+          "year": 1954,
+          "month": 6,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1954-06-27",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The Obninsk nuclear power station was connected to the Moscow electricity grid.",
+      "caveats": "Earlier research reactors and experimental nuclear electricity production existed; station output is not a quantity of energy delivered.",
+      "evidence": [
+        {
+          "source": "petrosyants-1984-obninsk-grid",
+          "locator": "Opening paragraphs",
+          "supports": "IAEA Bulletin retrospective dates connection and reports electrical output."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Obninsk nuclear power station team",
+          "role": "operator",
+          "resource": "Operated the grid-connected demonstration station",
+          "evidence": [
+            {
+              "source": "petrosyants-1984-obninsk-grid",
+              "locator": "Opening paragraphs",
+              "supports": "The account describes the operation and work of the Obninsk station team."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "grid-1954",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "The Soviet author’s retrospective interprets the project as a pioneering demonstration; no commercial sale or independent chain of technological transmission is established.",
+  "measures": [
+    {
+      "quantity": "electrical output",
+      "value": 5,
+      "unit": "MW(e)",
+      "event": "grid-1954",
+      "subject": "Obninsk nuclear power station",
+      "conditions": "Retrospective reports plant electrical output; operating profile not established.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "petrosyants-1984-obninsk-grid",
+          "locator": "Opening paragraphs",
+          "supports": "Reports electrical output of 5 MWe."
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "place": "russia",
+      "note": "Present-day place; the location concerns the stated event."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "places": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

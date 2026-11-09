@@ -1,0 +1,160 @@
+{
+  "id": "panama-canal-ocean-passage",
+  "name": "Panama Canal interoceanic navigation",
+  "description": "A canal and locks across the Isthmus of Panama enabled vessels to pass between Atlantic and Pacific waters.",
+  "kind": "technology",
+  "domain": "transport.navigation",
+  "grain": "capability",
+  "concept": "interoceanic-ship-canal",
+  "events": [
+    {
+      "id": "passage-1914",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1914,
+          "month": 1,
+          "day": 7
+        },
+        "latest": {
+          "year": 1914,
+          "month": 1,
+          "day": 7
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1914-01-07",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The self-propelled crane boat Alexandre La Valley completed a Panama Canal passage before the formal opening.",
+      "caveats": "The earlier vessel was a crane boat, and its passage is not evidence that the canal was open for ordinary commerce.",
+      "evidence": [
+        {
+          "source": "canal-authority-nd-completion",
+          "locator": "First passage and opening paragraphs",
+          "supports": "The Canal Authority describes the passage and date."
+        }
+      ]
+    },
+    {
+      "id": "commercial-opening-1914",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1914,
+          "month": 8,
+          "day": 15
+        },
+        "latest": {
+          "year": 1914,
+          "month": 8,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1914-08-15",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The canal formally opened with the transit of the Ancon; the U.S. government had announced commerce for vessels drawing no more than 30 feet.",
+      "caveats": "The advance commercial notice states the planned limit; it is not a detailed record of actual traffic on the opening day.",
+      "evidence": [
+        {
+          "source": "canal-authority-nd-completion",
+          "locator": "First passage and opening paragraphs",
+          "supports": "The authority dates the opening and names the Ancon transit."
+        },
+        {
+          "source": "state-dept-1914-canal-opening-notice",
+          "locator": "Circular of July 31, 1914",
+          "supports": "Announced a 30-foot draft limit for commerce on and after 15 August."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "john-constantine",
+          "role": "operator",
+          "resource": "Piloted the Ancon on the official opening transit",
+          "evidence": [
+            {
+              "source": "canal-authority-nd-completion",
+              "locator": "First passage and opening paragraphs",
+              "supports": "The Canal Authority names John A. Constantine as pilot of the official transit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panama-administration-1999",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 1999,
+          "month": 12,
+          "day": 31
+        },
+        "latest": {
+          "year": 1999,
+          "month": 12,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1999-12-31",
+        "basis": "Panama Canal Authority history dates the transfer."
+      },
+      "statement": "Panama assumed full administration, operation and maintenance of the canal through the Panama Canal Authority.",
+      "caveats": "This was a change in administration and sovereignty, not the canal’s first opening or an independent invention.",
+      "evidence": [
+        {
+          "source": "panama-canal-authority-nd-historical-overview",
+          "locator": "Transfer and Panama Canal Authority paragraphs",
+          "supports": "Authority states Panama assumed these responsibilities at noon on 31 December 1999."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "panama-canal-authority",
+          "role": "operator",
+          "resource": "Administered, operated and maintained the canal under Panama",
+          "evidence": [
+            {
+              "source": "panama-canal-authority-nd-historical-overview",
+              "locator": "Transfer and Panama Canal Authority paragraphs",
+              "supports": "Authority identifies itself as Panama’s entity for administration, operation and maintenance."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "passage-1914",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "The Suez Canal and earlier overland routes are antecedent capabilities; canal construction involved French and U.S. efforts and a complex political and labor history.",
+  "people": [
+    {
+      "person": "john-constantine",
+      "role": "user"
+    }
+  ],
+  "places": [
+    {
+      "place": "panama",
+      "note": "Present-day place; the location concerns the stated event."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

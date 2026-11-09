@@ -1,0 +1,164 @@
+{
+  "id": "bbc-2lo-public-radio-service",
+  "name": "BBC 2LO daily radio service",
+  "description": "Regular radio broadcasts by the British Broadcasting Company from its London 2LO studio, accessible to listeners with receiving equipment and a licence.",
+  "kind": "technology",
+  "domain": "communication.broadcasting",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "broadcasts-1922",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1922,
+          "month": 11,
+          "day": 14
+        },
+        "latest": {
+          "year": 1922,
+          "month": 11,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "14 November 1922",
+        "basis": "Date or interval stated or closely scoped by the cited source; see event caveats."
+      },
+      "statement": "Daily broadcasting from 2LO in London began on 14 November 1922, with Birmingham and Manchester broadcasts following the next day.",
+      "places": [
+        "london"
+      ],
+      "population": "Radio listeners able to receive 2LO",
+      "contributions": [
+        {
+          "organization": "british-broadcasting-company",
+          "role": "operator",
+          "resource": "Operated the 2LO daily broadcast service.",
+          "evidence": [
+            {
+              "source": "bbc-history-1920s-radio",
+              "locator": "1922 key dates",
+              "supports": "Identifies the company and daily transmissions."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "bbc-history-1920s-radio",
+          "locator": "1922 key dates and overview",
+          "supports": "BBC history dates the regular broadcasts and identifies the operator."
+        }
+      ]
+    },
+    {
+      "id": "licences-1926",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1926
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1926",
+        "basis": "BBC history says the reported number existed by 1926; it does not date when the threshold was reached."
+      },
+      "statement": "The BBC history reports 2.25 million radio licences by 1926.",
+      "places": [
+        "great-britain"
+      ],
+      "caveats": "Licences are not individual listeners, households reached, or a verified population denominator.",
+      "evidence": [
+        {
+          "source": "bbc-history-1920s-radio",
+          "locator": "Technical advance section",
+          "supports": "The BBC retrospective gives the licence count."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "broadcasts-1922",
+    "rationale": "Earliest cited dated event for this scoped record; a surviving witness or publication is not itself the invention date."
+  },
+  "places": [
+    {
+      "place": "london"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "radio receiving licence fee",
+      "value": 10,
+      "unit": "shillings",
+      "currency": "GBP",
+      "date": {
+        "earliest": {
+          "year": 1922,
+          "month": 11,
+          "day": 1
+        },
+        "latest": {
+          "year": 1922,
+          "month": 11,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1 November 1922",
+        "basis": "Date or interval stated or closely scoped by the cited source; see event caveats."
+      },
+      "subject": "Broadcast receiving licence",
+      "money_context": "Nominal British price; source says fee introduced on 1 November 1922 and half went to BBC. Duration and purchasing power are not specified here.",
+      "status": "claimed",
+      "conditions": "Licence fee stated by BBC historical retrospective; it excludes receiver cost.",
+      "evidence": [
+        {
+          "source": "bbc-history-1920s-radio",
+          "locator": "Introduction and 1922 key dates",
+          "supports": "States fee and introduction date."
+        }
+      ]
+    },
+    {
+      "quantity": "licences",
+      "value": 2250000,
+      "unit": "licences",
+      "event": "licences-1926",
+      "subject": "Broadcast receiving licences",
+      "status": "claimed",
+      "conditions": "BBC retrospective says 2.25 million licences by 1926; not a count of people or households.",
+      "evidence": [
+        {
+          "source": "bbc-history-1920s-radio",
+          "locator": "Technical advance section",
+          "supports": "Gives 2.25 million licences by 1926."
+        }
+      ]
+    }
+  ],
+  "caveats": "This British service was not the first radio broadcast anywhere; its organisation changed from company to corporation in 1927.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed",
+      "impact": "recalled",
+      "tier": "recalled"
+    },
+    "note": "Second reader checked the BBC historical PDF. Its 2.25 million licence count is bounded by 1926, and the fee is a nominal price, not receiver cost."
+  },
+  "impact": {
+    "reach": 1,
+    "depth": 2,
+    "generativity": 1,
+    "note": "Regular broadcasts reached one national society and expanded to later services."
+  },
+  "tier": 2,
+  "tier_reason": "Provisional judgment of sourced consequences, following docs/importance.md; independent review required."
+}

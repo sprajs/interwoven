@@ -1,0 +1,90 @@
+{
+  "id": "linnaeus-binomial-botanical-nomenclature",
+  "name": "Linnaeus’s botanical binomial nomenclature",
+  "description": "Species Plantarum consistently used a two-part genus and species name for described plants, helping standardize botanical naming.",
+  "kind": "practice",
+  "domain": "life-sciences.natural-history",
+  "grain": "capability",
+  "concept": "binomial-botanical-nomenclature",
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1753
+        },
+        "latest": {
+          "year": 1753
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1753",
+        "basis": "Year is the date of the described episode in the cited source, not necessarily the invention or first conception."
+      },
+      "statement": "Linnaeus published Species Plantarum with binomial names for approximately 7,700 plant species.",
+      "evidence": [
+        {
+          "source": "smithsonian-nd-linnaeus-species-plantarum",
+          "locator": "Linnaeus and Species Plantarum",
+          "supports": "1753 systematic binomial botanical nomenclature; approximately 7,700 species."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "carl-linnaeus",
+          "role": "developer",
+          "resource": "Compiled and published the named plants.",
+          "evidence": [
+            {
+              "source": "smithsonian-nd-linnaeus-species-plantarum",
+              "locator": "Linnaeus and Species Plantarum",
+              "supports": "1753 systematic binomial botanical nomenclature; approximately 7,700 species."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest episode established from the sources collected for this scoped record, not a claim of global priority."
+  },
+  "caveats": "The count is a retrospective approximation; binomial naming and botanical classification are not identical, and earlier naming practices existed.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent second reading checked the dated event evidence and cited quantitative measures; other facets remain as previously assessed."
+  },
+  "people": [
+    {
+      "person": "carl-linnaeus",
+      "role": "originator"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "species described and named",
+      "value": 7700,
+      "unit": "species",
+      "event": "dated-episode",
+      "subject": "Plants in the 1753 Species Plantarum as estimated by Smithsonian",
+      "conditions": "Approximately; a modern retrospective count of entries, not the number of living species known today.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "smithsonian-nd-linnaeus-species-plantarum",
+          "locator": "Linnaeus and Species Plantarum",
+          "supports": "1753 systematic binomial botanical nomenclature; approximately 7,700 species."
+        }
+      ]
+    }
+  ]
+}

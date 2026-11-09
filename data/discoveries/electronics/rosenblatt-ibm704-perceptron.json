@@ -1,0 +1,102 @@
+{
+  "id": "rosenblatt-ibm704-perceptron",
+  "name": "Rosenblatt perceptron simulations on IBM 704",
+  "description": "An early adaptive pattern-recognition system explored through computer simulation at Cornell Aeronautical Laboratory.",
+  "kind": "technology",
+  "domain": "electronics.ai",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "newsletter-report-1958",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1958,
+          "month": 7
+        },
+        "latest": {
+          "year": 1958,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "July 1958",
+        "basis": "Date or interval stated or closely scoped by the cited source; see event caveats."
+      },
+      "statement": "A US Navy newsletter reported repeated IBM 704 simulations of Frank Rosenblatt’s perceptron system; dedicated hardware was still under development.",
+      "places": [
+        "new-york-state"
+      ],
+      "scope": "Simulated perceptron; not the later dedicated machine",
+      "caveats": "The source’s sweeping claims about autonomous perception are contemporary promotional claims, not evidence of general intelligence or human-level perception.",
+      "contributions": [
+        {
+          "group": "Cornell Aeronautical Laboratory researchers",
+          "role": "developer",
+          "resource": "Developed and simulated the perceptron under Frank Rosenblatt.",
+          "evidence": [
+            {
+              "source": "onr-1958-perceptron-ibm704",
+              "locator": "Perceptron, p. 1",
+              "supports": "Names Rosenblatt and laboratory."
+            }
+          ]
+        },
+        {
+          "organization": "office-of-naval-research",
+          "role": "funder",
+          "resource": "Contracted for the laboratory research.",
+          "evidence": [
+            {
+              "source": "onr-1958-perceptron-ibm704",
+              "locator": "Perceptron, p. 1",
+              "supports": "Reports the ONR contract."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "onr-1958-perceptron-ibm704",
+          "locator": "Perceptron, p. 1",
+          "supports": "The July 1958 newsletter reports repeated IBM 704 simulations, an ONR contract, and a dedicated pilot machine still under development."
+        }
+      ],
+      "place_note": "The source locates Cornell Aeronautical Laboratory in Buffalo; it does not explicitly identify the physical location of the IBM 704 used."
+    }
+  ],
+  "earliest_record": {
+    "event": "newsletter-report-1958",
+    "rationale": "Earliest cited dated event for this scoped record; a surviving witness or publication is not itself the invention date."
+  },
+  "places": [
+    {
+      "place": "new-york-state",
+      "note": "Newsletter locates Cornell Aeronautical Laboratory in Buffalo."
+    }
+  ],
+  "funding": [
+    "military"
+  ],
+  "caveats": "This entry is the reported simulation capability; it does not infer the dedicated machine was complete in 1958.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "funding": "reviewed",
+      "people": "reviewed",
+      "concept": "recalled"
+    },
+    "note": "Second reader inspected the July 1958 Navy newsletter via the equivalent Bitsavers mirror; technical and intelligence claims in it are not independently demonstrated by the notice."
+  },
+  "people": [
+    {
+      "person": "frank-rosenblatt",
+      "role": "originator"
+    }
+  ],
+  "concept": "adaptive-neural-network-learning"
+}

@@ -1,0 +1,90 @@
+{
+  "id": "sputnik-1-earth-satellite",
+  "name": "Sputnik 1 orbital satellite",
+  "description": "A Soviet artificial satellite orbited Earth and broadcast radio signals in 1957.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "grain": "capability",
+  "concept": "earth-orbit-artificial-satellite",
+  "events": [
+    {
+      "id": "orbit-1957",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1957,
+          "month": 10,
+          "day": 4
+        },
+        "latest": {
+          "year": 1957,
+          "month": 10,
+          "day": 4
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1957-10-04",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The Soviet Union placed Sputnik 1 in Earth orbit; its radio transmitters sent signals receivable on Earth.",
+      "caveats": "The announcement reflects early reported parameters. The satellite is one achievement, not a claim about all rocketry.",
+      "evidence": [
+        {
+          "source": "nasa-1957-tass-sputnik-report",
+          "locator": "TASS announcement, October 5, 1957",
+          "supports": "NASA dates launch; translated TASS statement describes orbit and transmission."
+        },
+        {
+          "source": "nasa-2022-sputnik-baikonur",
+          "locator": "Sputnik design and launch paragraphs",
+          "supports": "Identifies Sputnik’s launch site as Baikonur in Soviet Kazakhstan."
+        }
+      ],
+      "places": [
+        "kazakhstan"
+      ],
+      "place_note": "Country-level place denotes launch site, not the satellite’s orbital path."
+    }
+  ],
+  "earliest_record": {
+    "event": "orbit-1957",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "Earlier sounding rockets reached space without entering Earth orbit; the source is an official contemporary announcement with a NASA headnote.",
+  "measures": [
+    {
+      "quantity": "satellite mass",
+      "value": 83.6,
+      "unit": "kg",
+      "event": "orbit-1957",
+      "subject": "Sputnik 1",
+      "conditions": "Mass reported in the contemporaneous TASS statement.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nasa-1957-tass-sputnik-report",
+          "locator": "TASS announcement, October 5, 1957",
+          "supports": "TASS gives 83.6 kg."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "places": "sourced"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  },
+  "places": [
+    {
+      "place": "kazakhstan",
+      "note": "Launch from Baikonur, then in the Kazakh Soviet Socialist Republic; the flight was in Earth orbit."
+    }
+  ]
+}

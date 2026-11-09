@@ -1,0 +1,173 @@
+{
+  "id": "vanguard-1-solar-satellite-power",
+  "name": "Vanguard I solar satellite power",
+  "description": "Solar photovoltaic panels supplied a spacecraft radio transmitter during Vanguard I’s orbital mission.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "capability",
+  "concept": "solar-photovoltaic-spacecraft-power",
+  "events": [
+    {
+      "id": "launch-1958",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1958,
+          "month": 3,
+          "day": 17
+        },
+        "latest": {
+          "year": 1958,
+          "month": 3,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1958-03-17",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "Vanguard I entered orbit carrying solar cells that powered a radio transmitter.",
+      "caveats": "This is spacecraft deployment; the cell manufacturer and equipment developer had distinct roles.",
+      "evidence": [
+        {
+          "source": "jpl-1976-solar-cell-array-handbook",
+          "locator": "Section 1.1.1, solar cell powered spacecraft",
+          "supports": "JPL handbook dates launch and describes a solar array successfully operated in space."
+        },
+        {
+          "source": "nasa-1970-vanguard-project-history",
+          "locator": "Vanguard I observations and solar cells",
+          "supports": "NASA history says solar cells powered transmitter signals."
+        },
+        {
+          "source": "ziobro-2010-vanguard-signal-corps",
+          "locator": "Vanguard section",
+          "supports": "The Army account describes a solar-powered transmitter and six clusters."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "manufacturer",
+          "resource": "Manufactured the cells used aboard Vanguard I",
+          "evidence": [
+            {
+              "source": "welles-1963-commercial-space-applications",
+              "locator": "Hoffman Electronics, Solar Cell Applications section",
+              "supports": "The Hoffman account identifies the firm as manufacturer of the Vanguard cells."
+            }
+          ],
+          "organization": "hoffman-electronics"
+        },
+        {
+          "role": "developer",
+          "resource": "Developed the satellite solar power device using six cell clusters",
+          "evidence": [
+            {
+              "source": "ziobro-2010-vanguard-signal-corps",
+              "locator": "Vanguard section",
+              "supports": "Army historical account attributes development of the solar power device to the laboratory."
+            }
+          ],
+          "organization": "us-army-signal-research-development-laboratory"
+        }
+      ]
+    },
+    {
+      "id": "final-signal-accounts",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1964
+        },
+        "latest": {
+          "year": 1965
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1964–1965, reports differ",
+        "basis": "NASA histories describe the last detection differently; neither establishes a precise global last reception or failure date."
+      },
+      "statement": "NASA accounts differ on the final years of detected solar-powered signals: one reports transmissions until 1965; another says its Quito station could not detect the signal by the close of 1964.",
+      "caveats": "The Quito observation is not proof of the exact date of transmitter failure or the last reception worldwide.",
+      "evidence": [
+        {
+          "source": "nasa-1970-vanguard-project-history",
+          "locator": "Vanguard I observations and solar cells",
+          "supports": "History reports solar-powered signals to Minitrack stations until 1965."
+        },
+        {
+          "source": "rosenthal-1968-venture-into-space",
+          "locator": "Chapter 2, p. 22",
+          "supports": "NASA history says the Quito station could not detect the signal at the close of 1964."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "launch-1958",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "Hoffman identifies itself as cell manufacturer in a company contribution to a 1963 study; the Army historical office separately attributes the solar power device development to its Signal laboratory. Funding and full system integration need further evidence. NASA institutional accounts differ on the final reception year; 1964 station observations and a 1965 report do not precisely date transmitter failure.",
+  "measures": [
+    {
+      "quantity": "solar panel count",
+      "value": 6,
+      "unit": "panels",
+      "event": "launch-1958",
+      "subject": "Vanguard I outer-surface array",
+      "conditions": "Six panels each with 18 cells, per the JPL handbook.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "jpl-1976-solar-cell-array-handbook",
+          "locator": "Section 1.1.1, solar cell powered spacecraft",
+          "supports": "Reports six panels."
+        }
+      ]
+    },
+    {
+      "quantity": "output power",
+      "value": "<1",
+      "unit": "W",
+      "event": "launch-1958",
+      "subject": "Vanguard I array",
+      "conditions": "JPL reports less than one watt for more than six years; operating conditions and power variation are not stated.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "jpl-1976-solar-cell-array-handbook",
+          "locator": "Section 1.1.1, solar cell powered spacecraft",
+          "supports": "Reports less than 1 W for over six years."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "bell-labs-silicon-solar-cell",
+      "status": "established",
+      "statement": "Hoffman reports taking up Bell Laboratories’ silicon-cell experimental work and manufacturing the cells used by Vanguard I.",
+      "scope": "Historical development and production path; the source does not say the spacecraft used Bell-manufactured cells.",
+      "evidence": [
+        {
+          "source": "welles-1963-commercial-space-applications",
+          "locator": "Hoffman Electronics, Solar Cell Applications section",
+          "supports": "Hoffman account connects its work to Bell and identifies it as the Vanguard cell manufacturer."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

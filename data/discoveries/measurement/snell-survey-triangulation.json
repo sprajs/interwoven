@@ -1,0 +1,140 @@
+{
+  "id": "snell-survey-triangulation",
+  "name": "Snell’s Dutch meridian triangulation",
+  "description": "Snell used a network of triangulated sightlines to estimate a meridian arc and Earth’s circumference.",
+  "kind": "practice",
+  "domain": "measurement.surveying",
+  "grain": "capability",
+  "concept": "geodetic-triangulation-network",
+  "events": [
+    {
+      "id": "survey-1615",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1615
+        },
+        "latest": {
+          "year": 1615
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1615",
+        "basis": "The Bureau of Land Management account dates Snell’s survey to 1615; the publication followed in 1617."
+      },
+      "statement": "Snell measured a baseline and used triangulation in a meridian survey.",
+      "places": [
+        "netherlands"
+      ],
+      "contributions": [
+        {
+          "person": "willebrord-snell",
+          "role": "operator",
+          "resource": "Conducted the triangulation and meridian survey.",
+          "evidence": [
+            {
+              "source": "blm-surveyors-public-domain-snell",
+              "locator": "Chapter 1, Triangulation",
+              "supports": "Reports Snell used a measured baseline and triangulation to determine a meridian arc in 1615."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "blm-surveyors-public-domain-snell",
+          "locator": "Chapter 1, Triangulation",
+          "supports": "Reports Snell used a measured baseline and triangulation to determine a meridian arc in 1615."
+        }
+      ]
+    },
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1617
+        },
+        "latest": {
+          "year": 1617
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1617",
+        "basis": "Year is the date of the described episode in the cited source, not necessarily the invention or first conception."
+      },
+      "statement": "Snell published Eratosthenes Batavus presenting his Dutch triangulation and meridian measurements.",
+      "evidence": [
+        {
+          "source": "strick-nd-snell-geodetic-survey",
+          "locator": "Page 2, geodetic work",
+          "supports": "Describes Snell’s triangulation and 1617 published account; reports 38,653 km circumference."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "willebrord-snell",
+          "role": "developer",
+          "resource": "Surveyed a network of triangles and published the results.",
+          "evidence": [
+            {
+              "source": "strick-nd-snell-geodetic-survey",
+              "locator": "Page 2, geodetic work",
+              "supports": "Describes Snell’s triangulation and 1617 published account; reports 38,653 km circumference."
+            }
+          ]
+        }
+      ],
+      "places": [
+        "netherlands"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "survey-1615",
+    "rationale": "This source-dated survey precedes the 1617 account; no claim of first use of triangulation globally."
+  },
+  "caveats": "Triangulation ideas and earlier applications preceded Snell. The reported metric value is a modern historical conversion, not the original measurement unit.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "sourced",
+      "people": "sourced",
+      "places": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent second reading checked the dated event evidence and cited quantitative measures; other facets remain as previously assessed."
+  },
+  "people": [
+    {
+      "person": "willebrord-snell",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "netherlands"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "estimated Earth circumference",
+      "value": 38653,
+      "unit": "km",
+      "event": "dated-episode",
+      "subject": "Snell’s geodetic meridian-arc calculation as presented by Strick",
+      "conditions": "A modern account’s reported result for the 1617 study; historical derivation and units not independently recalculated.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "strick-nd-snell-geodetic-survey",
+          "locator": "Page 2, geodetic work",
+          "supports": "Describes Snell’s triangulation and 1617 published account; reports 38,653 km circumference."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "metropolitan-underground-railway",
+  "name": "Metropolitan underground passenger railway",
+  "description": "London’s Metropolitan Railway operated steam-hauled underground passenger service between Paddington and Farringdon Street.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "capability",
+  "concept": "urban-underground-passenger-railway",
+  "events": [
+    {
+      "id": "opening-1863",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1863,
+          "month": 1,
+          "day": 10
+        },
+        "latest": {
+          "year": 1863,
+          "month": 1,
+          "day": 10
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1863-01-10",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The Metropolitan Railway opened its Paddington–Farringdon Street underground line to the public.",
+      "caveats": "Passenger count is a retrospective museum estimate without its primary accounting record in the passage.",
+      "evidence": [
+        {
+          "source": "ltm-nd-metropolitan-railway-opening",
+          "locator": "Answer",
+          "supports": "Museum gives the public opening date, route and day-one passenger count."
+        },
+        {
+          "source": "ltm-nd-metropolitan-steam-operation",
+          "locator": "Answer",
+          "supports": "Museum identifies steam-powered underground passenger service on the same opening date."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "operator",
+          "resource": "Opened the passenger railway to the public",
+          "evidence": [
+            {
+              "source": "ltm-nd-metropolitan-railway-opening",
+              "locator": "Answer",
+              "supports": "The museum attributes the public opening to the Metropolitan Railway."
+            }
+          ],
+          "organization": "metropolitan-railway-company"
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "opening-1863",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "The route used steam trains; do not project later electric tube technology onto 1863.",
+  "measures": [
+    {
+      "quantity": "passengers on opening day",
+      "value": 40000,
+      "unit": "passengers",
+      "event": "opening-1863",
+      "subject": "Metropolitan Railway, 10 January 1863",
+      "conditions": "London Transport Museum retrospective; its underlying counting method is not stated.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "ltm-nd-metropolitan-railway-opening",
+          "locator": "Answer",
+          "supports": "Reports 40,000 passengers on first day."
+        }
+      ]
+    },
+    {
+      "quantity": "route length",
+      "value": 3.5,
+      "unit": "miles",
+      "event": "opening-1863",
+      "subject": "Paddington to Farringdon Street Metropolitan Railway",
+      "conditions": "Museum account; route length as described for opening line.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "ltm-nd-metropolitan-railway-opening",
+          "locator": "Answer",
+          "supports": "Reports a three-and-a-half-mile railway."
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "place": "london",
+      "note": "Present-day place; the location concerns the stated event."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "places": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

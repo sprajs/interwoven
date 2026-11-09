@@ -1,0 +1,88 @@
+{
+  "id": "jiahu-fermented-beverage",
+  "name": "Jiahu mixed fermented beverage",
+  "description": "Residues in Jiahu pottery are interpreted as a fermented beverage made with rice, honey and fruit.",
+  "kind": "technology",
+  "domain": "food.fermentation",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -7000
+        },
+        "latest": {
+          "year": -5500
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Approximately 7000–5500 BCE, sampled Jiahu contexts",
+        "basis": "The paper’s methods give sampled contexts from about 7000–5500 BCE while its note 10 gives the youngest period ending 5800 BCE; the wider reported interval preserves the discrepancy."
+      },
+      "statement": "Residues in Jiahu pottery are interpreted as a fermented beverage made with rice, honey and fruit.",
+      "caveats": "Ingredients and fermentation are inferred from combined chemical and archaeological evidence; exact fruit and method remain uncertain. The methods and note 10 give conflicting youngest period endpoints (5500 versus 5800 BCE), so the wider span is retained; the individual positive sherds cannot be placed at one endpoint from this review.",
+      "evidence": [
+        {
+          "source": "mcgovern-2004-jiahu-fermentation",
+          "locator": "Abstract, Methods, discussion and note 10",
+          "supports": "The authors analysed sherds from 16 vessels across Jiahu periods; methods and note 10 disagree on the youngest endpoint, and chemical evidence is interpreted as a mixed fermented beverage."
+        }
+      ],
+      "places": [
+        "china"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "The paper reports sampled Jiahu contexts over approximately 7000–5500 BCE in its methods, with a conflicting 5800 BCE endpoint in note 10. This is a broad context range, not a direct date of the beverage’s invention."
+  },
+  "caveats": "Ingredients and fermentation are inferred from combined chemical and archaeological evidence; exact fruit and method remain uncertain. The methods and note 10 give conflicting youngest period endpoints (5500 versus 5800 BCE), so the wider span is retained; the individual positive sherds cannot be placed at one endpoint from this review.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "grain": "sourced",
+      "places": "reviewed",
+      "measures": "reviewed",
+      "concept": "sourced"
+    },
+    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats."
+  },
+  "places": [
+    {
+      "place": "china"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "Pottery vessels sampled",
+      "value": 16,
+      "unit": "vessels",
+      "subject": "Jiahu domestic-context pottery selected for residue analysis",
+      "conditions": "Sherds from 16 domestic-context vessels across several Jiahu periods; laboratory sample count, not a number of vessels at one moment or all positive for each ingredient.",
+      "status": "measured",
+      "evidence": [
+        {
+          "source": "mcgovern-2004-jiahu-fermentation",
+          "locator": "Materials and Methods",
+          "supports": "The authors analysed sherds from 16 vessels from Jiahu domestic contexts."
+        }
+      ],
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2004
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "By publication in 2004",
+        "basis": "The 2004 paper reports the number of vessels sampled for laboratory analysis."
+      }
+    }
+  ],
+  "concept": "fermented-food-and-drink"
+}

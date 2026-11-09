@@ -1,0 +1,116 @@
+{
+  "id": "vostok-1-crewed-orbit",
+  "name": "Vostok 1 crewed Earth orbit",
+  "description": "A human travelled around Earth aboard the Soviet Vostok 1 spacecraft.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "grain": "capability",
+  "concept": "crewed-earth-orbit",
+  "events": [
+    {
+      "id": "orbit-1961",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1961,
+          "month": 4,
+          "day": 12
+        },
+        "latest": {
+          "year": 1961,
+          "month": 4,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1961-04-12",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "Yuri Gagarin orbited Earth aboard the Soviet Vostok 1 spacecraft.",
+      "caveats": "The specific flight does not characterize every subsequent crewed spacecraft.",
+      "evidence": [
+        {
+          "source": "nasa-2018-gagarin-vostok-flight",
+          "locator": "Description",
+          "supports": "NASA identifies the pilot, date, Earth orbit and flight duration."
+        },
+        {
+          "source": "esa-nd-vostok-1-flight",
+          "locator": "Launch timeline",
+          "supports": "Identifies the 1961 Vostok launch as Baikonur; NASA source on Sputnik locates that site in Kazakhstan."
+        },
+        {
+          "source": "nasa-2022-sputnik-baikonur",
+          "locator": "Sputnik design and launch paragraphs",
+          "supports": "NASA locates Baikonur in Soviet Kazakhstan."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "yuri-gagarin",
+          "role": "user",
+          "resource": "Cosmonaut aboard Vostok 1; source does not specify manual control.",
+          "evidence": [
+            {
+              "source": "nasa-2018-gagarin-vostok-flight",
+              "locator": "Description",
+              "supports": "NASA identifies Gagarin as the cosmonaut aboard the flight."
+            }
+          ]
+        }
+      ],
+      "places": [
+        "kazakhstan"
+      ],
+      "place_note": "Country-level place denotes launch site, not the satellite’s orbital path."
+    }
+  ],
+  "earliest_record": {
+    "event": "orbit-1961",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "The mission is an instance of a crewed orbital capability; technical responsibilities and recovery procedures are not detailed by this source.",
+  "measures": [
+    {
+      "quantity": "flight duration",
+      "value": 108,
+      "unit": "minutes",
+      "event": "orbit-1961",
+      "subject": "Vostok 1 crewed flight",
+      "conditions": "NASA account gives total flight duration.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nasa-2018-gagarin-vostok-flight",
+          "locator": "Description",
+          "supports": "Reports 108 minutes."
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "yuri-gagarin",
+      "role": "user"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "places": "sourced"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  },
+  "places": [
+    {
+      "place": "kazakhstan",
+      "note": "Launch from Baikonur, then in the Kazakh Soviet Socialist Republic; the flight was in Earth orbit."
+    }
+  ]
+}

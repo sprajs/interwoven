@@ -6,16 +6,137 @@
   "domain": "economy.organisation",
   "events": [
     {
+      "id": "organisation-meeting-1844",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1844,
+          "month": 8
+        },
+        "latest": {
+          "year": 1844,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "August 1844",
+        "basis": "The Co-operative Heritage Trust dates the original members’ meeting to August 1844."
+      },
+      "statement": "The original members met in Rochdale in August 1844 to organise the society.",
+      "caveats": "The account dates the meeting to August but does not specify a precise day or the separate dates on which funds were raised and the tenancy agreed.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "cooperative-heritage-rochdale-1844",
+          "locator": "Opening paragraphs",
+          "supports": "Dates the original members’ meeting to August 1844."
+        }
+      ]
+    },
+    {
+      "id": "fundraising-rent-1844",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1844,
+          "month": 12,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 21 December 1844",
+        "basis": "The heritage account describes funding and rental for the store that opened on 21 December; precise fundraising and rental dates are not given."
+      },
+      "statement": "The original members raised money through subscriptions and loans to rent a storefront.",
+      "caveats": "The account associates this with the August meeting but does not date the funding or tenancy precisely.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "cooperative-heritage-rochdale-1844",
+          "locator": "Opening paragraphs",
+          "supports": "Describes subscriptions and loans used to rent the storefront."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Original members of the Rochdale Equitable Pioneers Society",
+          "role": "funder",
+          "resource": "Raised money through subscriptions and loans to rent a shop.",
+          "evidence": [
+            {
+              "source": "cooperative-heritage-rochdale-1844",
+              "locator": "Opening paragraphs and opening-night discussion",
+              "supports": "The heritage account identifies subscriptions and loans as funding the rent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "purchasers-appointed-1844",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1844,
+          "month": 12,
+          "day": 12
+        },
+        "latest": {
+          "year": 1844,
+          "month": 12,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "12 December 1844",
+        "basis": "The Co-operative Heritage Trust dates the appointment to 12 December 1844."
+      },
+      "statement": "Members appointed John Holt and David Brooks as purchasers for the planned shop opening.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "cooperative-heritage-rochdale-1844",
+          "locator": "Opening-night purchasing discussion",
+          "supports": "Names Holt and Brooks and dates their appointment to 12 December 1844."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Pioneer purchasers John Holt and David Brooks",
+          "role": "contributor",
+          "resource": "Were appointed to purchase stock for opening night.",
+          "evidence": [
+            {
+              "source": "cooperative-heritage-rochdale-1844",
+              "locator": "Opening-night purchasing discussion",
+              "supports": "Names Holt and Brooks as the purchasers appointed 12 December 1844."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "dated-evidence",
       "type": "practical_use",
       "date": {
         "earliest": {
-          "year": 1844
+          "year": 1844,
+          "month": 12,
+          "day": 21
         },
         "latest": {
-          "year": 1844
+          "year": 1844,
+          "month": 12,
+          "day": 21
         },
-        "precision": "year",
+        "precision": "day",
         "status": "known",
         "label": "21 December 1844",
         "basis": "The Co-operative Heritage Trust dates the store’s opening to 21 December 1844."
@@ -33,38 +154,12 @@
         "england"
       ],
       "scope": "Opening of one member consumer society in Rochdale, rather than the origin of cooperatives in general.",
-      "contributions": [
-        {
-          "group": "Original members of the Rochdale Equitable Pioneers Society",
-          "role": "funder",
-          "resource": "Raised money through subscriptions and loans to rent a shop.",
-          "evidence": [
-            {
-              "source": "cooperative-heritage-rochdale-1844",
-              "locator": "Opening paragraphs and opening-night discussion",
-              "supports": "The heritage account identifies subscriptions and loans as funding the rent."
-            }
-          ]
-        },
-        {
-          "group": "Pioneer purchasers John Holt and David Brooks",
-          "role": "contributor",
-          "resource": "Were appointed to purchase stock for opening night.",
-          "evidence": [
-            {
-              "source": "cooperative-heritage-rochdale-1844",
-              "locator": "Opening-night purchasing discussion",
-              "supports": "Names Holt and Brooks as the purchasers appointed 12 December 1844."
-            }
-          ]
-        }
-      ],
       "population": "Original society members and customers served by the Rochdale shop"
     }
   ],
   "earliest_record": {
-    "event": "dated-evidence",
-    "rationale": "The Co-operative Heritage Trust dates the store’s opening to 21 December 1844. Earliest record means earliest currently established for this scoped case, not global priority."
+    "event": "organisation-meeting-1844",
+    "rationale": "The source dates this society’s organisational meeting to August 1844, before the shop opened; it does not establish the origin of consumer cooperatives."
   },
   "caveats": "The heritage account describes a set of principles without establishing the precise implementation date of each. Cooperatives existed before Rochdale; equal voting and open membership must not be read as evidence that all residents could afford to join.",
   "research": {
@@ -97,13 +192,17 @@
           "locator": "Opening paragraphs and opening-night discussion",
           "supports": "The account reports rent of £10 per year."
         }
-      ]
+      ],
+      "event": "fundraising-rent-1844",
+      "subject": "Rochdale society storefront rental",
+      "currency": "GBP",
+      "money_context": "Nominal 1844 pounds sterling per year; the source does not give the exact tenancy date."
     },
     {
       "quantity": "founders in the heritage account",
       "value": 28,
       "unit": "people",
-      "conditions": "Working-class men described by the Co-operative Heritage Trust as establishing the Rochdale consumer society; not a count of all subsequent members.",
+      "conditions": "Working-class men described as establishing the Rochdale society; not a count of those present at the August meeting or of subsequent members.",
       "status": "claimed",
       "evidence": [
         {
@@ -111,7 +210,28 @@
           "locator": "Opening paragraphs and opening-night discussion",
           "supports": "The account states that 28 working-class men came together to establish the society."
         }
-      ]
+      ],
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1844,
+          "month": 12,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 21 December 1844",
+        "basis": "The heritage account attributes 28 founders to the society that opened its shop on this date."
+      },
+      "subject": "Founders described in the heritage account"
     }
-  ]
+  ],
+  "community_entry": {
+    "event": "dated-evidence",
+    "community": "The Rochdale society and its customers",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "The heritage account says the cooperative shop opened for trade on 21 December 1844.",
+    "caveats": "This opening does not establish that every resident could afford membership or goods."
+  }
 }

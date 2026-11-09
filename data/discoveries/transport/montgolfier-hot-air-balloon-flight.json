@@ -1,0 +1,138 @@
+{
+  "id": "montgolfier-hot-air-balloon-flight",
+  "name": "Montgolfier human balloon flight",
+  "description": "A hot-air balloon built by the Montgolfier brothers carried two people on a free flight over Paris in 1783.",
+  "kind": "technology",
+  "domain": "transport.aviation",
+  "grain": "capability",
+  "concept": "crewed-free-balloon-flight",
+  "events": [
+    {
+      "id": "human-flight-1783",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1783,
+          "month": 11,
+          "day": 21
+        },
+        "latest": {
+          "year": 1783,
+          "month": 11,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1783-11-21",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "Jean-François Pilâtre de Rozier and the Marquis d’Arlandes travelled in a Montgolfier hot-air balloon in France.",
+      "caveats": "Earlier uncrewed and tethered ascents preceded this episode; exact flight route and duration are not stated here.",
+      "evidence": [
+        {
+          "source": "hansen-kinney-wind-beyond-balloon",
+          "locator": "Chapter 5, Other Paths, Other Flyways",
+          "supports": "NASA historical volume identifies the builders, passengers and date."
+        },
+        {
+          "source": "nps-nd-lighter-than-air-overview",
+          "locator": "Balloons, paragraphs on the Montgolfiers and Pilâtre de Rozier",
+          "supports": "NPS calls the flight of the two named aeronauts a free flight."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "pilatre-de-rozier",
+          "role": "operator",
+          "resource": "Aeronaut aboard the 21 November flight",
+          "evidence": [
+            {
+              "source": "hansen-kinney-wind-beyond-balloon",
+              "locator": "Chapter 5, Other Paths, Other Flyways",
+              "supports": "The historical volume identifies Pilâtre de Rozier as one of the two men aboard."
+            }
+          ]
+        },
+        {
+          "person": "marquis-darlandes",
+          "role": "operator",
+          "resource": "Aeronaut aboard the 21 November flight",
+          "evidence": [
+            {
+              "source": "hansen-kinney-wind-beyond-balloon",
+              "locator": "Chapter 5, Other Paths, Other Flyways",
+              "supports": "The historical volume identifies the Marquis d’Arlandes as one of the two men aboard."
+            }
+          ]
+        },
+        {
+          "role": "developer",
+          "resource": "Built the hot-air balloon used in the flight",
+          "evidence": [
+            {
+              "source": "hansen-kinney-wind-beyond-balloon",
+              "locator": "Chapter 5, Other Paths, Other Flyways",
+              "supports": "NASA volume attributes construction of the larger balloon to the Montgolfiers."
+            },
+            {
+              "source": "nps-nd-lighter-than-air-overview",
+              "locator": "Balloons, paragraphs on the Montgolfiers and Pilâtre de Rozier",
+              "supports": "NPS identifies Joseph and Étienne as the brothers."
+            }
+          ],
+          "person": "joseph-michel-montgolfier"
+        },
+        {
+          "role": "developer",
+          "resource": "Built the hot-air balloon used in the flight",
+          "evidence": [
+            {
+              "source": "hansen-kinney-wind-beyond-balloon",
+              "locator": "Chapter 5, Other Paths, Other Flyways",
+              "supports": "NASA volume attributes construction of the larger balloon to the Montgolfiers."
+            },
+            {
+              "source": "nps-nd-lighter-than-air-overview",
+              "locator": "Balloons, paragraphs on the Montgolfiers and Pilâtre de Rozier",
+              "supports": "NPS identifies Joseph and Étienne as the brothers."
+            }
+          ],
+          "person": "jacques-etienne-montgolfier"
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "human-flight-1783",
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+  },
+  "caveats": "The historical account is a later synthesis. Earlier demonstrations of balloons and tethered human ascents are separate episodes.",
+  "people": [
+    {
+      "person": "pilatre-de-rozier",
+      "role": "user"
+    },
+    {
+      "person": "marquis-darlandes",
+      "role": "user"
+    }
+  ],
+  "places": [
+    {
+      "place": "paris",
+      "note": "Present-day place; the location concerns the stated event."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

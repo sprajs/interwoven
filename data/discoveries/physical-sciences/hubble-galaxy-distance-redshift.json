@@ -1,0 +1,130 @@
+{
+  "id": "hubble-galaxy-distance-redshift",
+  "name": "Hubble’s 1929 distance–velocity relation",
+  "description": "Hubble analyzed a relation between estimated extragalactic distances and radial velocities in a sample of nebulae.",
+  "kind": "science",
+  "domain": "physical-sciences.astronomy",
+  "grain": "capability",
+  "concept": "extragalactic-distance-velocity-relation",
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1929
+        },
+        "latest": {
+          "year": 1929
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1929",
+        "basis": "Year is the date of the described episode in the cited source, not necessarily the invention or first conception."
+      },
+      "statement": "Hubble published a distance–radial velocity analysis using individual objects and grouped data.",
+      "evidence": [
+        {
+          "source": "hubble-1929-distance-radial-velocity",
+          "locator": "Opening; table 1 and two solutions",
+          "supports": "1929 paper compares 24 individual distances with radial velocities, also grouped as 9 groups."
+        },
+        {
+          "source": "way-2013-hubble-prior-evidence",
+          "locator": "Hubble 1929b discussion",
+          "supports": "Describes sample-specific slope estimates and earlier contributions including Slipher, Lemaître and Robertson."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "edwin-hubble",
+          "role": "developer",
+          "resource": "Analyzed and published the distance–velocity comparison.",
+          "evidence": [
+            {
+              "source": "hubble-1929-distance-radial-velocity",
+              "locator": "Opening; table 1 and two solutions",
+              "supports": "1929 paper compares 24 individual distances with radial velocities, also grouped as 9 groups."
+            }
+          ]
+        },
+        {
+          "person": "vesto-slipher",
+          "role": "contributor",
+          "resource": "Earlier measurements of radial velocities used in Hubble’s analysis.",
+          "evidence": [
+            {
+              "source": "way-2013-hubble-prior-evidence",
+              "locator": "Hubble 1929b discussion",
+              "supports": "Identifies Slipher as the source of most Doppler shifts used by Hubble."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest episode established from the sources collected for this scoped record, not a claim of global priority."
+  },
+  "caveats": "Slipher supplied many underlying velocities and Lemaître and others published earlier related work. Hubble’s slope is a historical sample-dependent estimate, not a modern expansion-rate measurement.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent second reading checked the dated event evidence and cited quantitative measures; other facets remain as previously assessed."
+  },
+  "people": [
+    {
+      "person": "edwin-hubble",
+      "role": "originator"
+    },
+    {
+      "person": "vesto-slipher",
+      "role": "contributor",
+      "note": "Earlier velocity measurements used in Hubble’s 1929 analysis."
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "velocity–distance slope",
+      "value": 465,
+      "unit": "km/s/Mpc",
+      "event": "dated-episode",
+      "subject": "Hubble’s fit to 24 individual nebulae as reported by Way",
+      "conditions": "Approximately 465 ± 50 km/s/Mpc in the 1929 individual-object solution, reported by Way; the plus/minus is the historical quoted uncertainty, not a modern measurement or a specified confidence interval.",
+      "lower": 415,
+      "upper": 515,
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "way-2013-hubble-prior-evidence",
+          "locator": "Hubble 1929b discussion",
+          "supports": "Describes sample-specific slope estimates and earlier contributions including Slipher, Lemaître and Robertson."
+        }
+      ]
+    },
+    {
+      "quantity": "objects with individual distance estimates",
+      "value": 24,
+      "unit": "nebulae",
+      "event": "dated-episode",
+      "subject": "Hubble’s 1929 sample with individual estimated distances",
+      "conditions": "24 individual objects; the alternative fit grouped them into nine groups.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "hubble-1929-distance-radial-velocity",
+          "locator": "Opening; table 1 and two solutions",
+          "supports": "1929 paper compares 24 individual distances with radial velocities, also grouped as 9 groups."
+        }
+      ]
+    }
+  ]
+}

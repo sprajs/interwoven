@@ -1,0 +1,169 @@
+{
+  "id": "apollo-11-crewed-lunar-landing",
+  "name": "Apollo 11 crewed lunar landing and return",
+  "description": "An integrated Apollo spacecraft carried a crew to lunar orbit, landed two astronauts on the Moon, and returned the crew to Earth.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "grain": "capability",
+  "concept": "crewed-lunar-landing-return",
+  "events": [
+    {
+      "id": "landing-1969",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1969,
+          "month": 7,
+          "day": 20
+        },
+        "latest": {
+          "year": 1969,
+          "month": 7,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1969-07-20",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "Apollo 11 astronauts Neil Armstrong and Edwin Aldrin landed the lunar module on the Moon; Michael Collins remained in the command module.",
+      "caveats": "This record is a specific mission and its integrated transport capability, not an attribution of the mission to the three astronauts alone.",
+      "evidence": [
+        {
+          "source": "nasa-2015-apollo-11-mission-overview",
+          "locator": "Mission Highlights",
+          "supports": "NASA describes the crew roles, lunar landing and command module."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "neil-armstrong",
+          "role": "operator",
+          "resource": "Apollo 11 commander and lunar module crew member",
+          "evidence": [
+            {
+              "source": "nasa-2015-apollo-11-mission-overview",
+              "locator": "Mission Highlights",
+              "supports": "NASA names Armstrong as commander and lunar lander crew member."
+            }
+          ]
+        },
+        {
+          "person": "edwin-aldrin",
+          "role": "operator",
+          "resource": "Apollo 11 lunar module pilot",
+          "evidence": [
+            {
+              "source": "nasa-2015-apollo-11-mission-overview",
+              "locator": "Mission Highlights",
+              "supports": "NASA identifies Aldrin as lunar module pilot."
+            }
+          ]
+        },
+        {
+          "person": "michael-collins",
+          "role": "operator",
+          "resource": "Command module pilot in lunar orbit",
+          "evidence": [
+            {
+              "source": "nasa-2015-apollo-11-mission-overview",
+              "locator": "Mission Highlights",
+              "supports": "NASA identifies Collins as command module pilot."
+            }
+          ]
+        },
+        {
+          "role": "operator",
+          "resource": "Operated the Apollo 11 mission",
+          "evidence": [
+            {
+              "source": "nasa-2015-apollo-11-mission-overview",
+              "locator": "Mission Highlights",
+              "supports": "NASA identifies the Apollo 11 NASA mission and its operations."
+            }
+          ],
+          "organization": "nasa"
+        }
+      ]
+    },
+    {
+      "id": "return-1969",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1969,
+          "month": 7,
+          "day": 24
+        },
+        "latest": {
+          "year": 1969,
+          "month": 7,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1969-07-24",
+        "basis": "The cited source dates this scoped episode."
+      },
+      "statement": "The Apollo 11 crew returned to Earth and splashed down in the Pacific.",
+      "caveats": "Return is a distinct later mission event, not the first arrival on the Moon.",
+      "evidence": [
+        {
+          "source": "nasa-2015-apollo-11-mission-overview",
+          "locator": "Mission Highlights",
+          "supports": "NASA dates the return and describes the crew."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "return-1969",
+    "rationale": "The scoped capability includes return to Earth, completed on 24 July 1969; the lunar landing is retained as a distinct event on 20 July."
+  },
+  "caveats": "The Soviet Luna 9 achieved an uncrewed soft landing earlier; prior Apollo missions and many people contributed to the program.",
+  "measures": [
+    {
+      "quantity": "lunar surface stay",
+      "value": 21.6,
+      "unit": "hours",
+      "event": "landing-1969",
+      "subject": "Armstrong and Aldrin on lunar surface",
+      "conditions": "NASA reports 21 hours 36 minutes on the Moon; 21.6 hours is an arithmetic conversion.",
+      "status": "derived",
+      "evidence": [
+        {
+          "source": "nasa-2015-apollo-11-mission-overview",
+          "locator": "Mission Highlights",
+          "supports": "Reports 21 hours and 36 minutes."
+        }
+      ],
+      "method": "21 hours + 36 minutes / 60 = 21.6 hours."
+    }
+  ],
+  "people": [
+    {
+      "person": "neil-armstrong",
+      "role": "user"
+    },
+    {
+      "person": "edwin-aldrin",
+      "role": "user"
+    },
+    {
+      "person": "michael-collins",
+      "role": "user"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
+  }
+}

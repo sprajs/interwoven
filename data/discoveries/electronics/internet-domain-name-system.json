@@ -1,0 +1,84 @@
+{
+  "id": "internet-domain-name-system",
+  "name": "Internet Domain Name System",
+  "description": "A hierarchical distributed naming system in which domain names map to resource information via name servers and resolvers.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "rfc882-1983",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1983,
+          "month": 11
+        },
+        "latest": {
+          "year": 1983,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "November 1983",
+        "basis": "Date or interval stated or closely scoped by the cited source; see event caveats."
+      },
+      "statement": "RFC 882 described a distributed domain-name system and its facilities.",
+      "caveats": "Publication describes a proposal and does not itself establish deployment.",
+      "evidence": [
+        {
+          "source": "mockapetris-1983-dns-rfc882",
+          "locator": "Introduction and name servers",
+          "supports": "The original RFC sets out distributed domain names, resolvers and name servers."
+        }
+      ]
+    },
+    {
+      "id": "introduction-1984",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1984
+        },
+        "latest": {
+          "year": 1984
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "around 1984",
+        "basis": "Date or interval stated or closely scoped by the cited source; see event caveats."
+      },
+      "statement": "A later Internet growth report dates the introduction of DNS to around 1984 and describes a transition lasting almost four years.",
+      "population": "Internet host and network administrators",
+      "caveats": "This retrospective states approximate introduction and gradual transition but does not identify a specific first operational deployment or a universal adoption date.",
+      "evidence": [
+        {
+          "source": "lottor-1992-internet-growth-rfc1296",
+          "locator": "Introduction",
+          "supports": "The RFC summarizes introduction and gradual deployment."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "rfc882-1983",
+    "rationale": "Earliest cited dated event for this scoped record; a surviving witness or publication is not itself the invention date."
+  },
+  "caveats": "RFC 882 predates and was superseded by the 1987 DNS specifications; practical use developed gradually.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Second reader checked RFC 882 and RFC 1296: a dated specification and a later approximate introduction claim are distinct from a dated first operational installation."
+  },
+  "people": [
+    {
+      "person": "paul-mockapetris",
+      "role": "author"
+    }
+  ]
+}

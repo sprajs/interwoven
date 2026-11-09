@@ -170,6 +170,34 @@
           "supports": "DARPA prose dates formal decommissioning to 1990; its infographic gives an inconsistent 1989 endpoint."
         }
       ]
+    },
+    {
+      "id": "nrc-report-1985",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1985,
+          "month": 2
+        },
+        "latest": {
+          "year": 1985,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "February 1985",
+        "basis": "RFC 942 and its reproduced NRC report are dated February 1985."
+      },
+      "statement": "The NRC report describes the operating ARPANET network, its connected hosts and packet traffic.",
+      "scope": "ARPANET component described in the February 1985 NRC report.",
+      "caveats": "This is the publication date; the source does not give the observation dates, measurement method or a count of people using the network.",
+      "evidence": [
+        {
+          "source": "national-research-council-1985-transport-protocols-department",
+          "locator": "RFC 942, printed pp. 25–26; report title page",
+          "supports": "The February 1985 report describes 80 nodes, over 200 hosts across the United States, United Kingdom and Norway, and approximately 500 million packets per month on ARPANET."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -218,10 +246,47 @@
           "supports": "The IEEE milestone describes ALOHANET/PacNet to ARPANET links in 1973."
         }
       ]
+    },
+    {
+      "type": "requires",
+      "from": "internet-protocol-rfc-791",
+      "from_event": "publication-1981",
+      "to_event": "practical-deployment-1983",
+      "status": "established",
+      "statement": "The 1983 ARPANET transition to the IP/TCP architecture required implementation of the Internet Protocol specified by RFC 791; earlier ARPANET NCP operation did not require IP.",
+      "scope": "The 1983 ARPANET transition to the IP/TCP architecture; earlier NCP operation is outside this requirement.",
+      "contribution": [
+        "supplied_theory_or_design_rule"
+      ],
+      "carrier": [
+        "publication"
+      ],
+      "influence": "essential",
+      "confidence": "high",
+      "alternatives": "The transition also required TCP (specified separately in RFC 793), host implementation work, relay services, and coordination across organizations.",
+      "caveats": "RFC 801 is a transition plan and directly identifies IP as specified in RFC 791; the 1983 cutover is separately attested by the National Research Council report. The statement does not attribute TCP’s function to RFC 791.",
+      "timing": "RFC 791 was published in September 1981; RFC 801 specified the ARPANET transition plan in November 1981; the cutover took place on 1 January 1983.",
+      "evidence": [
+        {
+          "source": "postel-1981-ncp-tcp-transition",
+          "locator": "RFC 801, Introduction and General Plan, especially p. 2 IP subsection",
+          "supports": "Postel says the new IP/TCP protocols were to be put into the operational ARPANET, identifies the complete NCP-to-IP/TCP switch-over goal, and specifies IP in RFC 791."
+        },
+        {
+          "source": "postel-1981-rfc791",
+          "locator": "RFC 791, Preface and §§1.1–1.3",
+          "supports": "The original protocol specification describes its role in interconnected packet networks and gives the ARPANET interface case."
+        },
+        {
+          "source": "national-research-council-1985-transport-protocols-department",
+          "locator": "RFC 942, printed pp. 25–26",
+          "supports": "The National Research Council report records the 1 January 1983 NCP/TCP cutover and continued ARPANET operation."
+        }
+      ]
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -238,9 +303,60 @@
       "societies": "sourced",
       "known_from": "sourced",
       "fate": "recalled",
-      "events": "reviewed",
-      "links": "reviewed"
+      "events": "sourced",
+      "links": "sourced",
+      "measures": "sourced"
     },
     "note": "Proposed community-entry claim; independent historical and lifecycle review pending."
-  }
+  },
+  "measures": [
+    {
+      "quantity": "network nodes",
+      "value": 80,
+      "unit": "nodes",
+      "subject": "ARPANET network described in the NRC report",
+      "evidence": [
+        {
+          "source": "national-research-council-1985-transport-protocols-department",
+          "locator": "RFC 942, printed p. 25, footnote 12",
+          "supports": "Describes ARPANET as an operational 80-node network."
+        }
+      ],
+      "event": "nrc-report-1985",
+      "status": "claimed",
+      "conditions": "Published February 1985; underlying observation date and measurement method are unspecified."
+    },
+    {
+      "quantity": "connected host computers",
+      "value": "more than 200",
+      "unit": "host computers",
+      "subject": "ARPANET host computers in the United States, United Kingdom and Norway",
+      "evidence": [
+        {
+          "source": "national-research-council-1985-transport-protocols-department",
+          "locator": "RFC 942, printed p. 25, footnote 12",
+          "supports": "Reports over 200 connected host computers in those countries."
+        }
+      ],
+      "event": "nrc-report-1985",
+      "status": "claimed",
+      "conditions": "Published February 1985; underlying observation date and measurement method are unspecified."
+    },
+    {
+      "quantity": "network packet traffic",
+      "value": 500000000,
+      "unit": "packets per month",
+      "subject": "ARPANET component traffic",
+      "evidence": [
+        {
+          "source": "national-research-council-1985-transport-protocols-department",
+          "locator": "RFC 942, printed p. 26",
+          "supports": "Reports approximately 500 million packets per month on the ARPANET component."
+        }
+      ],
+      "event": "nrc-report-1985",
+      "status": "claimed",
+      "conditions": "Published February 1985; underlying observation date and measurement method are unspecified. The reported amount is approximate."
+    }
+  ]
 }
