@@ -37,7 +37,7 @@ python3 tools/research.py shared clausiuss-heat-work-reconciliation --kind perso
 python3 tools/research.py status --verify
 ```
 
-Search treats words literally with AND semantics and uses SQLite FTS5, not arbitrary SQL. Results include source file paths. `show` returns the complete original JSON record. Directed walks default to established dependence/transmission links; explicit options select other layers or statuses. Maximum depth is bounded at 100. The database retains original records, events, sources and registers, plus indexed edges, shared entity memberships, research facet bases and citation relations.
+Search treats words literally with AND semantics and uses SQLite FTS5, not arbitrary SQL. Results include source file paths and stored summaries. Add `--snippets` for matching highlighted excerpts; generating them is measured separately because it costs more than locating and ranking the records. `show` returns the complete original JSON record. Directed walks default to established dependence/transmission links; explicit options select other layers or statuses. Maximum depth is bounded at 100. The database retains original records, events, sources and registers, plus indexed edges, shared entity memberships, research facet bases and citation relations.
 
 A standalone command verifies source freshness before querying and rebuilds when necessary. For many queries, reuse one read-only connection to one consistent snapshot instead of repeatedly launching Python:
 
@@ -72,8 +72,42 @@ npm run build
 npm --prefix app run benchmark:baseline -- 4d37f65
 npm --prefix app run benchmark -- --runs 9 --out docs/performance/2026-11-09/browser.json
 python3 tools/benchmark.py --out docs/performance/2026-11-09/research.json
+python3 tools/performance_report.py docs/performance/2026-11-09
 ```
 
 The browser harness uses an installed Chrome (`channel: 'chrome'`) and Playwright. Its baseline helper builds the historical app using today's data files; it does not switch the working branch or edit source records. Cache-invalidation fixtures are disposable copies. Results record the machine, browser, base commit, dataset version and asset hashes. `working_tree_dirty` is explicit when a benchmark measures an uncommitted implementation; the recorded compiled-HTML hash identifies that tested build.
 
 The browser suite asserts lazy startup, one core request, zero warm immutable-asset transfer, reuse of details, all four views, search, deep links, recovery from a missing detail, browser-restart cache hits, new-version loading and old-tab consistency. Unit tests additionally cover every source/detail record, citations, deterministic builds, independent invalidation, graph cycles, shared ancestors, direction/status/layer filtering, query plans, manifest fallbacks and source freshness. See the dated measurement files for the observed results and limitations.
+
+## Measurements on 9 November 2026
+
+Apple M3 Pro, Chrome 157.0.8103.38, 400 discoveries / 720 events / 181 link records (155 established). The app implementation measured is `fd07484`; the historical app is `4d37f65` compiled with the same 400-record data. Nine trials per row. Times below are navigation to a data-canvas frame, in milliseconds.
+
+| Profile / browser cache | Previous median | Updated median | Updated p95 | Minimal control median |
+| --- | ---: | ---: | ---: | ---: |
+| Local / cold | 100.1 | 67.0 | 70.8 | 27.2 |
+| Local / warm | 63.4 | 32.4 | 33.1 | 14.8 |
+| 10 Mbps, 40 ms, CPU 4× / cold | 1,397.4 | 461.4 | 480.0 | 245.0 |
+| 10 Mbps, 40 ms, CPU 4× / warm | 332.9 | 178.4 | 188.3 | 98.0 |
+
+The updated app transfers about 405 KB on a cold navigation versus 1,177 KB previously, including the initial font and browser-reported response overhead. Warm navigation transfers none of the hashed data, JS, CSS or fonts; only HTML is revalidated (300 browser-reported bytes). The 330 ms initial baseline outlier is retained in the raw data and its p95; the process is shared across trials, so these measure cold HTTP caches rather than a fresh Chrome process every time.
+
+Single-sample functional probes measured a first detail at 32.6 ms and its repeat at 11.3 ms, a navigation after changing the dataset at 66.6 ms, and a navigation after closing/relaunching Chrome at 263.9 ms. The restart test confirmed disk-cache hits for the core and assets. It still pays browser initialization/rendering costs; disk caching does not imply the same timing as an already-running browser. The detail probe includes any residual initial-page work and is not a nine-trial detail benchmark.
+
+The final research implementation stores summaries for fast results, with highlighted matching excerpts available using `--snippets`. Source freshness checks use a single directory traversal with cached directory-entry metadata. Python 3.14.6 and SQLite 3.53.2 measured:
+
+| Operation | Median | p95 | Samples |
+| --- | ---: | ---: | ---: |
+| Ranked search with summaries, eight queries | 0.040–0.129 ms | 0.053–0.160 ms | 101 per query |
+| Search with highlighted excerpts (`water`) | 0.909 ms | 1.406 ms | 101 |
+| Incoming graph walk, depth 4 | 0.145 ms | 0.505 ms | 101 |
+| Shared entity lookup | 0.032 ms | 0.074 ms | 101 |
+| Freshness-checked connection and search | 6.738 ms | 8.084 ms | 31 |
+| Standalone CLI search, including Python startup | 79.731 ms | 95.788 ms | 11 |
+| Unchanged browser-data build, including Python startup | 89.435 ms | 95.848 ms | 11 |
+
+A complete research-index rebuild took 442 ms in one sample. Reading all source JSON alone took a median 57 ms; that is an ingestion reference, not an equivalent ranked query. Reusing a research connection avoids process launch and repeated freshness scans while retaining a consistent dataset snapshot. The research result records the exact query-source SHA-256 and dataset/builder fingerprint because the final query optimization was measured before its commit.
+
+The functional suite passed 44 Python tests and 53 TypeScript tests, plus the browser suite. Deployment cache headers, single-record and link invalidation, source additions/deletions, timestamp-preserving edits, old SQLite readers, old browser tabs, failed detail recovery and deep links were checked. Browser comparisons have small sample sizes and run on one machine without exclusive hardware access; they establish a substantial improvement and the stated lab budgets, not universal or theoretical optimality. Warm local startup is about one frame above the deliberately incomplete control. The cold/throttled app still has measurable framework, layout and text-rendering overhead.
+
+[Raw browser samples](performance/2026-11-09/browser.json), [research timings](performance/2026-11-09/research.json), [summary values](performance/2026-11-09/summary.json), [comparison figure](performance/2026-11-09/comparison.svg), and [verified timeline screenshot](performance/2026-11-09/timeline.png).

@@ -60,6 +60,7 @@ try {
   results.metadata.index_sha256=createHash('sha256').update(await readFile(resolve(candidate,'index.html'))).digest('hex')
   results.metadata.baseline_atlas_sha256=createHash('sha256').update(await readFile(resolve(baseline,'data/atlas.json'))).digest('hex')
   const core=JSON.parse(await readFile(resolve(candidate,'data',manifest.core),'utf8'))
+  results.metadata.discoveries=core.counts.discoveries
   // Optimistic control: same real core and a useful canvas of every dated record,
   // but no framework, labels, filtering, tooltips or layout collision handling.
   const control=await mkdtemp(resolve(tmpdir(),'interwoven-control-'))
@@ -101,6 +102,8 @@ try {
   const errors=[];page.on('pageerror',e=>errors.push(e.message))
   const detailRequests=[];page.on('request',r=>{if(r.url().includes('/details/'))detailRequests.push(r.url())})
   await page.goto(urls.candidate)
+  await page.getByRole('tab',{name:'Timeline',exact:true}).waitFor()
+  await page.evaluate(()=>document.fonts.ready)
   const first=core.discoveries.find(d=>d.t>0&&d.t<1900&&d.summary)
   const file=core.details[first.id]
   const full=JSON.parse(await readFile(resolve(candidate,'data',file),'utf8'))

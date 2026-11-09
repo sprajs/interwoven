@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 from contextlib import closing
 import json
 import platform
 import statistics
+from performance_report import percentile
 import subprocess
 import sys
 import time
@@ -26,7 +28,7 @@ def measure(fn, runs=101):
         fn()
         samples.append((time.perf_counter_ns()-start)/1e6)
     ordered = sorted(samples)
-    return {'median_ms':statistics.median(samples), 'p95_ms':ordered[int(.95*(len(ordered)-1))], 'min_ms':min(samples), 'runs':runs}
+    return {'median_ms':statistics.median(samples), 'p95_ms':percentile(ordered,.95), 'min_ms':min(samples), 'runs':runs}
 
 
 def main():
@@ -41,8 +43,7 @@ def main():
         seed=con.execute('SELECT dst FROM edges WHERE status="established" GROUP BY dst ORDER BY count(*) DESC,dst LIMIT 1').fetchone()[0]
         queries=['steam','printing','electricity','water','Watt','China','instrument','agriculture']
         expected={query:[r['id'] for r in research.search(con,query,1000)] for query in queries}
-        # Independent oracle for the single-token searches, using SQLite's own tokenizer
-        # to avoid claiming substring scanning has identical full-text semantics.
+        # Smoke-check result identities; semantic fixtures and traversal oracles are in unit tests.
         for query, ids in expected.items():
             assert all(key in data.discoveries for key in ids)
         timings={
@@ -52,6 +53,7 @@ def main():
             'sqlite_select1_control':measure(lambda:con.execute('SELECT 1').fetchone()),
             'sqlite_id_lookup':measure(lambda:con.execute('SELECT id,name,path FROM discoveries WHERE id=?',(seed,)).fetchone()),
             'fts_searches':{q:measure(lambda q=q:research.search(con,q)) for q in queries},
+            'fts_with_snippets':measure(lambda:research.search(con,'water',snippets=True)),
             'walk_incoming_depth4':measure(lambda:research.walk(con,seed,depth=4)),
             'shared_entities':measure(lambda:research.shared(con,seed)),
         }
@@ -59,6 +61,7 @@ def main():
             with closing(research.connect()) as fresh:
                 return research.search(fresh,'steam')
         timings['checked_connection_search']=measure(fresh_connection,31)
+    timings['browser_build_noop']=measure(lambda:subprocess.run([sys.executable,str(ROOT/'tools/build.py')],check=True,stdout=subprocess.DEVNULL),11)
     timings['python_process_control']=measure(lambda:subprocess.run([sys.executable,'-c','pass'],check=True,stdout=subprocess.DEVNULL),11)
     timings['cli_search']=measure(lambda:subprocess.run([sys.executable,str(ROOT/'tools/research.py'),'search','steam'],check=True,stdout=subprocess.DEVNULL),11)
     # An adjacency map is an optimistic in-memory traversal control with no SQL, paths or names.
@@ -73,7 +76,7 @@ def main():
             seen.update(following);frontier=following
         return seen
     timings['resident_adjacency_control']=measure(memory_walk)
-    result={'metadata':{'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'dataset':version,'python':sys.version,'platform':platform.platform(),'sqlite':research.sqlite3.sqlite_version,'seed':seed,'discoveries':len(data.discoveries),'meaning':'Warm OS cache, real data. Controls omit useful work and are optimistic reference points, not equivalent implementations.'},'rebuild_ms':rebuild_ms,'timings':timings}
+    result={'metadata':{'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'dataset':version,'query_source_sha256':hashlib.sha256(Path(research.__file__).read_bytes()).hexdigest(),'working_tree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True)),'python':sys.version,'platform':platform.platform(),'sqlite':research.sqlite3.sqlite_version,'seed':seed,'discoveries':len(data.discoveries),'meaning':'Warm OS cache, real data. Controls omit useful work and are optimistic reference points, not equivalent implementations.'},'rebuild_ms':rebuild_ms,'timings':timings}
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))

@@ -120,6 +120,10 @@ class ResearchTest(unittest.TestCase):
     def test_fts_is_literal_and_returns_source_paths(self):
         self.assertTrue(research.search(self.con, 'steam'))
         self.assertEqual(research.search(self.con, ''), [])
+        plain=research.search(self.con, 'steam')
+        snippets=research.search(self.con, 'steam', snippets=True)
+        self.assertEqual([r['id'] for r in plain], [r['id'] for r in snippets])
+        self.assertTrue(any('[' in r['excerpt'] for r in snippets))
         for row in research.search(self.con, 'steam'):
             self.assertIn(row['id'], self.data.discoveries)
             self.assertTrue((research.ROOT / row['path']).exists())
@@ -159,6 +163,18 @@ class ResearchTest(unittest.TestCase):
             added.unlink()
             with closing(research.connect(path,root)) as new:
                 self.assertEqual(new.execute('SELECT count(*) FROM discoveries').fetchone()[0],len(self.data.discoveries))
+
+    def test_fts_terms_ranking_and_and_semantics(self):
+        con=sqlite3.connect(':memory:'); con.row_factory=sqlite3.Row
+        con.executescript("CREATE TABLE discoveries(id TEXT,name TEXT,path TEXT,year REAL,summary TEXT); CREATE VIRTUAL TABLE search USING fts5(id UNINDEXED,name,body,tokenize='unicode61');")
+        records=[('a','Steam engine','a.json',1800,'Engine summary'),('b','Ship','b.json',1801,'A ship'),('c','Steamship','c.json',1802,'A steamship')]
+        con.executemany('INSERT INTO discoveries VALUES (?,?,?,?,?)',records)
+        con.executemany('INSERT INTO search VALUES (?,?,?)',[('a','Steam engine','engine powered by steam'),('b','Ship','steam powered ship'),('c','Steamship','a steamship')])
+        self.assertEqual([r['id'] for r in research.search(con,'steam')],['a','b'])
+        self.assertEqual([r['id'] for r in research.search(con,'steam engine')],['a'])
+        self.assertEqual([r['id'] for r in research.search(con,'steam',limit=1)],['a'])
+        self.assertEqual(research.search(con,'nonexistent'),[])
+        con.close()
 
     def test_indexes_are_used(self):
         for sql, index in [('SELECT src FROM edges WHERE dst=? AND status=? AND layer=?', 'edges_in'), ('SELECT dst FROM edges WHERE src=? AND status=? AND layer=?','edges_out')]:

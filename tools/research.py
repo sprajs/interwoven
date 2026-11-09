@@ -24,7 +24,7 @@ from dataset import DATA, ROOT, Dataset, year_value
 from publish import atomic_write, encoded, evidence_ids
 
 DB = ROOT / '.cache' / 'research.sqlite'
-SCHEMA_VERSION = '1'
+SCHEMA_VERSION = '2'
 
 
 def inputs(root: Path = ROOT) -> list[Path]:
@@ -32,10 +32,22 @@ def inputs(root: Path = ROOT) -> list[Path]:
 
 
 def signature(root: Path = ROOT) -> dict:
+    # DirEntry avoids repeated pathlib traversal/stat calls for each of the many small files.
     result = {}
-    for path in inputs(root):
+    prefix = str(root) + os.sep
+    stack = [str(root / 'data')]
+    while stack:
+        with os.scandir(stack.pop()) as entries:
+            for entry in entries:
+                if entry.is_dir(follow_symlinks=False):
+                    stack.append(entry.path)
+                elif entry.name.endswith(('.json', '.jsonl')):
+                    stat = entry.stat()
+                    result[entry.path[len(prefix):]] = [stat.st_size, stat.st_mtime_ns]
+    for name in ('research.py', 'dataset.py', 'publish.py'):
+        path = root / 'tools' / name
         stat = path.stat()
-        result[str(path.relative_to(root))] = [stat.st_size, stat.st_mtime_ns]
+        result['tools/' + name] = [stat.st_size, stat.st_mtime_ns]
     return result
 
 
@@ -67,7 +79,7 @@ def build_database(data: Dataset, target: Path, version: str) -> None:
                 PRAGMA foreign_keys=ON;
                 CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
                 CREATE TABLE discoveries(id TEXT PRIMARY KEY, name TEXT NOT NULL, domain TEXT,
-                    year REAL, path TEXT NOT NULL, record TEXT NOT NULL);
+                    year REAL, path TEXT NOT NULL, summary TEXT NOT NULL, record TEXT NOT NULL);
                 CREATE TABLE sources(id TEXT PRIMARY KEY, path TEXT NOT NULL, record TEXT NOT NULL);
                 CREATE TABLE events(discovery TEXT REFERENCES discoveries(id), id TEXT, type TEXT,
                     year REAL, record TEXT, PRIMARY KEY(discovery,id));
@@ -100,7 +112,7 @@ def build_database(data: Dataset, target: Path, version: str) -> None:
                 year = year_value(anchor['date']['latest']) if anchor else None
                 path = data.paths['discoveries/' + key]
                 relative = str(Path('data') / 'discoveries' / path.parent.name / path.name)
-                con.execute('INSERT INTO discoveries VALUES (?,?,?,?,?,?)', (key, record['name'], record['domain'], year, relative, encoded(record).decode()))
+                con.execute('INSERT INTO discoveries VALUES (?,?,?,?,?,?,?)', (key, record['name'], record['domain'], year, relative, (record.get('summary') or record['description'])[:320], encoded(record).decode()))
             layers = {kind: layer for layer, kinds in data.vocab['link']['layers'].items() for kind in kinds}
             for key, record in sorted(data.discoveries.items()):
                 con.executemany('INSERT INTO facets VALUES (?,?,?)', [(key,facet,basis) for facet,basis in record['research']['basis'].items()])
@@ -165,13 +177,14 @@ def connect(path: Path = DB, root: Path = ROOT, verify: bool = False) -> sqlite3
     return con
 
 
-def search(con: sqlite3.Connection, query: str, limit: int = 20) -> list[dict]:
+def search(con: sqlite3.Connection, query: str, limit: int = 20, snippets: bool = False) -> list[dict]:
     # Treat user text as literal AND terms, not an FTS expression/program.
     terms = ['"' + term.replace('"', '""') + '"' for term in query.split()]
     if not terms:
         return []
-    return [dict(row) for row in con.execute('''SELECT d.id,d.name,d.path,d.year,
-        snippet(search,2,'[',']','…',24) AS excerpt FROM search JOIN discoveries d ON d.id=search.id
+    excerpt = "snippet(search,2,'[',']','…',24)" if snippets else 'd.summary'
+    return [dict(row) for row in con.execute(f'''SELECT d.id,d.name,d.path,d.year,
+        {excerpt} AS excerpt FROM search JOIN discoveries d ON d.id=search.id
         WHERE search MATCH ? ORDER BY bm25(search,0,5,1),d.id LIMIT ?''', (' AND '.join(terms), limit))]
 
 
@@ -214,6 +227,7 @@ def main() -> None:
     parser.add_argument('command', choices=['search', 'walk', 'shared', 'show', 'status', 'rebuild'])
     parser.add_argument('value', nargs='?', default='')
     parser.add_argument('--db', type=Path, default=DB)
+    parser.add_argument('--snippets', action='store_true', help='generate matching highlighted excerpts instead of stored summaries')
     parser.add_argument('--verify', action='store_true')
     parser.add_argument('--direction', choices=['incoming', 'outgoing'], default='incoming')
     parser.add_argument('--depth', type=int, default=3)
@@ -230,7 +244,7 @@ def main() -> None:
         rebuild(args.db)
     with closing(connect(args.db, verify=args.verify)) as con:
         if args.command == 'search':
-            result = search(con, args.value, args.limit)
+            result = search(con, args.value, args.limit, args.snippets)
         elif args.command == 'walk':
             result = walk(con, args.value, args.direction, args.depth, tuple(args.layer or ['dependence', 'transmission']), args.status)
         elif args.command == 'shared':

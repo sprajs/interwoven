@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "commit": "fd0748473803fd56b9464d627379792bab1c2baa",
+    "dataset": "a9891d1e0abcf56e137843248e08131ee51e0824ae0522012eac203c7026ace3",
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "sqlite": "3.53.2",
+    "seed": "clausiuss-heat-work-reconciliation",
+    "discoveries": 400,
+    "meaning": "Warm OS cache, real data. Controls omit useful work and are optimistic reference points, not equivalent implementations.",
+    "query_source_sha256": "dc6d1d9d937851d928b1d64f00d0ab3bd4c7e5385a80e1fcbb0d104f99100827",
+    "working_tree_dirty": true
+  },
+  "rebuild_ms": 442.0012501068413,
+  "timings": {
+    "source_load": {
+      "median_ms": 57.092416,
+      "p95_ms": 70.088375,
+      "min_ms": 50.779209,
+      "runs": 31
+    },
+    "input_stat_check": {
+      "median_ms": 4.745667,
+      "p95_ms": 8.3197085,
+      "min_ms": 4.278667,
+      "runs": 31
+    },
+    "input_content_verification": {
+      "median_ms": 46.113208,
+      "p95_ms": 54.397707999999994,
+      "min_ms": 41.425875,
+      "runs": 31
+    },
+    "sqlite_select1_control": {
+      "median_ms": 0.000583,
+      "p95_ms": 0.00075,
+      "min_ms": 0.0005,
+      "runs": 101
+    },
+    "sqlite_id_lookup": {
+      "median_ms": 0.012791,
+      "p95_ms": 0.020583,
+      "min_ms": 0.004583,
+      "runs": 101
+    },
+    "fts_searches": {
+      "steam": {
+        "median_ms": 0.113666,
+        "p95_ms": 0.136583,
+        "min_ms": 0.104916,
+        "runs": 101
+      },
+      "printing": {
+        "median_ms": 0.088209,
+        "p95_ms": 0.099417,
+        "min_ms": 0.079708,
+        "runs": 101
+      },
+      "electricity": {
+        "median_ms": 0.083166,
+        "p95_ms": 0.108583,
+        "min_ms": 0.074125,
+        "runs": 101
+      },
+      "water": {
+        "median_ms": 0.129458,
+        "p95_ms": 0.149208,
+        "min_ms": 0.119583,
+        "runs": 101
+      },
+      "Watt": {
+        "median_ms": 0.080083,
+        "p95_ms": 0.09125,
+        "min_ms": 0.071583,
+        "runs": 101
+      },
+      "China": {
+        "median_ms": 0.0905,
+        "p95_ms": 0.103125,
+        "min_ms": 0.08325,
+        "runs": 101
+      },
+      "instrument": {
+        "median_ms": 0.122875,
+        "p95_ms": 0.159708,
+        "min_ms": 0.110375,
+        "runs": 101
+      },
+      "agriculture": {
+        "median_ms": 0.040209,
+        "p95_ms": 0.053333,
+        "min_ms": 0.03225,
+        "runs": 101
+      }
+    },
+    "fts_with_snippets": {
+      "median_ms": 0.909291,
+      "p95_ms": 1.40625,
+      "min_ms": 0.7865,
+      "runs": 101
+    },
+    "walk_incoming_depth4": {
+      "median_ms": 0.145167,
+      "p95_ms": 0.505083,
+      "min_ms": 0.131208,
+      "runs": 101
+    },
+    "shared_entities": {
+      "median_ms": 0.032084,
+      "p95_ms": 0.074125,
+      "min_ms": 0.031292,
+      "runs": 101
+    },
+    "checked_connection_search": {
+      "median_ms": 6.737959,
+      "p95_ms": 8.083604,
+      "min_ms": 5.807709,
+      "runs": 31
+    },
+    "browser_build_noop": {
+      "median_ms": 89.435291,
+      "p95_ms": 95.84774949999999,
+      "min_ms": 81.760875,
+      "runs": 11
+    },
+    "python_process_control": {
+      "median_ms": 21.163542,
+      "p95_ms": 21.6637085,
+      "min_ms": 20.488917,
+      "runs": 11
+    },
+    "cli_search": {
+      "median_ms": 79.730833,
+      "p95_ms": 95.787604,
+      "min_ms": 77.182625,
+      "runs": 11
+    },
+    "resident_adjacency_control": {
+      "median_ms": 0.001291,
+      "p95_ms": 0.001583,
+      "min_ms": 0.001125,
+      "runs": 101
+    }
+  }
+}
