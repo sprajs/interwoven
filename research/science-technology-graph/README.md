@@ -84,15 +84,36 @@ Sources distinguish retained originals, mapped excerpts, attributed partial rese
 
 ## Evidence storage
 
-Keep canonical JSONL, reviews, source metadata and small text captures in ordinary Git. All PDF, JPG and PNG evidence uses Git LFS, including future captures matched by the repository's `.gitattributes`. Evidence files disable Git line-ending conversion so their hashes also survive checkout on other platforms. Install Git LFS on every machine, then run `git lfs install --local --skip-smudge` from the repository root to keep evidence downloads optional. This does not remove documents already downloaded.
+PDF, JPG and PNG evidence is a **local cache**, ignored by Git. Each binary has its own small committed descriptor at `<binary-path>.cache.json`, containing its SHA-256, byte length, source IDs, retrieval URL candidates and any excerpt recipe. There is no central cache manifest. Canonical source assertions, review decisions, text captures and the chart's generated JSON stay in Git. Evidence paths and historical hashes remain unchanged.
 
-Use `git lfs pull --include="research/science-technology-graph/evidence/acquired/NAME.pdf" --exclude=""` to fetch one document into its normal path. An evidence subdirectory can be fetched with a quoted glob in `--include`. The chart, importer, build and fixture-based tests do not need the binary collection. The full graph validator verifies retained source hashes and needs those files: fetch all evidence with `git lfs pull --include="" --exclude=""` first. `git lfs fsck` checks the local LFS objects and likewise needs the referenced objects available. New environments can use `GIT_LFS_SKIP_SMUDGE=1 git clone --filter=blob:none https://github.com/sprajs/big_idea.git` to avoid eager LFS downloads and historical binary blobs.
+For example, `evidence/acquired/example.pdf.cache.json` is shared in Git; `evidence/acquired/example.pdf` exists only on machines that downloaded it. Run these commands from this directory:
 
-The 2026-11-09 storage commit preserves 120 acquisition files in their original paths: 117 already have hashes in `handovers/self-audit/comparison-inputs.json`; the three additional captures are catalogued in `reviews/evidence-storage-2026-11-09.json`. Preservation does not approve their historical claims. The additional captures include bibliographic metadata, an unreviewed excerpt and a failed web-access page; the failed page is retained only as an acquisition record. Existing canonical source representations and hashes remain authoritative.
+```sh
+# Work with the graph and review metadata without downloading binary evidence.
+python3 tools/validate.py --metadata-only --json
+python3 tools/evidence_cache.py check-metadata
+python3 tools/evidence_cache.py status --summary
 
-For another PDF, JPG or PNG snapshot, stage the file normally; Git LFS handles its storage automatically. Add an evidence-scoped LFS rule before introducing another binary format. Record the source, representation, inspected limits and SHA-256 in the appropriate source or acquisition record. Do not replace an evidenced excerpt with a full download under the same identity without documenting the change.
+# Fetch and verify one item by its canonical source ID or evidence path.
+python3 tools/evidence_cache.py fetch bio-franklin-gosling-1953
+python3 tools/evidence_cache.py verify bio-franklin-gosling-1953
 
-The follow-up storage commit converts the 201 remaining binary files to LFS without changing their paths or contents: 239 binary evidence files (about 948 MiB) now share one storage policy. Published history is preserved, so older commits still contain ordinary Git binaries; this conversion does not shrink that history. LFS storage and downloads count against the GitHub repository owner's allowance; no billing settings are changed. Temporary extraction output, failed retries with no provenance value, build output and reproducible caches belong in ignored working directories. Large future simulation outputs should have a separate storage decision and a committed configuration and checksum manifest rather than entering this evidence collection by default.
+# A legacy excerpt can instead provide its checksum-verified complete original.
+python3 tools/evidence_cache.py fetch --original mat-faraday-magneto-optics-1846
+
+# Capture a new full source locally and create only its individual descriptor.
+python3 tools/evidence_cache.py capture --url https://example.org/source.pdf --path evidence/acquired/example.pdf --source-id SOURCE_ID
+```
+
+The capture command prints the `local_copy` fields to use in a source record. Complete its source metadata, inspected passages and review separately; downloading a document does not approve a historical claim. New versions need new paths and explicit review. The standard capture workflow stores the complete downloaded source locally, avoiding the need to trim a large PDF just to fit it in Git.
+
+Fetches are opt-in. The script checks SHA-256 and byte length before promoting a download and refuses to overwrite a different local file. It does not automatically replace a stale or blocked source with a newer document, HTML landing page or similar paper. Original source URLs can change or disappear; they are retrieval candidates, not a guarantee of permanent byte-identical availability. Descriptor URLs must be public source locations, never credentials or expiring access links.
+
+The initial descriptors cover 239 binaries: 151 have download URL candidates, 39 have legacy excerpt recipes, and 49 lack a located download URL and explicitly require manual recovery. All existing local files are preserved. Excerpt recipes retain original-document hashes and page mappings. `fetch --original` downloads the verified original into the ignored `evidence/.cache/originals` directory for research. Exact recreation of a historical excerpt is attempted with Poppler's `pdfseparate`/`pdfunite`; tool versions, processing history and PDF metadata can change the resulting bytes. A mismatching excerpt is never installed under its historical hash. Keep a local backup of captures that cannot be fetched or recreated exactly.
+
+`--metadata-only` explicitly reports deferred binary source copies; it does not certify their contents. The default `tools/validate.py` still checks every declared source copy. With the required cache populated, run `python3 tools/evidence_cache.py verify --all` and `python3 tools/validate.py --json` for full local integrity checks. `fetch --all` is available as an explicit batch operation, reports unavailable/manual items, and leaves successful captures cached. The chart, importer, build and fixture-based tests do not need the binary cache. The download script uses Python's standard library; rebuilding old excerpts additionally needs Poppler.
+
+Published Git history and earlier LFS objects are preserved. They are no longer a dependency of the current evidence workflow. A partial clone (`git clone --filter=blob:none …`) avoids eager historical binary downloads; deleting historical Git/LFS storage is a separate coordinated operation. Temporary extraction output, build output and reproducible caches stay ignored. The per-item descriptors preserve acquisition provenance, not historical acceptance; existing canonical source representations and review decisions remain authoritative.
 
 ## Kind, relation and consequence boundaries
 

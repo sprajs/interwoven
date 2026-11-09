@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/entry-calculation-expansion-rhind-bm.pdf",
+  "sha256": "3661dd27181bf864ec551bb61677a7b04f93f39bd4e03ce83ca34c0c393e891b",
+  "bytes": 750236,
+  "source_ids": [
+    "entry-exp-calculation-rhind-museum"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/entry-verdicts.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/expansion.json"
+  ],
+  "retrieval": {
+    "kind": "download",
+    "urls": [
+      "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum_2.pdf"
+    ],
+    "note": "URL candidates are recovered from committed provenance. A fetched response is accepted only if its SHA-256 and byte length match; landing pages and changed versions are rejected."
+  }
+}

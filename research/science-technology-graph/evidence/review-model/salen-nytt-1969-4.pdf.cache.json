@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "path": "evidence/review-model/salen-nytt-1969-4.pdf",
+  "sha256": "6d0627981590ec61b617cd84aab6015e3665a6e6ac71561754e2b112b3c76970",
+  "bytes": 3741647,
+  "source_ids": [
+    "nonmarket-ra-salen-1969"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/current-model-review.json",
+    "reviews/frontier-audit.json"
+  ],
+  "retrieval": {
+    "kind": "download",
+    "urls": [
+      "https://www.gevis.se/files/Salen-Nytt_1969-4.pdf"
+    ],
+    "note": "URL candidates are recovered from committed provenance. A fetched response is accepted only if its SHA-256 and byte length match; landing pages and changed versions are rejected."
+  }
+}

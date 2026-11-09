@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/entry-molecular-insulin-hai-2016.pdf",
+  "sha256": "eb4d7438dc3ea33eeb4d5ce5acf869388f3885fad6cc9ce21e7451b65000ae13",
+  "bytes": 1665508,
+  "source_ids": [
+    "entry-molecular-insulin-hai-2016"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/expansion.json"
+  ],
+  "retrieval": {
+    "kind": "download",
+    "urls": [
+      "https://haiweb.org/storage/2016/04/ACCISS-PatentReport-FINAL.pdf"
+    ],
+    "note": "URL candidates are recovered from committed provenance. A fetched response is accepted only if its SHA-256 and byte length match; landing pages and changed versions are rejected."
+  }
+}

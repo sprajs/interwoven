@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "path": "evidence/originals/43f02c89f03b5974a053ada281e9ed59cf81819ef7b49643c84456bd13650541.pdf",
+  "sha256": "43f02c89f03b5974a053ada281e9ed59cf81819ef7b49643c84456bd13650541",
+  "bytes": 2544638,
+  "source_ids": [
+    "mech-s2-joule-1850"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/connection-verdicts.jsonl",
+    "handovers/self-audit/entry-verdicts.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/frontier-context.json",
+    "reviews/thermodynamics.json"
+  ],
+  "retrieval": {
+    "kind": "download",
+    "urls": [
+      "https://www2.lawrence.edu/fast/STONEKIM/COURSES/Joule_1850.pdf"
+    ],
+    "note": "URL candidates are recovered from committed provenance. A fetched response is accepted only if its SHA-256 and byte length match; landing pages and changed versions are rejected."
+  }
+}

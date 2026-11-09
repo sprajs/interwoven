@@ -433,10 +433,11 @@ def _review_ledger(target, root, errors):
     return {key: row for key, row in entries.items() if key not in duplicate}
 
 
-def verify_local_files(records, root):
+def verify_local_files(records, root, defer_binary_copies=False):
     """Check review decisions, proposition hashes and local source copies."""
     root = Path(root).resolve()
     errors, verified, reviewed, actual_hashes, ledgers = [], set(), set(), {}, {}
+    deferred = set()
     current_reviews = 0
 
     def contained_file(relative, path):
@@ -507,6 +508,9 @@ def verify_local_files(records, root):
                 target = contained_file(copy["path"], cp)
                 if target is None:
                     continue
+                if defer_binary_copies and target.suffix.lower() in {".pdf", ".png", ".jpg"}:
+                    deferred.add(target)
+                    continue
                 if target not in actual_hashes:
                     try:
                         copied = target.read_bytes()
@@ -524,10 +528,10 @@ def verify_local_files(records, root):
                         errors.append(issue(cp, f"hash mismatch for {copy['path']}: actual {actual}", "local_copy_hash"))
                     else:
                         verified.add(target)
-    return errors, len(verified), len(reviewed), current_reviews
+    return errors, len(verified), len(reviewed), current_reviews, len(deferred)
 
 
-def validate_repository(root=DEFAULT_ROOT, optional_jsonschema=True):
+def validate_repository(root=DEFAULT_ROOT, optional_jsonschema=True, defer_binary_copies=False):
     root = Path(root).resolve()
     records, parsing = {}, []
     for kind in KINDS:
@@ -550,9 +554,10 @@ def validate_repository(root=DEFAULT_ROOT, optional_jsonschema=True):
                 records[kind].append({})
     result = validate_records(records, root / "schema.json", optional_jsonschema)
     result["errors"][:0] = parsing
-    file_errors, verified, reviewed, current_reviews = verify_local_files(records, root)
+    file_errors, verified, reviewed, current_reviews, deferred = verify_local_files(records, root, defer_binary_copies)
     result["errors"].extend(file_errors)
     result["counts"]["source_copies_verified"] = verified
+    result["counts"]["binary_source_copies_deferred"] = deferred
     result["counts"]["review_files_verified"] = reviewed
     result["counts"]["current_review_records_verified"] = current_reviews
     result["valid"] = not result["errors"]
@@ -565,9 +570,10 @@ def main(argv=None):
     parser.add_argument("--json", action="store_true", help="machine-readable result")
     parser.add_argument("--stdlib-only", action="store_true", help="disable optional installed-jsonschema cross-check")
     parser.add_argument("--strict-concerns", action="store_true", help="also return failure for review concerns")
+    parser.add_argument("--metadata-only", action="store_true", help="validate graph, reviews and text captures while explicitly deferring local binary hashes")
     args = parser.parse_args(argv)
     try:
-        result = validate_repository(args.root, not args.stdlib_only)
+        result = validate_repository(args.root, not args.stdlib_only, args.metadata_only)
     except (OSError, ValueError, KeyError) as e:
         result = {"valid": False, "errors": [issue("validator", str(e), "configuration")], "concerns": [], "counts": {}}
     if args.json:

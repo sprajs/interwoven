@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/entry-regional-inka-museum-excerpt.pdf",
+  "sha256": "fd32d088dbbd4978dee4d41f7cebe22f2bdc9ed855289da9e48d3f59eb91412a",
+  "bytes": 3960583,
+  "source_ids": [
+    "entry-regional-source-chile-inka"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/connection-verdicts.jsonl",
+    "handovers/self-audit/entry-verdicts.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/expansion.json"
+  ],
+  "retrieval": {
+    "kind": "pdf_excerpt",
+    "urls": [
+      "https://museo.precolombino.cl/wp-content/uploads/2020/10/Chile-bajo-el-imperio-de-los-inkas.pdf"
+    ],
+    "original_sha256": "e47dc0ea74cc703e0ead8f9ba51612e9ac6ddac8ba3c65137163dba43fc879b9",
+    "original_page_count": 146,
+    "page_mapping": [
+      {
+        "source_page": 1,
+        "excerpt_page": 1
+      },
+      {
+        "source_page": 3,
+        "excerpt_page": 2
+      },
+      {
+        "source_page": 115,
+        "excerpt_page": 3
+      },
+      {
+        "source_page": 116,
+        "excerpt_page": 4
+      },
+      {
+        "source_page": 118,
+        "excerpt_page": 5
+      },
+      {
+        "source_page": 119,
+        "excerpt_page": 6
+      },
+      {
+        "source_page": 120,
+        "excerpt_page": 7
+      },
+      {
+        "source_page": 124,
+        "excerpt_page": 8
+      }
+    ],
+    "recorded_extraction_method": "Poppler pdfseparate and pdfunite; source page 119 and excerpt page 6 rendered pixel-identically at 70 dpi.",
+    "note": "Original URL candidates are provenance, not a claim of current availability. Exact historical excerpt-byte reproduction is unverified; fetch --original provides the checksum-verified full source for research."
+  }
+}

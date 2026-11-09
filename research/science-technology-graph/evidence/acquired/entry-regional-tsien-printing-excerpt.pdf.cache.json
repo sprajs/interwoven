@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/entry-regional-tsien-printing-excerpt.pdf",
+  "sha256": "83a59b31a05bfa0a4b4771c690a7c0ff9c9236292d12fbaea53a9cd109af7b84",
+  "bytes": 396732,
+  "source_ids": [
+    "entry-regional-tsien-printing"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/community-entry.json"
+  ],
+  "retrieval": {
+    "kind": "pdf_excerpt",
+    "urls": [
+      "https://earthwormexpress.com/wp-content/uploads/2021/12/Needham_Joseph_Science_and_Civilisation_in_China_Vol_5-1_Chemistry_and_Chemical_Technology_Paper_and_Printing.pdf"
+    ],
+    "original_sha256": "3bc5fba9d93ce258887a053075695c62c663bcf6d38b59cbe01f774965f81955",
+    "original_page_count": 256,
+    "page_mapping": [
+      {
+        "source_page": 3,
+        "excerpt_page": 1
+      },
+      {
+        "source_page": 4,
+        "excerpt_page": 2
+      },
+      {
+        "source_page": 114,
+        "excerpt_page": 3
+      },
+      {
+        "source_page": 115,
+        "excerpt_page": 4
+      }
+    ],
+    "recorded_extraction_method": "Poppler pdfseparate/pdfunite; critical original page 115 and excerpt page 4 rendered pixel-identically at 100 dpi.",
+    "note": "Original URL candidates are provenance, not a claim of current availability. Exact historical excerpt-byte reproduction is unverified; fetch --original provides the checksum-verified full source for research."
+  }
+}

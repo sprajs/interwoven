@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "path": "evidence/excerpts/23418b4d0dea060d617cfb77225c26a736b36891084f73393915ee3a1167fd9f.excerpt.pdf",
+  "sha256": "271f9554e29e5329b005b6abc57fd8d25fc9e283907c1eb691dfc6d72051b4d9",
+  "bytes": 1326092,
+  "source_ids": [
+    "src-zeiss-1885"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/entry-verdicts.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/frontier-context.json"
+  ],
+  "retrieval": {
+    "kind": "pdf_excerpt",
+    "urls": [
+      "https://iiif.wellcomecollection.org/pdf/b21498866"
+    ],
+    "original_sha256": "23418b4d0dea060d617cfb77225c26a736b36891084f73393915ee3a1167fd9f",
+    "original_page_count": 105,
+    "page_mapping": [
+      {
+        "excerpt_page": 1,
+        "source_page": 1
+      },
+      {
+        "excerpt_page": 2,
+        "source_page": 2
+      },
+      {
+        "excerpt_page": 3,
+        "source_page": 3
+      },
+      {
+        "excerpt_page": 4,
+        "source_page": 4
+      },
+      {
+        "excerpt_page": 5,
+        "source_page": 5
+      },
+      {
+        "excerpt_page": 6,
+        "source_page": 6
+      },
+      {
+        "excerpt_page": 7,
+        "source_page": 36
+      },
+      {
+        "excerpt_page": 8,
+        "source_page": 40
+      },
+      {
+        "excerpt_page": 9,
+        "source_page": 42
+      }
+    ],
+    "recorded_extraction_method": "Poppler pdfseparate per requested page, then pdfunite in the listed order.",
+    "note": "Original URL candidates are provenance, not a claim of current availability. Exact historical excerpt-byte reproduction is unverified; fetch --original provides the checksum-verified full source for research."
+  }
+}

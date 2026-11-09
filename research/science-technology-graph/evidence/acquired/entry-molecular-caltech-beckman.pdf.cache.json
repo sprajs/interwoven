@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/entry-molecular-caltech-beckman.pdf",
+  "sha256": "7dadbc40ccf5f004d1c073edfe7c69cf72c07b843a7aed16072cd9344a022eb8",
+  "bytes": 868213,
+  "source_ids": [
+    "entry-molecular-beckman-1986"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "handovers/self-audit/connection-verdicts.jsonl",
+    "handovers/self-audit/entry-verdicts.jsonl",
+    "handovers/self-audit/source-extraction-log.jsonl",
+    "reviews/expansion.json"
+  ],
+  "retrieval": {
+    "kind": "download",
+    "urls": [
+      "https://calteches.library.caltech.edu/3493/01/Fifty.pdf"
+    ],
+    "note": "URL candidates are recovered from committed provenance. A fetched response is accepted only if its SHA-256 and byte length match; landing pages and changed versions are rejected."
+  }
+}

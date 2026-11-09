@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/cont-b-guam-coast-1979-excerpt.pdf",
+  "sha256": "1c9395644932df23c5a6e5b9787f25d66e47dc82e97aa3c5317ce8a8f9865aef",
+  "bytes": 1318362,
+  "source_ids": [
+    "cont-b-guam-coast-1979"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "reviews/continuation-01.json"
+  ],
+  "retrieval": {
+    "kind": "pdf_excerpt",
+    "urls": [
+      "https://www.uog.edu/_resources/files/ml/technical_reports/59Jennison-Nolan_1979_UOGMLTechReport59.pdf"
+    ],
+    "original_sha256": "aa1917191fc80fa322846fed3c855b75edf05bb74ea8d306601788cc518b7a3f",
+    "original_page_count": 70,
+    "page_mapping": [
+      {
+        "source_page": 1,
+        "excerpt_page": 1
+      },
+      {
+        "source_page": 12,
+        "excerpt_page": 2
+      },
+      {
+        "source_page": 13,
+        "excerpt_page": 3
+      },
+      {
+        "source_page": 14,
+        "excerpt_page": 4
+      }
+    ],
+    "recorded_extraction_method": "Poppler pdfseparate and pdfunite; every mapped page rendered pixel-identically at 55 dpi.",
+    "note": "Original URL candidates are provenance, not a claim of current availability. Exact historical excerpt-byte reproduction is unverified; fetch --original provides the checksum-verified full source for research."
+  }
+}

@@ -259,3 +259,10 @@ rustc-ice-*.txt
 node_modules/
 web/dist/
 web/output/
+
+# Local binary evidence cache; adjacent .cache.json descriptors remain tracked.
+research/science-technology-graph/evidence/**/*.pdf
+research/science-technology-graph/evidence/**/*.jpg
+research/science-technology-graph/evidence/**/*.png
+research/science-technology-graph/evidence/**/.download-*
+research/science-technology-graph/evidence/**/.descriptor-*

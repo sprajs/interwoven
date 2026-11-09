@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "path": "evidence/acquired/cont-d-w2-ct-mayo.pdf",
+  "sha256": "a221a7cbccf3135c975d9c578854527880defc7f23ba21f067a1101bce17e680",
+  "bytes": 177990,
+  "source_ids": [
+    "cont-d-w2-src-mayohistory"
+  ],
+  "provenance_records": [
+    "data/sources.jsonl",
+    "reviews/continuation-03.json"
+  ],
+  "retrieval": {
+    "kind": "download",
+    "urls": [
+      "https://history.mayoclinic.org/wp-content/uploads/2023/06/1973-2-1.pdf"
+    ],
+    "note": "URL candidates are recovered from committed provenance. A fetched response is accepted only if its SHA-256 and byte length match; landing pages and changed versions are rejected."
+  }
+}

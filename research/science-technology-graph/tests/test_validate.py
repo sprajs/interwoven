@@ -650,6 +650,20 @@ class RepositoryValidationTests(unittest.TestCase):
         self.assertTrue(result["valid"], result["errors"])
         self.assertEqual(1, result["counts"]["source_copies_verified"])
 
+    def test_metadata_only_defers_missing_binary_hashes_but_still_checks_current_reviews(self):
+        self.records["sources"][0]["local_copy"] = self.local_copy(path="evidence/source.pdf")
+        self.write_records()
+        (self.root / "evidence/source.pdf").unlink()
+        self.assertFalse(self.check()["valid"])
+        result = validator.validate_repository(self.root, optional_jsonschema=False, defer_binary_copies=True)
+        self.assertTrue(result["valid"], result["errors"])
+        self.assertEqual(0, result["counts"]["source_copies_verified"])
+        self.assertEqual(1, result["counts"]["binary_source_copies_deferred"])
+        self.records["nodes"][0]["configuration"] = "A changed, unreviewed proposition"
+        self.write_records()
+        result = validator.validate_repository(self.root, optional_jsonschema=False, defer_binary_copies=True)
+        self.assertIn("review_proposition", {error["code"] for error in result["errors"]})
+
     def test_empty_source_copy_is_rejected_even_with_its_matching_hash(self):
         self.records["sources"][0]["local_copy"] = self.local_copy(content=b"")
         self.write_records()

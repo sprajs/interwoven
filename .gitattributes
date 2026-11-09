@@ -1,7 +1,2 @@
-# Evidence hashes cover exact bytes; never normalize source line endings.
+# Evidence hashes cover exact bytes; never normalize captured text line endings.
 research/science-technology-graph/evidence/** -text
-
-# Binary evidence uses LFS, including future captures of these formats.
-research/science-technology-graph/evidence/**/*.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/**/*.jpg filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/**/*.png filter=lfs diff=lfs merge=lfs -text
