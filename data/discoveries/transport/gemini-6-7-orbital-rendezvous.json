@@ -1,0 +1,100 @@
+{
+  "id": "gemini-6-7-orbital-rendezvous",
+  "name": "Gemini VI-A and VII orbital rendezvous",
+  "description": "Two independently crewed spacecraft met and remained in proximity in Earth orbit.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "grain": "capability",
+  "concept": "orbital-rendezvous",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place is a modern geographic reference to the cited episode; it does not imply exclusive origin."
+    }
+  ],
+  "events": [
+    {
+      "id": "rendezvous-1965",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1965,
+          "month": 12,
+          "day": 15
+        },
+        "latest": {
+          "year": 1965,
+          "month": 12,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1965-12-15",
+        "basis": "Date stated by the cited source."
+      },
+      "statement": "The crewed Gemini VI-A and Gemini VII spacecraft rendezvoused in Earth orbit.",
+      "caveats": "The rendezvous did not include docking; the two missions had distinct crews and tasks.",
+      "evidence": [
+        {
+          "source": "nasa-nd-gemini7-rendezvous",
+          "locator": "Mission milestones",
+          "supports": "The crewed Gemini VI-A and Gemini VII spacecraft rendezvoused in Earth orbit."
+        },
+        {
+          "source": "nasa-2008-gemini-rendezvous",
+          "locator": "Gemini program history",
+          "supports": "NASA history describes the five-hour formation flight."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "nasa",
+          "role": "operator",
+          "resource": "Operated the two Gemini missions",
+          "evidence": [
+            {
+              "source": "nasa-nd-gemini7-rendezvous",
+              "locator": "Mission milestones",
+              "supports": "NASA mission history identifies the agency and missions."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "rendezvous-1965",
+    "rationale": "The first sourced event for this particular record, not a claim of a worldwide first."
+  },
+  "caveats": "This was rendezvous, not docking; a particular dependency on Apollo 11 is not assumed without mission-specific evidence.",
+  "measures": [
+    {
+      "quantity": "formation flight duration",
+      "value": 5,
+      "unit": "hours",
+      "event": "rendezvous-1965",
+      "subject": "Gemini VI-A and VII",
+      "conditions": "NASA historical summary; approximate reported formation time, not total mission duration.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nasa-2008-gemini-rendezvous",
+          "locator": "Gemini program history",
+          "supports": "Reports five hours in formation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial sourced admission; interpretation awaits independent review. Independent review checked event source passages and, where marked, measures and relationship scope; other facets retain prior status."
+  }
+}

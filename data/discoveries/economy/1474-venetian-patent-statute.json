@@ -1,0 +1,147 @@
+{
+  "id": "1474-venetian-patent-statute",
+  "name": "Venetian invention registration and remedies",
+  "description": "Venice enacted a general framework for registering new devices and seeking remedies against copying.",
+  "kind": "practice",
+  "domain": "economy.law-government",
+  "grain": "instance",
+  "concept": "registered-invention-privileges",
+  "events": [
+    {
+      "id": "statute-1474",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1474,
+          "month": 3,
+          "day": 19
+        },
+        "latest": {
+          "year": 1474,
+          "month": 3,
+          "day": 19
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "19 March 1474",
+        "basis": "The cited historical account provides this date."
+      },
+      "statement": "The Venetian Senate passed a general statute on industrial invention privileges.",
+      "evidence": [
+        {
+          "source": "w6-kostylo-venice-1474",
+          "locator": "Sections 5 and footnote 23",
+          "supports": "Dates the Venetian Senate statute to 19 March 1474, describes prior privileges and warns that its practical effects cannot be estimated; footnote reports 33 Senate monopolies in 1474–1500 with incomplete records."
+        },
+        {
+          "source": "w6-macleod-nuvolari-patent-statute",
+          "locator": "p. 5, Venetian statute",
+          "supports": "Summarizes ten-year protection and a 100-ducat penalty under the 1474 statute, while noting the state reserved its own use."
+        }
+      ],
+      "places": [
+        "italy"
+      ]
+    },
+    {
+      "id": "senate-monopolies-1474-1500",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1474
+        },
+        "latest": {
+          "year": 1500
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1474–1500",
+        "basis": "The cited account provides this period, not an exact date."
+      },
+      "statement": "The Senate issued 33 monopolies in 1474–1500, according to the cited historical estimate.",
+      "evidence": [
+        {
+          "source": "w6-kostylo-venice-1474",
+          "locator": "Sections 5 and footnote 23",
+          "supports": "Dates the Venetian Senate statute to 19 March 1474, describes prior privileges and warns that its practical effects cannot be estimated; footnote reports 33 Senate monopolies in 1474–1500 with incomplete records."
+        }
+      ],
+      "places": [
+        "italy"
+      ],
+      "scope": "Senate grants are not necessarily all under the statute, and surviving registers are incomplete."
+    }
+  ],
+  "earliest_record": {
+    "event": "statute-1474",
+    "rationale": "Earliest scoped episode established in these sources; not a global priority claim."
+  },
+  "caveats": "The statute codified earlier privileges. Ten years and 100 ducats are legal provisions rather than proof of successful enforcement or universal access. Senate monopoly counts cannot be equated with applications or protection granted under this law.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the date, legal scope, statutory quantities and reported Senate count; the count is acknowledged as incomplete and imprecise in the source."
+  },
+  "places": [
+    {
+      "place": "italy"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "specified protection period",
+      "value": 10,
+      "unit": "years",
+      "event": "statute-1474",
+      "subject": "Term described for registered inventions",
+      "conditions": "Statutory period, not observed duration or evidence of successful enforcement.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w6-macleod-nuvolari-patent-statute",
+          "locator": "p. 5, Venetian statute",
+          "supports": "Summarizes ten-year protection and a 100-ducat penalty under the 1474 statute, while noting the state reserved its own use."
+        }
+      ]
+    },
+    {
+      "quantity": "specified infringement penalty",
+      "value": 100,
+      "unit": "ducats",
+      "event": "statute-1474",
+      "subject": "Penalty described in the statute",
+      "conditions": "Nominal historical currency and statutory remedy; no judgment or collection is established.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w6-macleod-nuvolari-patent-statute",
+          "locator": "p. 5, Venetian statute",
+          "supports": "Summarizes ten-year protection and a 100-ducat penalty under the 1474 statute, while noting the state reserved its own use."
+        }
+      ]
+    },
+    {
+      "quantity": "Senate monopolies",
+      "value": 33,
+      "unit": "grants",
+      "event": "senate-monopolies-1474-1500",
+      "subject": "Venetian Senate monopolies reported by Kostylo",
+      "conditions": "Historical count across 1474–1500; records incomplete and grants not necessarily under the statute.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w6-kostylo-venice-1474",
+          "locator": "Sections 5 and footnote 23",
+          "supports": "Dates the Venetian Senate statute to 19 March 1474, describes prior privileges and warns that its practical effects cannot be estimated; footnote reports 33 Senate monopolies in 1474–1500 with incomplete records."
+        }
+      ]
+    }
+  ]
+}

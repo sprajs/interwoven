@@ -1,0 +1,102 @@
+{
+  "id": "boulton-watt-lap-engine-speed-governor",
+  "name": "Boulton and Watt Lap engine speed governor",
+  "description": "A centrifugal governor adjusted steam admission as engine speed changed, regulating a rotary engine driving workshop machinery.",
+  "kind": "technology",
+  "domain": "machines.mechanisms",
+  "grain": "instance",
+  "concept": "centrifugal-speed-governor",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1788
+        },
+        "latest": {
+          "year": 1788
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "Around 1788",
+        "basis": "The date applies to this documented case, not to the worldwide origin of the capability."
+      },
+      "statement": "The museum dates the Lap engine to 1788 and describes its centrifugal governor, sun-and-planet gearing and use driving polishing machines.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "smg-boulton-watt-lap-engine",
+          "locator": "Object description",
+          "supports": "The museum dates the Lap engine to 1788 and describes its centrifugal governor, sun-and-planet gearing and use driving polishing machines."
+        },
+        {
+          "source": "smithsonian-feedback-mechanisms-steam-governor",
+          "locator": "Chapter 2, steam governors",
+          "supports": "The Smithsonian reports a millwright mechanism as background and describes the Lap governor operating shortly after late-1788 references."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "boulton-and-watt",
+          "role": "manufacturer",
+          "resource": "Lap engine and speed governor",
+          "evidence": [
+            {
+              "source": "smg-boulton-watt-lap-engine",
+              "locator": "Object description",
+              "supports": "The museum dates the Lap engine to 1788 and describes its centrifugal governor, sun-and-planet gearing and use driving polishing machines."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Earliest researched operational or depicted case for this record, not a claim of global priority."
+  },
+  "caveats": "The Smithsonian account places first governor operation shortly after late-1788 references; the exact installation date is not given. Earlier mill mechanisms informed the design.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Independent review checked the engine and sun-and-planet gearing; the first governor use is described as shortly after the late-1788 references, so the installation date remains approximate."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "sun-and-planet-specification",
+      "status": "established",
+      "statement": "The Lap engine incorporated sun-and-planet gearing of the type described in Watt’s earlier rotative-engine specification.",
+      "scope": "The sun-and-planet mechanism in this particular engine; the speed governor was an additional mechanism.",
+      "confidence": "high",
+      "contribution": [
+        "supplied_component"
+      ],
+      "caveats": "The gear and the governor perform distinct functions; the relationship does not establish that the governor originated with the gear.",
+      "evidence": [
+        {
+          "source": "smg-boulton-watt-lap-engine",
+          "locator": "Object description and mechanism",
+          "supports": "The Science Museum identifies the Lap engine’s sun-and-planet geared arrangement."
+        }
+      ]
+    }
+  ]
+}

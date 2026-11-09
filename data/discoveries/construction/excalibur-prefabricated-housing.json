@@ -1,0 +1,150 @@
+{
+  "id": "excalibur-prefabricated-housing",
+  "name": "Excalibur prefabricated housing",
+  "description": "Factory-made Uni-Seco house components were transported as kits and assembled on a London housing estate.",
+  "kind": "technology",
+  "domain": "construction.shelter",
+  "grain": "instance",
+  "concept": "factory-prefabricated-panel-housing",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "london"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1945
+        },
+        "latest": {
+          "year": 1946
+        },
+        "precision": "range",
+        "status": "known",
+        "label": "1945–1946",
+        "basis": "The date applies to this documented case, not to the worldwide origin of the capability."
+      },
+      "statement": "Historic England dates the estate to 1945–46, describes prefabricated panels and says the estate comprises 187 houses.",
+      "places": [
+        "london"
+      ],
+      "evidence": [
+        {
+          "source": "historic-england-excalibur-uni-seco",
+          "locator": "Listing details and history",
+          "supports": "Historic England dates the estate to 1945–46, describes prefabricated panels and says the estate comprises 187 houses."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Excalibur Estate builders",
+          "role": "manufacturer",
+          "resource": "Prefabricated housing estate",
+          "evidence": [
+            {
+              "source": "historic-england-excalibur-uni-seco",
+              "locator": "Listing details and history",
+              "supports": "Historic England dates the estate to 1945–46, describes prefabricated panels and says the estate comprises 187 houses."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "national-housing-authorization",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1944
+        },
+        "latest": {
+          "year": 1944
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1944",
+        "basis": "The date applies to this documented case, not to the worldwide origin of the capability."
+      },
+      "statement": "The Housing (Temporary Accommodation) Act authorized up to £150 million for temporary houses nationally.",
+      "evidence": [
+        {
+          "source": "historic-england-excalibur-uni-seco",
+          "locator": "History, 1944 legislation",
+          "supports": "Historic England reports national authorization of up to £150 million."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "United Kingdom government",
+          "role": "regulator",
+          "resource": "National temporary housing authorization",
+          "evidence": [
+            {
+              "source": "historic-england-excalibur-uni-seco",
+              "locator": "History, 1944 legislation",
+              "supports": "Historic England attributes the 1944 authorization to the national legislation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Earliest researched operational or depicted case for this record, not a claim of global priority."
+  },
+  "caveats": "The national budget authorization was not the expenditure on this estate. The site’s assembly workforce is known from residents’ recollections.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the Historic England listing, the 187-house estate and national spending authorization; the latter was not estate expenditure."
+  },
+  "measures": [
+    {
+      "quantity": "estate houses",
+      "value": 187,
+      "unit": "houses",
+      "event": "documented-case",
+      "subject": "Excalibur Estate",
+      "status": "claimed",
+      "conditions": "Estate count from listing, not nationwide adoption.",
+      "evidence": [
+        {
+          "source": "historic-england-excalibur-uni-seco",
+          "locator": "Listing details and history",
+          "supports": "Historic England dates the estate to 1945–46, describes prefabricated panels and says the estate comprises 187 houses."
+        }
+      ]
+    },
+    {
+      "quantity": "national maximum authorized spending",
+      "value": 150000000,
+      "unit": "pounds sterling",
+      "currency": "GBP",
+      "event": "national-housing-authorization",
+      "subject": "UK temporary housing programme",
+      "status": "claimed",
+      "money_context": "Nominal 1944 authorization, not actual expenditure or Excalibur-specific cost.",
+      "conditions": "Maximum authorized by national legislation.",
+      "evidence": [
+        {
+          "source": "historic-england-excalibur-uni-seco",
+          "locator": "History, 1944 legislation",
+          "supports": "The Act authorized up to £150 million nationally."
+        }
+      ]
+    }
+  ]
+}

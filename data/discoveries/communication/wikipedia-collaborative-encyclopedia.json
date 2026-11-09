@@ -1,0 +1,103 @@
+{
+  "id": "wikipedia-collaborative-encyclopedia",
+  "name": "Wikipedia collaborative encyclopedia",
+  "description": "A network encyclopedia written and revised collaboratively by volunteer contributors and made available to readers without charge.",
+  "kind": "practice",
+  "domain": "communication.records",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "launch-2001",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2001,
+          "month": 1,
+          "day": 15
+        },
+        "latest": {
+          "year": 2001,
+          "month": 1,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "15 January 2001",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Wikipedia launched as a free encyclopedia that people could collaboratively edit.",
+      "caveats": "Internet and suitable device access were required; later community rules and access restrictions varied.",
+      "evidence": [
+        {
+          "source": "wikimedia-2016-15-years-wave6",
+          "locator": "Launch and facts",
+          "supports": "Foundation dates launch, describes free collaborative editing and language editions."
+        }
+      ]
+    },
+    {
+      "id": "languages-first-year",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2001,
+          "month": 1,
+          "day": 15
+        },
+        "latest": {
+          "year": 2002,
+          "month": 1,
+          "day": 15
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "within first year",
+        "basis": "Foundation retrospectively reports growth during the first year after launch."
+      },
+      "statement": "The Wikimedia Foundation reports that Wikipedia reached 18 language editions within its first year.",
+      "caveats": "Language editions are not the number of writers, readers, countries, or equally complete translations.",
+      "evidence": [
+        {
+          "source": "wikimedia-2016-15-years-wave6",
+          "locator": "Launch and facts",
+          "supports": "Foundation dates launch, describes free collaborative editing and language editions."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "launch-2001",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "collaborative-online-encyclopedia",
+  "measures": [
+    {
+      "quantity": "language editions",
+      "value": 18,
+      "unit": "language editions",
+      "event": "languages-first-year",
+      "subject": "Wikipedia by the end of its first year",
+      "status": "claimed",
+      "conditions": "Foundation retrospective; not a measure of readership or completeness.",
+      "evidence": [
+        {
+          "source": "wikimedia-2016-15-years-wave6",
+          "locator": "Facts",
+          "supports": "Foundation reports 18 languages within first year."
+        }
+      ]
+    }
+  ],
+  "caveats": "Other encyclopedias and collaborative wiki software predated Wikipedia. Editing policies, page protections, and availability vary over time.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "New source-backed draft; independent review pending. Independent review: An online encyclopedia uses the Web, but that does not establish dependence on the specific 1991 FTP release; that exact-referent link was removed. Independent reader checked Wikimedia’s launch date and 18 languages within the first year; languages are not users."
+  }
+}

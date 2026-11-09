@@ -1,0 +1,110 @@
+{
+  "id": "nvidia-cuda-gpu-computing-platform",
+  "name": "CUDA GPU computing platform",
+  "description": "A programming platform and software environment for running general-purpose parallel computation on supported NVIDIA graphics processors.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "platform-2006",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2006,
+          "month": 11
+        },
+        "latest": {
+          "year": 2006,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "November 2006",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "NVIDIA introduced CUDA as a GPU parallel-computing platform.",
+      "contributions": [
+        {
+          "organization": "nvidia",
+          "role": "developer",
+          "resource": "Introduced the platform.",
+          "evidence": [
+            {
+              "source": "nvidia-cuda-introduction-wave6",
+              "locator": "Section 1.2",
+              "supports": "NVIDIA guide dates introduction and describes the programming platform."
+            }
+          ]
+        }
+      ],
+      "caveats": "Introduction is distinct from toolkit release and does not demonstrate application adoption.",
+      "evidence": [
+        {
+          "source": "nvidia-cuda-introduction-wave6",
+          "locator": "Section 1.2",
+          "supports": "NVIDIA guide dates introduction and describes the programming platform."
+        }
+      ]
+    },
+    {
+      "id": "toolkit-1-2007",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2007,
+          "month": 6,
+          "day": 26
+        },
+        "latest": {
+          "year": 2007,
+          "month": 6,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "26 June 2007",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "NVIDIA announced availability of CUDA Toolkit and SDK version 1.0.",
+      "contributions": [
+        {
+          "organization": "nvidia",
+          "role": "supplier",
+          "resource": "Distributed the toolkit and SDK.",
+          "evidence": [
+            {
+              "source": "nvidia-2007-cuda-release-wave6",
+              "locator": "Announcement",
+              "supports": "Announcement identifies NVIDIA."
+            }
+          ]
+        }
+      ],
+      "caveats": "Compatible GPUs, drivers and supported operating systems were required; this release was not support for all graphics hardware.",
+      "evidence": [
+        {
+          "source": "nvidia-2007-cuda-release-wave6",
+          "locator": "Announcement",
+          "supports": "NVIDIA announces the 1.0 toolkit and SDK."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "platform-2006",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "general-purpose-gpu-platform",
+  "caveats": "General-purpose computation on graphics hardware and parallel programming predated CUDA; later toolkit features and adoption require separate evidence.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled"
+    },
+    "note": "New source-backed draft; independent review pending. Independent reader checked NVIDIA’s retrospective 2006 introduction and its 2007 toolkit/SDK availability announcement."
+  }
+}

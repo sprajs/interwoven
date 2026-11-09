@@ -1,0 +1,101 @@
+{
+  "id": "water-factory-21-wastewater-recharge",
+  "name": "Water Factory 21 wastewater recharge",
+  "description": "Treated municipal wastewater was reused in a groundwater injection barrier against seawater intrusion.",
+  "kind": "technology",
+  "domain": "construction.sanitation",
+  "grain": "instance",
+  "concept": "treated-wastewater-groundwater-recharge",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "california"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1976,
+          "month": 10
+        },
+        "latest": {
+          "year": 1976,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "October 1976",
+        "basis": "The date applies to this documented case, not to the worldwide origin of the capability."
+      },
+      "statement": "EPA reports the Water Factory 21 injection period began in October 1976 and that reverse osmosis was added later.",
+      "places": [
+        "california"
+      ],
+      "evidence": [
+        {
+          "source": "epa-water-factory-21-recharge",
+          "locator": "Introduction and operating-period table",
+          "supports": "EPA reports the Water Factory 21 injection period began in October 1976 and that reverse osmosis was added later."
+        },
+        {
+          "source": "ocwd-water-factory-21-history",
+          "locator": "1975 entry",
+          "supports": "The district dates the facility’s unveiling to 1975; EPA’s operating table places the start of injection in October 1976."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "orange-county-water-district",
+          "role": "infrastructure_provider",
+          "resource": "Wastewater reclamation and injection works",
+          "evidence": [
+            {
+              "source": "epa-water-factory-21-recharge",
+              "locator": "Introduction and operating-period table",
+              "supports": "EPA reports the Water Factory 21 injection period began in October 1976 and that reverse osmosis was added later."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Earliest researched operational or depicted case for this record, not a claim of global priority."
+  },
+  "caveats": "EPA describes injection beginning in October 1976; the operator’s retrospective describes a 1975 opening and gives a different account of early chronology. Design capacity is not actual output.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the EPA operating-period table and 15-million-gallon design flow; the district account differs on opening and reverse-osmosis timing."
+  },
+  "measures": [
+    {
+      "quantity": "design treatment capacity",
+      "value": 15,
+      "unit": "million US gallons per day",
+      "event": "documented-case",
+      "subject": "Water Factory 21",
+      "status": "claimed",
+      "conditions": "Design flow reported by EPA; the same report says the plant did not operate at that design flow throughout its history.",
+      "evidence": [
+        {
+          "source": "epa-water-factory-21-recharge",
+          "locator": "Introduction and design versus achieved flow",
+          "supports": "EPA reports 15 million gallons per day design capacity and distinguishes it from achieved flow."
+        }
+      ]
+    }
+  ]
+}

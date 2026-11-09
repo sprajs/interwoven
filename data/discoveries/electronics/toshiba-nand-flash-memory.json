@@ -1,0 +1,142 @@
+{
+  "id": "toshiba-nand-flash-memory",
+  "name": "Toshiba NAND flash memory",
+  "description": "An electrically erasable nonvolatile semiconductor memory organized using a NAND-structured cell array.",
+  "kind": "technology",
+  "domain": "electronics.storage",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "nand-paper-1987",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1987
+        },
+        "latest": {
+          "year": 1987
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1987",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Masuoka and colleagues described NAND-structured flash memory at the 1987 International Electron Devices Meeting.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "fujio-masuoka",
+          "role": "contributor",
+          "resource": "Coauthored NAND-structured flash work.",
+          "evidence": [
+            {
+              "source": "nycu-1987-nand-abstract-wave6",
+              "locator": "Authors",
+              "supports": "Names Masuoka as an author."
+            }
+          ]
+        },
+        {
+          "organization": "toshiba",
+          "role": "funder",
+          "resource": "Toshiba’s camera division supported the broader NAND project.",
+          "evidence": [
+            {
+              "source": "chm-nand-flash-history-wave6",
+              "locator": "1980s NAND paragraph",
+              "supports": "CHM dates the NAND description to 1987 and identifies Toshiba camera-division funding."
+            }
+          ]
+        }
+      ],
+      "caveats": "Conference paper and funding are not proof of commercial availability in 1987.",
+      "evidence": [
+        {
+          "source": "chm-nand-flash-history-wave6",
+          "locator": "1980s NAND paragraph",
+          "supports": "CHM dates the NAND description to 1987 and identifies Toshiba camera-division funding."
+        },
+        {
+          "source": "nycu-1987-nand-abstract-wave6",
+          "locator": "Abstract and citation",
+          "supports": "The indexed abstract identifies the 1987 four-author paper."
+        }
+      ]
+    },
+    {
+      "id": "production-1992",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 1992
+        },
+        "latest": {
+          "year": 1992
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1992",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Toshiba began production of 16-megabit NAND flash chips.",
+      "evidence": [
+        {
+          "source": "chm-nand-flash-history-wave6",
+          "locator": "NAND paragraph",
+          "supports": "CHM dates production of 16-Mbit NAND to 1992."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "nand-paper-1987",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "nand-flash-memory",
+  "places": [
+    {
+      "place": "japan",
+      "note": "Research organization Toshiba was based in Japan; presentation occurred in Washington."
+    }
+  ],
+  "people": [
+    {
+      "person": "fujio-masuoka",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "chip capacity",
+      "value": 16,
+      "unit": "megabits per chip",
+      "event": "production-1992",
+      "subject": "1992 NAND flash chips",
+      "status": "claimed",
+      "conditions": "CHM retrospective; capacity, not quantity sold.",
+      "evidence": [
+        {
+          "source": "chm-nand-flash-history-wave6",
+          "locator": "NAND paragraph",
+          "supports": "CHM reports 16-Mbit production."
+        }
+      ]
+    }
+  ],
+  "caveats": "Electrically erasable and flash memories predated NAND. The source dates this implementation and does not establish the first consumer product.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "New source-backed draft; independent review pending. Independent reader checked the conference abstract and CHM’s funding and 1992 production account; chip capacity is not sales."
+  }
+}

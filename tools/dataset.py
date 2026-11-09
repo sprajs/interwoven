@@ -15,6 +15,7 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass, field
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -138,6 +139,7 @@ class Dataset:
     sources: dict[str, dict] = field(default_factory=dict)
     registers: dict[str, dict[str, dict]] = field(default_factory=dict)
     population: dict | None = None
+    adoption_panels: dict[str, dict] = field(default_factory=dict)
     #: Where each discovery and source file was read from, for error messages and layout checks.
     paths: dict[str, Path] = field(default_factory=dict)
 
@@ -161,6 +163,8 @@ class Dataset:
         population = data / "reference" / "population.json"
         if population.exists():
             self.population = read_json(population)
+        for path in sorted((data / "reference" / "adoption").glob("*.json")):
+            self.adoption_panels[path.stem] = read_json(path)
         return self
 
     # -- lookups ---------------------------------------------------------------------------
@@ -256,6 +260,38 @@ class Dataset:
                         errors.append(f"{where}: unknown key '{key}'")
                     elif isinstance(extra, dict):
                         check(item, extra, f"{where}.{key}")
+
+        for key, panel in self.adoption_panels.items():
+            where = f"reference/adoption/{key}"
+            check(panel, defs["chatTelephonePanel"], where)
+            if not isinstance(panel, dict):
+                continue
+            if panel.get("id") != key:
+                errors.append(f"{where}: id must match filename")
+            seen = set()
+            observations = panel.get("observations")
+            if not isinstance(observations, list):
+                continue
+            for index, row in enumerate(observations):
+                at = f"{where}.observations[{index}]"
+                if not isinstance(row, dict):
+                    continue
+                country, year = row.get("country"), row.get("year_token")
+                if not isinstance(country, str) or not isinstance(year, str):
+                    continue
+                pair = (country, year)
+                if pair in seen:
+                    errors.append(f"{at}: duplicate country and year")
+                seen.add(pair)
+                token = row.get("raw_value")
+                if isinstance(token, str):
+                    try:
+                        expected = telephone_value(token)
+                        status = "missing" if expected is None else "reported"
+                        if row.get("status") != status or row.get("value") != expected:
+                            errors.append(f"{at}: value and status must match the raw token")
+                    except ValueError:
+                        errors.append(f"{at}: invalid raw telephone value")
 
         for name, definition in REGISTER_DEFS.items():
             for key, row in self.registers[name].items():
@@ -417,3 +453,16 @@ def _is(value: Any, kind: str) -> bool:
     if kind == "number":
         return isinstance(value, (int, float)) and not isinstance(value, bool)
     return isinstance(value, {"string": str, "array": list, "object": dict}[kind])
+
+
+def telephone_value(token: str) -> int | None:
+    """Parse a CHAT telephone cell without treating blanks as zero."""
+    if token == "":
+        return None
+    try:
+        value = Decimal(token)
+    except InvalidOperation as exc:
+        raise ValueError("invalid telephone token") from exc
+    if not value.is_finite() or value < 0 or value != value.to_integral_value():
+        raise ValueError("telephone count must be a non-negative integer")
+    return int(value)

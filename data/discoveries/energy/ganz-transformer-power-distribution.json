@@ -1,0 +1,244 @@
+{
+  "id": "ganz-transformer-power-distribution",
+  "name": "Ganz transformer electricity distribution",
+  "description": "A Budapest engineering team and firm developed transformer-based AC distribution and supplied exhibition and city lighting.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "grain": "capability",
+  "concept": "ac-transformer-distribution",
+  "places": [
+    {
+      "place": "hungary",
+      "note": "Place is a modern geographic reference to the cited episode; it does not imply exclusive origin."
+    }
+  ],
+  "events": [
+    {
+      "id": "exhibition-1885",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1885,
+          "month": 5
+        },
+        "latest": {
+          "year": 1885,
+          "month": 5
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1885-05",
+        "basis": "Date stated by the cited source."
+      },
+      "statement": "The Ganz transformer distribution system powered lighting at the Budapest exhibition.",
+      "caveats": "The Ganz-affiliated author’s retrospective describes exhibition use; no global-first claim is adopted.",
+      "evidence": [
+        {
+          "source": "aszalos-1985-ganz-transformer",
+          "locator": "Exhibition, early installations and pp. 13–15",
+          "supports": "The Ganz transformer distribution system powered lighting at the Budapest exhibition."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "ganz-electric-works",
+          "role": "developer",
+          "resource": "Developed and supplied the system",
+          "evidence": [
+            {
+              "source": "aszalos-1985-ganz-transformer",
+              "locator": "Exhibition, early installations and pp. 13–15",
+              "supports": "The account attributes the system to Ganz and its three engineers."
+            }
+          ]
+        },
+        {
+          "person": "karoly-zipernowsky",
+          "role": "developer",
+          "resource": "Co-developed the exhibition transformer system",
+          "evidence": [
+            {
+              "source": "aszalos-1985-ganz-transformer",
+              "locator": "Exhibition, early installations and pp. 13–15",
+              "supports": "The author identifies Zipernowsky, Déri and Bláthy as the joint engineers of the exhibition system."
+            }
+          ]
+        },
+        {
+          "person": "miksa-deri",
+          "role": "developer",
+          "resource": "Co-developed the exhibition transformer system",
+          "evidence": [
+            {
+              "source": "aszalos-1985-ganz-transformer",
+              "locator": "Exhibition, early installations and pp. 13–15",
+              "supports": "The author identifies Zipernowsky, Déri and Bláthy as the joint engineers of the exhibition system."
+            }
+          ]
+        },
+        {
+          "person": "otto-titusz-blathy",
+          "role": "developer",
+          "resource": "Co-developed the exhibition transformer system",
+          "evidence": [
+            {
+              "source": "aszalos-1985-ganz-transformer",
+              "locator": "Exhibition, early installations and pp. 13–15",
+              "supports": "The author identifies Zipernowsky, Déri and Bláthy as the joint engineers of the exhibition system."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rome-1886",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1886
+        },
+        "latest": {
+          "year": 1886
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1886",
+        "basis": "Date stated by the cited source."
+      },
+      "statement": "Ganz installed a transformer-fed power station and distribution system in Rome.",
+      "caveats": "Installation year does not establish the date when all customers were connected.",
+      "evidence": [
+        {
+          "source": "aszalos-1985-ganz-transformer",
+          "locator": "Exhibition, early installations and pp. 13–15",
+          "supports": "Ganz installed a transformer-fed power station and distribution system in Rome."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "ganz-electric-works",
+          "role": "supplier",
+          "resource": "Supplied the Rome system",
+          "evidence": [
+            {
+              "source": "aszalos-1985-ganz-transformer",
+              "locator": "Exhibition, early installations and pp. 13–15",
+              "supports": "Account attributes the station to Ganz."
+            }
+          ]
+        }
+      ],
+      "places": [
+        "italy"
+      ]
+    },
+    {
+      "id": "deliveries-1890",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1890
+        },
+        "latest": {
+          "year": 1890
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1890",
+        "basis": "Date stated by the cited source."
+      },
+      "statement": "A Ganz-affiliated retrospective reports nearly 60 power stations delivered from 1885 through 1890.",
+      "caveats": "This is a retrospective approximation of delivered plants, not the number of end users or operational stations.",
+      "evidence": [
+        {
+          "source": "aszalos-1985-ganz-transformer",
+          "locator": "Exhibition, early installations and pp. 13–15",
+          "supports": "A Ganz-affiliated retrospective reports nearly 60 power stations delivered from 1885 through 1890."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "exhibition-1885",
+    "rationale": "The first sourced event for this particular record, not a claim of a worldwide first."
+  },
+  "caveats": "Several predecessors and parallel approaches existed. Geographic places correspond to events, not a claim that each actor worked exclusively in Hungary.",
+  "measures": [
+    {
+      "quantity": "exhibition lamps",
+      "value": ">1000",
+      "unit": "lamps",
+      "event": "exhibition-1885",
+      "subject": "Budapest exhibition",
+      "conditions": "Author reports over 1,000 lamps supplied by the exhibition system; not separate paying customers.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "aszalos-1985-ganz-transformer",
+          "locator": "Exhibition, early installations and pp. 13–15",
+          "supports": "Reports over 1,000 lamps."
+        }
+      ]
+    },
+    {
+      "quantity": "power stations delivered",
+      "value": "approximately 60",
+      "unit": "stations",
+      "event": "deliveries-1890",
+      "subject": "Ganz deliveries, 1885–1890",
+      "conditions": "Ganz-affiliated retrospective; an approximate multi-year total.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "aszalos-1985-ganz-transformer",
+          "locator": "Exhibition, early installations and pp. 13–15",
+          "supports": "Reports close to 60 complete power stations."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "same_principle",
+      "from": "switching-induces-a-second-current",
+      "status": "established",
+      "statement": "The Ganz transformer and Faraday’s induction experiment both use electromagnetic induction.",
+      "scope": "A shared physical principle; this does not claim a direct individual knowledge transfer.",
+      "evidence": [
+        {
+          "source": "aszalos-1985-ganz-transformer",
+          "locator": "Exhibition, early installations and pp. 13–15",
+          "supports": "Asztalos identifies Faraday’s induction experiment as a physical precursor of transformer development."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "links": "reviewed",
+      "people": "sourced"
+    },
+    "note": "Initial sourced admission; interpretation awaits independent review. Independent review checked event source passages and, where marked, measures and relationship scope; other facets retain prior status."
+  },
+  "people": [
+    {
+      "person": "karoly-zipernowsky",
+      "role": "contributor"
+    },
+    {
+      "person": "miksa-deri",
+      "role": "contributor"
+    },
+    {
+      "person": "otto-titusz-blathy",
+      "role": "contributor"
+    }
+  ]
+}

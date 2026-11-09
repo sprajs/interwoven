@@ -1,0 +1,123 @@
+{
+  "id": "ieee-80211-wireless-lan-standard",
+  "name": "IEEE 802.11 wireless local networking",
+  "description": "A wireless local-area network standard specifying shared medium access and radio or other physical interfaces.",
+  "kind": "practice",
+  "domain": "electronics.networks",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "standard-1997",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1997
+        },
+        "latest": {
+          "year": 1997
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1997",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "IEEE published the original 802.11 wireless LAN standard.",
+      "contributions": [
+        {
+          "organization": "ieee",
+          "role": "developer",
+          "resource": "Published the wireless LAN standard.",
+          "evidence": [
+            {
+              "source": "ieee-wifi-history-wave6",
+              "locator": "1997 paragraph",
+              "supports": "IEEE dates the standard and gives the 2 Mbit/s maximum."
+            }
+          ]
+        }
+      ],
+      "caveats": "The 2 Mbit/s figure is a technical maximum, not observed throughput, range, number of users or adoption.",
+      "evidence": [
+        {
+          "source": "ieee-wifi-history-wave6",
+          "locator": "1997 paragraph",
+          "supports": "IEEE dates the standard and gives the 2 Mbit/s maximum."
+        }
+      ]
+    },
+    {
+      "id": "ibook-airport-1999",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1999
+        },
+        "latest": {
+          "year": 1999
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1999",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Apple introduced the iBook and AirPort as consumer wireless networking products.",
+      "contributions": [
+        {
+          "organization": "apple-computer",
+          "role": "supplier",
+          "resource": "Introduced iBook and AirPort.",
+          "evidence": [
+            {
+              "source": "ieee-wifi-history-wave6",
+              "locator": "1999 paragraph",
+              "supports": "IEEE names Apple as supplier."
+            }
+          ]
+        }
+      ],
+      "caveats": "The products used the later 802.11b generation; product introduction is not a count of buyers.",
+      "evidence": [
+        {
+          "source": "ieee-wifi-history-wave6",
+          "locator": "1999 paragraph",
+          "supports": "IEEE identifies Apple’s products as 1999 examples."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "standard-1997",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "wireless-lan-standard",
+  "measures": [
+    {
+      "quantity": "maximum specified data rate",
+      "value": 2,
+      "unit": "Mbit/s",
+      "event": "standard-1997",
+      "subject": "Original 1997 wireless LAN standard",
+      "status": "claimed",
+      "conditions": "IEEE retrospective describes maximum; actual throughput varies and later amendments differ.",
+      "evidence": [
+        {
+          "source": "ieee-wifi-history-wave6",
+          "locator": "1997 paragraph",
+          "supports": "IEEE gives up to 2 Mbit/s."
+        }
+      ]
+    }
+  ],
+  "caveats": "Earlier wireless local networks existed; 802.11 specifies a family of interoperable networking technologies, not all wireless networking.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "New source-backed draft; independent review pending. Independent reader checked IEEE’s 1997 maximum and 1999 802.11b consumer example; figures are not observed throughput."
+  }
+}

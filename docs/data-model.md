@@ -127,3 +127,7 @@ Existing records stay valid, because a facet that is absent simply has not been 
 ## What is deliberately not stored
 
 Anything that can be computed is left out: how many later discoveries depend on one, the time between linked events, how deep a chain runs, whether a link crosses fields or regions, and how many discoveries a place or a period has.
+
+## Reference adoption pilot
+
+`data/reference/adoption/chat-telephone-pilot.json` is an optional, separately validated set of selected country-year observations. It records the source release and SHA-256, the indicator definition and original attribution, exact country/year/value tokens, 1-based physical CSV line numbers including the header, and explicit missing status. The schema is limited to CHAT `telephone` counts in `lines`. The telephone count has no denominator and no implied link to a discovery. Reference panels are not discovery measures and are not compiled into the app.

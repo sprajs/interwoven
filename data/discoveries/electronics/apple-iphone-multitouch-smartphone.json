@@ -1,0 +1,150 @@
+{
+  "id": "apple-iphone-multitouch-smartphone",
+  "name": "Apple iPhone touchscreen smartphone",
+  "description": "A touchscreen mobile phone combined voice communications, Web access and applications in a handheld device.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "us-sale-2007",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2007,
+          "month": 6,
+          "day": 29
+        },
+        "latest": {
+          "year": 2007,
+          "month": 6,
+          "day": 29
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "29 June 2007",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The original iPhone went on sale in the United States in 4 GB and 8 GB models.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "organization": "apple-computer",
+          "role": "supplier",
+          "resource": "Sold the iPhone; the company used the name Apple Inc. by this time.",
+          "evidence": [
+            {
+              "source": "apple-2007-iphone-launch-wave6",
+              "locator": "Pricing and availability",
+              "supports": "Apple states the 29 June 2007 US sale and initial model prices."
+            }
+          ]
+        }
+      ],
+      "caveats": "At US launch Apple and AT&T required a new two-year service plan and Internet-connected PC or Mac with iTunes for activation; device price excluded service. Apple also listed an iTunes Store account or major credit card and a valid Social Security number as activation requirements.",
+      "evidence": [
+        {
+          "source": "apple-2007-iphone-launch-wave6",
+          "locator": "Pricing and availability",
+          "supports": "Apple states the 29 June 2007 US sale and initial model prices."
+        },
+        {
+          "source": "apple-att-2007-iphone-activation-wave6",
+          "locator": "System Requirements",
+          "supports": "Apple and AT&T list the activation and two-year service plan requirements."
+        }
+      ]
+    },
+    {
+      "id": "app-downloads-2008",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2008,
+          "month": 7,
+          "day": 14
+        },
+        "latest": {
+          "year": 2008,
+          "month": 7,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "14 July 2008",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Apple reported more than ten million App Store downloads across iPhone and iPod touch in the first three days.",
+      "caveats": "Downloads are not distinct users or iPhone sales; this event occurred after the 2007 launch.",
+      "evidence": [
+        {
+          "source": "apple-2008-app-store-wave6",
+          "locator": "Opening paragraphs",
+          "supports": "Apple states the first-weekend download count and eligible devices."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "us-sale-2007",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "touchscreen-smartphone",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Initial US retail launch."
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "launch retail price",
+      "value": 499,
+      "unit": "USD per device",
+      "currency": "USD",
+      "money_context": "Nominal initial US price for the 4 GB model, before service and other charges.",
+      "event": "us-sale-2007",
+      "subject": "Original iPhone, 4 GB",
+      "status": "claimed",
+      "conditions": "Apple US launch announcement; 8 GB model was $599 and carrier service was additional.",
+      "evidence": [
+        {
+          "source": "apple-2007-iphone-launch-wave6",
+          "locator": "Pricing and availability",
+          "supports": "Apple lists 4 GB at $499."
+        }
+      ]
+    },
+    {
+      "quantity": "app downloads",
+      "value": ">10000000",
+      "unit": "downloads",
+      "event": "app-downloads-2008",
+      "subject": "App Store downloads on iPhone and iPod touch in first three days",
+      "status": "claimed",
+      "conditions": "Apple-reported aggregate across both device classes; not unique users or sales.",
+      "evidence": [
+        {
+          "source": "apple-2008-app-store-wave6",
+          "locator": "Opening",
+          "supports": "Apple reports more than ten million downloads in three days."
+        }
+      ]
+    }
+  ],
+  "caveats": "Touchscreen phones, mobile Internet and smartphone applications existed before the iPhone. Later App Store access is a separate 2008 event.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "places": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "New source-backed draft; independent review pending. Independent review: The iPhone’s Wi-Fi feature used 802.11b/g, but its existence did not require the unmodified 1997 standard record; the overbroad requires link was removed. Independent reader checked Apple’s 2007 US prices, activation conditions and aggregate 2008 App Store downloads; these are not unique users."
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "amazon-ec2-on-demand-virtual-compute",
+  "name": "Amazon EC2 on-demand virtual computation",
+  "description": "A network service rented virtual compute capacity that developers could configure for their own applications.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "limited-beta-2006",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2006,
+          "month": 8,
+          "day": 25
+        },
+        "latest": {
+          "year": 2006,
+          "month": 8,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "25 August 2006",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Amazon described EC2 as open to limited beta testing at an hourly compute charge.",
+      "contributions": [
+        {
+          "organization": "amazon-web-services",
+          "role": "supplier",
+          "resource": "Supplied the beta virtual computing service.",
+          "evidence": [
+            {
+              "source": "aws-2006-ec2-beta-wave6",
+              "locator": "Beta announcement",
+              "supports": "AWS describes a limited beta and 10 cents per clock hour."
+            }
+          ]
+        }
+      ],
+      "caveats": "Limited beta availability was not universal access; networking and storage costs are not included in the compute price.",
+      "evidence": [
+        {
+          "source": "aws-2006-ec2-beta-wave6",
+          "locator": "Beta announcement",
+          "supports": "AWS describes a limited beta and 10 cents per clock hour."
+        }
+      ]
+    },
+    {
+      "id": "unlimited-beta-2007",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2007,
+          "month": 10,
+          "day": 22
+        },
+        "latest": {
+          "year": 2007,
+          "month": 10,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "22 October 2007",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "AWS announced that its EC2 beta was open for all developers to sign up.",
+      "caveats": "Open signup does not imply free use or prove participation by any user.",
+      "evidence": [
+        {
+          "source": "aws-2007-unlimited-ec2-beta-wave6",
+          "locator": "Announcement",
+          "supports": "AWS announces wider developer access."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "limited-beta-2006",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "on-demand-virtual-computing",
+  "measures": [
+    {
+      "quantity": "compute price",
+      "value": 0.1,
+      "unit": "USD per virtual CPU clock hour",
+      "currency": "USD",
+      "money_context": "Nominal 2006 beta rate; excludes other service charges.",
+      "event": "limited-beta-2006",
+      "subject": "Original EC2 virtual CPU",
+      "status": "claimed",
+      "conditions": "AWS blog says 10 cents per clock hour; one original virtual CPU configuration, limited beta.",
+      "evidence": [
+        {
+          "source": "aws-2006-ec2-beta-wave6",
+          "locator": "Beta announcement",
+          "supports": "Provider states 10 cents per clock hour."
+        }
+      ]
+    }
+  ],
+  "caveats": "Earlier time-sharing, hosting and utility-computing services existed. EC2 was one commercial infrastructure service, not the invention of remote computing.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "New source-backed draft; independent review pending. Independent reader checked AWS’s limited 2006 beta, configuration and clock-hour price and its 2007 broader beta announcement."
+  }
+}

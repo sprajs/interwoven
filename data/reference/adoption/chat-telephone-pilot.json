@@ -1,0 +1,98 @@
+{
+  "id": "chat-telephone-pilot",
+  "release": {
+    "source": "chat-2009-telephone-release",
+    "url": "https://data.nber.org/data-appendix/w15319/FinalCHAT_72909.csv",
+    "sha256": "139844aaee82ce67dc54bb3038d7523a8a454909cf8eed7ecc783691348b0d75",
+    "accessed": "2026-11-09",
+    "rights": "No redistribution licence identified. This pilot is a small selected factual extract, not a copy of the dataset."
+  },
+  "indicator": {
+    "id": "telephone",
+    "definition": "Number of mainline telephone lines connecting customer equipment to the public switched telephone network at year end.",
+    "unit": "lines",
+    "source": "chat-2009-dataset-documentation",
+    "upstream_attribution": "Mitchell (1998) and World Bank (2007), as listed by Comin and Hobijn."
+  },
+  "selection_rule": "Exactly Japan, Kenya and United Kingdom, each in 1950, 1980 and 2000; preserve missing cells.",
+  "scope": "Country-year series values from the named CHAT release, using its original country labels and definitions.",
+  "cautions": [
+    "Lines are not people, households, ownership, access rights, or an adoption percentage.",
+    "Source definitions and historical geographic boundaries may differ; CHAT describes some merged and backward-extrapolated series.",
+    "Blank means unknown, never zero. No denominator or discovery mapping is inferred."
+  ],
+  "observations": [
+    {
+      "country": "Japan",
+      "year_token": "1950",
+      "raw_value": "1059000",
+      "value": 1059000,
+      "status": "reported",
+      "row": 18850
+    },
+    {
+      "country": "Japan",
+      "year_token": "1980",
+      "raw_value": "38369000",
+      "value": 38369000,
+      "status": "reported",
+      "row": 18880
+    },
+    {
+      "country": "Japan",
+      "year_token": "2000",
+      "raw_value": "74314320",
+      "value": 74314320,
+      "status": "reported",
+      "row": 18900
+    },
+    {
+      "country": "Kenya",
+      "year_token": "1950",
+      "raw_value": "20000",
+      "value": 20000,
+      "status": "reported",
+      "row": 19627
+    },
+    {
+      "country": "Kenya",
+      "year_token": "1980",
+      "raw_value": "192000",
+      "value": 192000,
+      "status": "reported",
+      "row": 19657
+    },
+    {
+      "country": "Kenya",
+      "year_token": "2000",
+      "raw_value": "",
+      "value": null,
+      "status": "missing",
+      "row": 19677
+    },
+    {
+      "country": "United Kingdom",
+      "year_token": "1950",
+      "raw_value": "5426000",
+      "value": 5426000,
+      "status": "reported",
+      "row": 39570
+    },
+    {
+      "country": "United Kingdom",
+      "year_token": "1980",
+      "raw_value": "27870000",
+      "value": 27870000,
+      "status": "reported",
+      "row": 39600
+    },
+    {
+      "country": "United Kingdom",
+      "year_token": "2000",
+      "raw_value": "35228000",
+      "value": 35228000,
+      "status": "reported",
+      "row": 39620
+    }
+  ]
+}

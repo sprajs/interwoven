@@ -1,0 +1,122 @@
+{
+  "id": "1900-christmas-bird-count-collaboration",
+  "name": "Cooperative Christmas bird observations",
+  "description": "Independent observers counted birds across localities and sent their results for joint publication in a recurring coordinated count.",
+  "kind": "practice",
+  "domain": "economy.organisation",
+  "grain": "instance",
+  "concept": "collaborative-wildlife-observation",
+  "events": [
+    {
+      "id": "first-count-1900",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1900,
+          "month": 12,
+          "day": 25
+        },
+        "latest": {
+          "year": 1900,
+          "month": 12,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "25 December 1900",
+        "basis": "The cited historical account provides this date."
+      },
+      "statement": "Participants recorded birds in 25 localities in the United States and Canada on 25 December 1900.",
+      "evidence": [
+        {
+          "source": "w6-audubon-christmas-bird-count-history",
+          "locator": "Chapman’s call and first count",
+          "supports": "Describes Chapman’s invitation to report bird observations and a 25 December 1900 count involving 27 participants in 25 United States and Canada locations."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "frank-chapman",
+          "role": "contributor",
+          "resource": "Invited readers to count and submit observations.",
+          "evidence": [
+            {
+              "source": "w6-audubon-christmas-bird-count-history",
+              "locator": "Chapman’s call and first count",
+              "supports": "Describes Chapman’s invitation to report bird observations and a 25 December 1900 count involving 27 participants in 25 United States and Canada locations."
+            }
+          ]
+        },
+        {
+          "group": "Participating bird observers",
+          "role": "operator",
+          "resource": "Observed and reported local bird counts.",
+          "evidence": [
+            {
+              "source": "w6-audubon-christmas-bird-count-history",
+              "locator": "Chapman’s call and first count",
+              "supports": "Describes Chapman’s invitation to report bird observations and a 25 December 1900 count involving 27 participants in 25 United States and Canada locations."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "first-count-1900",
+    "rationale": "Earliest scoped episode established in these sources; not a global priority claim."
+  },
+  "caveats": "This was one organized recurring count, not the first community observation of birds. The historical count does not establish who was able to participate or make its observations a representative sample. Audubon publications differ in their retrospective total species count, so no species number is asserted.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the date, participants, locality count and invitation against the cited Audubon history; the species count remains omitted."
+  },
+  "people": [
+    {
+      "person": "frank-chapman",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "participants",
+      "value": 27,
+      "unit": "people",
+      "event": "first-count-1900",
+      "subject": "Observers in the inaugural coordinated count",
+      "conditions": "Audubon’s retrospective count of participants, not a demographic measure or census.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w6-audubon-christmas-bird-count-history",
+          "locator": "Chapman’s call and first count",
+          "supports": "Describes Chapman’s invitation to report bird observations and a 25 December 1900 count involving 27 participants in 25 United States and Canada locations."
+        }
+      ]
+    },
+    {
+      "quantity": "local counts",
+      "value": 25,
+      "unit": "locations",
+      "event": "first-count-1900",
+      "subject": "Local counts in the United States and Canada",
+      "conditions": "Number of localities stated in the retrospective, not the total geographic area surveyed.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w6-audubon-christmas-bird-count-history",
+          "locator": "Chapman’s call and first count",
+          "supports": "Describes Chapman’s invitation to report bird observations and a 25 December 1900 count involving 27 participants in 25 United States and Canada locations."
+        }
+      ]
+    }
+  ]
+}

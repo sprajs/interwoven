@@ -1,0 +1,81 @@
+{
+  "id": "kolff-artificial-kidney-1945",
+  "name": "Kolff artificial kidney treatment",
+  "description": "Willem Kolff’s team treated a patient with an artificial kidney in 1945; she regained consciousness and lived for years afterward.",
+  "kind": "practice",
+  "domain": "health.healing",
+  "grain": "capability",
+  "concept": "clinical-kidney-dialysis",
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1945
+        },
+        "latest": {
+          "year": 1945
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1945",
+        "basis": "Date refers to the scoped documented case, not global origin."
+      },
+      "statement": "Willem Kolff’s team treated a patient with an artificial kidney in 1945; she regained consciousness and lived for years afterward.",
+      "evidence": [
+        {
+          "source": "w6-sharma-kolff-dialysis",
+          "locator": "Early artificial kidney",
+          "supports": "The review describes Kolff and Hendrik Berk’s artificial kidney in 1943 and the recovery of a patient in 1945. Earlier human dialysis work existed. Case details and dates vary between retrospective sources; survival of one patient is not an estimate of treatment effectiveness."
+        }
+      ],
+      "caveats": "Earlier human dialysis attempts existed. This single acute-care case is not evidence of long-term chronic dialysis access or a measured treatment effect; retrospective accounts differ on subsequent survival duration.",
+      "places": [
+        "netherlands"
+      ],
+      "contributions": [
+        {
+          "person": "willem-kolff",
+          "role": "contributor",
+          "resource": "Kolff artificial kidney treatment",
+          "evidence": [
+            {
+              "source": "w6-sharma-kolff-dialysis",
+              "locator": "Early artificial kidney",
+              "supports": "The review describes Kolff and Hendrik Berk’s artificial kidney in 1943 and the recovery of a patient in 1945. Earlier human dialysis work existed. Case details and dates vary between retrospective sources; survival of one patient is not an estimate of treatment effectiveness."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this documented case, not a claim of global first."
+  },
+  "caveats": "Earlier human dialysis attempts existed. This single acute-care case is not evidence of long-term chronic dialysis access or a measured treatment effect; retrospective accounts differ on subsequent survival duration.",
+  "places": [
+    {
+      "place": "netherlands"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "grain": "recalled",
+      "concept": "reviewed",
+      "events": "reviewed",
+      "places": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Independent source review checked the facets marked reviewed; other facets retain their prior basis."
+  },
+  "people": [
+    {
+      "person": "willem-kolff",
+      "role": "contributor"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "jacquard-punched-card-pattern-weaving",
+  "name": "Jacquard punched-card pattern weaving",
+  "description": "An attachment used punched cards to control the selection of loom threads for repeatable woven designs.",
+  "kind": "technology",
+  "domain": "machines.automation",
+  "grain": "instance",
+  "concept": "punched-card-loom-control",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "france"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1805
+        },
+        "latest": {
+          "year": 1805
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1805",
+        "basis": "The date applies to this documented case, not to the worldwide origin of the capability."
+      },
+      "statement": "The Deutsches Museum describes Jacquard’s loom mechanism introduced in Lyon in 1805 and its punched-card pattern control.",
+      "places": [
+        "france"
+      ],
+      "evidence": [
+        {
+          "source": "deutsches-museum-jacquard-loom-1805",
+          "locator": "Object description and details",
+          "supports": "The Deutsches Museum describes Jacquard’s loom mechanism introduced in Lyon in 1805 and its punched-card pattern control."
+        },
+        {
+          "source": "lyon-history-museum-jacquard-predecessors",
+          "locator": "Object description and history",
+          "supports": "The Lyon history museum dates Jacquard’s development to 1801 and describes earlier Bouchon, Falcon and Vaucanson mechanisms as elements combined in the Jacquard mechanism. The Deutsches Museum dates introduction to 1805. These accounts may use different milestones; their exact relation requires further study."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "joseph-marie-jacquard",
+          "role": "developer",
+          "resource": "Card-controlled loom attachment",
+          "evidence": [
+            {
+              "source": "deutsches-museum-jacquard-loom-1805",
+              "locator": "Object description and details",
+              "supports": "The Deutsches Museum describes Jacquard’s loom mechanism introduced in Lyon in 1805 and its punched-card pattern control."
+            }
+          ]
+        }
+      ],
+      "caveats": "The museum attributes the mechanism to Jacquard while noting earlier designs; this is not the origin of weaving or all punched controls. The Lyon history museum dates development to 1801, whereas the Deutsches Museum dates introduction to 1805; the exact relationship between the dates remains uncertain."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Earliest researched operational or depicted case for this record, not a claim of global priority."
+  },
+  "caveats": "The museum attributes the mechanism to Jacquard while noting earlier designs; this is not the origin of weaving or all punched controls. The Lyon history museum dates development to 1801, whereas the Deutsches Museum dates introduction to 1805; the exact relationship between the dates remains uncertain.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked the German and Lyon museum descriptions, prior mechanisms and differing dates; the source does not document a specific 1805 presentation."
+  }
+}

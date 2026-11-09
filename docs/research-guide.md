@@ -83,3 +83,13 @@ python3 tools/validate.py                               # schema, references, da
 python3 -m unittest discover -s tools/tests -t tools    # the tools themselves
 cd app && npm test                                      # the app's logic
 ```
+
+## Checking the reference adoption pilot
+
+The CHAT pilot is a tiny selected factual extract; no redistribution licence for the full release has been identified. Retain full upstream files outside the repository. To reproduce selected rows, obtain the release separately and run, for example:
+
+```sh
+python3 tools/import_chat_telephone.py --input /path/to/FinalCHAT_72909.csv --select 'Japan:1950' --select 'Kenya:2000'
+```
+
+The importer checks the release hash, never fetches data, and emits a JSON array. A blank is missing, not zero. The count is lines, not users or adoption percentage; a ratio would require a separately researched, scoped denominator and is not part of this pilot.

@@ -1,0 +1,129 @@
+{
+  "id": "google-hyperlink-ranked-web-search",
+  "name": "Google hyperlink-ranked Web search",
+  "description": "A search engine crawled and indexed Web pages, using link structure alongside textual evidence to rank search results.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "prototype-paper-1998",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1998
+        },
+        "latest": {
+          "year": 1998
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1998",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Brin and Page described a publicly reachable prototype and its Web index.",
+      "places": [
+        "california"
+      ],
+      "contributions": [
+        {
+          "person": "sergey-brin",
+          "role": "contributor",
+          "resource": "Coauthored the research paper.",
+          "evidence": [
+            {
+              "source": "brin-page-1998-google-paper-wave6",
+              "locator": "Abstract, section 2 and acknowledgments",
+              "supports": "Original article identifies the prototype, coauthors, indexed-page figure, and funding."
+            }
+          ]
+        },
+        {
+          "person": "lawrence-page",
+          "role": "contributor",
+          "resource": "Coauthored the research paper.",
+          "evidence": [
+            {
+              "source": "brin-page-1998-google-paper-wave6",
+              "locator": "Abstract, section 2 and acknowledgments",
+              "supports": "Original article identifies the prototype, coauthors, indexed-page figure, and funding."
+            }
+          ]
+        },
+        {
+          "organization": "national-science-foundation",
+          "role": "funder",
+          "resource": "Supported the Stanford Integrated Digital Library Project under a cooperative agreement.",
+          "evidence": [
+            {
+              "source": "brin-page-1998-google-paper-wave6",
+              "locator": "Abstract, section 2 and acknowledgments",
+              "supports": "Original article identifies the prototype, coauthors, indexed-page figure, and funding."
+            }
+          ]
+        }
+      ],
+      "caveats": "The indexed page count is author-reported, not the number of people served. Earlier Web crawlers and search engines existed.",
+      "evidence": [
+        {
+          "source": "brin-page-1998-google-paper-wave6",
+          "locator": "Abstract, section 2 and acknowledgments",
+          "supports": "Original article identifies the prototype, coauthors, indexed-page figure, and funding."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "prototype-paper-1998",
+    "rationale": "Earliest sourced event establishing this scoped achievement; it is not a claim of global priority."
+  },
+  "concept": "web-link-ranked-search",
+  "places": [
+    {
+      "place": "california",
+      "note": "Stanford affiliations in the paper."
+    }
+  ],
+  "people": [
+    {
+      "person": "sergey-brin",
+      "role": "author"
+    },
+    {
+      "person": "lawrence-page",
+      "role": "author"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "indexed pages",
+      "value": ">=24000000",
+      "unit": "web pages",
+      "event": "prototype-paper-1998",
+      "subject": "Google prototype database",
+      "status": "claimed",
+      "conditions": "At least 24 million pages reported in 1998 article; page count, not people, queries or complete Web coverage.",
+      "evidence": [
+        {
+          "source": "brin-page-1998-google-paper-wave6",
+          "locator": "Abstract",
+          "supports": "The authors report a database of at least 24 million pages."
+        }
+      ]
+    }
+  ],
+  "caveats": "PageRank and other ranking features are part of this implementation, not the invention of all search or all Web crawling.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "New source-backed draft; independent review pending. Independent review: The paper establishes use of the Web, but not dependence on the specific 1991 FTP release; that exact-referent link was removed. Independent reader checked the 1998 paper, its 24-million-page prototype figure and NSF project acknowledgment; count is not users."
+  }
+}

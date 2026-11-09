@@ -1,0 +1,156 @@
+{
+  "id": "1665-oldenburg-philosophical-transactions",
+  "name": "Oldenburg’s recurring Philosophical Transactions",
+  "description": "Henry Oldenburg edited and published a monthly periodical circulating reports of natural philosophy.",
+  "kind": "practice",
+  "domain": "economy.education",
+  "grain": "instance",
+  "concept": "recurring-scientific-journal",
+  "events": [
+    {
+      "id": "launch-1665",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1665,
+          "month": 3
+        },
+        "latest": {
+          "year": 1665,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "March 1665",
+        "basis": "The cited historical account provides this date."
+      },
+      "statement": "Oldenburg launched the monthly Philosophical Transactions in London in March 1665.",
+      "evidence": [
+        {
+          "source": "w6-royal-society-transactions-history",
+          "locator": "Foundation and inherited journal",
+          "supports": "Dates Oldenburg’s launch to March 1665, identifies him as publisher and editor, and reports monthly issues priced at one shilling; Society control came later."
+        },
+        {
+          "source": "w6-royal-society-publishing-catalogue",
+          "locator": "Oldenburg and the first issues",
+          "supports": "Explains that Oldenburg was compiler and publisher while the Royal Society licensed the first issues; a Paris journal preceded this venture."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "henry-oldenburg",
+          "role": "developer",
+          "resource": "Compiled, edited and published the periodical.",
+          "evidence": [
+            {
+              "source": "w6-royal-society-transactions-history",
+              "locator": "Foundation and inherited journal",
+              "supports": "Dates Oldenburg’s launch to March 1665, identifies him as publisher and editor, and reports monthly issues priced at one shilling; Society control came later."
+            },
+            {
+              "source": "w6-royal-society-publishing-catalogue",
+              "locator": "Oldenburg and the first issues",
+              "supports": "Explains that Oldenburg was compiler and publisher while the Royal Society licensed the first issues; a Paris journal preceded this venture."
+            }
+          ]
+        },
+        {
+          "role": "regulator",
+          "resource": "Licensed the first issues.",
+          "evidence": [
+            {
+              "source": "w6-royal-society-publishing-catalogue",
+              "locator": "Oldenburg and the first issues",
+              "supports": "Explains that Oldenburg was compiler and publisher while the Royal Society licensed the first issues; a Paris journal preceded this venture."
+            }
+          ],
+          "organization": "royal-society"
+        },
+        {
+          "person": "henry-oldenburg",
+          "role": "funder",
+          "resource": "Personally bore the launch expenses, according to the exhibition catalogue.",
+          "evidence": [
+            {
+              "source": "w6-royal-society-publishing-catalogue",
+              "locator": "Oldenburg and the first issues",
+              "supports": "Explains that Oldenburg was compiler and publisher while the Royal Society licensed the first issues; a Paris journal preceded this venture."
+            }
+          ]
+        }
+      ],
+      "places": [
+        "england"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "launch-1665",
+    "rationale": "Earliest scoped episode established in these sources; not a global priority claim."
+  },
+  "caveats": "The journal was initially Oldenburg’s independent enterprise, not a journal owned by the Society. A French scholarly journal began earlier in 1665; the price and readership were not universal access or modern open access.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Independent review checked the launch, institutional licensing, cost and society connection against the two Royal Society histories."
+  },
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "people": [
+    {
+      "person": "henry-oldenburg",
+      "role": "originator"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "issue price",
+      "value": 1,
+      "unit": "shilling",
+      "event": "launch-1665",
+      "subject": "Individual monthly issue as described by the Royal Society",
+      "conditions": "Nominal historical price; not a subscription price or real-wage comparison.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w6-royal-society-transactions-history",
+          "locator": "Foundation and inherited journal",
+          "supports": "Dates Oldenburg’s launch to March 1665, identifies him as publisher and editor, and reports monthly issues priced at one shilling; Society control came later."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "1660-royal-society-experimental-fellowship",
+      "type": "companion_of",
+      "status": "established",
+      "statement": "Oldenburg’s independently published journal was licensed by the Royal Society and drew on its network and meetings.",
+      "evidence": [
+        {
+          "source": "w6-royal-society-publishing-catalogue",
+          "locator": "Oldenburg and the first issues",
+          "supports": "Explains that Oldenburg was compiler and publisher while the Royal Society licensed the first issues; a Paris journal preceded this venture."
+        },
+        {
+          "source": "w6-royal-society-transactions-history",
+          "locator": "Foundation and inherited journal",
+          "supports": "Dates Oldenburg’s launch to March 1665, identifies him as publisher and editor, and reports monthly issues priced at one shilling; Society control came later."
+        }
+      ]
+    }
+  ]
+}

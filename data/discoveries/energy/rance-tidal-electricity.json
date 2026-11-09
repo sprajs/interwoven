@@ -1,0 +1,127 @@
+{
+  "id": "rance-tidal-electricity",
+  "name": "Rance tidal electricity generation",
+  "description": "A tidal station used the rise and fall of water in the Rance estuary to generate electricity.",
+  "kind": "technology",
+  "domain": "energy.water-wind",
+  "grain": "capability",
+  "concept": "tidal-electricity",
+  "places": [
+    {
+      "place": "france",
+      "note": "Place is a modern geographic reference to the cited episode; it does not imply exclusive origin."
+    }
+  ],
+  "events": [
+    {
+      "id": "inauguration-1966",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1966,
+          "month": 11,
+          "day": 26
+        },
+        "latest": {
+          "year": 1966,
+          "month": 11,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1966-11-26",
+        "basis": "Date stated by the cited source."
+      },
+      "statement": "The Rance tidal electricity station in France was inaugurated.",
+      "caveats": "Inauguration does not establish that all of the station’s eventual generators were operating on that day.",
+      "evidence": [
+        {
+          "source": "edf-2023-rance-history",
+          "locator": "Facility history and technical information",
+          "supports": "The Rance tidal electricity station in France was inaugurated."
+        },
+        {
+          "source": "edf-2020-rance-inauguration-wave6",
+          "locator": "Un chantier titanesque",
+          "supports": "EDF dates inauguration to 26 November 1966."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "electricite-de-france",
+          "role": "operator",
+          "resource": "Operated the tidal station",
+          "evidence": [
+            {
+              "source": "edf-2023-rance-history",
+              "locator": "Facility history and technical information",
+              "supports": "EDF identifies the station and its operation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capacity-observed-2026",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 4
+        },
+        "latest": {
+          "year": 2026,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "April 2026",
+        "basis": "EDF guide itself bears April 2026; November 9 was only the access date."
+      },
+      "statement": "An EDF guide dated April 2026 reports 240 MW of installed capacity at the Rance tidal station.",
+      "caveats": "This later reported capacity is not assigned to the station’s 1966 inauguration.",
+      "evidence": [
+        {
+          "source": "edf-2024-rance-capacity",
+          "locator": "Opening technical description",
+          "supports": "An EDF guide inspected in 2026 reports 240 MW of installed capacity at the Rance tidal station."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "inauguration-1966",
+    "rationale": "The first sourced event for this particular record, not a claim of a worldwide first."
+  },
+  "caveats": "The station is one tidal-power system, not evidence of global absence of earlier tidal mills.",
+  "measures": [
+    {
+      "quantity": "installed generating capacity",
+      "value": 240,
+      "unit": "MW",
+      "event": "capacity-observed-2026",
+      "subject": "Rance station",
+      "conditions": "EDF guide dated April 2026; not energy output or verified opening-day capacity.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "edf-2024-rance-capacity",
+          "locator": "Opening technical description",
+          "supports": "EDF reports installed capacity of 240 MW."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial sourced admission; interpretation awaits independent review. Independent review checked event source passages and, where marked, measures and relationship scope; other facets retain prior status."
+  }
+}

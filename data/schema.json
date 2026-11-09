@@ -1359,6 +1359,158 @@
         "status"
       ],
       "additionalProperties": false
+    },
+    "chatTelephonePanel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "ref": "sources"
+            },
+            "url": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "accessed": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rights": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "source",
+            "url",
+            "sha256",
+            "accessed",
+            "rights"
+          ],
+          "additionalProperties": false
+        },
+        "indicator": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": [
+                "telephone"
+              ]
+            },
+            "definition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "lines"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "ref": "sources"
+            },
+            "upstream_attribution": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "id",
+            "definition",
+            "unit",
+            "source",
+            "upstream_attribution"
+          ],
+          "additionalProperties": false
+        },
+        "selection_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cautions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": "string",
+                "minLength": 1
+              },
+              "year_token": {
+                "type": "string",
+                "pattern": "^[0-9]{4}$"
+              },
+              "raw_value": {
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "reported",
+                  "missing"
+                ]
+              },
+              "row": {
+                "type": "integer",
+                "minimum": 2,
+                "description": "1-based physical CSV line number, including the header."
+              }
+            },
+            "required": [
+              "country",
+              "year_token",
+              "raw_value",
+              "value",
+              "status",
+              "row"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "release",
+        "indicator",
+        "selection_rule",
+        "scope",
+        "cautions",
+        "observations"
+      ],
+      "additionalProperties": false,
+      "description": "A narrowly scoped extract of CHAT telephone line counts, not a general adoption-panel schema."
     }
   }
 }

@@ -1,0 +1,99 @@
+{
+  "id": "coalinga-reverse-osmosis-desalination",
+  "name": "Coalinga reverse-osmosis desalination",
+  "description": "A pilot plant used membrane separation to desalinate brackish groundwater and supplement a California community’s drinking-water supply.",
+  "kind": "technology",
+  "domain": "construction.water-works",
+  "grain": "instance",
+  "concept": "reverse-osmosis-water-desalination",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "california"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1965
+        },
+        "latest": {
+          "year": 1965
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1965",
+        "basis": "The date applies to this documented case, not to the worldwide origin of the capability."
+      },
+      "statement": "The state report documents a 1965 Coalinga reverse-osmosis demonstration plant treating brackish groundwater.",
+      "places": [
+        "california"
+      ],
+      "evidence": [
+        {
+          "source": "california-water-board-coalinga-1965",
+          "locator": "pp. 190–191",
+          "supports": "The state report documents a 1965 Coalinga reverse-osmosis demonstration plant treating brackish groundwater."
+        },
+        {
+          "source": "ucla-1965-coalinga-ro",
+          "locator": "1965 entry",
+          "supports": "UCLA dates the pilot to June 1965, says it produced community drinking water, and reports 6,000 gallons per day."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Office of Saline Water",
+          "role": "infrastructure_provider",
+          "resource": "Coalinga reverse-osmosis demonstration",
+          "evidence": [
+            {
+              "source": "california-water-board-coalinga-1965",
+              "locator": "pp. 190–191",
+              "supports": "The state report documents a 1965 Coalinga reverse-osmosis demonstration plant treating brackish groundwater."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Earliest researched operational or depicted case for this record, not a claim of global priority."
+  },
+  "caveats": "Institutional accounts differ on output: the California report gives 5,000 gallons per day and UCLA gives 6,000. This was a small demonstration, not seawater desalination.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review read the state report and UCLA account; the two reported daily figures differ and the state report describes a small demonstration."
+  },
+  "measures": [
+    {
+      "quantity": "reported daily output",
+      "value": 5000,
+      "unit": "US gallons per day",
+      "event": "documented-case",
+      "subject": "Coalinga demonstration",
+      "status": "claimed",
+      "conditions": "State historical report; UCLA reports 6,000 gallons per day. The figures may reflect different operating conditions or sources.",
+      "evidence": [
+        {
+          "source": "california-water-board-coalinga-1965",
+          "locator": "pp. 190–191",
+          "supports": "The state report documents a 1965 Coalinga reverse-osmosis demonstration plant treating brackish groundwater."
+        }
+      ]
+    }
+  ]
+}
