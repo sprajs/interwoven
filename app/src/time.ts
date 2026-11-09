@@ -178,6 +178,15 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
       const t = year < 0 ? year + 1 : year === 0 ? 1 : year
       const x = axis.x(t)
       if (x < axis.x0 - 0.5 || x > axis.x1 + 0.5 || !free(x)) continue
+      // A fine tick alone in a wide gap reads as an accident: 1825 between 1700 and 1900. A tick
+      // must be at least an eighth of the gap it divides.
+      let before = axis.t0
+      let after = axis.t1
+      for (const other of out) {
+        if (other.t < t && other.t > before) before = other.t
+        if (other.t > t && other.t < after) after = other.t
+      }
+      if (out.length && step < (after - before) / 8) continue
       const cell = Math.floor(x / minGap)
       taken.set(cell, [...(taken.get(cell) ?? []), x])
       out.push({ t, x, label: formatYear(t), level })

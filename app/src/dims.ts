@@ -19,15 +19,15 @@ export interface Dimension {
   of(entry: Entry): string
 }
 
-const [blue, orange, aqua, yellow, magenta, green] = SERIES
+const [blue, vermilion, ochre, teal, plum, green] = SERIES
 
 const SUBJECT_COLORS: Record<string, string> = {
   sustenance: green,
-  making: orange,
   information: blue,
-  power: yellow,
-  understanding: aqua,
-  society: magenta,
+  making: vermilion,
+  power: ochre,
+  understanding: teal,
+  society: plum,
 }
 
 export function dimensions(model: Model): Record<DimId, Dimension> {
@@ -49,10 +49,10 @@ export function dimensions(model: Model): Record<DimId, Dimension> {
       name: 'Region',
       categories: [
         { id: 'europe', name: 'Europe', color: blue },
-        { id: 'asia', name: 'Asia', color: orange },
-        { id: 'africa', name: 'Africa', color: aqua },
-        { id: 'north_america', name: 'North America', color: yellow },
-        { id: 'south_america', name: 'South America', color: magenta },
+        { id: 'asia', name: 'Asia', color: vermilion },
+        { id: 'africa', name: 'Africa', color: ochre },
+        { id: 'north_america', name: 'North America', color: teal },
+        { id: 'south_america', name: 'South America', color: plum },
         { id: 'oceania', name: 'Oceania', color: green },
         { id: 'none', name: 'No place yet', color: NEUTRAL },
       ],
@@ -63,9 +63,9 @@ export function dimensions(model: Model): Record<DimId, Dimension> {
       name: 'Kind',
       categories: [
         { id: 'technology', name: 'Technology', color: blue, hint: vocab.kind?.technology },
-        { id: 'science', name: 'Science', color: orange, hint: vocab.kind?.science },
-        { id: 'mathematics', name: 'Mathematics', color: aqua, hint: vocab.kind?.mathematics },
-        { id: 'practice', name: 'Practice', color: yellow, hint: vocab.kind?.practice },
+        { id: 'science', name: 'Science', color: vermilion, hint: vocab.kind?.science },
+        { id: 'mathematics', name: 'Mathematics', color: ochre, hint: vocab.kind?.mathematics },
+        { id: 'practice', name: 'Practice', color: teal, hint: vocab.kind?.practice },
       ],
       of: (e) => e.kind,
     },
@@ -74,10 +74,10 @@ export function dimensions(model: Model): Record<DimId, Dimension> {
       name: 'Origin',
       categories: [
         { id: 'first_known', name: 'First known', color: blue, hint: vocab.origin?.first_known },
-        { id: 'independent', name: 'Independent', color: orange, hint: vocab.origin?.independent },
-        { id: 'derived', name: 'Derived', color: aqua, hint: vocab.origin?.derived },
-        { id: 'revival', name: 'Revival', color: yellow, hint: vocab.origin?.revival },
-        { id: 'unknown', name: 'Unsettled', color: magenta, hint: vocab.origin?.unknown },
+        { id: 'independent', name: 'Independent', color: vermilion, hint: vocab.origin?.independent },
+        { id: 'derived', name: 'Derived', color: ochre, hint: vocab.origin?.derived },
+        { id: 'revival', name: 'Revival', color: teal, hint: vocab.origin?.revival },
+        { id: 'unknown', name: 'Unsettled', color: plum, hint: vocab.origin?.unknown },
         { id: 'none', name: 'Not yet assessed', color: NEUTRAL, hint: 'Nobody has researched this yet.' },
       ],
       of: (e) => e.origin ?? 'none',

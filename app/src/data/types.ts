@@ -49,6 +49,9 @@ export interface Discovery {
   fields?: string[]
   tier: number
   tier_reason?: string
+  /** Consequences scored from 0 to 3 each. */
+  impact?: { reach: number; depth: number; generativity: number; note?: string }
+  grain?: 'capability' | 'improvement' | 'instance'
   advance?: string[]
   scale?: string
   origin?: Origin

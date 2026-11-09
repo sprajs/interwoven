@@ -1,24 +1,25 @@
 import { useMemo, useState } from 'react'
 import type { Entry } from '../data/model.ts'
-import { plural, shortDate, words } from '../lib/text.ts'
+import { plural, tierName, words } from '../lib/text.ts'
 import { useApp, useDimension, useFiltered, useMatches, useModel } from '../store.ts'
+import { formatYear } from '../time.ts'
 
 type SortKey = 'name' | 'date' | 'field' | 'place' | 'origin' | 'tier' | 'filled'
 
-const COLUMNS: { key: SortKey; name: string; hint?: string }[] = [
+const COLUMNS: { key: SortKey; name: string; hint?: string; wide?: boolean }[] = [
   { key: 'name', name: 'Discovery' },
   { key: 'date', name: 'Earliest record' },
   { key: 'field', name: 'Field' },
   { key: 'place', name: 'Place' },
-  { key: 'origin', name: 'Origin' },
-  { key: 'tier', name: 'Tier', hint: '0: several fields or generations depended on it. 1: major in its field. 2: a bounded contribution. 3: fine detail.' },
-  { key: 'filled', name: 'Researched', hint: 'How many of the facets have a value, and where the values come from' },
+  { key: 'origin', name: 'Origin', wide: true },
+  { key: 'tier', name: 'Weight', hint: 'Landmark: several fields or generations depended on it. Major: a major contribution to its field. Minor: a bounded contribution. Detail: one instance or a fine point.', wide: true },
+  { key: 'filled', name: 'Researched', hint: 'How many of the facets have a value, and where the values come from', wide: true },
 ]
 
 const FACET_LABELS: Record<string, string> = {
   summary: 'Summary',
   domain: 'Field',
-  tier: 'Tier',
+  tier: 'Weight',
   advance: 'What was new',
   scale: 'Size of change',
   origin: 'Independence',
@@ -56,6 +57,7 @@ export function IndexView() {
   const selected = useApp((s) => s.selected)
   const [sort, setSort] = useState<{ key: SortKey; down: boolean }>({ key: 'date', down: false })
   const [limit, setLimit] = useState(PAGE)
+  const [coverageOpen, setCoverageOpen] = useState(false)
 
   const rows = useMemo(() => {
     // Undated records have no place in time, so the window cannot exclude them. They stay listed.
@@ -96,28 +98,39 @@ export function IndexView() {
   const facets = model.bundle.facets.length
   return (
     <div className="index">
-      <section className="index-summary" aria-label="How much is researched">
-        <p className="index-intro">
-          <strong>{plural(rows.length, 'discovery', 'discoveries')}</strong> in view. Each bar shows how many of them have a value for one facet:{' '}
-          <Key name="reviewed" text="checked by a second reader" /> <Key name="sourced" text="from cited evidence" /> <Key name="recalled" text="from memory, to be checked" />. The
-          empty part has not been researched.
+      <div className="index-head">
+        <p>
+          <strong>{plural(rows.length, 'discovery', 'discoveries')}</strong> in view, with {Math.round((coverage.reduce((sum, c) => sum + c.filled, 0) / (total * facets)) * 100)}% of their
+          facets researched.
         </p>
-        {coverage.map((c) => (
-          <div className="coverage-item" key={c.facet}>
-            <header>
-              <span>{FACET_LABELS[c.facet] ?? words(c.facet)}</span>
-              <b>{Math.round((c.filled / total) * 100)}%</b>
-            </header>
-            <Bar reviewed={c.reviewed} sourced={c.sourced} recalled={c.recalled} total={total} />
-          </div>
-        ))}
-      </section>
+        <button className="more" aria-expanded={coverageOpen} onClick={() => setCoverageOpen(!coverageOpen)}>
+          {coverageOpen ? 'Hide the breakdown' : 'Show facet by facet'}
+        </button>
+      </div>
+      {coverageOpen && (
+        <section className="index-summary" aria-label="How much is researched">
+          <p className="index-intro">
+            Each bar is the share of these discoveries that have a value for one facet: <Key name="reviewed" text="checked by a second reader" />, <Key name="sourced" text="from cited evidence" />,{' '}
+            <Key name="recalled" text="from memory, to be checked" />. The empty part has not been researched.
+          </p>
+          {coverage.map((c) => (
+            <div className="coverage-item" key={c.facet}>
+              <header>
+                <span>{FACET_LABELS[c.facet] ?? words(c.facet)}</span>
+                <b>{Math.round((c.filled / total) * 100)}%</b>
+              </header>
+              <Bar reviewed={c.reviewed} sourced={c.sourced} recalled={c.recalled} total={total} />
+            </div>
+          ))}
+        </section>
+      )}
       <table className="records">
         <thead>
           <tr>
             {COLUMNS.map((column) => (
               <th
                 key={column.key}
+                className={[column.wide ? 'wide' : '', column.key === 'date' ? 'date' : ''].join(' ')}
                 title={column.hint}
                 aria-sort={sort.key === column.key ? (sort.down ? 'descending' : 'ascending') : undefined}
                 onClick={() => setSort((s) => ({ key: column.key, down: s.key === column.key ? !s.down : column.key === 'filled' }))}
@@ -135,16 +148,18 @@ export function IndexView() {
             const count = (b: string) => basis.filter((x) => x === b).length
             return (
               <tr key={e.id} data-selected={selected === e.id} onClick={() => useApp.getState().select(e.id)}>
-                <td className="name" style={{ fontStyle: e.kind === 'science' ? 'italic' : undefined }}>
+                <td className="name">
                   <i className="swatch" style={{ background: category?.color }} title={category?.name} />
                   {e.name}
                 </td>
-                <td className="num">{e.date ? shortDate(e.date.label) : <span className="muted">No date yet</span>}</td>
+                <td className="num date" title={e.date?.label}>
+                  {e.date ? yearCell(e.date) : <span className="muted">No date yet</span>}
+                </td>
                 <td>{model.fieldNames.get(e.domain)}</td>
                 <td>{e.at ? model.bundle.places[e.at.place]?.name : <span className="muted">—</span>}</td>
-                <td>{e.origin ? words(e.origin) : <span className="muted">—</span>}</td>
-                <td className="num">{e.tier}</td>
-                <td title={`${e.filled} of ${facets} facets have a value`}>
+                <td className="wide">{e.origin && e.origin !== 'unknown' ? words(e.origin) : <span className="muted">{e.origin ? 'Unsettled' : '—'}</span>}</td>
+                <td className="wide">{tierName(e.tier)}</td>
+                <td className="wide" title={`${e.filled} of ${facets} facets have a value`}>
                   <Bar reviewed={count('reviewed')} sourced={count('sourced')} recalled={count('recalled')} total={facets} />
                 </td>
               </tr>
@@ -159,6 +174,13 @@ export function IndexView() {
       )}
     </div>
   )
+}
+
+/** A date reduced to one year, so that a column of them can be read down: "by 1776", "c. 3200 BCE". */
+function yearCell(date: { t: number; t0?: number; status: string }): string {
+  const year = formatYear(date.t, date.t < -20000 ? 1000 : 1)
+  if (date.status === 'bounded' && date.t0 === undefined) return `by ${year}`
+  return date.status === 'known' ? year : `c. ${year}`
 }
 
 function Bar({ reviewed, sourced, recalled, total }: { reviewed: number; sourced: number; recalled: number; total: number }) {

@@ -13,6 +13,8 @@ const LANE_HEAD = 24
 const LANE_FOOT = 10
 /** Room kept clear at the bottom for the caption. */
 const FOOT = 30
+/** The longest leader a name may hang on. */
+const LEADER = 30
 
 interface Mark {
   entry: Entry
@@ -89,11 +91,13 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
     y += h
   })
 
-  // Within a column the most consequential discoveries sit lowest, where the eye starts. With
-  // every category in one pile, each column is grouped by category first so its colours read as bands.
+  // Within a column the major discoveries sit lowest and the minor ones above them, so every pile
+  // reads as a dark base with a pale top. With all categories in one pile, each of those two parts
+  // is grouped by category.
   const rank = new Map([...colorOf.keys()].map((id, i) => [id, i]))
   const band = (e: Entry) => (categories ? 0 : (rank.get(of(e)) ?? 0))
-  const ordered = [...inView].sort((a, b) => band(a) - band(b) || a.tier - b.tier || a.t! - b.t!)
+  const minor = (e: Entry) => (e.tier > 1 ? 1 : 0)
+  const ordered = [...inView].sort((a, b) => minor(a) - minor(b) || band(a) - band(b) || a.tier - b.tier || a.t! - b.t!)
   const heights = rows.map(() => new Map<number, number>())
   const marks: Mark[] = []
   for (const e of ordered) {
@@ -106,36 +110,29 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
     marks.push({ entry: e, x: axis.x0 + col * cell, y: lanes[lane]!.bottom - LANE_FOOT - (stack + 1) * cell, color: colorOf.get(of(e)) ?? INK_3 })
   }
 
-  // Name the landmarks, where there is clear paper above the piles to do it.
+  // Name the landmarks. A name sits directly above its own pile on a short leader, or it is left
+  // out: a name that has to travel to find room can no longer be matched to its mark.
   const labels: Label[] = []
   const lineHeight = 17
   const placed: { x0: number; x1: number; y0: number; y1: number }[] = []
   const candidates = marks.filter((m) => m.entry.tier === 0).sort((a, b) => a.entry.t! - b.entry.t!)
   for (const mark of candidates) {
     const lane = laneOf(mark.entry)
+    const floor = lanes[lane]!.bottom - LANE_FOOT
+    const top = (col: number) => floor - (heights[lane]!.get(col) ?? 0) * cell
     const w = measure(mark.entry.name, true)
-    const pileTop = (x0: number, x1: number) => {
-      let top = lanes[lane]!.bottom - LANE_FOOT
-      for (let col = Math.floor((x0 - axis.x0) / cell); col <= Math.floor((x1 - axis.x0) / cell); col++) {
-        top = Math.min(top, lanes[lane]!.bottom - LANE_FOOT - (heights[lane]!.get(col) ?? 0) * cell)
-      }
-      return top
-    }
     const col = Math.floor((mark.x - axis.x0) / cell)
-    const anchorY = lanes[lane]!.bottom - LANE_FOOT - (heights[lane]!.get(col) ?? 0) * cell
+    const anchorY = top(col)
     for (const left of [mark.x, mark.x + size - w]) {
       if (left < PAD_X || left + w > width - PAD_X) continue
-      let top = pileTop(left - 4, left + w + 4) - 8 - lineHeight
-      let ok = false
-      for (let tries = 0; tries < 6 && top >= lanes[lane]!.top + LANE_HEAD - 4; tries++, top -= lineHeight + 2) {
-        if (!placed.some((p) => left < p.x1 + 10 && left + w > p.x0 - 10 && top < p.y1 && top + lineHeight > p.y0)) {
-          ok = true
-          break
-        }
-      }
-      if (!ok) continue
-      placed.push({ x0: left, x1: left + w, y0: top, y1: top + lineHeight })
-      labels.push({ mark, x: left, y: top, width: w, anchorY })
+      let skyline = floor
+      for (let c = Math.floor((left - 6 - axis.x0) / cell); c <= Math.floor((left + w + 6 - axis.x0) / cell); c++) skyline = Math.min(skyline, top(c))
+      const y = skyline - 8 - lineHeight
+      const leader = anchorY - (y + lineHeight)
+      if (leader > LEADER || y < lanes[lane]!.top + LANE_HEAD - 6) continue
+      if (placed.some((p) => left < p.x1 + 14 && left + w > p.x0 - 14 && y < p.y1 + 2 && y + lineHeight > p.y0 - 2)) continue
+      placed.push({ x0: left, x1: left + w, y0: y, y1: y + lineHeight })
+      labels.push({ mark, x: left, y, width: w, anchorY })
       break
     }
   }
@@ -187,7 +184,7 @@ export function Timeline() {
       for (let i = 0; i < marksOnRuler.length; i += 2) {
         const x0 = marksOnRuler[i]!.x
         const x1 = marksOnRuler[i + 1]?.x ?? axis.x1
-        ctx.fillRect(x0, 0, x1 - x0, height)
+        ctx.fillRect(x0, 0, x1 - x0, height - FOOT)
       }
       ctx.font = font(12.5)
       ctx.textBaseline = 'middle'
@@ -235,7 +232,7 @@ export function Timeline() {
           const lit = focus !== null && (link.from === focus || link.to === focus)
           if (focus !== null && !lit) continue
           curve(ctx, a.x + side / 2, a.y + side / 2, b.x + side / 2, b.y + side / 2)
-          ctx.strokeStyle = alpha(INK, lit ? 0.75 : 0.22)
+          ctx.strokeStyle = alpha(INK, lit ? 0.75 : 0.16)
           ctx.lineWidth = lit ? 1.5 : 1
           ctx.stroke()
         }
@@ -288,7 +285,7 @@ export function Timeline() {
         ctx.moveTo(Math.round(lx) + 0.5, label.y + 15)
         ctx.lineTo(Math.round(lx) + 0.5, label.anchorY - 2)
         ctx.stroke()
-        ctx.font = font(13.5, 600, label.mark.entry.kind === 'science')
+        ctx.font = font(13.5, 600)
         // A halo of paper keeps the name clear of the leader lines and marks around it.
         ctx.strokeStyle = PAPER
         ctx.lineWidth = 4
@@ -369,7 +366,7 @@ export function Timeline() {
     >
       <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
       <p className="caption">
-        One square per discovery, at its earliest record. {scale.hint}. {plural(plan?.marks.length ?? 0, 'discovery', 'discoveries')} in view.
+        {plural(plan?.marks.length ?? 0, 'discovery', 'discoveries')} in view, one square each, at its earliest record. {scale.hint}.
       </p>
     </div>
   )

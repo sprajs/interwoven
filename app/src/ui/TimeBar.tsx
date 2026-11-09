@@ -1,17 +1,18 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { useCanvas, useSize } from '../lib/canvas.ts'
+import { roundRect, useCanvas, useSize } from '../lib/canvas.ts'
 import { useApp, useFiltered, useLimits, useScale } from '../store.ts'
-import { alpha, font, INK, INK_3, PAPER, SHEET } from '../theme.ts'
+import { alpha, font, INK, INK_2, INK_3, PAPER } from '../theme.ts'
 import { formatSpan, formatYear, log, makeAxis, PRESENT, ticks } from '../time.ts'
+import { Menu, MenuHeading, Option } from './Menu.tsx'
 
-const STARTS: { name: string; t: number | null }[] = [
-  { name: 'All', t: null },
-  { name: '10 000 BCE', t: -9999 },
-  { name: '4000 BCE', t: -3999 },
-  { name: '1 CE', t: 1 },
-  { name: '1500', t: 1500 },
-  { name: '1800', t: 1800 },
-  { name: '1900', t: 1900 },
+const STARTS: { name: string; t: number | null; hint: string }[] = [
+  { name: 'All', t: null, hint: 'The first tools, about 200,000 years ago' },
+  { name: '10 000 BCE', t: -9999, hint: 'The first farming' },
+  { name: '4000 BCE', t: -3999, hint: 'The first cities and writing' },
+  { name: '1 CE', t: 1, hint: 'The last two thousand years' },
+  { name: '1500', t: 1500, hint: 'Printing, oceanic voyages and modern science' },
+  { name: '1800', t: 1800, hint: 'Industry and after' },
+  { name: '1900', t: 1900, hint: 'The last century and a quarter' },
 ]
 
 /** Seconds for the sweep to cross the whole window. */
@@ -59,22 +60,21 @@ export function TimeBar() {
       ctx.fillRect(0, base, width, 1)
       ctx.font = font(11.5)
       ctx.textBaseline = 'middle'
-      for (const tick of ticks(axis, 96)) {
+      for (const tick of ticks(axis, 120)) {
         ctx.fillStyle = alpha(INK, 0.2)
         ctx.fillRect(Math.round(tick.x), base, 1, 4)
         ctx.fillStyle = INK_3
         const w = ctx.measureText(tick.label).width
         ctx.fillText(tick.label, Math.max(2, Math.min(width - w - 2, tick.x - w / 2)), base + 11)
       }
-      // The stretch in view: an ink frame with a grip at each end.
-      ctx.strokeStyle = INK
-      ctx.lineWidth = 1.5
-      ctx.strokeRect(x0 + 0.75, 0.75, Math.max(2, x1 - x0 - 1.5), height - 1.5)
+      // The stretch in view: a fine frame with a grip at each end.
+      ctx.strokeStyle = alpha(INK, 0.55)
+      ctx.lineWidth = 1
+      ctx.strokeRect(x0 + 0.5, 0.5, Math.max(2, x1 - x0 - 1), height - 1)
       for (const x of [x0, x1]) {
-        ctx.fillStyle = INK
-        ctx.fillRect(x - 2.5, height / 2 - 11, 5, 22)
-        ctx.fillStyle = SHEET
-        ctx.fillRect(x - 0.5, height / 2 - 6, 1, 12)
+        ctx.fillStyle = INK_2
+        roundRect(ctx, x - 2.5, height / 2 - 10, 5, 20, 2.5)
+        ctx.fill()
       }
     },
     [axis, bins, span],
@@ -103,6 +103,9 @@ export function TimeBar() {
     raf = requestAnimationFrame(step)
     return () => cancelAnimationFrame(raf)
   }, [playing, chosen])
+
+  // A long stretch is read in round figures: 1160, not 1159.
+  const rounding = span[1] - span[0] > 2000 ? 10 : 1
 
   const stop = () => {
     const state = useApp.getState()
@@ -175,7 +178,7 @@ export function TimeBar() {
           )}
         </button>
         <div className="window-label">
-          {formatYear(span[0])} – {span[1] >= PRESENT - 1 ? 'today' : formatYear(span[1])}
+          {formatYear(span[0], rounding)} – {span[1] >= PRESENT - 1 ? 'today' : formatYear(span[1], rounding)}
           <small>{formatSpan(span[1] - span[0])}</small>
         </div>
       </div>
@@ -183,26 +186,25 @@ export function TimeBar() {
         <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
       </div>
       <div className="timebar-side">
-        <span className="control-name">From</span>
-        <div className="ranges">
+        <Menu label="From" value={STARTS.find((start) => Math.abs(span[0] - (start.t ?? limits[0])) < 1)?.name ?? formatYear(span[0])} align="right" up>
+          <MenuHeading>Show everything from</MenuHeading>
           {STARTS.map((start) => {
             const from = start.t ?? limits[0]
-            const on = Math.abs(span[0] - from) < 1 && span[1] >= PRESENT - 1
             return (
-              <button
+              <Option
                 key={start.name}
-                className="choice"
-                aria-pressed={on}
-                onClick={() => {
+                single
+                name={start.t === null ? 'The beginning' : start.name}
+                hint={start.hint}
+                on={Math.abs(span[0] - from) < 1 && span[1] >= PRESENT - 1}
+                onChoose={() => {
                   stop()
                   useApp.getState().setWindow([from, PRESENT])
                 }}
-              >
-                {start.name}
-              </button>
+              />
             )
           })}
-        </div>
+        </Menu>
       </div>
     </footer>
   )

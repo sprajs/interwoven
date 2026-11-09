@@ -40,6 +40,8 @@ FACETS = (
     "summary",
     "domain",
     "tier",
+    "impact",
+    "grain",
     "advance",
     "scale",
     "origin",
@@ -63,6 +65,17 @@ FACETS = (
 
 #: Facets that share another facet's basis, because they are settled together.
 FACET_FOLLOWS = {"fields": "domain", "why": "prompted_by", "end_reason": "fate"}
+
+
+IMPACT = ("reach", "depth", "generativity")
+
+
+def tier_from(impact: dict) -> int:
+    """The tier that a set of impact scores gives. docs/importance.md states the rule."""
+    total = sum(impact[key] for key in IMPACT)
+    if impact["generativity"] == 3 and total >= 7:
+        return 0
+    return 1 if total >= 5 else 2 if total >= 3 else 3
 
 
 def read_json(path: Path) -> Any:
@@ -308,6 +321,9 @@ class Dataset:
             if anchor and entry and point_key(anchor["date"]["latest"]) > point_key(entry["date"]["latest"]):
                 errors.append(f"{where}: the earliest record is dated after the community entry")
             basis = (record.get("research") or {}).get("basis", {})
+            impact = record.get("impact")
+            if impact and basis.get("tier") != "reviewed" and all(isinstance(impact.get(k), int) for k in IMPACT) and record.get("tier") != tier_from(impact):
+                errors.append(f"{where}: tier {record.get('tier')} does not follow from its impact scores, which give {tier_from(impact)}")
             for facet in basis:
                 if facet not in FACETS:
                     errors.append(f"{where}.research.basis: '{facet}' is not a facet")

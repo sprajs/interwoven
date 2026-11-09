@@ -1,3 +1,4 @@
+import { Menu, MenuHeading, Option } from '../ui/Menu.tsx'
 import { Fragment, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { Entry } from '../data/model.ts'
 import type { Bundle } from '../data/types.ts'
@@ -20,10 +21,23 @@ const MEASURES: { id: Measure; name: string; needsPopulation: boolean }[] = [
   { id: 'person', name: 'Per person', needsPopulation: true },
 ]
 
+const MEASURE_HINTS: Record<Measure, string> = {
+  count: 'How many discoveries fall in each bar',
+  century: 'The count divided by the years the bar covers',
+  person: 'The count divided by the person-years lived in that time',
+}
+
 const TITLES: Record<Measure, string> = {
-  count: 'Number of discoveries in each bar',
+  count: 'Number of discoveries',
   century: 'Discoveries per century',
   person: 'Discoveries per billion person-years lived',
+}
+
+/** The unit over the y axis, so a value can be read without the title. */
+const UNITS: Record<Measure, string> = {
+  count: 'discoveries',
+  century: 'per century',
+  person: 'per billion person-years',
 }
 
 /** Room for the y labels; the population chart's ("100 million") are the widest. */
@@ -34,10 +48,20 @@ const GUTTER = 20
 /** Room at the right for naming the regional lines at their ends. */
 const PAD_RIGHT_NAMED = 116
 /** The width each bin aims for on screen, gap included. */
-const BIN = 26
-const BAR_GAP = 2
+const BIN = 23
+const BAR_GAP = 3
 const SEGMENT_GAP = 1.5
-const TOP = 16
+/** Bars sit a little back from full strength, so they do not outweigh everything else in the app. */
+const BAR_ALPHA = 0.86
+/**
+ * A region's rate is shown only where it rests on this many discoveries: with fewer, one discovery
+ * over a small population makes a spike that flattens every other line.
+ */
+const MIN_FOR_RATE = 3
+/** Spacing between names at the ends of lines. */
+const NAME_GAP = 15
+/** Room above the plot for the unit label. */
+const TOP = 34
 const RULER = 30
 const GAP = 16
 /** The population chart, title included. */
@@ -99,6 +123,8 @@ interface Plan {
   counted: number
   /** Discoveries in view that the chart cannot show: those with no place, when dividing by regional population. */
   unplaced: number
+  /** False when regional rates are asked for but no region has enough discoveries for one anywhere in view. */
+  rated: boolean
 }
 
 /**
@@ -156,7 +182,7 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     bin.counts.map((count, k) => {
       if (lines) {
         const lived = bin.livedIn[k]
-        return lived && lived > 0 ? (count * PER_BILLION) / lived : null
+        return count >= MIN_FOR_RATE && lived && lived > 0 ? (count * PER_BILLION) / lived : null
       }
       const f = factor(bin)
       return f === null ? null : count * f
@@ -166,7 +192,9 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     const f = factor(bin)
     return f === null ? null : bin.total * f
   })
+  // With regional rates, only the points that qualify set the peak.
   const peak = Math.max(0, ...(lines ? values.flat() : headline).map((v) => v ?? 0))
+  const rated = !lines || values.some((row) => row.some((v) => v !== null))
   const grid = niceTicks(peak, measure === 'count')
   const popBottom = height - FOOT
   const popTop = population ? popBottom - POPULATION : popBottom
@@ -188,6 +216,7 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     population: population ? populationChart(population, axis, regional ? all : null, popTop, popBottom) : null,
     counted,
     unplaced,
+    rated,
   }
 }
 
@@ -232,18 +261,21 @@ function populationChart(population: Population, axis: Axis, regions: Category[]
   }
 }
 
-/** One line saying how many discoveries are counted and what one bar stands for. */
-function describe(plan: Plan, searching: boolean): string {
+/** One line saying how many discoveries are counted and how much time one bar covers. */
+function describe(plan: Plan, measure: Measure, searching: boolean): string {
   const first = plan.bins[0]!
   const last = plan.bins[plan.bins.length - 1]!
   const a = formatSpan(first.t1 - first.t0)
   const b = formatSpan(last.t1 - last.t0)
-  const mark = plan.lines ? 'point' : 'bar'
+  const calendar = plan.axis.scale.id === 'calendar'
   // Only the calendar scale has one length of bar; on the others the length changes across the axis.
-  const stretch = a === b ? `Each ${mark} is an equal stretch of the axis: about ${a} here.` : `Each ${mark} is an equal stretch of the axis: ${a} at the left, ${b} at the right.`
-  let text = `${plural(plan.counted, 'discovery', 'discoveries')}${searching ? ' matching the search' : ''} in view. ${stretch}`
+  const covers = calendar || a === b ? `about ${a}` : `from about ${a} at the left to ${b} at the right`
+  const marks = plan.lines ? 'Points are equal steps' : 'Bars are equal widths'
+  let text = `${plural(plan.counted, 'discovery', 'discoveries')}${searching ? ' matching the search' : ''} in view. ${marks} on screen; on this scale each covers ${covers}.`
+  if (measure === 'count' && !calendar) text += ' Bars cover different lengths of time, so compare them per century or per person.'
   if (plan.lines) {
-    text += ' Each region is divided by its own population.'
+    // Keep the number in words in step with MIN_FOR_RATE.
+    text += ' Each region is divided by its own population. A rate is shown only where a region has at least three discoveries in the stretch.'
     if (plan.unplaced) text += ` Left out: ${plural(plan.unplaced, 'discovery', 'discoveries')} with no place yet.`
   }
   return text
@@ -261,7 +293,7 @@ export function Trends() {
   const population = model.bundle.population
   const [chosen, setMeasure] = useState<Measure>(population ? 'person' : 'count')
   const measure: Measure = chosen === 'person' && !population ? 'count' : chosen
-  const [tip, setTip] = useState<{ bin: number; x: number; y: number } | null>(null)
+  const [tip, setTip] = useState<{ bin: number; frame: Box } | null>(null)
   const [frame, size] = useSize<HTMLDivElement>()
   const regional = dimension.id === 'region'
 
@@ -273,7 +305,8 @@ export function Trends() {
     return layout(entries, axis, categories, dimension.of, measure, regional, population, size.height)
   }, [size, scale, span, dimension, filtered, matches, hidden, measure, regional, population])
 
-  const empty = plan !== null && plan.counted === 0
+  const notice = !plan ? null : plan.counted === 0 ? 'No discoveries are recorded in this stretch of time.' : !plan.rated ? 'Too few discoveries per region in this stretch of time to give rates. Widen the stretch, or switch the measure.' : null
+  const empty = notice !== null
   const hoverBin = tip?.bin ?? null
 
   const canvas = useCanvas(
@@ -282,6 +315,11 @@ export function Trends() {
       if (!plan || empty) return
       const { axis, bins, baseline, top } = plan
       const yOf = (v: number) => baseline - (v / plan.yMax) * (baseline - top)
+
+      ctx.font = font(11.5)
+      ctx.fillStyle = INK_3
+      ctx.textBaseline = 'middle'
+      ctx.fillText(UNITS[measure], GUTTER, top - 18)
 
       // The bin under the pointer, carried down through both charts.
       const lit = hoverBin === null ? undefined : bins[hoverBin]
@@ -306,8 +344,8 @@ export function Trends() {
       }
       ctx.textAlign = 'left'
 
-      if (plan.lines) drawRates(ctx, plan, yOf, width)
-      else drawStacks(ctx, plan, yOf)
+      if (plan.lines) drawRates(ctx, plan, yOf)
+      else drawStacks(ctx, plan, yOf, hoverBin)
 
       ctx.fillStyle = RULE
       ctx.fillRect(axis.x0, Math.round(baseline), axis.x1 - axis.x0, 1)
@@ -324,7 +362,7 @@ export function Trends() {
 
       if (plan.population) drawPopulation(ctx, plan.population, axis)
     },
-    [plan, empty, hoverBin],
+    [plan, empty, hoverBin, measure],
   )
 
   const drag = useRef<{ x: number; moved: boolean; span: [number, number] } | null>(null)
@@ -353,19 +391,15 @@ export function Trends() {
     <div className="trends">
       <header className="trends-head">
         <div>
-          <h2>{plan?.lines ? 'Discoveries per billion person-years lived in each region' : TITLES[measure]}</h2>
-          <p>{plan && !empty ? describe(plan, searching) : ' '}</p>
+          <h2>{TITLES[measure]}</h2>
+          <p>{plan && !empty ? describe(plan, measure, searching) : ' '}</p>
         </div>
-        <div className="control">
-          <span className="control-name">Measure</span>
-          <div className="choices">
-            {MEASURES.filter((m) => population || !m.needsPopulation).map((m) => (
-              <button key={m.id} className="choice" aria-pressed={measure === m.id} onClick={() => setMeasure(m.id)}>
-                {m.name}
-              </button>
-            ))}
-          </div>
-        </div>
+        <Menu label="Measure" value={MEASURES.find((m) => m.id === measure)!.name} align="right">
+          <MenuHeading>What each bar counts</MenuHeading>
+          {MEASURES.filter((m) => population || !m.needsPopulation).map((m) => (
+            <Option key={m.id} single name={m.name} hint={MEASURE_HINTS[m.id]} on={measure === m.id} onChoose={() => setMeasure(m.id)} />
+          ))}
+        </Menu>
       </header>
       <div
         ref={frame}
@@ -387,7 +421,10 @@ export function Trends() {
             }
           }
           const bin = binAt(event.clientX)
-          setTip(bin === null ? null : { bin, x: event.clientX, y: event.clientY })
+          if (bin === null) return setTip(null)
+          const { left, top, right } = event.currentTarget.getBoundingClientRect()
+          // The card is anchored to the bin, not the pointer, so it only moves when the bin changes.
+          setTip((held) => (held?.bin === bin ? held : { bin, frame: { left, top, right } }))
         }}
         onPointerUp={(event) => {
           const held = drag.current
@@ -411,28 +448,27 @@ export function Trends() {
         }}
       >
         <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
-        {empty && <p className="notice trends-empty">No discoveries are recorded in this stretch of time.</p>}
+        {notice && <p className="notice trends-empty">{notice}</p>}
       </div>
-      {tip && plan && tipBin && <BinCard plan={plan} index={tip.bin} x={tip.x} y={tip.y} measure={measure} population={population} />}
-      <p className="caption">
-        These counts show how far the research has reached, not how much was discovered. {plural(model.entries.length, 'discovery', 'discoveries')} so far.
-      </p>
+      {tip && plan && tipBin && <BinCard plan={plan} index={tip.bin} frame={tip.frame} measure={measure} population={population} />}
+      <p className="caption">These charts show how far the research has reached, not how much was discovered.</p>
     </div>
   )
 }
 
 /** Stacked bars: categories in their fixed order from the bottom, with paper between them. */
-function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) => number): void {
+function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) => number, lit: number | null): void {
   plan.bins.forEach((bin, i) => {
     const total = plan.headline[i]
     if (!total) return
     const x = bin.x0 + BAR_GAP / 2
     const w = bin.x1 - bin.x0 - BAR_GAP
     const top = yOf(total)
+    const strength = i === lit ? 1 : BAR_ALPHA
     // Clip the whole stack to a shape rounded at the top, so only the topmost segment shows the curve.
     ctx.save()
     ctx.beginPath()
-    ctx.roundRect(x, top, w, plan.baseline - top, [3, 3, 0, 0])
+    ctx.roundRect(x, top, w, plan.baseline - top, [2, 2, 0, 0])
     ctx.clip()
     let below = 0
     plan.categories.forEach((category, k) => {
@@ -442,7 +478,7 @@ function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) 
       const y1 = yOf(below + value)
       // A segment too thin to survive the gap is drawn without it, so that it does not vanish.
       const floor = below > 0 && y0 - y1 > SEGMENT_GAP + 1 ? y0 - SEGMENT_GAP : y0
-      ctx.fillStyle = category.color
+      ctx.fillStyle = alpha(category.color, strength)
       ctx.fillRect(x, y1, w, floor - y1)
       below += value
     })
@@ -450,21 +486,22 @@ function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) 
   })
 }
 
-/** One line per region, each divided by its own population, named where it last rises above zero. */
-function drawRates(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) => number, width: number): void {
-  const placed: { x0: number; x1: number; y0: number; y1: number }[] = []
+/**
+ * One line per region, each divided by its own population. A point is drawn only where the region
+ * has enough discoveries for a rate; fewer leave a hollow mark on the baseline, and the line breaks.
+ */
+function drawRates(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) => number): void {
+  const centre = (bin: Bin) => (bin.x0 + bin.x1) / 2
+  const ends: LineEnd[] = []
   ctx.lineJoin = 'round'
   ctx.lineCap = 'round'
-  ctx.font = font(12.5)
   plan.categories.forEach((category, k) => {
-    const centre = (bin: Bin) => (bin.x0 + bin.x1) / 2
     ctx.strokeStyle = category.color
     ctx.lineWidth = 2
     ctx.beginPath()
     let pen = false
     plan.bins.forEach((bin, i) => {
       const value = plan.values[i]![k]
-      // No line through bins where the region's population is unknown.
       if (value === null || value === undefined) {
         pen = false
         return
@@ -474,32 +511,28 @@ function drawRates(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) =
       pen = true
     })
     ctx.stroke()
+    const last = plan.values.findLastIndex((row) => row[k] !== null && row[k] !== undefined)
+    if (last >= 0) ends.push({ name: category.name, color: category.color, x: centre(plan.bins[last]!), y: yOf(plan.values[last]![k]!) })
 
-    let last = -1
-    ctx.fillStyle = category.color
+    // Each region's marks on the baseline sit a little apart, so that they do not cover one another.
+    const offset = (k - (plan.categories.length - 1) / 2) * 7
     plan.bins.forEach((bin, i) => {
       const value = plan.values[i]![k]
-      if (!bin.counts[k] || value === null || value === undefined) return
-      ctx.beginPath()
-      ctx.arc(centre(bin), yOf(value), 2.5, 0, Math.PI * 2)
-      ctx.fill()
-      last = i
+      if (value !== null && value !== undefined) {
+        ctx.fillStyle = category.color
+        ctx.beginPath()
+        ctx.arc(centre(bin), yOf(value), 2.5, 0, Math.PI * 2)
+        ctx.fill()
+      } else if (bin.counts[k]) {
+        ctx.strokeStyle = category.color
+        ctx.lineWidth = 1.25
+        ctx.beginPath()
+        ctx.arc(centre(bin) + offset, plan.baseline - 4, 2.25, 0, Math.PI * 2)
+        ctx.stroke()
+      }
     })
-    if (last < 0) return
-
-    const bin = plan.bins[last]!
-    const px = centre(bin)
-    const py = yOf(plan.values[last]![k]!)
-    const w = ctx.measureText(category.name).width + 12
-    for (const left of [px + 8, px - 8 - w]) {
-      const box = { x0: left, x1: left + w, y0: py - 9, y1: py + 9 }
-      if (box.x0 < plan.axis.x0 || box.x1 > width - 4 || box.y0 < 0) continue
-      if (placed.some((p) => box.x0 < p.x1 + 4 && box.x1 > p.x0 - 4 && box.y0 < p.y1 && box.y1 > p.y0)) continue
-      placed.push(box)
-      nameLine(ctx, category.name, category.color, left, py)
-      break
-    }
   })
+  nameEnds(ctx, ends, plan.axis.x1 + 8, plan.top, plan.baseline - 6)
 }
 
 function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, axis: Axis): void {
@@ -519,10 +552,11 @@ function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, a
   }
   ctx.textAlign = 'left'
 
-  ctx.lineWidth = 2
+  // A light line: this chart is context for the one above, not the subject.
+  ctx.lineWidth = 1.5
   ctx.lineJoin = 'round'
   for (const line of chart.lines) {
-    ctx.strokeStyle = line.color
+    ctx.strokeStyle = line.color === INK ? alpha(INK, 0.8) : line.color
     ctx.beginPath()
     let pen = false
     for (const p of line.points) {
@@ -537,49 +571,81 @@ function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, a
     ctx.stroke()
   }
 
-  // Name the regional lines at the right, nudged apart where they crowd.
+  // The regional lines are named at the right; one world line needs no name beside its title.
   if (chart.lines.length < 2) return
-  ctx.font = font(12.5)
   const ends = chart.lines.flatMap((line) => {
     const end = line.points[line.points.length - 1]
-    return end ? [{ line, y: end.y }] : []
+    return end ? [{ name: line.name, color: line.color, x: end.x, y: end.y }] : []
   })
-  ends.sort((a, b) => a.y - b.y)
+  nameEnds(ctx, ends, axis.x1 + 8, chart.plotTop, chart.bottom)
+}
+
+/** Where a line ends, and what to call it. */
+interface LineEnd {
+  name: string
+  color: string
+  x: number
+  y: number
+}
+
+/**
+ * Names in the right margin at the height where each line ends, pushed apart where they crowd and
+ * kept within [lo, hi]. A name that had to move gets a faint leader back to its line.
+ */
+function nameEnds(ctx: CanvasRenderingContext2D, ends: LineEnd[], x: number, lo: number, hi: number): void {
+  const sorted = [...ends].sort((a, b) => a.y - b.y)
   const ys = spread(
-    ends.map((e) => e.y),
-    14,
-    chart.plotTop,
-    chart.bottom,
+    sorted.map((end) => end.y),
+    NAME_GAP,
+    lo,
+    hi,
   )
-  if (ys.some((y, i) => i > 0 && y - ys[i - 1]! < 13.5)) return
-  ends.forEach((end, i) => nameLine(ctx, end.line.name, end.line.color, axis.x1 + 8, ys[i]!))
-}
-
-/** A line's name in ink, with a dot of its colour to tie it to the line. */
-function nameLine(ctx: CanvasRenderingContext2D, name: string, color: string, x: number, y: number): void {
-  ctx.fillStyle = color
-  ctx.beginPath()
-  ctx.arc(x + 3, y, 3, 0, Math.PI * 2)
-  ctx.fill()
-  ctx.fillStyle = INK_2
+  ctx.font = font(12.5)
+  ctx.textAlign = 'left'
   ctx.textBaseline = 'middle'
-  ctx.fillText(name, x + 10, y)
+  sorted.forEach((end, i) => {
+    const y = ys[i]!
+    if (Math.abs(y - end.y) > 4) {
+      ctx.strokeStyle = alpha(end.color, 0.5)
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      ctx.moveTo(end.x + 3, end.y)
+      ctx.lineTo(x - 1, y)
+      ctx.stroke()
+    }
+    ctx.fillStyle = end.color
+    ctx.beginPath()
+    ctx.arc(x + 3, y, 3, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.fillStyle = INK_2
+    ctx.fillText(end.name, x + 10, y)
+  })
 }
 
-/** A card for the bin under the pointer: its period, its value, and what it is made of. */
-function BinCard({ plan, index, x, y, measure, population }: { plan: Plan; index: number; x: number; y: number; measure: Measure; population: Population | null }) {
+/** The frame's edges on the page, in viewport pixels. */
+interface Box {
+  left: number
+  top: number
+  right: number
+}
+
+/**
+ * A card for the bin under the pointer: its period, its value, and what it is made of. It sits beside
+ * the bin at the top of the plot, so it never covers the bar being read.
+ */
+function BinCard({ plan, index, frame, measure, population }: { plan: Plan; index: number; frame: Box; measure: Measure; population: Population | null }) {
   const ref = useRef<HTMLDivElement | null>(null)
   const [position, setPosition] = useState<{ left: number; top: number } | null>(null)
 
   useLayoutEffect(() => {
-    if (!ref.current) return
-    const box = ref.current.getBoundingClientRect()
-    let left = x + 16
-    if (left + box.width > window.innerWidth - 8) left = x - box.width - 16
-    let top = y - box.height - 12
-    if (top < 8) top = y + 20
-    setPosition({ left: Math.max(8, left), top: Math.max(8, Math.min(top, window.innerHeight - box.height - 8)) })
-  }, [x, y, index, plan, measure])
+    const bin = plan.bins[index]
+    if (!ref.current || !bin) return
+    const width = ref.current.getBoundingClientRect().width
+    const right = frame.left + bin.x1 + 14
+    const left = frame.left + bin.x0 - 14 - width
+    const fitsRight = right + width <= frame.right - 4
+    setPosition({ left: fitsRight || left < frame.left + 4 ? right : left, top: frame.top + plan.top })
+  }, [frame, index, plan, measure])
 
   const bin = plan.bins[index]!
   const value = plan.headline[index] ?? null
@@ -588,7 +654,8 @@ function BinCard({ plan, index, x, y, measure, population }: { plan: Plan; index
     const count = bin.counts[k] ?? 0
     if (!count) return []
     const rate = plan.values[index]?.[k] ?? null
-    return [{ category, text: plan.lines ? (rate === null ? 'no estimate' : formatValue(rate)) : group(count) }]
+    const text = !plan.lines ? group(count) : rate !== null ? formatValue(rate) : count < MIN_FOR_RATE ? `${count}, too few for a rate` : 'no estimate'
+    return [{ category, text }]
   })
 
   return (

@@ -7,12 +7,15 @@ export const INK_2 = '#4a4238'
 export const INK_3 = '#6b6254'
 export const RULE = 'rgba(31, 27, 22, 0.20)'
 export const RULE_SOFT = 'rgba(31, 27, 22, 0.09)'
-export const TINT = 'rgba(31, 27, 22, 0.045)'
+export const TINT = 'rgba(31, 27, 22, 0.032)'
 export const LAND = '#e6dfd0'
 export const LAND_EDGE = '#cfc6b3'
 
-/** Categorical colours, always assigned in this order and never recycled. */
-export const SERIES = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#6250d6', '#e34948'] as const
+/**
+ * Categorical inks, always assigned in this order and never recycled: Prussian blue, vermilion,
+ * ochre, teal, plum and sap green. Each neighbouring pair passes a colour-vision check on the paper.
+ */
+export const SERIES = ['#2a5ea0', '#cf4c2c', '#dba31e', '#1a9aa6', '#9a4790', '#4a9440'] as const
 export const NEUTRAL = '#a8a091'
 
 export const SERIF = "'Source Serif', Georgia, 'Times New Roman', serif"

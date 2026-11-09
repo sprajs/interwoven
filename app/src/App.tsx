@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { loadModel } from './data/model.ts'
 import { useApp } from './store.ts'
-import { Controls } from './ui/Controls.tsx'
+import { KeyLine } from './ui/KeyLine.tsx'
 import { Detail } from './ui/Detail.tsx'
 import { TimeBar } from './ui/TimeBar.tsx'
 import { Tooltip } from './ui/Tooltip.tsx'
@@ -35,7 +35,6 @@ export function App() {
         <header className="topbar">
           <h1 className="brand">Interwoven</h1>
         </header>
-        <div />
         <main className="main">
           <p className="notice">{error ?? 'Reading the research…'}</p>
         </main>
@@ -46,7 +45,7 @@ export function App() {
   return (
     <div className="app">
       <TopBar />
-      <Controls />
+      <KeyLine />
       <main className="main">
         {view === 'timeline' && <Timeline />}
         {view === 'map' && <MapView />}

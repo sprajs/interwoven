@@ -83,7 +83,7 @@ def build(data: Dataset) -> dict:
         by_id = {e["id"]: e for e in events}
 
         out = {key: record[key] for key in (
-            "id", "name", "aliases", "summary", "description", "kind", "domain", "fields", "tier", "tier_reason",
+            "id", "name", "aliases", "summary", "description", "kind", "domain", "fields", "tier", "tier_reason", "impact", "grain",
             "advance", "scale", "origin", "concept", "prompted_by", "why", "limit_removed", "setting", "funding",
             "places", "people", "organizations", "societies", "known_from", "reception", "fate", "end_reason",
             "measures", "witnesses", "caveats", "external",

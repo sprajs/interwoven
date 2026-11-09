@@ -59,6 +59,46 @@
           "type": "string",
           "minLength": 1
         },
+        "impact": {
+          "type": "object",
+          "properties": {
+            "reach": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3,
+              "description": "How much of humanity came to live with it. 0: one community. 1: one society or one profession. 2: many societies or most of one civilisation. 3: most of humanity."
+            },
+            "depth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3,
+              "description": "How much it changed what people could do or know. 0: a small refinement. 1: a clear improvement. 2: a new capability. 3: a new basis for a way of life or of understanding."
+            },
+            "generativity": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3,
+              "description": "How much later discovery rested on it. 0: nothing known. 1: a few successors. 2: a whole line of work. 3: many fields over many generations."
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1,
+              "description": "One or two sentences justifying the scores."
+            }
+          },
+          "required": [
+            "reach",
+            "depth",
+            "generativity"
+          ],
+          "additionalProperties": false,
+          "description": "Consequences, scored so that any two discoveries can be compared. docs/importance.md has the rules."
+        },
+        "grain": {
+          "type": "string",
+          "vocab": "grain",
+          "description": "How large a thing this record stands for."
+        },
         "advance": {
           "type": "array",
           "items": {
@@ -1113,6 +1153,11 @@
         "summary": {
           "type": "string",
           "minLength": 1
+        },
+        "field": {
+          "type": "string",
+          "ref": "fields",
+          "description": "The field the capability belongs to."
         }
       },
       "required": [
@@ -1188,6 +1233,25 @@
         "note": {
           "type": "string",
           "minLength": 1
+        },
+        "concept": {
+          "type": "string",
+          "ref": "concepts",
+          "description": "The capability this would be an instance of."
+        },
+        "region": {
+          "type": "string",
+          "vocab": "world_region"
+        },
+        "date": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Roughly when, as a reader would write it. A hint for research, not a finding."
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why it matters."
         }
       },
       "required": [

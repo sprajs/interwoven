@@ -1,7 +1,8 @@
 import { useMemo, useState, type ReactNode } from 'react'
+import { create } from 'zustand'
 import { sharedWith, type Entry } from '../data/model.ts'
 import type { Basis, Evidence, Link } from '../data/types.ts'
-import { dateLabel, plural, words } from '../lib/text.ts'
+import { dateLabel, tierName, words } from '../lib/text.ts'
 import { useApp, useModel } from '../store.ts'
 
 /** Facets a record can have that are shown in the fact list, in reading order. */
@@ -24,6 +25,35 @@ const FACET_NAMES: Record<string, string> = {
   market: 'whether it was sold',
   measures: 'performance figures',
   links: 'what it built on',
+}
+
+/** Which sections of the sheet are open. Kept between records, so a reader's choice of depth sticks. */
+const useSections = create<{ open: ReadonlySet<string>; toggle(id: string): void }>((set) => ({
+  open: new Set(),
+  toggle: (id) =>
+    set((s) => {
+      const open = new Set(s.open)
+      if (open.has(id)) open.delete(id)
+      else open.add(id)
+      return { open }
+    }),
+}))
+
+/** A part of the sheet that opens when asked for. Its heading says how much is inside. */
+function Section({ id, title, count, children }: { id: string; title: string; count?: number | string; children: ReactNode }) {
+  const open = useSections((s) => s.open.has(id))
+  return (
+    <section className="section" data-open={open}>
+      <button className="section-head" aria-expanded={open} onClick={() => useSections.getState().toggle(id)}>
+        <svg width="9" height="6" viewBox="0 0 9 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M1 1l3.5 3.5L8 1" />
+        </svg>
+        <span>{title}</span>
+        {count !== undefined && <b>{count}</b>}
+      </button>
+      {open && <div className="section-body">{children}</div>}
+    </section>
+  )
 }
 
 function EntryLink({ id, plain }: { id: string; plain?: boolean }) {
@@ -124,10 +154,14 @@ export function Detail({ entry }: { entry: Entry }) {
     ['Sold', entry.market ? words(entry.market.status) : null, basis.market],
   ]
 
+  const builtOn = stated.filter((l) => l.to === entry.id).length
+  const ledTo = stated.length - builtOn
+  const sharing = new Set(shared.flatMap((x) => x.entries.map((e) => e.id))).size
+  const shownFacts = facts.filter(([, value]) => value)
   return (
     <aside className="detail" aria-label={entry.name}>
       <div className="detail-head">
-        <h2 style={{ fontStyle: entry.kind === 'science' ? 'italic' : undefined }}>{entry.name}</h2>
+        <h2>{entry.name}</h2>
         <button className="close" aria-label="Close" onClick={() => useApp.getState().select(null)}>
           <svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
             <path d="M1.5 1.5l9 9M10.5 1.5l-9 9" />
@@ -137,97 +171,108 @@ export function Detail({ entry }: { entry: Entry }) {
       <p className="dateline">
         <strong>{entry.date ? dateLabel(entry.date.label) : 'No date established'}</strong>
         {place && ` · ${place.name}${country && country.id !== place.id ? `, ${country.name}` : ''}`}
-        {` · ${words(entry.kind)}`}
       </p>
-      {entry.summary && <p className="summary">{entry.summary}</p>}
-      <p className="description">{entry.description}</p>
+      <p className="summary">{entry.summary ?? entry.description}</p>
+      <p className="glance">
+        <span title={entry.tier_reason}>{tierName(entry.tier)}</span>
+        <span>{words(entry.kind)}</span>
+        <span>{model.fieldNames.get(entry.domain)}</span>
+        {builtOn > 0 && <span>Built on {builtOn}</span>}
+        {ledTo > 0 && <span>Led to {ledTo}</span>}
+        {sharing > 0 && <span title="Other discoveries with the same person, organisation, town or concept">Shares with {sharing}</span>}
+      </p>
 
-      <h3>What is recorded</h3>
-      <dl className="facts">
-        {facts
-          .filter(([, value]) => value)
-          .map(([name, value, b]) => (
+      <Section id="facts" title="What is recorded" count={shownFacts.length}>
+        {entry.summary && <p className="small scope">{entry.description}</p>}
+        <dl className="facts">
+          {entry.impact && (
+            <Fact name="Importance" basis={basis.impact}>
+              Reach {entry.impact.reach}, depth {entry.impact.depth}, generativity {entry.impact.generativity}, each out of 3
+              {entry.impact.note && <span className="relation"> · {entry.impact.note}</span>}
+            </Fact>
+          )}
+          {shownFacts.map(([name, value, b]) => (
             <Fact key={name} name={name} basis={b}>
               {value}
             </Fact>
           ))}
-      </dl>
-      <p className="key">
-        <span>
-          <i className="basis" data-basis="sourced" />
-          from cited evidence
-        </span>
-        <span>
-          <i className="basis" data-basis="recalled" />
-          from memory, to be checked
-        </span>
-      </p>
-      {missing.length > 0 && <p className="small">Not yet researched: {missing.map((f) => FACET_NAMES[f]).join(', ')}.</p>}
+        </dl>
+        <p className="key">
+          <span>
+            <i className="basis" data-basis="sourced" />
+            from cited evidence
+          </span>
+          <span>
+            <i className="basis" data-basis="recalled" />
+            from memory, to be checked
+          </span>
+        </p>
+        {missing.length > 0 && <p className="small">Not yet researched: {missing.map((f) => FACET_NAMES[f]).join(', ')}.</p>}
+      </Section>
 
-      <h3>
-        Dated events <span>{entry.events.length}</span>
-      </h3>
-      <ol className="events">
-        {entry.events.map((event) => (
-          <li key={event.id}>
-            <time>
-              {dateLabel(event.label)}
-              <span className="type">{words(event.type)}</span>
-            </time>
-            <p>
-              {event.statement}
-              {event.id === entry.earliest_record.event && <em className="flag"> · Earliest record</em>}
-              {event.id === entry.community_entry?.event && <em className="flag"> · In use or known</em>}
-            </p>
-          </li>
-        ))}
-      </ol>
-      {!entry.earliest_record.event && <p className="small">{entry.earliest_record.rationale}</p>}
+      <Section id="events" title="Dated events" count={entry.events.length}>
+        <ol className="events">
+          {entry.events.map((event) => (
+            <li key={event.id}>
+              <time>
+                {dateLabel(event.label)}
+                <span className="type">{words(event.type)}</span>
+              </time>
+              <p>
+                {event.statement}
+                {event.id === entry.earliest_record.event && <em className="flag"> · Earliest record</em>}
+                {event.id === entry.community_entry?.event && <em className="flag"> · In use or known</em>}
+              </p>
+            </li>
+          ))}
+        </ol>
+        {!entry.earliest_record.event && <p className="small">{entry.earliest_record.rationale}</p>}
+      </Section>
 
-      {(stated.length > 0 || open.length > 0) && (
-        <>
-          <h3>
-            Stated links <span>{stated.length}</span>
-          </h3>
+      {(stated.length > 0 || open.length > 0 || shared.length > 0) && (
+        <Section id="links" title="Connections" count={stated.length + shared.length}>
           <ul className="linklist">
             {stated.map((link, i) => (
               <LinkRow key={i} link={link} self={entry.id} />
             ))}
+            {shared.map((s) => (
+              <SharedRow key={`${s.what}-${s.id}`} label={`Same ${s.what}: ${s.name}`} ids={s.entries.map((e) => e.id)} />
+            ))}
             {open.map((link, i) => (
-              <li key={`open-${i}`} style={{ color: 'var(--ink-3)' }}>
+              <li key={`open-${i}`} className="muted">
                 <span className="relation">Open question · </span>
                 <EntryLink id={link.from === entry.id ? link.to : link.from} plain />
                 <div>{link.statement}</div>
               </li>
             ))}
           </ul>
-        </>
-      )}
-
-      {shared.length > 0 && (
-        <>
-          <h3>Shares something with</h3>
-          <ul className="linklist">
-            {shared.map((s) => (
-              <SharedRow key={`${s.what}-${s.id}`} label={`Same ${s.what}: ${s.name}`} ids={s.entries.map((e) => e.id)} />
-            ))}
-          </ul>
-        </>
+        </Section>
       )}
 
       {(entry.caveats || entry.research.unresolved?.length) && (
-        <>
-          <h3>What is not established</h3>
+        <Section id="doubts" title="What is not established" count={(entry.caveats ? 1 : 0) + (entry.research.unresolved?.length ?? 0)}>
           {entry.caveats && <p className="small">{entry.caveats}</p>}
           {entry.research.unresolved?.map((u, i) => (
             <p className="small" key={i}>
               <strong>{words(u.about)}:</strong> {u.note}
             </p>
           ))}
-        </>
+        </Section>
       )}
 
-      {sources.length > 0 && <Sources sources={sources} />}
+      {sources.length > 0 && (
+        <Section id="sources" title="Sources" count={sources.length}>
+          <ol className="sources">
+            {sources.map((s) => (
+              <li key={s.id}>
+                {s.authors.slice(0, 2).join(', ')}
+                {s.authors.length > 2 ? ' and others' : ''}
+                {s.year ? ` (${s.year})` : ''}. {s.url ? <a href={s.url} target="_blank" rel="noreferrer">{s.title}</a> : s.title}
+              </li>
+            ))}
+          </ol>
+        </Section>
+      )}
     </aside>
   )
 }
@@ -295,31 +340,5 @@ function SharedRow({ label, ids }: { label: string; ids: string[] }) {
         )}
       </div>
     </li>
-  )
-}
-
-function Sources({ sources }: { sources: { id: string; title: string; authors: string[]; year?: number; url?: string }[] }) {
-  const [all, setAll] = useState(false)
-  const shown = all ? sources : sources.slice(0, 4)
-  return (
-    <>
-      <h3>
-        Sources <span>{sources.length}</span>
-      </h3>
-      <ol className="sources">
-        {shown.map((s) => (
-          <li key={s.id}>
-            {s.authors.slice(0, 2).join(', ')}
-            {s.authors.length > 2 ? ' and others' : ''}
-            {s.year ? ` (${s.year})` : ''}. {s.url ? <a href={s.url} target="_blank" rel="noreferrer">{s.title}</a> : s.title}
-          </li>
-        ))}
-      </ol>
-      {sources.length > shown.length && (
-        <button className="more" onClick={() => setAll(true)}>
-          Show all {plural(sources.length, 'source')}
-        </button>
-      )}
-    </>
   )
 }

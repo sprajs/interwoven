@@ -26,7 +26,7 @@ export function Tooltip() {
   const place = entry.at ? model.bundle.places[entry.at.place]?.name : undefined
   return (
     <div ref={ref} className="tooltip" role="tooltip" style={position ? position : { left: 0, top: 0, visibility: 'hidden' }}>
-      <h4 style={{ fontStyle: entry.kind === 'science' ? 'italic' : undefined }}>{entry.name}</h4>
+      <h4>{entry.name}</h4>
       <div className="meta">
         {entry.date ? shortDate(entry.date.label) : 'No date established'}
         {place ? ` · ${place}` : ''}
