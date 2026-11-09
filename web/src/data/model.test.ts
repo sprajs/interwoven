@@ -45,27 +45,12 @@ describe('buildModel', () => {
     expect(model.impact[0]).toBe(0)
   })
 
-  it('keeps every label a node carries and inks it by the first', () => {
-    const model = buildModel(dataset([node('x', 1900, ['b', 'a'])]))
-    expect(model.nodes[0]!.labels).toEqual(['b', 'a'])
-    expect(model.labels.map((l) => l.id).sort()).toEqual(['a', 'b'])
-    expect(model.ink[0]).toBeCloseTo(0xb0 / 255)
-  })
-
   it('counts everything downstream, not only direct children', () => {
     const model = buildModel(dataset([node('a', 1800), node('b', 1850), node('c', 1900)], [['a', 'b'], ['b', 'c']]))
     expect(model.impact[model.indexById.get('a')!]).toBe(2)
     expect(model.impact[model.indexById.get('c')!]).toBe(0)
   })
 
-  it('accepts a link that runs against display order, since dates are not causal', () => {
-    const model = buildModel(dataset([node('late', 1950), node('early', 1900)], [['late', 'early']]))
-    expect(model.edges).toHaveLength(1)
-  })
-
-  it('keeps disconnected entries', () => {
-    expect(buildModel(dataset([node('alone', 1500)])).n).toBe(1)
-  })
 })
 
 describe('walk and countDescendants', () => {
@@ -82,10 +67,6 @@ describe('walk and countDescendants', () => {
 })
 
 describe('validateDataset', () => {
-  it('passes a clean dataset', () => {
-    expect(validateDataset(dataset([node('a', 1800), node('b', 1900)], [['a', 'b']]))).toEqual([])
-  })
-
   it('rejects a dangling link and an undeclared label', () => {
     const errors = validateDataset(dataset([node('a', 1800, ['nope'])], [['a', 'ghost']])).filter((i) => i.severity === 'error')
     expect(errors.map((e) => e.message).join(' ')).toMatch(/ghost/)

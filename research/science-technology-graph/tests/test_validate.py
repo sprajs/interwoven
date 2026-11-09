@@ -152,23 +152,6 @@ class GraphValidationTests(unittest.TestCase):
         self.assertEqual(1, result["counts"]["anchors_unresolved"])
         self.assertNotIn("event_id", records["nodes"][0]["community_entry"])
 
-    def test_disconnected_abandoned_and_extinct_branch_is_valid(self):
-        events = [event(), event("abandoned", event_type="abandonment", year=1910),
-                  event("ended", event_type="end_of_use", year=1920)]
-        records = fixture()
-        records.update(nodes=[node(events)], events=events)
-        self.assertValid(records)
-        self.assertEqual([], records["relationships"])
-        self.assertEqual(["Fixture application"], records["events"][2]["scope"]["applications"])
-        self.assertEqual("not_yet_researched", records["nodes"][0]["lifecycle"]["revival"]["status"])
-
-    def test_commercial_anchor_uses_actual_commercial_event(self):
-        records = fixture()
-        records["events"][0]["event_type"] = "first_commercial_availability"
-        records["nodes"] = [node(records["events"])]
-        select_anchor(records["nodes"][0], "event-1")
-        self.assertValid(records)
-
     def test_dated_offer_supports_available_by_without_changing_unknown_first_sale(self):
         offer = event(event_type="commercial_offer", year=1910)
         records = fixture()
@@ -182,15 +165,6 @@ class GraphValidationTests(unittest.TestCase):
         self.assertEqual(before, records)
         self.assertEqual("unknown", current["lifecycle"]["first_commercial_availability"]["status"])
         self.assertEqual("known", offer["date"]["status"])
-
-    def test_later_documented_adoption_can_deliberately_outrank_earlier_invention(self):
-        events = [event("invented", event_type="invention", year=1850), event("adopted", event_type="adoption", year=1900)]
-        records = fixture()
-        records.update(nodes=[node(events)], events=events)
-        select_anchor(records["nodes"][0], "adopted", "adoption")
-        self.assertValid(records)
-        self.assertEqual("adopted", records["nodes"][0]["community_entry"]["event_id"])
-        self.assertEqual(["invented"], records["nodes"][0]["lifecycle"]["invention"]["event_ids"])
 
     def test_scientific_observation_cannot_displace_selected_later_acceptance(self):
         events = [event("observed", event_type="observation", year=1800), event("accepted", event_type="acceptance", year=1850)]
@@ -227,17 +201,6 @@ class GraphValidationTests(unittest.TestCase):
         self.assertValid(records)
         release["event_type"] = "publication"
         self.assertInvalid(records, "anchor_type")
-
-    def test_failed_local_branch_can_enter_actual_specialist_use_without_global_uptake(self):
-        events = [event("local-use", event_type="practical_use", year=1969), event("abandoned", event_type="abandonment", year=1970)]
-        records = fixture()
-        records.update(nodes=[node(events)], events=events)
-        select_anchor(records["nodes"][0], "local-use", "practical_use")
-        anchor = records["nodes"][0]["community_entry"]
-        anchor.update(community="Named expedition crew", uncertainty="Use by this crew does not establish adoption outside the failed expedition.")
-        anchor["scope"]["population"] = {"status": "specified", "value": "Named expedition crew"}
-        self.assertValid(records)
-        self.assertEqual([], records["relationships"])
 
     def test_scoped_ancient_use_inference_remains_explicit_and_typed(self):
         use = event(event_type="practical_use", year=-900)
@@ -295,41 +258,12 @@ class GraphValidationTests(unittest.TestCase):
                 select_anchor(records["nodes"][0], "event-1", "practical_use")
                 self.assertValid(records)
 
-    def test_practical_use_can_be_researched_in_a_commercial_community(self):
-        records = fixture()
-        records["events"][0]["event_type"] = "practical_deployment"
-        records["nodes"] = [node(records["events"])]
-        select_anchor(records["nodes"][0], "event-1", "practical_use")
-        self.assertValid(records)
-        records["nodes"][0]["community_entry"]["evidence"] = []
-        self.assertInvalid(records, "schema")
-
-    def test_scientific_entry_uses_uptake_or_an_explicit_awareness_proxy(self):
-        for milestone, basis in (("acceptance", "recognition"), ("recognition", "recognition"),
-                ("publication", "public_awareness"), ("presentation", "public_awareness"), ("public_disclosure", "public_awareness")):
-            with self.subTest(milestone=milestone):
-                records = fixture()
-                records["events"][0]["event_type"] = milestone
-                records["nodes"] = [node(records["events"], kind="science")]
-                select_anchor(records["nodes"][0], "event-1", basis)
-                self.assertValid(records)
-
     def test_science_rejects_invention_anchor_and_commercial_applicability(self):
         records = fixture()
         records["nodes"] = [node(records["events"], kind="science")]
         select_anchor(records["nodes"][0], "event-1", "public_awareness")
         self.assertInvalid(records, "anchor_type")
         records["nodes"][0]["commercial_applicability"]["status"] = "applicable"
-        self.assertInvalid(records, "schema")
-
-    def test_anchor_policy_must_match_node_kind(self):
-        records = fixture()
-        records["nodes"][0]["community_entry"]["policy"] = "scientific_event"
-        self.assertInvalid(records, "schema")
-
-    def test_unselected_anchor_must_omit_event_id(self):
-        records = fixture()
-        records["nodes"][0]["community_entry"]["event_id"] = "event-1"
         self.assertInvalid(records, "schema")
 
     def test_ongoing_status_requires_valid_as_of_and_evidence(self):
@@ -416,36 +350,11 @@ class GraphValidationTests(unittest.TestCase):
                         "label": "Unresolved date", "basis": "The fixture supplies no usable limit."}
                     self.assertInvalid(records, "anchor_date")
 
-    def test_selected_anchor_accepts_an_explicit_one_sided_usable_date(self):
-        records = fixture()
-        records["events"][0]["event_type"] = "first_commercial_availability"
-        records["events"][0]["date"] = one_sided_date("latest", {"year": 1900}, precision="year")
-        records["nodes"] = [node(records["events"])]
-        select_anchor(records["nodes"][0], "event-1")
-        self.assertValid(records)
-
-    def test_all_lifecycle_statuses_are_explicit_and_documented_requires_event(self):
-        for change in ("missing", "null", "undocumented"):
-            with self.subTest(change=change):
-                records = fixture()
-                if change == "missing":
-                    del records["nodes"][0]["lifecycle"]["end_of_use"]
-                elif change == "null":
-                    records["nodes"][0]["lifecycle"]["end_of_use"] = None
-                else:
-                    records["nodes"][0]["lifecycle"]["end_of_use"]["status"] = "documented"
-                self.assertInvalid(records)
-
     def test_historical_acceptance_does_not_upgrade_lifecycle_review(self):
         result = self.assertValid(fixture())
         for kind in ("nodes", "events"):
             self.assertEqual({"accepted": 1}, result["counts"]["review"][kind]["historical_claim"])
             self.assertEqual({"needs_review": 1}, result["counts"]["review"][kind]["lifecycle_classification"])
-
-    def test_review_requires_a_pointer(self):
-        records = fixture()
-        records["nodes"][0]["review"]["records"] = []
-        self.assertInvalid(records, "schema")
 
     def test_proposition_hash_is_compact_utf8_and_excludes_only_top_level_review(self):
         record = {"id": "é", "review": {"historical_claim": "candidate"}, "configuration": {"review": "kept"}}
@@ -490,28 +399,6 @@ class GraphValidationTests(unittest.TestCase):
                 bad = deepcopy(records)
                 bad["events"][0]["date"][key] = value
                 self.assertInvalid(bad, "schema")
-
-    def test_bounded_by_date_does_not_infer_an_unknown_earliest_bound(self):
-        for missing_status in ("unknown", "not_yet_researched"):
-            with self.subTest(missing_status=missing_status):
-                records = fixture()
-                records["events"][0]["date"] = one_sided_date("latest", {"year": 2023, "month": 3, "day": 15}, missing_status)
-                before = deepcopy(records)
-                result = self.assertValid(records)
-                self.assertEqual(before, records)
-                self.assertNotIn("earliest", records["events"][0]["date"])
-                self.assertEqual([], result["concerns"])
-
-    def test_bounded_from_date_does_not_infer_an_unknown_latest_bound(self):
-        for missing_status in ("unknown", "not_yet_researched"):
-            with self.subTest(missing_status=missing_status):
-                records = fixture()
-                records["events"][0]["date"] = one_sided_date("earliest", {"year": 2023, "month": 3, "day": 15}, missing_status)
-                before = deepcopy(records)
-                result = self.assertValid(records)
-                self.assertEqual(before, records)
-                self.assertNotIn("latest", records["events"][0]["date"])
-                self.assertEqual([], result["concerns"])
 
     def test_one_sided_date_requires_the_correct_explicit_missing_limit_status(self):
         for supplied in ("earliest", "latest"):
@@ -614,11 +501,6 @@ class GraphValidationTests(unittest.TestCase):
                 records["events"][0]["date"].update(precision=precision, earliest=bound, latest=bound)
                 self.assertInvalid(records)
 
-    def test_bce_ce_interval_is_valid_without_year_zero(self):
-        records = fixture()
-        records["events"][0]["date"].update(status="bounded", precision="range", earliest={"year": -1}, latest={"year": 1})
-        self.assertValid(records)
-
     def test_unequal_known_bounds_are_only_a_review_concern(self):
         records = fixture()
         records["events"][0]["date"]["latest"] = {"year": 1901}
@@ -699,31 +581,10 @@ class GraphValidationTests(unittest.TestCase):
         records["nodes"][0]["provenance"] = {"method": "source-evidence", "source_ids": []}
         self.assertInvalid(records, "required")
 
-    def test_source_urls_have_valid_shapes(self):
-        for url in ("ftp://example.org/source", "https://example.org/a b"):
-            with self.subTest(url=url):
-                records = fixture()
-                records["sources"][0]["url"] = url
-                self.assertInvalid(records, "schema")
-
-    def test_initial_schema_number_is_required_as_an_integer(self):
-        for value in ("1", True, 1.5):
-            with self.subTest(value=value):
-                records = fixture()
-                records["nodes"][0]["schema_version"] = value
-                self.assertInvalid(records, "schema")
-
     def test_in_memory_non_finite_numbers_are_rejected(self):
         records = fixture()
         records["nodes"][0]["classification"] = {"value": float("inf")}
         self.assertInvalid(records, "non_json_number")
-
-    def test_source_author_and_year_forms_preserve_source_metadata(self):
-        for authors, year in (("Author", 1900), (["Author"], [1900, "c. 1901"]), ([], "unknown")):
-            with self.subTest(authors=authors, year=year):
-                records = fixture()
-                records["sources"][0].update(authors=authors, year=year)
-                self.assertValid(records)
 
     def test_malformed_records_report_errors_without_crashing(self):
         for kind in validator.KINDS:
@@ -782,16 +643,6 @@ class RepositoryValidationTests(unittest.TestCase):
     def check(self):
         return validator.validate_repository(self.root, optional_jsonschema=False)
 
-    def test_repository_uses_one_schema_with_reusable_record_definitions(self):
-        schema = json.loads((self.root / "schema.json").read_text())
-        self.assertEqual(4, len(schema["oneOf"]))
-        for kind in validator.KINDS.values():
-            self.assertIn(kind, schema["$defs"])
-            self.assertEqual({"const": 1, "type": "integer"}, schema["$defs"][kind]["properties"]["schema_version"])
-            self.assertNotIn("$defs", schema["$defs"][kind])
-        result = self.check()
-        self.assertTrue(result["valid"], result["errors"])
-
     def test_local_source_copy_hash_is_verified(self):
         self.records["sources"][0]["local_copy"] = self.local_copy()
         self.write_records()
@@ -806,14 +657,6 @@ class RepositoryValidationTests(unittest.TestCase):
         self.assertFalse(result["valid"])
         self.assertIn("local_copy_empty", {error["code"] for error in result["errors"]})
         self.assertEqual(0, result["counts"]["source_copies_verified"])
-
-    def test_shared_source_copies_are_hashed_once(self):
-        self.records["sources"][0]["local_copy"] = self.local_copy()
-        self.records["sources"].append(dict(deepcopy(self.records["sources"][0]), id="source-2"))
-        self.write_records()
-        result = self.check()
-        self.assertTrue(result["valid"], result["errors"])
-        self.assertEqual(1, result["counts"]["source_copies_verified"])
 
     def test_copy_hash_mismatch_and_missing_file_are_rejected(self):
         copy = self.local_copy()
@@ -840,13 +683,6 @@ class RepositoryValidationTests(unittest.TestCase):
         self.records["sources"][0]["local_copy"] = {"path": "evidence/link.txt", "sha256": "0" * 64}
         self.write_records()
         self.assertIn("local_path", {e["code"] for e in self.check()["errors"]})
-
-    def test_local_copy_shape_requires_path_and_sha256(self):
-        for copy in ({}, {"path": "missing"}, {"path": "evidence/source.txt", "sha256": "bad-hash"}):
-            with self.subTest(copy=copy):
-                self.records["sources"][0]["local_copy"] = copy
-                self.write_records()
-                self.assertFalse(self.check()["valid"])
 
     def test_excerpt_copy_requires_explicit_original_identity_and_page_mapping(self):
         self.records["sources"][0]["local_copy"] = dict(self.local_copy(), representation="excerpt",

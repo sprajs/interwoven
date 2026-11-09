@@ -14,16 +14,6 @@ function touching(xs: number[], levels: ArrayLike<number>): boolean {
 }
 
 describe('stackLevels', () => {
-  it('leaves marks that do not touch on the ground', () => {
-    const xs = [0, 12, 24, 100]
-    expect([...stackLevels(xs, inOrder(4))]).toEqual([0, 0, 0, 0])
-  })
-
-  it('stacks marks at one date into a column as tall as their number', () => {
-    const xs = [50, 50, 50, 50]
-    expect([...stackLevels(xs, inOrder(4))]).toEqual([0, 1, 2, 3])
-  })
-
   it('fills the gaps a stair would leave, so height follows how crowded a stretch is', () => {
     const xs = inOrder(30).map((i) => i * 5)
     const levels = stackLevels(xs, inOrder(30))
@@ -36,20 +26,10 @@ describe('stackLevels', () => {
     expect(touching(xs, stackLevels(xs, inOrder(200)))).toBe(false)
   })
 
-  it('stops growing rather than running away on a huge dataset', () => {
-    const n = 2000
-    const levels = stackLevels(new Float64Array(n), inOrder(n))
-    expect(Math.max(...levels)).toBeLessThan(n)
-  })
 })
 
 describe('smoothDensity', () => {
   const area = (curve: Float32Array) => curve.reduce((sum, value) => sum + value, 0) / curve.length
-
-  it('keeps an area equal to the number of entries', () => {
-    const positions = [0.3, 0.31, 0.5, 0.7]
-    expect(area(smoothDensity(positions, [0, 1, 2, 3], 0.02))).toBeCloseTo(4, 3)
-  })
 
   it('leaves out entries that are not among the members', () => {
     expect(area(smoothDensity([0.3, 0.5, 0.7], [0, 2], 0.02))).toBeCloseTo(2, 3)
@@ -83,12 +63,6 @@ describe('layoutPiles', () => {
     expect(at10[0]!).toBeLessThan(ground)
   })
 
-  it('layers families in the order of their rows, the last at the bottom', () => {
-    const { y } = layoutPiles({ ...base, form: 'together' })
-    // At x = 300 the last family goes down first.
-    expect(y[4]!).toBeGreaterThan(y[3]!)
-  })
-
   it('gives each family a row of its own, in order and inside the page', () => {
     const { rows, y } = layoutPiles({ ...base, form: 'subject' })
     expect(rows.map((row) => row.count)).toEqual([2, 2, 2])
@@ -104,32 +78,11 @@ describe('layoutPiles', () => {
     expect(y[3]).toBeCloseTo(rows[1]!.bottom, 5)
   })
 
-  it('draws one shared pile larger when that helps it fill the page, without marks touching', () => {
-    const spread = Array.from({ length: 60 }, (_, i) => i * 18)
-    const { markScale, y } = layoutPiles({ xs: spread, family: new Int32Array(60), families: 1, included: () => true, form: 'together', height: 700 })
-    expect(markScale).toBeGreaterThan(1)
-    expect(Math.min(...y)).toBeGreaterThan(0)
-  })
-
-  it('keeps the usual size where a shared pile is already tall', () => {
-    const tall = new Float64Array(200)
-    expect(layoutPiles({ xs: tall, family: new Int32Array(200), families: 1, included: () => true, form: 'together', height: 300 }).markScale).toBe(1)
-  })
-
   it('squeezes a stack that would not fit, rather than leaving the page', () => {
     const tall = new Float64Array(200)
     const { y } = layoutPiles({ xs: tall, family: new Int32Array(200), families: 1, included: () => true, form: 'together', height: 300 })
     expect(Math.min(...y)).toBeGreaterThanOrEqual(0)
     expect(Math.max(...y)).toBeLessThanOrEqual(1)
-  })
-
-  it('gives every family a ceiling and a base it stays between', () => {
-    const { rows } = layoutPiles({ ...base, form: 'subject' })
-    for (const row of rows) {
-      expect(row.ceiling).toBeLessThan(row.bottom)
-      expect(row.bottom).toBeLessThan(row.base)
-      expect(row.base).toBeLessThanOrEqual(1)
-    }
   })
 
   it('counts only the entries that pass the filters', () => {

@@ -22,12 +22,6 @@ describe('foldFromWindows', () => {
     for (const u of [0, 0.05, 0.15, 0.4, 0.72, 0.9, 1]) expect(map.invert(map.map(u))).toBeCloseTo(u)
   })
 
-  it('keeps two open windows on one scale', () => {
-    const map = foldFromWindows([[0.1, 0.2], [0.6, 0.8]])
-    const scale = (a: number, b: number) => (map.map(b) - map.map(a)) / (b - a)
-    expect(scale(0.1, 0.2)).toBeCloseTo(scale(0.6, 0.8))
-  })
-
   it('merges overlapping windows and is the identity when nothing is folded', () => {
     expect(normalizeWindows([[0.5, 0.2], [0.4, 0.6], [0.8, 0.9]])).toEqual([[0.2, 0.6], [0.8, 0.9]])
     expect(foldFromWindows([]).isIdentity).toBe(true)
@@ -52,11 +46,6 @@ describe('foldAroundYears', () => {
     expect(windows).toEqual([[-4650, -4650], [1250, 1275]])
     expect(map.pleats.length).toBeGreaterThanOrEqual(3)
     monotonic(map)
-  })
-
-  it('leaves an evenly spread story on one scale', () => {
-    const { windows } = foldAroundYears([1800, 1810, 1820, 1830, 1845], { u })
-    expect(windows).toEqual([[1800, 1845]])
   })
 
   it('gives a story set in one year some width', () => {

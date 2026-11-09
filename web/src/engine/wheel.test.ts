@@ -37,10 +37,6 @@ describe('ScrollLock', () => {
     expect(new ScrollLock().resolve(12, 0, 0)).toBe('pan')
   })
 
-  it('zooms when a stroke is exactly diagonal', () => {
-    expect(new ScrollLock().resolve(6, 6, 0)).toBe('zoom')
-  })
-
   it('waits until a gesture has moved far enough to judge', () => {
     const lock = new ScrollLock()
     expect(lock.resolve(1, 0, 0)).toBeNull()

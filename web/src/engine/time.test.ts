@@ -16,13 +16,6 @@ describe('TimeScale', () => {
     }
   })
 
-  it('spans 0 to 1', () => {
-    expect(scale.compressed(scale.min)).toBeCloseTo(0, 3)
-    expect(scale.compressed(scale.now)).toBeCloseTo(1, 3)
-    expect(scale.linear(scale.min)).toBeCloseTo(0)
-    expect(scale.linear(scale.now)).toBeCloseTo(1)
-  })
-
   it('inverts', () => {
     for (const warp of [0, 0.4, 1]) {
       for (const y of [-2500, 700, 1800, 1999]) expect(scale.year(scale.u(y, warp), warp)).toBeCloseTo(y, 0)

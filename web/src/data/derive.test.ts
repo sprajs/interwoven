@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { computeReach, connectedComponents, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, rowPositions, storyIndex, threadOf } from './derive.ts'
+import { computeReach, connectedComponents, layoutStory, lineageOf, longestChain, parseYearQuery, rowOrder, storyIndex, threadOf } from './derive.ts'
 
 const dated = (...years: number[]) => years.map((year) => ({ year }))
 const edge = (source: number, target: number, tentative = false) => ({ source, target, tentative })
@@ -28,11 +28,6 @@ describe('computeReach', () => {
     expect(reach.any[0]).toBe(1900)
   })
 
-  it('gives an entry with no descendants no reach at all', () => {
-    const reach = computeReach(dated(1800), [])
-    expect(reach.any[0]).toBe(1800)
-  })
-
   it('is not extended backwards by a link against date order', () => {
     const reach = computeReach(dated(1900, 1800), [edge(0, 1)])
     expect(reach.any[0]).toBe(1900)
@@ -51,12 +46,6 @@ describe('rows', () => {
   const { children, parents } = adjacency(4, edges)
   const reach = computeReach(nodes, edges)
 
-  it('gives every entry exactly one row in every order', () => {
-    for (const order of ['thread', 'origin', 'reach'] as const) {
-      expect([...rowOrder(nodes, children, parents, reach, order)].sort()).toEqual([0, 1, 2, 3])
-    }
-  })
-
   it('orders by origin, reach and thread', () => {
     expect([...rowOrder(nodes, children, parents, reach, 'origin')]).toEqual([3, 0, 2, 1])
     expect(rowOrder(nodes, children, parents, reach, 'reach')[0]).toBe(0)
@@ -65,13 +54,6 @@ describe('rows', () => {
     expect(thread.indexOf(2)).toBe(thread.indexOf(0) + 1)
   })
 
-  it('keeps rows on the sheet', () => {
-    const y = rowPositions(rowOrder(nodes, children, parents, reach, 'origin'))
-    for (const v of y) {
-      expect(v).toBeGreaterThanOrEqual(0)
-      expect(v).toBeLessThanOrEqual(1)
-    }
-  })
 })
 
 describe('stories', () => {

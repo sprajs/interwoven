@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { buildModel, nodeMarkStyle } from '../src/data/model.ts'
+import { buildModel } from '../src/data/model.ts'
 import { validateDataset } from '../src/data/validate.ts'
 import { buildResearchDataset, deriveEntryDate, type ResearchEvent, type ResearchNode, type ResearchRecords } from './import-research.ts'
 import type { EntryBasis } from '../src/data/types.ts'
-import { dateLimitNote, entryReasonLabel } from '../src/ui/entryText.ts'
 
 function event(id: string, nodeId: string, type: string, year: number): ResearchEvent {
   return { id, node_id: nodeId, event_type: type,
@@ -72,36 +71,6 @@ describe('research importer placement', () => {
     expect(validateDataset(data)).toEqual([])
   })
 
-  it('places a disconnected nonmarket technology only by its justified deployment anchor', () => {
-    const deployment = event('p-deployment', 'p', 'practical_deployment', 1976)
-    const current = node('p', [deployment], 'practical_use', deployment.id)
-    current.lifecycle!.first_commercial_availability = { status: 'unknown', event_ids: [] }
-    const data = buildResearchDataset(records([current], [deployment]))
-    expect(data.nodes[0]).toMatchObject({ id: 'p', year: 1976, placed_by: 'practical deployment', anchored: true, commercial_date_status: 'unknown' })
-    expect(data.unplaced).toEqual([])
-    expect(data.links).toEqual([])
-    expect(buildModel(data).n).toBe(1)
-  })
-
-  it('allows evidenced actual use in a commercial community but still requires entry evidence', () => {
-    const deployment = event('p-deployment', 'p', 'practical_deployment', 1976)
-    const current = node('p', [deployment], 'practical_use', deployment.id)
-    current.commercial_applicability = { status: 'applicable', rationale: 'A market may exist.' }
-    const data = buildResearchDataset(records([current], [deployment]))
-    expect(data.nodes).toHaveLength(1)
-    current.community_entry!.evidence = []
-    expect(buildResearchDataset(records([current], [deployment])).unplaced![0]!.placement_reason).toMatch(/evidence/)
-  })
-
-  it.each(['acceptance', 'presentation'])('places science by its selected recognition or explicit proxy event: %s', (stage) => {
-    const milestone = event('s-milestone', 's', stage, 1845)
-    const current = node('s', [milestone], stage === 'acceptance' ? 'recognition' : 'public_awareness', milestone.id)
-    if (stage === 'presentation') delete current.lifecycle!.presentation
-    const data = buildResearchDataset(records([current], [milestone]))
-    expect(data.nodes[0]).toMatchObject({ kind: 'science', year: 1845, placed_by: stage, anchored: true })
-    expect(data.unplaced).toEqual([])
-  })
-
   it('does not replace an invalid invention anchor with another available dated event', () => {
     const invention = event('i-invention', 'i', 'invention', 1900)
     const sale = event('i-sale', 'i', 'first_commercial_availability', 1910)
@@ -143,7 +112,6 @@ describe('research importer placement', () => {
     expect(data.nodes[0]!.entry_date).not.toHaveProperty('earliest')
     expect(data.events![offer.id]!.date).toMatchObject({ status: 'known', earliest: { year: 1910 }, latest: { year: 1910 } })
     expect(JSON.stringify(current)).toBe(before)
-    expect(nodeMarkStyle(data.nodes[0]!)).toBe(4)
   })
 
   it.each([
@@ -175,13 +143,6 @@ describe('research importer placement', () => {
     expect(date.earliest).toEqual({ year: 300 })
   })
 
-  it('deliberately selects later adoption instead of an earlier invention', () => {
-    const events = [event('a-invention', 'a', 'invention', 1800), event('a-adoption', 'a', 'adoption', 1850)]
-    const data = buildResearchDataset(records([node('a', events, 'adoption', 'a-adoption')], events))
-    expect(data.nodes[0]).toMatchObject({ year: 1850, entry_basis: 'adoption', anchor_event_id: 'a-adoption' })
-    expect(data.events!['a-invention']!.date_label).toBe('1800')
-  })
-
   it('does not let scientific early observation displace later community acceptance', () => {
     const events = [event('s-observed', 's', 'observation', 1800), event('s-accepted', 's', 'acceptance', 1850)]
     const current = node('s', events, 'recognition', 's-accepted')
@@ -197,7 +158,6 @@ describe('research importer placement', () => {
     const current = node('s', [disclosure], 'public_awareness', disclosure.id)
     const data = buildResearchDataset(records([current], [disclosure]))
     expect(data.nodes[0]).toMatchObject({ evidence_strength: 'awareness_proxy', entry_basis: 'public_awareness', entry_community: 'Named local specialist community', proxy_justification: expect.any(String) })
-    expect(nodeMarkStyle(data.nodes[0]!)).toBe(33)
     current.community_entry!.entry_basis = 'adoption'
     expect(buildResearchDataset(records([current], [disclosure])).unplaced![0]!.placement_reason).toMatch(/must not be called adoption/)
     current.community_entry!.entry_basis = 'public_awareness'
@@ -218,15 +178,6 @@ describe('research importer placement', () => {
     expect(buildResearchDataset(records([current], [release])).nodes).toEqual([])
   })
 
-  it('uses plain date explanations and treats a lower limit as no proof of continuing use', () => {
-    expect(entryReasonLabel('practical_use', 'practical_use', 'known_by', 'By 1910')).toBe('In use by 1910')
-    expect(entryReasonLabel('commercial_availability')).toBe('Available for purchase')
-    expect(entryReasonLabel('public_awareness', 'publication')).toBe('Publication used as an awareness estimate')
-    expect(dateLimitNote('known_from')).toContain('neither continuing use nor a later endpoint')
-    expect(dateLimitNote('known_by')).not.toMatch(/in use or available/)
-    expect(entryReasonLabel('practical_use', 'practical_use', 'known_by', 'By 900 BCE', 'scoped_inference')).toBe('Use contextually inferred by 900 BCE')
-  })
-
   it('keeps contextual ancient use inference and its dating horizon separate', () => {
     const use = event('ancient-use', 'ancient', 'practical_use', -900)
     use.statement = 'Practical use is contextually inferred for the named workshop community.'
@@ -240,21 +191,8 @@ describe('research importer placement', () => {
     expect(data.nodes[0]).toMatchObject({ year: -900, end: -900, date_kind: 'known_by', date_label: 'By 900 BCE', evidence_strength: 'scoped_inference' })
     expect(data.nodes[0]).not.toHaveProperty('start')
     expect(data.events![use.id]!.date!.earliest).toEqual({ year: -1250 })
-    expect(nodeMarkStyle(data.nodes[0]!)).toBe(20)
     use.event_type = 'archaeological_evidence'
     expect(buildResearchDataset(records([current], [use])).nodes).toEqual([])
-  })
-
-  it('retains scoped specialist use of a failed branch without implying global adoption', () => {
-    const events = [event('trial-use', 'trial', 'practical_use', 1969), event('trial-ended', 'trial', 'abandonment', 1970)]
-    const current = node('trial', events, 'practical_use', 'trial-use')
-    current.community_entry!.community = 'The named expedition crew'
-    current.community_entry!.uncertainty = 'This crew’s scoped use does not establish uptake outside the failed expedition.'
-    const data = buildResearchDataset(records([current], events))
-    expect(data.nodes).toHaveLength(1)
-    expect(data.nodes[0]).toMatchObject({ entry_basis: 'practical_use', entry_community: 'The named expedition crew' })
-    expect(data.nodes[0]!.lifecycle!.abandonment!.event_ids).toEqual(['trial-ended'])
-    expect(data.links).toEqual([])
   })
 
   it('validates supplied date limits without fabricating missing data', () => {

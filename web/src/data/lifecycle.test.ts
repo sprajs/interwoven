@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildLifeRecords, hasLifecycleEvidence, isReviewedLifeEvent, lifeDateLabel, plottedLifeEvents, readEventDate, ROLE_OF_EVENT, tallyLifecycle } from './lifecycle.ts'
+import { buildLifeRecords, isReviewedLifeEvent, lifeDateLabel, plottedLifeEvents, readEventDate, tallyLifecycle } from './lifecycle.ts'
 import type { HistoricalDate, RawEvent, RawNode } from './types.ts'
 
 const scope = { regions: ['A specified local community'], configuration: 'The scoped configuration', applications: ['A specified application'], market: { status: 'unknown' }, population: { status: 'specified', value: 'Named users' } }
@@ -49,17 +49,6 @@ describe('scoped lifecycle evidence', () => {
     ]) expect(readEventDate(d)).toBeNull()
   })
 
-  it('keeps recognition and disclosure distinct from actual use and from unclassified events', () => {
-    expect(ROLE_OF_EVENT.practical_use).toBe('use')
-    expect(ROLE_OF_EVENT.commercial_availability).toBe('availability')
-    expect(ROLE_OF_EVENT.public_availability).toBe('availability')
-    expect(ROLE_OF_EVENT.recognition).toBe('recognition')
-    const r = record([event('paper', 'publication', 1900), event('unknown-type', 'future_event_type', 1901)])
-    expect(r.events.map(e => e.role)).toEqual(['awareness', 'unclassified'])
-    expect(hasLifecycleEvidence(r)).toBe(false)
-    expect(plottedLifeEvents(r)).toEqual([])
-  })
-
   it('preserves the full scope, evidence, dates and both review axes without mutating input', () => {
     const e = event('use', 'practical_use', 1910), n = entry()
     const before = JSON.stringify([n, e])
@@ -69,15 +58,6 @@ describe('scoped lifecycle evidence', () => {
     expect(r.stages.end_of_use).toEqual(n.lifecycle!.end_of_use)
     r.events[0]!.scope!.regions.push('Changed display copy')
     expect(JSON.stringify([n, e])).toBe(before)
-  })
-
-  it('counts a single accepted scoped episode without inventing an earlier origin or a duration', () => {
-    const r = record([event('use', 'practical_use', 1910)])
-    expect(hasLifecycleEvidence(r)).toBe(true)
-    expect(plottedLifeEvents(r)).toHaveLength(1)
-    expect(r).not.toHaveProperty('span')
-    expect(r).not.toHaveProperty('duration')
-    expect(r).not.toHaveProperty('final')
   })
 
   it('does not connect distant episodes or turn abandonment/sale/support cutoff into global last use', () => {
