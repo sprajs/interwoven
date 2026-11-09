@@ -1,0 +1,114 @@
+{
+  "id": "ideal-x-container-shipping",
+  "name": "Ideal X intermodal container voyage",
+  "description": "Pan Atlantic used a converted tanker and transferable trailer bodies to ship cargo between Port Newark and Houston, with road delivery after unloading.",
+  "kind": "technology",
+  "domain": "transport.logistics",
+  "events": [
+    {
+      "id": "voyage-1956",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1956,
+          "month": 4,
+          "day": 26
+        },
+        "latest": {
+          "year": 1956,
+          "month": 4,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1956-04-26",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "The converted tanker Ideal X departed Port Newark for Houston carrying 58 detached trailer bodies, later transferred to road running gear.",
+      "caveats": "Earlier container transport existed; Ideal X had a spar deck, not the later cellular configuration of Gateway City.",
+      "evidence": [
+        {
+          "source": "cudahy-2006-containership-revolution",
+          "locator": "TR News 246, pp. 5–6",
+          "supports": "Describes the voyage, trailer bodies and transfer at Houston."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "malcom-mclean",
+          "role": "contributor",
+          "resource": "Organized the pioneering shipment",
+          "evidence": [
+            {
+              "source": "cudahy-2006-containership-revolution",
+              "locator": "TR News 246, pp. 5–6",
+              "supports": "Cudahy describes McLean orchestrating the voyage."
+            }
+          ]
+        },
+        {
+          "group": "Pan Atlantic Steamship Company",
+          "role": "operator",
+          "resource": "Operated converted container-carrying tanker on the 1956 coastwise route",
+          "evidence": [
+            {
+              "source": "cudahy-2006-containership-revolution",
+              "locator": "TR News 246, pp. 5–6",
+              "supports": "Cudahy describes McLean’s Pan Atlantic venture, the voyage, and the 1956 converted tankers entering its service."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "voyage-1956",
+    "rationale": "Earliest episode established for this scoped record in the inspected sources, not a certified global priority."
+  },
+  "caveats": "This is a specific intermodal service, not invention of the container or adoption of a later international standard.",
+  "measures": [
+    {
+      "quantity": "container count",
+      "value": 58,
+      "unit": "containers",
+      "conditions": "Ideal X voyage departing Port Newark on 26 April 1956.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "cudahy-2006-containership-revolution",
+          "locator": "TR News 246, pp. 5–6",
+          "supports": "Counts 58 trailer bodies."
+        }
+      ],
+      "event": "voyage-1956",
+      "subject": "Trailer bodies on Ideal X departure from Port Newark"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed",
+      "grain": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Second-reader check of named facets against Cudahy, TR News 246 pages 5–6. Scope is the particular voyage, not the invention of containers."
+  },
+  "people": [
+    {
+      "person": "malcom-mclean",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Country-level reference; event narrative gives the more specific location where established."
+    }
+  ],
+  "grain": "instance",
+  "concept": "intermodal-container-freight"
+}

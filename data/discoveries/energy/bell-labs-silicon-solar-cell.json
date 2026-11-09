@@ -1,0 +1,173 @@
+{
+  "id": "bell-labs-silicon-solar-cell",
+  "name": "Bell Laboratories silicon solar cell",
+  "description": "Bell Laboratories researchers developed a silicon p-n junction solar cell converting light into electrical power, demonstrated in 1954.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "events": [
+    {
+      "id": "demonstration-1954",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1954,
+          "month": 4
+        },
+        "latest": {
+          "year": 1954,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "April 1954",
+        "basis": "APS retrospective dates demonstration to April 1954; exact day and event sequence need contemporary corroboration."
+      },
+      "statement": "Bell Laboratories demonstrated a silicon photovoltaic solar battery in April 1954, developed by Daryl Chapin, Calvin Fuller and Gerald Pearson.",
+      "caveats": "APS dates the public announcement to April 25; the Computer History Museum dates the announcement to April 26. The relationship between these accounts and the exact demonstration date needs contemporary corroboration; earlier photovoltaic devices existed.",
+      "evidence": [
+        {
+          "source": "doe-2005-solar-energy-needs",
+          "locator": "Basic research challenges for solar electricity, current status",
+          "supports": "Names researchers, cell configuration and year."
+        },
+        {
+          "source": "smithsonian-nd-silicon-solar-cell",
+          "locator": "Catalogue data and description",
+          "supports": "Names Chapin, Fuller and Pearson, Bell Laboratories and the 1954 practical cell, building on Ohl."
+        },
+        {
+          "source": "aps-2009-bell-solar-cell-review",
+          "locator": "Opening and Bell Labs announcement paragraphs",
+          "supports": "APS dates the demonstration to April 1954 and the announcement to April 25."
+        },
+        {
+          "source": "chm-nd-silicon-diffusion-review",
+          "locator": "1954 Bell Solar Battery discussion",
+          "supports": "Museum dates the solar cell announcement to April 26, 1954."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "daryl-chapin",
+          "role": "developer",
+          "resource": "Development of practical Bell silicon solar cell",
+          "evidence": [
+            {
+              "source": "smithsonian-nd-silicon-solar-cell",
+              "locator": "Catalogue data and description",
+              "supports": "The museum names Chapin, Fuller and Pearson as the developers of the practical 1954 cell."
+            }
+          ]
+        },
+        {
+          "person": "calvin-fuller",
+          "role": "developer",
+          "resource": "Development of practical Bell silicon solar cell",
+          "evidence": [
+            {
+              "source": "smithsonian-nd-silicon-solar-cell",
+              "locator": "Catalogue data and description",
+              "supports": "The museum names Chapin, Fuller and Pearson as the developers of the practical 1954 cell."
+            }
+          ]
+        },
+        {
+          "person": "gerald-pearson",
+          "role": "developer",
+          "resource": "Development of practical Bell silicon solar cell",
+          "evidence": [
+            {
+              "source": "smithsonian-nd-silicon-solar-cell",
+              "locator": "Catalogue data and description",
+              "supports": "The museum names Chapin, Fuller and Pearson as the developers of the practical 1954 cell."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1954",
+    "rationale": "The April demonstration is the earliest dated event entered here. The Smithsonian catalog also lists a March 3, 1954 object date alongside 1954; its relationship to the device and dating needs checking before using it to place this capability."
+  },
+  "caveats": "The figure is a retrospective summary; test conditions and exact specimen are not identified. Earlier photovoltaic effects and cells existed.",
+  "measures": [
+    {
+      "quantity": "conversion efficiency",
+      "value": "5–6",
+      "unit": "percent",
+      "conditions": "Bell single-crystal silicon p-n junction cells reported for 1954; DOE does not identify the tested specimen or illumination conditions.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "doe-2005-solar-energy-needs",
+          "locator": "Basic research challenges for solar electricity, current status",
+          "supports": "Reports 5–6% efficiency."
+        }
+      ],
+      "date": {
+        "earliest": {
+          "year": 1954
+        },
+        "latest": {
+          "year": 1954
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1954",
+        "basis": "DOE gives 1954 for cells with this reported efficiency, without identifying the April demonstration specimen."
+      },
+      "subject": "Bell Laboratories 1954 single-crystal silicon p-n junction solar cells; specimen unspecified",
+      "lower": 5,
+      "upper": 6
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed",
+      "grain": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Second-reader check of named facets against cited DOE, Smithsonian and institutional histories; exact announcement date and earliest surviving specimen still require review.",
+    "unresolved": [
+      {
+        "about": "date of surviving specimen",
+        "note": "Smithsonian catalog lists both 1954-03-03 and 1954 as date made. Determine what each date refers to before treating the earlier date as an event for this configuration.",
+        "evidence": [
+          {
+            "source": "smithsonian-nd-silicon-solar-cell",
+            "locator": "Catalog data, date made",
+            "supports": "Catalog lists March 3, 1954 and 1954."
+          }
+        ]
+      }
+    ]
+  },
+  "people": [
+    {
+      "person": "daryl-chapin",
+      "role": "originator"
+    },
+    {
+      "person": "calvin-fuller",
+      "role": "originator"
+    },
+    {
+      "person": "gerald-pearson",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Country-level reference; event narrative gives the more specific location where established."
+    }
+  ],
+  "grain": "improvement",
+  "concept": "silicon-photovoltaic-cells"
+}

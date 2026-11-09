@@ -35,6 +35,8 @@ The dataset is a selective, growing record. A missing ancestor means nobody has 
 
 A lead that becomes a record is removed from `leads.jsonl`.
 
+When a research lead's field is known, set its optional `field` to an existing taxonomy field ID, such as `energy.steam`. Leave it absent when unclassified; do not infer a field merely to fill the slot. `python3 tools/coverage.py --json` reports lead statuses by explicit field and separately counts unclassified leads.
+
 ## Researching one facet across the dataset
 
 This is how a new kind of information is filled in, for example funding, or performance figures.
@@ -49,6 +51,20 @@ python3 tools/coverage.py --by domain           # coverage split by domain
 Work through the list, cite a source for each value, set the basis to `sourced`, and validate. Where the evidence does not settle the matter, set the basis to `unknown` and add an entry to `research.unresolved` saying what was looked at.
 
 `docs/data-model.md` explains how to add a facet that does not exist yet.
+
+## Measures and event contributions
+
+Record the figure as stated, with its unit, time, subject and conditions. Preserve nominal currency and its context rather than silently converting prices. For adoption, define the population counted by the denominator; missing evidence is not zero adoption. For a derived figure give the method and assumptions. An event reference points to an event on the same discovery; a separate date uses the normal date object. Each extended measure needs `status` and evidence with a locator and what it supports. For example:
+
+```json
+{"quantity":"adoption", "value":40, "unit":"percent", "event":"survey",
+ "subject":"eligible households in the district", "numerator":40, "denominator":100,
+ "denominator_definition":"eligible households surveyed", "status":"derived",
+ "method":"40 divided by 100, multiplied by 100",
+ "evidence":[{"source":"example-source", "locator":"p. 4", "supports":"Survey counts."}]}
+```
+
+Use event `contributions` when an actor's role is supported for a particular stage. For example, `{"organization":"example-company", "role":"supplier", "resource":"equipment", "evidence":[{"source":"example-source", "locator":"p. 5", "supports":"The company supplied equipment for this event."}]}`. Each contribution identifies exactly one person, organisation or described group. Do not infer a funder from an affiliation or treat a supplier as the developer without evidence. The example identifiers must be replaced with real registered entities and sources.
 
 ## Places
 

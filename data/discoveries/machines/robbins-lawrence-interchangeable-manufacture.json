@@ -1,0 +1,174 @@
+{
+  "id": "robbins-lawrence-interchangeable-manufacture",
+  "name": "Windsor interchangeable-parts manufacture",
+  "description": "At Windsor, Robbins & Lawrence used specialized machine tools and precision checking in a system for producing replaceable components. The firm exhibited interchangeability publicly in 1851.",
+  "kind": "technology",
+  "domain": "machines.manufacturing",
+  "origin": "unknown",
+  "events": [
+    {
+      "id": "london-demonstration-1851",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1851
+        },
+        "latest": {
+          "year": 1851
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1851",
+        "basis": "Museum account dates the Crystal Palace exhibition."
+      },
+      "statement": "Robbins & Lawrence demonstrated interchangeability at the 1851 London exhibition.",
+      "evidence": [
+        {
+          "source": "nra-museum-robbins-lawrence-production",
+          "locator": "Crystal Palace exhibition paragraph",
+          "supports": "Robbins & Lawrence demonstrated interchangeability at the 1851 London exhibition."
+        }
+      ],
+      "places": [
+        "london"
+      ],
+      "contributions": [
+        {
+          "group": "Robbins & Lawrence",
+          "role": "contributor",
+          "resource": "Public demonstration of interchangeable components",
+          "evidence": [
+            {
+              "source": "nra-museum-robbins-lawrence-production",
+              "locator": "Crystal Palace exhibition paragraph",
+              "supports": "The firm demonstrated interchangeability at the 1851 exhibition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contract-1845",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1845,
+          "month": 2,
+          "day": 18
+        },
+        "latest": {
+          "year": 1845,
+          "month": 2,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "18 February 1845",
+        "basis": "The cited 1846 Ordnance Office table is reported to give the contract date; the report itself is a later document."
+      },
+      "statement": "The U.S. Ordnance Office contracted with Robbins, Kendall & Lawrence for 10,000 rifles at $11.90 each, over five years.",
+      "evidence": [
+        {
+          "source": "us-ordnance-1846-contracts",
+          "locator": "p. 61, table 8",
+          "supports": "The U.S. Ordnance Office contracted with Robbins, Kendall & Lawrence for 10,000 rifles at $11.90 each, over five years."
+        }
+      ],
+      "caveats": "The source is an 1846 table, not a contract instrument; Springfield is given as manufacture or delivery, and the contract date alone does not establish functioning interchangeable manufacture.",
+      "type_provisional": true,
+      "places": [
+        "massachusetts"
+      ],
+      "contributions": [
+        {
+          "group": "United States Ordnance Department",
+          "role": "customer",
+          "resource": "Contract order for 10,000 rifles",
+          "evidence": [
+            {
+              "source": "us-ordnance-1846-contracts",
+              "locator": "p. 61, table 8",
+              "supports": "Ordnance Department contracted for 10,000 rifles."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "london-demonstration-1851",
+    "rationale": "Earliest date established for this specific documented case by the sources inspected; it does not establish an invention date or world priority."
+  },
+  "caveats": "This is a Windsor production system, not a claim that interchangeability was invented there; the scope of interchangeable components and quantities actually accepted require original records.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "origin": "unknown",
+      "events": "reviewed",
+      "concept": "sourced",
+      "grain": "recalled",
+      "places": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Independently checked the 1851 demonstration in the museum account and the 1845 contract date, quantity, unit price and five-year term in the 1846 Ordnance Office table; actual production and acceptance quantities remain unverified."
+  },
+  "concept": "interchangeable-parts-manufacture",
+  "grain": "capability",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "contract unit price",
+      "value": 11.9,
+      "unit": "US dollars per rifle",
+      "event": "contract-1845",
+      "subject": "Robbins, Kendall & Lawrence 1845 ordnance contract",
+      "currency": "USD",
+      "money_context": "Nominal contract price in 1845; not production cost or a measured sale price.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "us-ordnance-1846-contracts",
+          "locator": "p. 61, table 8",
+          "supports": "The 1845 contract specifies 10,000 rifles at $11.90 per rifle over five years."
+        }
+      ]
+    },
+    {
+      "quantity": "contract quantity",
+      "value": 10000,
+      "unit": "rifles",
+      "event": "contract-1845",
+      "subject": "Robbins, Kendall & Lawrence 1845 ordnance contract",
+      "conditions": "Quantity ordered, not necessarily manufactured or accepted.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "us-ordnance-1846-contracts",
+          "locator": "p. 61, table 8",
+          "supports": "The 1845 contract specifies 10,000 rifles at $11.90 per rifle over five years."
+        }
+      ]
+    },
+    {
+      "quantity": "contract duration",
+      "value": 5,
+      "unit": "years",
+      "event": "contract-1845",
+      "subject": "Robbins, Kendall & Lawrence 1845 ordnance contract",
+      "conditions": "Contract term, not measured completion time.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "us-ordnance-1846-contracts",
+          "locator": "p. 61, table 8",
+          "supports": "The 1845 contract specifies 10,000 rifles at $11.90 per rifle over five years."
+        }
+      ]
+    }
+  ]
+}

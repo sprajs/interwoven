@@ -1,0 +1,117 @@
+{
+  "id": "turbine-engine-powered-flight",
+  "name": "He 178 gas-turbine jet flight",
+  "description": "A Heinkel He 178 aircraft flew under gas-turbine jet propulsion in 1939, combining von Ohain’s engine development with an aircraft.",
+  "kind": "technology",
+  "domain": "transport.aviation",
+  "events": [
+    {
+      "id": "flight-1939",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1939,
+          "month": 8,
+          "day": 27
+        },
+        "latest": {
+          "year": 1939,
+          "month": 8,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1939-08-27",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "The Heinkel He 178 flew with a gas-turbine jet engine developed by Hans von Ohain with Heinkel. NASA identifies Erich Warsitz as pilot.",
+      "caveats": "British and German turbojet development proceeded in parallel; this flight does not settle priority of all jet concepts.",
+      "evidence": [
+        {
+          "source": "nasa-2013-glenn-history-jet",
+          "locator": "Historical overview, early gas turbines",
+          "supports": "NASA history describes the flight, aircraft and developer."
+        },
+        {
+          "source": "nasa-2009-first-jet-pilot",
+          "locator": "Book announcements, The First Jet Pilot",
+          "supports": "Names Warsitz and dates He 178 flight."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "hans-von-ohain",
+          "role": "developer",
+          "resource": "Developed the gas-turbine engine with Heinkel",
+          "evidence": [
+            {
+              "source": "nasa-2013-glenn-history-jet",
+              "locator": "Historical overview, early gas turbines",
+              "supports": "NASA says von Ohain collaborated with Heinkel to build the engine flown on He 178."
+            }
+          ]
+        },
+        {
+          "group": "Heinkel Company",
+          "role": "developer",
+          "resource": "Collaborated on development of the engine flown on He 178",
+          "evidence": [
+            {
+              "source": "nasa-2013-glenn-history-jet",
+              "locator": "Historical overview, early gas turbines",
+              "supports": "NASA identifies the Heinkel Company as von Ohain’s engine-development collaborator."
+            }
+          ]
+        },
+        {
+          "person": "erich-warsitz",
+          "role": "operator",
+          "resource": "Piloted the He 178 jet flight",
+          "evidence": [
+            {
+              "source": "nasa-2009-first-jet-pilot",
+              "locator": "Book announcements, The First Jet Pilot",
+              "supports": "NASA newsletter identifies Warsitz as the pilot of the 27 August 1939 flight."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "flight-1939",
+    "rationale": "Earliest episode established for this scoped record in the inspected sources, not a certified global priority."
+  },
+  "caveats": "This experimental flight does not imply commercial passenger service or a sole inventor of jet propulsion.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed",
+      "grain": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Second-reader check of named facets against NASA history and newsletter book description; airline use and a complete account of aircraft design are outside these sources."
+  },
+  "people": [
+    {
+      "person": "hans-von-ohain",
+      "role": "contributor",
+      "note": "Developed the engine in collaboration with Heinkel; this does not attribute the entire aircraft to him."
+    },
+    {
+      "person": "erich-warsitz",
+      "role": "user"
+    }
+  ],
+  "places": [
+    {
+      "place": "germany",
+      "note": "Country-level reference; event narrative gives the more specific location where established."
+    }
+  ],
+  "grain": "instance",
+  "concept": "gas-turbine-jet-aircraft"
+}

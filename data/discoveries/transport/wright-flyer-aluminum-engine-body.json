@@ -1,7 +1,7 @@
 {
   "id": "wright-flyer-aluminum-engine-body",
   "name": "Wright Flyer aluminum engine body",
-  "summary": "The Wright brothers' 1903 Flyer engine used a crankcase cast from aluminium supplied by Pittsburgh Reduction, saving weight in the first powered aeroplane engine.",
+  "summary": "The Wright brothers' 1903 Flyer used an aluminium engine crankcase/block cast from metal supplied by Pittsburgh Reduction.",
   "description": "An aluminum crankcase/block for the Wright brothers’ powered Flyer engine, using metal supplied by Pittsburgh Reduction.",
   "kind": "technology",
   "domain": "transport.aviation",
@@ -46,7 +46,8 @@
   "organizations": [
     {
       "organization": "alcoa",
-      "role": "maker"
+      "role": "maker",
+      "note": "The supplier made the aluminium material; this does not identify it as the maker of the completed engine."
     }
   ],
   "societies": [
@@ -121,10 +122,25 @@
           "supports": "Names the supplier and the aluminum engine block and crankcase."
         }
       ]
+    },
+    {
+      "type": "part_of",
+      "from": "wright-powered-controlled-flight",
+      "status": "established",
+      "statement": "The aluminium engine crankcase/block was a component of the Wright brothers’ 1903 powered Flyer.",
+      "confidence": "high",
+      "caveats": "The cited supplier history does not establish global priority for aluminium engine components.",
+      "evidence": [
+        {
+          "source": "alcoa-nd-our-history",
+          "locator": "1903 Alcoa Aluminum Gives Flight to Wright Brothers Invention",
+          "supports": "Explicitly identifies the supplier and the Flyer engine block and crankcase cast from its aluminum."
+        }
+      ]
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -139,7 +155,7 @@
       "societies": "sourced",
       "known_from": "recalled",
       "events": "reviewed",
-      "links": "reviewed"
+      "links": "sourced"
     },
     "note": "The indicated historical claim is supported by the cited passages; scope and chronology remain subject to independent review."
   }

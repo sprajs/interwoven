@@ -16,7 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import build  # noqa: E402
-from dataset import DATA, Dataset, REGISTERS, discovery_path, read_json, year_value  # noqa: E402
+from dataset import DATA, Dataset, REGISTERS, discovery_path, read_json, source_path, year_value  # noqa: E402
 
 
 def point(year: int) -> dict:
@@ -74,6 +74,8 @@ class FixtureDataset:
             ]
         data.registers["places"] = {p["id"]: p for p in places}
         data.registers["people"] = {"ada-tester": {"id": "ada-tester", "name": "Ada Tester", "basis": "recalled"}}
+        data.sources["fixture"] = {"id": "fixture", "title": "Fixture", "authors": [], "year": 1800, "access": "full-text"}
+        data.paths["sources/fixture"] = source_path("fixture")
         for record in records:
             data.discoveries[record["id"]] = record
             # Filed where the record says it belongs, as `load` would find it on disk.
@@ -112,6 +114,33 @@ class ValidationTest(unittest.TestCase):
 
     def test_valid_fixture_has_no_problems(self):
         self.assertEqual(self.problems(valid_pair()), [])
+
+    def test_scoped_measure_and_contribution_validate_and_legacy_stays_valid(self):
+        record = valid_pair()[0]
+        evidence = [{"source": "fixture", "locator": "p. 1", "supports": "The cited value and actor."}]
+        record["measures"] = [
+            {"quantity": "old", "value": "unknown"},
+            {"quantity": "adoption", "value": 40, "unit": "percent", "event": "made", "subject": "households", "numerator": 40, "denominator": 100, "denominator_definition": "eligible households", "lower": 39, "upper": 41, "status": "derived", "method": "40 / 100 × 100", "evidence": evidence},
+        ]
+        record["events"][0]["contributions"] = [{"person": "ada-tester", "role": "supplier", "resource": "equipment", "evidence": evidence}]
+        record["research"]["basis"]["measures"] = "sourced"
+        self.assertEqual(self.problems([record]), [])
+
+    def test_scoped_measure_semantic_errors(self):
+        record = valid_pair()[0]
+        record["measures"] = [{"quantity": "adoption", "value": 50, "event": "absent", "lower": 60, "upper": 55, "numerator": 4, "denominator": 0, "status": "derived", "evidence": []}]
+        record["research"]["basis"]["measures"] = "sourced"
+        for fragment in ("no event 'absent'", "nonempty evidence", "needs method", "lower is above upper", "value is outside", "needs a definition", "denominator must be positive", "numerator exceeds"):
+            self.assertReported([record], fragment)
+        record["measures"][0] = {"quantity": "cost", "value": 2, "currency": "GBP", "numerator": 2}
+        for fragment in ("needs an event or date", "needs status", "must be paired"):
+            self.assertReported([record], fragment)
+
+    def test_contribution_requires_one_referenced_actor_and_specific_evidence(self):
+        record = valid_pair()[0]
+        record["events"][0]["contributions"] = [{"person": "missing", "group": "workers", "role": "invented", "evidence": [{"source": "fixture"}]}]
+        for fragment in ("exactly one person", "not in people", "not in vocabulary 'contribution_role'", "source, locator and supports"):
+            self.assertReported([record], fragment)
 
     def test_unknown_vocabulary_value(self):
         records = valid_pair()

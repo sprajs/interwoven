@@ -1,0 +1,160 @@
+{
+  "id": "wright-powered-controlled-flight",
+  "name": "Wright Flyer powered flight",
+  "description": "The Wrights’ 1903 Flyer combined propulsion and pilot-controlled surfaces in a piloted heavier-than-air aircraft; this complete aircraft is distinct from its aluminum engine-body material.",
+  "kind": "technology",
+  "domain": "transport.aviation",
+  "events": [
+    {
+      "id": "flight-1903",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1903,
+          "month": 12,
+          "day": 17
+        },
+        "latest": {
+          "year": 1903,
+          "month": 12,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1903-12-17",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "Orville Wright piloted the powered 1903 Flyer at Kitty Hawk, flying 120 feet in 12 seconds; three further flights followed.",
+      "caveats": "A brief experimental flight is not evidence of commercial transport or later aircraft performance.",
+      "evidence": [
+        {
+          "source": "nps-2017-wright-flyer",
+          "locator": "Aircraft description, first flight and specifications",
+          "supports": "Reports date, pilot, distance, duration and further flights."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "orville-wright",
+          "role": "operator",
+          "resource": "Piloted the first 17 December flight",
+          "evidence": [
+            {
+              "source": "nps-2017-wright-flyer",
+              "locator": "Aircraft description, first flight and specifications",
+              "supports": "NPS identifies Orville as the pilot of the first flight."
+            }
+          ]
+        },
+        {
+          "person": "orville-wright",
+          "role": "developer",
+          "resource": "Developed the Flyer and its propellers from prior glider experiments",
+          "evidence": [
+            {
+              "source": "nps-2017-wright-flyer",
+              "locator": "Aircraft description, first flight and specifications",
+              "supports": "NPS attributes glider experiments, wing redesign and propeller construction to the Wright brothers."
+            }
+          ]
+        },
+        {
+          "person": "wilbur-wright",
+          "role": "developer",
+          "resource": "Developed the Flyer and its propellers from prior glider experiments",
+          "evidence": [
+            {
+              "source": "nps-2017-wright-flyer",
+              "locator": "Aircraft description, first flight and specifications",
+              "supports": "NPS attributes glider experiments, wing redesign and propeller construction to the Wright brothers."
+            }
+          ]
+        },
+        {
+          "person": "charlie-taylor",
+          "role": "manufacturer",
+          "resource": "Built the engine used in the Flyer",
+          "evidence": [
+            {
+              "source": "nps-2017-wright-flyer",
+              "locator": "Aircraft description, first flight and specifications",
+              "supports": "NPS identifies Taylor as the builder of the Flyer engine."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "flight-1903",
+    "rationale": "Earliest episode established for this scoped record in the inspected sources, not a certified global priority."
+  },
+  "caveats": "The experimental Flyer is not the entire history of aviation; global priority for every component is not inferred.",
+  "measures": [
+    {
+      "quantity": "flight duration",
+      "value": 12,
+      "unit": "seconds",
+      "conditions": "Orville Wright’s first flight on 17 December 1903.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nps-2017-wright-flyer",
+          "locator": "Aircraft description, first flight and specifications",
+          "supports": "Reports twelve-second flight."
+        }
+      ],
+      "event": "flight-1903",
+      "person": "orville-wright",
+      "subject": "First flight of 1903 Wright Flyer on 17 December 1903"
+    },
+    {
+      "quantity": "ground distance",
+      "value": 120,
+      "unit": "feet",
+      "conditions": "Orville Wright’s first flight on 17 December 1903.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nps-2017-wright-flyer",
+          "locator": "Aircraft description, first flight and specifications",
+          "supports": "Reports landing 120 feet away."
+        }
+      ],
+      "event": "flight-1903",
+      "person": "orville-wright",
+      "subject": "First flight of 1903 Wright Flyer on 17 December 1903"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed",
+      "grain": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Second-reader check of named facets against NPS. Removed inverted part_of link: the engine body was part of the Flyer, not vice versa. A directed link on the component record can represent that relationship."
+  },
+  "people": [
+    {
+      "person": "orville-wright",
+      "role": "originator"
+    },
+    {
+      "person": "wilbur-wright",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Country-level reference; event narrative gives the more specific location where established."
+    }
+  ],
+  "grain": "instance",
+  "concept": "piloted-powered-airplane-flight"
+}

@@ -1,0 +1,118 @@
+{
+  "id": "internet-protocol-rfc-791",
+  "name": "Internet Protocol specification RFC 791",
+  "summary": "RFC 791 specified datagram addressing across networks, and the ARPANET transitioned to TCP/IP in 1983.",
+  "description": "The September 1981 DARPA Internet Protocol specification defining datagram addressing and fragmentation across interconnected networks.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "events": [
+    {
+      "id": "publication-1981",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1981,
+          "month": 9
+        },
+        "latest": {
+          "year": 1981,
+          "month": 9
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1981-09",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "RFC 791 published a DARPA Internet Protocol specification.",
+      "evidence": [
+        {
+          "source": "postel-1981-rfc791",
+          "locator": "RFC 791 title page, preface, introduction §1.1",
+          "supports": "The specification is dated September 1981 and explains network interfaces, addressing and fragmentation."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "contributor",
+          "person": "jon-postel",
+          "resource": "Edited the Internet Protocol specification.",
+          "evidence": [
+            {
+              "source": "postel-1981-rfc791",
+              "locator": "RFC front matter and editor reference",
+              "supports": "RFC 791 is an edited protocol specification associated with Jon Postel."
+            }
+          ]
+        },
+        {
+          "role": "contributor",
+          "organization": "darpa",
+          "resource": "Agency for which the specification was prepared; this alone does not establish funding.",
+          "evidence": [
+            {
+              "source": "postel-1981-rfc791",
+              "locator": "Title page",
+              "supports": "The document was prepared for DARPA."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpanet-transition-1983",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 1983,
+          "month": 1,
+          "day": 1
+        },
+        "latest": {
+          "year": 1983,
+          "month": 1,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1983-01-01",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "The ARPANET transition from NCP to TCP/IP culminated on January 1, 1983.",
+      "evidence": [
+        {
+          "source": "ihof-2021-lynch-internet-transition",
+          "locator": "Flag Day discussion",
+          "supports": "The retrospective describes coordinated transition on that date."
+        }
+      ],
+      "caveats": "The retrospective does not establish simultaneous universal adoption across every connected system."
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1981",
+    "rationale": "Earliest dated event established in the cited evidence for this specific record; not a claim of global priority."
+  },
+  "advance": [
+    "standard_or_scale"
+  ],
+  "caveats": "RFC 791 explicitly replaces RFC 760. It is neither the first internetworking proposal nor a specification of TCP itself; the later network transition concerns adoption of the protocol suite, not necessarily every implementation of this document.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "summary": "reviewed",
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "reviewed",
+      "people": "sourced",
+      "grain": "recalled"
+    },
+    "note": "Independent reader checked RFC text, predecessor notice and participant retrospective of the 1983 transition; no claim of simultaneous universal conversion. Later event and measure enrichment has not yet received independent review."
+  },
+  "people": [
+    {
+      "person": "jon-postel",
+      "role": "author"
+    }
+  ],
+  "grain": "improvement"
+}

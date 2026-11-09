@@ -316,6 +316,59 @@ class Dataset:
             for witness in record.get("witnesses", []):
                 if witness.get("event") not in events:
                     errors.append(f"{where}.witnesses: no event '{witness.get('event')}'")
+            def evidence_required(item: dict, at: str) -> None:
+                evidence = item.get("evidence")
+                if not isinstance(evidence, list) or not evidence:
+                    errors.append(f"{at}: needs nonempty evidence")
+                elif any(not isinstance(e, dict) or not e.get("source") or not e.get("locator") or not e.get("supports") for e in evidence):
+                    errors.append(f"{at}: each evidence entry needs source, locator and supports")
+
+            for event_id, event in events.items():
+                for index, contribution in enumerate(event.get("contributions", [])):
+                    at = f"{where}.events.{event_id}.contributions[{index}]"
+                    if sum(k in contribution for k in ("person", "organization", "group")) != 1:
+                        errors.append(f"{at}: needs exactly one person, organization or group")
+                    evidence_required(contribution, at)
+
+            extended_keys = {"event", "date", "subject", "person", "organization", "lower", "upper", "numerator", "denominator", "denominator_definition", "currency", "money_context", "method"}
+            for index, measure in enumerate(record.get("measures", [])):
+                at = f"{where}.measures[{index}]"
+                if not extended_keys.intersection(measure):
+                    continue  # Existing measures retain their original contract.
+                evidence_required(measure, at)
+                if not measure.get("event") and not measure.get("date"):
+                    errors.append(f"{at}: an extended measure needs an event or date")
+                if measure.get("event") and measure["event"] not in events:
+                    errors.append(f"{at}: no event '{measure['event']}'")
+                if not measure.get("status"):
+                    errors.append(f"{at}: an extended measure needs status")
+                if measure.get("status") == "derived" and not measure.get("method"):
+                    errors.append(f"{at}: a derived extended measure needs method")
+                if "person" in measure and "organization" in measure:
+                    errors.append(f"{at}: use at most one person or organization")
+                date = measure.get("date", {})
+                if isinstance(date, dict):
+                    if date.get("earliest") and date.get("latest") and point_key(date["earliest"]) > point_key(date["latest"]):
+                        errors.append(f"{at}.date: earliest is after latest")
+                    for point in (date.get("earliest"), date.get("latest")):
+                        if isinstance(point, dict) and point.get("year") == 0:
+                            errors.append(f"{at}.date: there is no year 0")
+                numeric = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)
+                lower, upper, value = (measure.get(k) for k in ("lower", "upper", "value"))
+                if numeric(lower) and numeric(upper) and lower > upper:
+                    errors.append(f"{at}: lower is above upper")
+                if numeric(value) and ((numeric(lower) and value < lower) or (numeric(upper) and value > upper)):
+                    errors.append(f"{at}: value is outside its bounds")
+                if ("numerator" in measure) != ("denominator" in measure):
+                    errors.append(f"{at}: numerator and denominator must be paired")
+                if "numerator" in measure or "denominator" in measure:
+                    if not measure.get("denominator_definition"):
+                        errors.append(f"{at}: adoption denominator needs a definition")
+                    n, d = measure.get("numerator"), measure.get("denominator")
+                    if numeric(d) and d <= 0:
+                        errors.append(f"{at}: denominator must be positive")
+                    if numeric(n) and numeric(d) and n > d:
+                        errors.append(f"{at}: numerator exceeds denominator")
             anchor = events.get((record.get("earliest_record") or {}).get("event"))
             entry = events.get((record.get("community_entry") or {}).get("event"))
             if anchor and entry and point_key(anchor["date"]["latest"]) > point_key(entry["date"]["latest"]):

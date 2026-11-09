@@ -312,6 +312,61 @@
               },
               "evidence": {
                 "$ref": "#/$defs/evidence"
+              },
+              "event": {
+                "type": "string",
+                "minLength": 1,
+                "description": "An event id on this discovery providing the time scope."
+              },
+              "date": {
+                "$ref": "#/$defs/date"
+              },
+              "subject": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The population, arrangement or other specific subject measured."
+              },
+              "person": {
+                "type": "string",
+                "ref": "people"
+              },
+              "organization": {
+                "type": "string",
+                "ref": "organizations"
+              },
+              "lower": {
+                "type": "number"
+              },
+              "upper": {
+                "type": "number"
+              },
+              "numerator": {
+                "type": "number",
+                "minimum": 0
+              },
+              "denominator": {
+                "type": "number",
+                "minimum": 0
+              },
+              "denominator_definition": {
+                "type": "string",
+                "minLength": 1,
+                "description": "What the denominator counts, including scope."
+              },
+              "currency": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Original currency or monetary denomination as reported."
+              },
+              "money_context": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Original monetary context, such as nominal price, date and terms."
+              },
+              "method": {
+                "type": "string",
+                "minLength": 1,
+                "description": "How a derived value was calculated, including assumptions."
               }
             },
             "required": [
@@ -585,6 +640,45 @@
         },
         "evidence": {
           "$ref": "#/$defs/evidence"
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "person": {
+                "type": "string",
+                "ref": "people"
+              },
+              "organization": {
+                "type": "string",
+                "ref": "organizations"
+              },
+              "group": {
+                "type": "string",
+                "minLength": 1,
+                "description": "A described community or anonymous group."
+              },
+              "role": {
+                "type": "string",
+                "vocab": "contribution_role"
+              },
+              "resource": {
+                "type": "string",
+                "minLength": 1,
+                "description": "What the actor supplied or contributed, where known."
+              },
+              "evidence": {
+                "$ref": "#/$defs/evidence"
+              }
+            },
+            "required": [
+              "role",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Evidence-backed actor contributions specific to this event."
         }
       },
       "required": [
@@ -1252,6 +1346,11 @@
           "type": "string",
           "minLength": 1,
           "description": "Why it matters."
+        },
+        "field": {
+          "type": "string",
+          "ref": "fields",
+          "description": "An explicitly classified research field; absent when unclassified."
         }
       },
       "required": [

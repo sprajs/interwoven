@@ -76,9 +76,11 @@ def build(data: Dataset) -> dict:
                 "statement": event["statement"],
                 "evidence": evidence(event.get("evidence")),
             }
-            for key in ("places", "place_note", "scope", "applications", "population", "market", "caveats", "type_provisional"):
+            for key in ("places", "place_note", "scope", "applications", "population", "market", "caveats", "type_provisional", "contributions"):
                 if key in event:
                     compiled[key] = event[key]
+            for contribution in event.get("contributions", []):
+                evidence(contribution.get("evidence"))
             events.append(compiled)
         by_id = {e["id"]: e for e in events}
 
@@ -91,6 +93,8 @@ def build(data: Dataset) -> dict:
         if "market" in record:
             out["market"] = {k: v for k, v in record["market"].items() if k != "evidence"}
             evidence(record["market"].get("evidence"))
+        for measure in record.get("measures", []):
+            evidence(measure.get("evidence"))
         out["events"] = events
 
         anchor = by_id.get(record["earliest_record"].get("event"))

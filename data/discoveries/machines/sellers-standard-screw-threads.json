@@ -1,0 +1,118 @@
+{
+  "id": "sellers-standard-screw-threads",
+  "name": "Sellers standard screw threads",
+  "description": "A standard family of screw threads proposed by William Sellers used a 60-degree thread profile to enable uniform fasteners and simplify production and repair.",
+  "kind": "technology",
+  "domain": "machines.manufacturing",
+  "origin": "unknown",
+  "events": [
+    {
+      "id": "institute-presentation-1864",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1864,
+          "month": 4
+        },
+        "latest": {
+          "year": 1864,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "April 1864",
+        "basis": "ASME gives month and year of presentation."
+      },
+      "statement": "Sellers presented his proposed screw-thread system to the Franklin Institute in Philadelphia.",
+      "evidence": [
+        {
+          "source": "asme-sellers-screw-thread-standard",
+          "locator": "Paragraphs 1–3",
+          "supports": "Sellers presented his proposed screw-thread system to the Franklin Institute in Philadelphia."
+        }
+      ],
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "group": "William Sellers",
+          "role": "developer",
+          "resource": "Proposed thread system presented at the Franklin Institute",
+          "evidence": [
+            {
+              "source": "asme-sellers-screw-thread-standard",
+              "locator": "Paragraphs 1–3",
+              "supports": "Sellers devised and presented the system."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adoption-1880s",
+      "type": "adoption",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1889
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "by the 1880s",
+        "basis": "ASME says the system was widespread by the 1880s; the end of that decade is a conservative upper bound, not a start date."
+      },
+      "statement": "The system was widespread in the United States by the 1880s and simplified machinery repair.",
+      "evidence": [
+        {
+          "source": "asme-sellers-screw-thread-standard",
+          "locator": "Last paragraph",
+          "supports": "The system was widespread in the United States by the 1880s and simplified machinery repair."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "institute-presentation-1864",
+    "rationale": "Earliest date established for this specific documented case by the sources inspected; it does not establish an invention date or world priority."
+  },
+  "caveats": "The source is an institutional retrospective, not the 1864 paper; a 60-degree profile alone does not fully specify a thread family.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "origin": "unknown",
+      "events": "reviewed",
+      "concept": "sourced",
+      "grain": "recalled",
+      "places": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Independently checked both the April 1864 presentation and widespread-by-1880s claims in the cited ASME account; the original 1864 paper was not inspected."
+  },
+  "concept": "standard-screw-thread-family",
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "thread profile angle",
+      "value": 60,
+      "unit": "degrees",
+      "event": "institute-presentation-1864",
+      "subject": "Sellers proposed thread profile",
+      "conditions": "Included angle as stated in ASME retrospective; a thread family has further dimensions.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "asme-sellers-screw-thread-standard",
+          "locator": "Paragraph 2",
+          "supports": "Sellers proposed a 60-degree profile in April 1864."
+        }
+      ]
+    }
+  ]
+}

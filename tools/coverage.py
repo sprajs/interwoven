@@ -15,6 +15,7 @@ and run it again.
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from collections import Counter, defaultdict
 
@@ -65,6 +66,99 @@ def grid(data: Dataset) -> list[str]:
     return lines
 
 
+def audit(data: Dataset) -> dict:
+    """Return catalogue coverage counts, not estimates of historical activity."""
+    records = list(data.discoveries.values())
+    grains = (*data.vocab["grain"]["values"], "unassessed")
+    region_keys = (*REGIONS, "unplaced")
+    era_keys = (*(name for name, _ in ERAS), "undated")
+    domain_rows = {d: [] for d in data.domains}
+    field_rows = {f: [] for f in data.fields}
+    places = data.registers["places"]
+
+    def regions(record: dict) -> set[str]:
+        found = {places[p["place"]].get("region") for p in record.get("places", []) if p.get("place") in places}
+        found.discard(None)
+        return found or {"unplaced"}
+
+    def era(record: dict) -> str:
+        event = data.earliest_record(record)
+        if event is None:
+            return "undated"
+        year = year_value(event["date"]["latest"])
+        return next((name for name, end in ERAS if year < end), ERAS[-1][0])
+
+    def summarize(rows: list[dict]) -> dict:
+        grain_counts = Counter(r.get("grain") or "unassessed" for r in rows)
+        region_counts = Counter(region for r in rows for region in regions(r))
+        era_counts = Counter(era(r) for r in rows)
+        return {
+            "records": len(rows),
+            "grain": {k: grain_counts[k] for k in grains},
+            "regions": {k: region_counts[k] for k in region_keys},
+            "eras": {k: era_counts[k] for k in era_keys},
+        }
+
+    for record in records:
+        fields = {record["domain"], *record.get("fields", [])}
+        for field in fields:
+            if field in field_rows:
+                field_rows[field].append(record)
+        for domain in {field.split(".")[0] for field in fields}:
+            if domain in domain_rows:
+                domain_rows[domain].append(record)
+
+    links = [link for _, link in data.links()]
+    statuses = (*data.vocab["link_status"]["values"], "missing")
+    status_counts = Counter(link.get("status") or "missing" for link in links)
+    leads = list(data.registers["leads"].values())
+    lead_statuses = (*data.vocab["lead_status"]["values"], "missing")
+    lead_fields = {field: Counter() for field in field_rows}
+    lead_unclassified = Counter()
+    for lead in leads:
+        status = lead.get("status") or "missing"
+        if lead.get("field"):
+            lead_fields.setdefault(lead["field"], Counter())[status] += 1
+        else:
+            lead_unclassified[status] += 1
+
+    def lead_counts(counts: Counter) -> dict:
+        return {"total": sum(counts.values()), "status": {status: counts[status] for status in lead_statuses}}
+    facets = {}
+    for facet in FACETS:
+        states = Counter(facet_state(r, facet) for r in records)
+        facets[facet] = {state: states[state] for state in (*BASES, "missing")}
+    return {
+        "schema_version": 1,
+        "semantics": {
+            "scope": "Counts describe this catalogue, not historical activity or absence.",
+            "fields_and_domains": "A record counts once in each primary or cross-listed field and domain; groups can overlap.",
+            "regions": "Distinct regions of recorded places; a record can count in more than one region. Unplaced means no recorded region.",
+            "eras": "The latest endpoint of the earliest-record event determines the era; undated means no such event. This is not necessarily the date of invention.",
+            "grain": "Unassessed means no grain value; basis counts separately distinguish missing from unknown.",
+            "link_coverage": "Carrier and contribution count links with at least one value, including candidate and insufficient links.",
+            "leads": "Fields count only explicit lead.field values; unclassified leads have no field. Lead status is independent of discovery status.",
+        },
+        "counts": {
+            "discoveries": len(records),
+            "events": sum(len(r.get("events", [])) for r in records),
+            "links": len(links),
+            "sources": len(data.sources),
+            "leads": len(leads),
+        },
+        "overall": summarize(records),
+        "domains": {k: summarize(v) for k, v in domain_rows.items()},
+        "fields": {k: summarize(v) for k, v in field_rows.items()},
+        "facet_basis": facets,
+        "leads": {"fields": {field: lead_counts(counts) for field, counts in lead_fields.items()}, "unclassified": lead_counts(lead_unclassified)},
+        "links": {
+            "status": {k: status_counts[k] for k in statuses},
+            "carrier": {"present": sum(bool(link.get("carrier")) for link in links), "missing": sum(not link.get("carrier") for link in links)},
+            "contribution": {"present": sum(bool(link.get("contribution")) for link in links), "missing": sum(not link.get("contribution") for link in links)},
+        },
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--by", choices=["domain", "kind", "tier"], help="split the table")
@@ -72,10 +166,17 @@ def main() -> int:
     parser.add_argument("--basis", choices=BASES, help="list discoveries with a facet on this basis")
     parser.add_argument("--facet", choices=FACETS, help="with --basis, look at one facet only")
     parser.add_argument("--grid", action="store_true", help="count discoveries per domain by region and by era")
+    parser.add_argument("--json", action="store_true", help="emit the versioned catalogue coverage audit as JSON")
     args = parser.parse_args()
 
     data = Dataset.load()
     records = sorted(data.discoveries.values(), key=lambda r: (r["domain"], r["id"]))
+
+    if args.json:
+        if args.grid or args.by or args.missing or args.basis or args.facet:
+            parser.error("--json cannot be combined with text report options")
+        print(json.dumps(audit(data), indent=2, ensure_ascii=False))
+        return 0
 
     if args.grid:
         print("\n".join(grid(data)))

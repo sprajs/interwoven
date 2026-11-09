@@ -1,0 +1,186 @@
+{
+  "id": "apple-ii-dos-3-1",
+  "name": "Apple II DOS 3.1 disk operating system",
+  "summary": "Apple II DOS provided disk file management and a BASIC interface for Apple II users.",
+  "description": "A disk operating system with a file manager, BASIC interface and utilities for the Apple II, developed by Shepardson Microsystems under contract from Apple.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "events": [
+    {
+      "id": "development-contract-1978",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1978,
+          "month": 4,
+          "day": 10
+        },
+        "latest": {
+          "year": 1978,
+          "month": 4,
+          "day": 10
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1978-04-10",
+        "basis": "Date of the cited document or event, as specified."
+      },
+      "statement": "Apple and Shepardson signed a $13,000 contract for a file manager, BASIC interface and utilities.",
+      "scope": "Initial contract for software subsequently developed into Apple II DOS; not the final expenditure.",
+      "caveats": "The record does not establish that DOS 3.1 already existed at contract signing or that the entire contract sum was paid.",
+      "evidence": [
+        {
+          "source": "shustek-2013-apple-ii-dos",
+          "locator": "Disk software contract discussion",
+          "supports": "The museum describes the April 10 contract and its amount."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "contributor",
+          "organization": "apple-computer",
+          "resource": "Commissioned disk software under the initial $13,000 contract.",
+          "evidence": [
+            {
+              "source": "shustek-2013-apple-ii-dos",
+              "locator": "Disk software contract discussion",
+              "supports": "Apple contracted for disk software."
+            }
+          ]
+        },
+        {
+          "role": "developer",
+          "organization": "shepardson-microsystems",
+          "resource": "Undertook development of file manager, BASIC interface and utilities.",
+          "evidence": [
+            {
+              "source": "shustek-2013-apple-ii-dos",
+              "locator": "Disk software contract discussion",
+              "supports": "Shepardson was contracted to develop disk software."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "release-1978",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1978,
+          "month": 6
+        },
+        "latest": {
+          "year": 1978,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1978-06",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "Apple II DOS version 3.1 was released in June 1978.",
+      "evidence": [
+        {
+          "source": "shustek-2013-apple-ii-dos",
+          "locator": "Disk controller and software contract discussion",
+          "supports": "The museum dates release, identifies the contractor, and describes the contracted file manager and BASIC interface."
+        }
+      ],
+      "caveats": "The museum dates release, but does not establish the first offer for sale, customer price or installation count. Its article separately reports first delivery to Apple in early June.",
+      "contributions": [
+        {
+          "role": "developer",
+          "person": "paul-laughton",
+          "resource": "Led software development at Shepardson.",
+          "evidence": [
+            {
+              "source": "shustek-2013-apple-ii-dos",
+              "locator": "Opening discussion of DOS",
+              "supports": "The museum identifies Paul Laughton of Shepardson as the programmer leading the project."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "release-1978",
+    "rationale": "Earliest dated event established in the cited evidence for this specific record; not a claim of global priority."
+  },
+  "advance": [
+    "new_application",
+    "system_integration"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "measures": [
+    {
+      "quantity": "software development contract",
+      "value": 13000,
+      "unit": "USD",
+      "conditions": "Apple–Shepardson contract signed 10 April 1978 for a file manager, BASIC interface and utilities; amount is not a retail price or evidence of final payment; subsequent scope changes are not included.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "shustek-2013-apple-ii-dos",
+          "locator": "Disk software contract discussion",
+          "supports": "The account reports a $13,000 contract."
+        }
+      ],
+      "event": "development-contract-1978",
+      "subject": "Initial Apple–Shepardson disk software contract",
+      "currency": "USD",
+      "money_context": "Nominal 1978 USD, initial contract amount; does not establish final cost or payment."
+    }
+  ],
+  "links": [
+    {
+      "type": "requires",
+      "from": "apple-ii-personal-computer",
+      "status": "established",
+      "statement": "Apple II DOS 3.1 provided disk software for the Apple II computer.",
+      "evidence": [
+        {
+          "source": "shustek-2013-apple-ii-dos",
+          "locator": "Opening and disk software sections",
+          "supports": "The software was developed and released specifically for the Apple II."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "summary": "reviewed",
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "funding": "reviewed",
+      "measures": "sourced",
+      "links": "reviewed",
+      "organizations": "reviewed",
+      "grain": "recalled",
+      "places": "sourced"
+    },
+    "note": "Independent reader checked museum account including stated contract, named contractor and June release; release is not equated with first retail availability. Later event and measure enrichment has not yet received independent review."
+  },
+  "organizations": [
+    {
+      "organization": "shepardson-microsystems",
+      "role": "maker"
+    },
+    {
+      "organization": "apple-computer",
+      "role": "funder"
+    }
+  ],
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "california",
+      "note": "Museum reports Apple and Shepardson in the same Cupertino office park; it does not explicitly locate the contract signing."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "1494-pacioli-venetian-double-entry",
+  "name": "Pacioli’s printed account of Venetian double-entry",
+  "description": "Pacioli’s 1494 Summa described the double-entry bookkeeping used by Venetian merchants in Italian, making a practical accounting method available to readers of the printed book.",
+  "kind": "practice",
+  "domain": "economy.accounting",
+  "events": [
+    {
+      "id": "dated-evidence",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1494
+        },
+        "latest": {
+          "year": 1494
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1494",
+        "basis": "The publication date of the Summa, not the invention date of double-entry."
+      },
+      "statement": "Pacioli published a description of Venetian double-entry accounting.",
+      "caveats": "The merchants’ method predated the publication; this is a record of codification, not the invention of bookkeeping. The extent of readership and actual use by different groups requires further evidence.",
+      "evidence": [
+        {
+          "source": "icaew-pacioli-venetian-accounting",
+          "locator": "Pacioli the teacher and author",
+          "supports": "Pacioli published a description of Venetian double-entry accounting."
+        },
+        {
+          "source": "icaew-summa-1494-venice-printer",
+          "locator": "Book heading and opening description",
+          "supports": "Identifies Pacioli as author and Paganino de Paganini as the Venice printer in 1494."
+        }
+      ],
+      "places": [
+        "venice"
+      ],
+      "scope": "Printed 1494 treatment of Venetian commercial accounting, not the earlier invention of the method.",
+      "contributions": [
+        {
+          "person": "luca-pacioli",
+          "role": "contributor",
+          "resource": "Wrote the Summa and its treatment of bookkeeping.",
+          "evidence": [
+            {
+              "source": "icaew-summa-1494-venice-printer",
+              "locator": "Book heading and opening description",
+              "supports": "Identifies Pacioli as author and the accounting section."
+            }
+          ]
+        },
+        {
+          "person": "paganino-de-paganini",
+          "role": "manufacturer",
+          "resource": "Printed the 1494 Summa in Venice.",
+          "evidence": [
+            {
+              "source": "icaew-summa-1494-venice-printer",
+              "locator": "Book heading and opening description",
+              "supports": "Identifies Paganino de Paganini as the printer."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-evidence",
+    "rationale": "The publication date of the Summa, not the invention date of double-entry. Earliest record means earliest currently established for this scoped case, not global priority."
+  },
+  "caveats": "The merchants’ method predated the publication; this is a record of codification, not the invention of bookkeeping. The extent of readership and actual use by different groups requires further evidence.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "reviewed",
+      "events": "sourced",
+      "places": "sourced",
+      "concept": "sourced"
+    },
+    "note": "The underlying event and domain were independently checked in an earlier pass. Place, scope and contributions were added in a subsequent sourcing pass and have not been independently checked; event basis is sourced to reflect the new additions."
+  },
+  "places": [
+    {
+      "place": "venice"
+    }
+  ],
+  "concept": "double-entry-bookkeeping"
+}

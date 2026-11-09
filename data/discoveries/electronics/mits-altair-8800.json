@@ -1,0 +1,159 @@
+{
+  "id": "mits-altair-8800",
+  "name": "MITS Altair 8800",
+  "summary": "MITS offered the Intel 8080-based Altair 8800 as a kit or assembled computer.",
+  "description": "A commercially offered 8080-based expandable microcomputer sold in kit and assembled forms to hobbyists and other users.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "events": [
+    {
+      "id": "newsletter-1974",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1974,
+          "month": 11
+        },
+        "latest": {
+          "year": 1974,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1974-11",
+        "basis": "The ACS newsletter issue bears November 1974."
+      },
+      "statement": "The November 1974 ACS Newsletter described a MITS Altair 8800 kit and an upcoming Popular Electronics article.",
+      "scope": "Prospective computer kit as described in the newsletter",
+      "caveats": "The advance notice does not establish completed computers, availability for sale, or shipment in November 1974. The newsletter’s early specifications and prices require comparison with the production configuration.",
+      "evidence": [
+        {
+          "source": "gray-1974-acs-altair-announcement",
+          "locator": "November 1974 issue, COMPUTER KITS, Altair 8800 Computer Kit",
+          "supports": "Names the kit, manufacturer and Intel 8080 and anticipates the 1975 magazine article."
+        }
+      ]
+    },
+    {
+      "id": "introduction-1975",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1975
+        },
+        "latest": {
+          "year": 1975
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1975",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "The Altair 8800 appeared in Popular Electronics in January 1975; a 1975 MITS advertisement offered kit and assembled versions.",
+      "evidence": [
+        {
+          "source": "chm-altair-8800-collection",
+          "locator": "Object description",
+          "supports": "CHM dates introduction to 1975 and describes the kit."
+        },
+        {
+          "source": "mits-1975-altair-users-club",
+          "locator": "PDF p. 3, price list and coupon; p. 4, 8080 description",
+          "supports": "MITS offers the kit and assembled computer, describes the Intel 8080, and the time-payment offer expires July 30, 1975."
+        }
+      ],
+      "caveats": "The manufacturer offer and magazine introduction do not establish the date of first shipment, a sale, or commercial availability for all of 1975.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "role": "supplier",
+          "organization": "mits",
+          "resource": "Offered kit and assembled Altair 8800 computers.",
+          "evidence": [
+            {
+              "source": "mits-1975-altair-users-club",
+              "locator": "PDF p. 3, price list and coupon",
+              "supports": "MITS offered the kit and assembled computer for sale."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "newsletter-1974",
+    "rationale": "The November 1974 contemporary description predates the 1975 magazine feature and offer; it does not prove the machine was completed or shipped."
+  },
+  "advance": [
+    "device_or_configuration",
+    "cost_or_scale"
+  ],
+  "measures": [
+    {
+      "quantity": "offered price",
+      "value": 439,
+      "unit": "USD",
+      "conditions": "MITS 1975 advertisement, computer kit alone; memory and postage separately priced; prices subject to change",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "mits-1975-altair-users-club",
+          "locator": "Basic Altair and options",
+          "supports": "MITS lists kit at $439."
+        }
+      ],
+      "event": "introduction-1975",
+      "subject": "MITS Altair 8800 base computer",
+      "currency": "USD",
+      "money_context": "Nominal manufacturer offer, 1975; shipping, memory and other extras excluded."
+    },
+    {
+      "quantity": "offered price",
+      "value": 621,
+      "unit": "USD",
+      "conditions": "MITS 1975 advertisement, assembled and tested computer alone; extras separately priced; prices subject to change",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "mits-1975-altair-users-club",
+          "locator": "Basic Altair and options",
+          "supports": "MITS lists assembled price at $621."
+        }
+      ],
+      "event": "introduction-1975",
+      "subject": "MITS Altair 8800 base computer",
+      "currency": "USD",
+      "money_context": "Nominal manufacturer offer, 1975; shipping, memory and other extras excluded."
+    }
+  ],
+  "caveats": "A base price is not the cost of a fully configured system; prices may have changed during 1975.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "summary": "reviewed",
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "measures": "sourced",
+      "organizations": "sourced",
+      "grain": "recalled",
+      "places": "sourced"
+    },
+    "note": "Independent reader checked a November 1974 advance description, 1975 museum account and subsequent MITS advertising; production and shipment dates remain open. Later event and measure enrichment has not yet received independent review."
+  },
+  "organizations": [
+    {
+      "organization": "mits",
+      "role": "maker"
+    }
+  ],
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "The 1975 MITS offer lists an Albuquerque, New Mexico address; country-level place does not assert location of first production."
+    }
+  ]
+}

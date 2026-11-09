@@ -74,7 +74,7 @@ Only `id`, `name`, `description`, `kind`, `domain`, `events`, `earliest_record` 
 | Time | `events`, `earliest_record`, `community_entry`, `witnesses` | What is dated about it? |
 | Record | `known_from`, `caveats` | How do we know, and what don't we know? |
 | Outcome | `reception`, `fate`, `end_reason`, `market` | How was it received, and where is it now? |
-| Performance | `measures` | How good was it, in numbers? |
+| Measures | `measures` | What performance, costs, access or adoption figures are known? |
 | Connections | `links` | What did it build on or come from? |
 | Research | `research`, `external` | Where does each value come from, and what is still open? |
 
@@ -90,6 +90,12 @@ Two events are singled out:
 - `community_entry` is when a community demonstrably used or knew it. It is kept apart because invention and use can be centuries apart.
 
 A surviving copy is a `witness`. It shows the thing existed and never dates its origin by itself.
+
+Events may include `contributions`: each identifies exactly one registered `person`, registered `organization`, or described `group`, a controlled `role`, optional `resource`, and evidence specific to that contribution. An organisation may, for example, have supplied equipment at one event without having funded its development. The discovery-wide people and organisation roles remain independent of these event-specific claims.
+
+### Measures
+
+`measures` preserves reported quantities and units, including prices and adoption as well as performance. An extended measure can point to a local `event` or give its own `date`, and specify a `subject`, a registered `person` or `organization`, `conditions`, `lower` and `upper` bounds, and a `status`. Adoption counts can use `numerator`, `denominator` and `denominator_definition`. Monetary figures can retain the original `currency` and `money_context`. A derived extended measure explains its calculation in `method`. Each extended measure needs a time scope, status and evidence with source, locator and support; legacy measures retain their original requirements. Bounds and denominators are checked, but their interpretation and comparability remain research judgments.
 
 ### Places, people, organisations and societies
 

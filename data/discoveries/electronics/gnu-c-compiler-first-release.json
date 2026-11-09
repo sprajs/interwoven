@@ -1,0 +1,169 @@
+{
+  "id": "gnu-c-compiler-first-release",
+  "name": "GNU C Compiler first release",
+  "summary": "The GNU compiler offered a free-software compiler for the GNU operating system, with a first beta in 1987.",
+  "description": "GNU’s free-software compiler project, initially released as a beta in 1987 for use in building the GNU operating system.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "events": [
+    {
+      "id": "beta-release-1987",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1987,
+          "month": 3,
+          "day": 22
+        },
+        "latest": {
+          "year": 1987,
+          "month": 3,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1987-03-22",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "The GNU compiler project timeline lists version 0.9 as its first beta release on March 22, 1987.",
+      "evidence": [
+        {
+          "source": "gnu-gcc-release-timeline",
+          "locator": "Earliest release rows",
+          "supports": "The project timeline dates first beta 0.9 to March 22, 1987."
+        },
+        {
+          "source": "gnu-gcc-project-home",
+          "locator": "Opening paragraph",
+          "supports": "GCC was originally written for GNU, a free-software system."
+        },
+        {
+          "source": "stallman-1987-gcc-beta-announcement",
+          "locator": "Reproduced 22 March announcement",
+          "supports": "Announcement describes FTP availability and a $150 beta tape offer."
+        }
+      ],
+      "scope": "Version 0.9 beta: FTP source distribution and optional FSF physical tape.",
+      "contributions": [
+        {
+          "role": "contributor",
+          "person": "richard-stallman",
+          "resource": "Announced FTP distribution of the beta compiler.",
+          "evidence": [
+            {
+              "source": "stallman-1987-gcc-beta-announcement",
+              "locator": "Date and sender; release announcement",
+              "supports": "A reproduced message identifies Stallman as announcer."
+            }
+          ]
+        },
+        {
+          "role": "distributor",
+          "organization": "free-software-foundation",
+          "resource": "Offered beta-test tape for $150, with specified tax and overseas-airmail additions.",
+          "evidence": [
+            {
+              "source": "stallman-1987-gcc-beta-announcement",
+              "locator": "Tape offer and FSF address",
+              "supports": "The text offers an FSF beta-test tape."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "version-one-1987",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1987,
+          "month": 5,
+          "day": 23
+        },
+        "latest": {
+          "year": 1987,
+          "month": 5,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1987-05-23",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "Version 1.0 followed on May 23, 1987.",
+      "evidence": [
+        {
+          "source": "gnu-gcc-release-timeline",
+          "locator": "Earliest release rows",
+          "supports": "The timeline dates version 1.0 to May 23, 1987."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "beta-release-1987",
+    "rationale": "Earliest dated event established in the cited evidence for this specific record; not a claim of global priority."
+  },
+  "advance": [
+    "device_or_configuration"
+  ],
+  "caveats": "Contemporary licensing terms, users and actual distribution counts need further sources. FTP access and physical tape were different delivery channels. The 1987 email is a third-party reproduction, and later GCC language support is not attributed to the first release.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Independent reader checked 0.9 and 1.0 against the GCC project timeline; contemporary release terms, users and distribution channels remain open. Later event and measure enrichment has not yet received independent review."
+  },
+  "grain": "improvement",
+  "concept": "high-level-language-compiler",
+  "places": [
+    {
+      "place": "cambridge-massachusetts",
+      "note": "The beta announcement lists the FSF tape-order address in Cambridge; this locates the distributor, not every release recipient or development activity."
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "beta-test tape offered price",
+      "value": 150,
+      "unit": "USD",
+      "status": "claimed",
+      "event": "beta-release-1987",
+      "date": {
+        "earliest": {
+          "year": 1987,
+          "month": 3,
+          "day": 22
+        },
+        "latest": {
+          "year": 1987,
+          "month": 3,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1987-03-22",
+        "basis": "Date of the cited document or event, as specified."
+      },
+      "subject": "GNU C compiler beta-test tape",
+      "currency": "USD",
+      "money_context": "Nominal 1987 offer; add 5% Massachusetts sales tax or $15 overseas air mail where applicable. FTP access and network costs not priced.",
+      "conditions": "Physical tape ordered from FSF, not a mandatory software license fee. Based on a third-party reproduction of the announcement.",
+      "evidence": [
+        {
+          "source": "stallman-1987-gcc-beta-announcement",
+          "locator": "Beta-test tape offer",
+          "supports": "Reproduced announcement offers beta tape for $150 plus stated additions."
+        }
+      ]
+    }
+  ]
+}

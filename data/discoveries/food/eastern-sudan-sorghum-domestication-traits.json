@@ -1,0 +1,83 @@
+{
+  "id": "eastern-sudan-sorghum-domestication-traits",
+  "name": "Khashm el Girba sorghum with domestication traits",
+  "description": "Sorghum plant remains embedded in pottery from Khashm el Girba 23 in eastern Sudan include both non-shattering and wild-type forms, evidence of human selection in an early crop.",
+  "kind": "technology",
+  "domain": "food.crops",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -3900
+        },
+        "latest": {
+          "year": -2500
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Approximately 3900–2500 calibrated BCE (95.4% ranges)",
+        "basis": "The paper reports broad two-sigma calibrated ranges for wood charcoal at the site, rounded to centuries; its narrower 3700–2900 BCE interpretation uses one-sigma ranges."
+      },
+      "statement": "Sorghum plant remains embedded in pottery from Khashm el Girba 23 in eastern Sudan include both non-shattering and wild-type forms, evidence of human selection in an early crop.",
+      "caveats": "The broader two-sigma charcoal ranges are uncertain and may be affected by old wood. The 3700–2900 BCE range used by the authors is one sigma; the original location and timing of cultivation are unknown.",
+      "evidence": [
+        {
+          "source": "barron-2020-khashm-sorghum",
+          "locator": "Abstract, chronology and discussion",
+          "supports": "The site yielded mixed sorghum morphologies; the authors report approximately 73% non-shattering among identifiable specimens and a 3700–2900 BC contextual chronology."
+        }
+      ],
+      "places": [
+        "sudan"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "The site context is dated using broad charcoal ranges, not a direct date of the plant impressions or the beginning of selection."
+  },
+  "caveats": "The broader two-sigma charcoal ranges are uncertain and may be affected by old wood. The 3700–2900 BCE range used by the authors is one sigma; the original location and timing of cultivation are unknown.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "places": "reviewed",
+      "concept": "reviewed",
+      "measures": "sourced",
+      "grain": "sourced"
+    },
+    "note": "Independent check of the cited passages and marked facets on 2026-11-09; interpretations and date limits retain the stated caveats."
+  },
+  "places": [
+    {
+      "place": "sudan"
+    }
+  ],
+  "concept": "plant-domestication",
+  "measures": [
+    {
+      "quantity": "Non-shattering share of identifiable spikelet-base visualizations",
+      "value": 73,
+      "unit": "percent",
+      "conditions": "57 of 78 identifiable sorghum spikelet-base visualizations (about 73%) from the sampled KG23 pottery. The authors use a 3700–2900 BCE one-sigma context; broader two-sigma charcoal ranges are approximately 3900–2500 BCE. This sample is not a field-wide crop proportion.",
+      "status": "derived",
+      "evidence": [
+        {
+          "source": "barron-2020-khashm-sorghum",
+          "locator": "Abstract and Discussion, p. 12 (57 of 78)",
+          "supports": "Reports approximately 73% non-shattering and 27% wild-type among identifiable visualizations."
+        }
+      ],
+      "event": "documented-evidence",
+      "subject": "MicroCT classifications of sorghum spikelet bases in sampled KG23 pottery",
+      "numerator": 57,
+      "denominator": 78,
+      "denominator_definition": "Spikelet bases classified as either domesticated or wild among MicroCT visualizations of sampled KG23 pottery; excludes indeterminate visualizations. This is an archaeological specimen sample, not people, fields, or adoption.",
+      "method": "57 divided by 78, multiplied by 100 and rounded to the nearest whole percent."
+    }
+  ],
+  "grain": "instance"
+}

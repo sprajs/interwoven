@@ -1,0 +1,156 @@
+{
+  "id": "benz-patent-motor-car",
+  "name": "Benz Patent Motor Car",
+  "description": "Carl Benz’s three-wheeled motor car integrated a petrol engine and chassis, with later examples used for travel outside the workshop.",
+  "kind": "technology",
+  "domain": "transport.land",
+  "events": [
+    {
+      "id": "vehicle-completed-1885",
+      "type": "prototype",
+      "date": {
+        "earliest": {
+          "year": 1885
+        },
+        "latest": {
+          "year": 1885
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1885",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "Carl Benz completed a two-seat, three-wheeled motor car with an integrated petrol engine in 1885.",
+      "caveats": "Maker retrospective does not establish exact completion date or priority over all powered road vehicles.",
+      "evidence": [
+        {
+          "source": "mercedes-benz-nd-patent-motor-car",
+          "locator": "1885–1886, first automobile and long-distance journey",
+          "supports": "Corporate history describes the 1885 vehicle, engine and chassis."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "carl-benz",
+          "role": "developer",
+          "resource": "Designed and developed the integrated engine-powered motor car",
+          "evidence": [
+            {
+              "source": "mercedes-benz-nd-patent-motor-car",
+              "locator": "1885–1886, first automobile and long-distance journey",
+              "supports": "The company history describes Benz developing and completing the vehicle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "journey-1888",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1888,
+          "month": 8
+        },
+        "latest": {
+          "year": 1888,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1888-08",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "Bertha Benz and her sons drove an improved car from Mannheim to Pforzheim and back, a journey the corporate account reports as 180 km.",
+      "caveats": "This was an improved version, not necessarily the original car; distance is the maker’s retrospective estimate.",
+      "evidence": [
+        {
+          "source": "mercedes-benz-nd-patent-motor-car",
+          "locator": "1885–1886, first automobile and long-distance journey",
+          "supports": "Identifies travellers, route, month and total distance."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "bertha-benz",
+          "role": "user",
+          "resource": "Made the Mannheim–Pforzheim return journey with her sons in an improved vehicle",
+          "evidence": [
+            {
+              "source": "mercedes-benz-nd-patent-motor-car",
+              "locator": "1885–1886, first automobile and long-distance journey",
+              "supports": "The retrospective identifies Bertha Benz and her sons as travellers."
+            }
+          ]
+        },
+        {
+          "group": "Eugen and Richard Benz",
+          "role": "user",
+          "resource": "Accompanied Bertha Benz on the reported journey",
+          "evidence": [
+            {
+              "source": "mercedes-benz-nd-patent-motor-car",
+              "locator": "1885–1886, first automobile and long-distance journey",
+              "supports": "The retrospective names both sons and records their participation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "vehicle-completed-1885",
+    "rationale": "Earliest episode established for this scoped record in the inspected sources, not a certified global priority."
+  },
+  "caveats": "The maker history is retrospective and has an institutional stake; earlier steam and other powered road vehicles existed.",
+  "measures": [
+    {
+      "quantity": "journey distance",
+      "value": 180,
+      "unit": "km",
+      "conditions": "Bertha Benz and sons’ reported round trip in August 1888, using an improved car.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "mercedes-benz-nd-patent-motor-car",
+          "locator": "1885–1886, first automobile and long-distance journey",
+          "supports": "Reports 180 km including return."
+        }
+      ],
+      "event": "journey-1888",
+      "person": "bertha-benz",
+      "subject": "Reported round-trip route in improved Benz vehicle"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed",
+      "grain": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Second-reader check of named facets against the manufacturer retrospective. The 1888 trip concerned an improved car, not necessarily the 1885 original; independent primary corroboration is still useful."
+  },
+  "people": [
+    {
+      "person": "carl-benz",
+      "role": "originator"
+    },
+    {
+      "person": "bertha-benz",
+      "role": "user"
+    }
+  ],
+  "places": [
+    {
+      "place": "germany",
+      "note": "Country-level reference; event narrative gives the more specific location where established."
+    }
+  ],
+  "grain": "capability",
+  "concept": "internal-combustion-motor-car"
+}

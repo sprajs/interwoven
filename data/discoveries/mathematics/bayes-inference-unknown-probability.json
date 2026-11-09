@@ -1,0 +1,98 @@
+{
+  "id": "bayes-inference-unknown-probability",
+  "name": "Bayes’s inference from observed outcomes",
+  "description": "A posthumous essay addressed inference about an unknown event probability from observed successes and failures under an assumed prior distribution.",
+  "kind": "mathematics",
+  "domain": "mathematics.probability",
+  "events": [
+    {
+      "id": "documented-episode",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1763
+        },
+        "latest": {
+          "year": 1763
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "December 1763",
+        "basis": "The original journal prints a reading date of 23 December 1763; Diniz and Bellhouse report 22 December. The year is uncontested here; the day requires the meeting minutes."
+      },
+      "statement": "Richard Price communicated Bayes’s essay in a letter to John Canton; it was read to the Royal Society in December 1763.",
+      "evidence": [
+        {
+          "source": "bayes-price-1763-essay-original",
+          "locator": "pp. 370–371, heading and Price’s introductory letter",
+          "supports": "Identifies Price’s communication to Canton, notes a 23 December 1763 reading, and states the unknown-probability problem and prior assumption."
+        },
+        {
+          "source": "diniz-bellhouse-2020-bayes-price",
+          "locator": "p. 7, Introductions and meetings",
+          "supports": "Reports a 22 December 1763 reading by Canton, differing from the printed paper’s date."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "thomas-bayes",
+          "role": "developer",
+          "resource": "Authored the essay and posed the inference problem.",
+          "evidence": [
+            {
+              "source": "bayes-price-1763-essay-original",
+              "locator": "pp. 370–371, heading and Price’s introductory letter",
+              "supports": "Identifies Bayes as author and gives the inference problem."
+            }
+          ]
+        },
+        {
+          "person": "richard-price",
+          "role": "contributor",
+          "resource": "Communicated Bayes’s essay in a letter to John Canton.",
+          "evidence": [
+            {
+              "source": "bayes-price-1763-essay-original",
+              "locator": "pp. 370–371, heading and Price’s introductory letter",
+              "supports": "Identifies the communication from Price to Canton."
+            }
+          ]
+        },
+        {
+          "person": "john-canton",
+          "role": "contributor",
+          "resource": "Read the essay to the Society, according to Diniz and Bellhouse; the date of the reading is disputed.",
+          "evidence": [
+            {
+              "source": "diniz-bellhouse-2020-bayes-price",
+              "locator": "p. 7, Introductions and meetings",
+              "supports": "Reports Canton read the essay, with a reading date that differs from the journal heading."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-episode",
+    "rationale": "Earliest episode established by the evidence collected here for this scoped achievement, not a claim of absolute priority."
+  },
+  "caveats": "The modern general theorem should not be projected unchanged onto the essay. The printed paper gives 23 December for the reading, while Diniz and Bellhouse give 22 December; the original meeting minutes were not inspected. The volume is dated 1763, but the actual year of publication remains disputed.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "people": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Independent check against the scanned printed article and a historical essay; the exact reading date remains unresolved. Event contributions, concept, places and extended measure scope were added in a later pass and have not been independently reviewed."
+  },
+  "people": [
+    {
+      "person": "thomas-bayes",
+      "role": "originator"
+    }
+  ],
+  "concept": "inverse-probability-inference"
+}

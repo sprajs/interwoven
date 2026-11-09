@@ -1,0 +1,247 @@
+{
+  "id": "apple-ii-personal-computer",
+  "name": "Apple II personal computer",
+  "summary": "The assembled Apple II combined BASIC and color graphics in a personal computer shipped to customers in 1977.",
+  "description": "Apple’s assembled, expandable personal computer with BASIC, color graphics and cassette storage, shipped beginning in 1977.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "events": [
+    {
+      "id": "shipment-1977",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1977,
+          "month": 6
+        },
+        "latest": {
+          "year": 1977,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1977-06",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "Apple shipped the Apple II in June 1977.",
+      "evidence": [
+        {
+          "source": "shustek-2013-apple-ii-dos",
+          "locator": "Opening and price discussion",
+          "supports": "The museum dates first shipments to June 1977 and describes the assembled 4K machine."
+        }
+      ],
+      "population": "Customers purchasing an assembled computer",
+      "contributions": [
+        {
+          "role": "manufacturer",
+          "organization": "apple-computer",
+          "resource": "Shipped the assembled Apple II.",
+          "evidence": [
+            {
+              "source": "shustek-2013-apple-ii-dos",
+              "locator": "Opening paragraph",
+              "supports": "Apple shipped the Apple II in 1977."
+            }
+          ]
+        },
+        {
+          "role": "developer",
+          "person": "steve-wozniak",
+          "resource": "Designed the Apple II.",
+          "evidence": [
+            {
+              "source": "shustek-2013-apple-ii-dos",
+              "locator": "Apple II photo caption",
+              "supports": "The museum identifies Wozniak as the designer of the Apple II."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sales-1980",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1980,
+          "month": 10,
+          "day": 31
+        },
+        "latest": {
+          "year": 1980,
+          "month": 10,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1980-10-31",
+        "basis": "Date stated by the cited source for this event, not necessarily first preceding work."
+      },
+      "statement": "One Apple offering document reports approximately 131,000 Apple II mainframes sold as of October 31, 1980; another in the same archive gives approximately 135,000 for that date.",
+      "evidence": [
+        {
+          "source": "apple-1980-offering-memorandum",
+          "locator": "Composite PDF p. 77, The Company (131,000); pp. 125 and 133 (135,000)",
+          "supports": "Two offering-document versions report different approximate counts for the same date."
+        }
+      ],
+      "caveats": "The archival PDF contains different versions: p. 77 states 131,000 and pp. 125 and 133 state 135,000. The reason for the discrepancy is unresolved."
+    },
+    {
+      "id": "prices-prospectus-1980",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1980,
+          "month": 12,
+          "day": 12
+        },
+        "latest": {
+          "year": 1980,
+          "month": 12,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1980-12-12",
+        "basis": "Date of the cited document or event, as specified."
+      },
+      "statement": "Apple’s December 1980 prospectus gave suggested retail prices of $1,195–$1,395 for Apple II mainframes and $1,850 to over $5,000 for typical complete systems.",
+      "places": [
+        "united-states"
+      ],
+      "scope": "Prices described in prospectus; configurations and actual transaction prices vary.",
+      "evidence": [
+        {
+          "source": "apple-1980-offering-memorandum",
+          "locator": "Composite PDF pp. 74 and 85–86, dated prospectus and Apple II product description",
+          "supports": "The prospectus dated 12 December 1980 lists suggested retail price ranges for mainframes and complete systems."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "shipment-1977",
+    "rationale": "Earliest dated event established in the cited evidence for this specific record; not a claim of global priority."
+  },
+  "advance": [
+    "system_integration",
+    "cost_or_scale"
+  ],
+  "measures": [
+    {
+      "quantity": "price",
+      "value": 1298,
+      "unit": "USD",
+      "conditions": "4K assembled Apple II, described in the museum account of the 1977 release",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "shustek-2013-apple-ii-dos",
+          "locator": "Opening and price discussion",
+          "supports": "Museum cites $1,298 for assembled 4K version."
+        },
+        {
+          "source": "weyhrich-2013-disk-ii-account",
+          "locator": "Final section, 1977 comparisons",
+          "supports": "Historian describes $1,298 as 1977 4K entry price."
+        }
+      ],
+      "event": "shipment-1977",
+      "subject": "4K assembled Apple II",
+      "currency": "USD",
+      "money_context": "1977 US dollars, retrospective account of entry price; additional equipment can increase total cost."
+    },
+    {
+      "quantity": "cumulative units sold",
+      "value": 131000,
+      "unit": "mainframes",
+      "conditions": "Apple offering document, composite PDF p. 77: approximately as of 31 October 1980; different versions on pp. 125 and 133 report approximately 135,000",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "apple-1980-offering-memorandum",
+          "locator": "Composite PDF p. 77, The Company",
+          "supports": "Company estimates approximately 131,000 units."
+        }
+      ],
+      "event": "sales-1980",
+      "subject": "Apple II mainframes sold by Apple as of 31 October 1980"
+    },
+    {
+      "quantity": "Apple II mainframe suggested retail price",
+      "value": "1195–1395",
+      "unit": "USD",
+      "conditions": "Apple prospectus dated 12 December 1980; suggested retail prices, not confirmed transactions.",
+      "status": "claimed",
+      "lower": 1195,
+      "event": "prices-prospectus-1980",
+      "subject": "Apple II mainframe",
+      "currency": "USD",
+      "money_context": "Nominal 1980 suggested retail prices.",
+      "evidence": [
+        {
+          "source": "apple-1980-offering-memorandum",
+          "locator": "Composite PDF pp. 74, 85–86",
+          "supports": "Prospectus date and price ranges."
+        }
+      ],
+      "upper": 1395
+    },
+    {
+      "quantity": "typical complete system suggested retail price",
+      "value": "1850 to over 5000",
+      "unit": "USD",
+      "conditions": "Apple prospectus dated 12 December 1980; suggested retail prices, not confirmed transactions.",
+      "status": "claimed",
+      "lower": 1850,
+      "event": "prices-prospectus-1980",
+      "subject": "Apple II typical system with software and peripherals",
+      "currency": "USD",
+      "money_context": "Nominal 1980 suggested retail prices.",
+      "evidence": [
+        {
+          "source": "apple-1980-offering-memorandum",
+          "locator": "Composite PDF pp. 74, 85–86",
+          "supports": "Prospectus date and price ranges."
+        }
+      ]
+    }
+  ],
+  "caveats": "Company sales counts are self-reported, do not establish numbers of individual users, and conflict across versions in the archive.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "summary": "reviewed",
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "measures": "sourced",
+      "organizations": "sourced",
+      "people": "reviewed",
+      "grain": "recalled",
+      "places": "sourced"
+    },
+    "note": "Independent reader checked June shipment, Wozniak attribution and 4K price against museum account, and both counts directly in the composite PDF. Earlier design and release milestones remain open. Later event and measure enrichment has not yet received independent review."
+  },
+  "organizations": [
+    {
+      "organization": "apple-computer",
+      "role": "maker"
+    }
+  ],
+  "people": [
+    {
+      "person": "steve-wozniak",
+      "role": "originator"
+    }
+  ],
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "The 1980 prospectus documents US sales and distribution; this does not assign a precise location to the 1977 shipment."
+    }
+  ]
+}

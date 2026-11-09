@@ -1,0 +1,174 @@
+{
+  "id": "siemens-lichterfelde-electric-tram",
+  "name": "Lichterfelde electric railway",
+  "description": "Siemens und Halske’s electrically operated Lichterfelde railway brought electric traction into a local tramway service.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "events": [
+    {
+      "id": "test-1881",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1881,
+          "month": 5,
+          "day": 12
+        },
+        "latest": {
+          "year": 1881,
+          "month": 5,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1881-05-12",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "Werner von Siemens reported that the Lichterfelde electric trolley had been officially tested and approved.",
+      "caveats": "A translated excerpt was inspected, rather than the original manuscript; approval differs from public opening.",
+      "evidence": [
+        {
+          "source": "siemens-1881-electric-trolley-letter",
+          "locator": "Letter to Wiedemann, 12 May 1881, translated excerpt",
+          "supports": "Contemporary letter excerpt reports official test and approval."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Official inspectors",
+          "role": "regulator",
+          "resource": "Set the speed limit reported in Siemens’s letter",
+          "evidence": [
+            {
+              "source": "siemens-1881-electric-trolley-letter",
+              "locator": "Letter to Wiedemann, 12 May 1881, translated excerpt",
+              "supports": "Siemens states inspectors permitted 20 km/h; the letter also says the trolley was officially tested and approved."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "opening-1881",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1881,
+          "month": 5,
+          "day": 16
+        },
+        "latest": {
+          "year": 1881,
+          "month": 5,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1881-05-16",
+        "basis": "The cited account dates this scoped episode."
+      },
+      "statement": "Siemens und Halske opened its Lichterfelde electric railway.",
+      "caveats": "Precise terms of service and fare are not established by this short museum account.",
+      "evidence": [
+        {
+          "source": "deutschlandmuseum-nd-lichterfelde-tram",
+          "locator": "The Lichterfelde electric railway starts operation",
+          "supports": "Museum dates opening by Siemens und Halske."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "siemens",
+          "role": "contributor",
+          "resource": "Siemens und Halske opened the Lichterfelde electric railway",
+          "evidence": [
+            {
+              "source": "deutschlandmuseum-nd-lichterfelde-tram",
+              "locator": "The Lichterfelde electric railway starts operation",
+              "supports": "The museum attributes the opening to Siemens und Halske."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "test-1881",
+    "rationale": "Earliest episode established for this scoped record in the inspected sources, not a certified global priority."
+  },
+  "caveats": "The 1879 Berlin exhibition railway was an earlier electric passenger demonstration; this local opening does not establish first electric traction.",
+  "measures": [
+    {
+      "quantity": "permitted speed",
+      "value": 20,
+      "unit": "km/h",
+      "conditions": "Official limit in Siemens’s 12 May 1881 letter, not normal service speed.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "siemens-1881-electric-trolley-letter",
+          "locator": "Letter to Wiedemann, 12 May 1881, translated excerpt",
+          "supports": "Letter says inspectors permitted 20 km/h."
+        }
+      ],
+      "event": "test-1881",
+      "subject": "Speed permitted by inspectors at the 1881 Lichterfelde trolley approval"
+    },
+    {
+      "quantity": "reported loaded speed",
+      "value": "30–40",
+      "unit": "km/h",
+      "conditions": "Siemens’s 12 May 1881 account of cars loaded with 20 passengers; the letter does not say whether the speed was reached during the official test or specify measurement method.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "siemens-1881-electric-trolley-letter",
+          "locator": "Letter to Wiedemann, 12 May 1881, translated excerpt",
+          "supports": "Letter claims 30–40 km/h with 20 passengers."
+        }
+      ],
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1881,
+          "month": 5,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 12 May 1881",
+        "basis": "Siemens reports the claimed speed in his letter of 12 May; timing of the run is unspecified."
+      },
+      "subject": "Lichterfelde cars reportedly carrying 20 passengers; test circumstances and measurement method unspecified",
+      "lower": 30,
+      "upper": 40
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "places": "reviewed",
+      "grain": "sourced",
+      "concept": "sourced"
+    },
+    "note": "Second-reader check of named facets against translated letter and museum opening account. Speed statement is a participant claim, not an independently measured service speed."
+  },
+  "people": [
+    {
+      "person": "werner-von-siemens",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "germany",
+      "note": "Country-level reference; event narrative gives the more specific location where established."
+    }
+  ],
+  "grain": "instance",
+  "concept": "electric-rail-traction"
+}
