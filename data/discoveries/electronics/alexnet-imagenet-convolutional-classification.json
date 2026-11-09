@@ -1,0 +1,133 @@
+{
+  "id": "alexnet-imagenet-convolutional-classification",
+  "name": "AlexNet ImageNet image classification",
+  "description": "A deep convolutional neural network trained using GPUs for large-scale image classification, evaluated in the ImageNet challenge.",
+  "kind": "technology",
+  "domain": "electronics.ai",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "imagenet-study-2012",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2012
+        },
+        "latest": {
+          "year": 2012
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2012",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Krizhevsky, Sutskever and Hinton published ImageNet classification experiments with a deep convolutional network.",
+      "places": [
+        "canada"
+      ],
+      "scope": "Reported ImageNet competition experiment, not general visual understanding.",
+      "contributions": [
+        {
+          "person": "alex-krizhevsky",
+          "role": "developer",
+          "resource": "Co-developed the network and experiments.",
+          "evidence": [
+            {
+              "source": "krizhevsky-2012-imagenet-cnn",
+              "locator": "Authors and abstract",
+              "supports": "The paper identifies coauthors."
+            }
+          ]
+        },
+        {
+          "person": "ilya-sutskever",
+          "role": "developer",
+          "resource": "Co-developed the network and experiments.",
+          "evidence": [
+            {
+              "source": "krizhevsky-2012-imagenet-cnn",
+              "locator": "Authors and abstract",
+              "supports": "The paper identifies coauthors."
+            }
+          ]
+        },
+        {
+          "person": "geoffrey-hinton",
+          "role": "developer",
+          "resource": "Co-developed the network and experiments.",
+          "evidence": [
+            {
+              "source": "krizhevsky-2012-imagenet-cnn",
+              "locator": "Authors and abstract",
+              "supports": "The paper identifies coauthors."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "krizhevsky-2012-imagenet-cnn",
+          "locator": "Abstract and sections 3–6",
+          "supports": "Paper specifies authors, GPU network and 2012 contest result."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "imagenet-study-2012",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "concept": "adaptive-neural-network-learning",
+  "places": [
+    {
+      "place": "canada",
+      "note": "Paper gives University of Toronto affiliations."
+    }
+  ],
+  "people": [
+    {
+      "person": "alex-krizhevsky",
+      "role": "author"
+    },
+    {
+      "person": "ilya-sutskever",
+      "role": "author"
+    },
+    {
+      "person": "geoffrey-hinton",
+      "role": "author"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "top-five classification error",
+      "value": 15.3,
+      "unit": "percent",
+      "event": "imagenet-study-2012",
+      "subject": "Authors’ variant in ILSVRC-2012 test competition",
+      "status": "claimed",
+      "conditions": "Top-five test error in the cited competition; not top-one accuracy or a general measure of real-world vision.",
+      "evidence": [
+        {
+          "source": "krizhevsky-2012-imagenet-cnn",
+          "locator": "Abstract",
+          "supports": "The authors report 15.3% top-five error for their 2012 competition variant."
+        }
+      ]
+    }
+  ],
+  "caveats": "Convolutional neural networks and GPU use predated this study; performance depends on dataset, evaluation and model variant.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "concept": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Source-backed initial research; independent review is pending."
+  }
+}

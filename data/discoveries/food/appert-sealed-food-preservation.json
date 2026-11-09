@@ -1,0 +1,90 @@
+{
+  "id": "appert-sealed-food-preservation",
+  "name": "Appert sealed heat-preserved food",
+  "description": "Nicolas Appert developed preservation of foods in sealed glass containers using heat; his work was recognized by a French government prize in 1810.",
+  "kind": "technology",
+  "domain": "food.preservation",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1810
+        },
+        "latest": {
+          "year": 1810
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1810 CE",
+        "basis": "Date reported by the cited institutional source."
+      },
+      "statement": "Nicolas Appert developed preservation of foods in sealed glass containers using heat; his work was recognized by a French government prize in 1810.",
+      "evidence": [
+        {
+          "source": "eberle-2024-appert-preservation",
+          "locator": "Early food preservation section",
+          "supports": "The institutional history attributes sealed-glass food preservation to Appert and dates the prize to 1810."
+        },
+        {
+          "source": "appert-1831-minister-1810-letter",
+          "locator": "pp. 239–240, 30 January 1810 ministerial letter",
+          "supports": "The reprinted letter grants 12,000 francs subject to supplying 200 copies of a printed account."
+        }
+      ],
+      "caveats": "The award date is not a precise invention or adoption date. The retrospective does not establish the first commercial sale or full distribution.",
+      "places": [
+        "france"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Earliest supported event for this scoped case, not a universal priority claim. The award date is not a precise invention or adoption date. The retrospective does not establish the first commercial sale or full distribution."
+  },
+  "caveats": "The award date is not a precise invention or adoption date. The retrospective does not establish the first commercial sale or full distribution. The retrospective presents the 12,000 francs as a prize; an 1810 ministerial letter specifies payment was conditional on printing and delivering descriptions.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed",
+      "concept": "sourced"
+    },
+    "note": "Independent review of marked source facets on 2026-11-09; archaeological and historical interpretations retain the stated limitations."
+  },
+  "places": [
+    {
+      "place": "france"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "government prize",
+      "value": 12000,
+      "unit": "francs",
+      "currency": "French francs",
+      "money_context": "Nominal prize amount in 1810, not a product price or production cost.",
+      "event": "documented-evidence",
+      "subject": "Prize associated with Appert’s preservation work",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "eberle-2024-appert-preservation",
+          "locator": "Early food preservation section",
+          "supports": "The source states that the government offered 12,000 francs and Appert collected the prize in 1810."
+        },
+        {
+          "source": "appert-1831-minister-1810-letter",
+          "locator": "pp. 239–240, 30 January 1810 ministerial letter",
+          "supports": "The reprinted letter grants 12,000 francs subject to supplying 200 copies of a printed account."
+        }
+      ]
+    }
+  ],
+  "concept": "sealed-heat-food-preservation"
+}

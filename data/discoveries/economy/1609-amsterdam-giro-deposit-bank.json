@@ -1,0 +1,76 @@
+{
+  "id": "1609-amsterdam-giro-deposit-bank",
+  "name": "Amsterdam municipal giro deposit bank",
+  "description": "The municipality established a bank intended to accept coin deposits and transfer balances between customers’ accounts by book entry.",
+  "kind": "practice",
+  "domain": "economy.money",
+  "grain": "capability",
+  "concept": "giro-deposit-transfer",
+  "places": [
+    {
+      "place": "amsterdam"
+    }
+  ],
+  "events": [
+    {
+      "id": "founded-1609",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1609
+        },
+        "latest": {
+          "year": 1609
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1609",
+        "basis": "The historical study dates the municipality’s founding of the bank to 1609."
+      },
+      "statement": "Amsterdam established a publicly owned giro bank.",
+      "scope": "Founding and stated design of one municipal institution.",
+      "evidence": [
+        {
+          "source": "frost-shin-wierts-2020-amsterdam-giro",
+          "locator": "Section 2.1, Bank of Amsterdam",
+          "supports": "Amsterdam established a publicly owned giro bank."
+        },
+        {
+          "source": "quinn-roberds-amsterdam-first-steps",
+          "locator": "Chapter 4 summary",
+          "supports": "The charter envisaged deposits, account transfers and withdrawals."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Amsterdam municipal authorities",
+          "role": "infrastructure_provider",
+          "resource": "Founded and owned the public payments bank.",
+          "evidence": [
+            {
+              "source": "frost-shin-wierts-2020-amsterdam-giro",
+              "locator": "Section 2.1, Bank of Amsterdam",
+              "supports": "The study attributes founding and ownership to the municipality."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "founded-1609",
+    "rationale": "Date and scope follow the cited event; this is the earliest episode established in this research, not a claim of world priority."
+  },
+  "caveats": "The charter’s stated functions do not alone establish exactly when each became routine. The bank was modelled on earlier Italian public deposit banks; this record is not a claim of a world first.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
+  }
+}

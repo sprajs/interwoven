@@ -1,0 +1,150 @@
+{
+  "id": "ncsa-mosaic-graphical-web-browser",
+  "name": "NCSA Mosaic graphical web browser",
+  "description": "A distributed graphical Web browser for networked information, later known for displaying images alongside text.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "x-mosaic-05-1993",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1993,
+          "month": 1,
+          "day": 23
+        },
+        "latest": {
+          "year": 1993,
+          "month": 1,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1993-01-23",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "NCSA announced X Mosaic 0.5 and made source and binaries available by FTP for several Unix workstation platforms.",
+      "places": [
+        "illinois"
+      ],
+      "scope": "X Mosaic 0.5 alpha/beta; separate later features are not inferred.",
+      "contributions": [
+        {
+          "person": "marc-andreessen",
+          "role": "contributor",
+          "resource": "Announced the 0.5 release and described distribution.",
+          "evidence": [
+            {
+              "source": "andreessen-1993-xmosaic-release",
+              "locator": "Sender and release announcement",
+              "supports": "The preserved mailing-list message identifies Andreessen."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "andreessen-1993-xmosaic-release",
+          "locator": "Release message and platform list",
+          "supports": "Andreessen’s original announcement describes the release and FTP access."
+        }
+      ]
+    },
+    {
+      "id": "download-1993",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1993,
+          "month": 12
+        },
+        "precision": "range",
+        "status": "known",
+        "label": "by December 1993",
+        "basis": "NCSA retrospective reports the rate by December, not the precise interval counted."
+      },
+      "statement": "NCSA retrospectively reported more than 5,000 browser downloads per month by December 1993.",
+      "caveats": "Downloads are not distinct users; the retrospective does not specify versions or counting method.",
+      "evidence": [
+        {
+          "source": "ncsa-mosaic-project-history",
+          "locator": "History and dissemination",
+          "supports": "NCSA reports more than 5,000 downloads per month by December 1993."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "x-mosaic-05-1993",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "illinois",
+      "note": "NCSA at the University of Illinois."
+    }
+  ],
+  "people": [
+    {
+      "person": "marc-andreessen",
+      "role": "contributor"
+    },
+    {
+      "person": "eric-bina",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "monthly downloads",
+      "value": ">5000",
+      "unit": "downloads per month",
+      "event": "download-1993",
+      "subject": "Mosaic browser downloads by December 1993",
+      "status": "claimed",
+      "conditions": "NCSA retrospective; not a count of unique users or particular version.",
+      "evidence": [
+        {
+          "source": "ncsa-mosaic-project-history",
+          "locator": "History and dissemination",
+          "supports": "Reports more than 5,000 monthly downloads by December 1993."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "requires",
+      "from": "world-wide-web-public-ftp-release",
+      "status": "established",
+      "statement": "Mosaic was a Web browser for accessing the World Wide Web information system.",
+      "scope": "Web access function, not a claim about every other network feature.",
+      "evidence": [
+        {
+          "source": "andreessen-1993-xmosaic-release",
+          "locator": "Opening release paragraph",
+          "supports": "The release announces a World Wide Web browser."
+        }
+      ]
+    }
+  ],
+  "caveats": "Browsers preceded Mosaic. NCSA associates Mosaic generally with inline images, but the 0.5 announcement does not establish the first version with that feature.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "reviewed",
+      "links": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked Andreessen’s release message and NCSA’s reported monthly-download rate, which is not an individual-user count."
+  },
+  "concept": "graphical-web-browser"
+}

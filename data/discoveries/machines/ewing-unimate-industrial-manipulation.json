@@ -1,0 +1,87 @@
+{
+  "id": "ewing-unimate-industrial-manipulation",
+  "name": "Unimate industrial manipulation at Ewing",
+  "description": "A programmable industrial manipulator handled hot die-cast parts at a General Motors factory; ASME reports that it placed them in cooling liquid.",
+  "kind": "technology",
+  "domain": "machines.automation",
+  "grain": "capability",
+  "concept": "programmable-industrial-robot",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "new-jersey"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1961
+        },
+        "latest": {
+          "year": 1961
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1961",
+        "basis": "The source reports the date for this scoped event or archaeological context."
+      },
+      "statement": "General Motors operated an Unimate at Ewing, New Jersey.",
+      "places": [
+        "new-jersey"
+      ],
+      "evidence": [
+        {
+          "source": "asme-unimate-ewing-robot",
+          "locator": "1961 Unimate section",
+          "supports": "General Motors operated an Unimate at Ewing, New Jersey."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "user",
+          "resource": "Industrial manipulation at Ewing",
+          "evidence": [
+            {
+              "source": "asme-unimate-ewing-robot",
+              "locator": "1961 Unimate section",
+              "supports": "The source attributes this contribution to general-motors."
+            }
+          ],
+          "organization": "general-motors"
+        },
+        {
+          "person": "george-devol",
+          "role": "developer",
+          "resource": "Unimate design",
+          "evidence": [
+            {
+              "source": "asme-unimate-ewing-robot",
+              "locator": "1961 Unimate section",
+              "supports": "ASME attributes the Unimate to inventor George Devol."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "The earliest dated case currently researched, not a claim of the capability’s original invention or global priority."
+  },
+  "caveats": "The ASME article is retrospective; competing accounts describe different early tasks, dates and configurations. Specific machine duties require plant records.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked ASME’s account of the 1961 deployment and task; other histories emphasize removal from the die-casting press. Precise task sequence needs further corroboration."
+  }
+}

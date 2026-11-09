@@ -19,7 +19,7 @@
     "religious"
   ],
   "funding": [
-    "religious"
+    "patron"
   ],
   "places": [
     {
@@ -116,6 +116,44 @@
           "supports": "Surviving volume, place, date and cast-metal type."
         }
       ]
+    },
+    {
+      "id": "myodeok-donation-record",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2001
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by the 2001 nomination",
+        "basis": "The nomination reporting the donation dates to 2001; the donation date is not specified."
+      },
+      "statement": "The Korean nomination reports that Myodeok donated to the Jikji publication project.",
+      "scope": "Donation associated with the 1377 edition; exact transaction date and amount unspecified.",
+      "caveats": "The nomination is a later account, not an inspected contemporary transaction record; no religious institution’s budget is inferred.",
+      "evidence": [
+        {
+          "source": "republic-korea-unesco-2001-buljo-jikji-simche",
+          "locator": "PDF p. 1, Part A",
+          "supports": "The nomination attributes a donation for the publication project to the female priest Myodeok."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "myodeok",
+          "role": "funder",
+          "resource": "Donation for the Jikji publication project.",
+          "evidence": [
+            {
+              "source": "republic-korea-unesco-2001-buljo-jikji-simche",
+              "locator": "PDF p. 1, Part A",
+              "supports": "The nomination attributes a donation for the publication project to the female priest Myodeok."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -143,7 +181,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "recalled",
       "domain": "sourced",
@@ -151,14 +189,16 @@
       "advance": "sourced",
       "concept": "sourced",
       "setting": "sourced",
-      "funding": "recalled",
+      "funding": "sourced",
       "places": "sourced",
       "people": "recalled",
       "organizations": "sourced",
       "societies": "sourced",
       "known_from": "sourced",
-      "events": "reviewed",
-      "links": "unknown"
+      "events": "sourced",
+      "links": "unknown",
+      "grain": "recalled"
     }
-  }
+  },
+  "grain": "instance"
 }

@@ -1,0 +1,95 @@
+{
+  "id": "grimes-graves-flint-shaft-mining",
+  "name": "Grime’s Graves flint shaft mining",
+  "description": "Miners dug shafts to access flint and used antler picks to extract nodules at Grime’s Graves.",
+  "kind": "technology",
+  "domain": "materials.mining",
+  "grain": "capability",
+  "concept": "shaft-mining-of-stone",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -3000
+        },
+        "latest": {
+          "year": -2000
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Approximately 3000–2000 BCE",
+        "basis": "The source reports the date for this scoped event or archaeological context."
+      },
+      "statement": "Historic England dates the flint mine broadly to the Neolithic and Early Bronze Age.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "historic-england-grimes-graves-flint",
+          "locator": "Site educational record",
+          "supports": "Historic England dates the flint mine broadly to the Neolithic and Early Bronze Age."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "operator",
+          "resource": "Shaft excavation and flint extraction",
+          "evidence": [
+            {
+              "source": "historic-england-grimes-graves-flint",
+              "locator": "Site educational record",
+              "supports": "The source attributes this contribution to Grime’s Graves miners."
+            }
+          ],
+          "group": "Grime’s Graves miners"
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "The earliest dated case currently researched, not a claim of the capability’s original invention or global priority."
+  },
+  "caveats": "The range and shaft count cover a long-lived mine complex, not simultaneous activity or the origin of shaft mining.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked Historic England’s site description, broad dating and cumulative minimum shaft count. The count is not annual output or necessarily simultaneous working."
+  },
+  "measures": [
+    {
+      "quantity": "recorded shafts",
+      "value": "at least 433",
+      "lower": 433,
+      "unit": "shafts",
+      "event": "documented-case",
+      "subject": "Grime’s Graves mine complex",
+      "status": "claimed",
+      "conditions": "At least 433 site-wide shafts reported cumulatively; not contemporary shafts or annual output.",
+      "evidence": [
+        {
+          "source": "historic-england-grimes-graves-flint",
+          "locator": "Educational site record",
+          "supports": "The record reports at least 433 shafts."
+        }
+      ]
+    }
+  ]
+}

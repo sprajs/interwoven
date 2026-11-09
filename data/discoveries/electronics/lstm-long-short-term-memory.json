@@ -1,0 +1,145 @@
+{
+  "id": "lstm-long-short-term-memory",
+  "name": "Long short-term memory recurrent network",
+  "description": "A recurrent neural-network architecture and training method designed to learn information dependencies across extended time intervals.",
+  "kind": "technology",
+  "domain": "electronics.ai",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "technical-report-1995",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1995,
+          "month": 8,
+          "day": 21
+        },
+        "latest": {
+          "year": 1995,
+          "month": 8,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1995-08-21",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Hochreiter and Schmidhuber’s report describing long short-term memory and synthetic long-delay learning experiments is dated 21 August 1995.",
+      "places": [
+        "germany"
+      ],
+      "caveats": "The first author’s institutional affiliation locates the report, not necessarily all development. The experiments do not establish performance for all long-sequence tasks. The dated manuscript does not independently establish the exact day of public availability.",
+      "contributions": [
+        {
+          "person": "sepp-hochreiter",
+          "role": "developer",
+          "resource": "Co-developed the LSTM architecture and report.",
+          "evidence": [
+            {
+              "source": "hochreiter-schmidhuber-1995-lstm",
+              "locator": "Title and abstract",
+              "supports": "Names Hochreiter as coauthor."
+            }
+          ]
+        },
+        {
+          "person": "jurgen-schmidhuber",
+          "role": "developer",
+          "resource": "Co-developed the LSTM architecture and report.",
+          "evidence": [
+            {
+              "source": "hochreiter-schmidhuber-1995-lstm",
+              "locator": "Title and abstract",
+              "supports": "Names Schmidhuber as coauthor."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "hochreiter-schmidhuber-1995-lstm",
+          "locator": "Title page, abstract and experiments",
+          "supports": "The technical report is dated 21 August 1995 and describes LSTM experiments."
+        }
+      ]
+    },
+    {
+      "id": "journal-1997",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1997
+        },
+        "latest": {
+          "year": 1997
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1997",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "The authors published a later journal article describing LSTM.",
+      "evidence": [
+        {
+          "source": "hochreiter-schmidhuber-1997-lstm",
+          "locator": "Abstract and journal citation",
+          "supports": "Identifies the journal article and year."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "technical-report-1995",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "concept": "adaptive-neural-network-learning",
+  "places": [
+    {
+      "place": "germany",
+      "note": "Report issued by Technische Universität München; a coauthor also gives a Swiss affiliation."
+    }
+  ],
+  "people": [
+    {
+      "person": "sepp-hochreiter",
+      "role": "author"
+    },
+    {
+      "person": "jurgen-schmidhuber",
+      "role": "author"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "tested delay",
+      "value": ">1000",
+      "unit": "time steps",
+      "event": "technical-report-1995",
+      "subject": "Synthetic long-time-lag tasks in the 1995 LSTM report",
+      "status": "claimed",
+      "conditions": "Authors describe tasks with minimum time lags exceeding 1000 steps; not a deployment or general accuracy measure.",
+      "evidence": [
+        {
+          "source": "hochreiter-schmidhuber-1995-lstm",
+          "locator": "Abstract",
+          "supports": "Authors describe successful tasks with delays over 1000 time steps."
+        }
+      ]
+    }
+  ],
+  "caveats": "This is an improvement in recurrent learning, not the invention of recurrent networks or gradient descent.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked the dated 1995 report and its synthetic task claim; the report date alone does not establish the day of public distribution."
+  }
+}

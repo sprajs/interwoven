@@ -1,0 +1,88 @@
+{
+  "id": "sketchpad-interactive-geometric-constraints",
+  "name": "Sketchpad interactive geometric constraints",
+  "description": "An interactive graphics system let users draw on a display and apply geometric constraints that the computer maintained as the drawing changed.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "thesis-1963",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1963,
+          "month": 1
+        },
+        "latest": {
+          "year": 1963,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1963-01",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Sutherland submitted his Sketchpad dissertation in January 1963, documenting a working TX-2 graphics system with constraints.",
+      "places": [
+        "massachusetts"
+      ],
+      "contributions": [
+        {
+          "person": "ivan-sutherland",
+          "role": "developer",
+          "resource": "Designed and documented Sketchpad.",
+          "evidence": [
+            {
+              "source": "sutherland-1963-sketchpad-paper",
+              "locator": "Title and introduction",
+              "supports": "Names Sutherland and describes the system."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "cambridge-2003-sketchpad-reprint",
+          "locator": "Metadata and abstract",
+          "supports": "Cambridge dates the dissertation and describes movable drawing parts subject to user constraints."
+        },
+        {
+          "source": "sutherland-1963-sketchpad-paper",
+          "locator": "Introduction and design process",
+          "supports": "Conference paper describes light-pen drawing and maintained geometric relationships."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "thesis-1963",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "massachusetts",
+      "note": "MIT Lincoln Laboratory TX-2 system."
+    }
+  ],
+  "people": [
+    {
+      "person": "ivan-sutherland",
+      "role": "originator"
+    }
+  ],
+  "caveats": "This documents research use on a particular laboratory computer, not public access or every subsequent graphical interface.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked Cambridge’s dissertation submission date and description; date is not asserted as first operation."
+  },
+  "concept": "graphical-constraint-editing"
+}

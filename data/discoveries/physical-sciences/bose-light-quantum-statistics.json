@@ -1,0 +1,142 @@
+{
+  "id": "bose-light-quantum-statistics",
+  "name": "Bose’s statistics of light quanta",
+  "description": "Bose derived the blackbody distribution with a new statistical treatment of light quanta; Einstein subsequently extended related reasoning to material particles.",
+  "kind": "science",
+  "domain": "physical-sciences.atomic",
+  "grain": "capability",
+  "concept": "bose-quantum-statistics",
+  "impact": {
+    "reach": 1,
+    "depth": 3,
+    "generativity": 3,
+    "note": "Provisional consequence judgement; actual reach and later attribution require independent study."
+  },
+  "tier": 0,
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 1924
+        },
+        "latest": {
+          "year": 1924
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1924",
+        "basis": "The cited evidence dates this scoped historical episode; no global priority is implied."
+      },
+      "statement": "Bose sent Einstein his radiation-law derivation from Dacca in June 1924.",
+      "evidence": [
+        {
+          "source": "wali-bose-light-quantum-history",
+          "locator": "Relevant historical discussion",
+          "supports": "Bose sent Einstein his radiation-law derivation from Dacca in June 1924."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "satyendra-nath-bose",
+          "role": "developer",
+          "resource": "Derived the radiation law and sent the manuscript.",
+          "evidence": [
+            {
+              "source": "wali-bose-light-quantum-history",
+              "locator": "Relevant historical discussion",
+              "supports": "Bose sent Einstein his radiation-law derivation from Dacca in June 1924."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "einstein-postcard-1924",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 1924,
+          "month": 7,
+          "day": 2
+        },
+        "latest": {
+          "year": 1924,
+          "month": 7,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2 July 1924",
+        "basis": "Date of Einstein’s postcard as reported by Wali."
+      },
+      "statement": "Einstein wrote to Bose that he had translated and submitted the paper for publication.",
+      "evidence": [
+        {
+          "source": "wali-bose-light-quantum-history",
+          "locator": "Discussion of Einstein’s 2 July 1924 postcard",
+          "supports": "Reports the dated postcard and Einstein’s statement that he had translated and submitted the paper."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "albert-einstein",
+          "role": "contributor",
+          "resource": "Translated and submitted Bose’s paper.",
+          "evidence": [
+            {
+              "source": "wali-bose-light-quantum-history",
+              "locator": "Discussion of Einstein’s 2 July 1924 postcard",
+              "supports": "Reports the dated postcard and Einstein’s statement that he had translated and submitted the paper."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "satyendra-nath-bose",
+      "role": "originator"
+    },
+    {
+      "person": "albert-einstein",
+      "role": "contributor"
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest episode supported by the evidence collected here; not a global-priority claim."
+  },
+  "caveats": "Bose’s paper treats radiation; the extension to a gas of atoms was Einstein’s. Later boson and condensate terminology should not be projected into the 1924 paper.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "impact": "recalled",
+      "tier": "recalled",
+      "links": "reviewed"
+    },
+    "note": "Independent source reading checked dated events, linked theory. Grain, impact and other unreviewed facets remain provisional."
+  },
+  "links": [
+    {
+      "from": "planck-blackbody-radiation-energy-elements",
+      "type": "builds_on",
+      "status": "established",
+      "statement": "Bose provided a new statistical derivation of Planck’s radiation law.",
+      "evidence": [
+        {
+          "source": "wali-bose-light-quantum-history",
+          "locator": "Relevant historical discussion",
+          "supports": "Bose sent the derivation from Dacca; Einstein translated and submitted it in 1924."
+        }
+      ]
+    }
+  ]
+}

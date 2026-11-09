@@ -1,0 +1,81 @@
+{
+  "id": "joseon-jeongganbo-mensural-notation",
+  "name": "Joseon jeongganbo music notation",
+  "description": "Joseon court musicians developed a grid-based notation that records pitch and duration for court music.",
+  "kind": "practice",
+  "domain": "arts.music",
+  "grain": "capability",
+  "concept": "musical-notation",
+  "places": [
+    {
+      "place": "south-korea"
+    }
+  ],
+  "events": [
+    {
+      "id": "court-scores-before-1447",
+      "type": "documented_description",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1447
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "Before June 1447",
+        "basis": "Kwon infers a date before June 1447 from the notation of court scores."
+      },
+      "statement": "Joseon court musicians used a grid notation to represent pitch and duration.",
+      "scope": "The author’s inferred upper bound, not a precisely dated invention.",
+      "evidence": [
+        {
+          "source": "kwon-korean-jeongganbo-notation",
+          "locator": "pp. 10–11, Jeongganbo",
+          "supports": "Joseon court musicians used a grid notation to represent pitch and duration."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "king-sejong",
+          "role": "contributor",
+          "resource": "Supported development of court notation with musicians.",
+          "evidence": [
+            {
+              "source": "kwon-korean-jeongganbo-notation",
+              "locator": "pp. 10–11, Jeongganbo",
+              "supports": "Kwon credits Sejong and many musicians with producing the notation."
+            }
+          ]
+        },
+        {
+          "group": "Joseon court musicians",
+          "role": "developer",
+          "resource": "Developed and used a notation for court music.",
+          "evidence": [
+            {
+              "source": "kwon-korean-jeongganbo-notation",
+              "locator": "pp. 10–11, Jeongganbo",
+              "supports": "The author attributes development to Sejong and musicians and describes their notated scores."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "court-scores-before-1447",
+    "rationale": "Date and scope follow the cited event; this is the earliest episode established in this research, not a claim of world priority."
+  },
+  "caveats": "The date is an inferred upper bound from the author’s account; the surviving source chronology and the method’s earlier stages merit independent verification. The present-day country is a geographic locator, not a claim about Joseon’s modern political identity.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
+  }
+}

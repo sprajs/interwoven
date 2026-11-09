@@ -1,0 +1,126 @@
+{
+  "id": "1871-fisk-jubilee-spirituals-tour",
+  "name": "Fisk Jubilee Singers’ fundraising tour",
+  "description": "Fisk students toured to support their school and brought African American spirituals to new concert audiences.",
+  "kind": "practice",
+  "domain": "arts.music",
+  "grain": "instance",
+  "concept": "african-american-spirituals",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "tour-1871",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1871
+        },
+        "latest": {
+          "year": 1871
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "6 October 1871",
+        "basis": "Fisk’s archives dates the beginning of the concert tour to 6 October 1871."
+      },
+      "statement": "A group of Fisk students began a fundraising concert tour.",
+      "scope": "Departure for the tour; their repertoire changed during the tour.",
+      "evidence": [
+        {
+          "source": "fisk-jubilee-archives-tour-1871",
+          "locator": "Background and scope of collection",
+          "supports": "A group of Fisk students began a fundraising concert tour."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Original Fisk student singers",
+          "role": "operator",
+          "resource": "Performed on a fundraising tour for the school.",
+          "evidence": [
+            {
+              "source": "fisk-jubilee-archives-tour-1871",
+              "locator": "Background and scope of collection",
+              "supports": "Fisk identifies the students and their tour."
+            }
+          ]
+        },
+        {
+          "person": "george-l-white",
+          "role": "contributor",
+          "resource": "Organized the group and borrowed funds for the tour.",
+          "evidence": [
+            {
+              "source": "fisk-jubilee-archives-tour-1871",
+              "locator": "Background and scope of collection",
+              "supports": "The finding aid says White organized the tour and borrowed money."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "funds-1872",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1872,
+          "month": 5
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "By May 1872",
+        "basis": "Smithsonian states the sum had been raised by May 1872, an upper bound rather than a date on which the sum was reached."
+      },
+      "statement": "The singers had raised $20,000 in support of Fisk by May 1872.",
+      "scope": "A historical nominal-dollar amount reported by the museum; not a complete lifetime tour total.",
+      "evidence": [
+        {
+          "source": "smithsonian-fisk-jubilee-1872-fundraising",
+          "locator": "Exhibition label accompanying 1872 photograph",
+          "supports": "The singers had raised $20,000 in support of Fisk by May 1872."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "tour-1871",
+    "rationale": "Date and scope follow the cited event; this is the earliest episode established in this research, not a claim of world priority."
+  },
+  "caveats": "Spirituals were created and transmitted by African American communities before this tour, often under enslavement. The ensemble did not originate the tradition, and sources describe repertoire changes after the tour began. The financial amount is a retrospective museum claim.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
+  },
+  "measures": [
+    {
+      "quantity": "support raised for Fisk",
+      "value": 20000,
+      "unit": "US dollars",
+      "event": "funds-1872",
+      "conditions": "By May 1872 according to the Smithsonian portrait label; nominal historical dollars, not adjusted for inflation.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "smithsonian-fisk-jubilee-1872-fundraising",
+          "locator": "Exhibition label accompanying 1872 photograph",
+          "supports": "The label reports $20,000 by May 1872."
+        }
+      ],
+      "subject": "Funds raised by the Fisk student singers for Fisk by May 1872"
+    }
+  ]
+}

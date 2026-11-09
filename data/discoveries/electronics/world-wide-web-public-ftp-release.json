@@ -71,7 +71,7 @@
       "applications": [
         "Networked hypertext"
       ],
-      "caveats": "Internet access was unequal; this does not imply universal awareness or immediate mass adoption.",
+      "caveats": "Internet access was unequal; this does not imply universal awareness or immediate mass adoption. The 1991 announcement offered prototype source via FTP; it did not establish universal network access or a particular license.",
       "evidence": [
         {
           "source": "der-hiel-2016-years-ago-world",
@@ -82,6 +82,20 @@
           "source": "berners-lee-1991-worldwideweb-summary-alt",
           "locator": "6 August 1991 header and Try it section",
           "supports": "Offers the line-mode browser source by anonymous FTP and describes the prototype editor and server."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "cern",
+          "role": "infrastructure_provider",
+          "resource": "The announcement identified an info.cern.ch host for obtaining prototype browser source.",
+          "evidence": [
+            {
+              "source": "berners-lee-1991-worldwideweb-summary-alt",
+              "locator": "Try it section",
+              "supports": "Names the CERN host from which the line-mode prototype source was available."
+            }
+          ]
         }
       ]
     }
@@ -100,7 +114,7 @@
   },
   "caveats": "Internet access was unequal; this does not imply universal awareness or immediate mass adoption.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -115,8 +129,10 @@
       "organizations": "recalled",
       "known_from": "sourced",
       "fate": "recalled",
-      "events": "reviewed"
+      "events": "sourced",
+      "grain": "recalled"
     },
     "note": "Proposed distinct configuration and community entry; requires independent review."
-  }
+  },
+  "grain": "instance"
 }

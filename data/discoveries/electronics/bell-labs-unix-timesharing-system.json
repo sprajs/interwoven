@@ -1,0 +1,169 @@
+{
+  "id": "bell-labs-unix-timesharing-system",
+  "name": "Bell Labs UNIX time-sharing system",
+  "description": "Bell Labs’ interactive operating system combined a hierarchical file system, processes and command-driven tools, first on a PDP-7 and later PDP-11.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "pdp7-1969",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1969
+        },
+        "latest": {
+          "year": 1970
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "1969–1970",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "The early UNIX system ran on PDP-7 and PDP-9 machines around 1969–70.",
+      "places": [
+        "united-states"
+      ],
+      "caveats": "The retrospective dates a functioning system to an interval, not a precise first execution.",
+      "evidence": [
+        {
+          "source": "ritchie-thompson-1978-unix-system",
+          "locator": "Introduction",
+          "supports": "The revised 1978 paper describes its earliest system as running c. 1969–70."
+        }
+      ]
+    },
+    {
+      "id": "pdp11-1971",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 2
+        },
+        "latest": {
+          "year": 1971,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1971-02",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "PDP-11 UNIX became operational in February 1971.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "ken-thompson",
+          "role": "developer",
+          "resource": "Principal early UNIX developer.",
+          "evidence": [
+            {
+              "source": "chm-2019-earliest-unix-code",
+              "locator": "Early PDP-7 UNIX",
+              "supports": "Museum attributes central early work to Thompson and Ritchie."
+            }
+          ]
+        },
+        {
+          "person": "dennis-ritchie",
+          "role": "developer",
+          "resource": "Early UNIX contributor.",
+          "evidence": [
+            {
+              "source": "chm-2019-earliest-unix-code",
+              "locator": "Early PDP-7 UNIX",
+              "supports": "Museum identifies Ritchie as an early contributor."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "ritchie-thompson-1978-unix-system",
+          "locator": "Introduction",
+          "supports": "The authors date PDP-11 operation to February 1971."
+        }
+      ]
+    },
+    {
+      "id": "installations-1978",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1978
+        },
+        "latest": {
+          "year": 1978
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1978",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "In the 1978 revision of their paper, the authors reported more than 600 UNIX installations had entered service.",
+      "caveats": "A retrospective minimum, not individual users; source publication spans July–August 1978.",
+      "evidence": [
+        {
+          "source": "ritchie-thompson-1978-unix-system",
+          "locator": "1978 revision note and introduction",
+          "supports": "Authors report more than 600 installations in their 1978 revision."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "pdp7-1969",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Bell Laboratories research, country-level reference."
+    }
+  ],
+  "people": [
+    {
+      "person": "ken-thompson",
+      "role": "originator"
+    },
+    {
+      "person": "dennis-ritchie",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "reported installations",
+      "value": ">600",
+      "unit": "installations",
+      "event": "installations-1978",
+      "subject": "PDP-11 UNIX installations in service by 1978 revision",
+      "status": "claimed",
+      "conditions": "Authors’ count in the revised 1978 paper; not a count for the original 1974 article or individual users.",
+      "evidence": [
+        {
+          "source": "ritchie-thompson-1978-unix-system",
+          "locator": "Introduction and revision note",
+          "supports": "The authors state more than 600 installations in service."
+        }
+      ]
+    }
+  ],
+  "caveats": "The 1978 article revises its 1974 paper and includes later features and counts; early UNIX did not appear fully formed and had earlier time-sharing precedents.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Source-backed initial research; independent review is pending."
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "arrhenius-carbon-dioxide-climate-calculation",
+  "name": "Arrhenius’s carbon dioxide climate calculation",
+  "description": "Arrhenius calculated how atmospheric carbon dioxide changes could affect surface temperatures, including an ice-age cooling scenario.",
+  "kind": "science",
+  "domain": "physical-sciences.earth",
+  "grain": "capability",
+  "concept": "carbon-dioxide-climate-calculation",
+  "impact": {
+    "reach": 1,
+    "depth": 3,
+    "generativity": 2,
+    "note": "Provisional consequence judgement; actual reach and later attribution require independent study."
+  },
+  "tier": 1,
+  "events": [
+    {
+      "id": "academy-paper-1895",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1895,
+          "month": 12,
+          "day": 11
+        },
+        "latest": {
+          "year": 1895,
+          "month": 12,
+          "day": 11
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "11 December 1895",
+        "basis": "Date stated in the opening footnote of the 1896 published extract."
+      },
+      "statement": "A paper from which Arrhenius’s 1896 article was extracted was presented to the Royal Swedish Academy of Sciences.",
+      "evidence": [
+        {
+          "source": "arrhenius-1896-article-opening",
+          "locator": "Opening footnote, p. 237",
+          "supports": "Identifies the article as an extract from a paper presented on 11 December 1895."
+        }
+      ]
+    },
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1896
+        },
+        "latest": {
+          "year": 1896
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1896",
+        "basis": "The cited evidence dates this scoped historical episode; no global priority is implied."
+      },
+      "statement": "Arrhenius published a quantitative account of carbon dioxide and ground temperature.",
+      "evidence": [
+        {
+          "source": "weart-arrhenius-1896-climate",
+          "locator": "Relevant historical discussion",
+          "supports": "Dates the numerical climate calculation and specifies the European half-CO2 cooling estimate."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "svante-arrhenius",
+          "role": "developer",
+          "resource": "Calculated the temperature consequences of changing carbon dioxide.",
+          "evidence": [
+            {
+              "source": "weart-arrhenius-1896-climate",
+              "locator": "Relevant historical discussion",
+              "supports": "Dates the numerical climate calculation and specifies the European half-CO2 cooling estimate."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "svante-arrhenius",
+      "role": "originator"
+    }
+  ],
+  "earliest_record": {
+    "event": "academy-paper-1895",
+    "rationale": "The published article identifies an earlier presentation; the earlier paper’s exact contents remain to be checked."
+  },
+  "caveats": "The historical scenario-specific estimate is not a modern climate-sensitivity result. Earlier work on gases and climate should not be collapsed into this calculation. The 1896 publication identifies an 1895 presentation, but the surviving extract alone does not establish which numerical results were included in that presentation.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "impact": "recalled",
+      "tier": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "Independent source reading checked dated events and numerical measures. Grain, impact and other unreviewed facets remain provisional."
+  },
+  "measures": [
+    {
+      "quantity": "estimated European temperature change",
+      "value": "approximately -4 to -5",
+      "unit": "°C",
+      "event": "dated-episode",
+      "subject": "Arrhenius 1896 halved-CO2 scenario as described by Weart",
+      "conditions": "Historical model estimate for Europe, not an observation or a modern global climate-sensitivity value.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "weart-arrhenius-1896-climate",
+          "locator": "Relevant historical discussion",
+          "supports": "Dates the numerical climate calculation and specifies the European half-CO2 cooling estimate."
+        }
+      ]
+    }
+  ]
+}

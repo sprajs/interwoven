@@ -1,0 +1,139 @@
+{
+  "id": "visicalc-interactive-electronic-spreadsheet",
+  "name": "VisiCalc interactive personal-computer spreadsheet",
+  "description": "A commercial personal-computer spreadsheet let users change values and recalculate interconnected financial models.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "commercial-1979",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1979
+        },
+        "latest": {
+          "year": 1979
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1979",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "VisiCalc was introduced for personal computers, initially developed for the Apple II.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "dan-bricklin",
+          "role": "developer",
+          "resource": "Co-developed VisiCalc.",
+          "evidence": [
+            {
+              "source": "chm-1979-visicalc-timeline",
+              "locator": "VisiCalc section",
+              "supports": "CHM names Bricklin and Frankston."
+            }
+          ]
+        },
+        {
+          "person": "bob-frankston",
+          "role": "developer",
+          "resource": "Co-developed VisiCalc.",
+          "evidence": [
+            {
+              "source": "chm-1979-visicalc-timeline",
+              "locator": "VisiCalc section",
+              "supports": "CHM names Bricklin and Frankston."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "chm-visicalc-object",
+          "locator": "Object metadata",
+          "supports": "The museum dates introduction to 1979 and identifies the company."
+        },
+        {
+          "source": "chm-1979-visicalc-timeline",
+          "locator": "VisiCalc section",
+          "supports": "The museum identifies the designers, platform and spreadsheet recalculation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "commercial-1979",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "dan-bricklin",
+      "role": "originator"
+    },
+    {
+      "person": "bob-frankston",
+      "role": "originator"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "initial software price",
+      "value": 100,
+      "unit": "USD",
+      "event": "commercial-1979",
+      "subject": "VisiCalc software package",
+      "currency": "USD",
+      "money_context": "Nominal initial price recalled by Bricklin; a suitable computer and peripherals cost extra.",
+      "conditions": "Participant retrospective; no dated invoice inspected and price later increased.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "bricklin-frankston-2004-interview",
+          "locator": "Interview pp. 27–28",
+          "supports": "Bricklin recalls initial price $100 and additional hardware expense."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "requires",
+      "from": "apple-ii-personal-computer",
+      "status": "established",
+      "statement": "The initial VisiCalc implementation was developed for the Apple II.",
+      "scope": "Initial product implementation, not all later ports.",
+      "evidence": [
+        {
+          "source": "chm-1979-visicalc-timeline",
+          "locator": "VisiCalc section",
+          "supports": "Museum identifies the Apple II as the initial platform."
+        }
+      ]
+    }
+  ],
+  "caveats": "Other electronic spreadsheets and financial modelling preceded VisiCalc; the record concerns the accessible personal-computer implementation.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "sourced",
+      "links": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Source-backed initial research; independent review is pending."
+  },
+  "concept": "interactive-spreadsheet"
+}

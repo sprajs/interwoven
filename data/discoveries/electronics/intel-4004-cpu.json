@@ -167,6 +167,48 @@
           "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
         }
       ]
+    },
+    {
+      "id": "busicom-development-agreement-1969",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1969,
+          "month": 4
+        },
+        "latest": {
+          "year": 1969,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "April 1969",
+        "basis": "The 4004 team’s retrospective dates Intel’s agreement to develop calculator chips for the Japanese firm to April 1969."
+      },
+      "statement": "Intel agreed to develop calculator chips for the Busicom-associated Japanese firm.",
+      "scope": "Initial calculator-chip development arrangement, before the eventual 4004 implementation.",
+      "caveats": "The account does not supply a contract price here; the initial agreement is not a sale to the general market.",
+      "evidence": [
+        {
+          "source": "faggin-1996-history",
+          "locator": "Printed p. 10, opening Busicom account",
+          "supports": "The authors describe an April 1969 agreement to develop calculator chips for the Japanese firm."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "busicom",
+          "role": "customer",
+          "resource": "Commissioned calculator-chip development from Intel.",
+          "evidence": [
+            {
+              "source": "faggin-1996-history",
+              "locator": "Printed p. 10, opening Busicom account",
+              "supports": "Intel agreed to develop chips for the Busicom-associated firm."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -247,7 +289,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -266,8 +308,9 @@
       "known_from": "sourced",
       "fate": "recalled",
       "market": "sourced",
-      "events": "reviewed",
-      "links": "reviewed"
+      "events": "sourced",
+      "links": "reviewed",
+      "grain": "recalled"
     },
     "unresolved": [
       {
@@ -299,5 +342,6 @@
       }
     ],
     "note": "Four-bit CPU identity merges architecture and product contexts; exact development and market stages remain separate. Contributor attributions are preserved from the removed dated assertion and its elec-chm-4004-cpu and elec-chm-silicon-gate evidence."
-  }
+  },
+  "grain": "instance"
 }

@@ -1,0 +1,151 @@
+{
+  "id": "highland-park-moving-vehicle-assembly",
+  "name": "Highland Park moving vehicle assembly",
+  "description": "Ford’s Highland Park factory organized workers at stations along moving lines to assemble vehicle components and chassis.",
+  "kind": "technology",
+  "domain": "machines.manufacturing",
+  "grain": "capability",
+  "concept": "moving-assembly-production",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "michigan"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1913,
+          "month": 8
+        },
+        "latest": {
+          "year": 1913,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "August 1913",
+        "basis": "The source reports the date for this scoped event or archaeological context."
+      },
+      "statement": "Workers at Highland Park applied moving assembly to complete Model T chassis in August 1913.",
+      "places": [
+        "michigan"
+      ],
+      "evidence": [
+        {
+          "source": "anderson-2021-ford-moving-assembly",
+          "locator": "Magneto and chassis paragraphs",
+          "supports": "Workers at Highland Park applied moving assembly to complete Model T chassis in August 1913."
+        }
+      ],
+      "contributions": [
+        {
+          "role": "operator",
+          "resource": "Highland Park moving vehicle assembly",
+          "evidence": [
+            {
+              "source": "anderson-2021-ford-moving-assembly",
+              "locator": "Magneto and chassis paragraphs",
+              "supports": "The source attributes this contribution to ford-motor-company."
+            }
+          ],
+          "organization": "ford-motor-company"
+        },
+        {
+          "group": "Highland Park assembly workers",
+          "role": "operator",
+          "resource": "Vehicle assembly at moving workstations",
+          "evidence": [
+            {
+              "source": "anderson-2021-ford-moving-assembly",
+              "locator": "Magneto and chassis paragraphs",
+              "supports": "Workers at Highland Park applied moving assembly to complete Model T chassis in August 1913."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-t-assembly-1914",
+      "type": "production",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1914
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1914",
+        "basis": "The Henry Ford catalogue reports a complete vehicle assembly labour-time comparison by 1914."
+      },
+      "statement": "The museum reports a Model T assembly labour time of just over 1.5 labour-hours by 1914, compared with 12.5 labour-hours under stationary methods.",
+      "places": [
+        "michigan"
+      ],
+      "evidence": [
+        {
+          "source": "henry-ford-highland-park-body-line",
+          "locator": "Artifact overview",
+          "supports": "The catalogue states the two labour-time figures and dates the comparison by 1914."
+        }
+      ],
+      "caveats": "Museum summary; boundaries of assembly, components and prior baseline need original production records."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "The earliest dated case currently researched, not a claim of the capability’s original invention or global priority."
+  },
+  "caveats": "Moving work began in other industries and Ford stages earlier; the evidence does not establish worldwide invention of an assembly line.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked The Henry Ford’s account and photograph catalogue. The 1914 catalogue comparison is a museum summary; task boundaries and the date of its stationary comparator are not specified."
+  },
+  "measures": [
+    {
+      "quantity": "vehicle assembly labour time",
+      "value": "just over 1.5",
+      "lower": 1.5,
+      "unit": "labour-hours per vehicle",
+      "event": "model-t-assembly-1914",
+      "subject": "Model T full assembly",
+      "status": "claimed",
+      "conditions": "Museum says just over 1.5 labour-hours by 1914; rounding and task boundaries unspecified.",
+      "evidence": [
+        {
+          "source": "henry-ford-highland-park-body-line",
+          "locator": "Artifact overview",
+          "supports": "The catalogue states the two labour-time figures and dates the comparison by 1914."
+        }
+      ]
+    },
+    {
+      "quantity": "stationary assembly labour time",
+      "value": 12.5,
+      "unit": "labour-hours per vehicle",
+      "event": "model-t-assembly-1914",
+      "subject": "Model T stationary-method comparison",
+      "status": "claimed",
+      "conditions": "Museum historical comparator, not necessarily measured in 1914; task boundaries unspecified.",
+      "evidence": [
+        {
+          "source": "henry-ford-highland-park-body-line",
+          "locator": "Artifact overview",
+          "supports": "The catalogue states the two labour-time figures and dates the comparison by 1914."
+        }
+      ]
+    }
+  ]
+}

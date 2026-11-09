@@ -122,6 +122,45 @@
           "supports": "Printed quires and sales were reported by March 1455."
         }
       ]
+    },
+    {
+      "id": "fust-workshop-finance-1450s",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1450
+        },
+        "latest": {
+          "year": 1452
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1450–1452",
+        "basis": "The Mainz institutional chronology places the loan and further investment in 1450–1452, with the second payment probably in 1452."
+      },
+      "statement": "Fust lent Gutenberg 800 guilders for the printing project; the chronology describes a further 800-guilder investment, probably in 1452.",
+      "caveats": "A retrospective institutional chronology; precise dates and terms of each payment are not established here. The second payment is not treated as part of the initial loan.",
+      "evidence": [
+        {
+          "source": "gutenberg-museum-landeshauptstadt-nd-gutenberg-his-time",
+          "locator": "1450–1452 chronology",
+          "supports": "The institutional chronology reports Fust lent 800 guilders to Gutenberg’s costly printing project and subsequently invested another 800, probably in 1452."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "johann-fust",
+          "role": "funder",
+          "resource": "Initial loan for the printing project, followed by a separately described investment.",
+          "evidence": [
+            {
+              "source": "gutenberg-museum-landeshauptstadt-nd-gutenberg-his-time",
+              "locator": "1450–1452 chronology",
+              "supports": "The institutional chronology reports Fust lent 800 guilders to Gutenberg’s costly printing project and subsequently invested another 800, probably in 1452."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -138,7 +177,7 @@
   },
   "caveats": "The earlier chronology is a qualified institutional reconstruction, not a surviving dated press. Asian printing traditions precede it; no direct Asian-to-Mainz transmission is asserted. Earliest means earliest source-supported record established for this scoped referent here, not certified global priority.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -149,15 +188,38 @@
       "concept": "sourced",
       "limit_removed": "recalled",
       "setting": "recalled",
-      "funding": "recalled",
+      "funding": "sourced",
       "places": "sourced",
       "people": "recalled",
       "societies": "recalled",
       "known_from": "sourced",
       "reception": "recalled",
       "fate": "recalled",
-      "events": "reviewed"
+      "events": "sourced",
+      "measures": "sourced",
+      "grain": "recalled"
     },
     "note": "Ranked Stage 7 gap admission after direct source reading. Inclusion is selective; no independent historian endorsement claimed."
-  }
+  },
+  "measures": [
+    {
+      "quantity": "initial workshop loan",
+      "value": 800,
+      "unit": "guilders",
+      "event": "fust-workshop-finance-1450s",
+      "subject": "Fust’s initial loan to Gutenberg",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "gutenberg-museum-landeshauptstadt-nd-gutenberg-his-time",
+          "locator": "1450–1452 chronology",
+          "supports": "Reports an initial 800-guilder loan for the project."
+        }
+      ],
+      "currency": "guilders",
+      "money_context": "Nominal 15th-century guilders; loan, not a grant, final cost or total capital.",
+      "conditions": "The chronology places the loan in 1450–1452 without a precise transaction date."
+    }
+  ],
+  "grain": "capability"
 }

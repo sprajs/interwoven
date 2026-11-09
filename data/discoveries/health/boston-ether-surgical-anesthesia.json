@@ -1,0 +1,64 @@
+{
+  "id": "boston-ether-surgical-anesthesia",
+  "name": "Boston ether surgical anaesthesia demonstration",
+  "description": "At Massachusetts General Hospital, William Morton publicly demonstrated ether anaesthesia in a surgical setting.",
+  "kind": "technology",
+  "domain": "health.surgery",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "documented-evidence",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1846,
+          "month": 10,
+          "day": 16
+        },
+        "latest": {
+          "year": 1846,
+          "month": 10,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "16 October 1846",
+        "basis": "Date reported by the cited institutional source."
+      },
+      "statement": "At Massachusetts General Hospital, William Morton publicly demonstrated ether anaesthesia in a surgical setting.",
+      "evidence": [
+        {
+          "source": "guralnick-mass-general-ether-history",
+          "locator": "pp. 3–4",
+          "supports": "The hospital historical account dates the public demonstration to 16 October 1846 and notes earlier dental applications."
+        }
+      ],
+      "caveats": "This was not the first use of pain relief or anaesthesia; the retrospective does not resolve disputes about earlier contributions.",
+      "places": [
+        "united-states"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-evidence",
+    "rationale": "Earliest supported event for this scoped case, not a universal priority claim. This was not the first use of pain relief or anaesthesia; the retrospective does not resolve disputes about earlier contributions."
+  },
+  "caveats": "This was not the first use of pain relief or anaesthesia; the retrospective does not resolve disputes about earlier contributions.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "reviewed",
+      "concept": "sourced"
+    },
+    "note": "Independent review of marked source facets on 2026-11-09; archaeological and historical interpretations retain the stated limitations."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "concept": "surgical-general-anesthesia"
+}

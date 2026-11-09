@@ -1,0 +1,98 @@
+{
+  "id": "titusville-drake-oil-well",
+  "name": "Titusville drilled oil production",
+  "description": "A mechanically drilled oil well at Titusville became a documented episode in commercial petroleum development in Pennsylvania.",
+  "kind": "technology",
+  "domain": "energy.fire",
+  "grain": "instance",
+  "concept": "drilled-petroleum-production",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Present-day country or region reference; ancient political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "oil-well-1859",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1859
+        },
+        "latest": {
+          "year": 1859
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1859",
+        "basis": "The cited source dates the episode."
+      },
+      "statement": "Edwin Drake led drilling of an oil-producing well near Titusville, Pennsylvania, in 1859.",
+      "caveats": "The source calls this the world’s first oil well; oil extraction and drilling elsewhere preceded it, so that priority claim is not used.",
+      "evidence": [
+        {
+          "source": "nps-nd-drake-well-nomination",
+          "locator": "Statement of significance",
+          "supports": "NPS identifies Drake’s role, place, year and oil discovery."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "edwin-drake",
+          "role": "contributor",
+          "resource": "Directed the drilling as chief engineer",
+          "evidence": [
+            {
+              "source": "nps-nd-drake-well-nomination",
+              "locator": "Statement of significance",
+              "supports": "The nomination describes Drake’s role as chief engineer in charge of oil production."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "oil-well-1859",
+    "rationale": "Earliest episode established by the cited evidence for this precisely scoped record; not a claim of global origin."
+  },
+  "caveats": "The date and depth are from a retrospective nomination. The well is not presented as the first extraction of petroleum or first drilled well globally.",
+  "measures": [
+    {
+      "quantity": "well depth",
+      "value": 69.5,
+      "unit": "feet",
+      "event": "oil-well-1859",
+      "subject": "Drake well at Titusville",
+      "conditions": "Depth reported by NPS for August 1859; not total regional production.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nps-nd-drake-well-nomination",
+          "locator": "Statement of significance",
+          "supports": "Nomination gives 69.5 feet."
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "edwin-drake",
+      "role": "contributor"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "sourced"
+    },
+    "note": "Initial evidence-backed admission; classifications and historical interpretations await independent review. Independent review checked cited event dates, wording and, where marked, numerical measures; other facets retain their original status."
+  }
+}

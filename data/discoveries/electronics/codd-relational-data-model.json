@@ -1,0 +1,83 @@
+{
+  "id": "codd-relational-data-model",
+  "name": "Codd relational model of data",
+  "description": "A formal data model based on relations and relational operations, designed to reduce application dependence on physical data representation.",
+  "kind": "mathematics",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "paper-1970",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1970,
+          "month": 6
+        },
+        "latest": {
+          "year": 1970,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1970-06",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "E. F. Codd published a relational data model for large shared data banks.",
+      "places": [
+        "california"
+      ],
+      "contributions": [
+        {
+          "person": "edgar-codd",
+          "role": "developer",
+          "resource": "Developed and published the model.",
+          "evidence": [
+            {
+              "source": "codd-1970-relational-model",
+              "locator": "Author and introduction",
+              "supports": "The paper names Codd and presents the model."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "codd-1970-relational-model",
+          "locator": "Abstract and sections 1–2",
+          "supports": "The 1970 paper introduces relations, data independence and relational operations."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "paper-1970",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "california",
+      "note": "Paper identifies IBM Research Laboratory in San Jose."
+    }
+  ],
+  "people": [
+    {
+      "person": "edgar-codd",
+      "role": "author"
+    }
+  ],
+  "caveats": "The paper explicitly does not describe a working relational database implementation; academic relation theory and other database models preceded it.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked IBM publication metadata and the original paper’s stated affiliation and subject."
+  },
+  "concept": "relational-data-model"
+}

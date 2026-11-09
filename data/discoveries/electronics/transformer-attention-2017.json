@@ -1,0 +1,228 @@
+{
+  "id": "transformer-attention-2017",
+  "name": "Transformer attention-based sequence model",
+  "description": "An encoder–decoder sequence model built around self-attention and feed-forward layers instead of sequence-aligned recurrence or convolution.",
+  "kind": "technology",
+  "domain": "electronics.ai",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "preprint-2017",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2017,
+          "month": 6,
+          "day": 12
+        },
+        "latest": {
+          "year": 2017,
+          "month": 6,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2017-06-12",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "The authors publicly submitted the first Transformer paper, reporting machine-translation experiments.",
+      "caveats": "The first version’s reported scores differ from later revisions. Attention and neural sequence modelling preceded this work.",
+      "contributions": [
+        {
+          "person": "ashish-vaswani",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "noam-shazeer",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "niki-parmar",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "jakob-uszkoreit",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "llion-jones",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "aidan-gomez",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "lukasz-kaiser",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        },
+        {
+          "person": "illia-polosukhin",
+          "role": "contributor",
+          "resource": "Coauthored the original Transformer paper.",
+          "evidence": [
+            {
+              "source": "vaswani-2017-transformer-arxiv-v1",
+              "locator": "Authors",
+              "supports": "First-version author list identifies the contributor."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "vaswani-2017-transformer-arxiv-v1",
+          "locator": "First page and model sections",
+          "supports": "The version-one paper specifies architecture and translation experiments."
+        },
+        {
+          "source": "arxiv-transformer-version-history",
+          "locator": "Submission history",
+          "supports": "arXiv dates version 1 to 12 June 2017."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "preprint-2017",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "concept": "adaptive-neural-network-learning",
+  "people": [
+    {
+      "person": "ashish-vaswani",
+      "role": "author"
+    },
+    {
+      "person": "noam-shazeer",
+      "role": "author"
+    },
+    {
+      "person": "niki-parmar",
+      "role": "author"
+    },
+    {
+      "person": "jakob-uszkoreit",
+      "role": "author"
+    },
+    {
+      "person": "llion-jones",
+      "role": "author"
+    },
+    {
+      "person": "aidan-gomez",
+      "role": "author"
+    },
+    {
+      "person": "lukasz-kaiser",
+      "role": "author"
+    },
+    {
+      "person": "illia-polosukhin",
+      "role": "author"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "translation score",
+      "value": 28.4,
+      "unit": "BLEU",
+      "event": "preprint-2017",
+      "subject": "WMT 2014 English-to-German translation",
+      "status": "claimed",
+      "conditions": "Version-one author-reported Transformer experiment; dataset and preprocessing matter and BLEU is not general language capability.",
+      "evidence": [
+        {
+          "source": "vaswani-2017-transformer-arxiv-v1",
+          "locator": "Abstract",
+          "supports": "Version one reports 28.4 BLEU for English-to-German."
+        }
+      ]
+    },
+    {
+      "quantity": "translation score",
+      "value": 41.0,
+      "unit": "BLEU",
+      "event": "preprint-2017",
+      "subject": "WMT 2014 English-to-French translation",
+      "status": "claimed",
+      "conditions": "Version-one author-reported result; later revisions report different values.",
+      "evidence": [
+        {
+          "source": "vaswani-2017-transformer-arxiv-v1",
+          "locator": "Abstract",
+          "supports": "Version one reports 41.0 BLEU for English-to-French."
+        }
+      ]
+    }
+  ],
+  "caveats": "The original model is a machine-translation research contribution; later Transformer variants and their uses must be documented separately.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked arXiv version-one date, authors, architecture and version-specific BLEU figures."
+  }
+}

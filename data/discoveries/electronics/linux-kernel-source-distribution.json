@@ -1,0 +1,112 @@
+{
+  "id": "linux-kernel-source-distribution",
+  "name": "Linux kernel source distribution",
+  "description": "A Unix-like kernel for 386-compatible computers, developed and shared by Linus Torvalds and collaborators, initially under noncommercial redistribution conditions.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "linux-002-1991",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1991,
+          "month": 10,
+          "day": 5
+        },
+        "latest": {
+          "year": 1991,
+          "month": 10,
+          "day": 5
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1991-10-05",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Torvalds announced availability of version 0.02 kernel sources for wider distribution.",
+      "places": [
+        "finland"
+      ],
+      "caveats": "Version 0.01 had already circulated to interested people without a broad announcement; the transcription is preserved by a third-party site.",
+      "contributions": [
+        {
+          "person": "linus-torvalds",
+          "role": "developer",
+          "resource": "Developed and publicly announced early kernel sources.",
+          "evidence": [
+            {
+              "source": "torvalds-1991-linux-002-post",
+              "locator": "Announcement and sender",
+              "supports": "Post identifies Torvalds and describes his kernel."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "torvalds-1991-linux-002-post",
+          "locator": "5 October 1991 comp.os.minix message",
+          "supports": "Reproduced post announces source availability and notes early supported GNU programs."
+        }
+      ]
+    },
+    {
+      "id": "copyleft-transition-1992",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1992,
+          "month": 1,
+          "day": 15
+        },
+        "latest": {
+          "year": 1992,
+          "month": 1,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1992-01-15",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Version 0.12 release notes proposed changing to GNU-compatible copyleft from 1 February 1992, subject to contributor agreement.",
+      "caveats": "This announcement is not evidence of the final legal status of every later contribution; the initial version was not GPL licensed.",
+      "evidence": [
+        {
+          "source": "torvalds-1992-linux-012-notes",
+          "locator": "Announcement and COPYRIGHT",
+          "supports": "Release notes describe proposed change and consent condition."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "linux-002-1991",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "finland"
+    }
+  ],
+  "people": [
+    {
+      "person": "linus-torvalds",
+      "role": "originator"
+    }
+  ],
+  "caveats": "A kernel is not a complete distribution; usable systems combined it with additional software. Source availability did not imply zero network or hardware cost.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced"
+    },
+    "note": "Source-backed initial research; independent review is pending. Independent reader checked 0.02 announcement and 0.12 copyright proposal in the transcribed posts; no exact 0.01 public release date inferred."
+  }
+}

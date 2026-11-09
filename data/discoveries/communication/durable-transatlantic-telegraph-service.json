@@ -196,7 +196,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -218,8 +218,49 @@
       "fate": "recalled",
       "market": "sourced",
       "events": "reviewed",
-      "links": "reviewed"
+      "links": "reviewed",
+      "measures": "reviewed",
+      "grain": "recalled"
     },
     "note": "Proposed distinct configuration and community entry; requires independent review."
-  }
+  },
+  "measures": [
+    {
+      "quantity": "reported cable charge",
+      "value": 24,
+      "unit": "pounds sterling",
+      "event": "commercial-availability-1866",
+      "subject": "Scientific American’s 20-word London correspondent message including transmission date",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "american-2020-cost-message-london",
+          "locator": "Republished paragraph attributed to August 1866",
+          "supports": "The publisher reports a charge of £24 including the date of transmission."
+        }
+      ],
+      "currency": "GBP",
+      "money_context": "Nominal 1866 sterling; a reported charge, not proven payment or a universal tariff.",
+      "conditions": "A specific 20-word message; the director included the transmission date in the charge."
+    },
+    {
+      "quantity": "published schedule for message",
+      "value": 20,
+      "unit": "pounds sterling",
+      "event": "commercial-availability-1866",
+      "subject": "Published schedule for the reported 20-word message",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "american-2020-cost-message-london",
+          "locator": "Republished paragraph attributed to August 1866",
+          "supports": "The account says that under the published schedule 20 words should cost £20."
+        }
+      ],
+      "currency": "GBP",
+      "money_context": "Nominal 1866 sterling; a schedule for the reported message, not a verified transaction.",
+      "conditions": "Reported schedule omits the charge applied for the date of transmission."
+    }
+  ],
+  "grain": "capability"
 }

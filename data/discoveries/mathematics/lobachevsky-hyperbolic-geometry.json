@@ -1,0 +1,101 @@
+{
+  "id": "lobachevsky-hyperbolic-geometry",
+  "name": "Lobachevsky’s hyperbolic geometry",
+  "description": "Lobachevsky developed a geometry in which Euclid’s parallel postulate does not hold.",
+  "kind": "mathematics",
+  "domain": "mathematics.geometry",
+  "grain": "capability",
+  "concept": "hyperbolic-geometry",
+  "impact": {
+    "reach": 1,
+    "depth": 3,
+    "generativity": 3,
+    "note": "Provisional consequence judgement; actual reach and later attribution require independent study."
+  },
+  "tier": 0,
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1826
+        },
+        "latest": {
+          "year": 1826
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1826",
+        "basis": "The cited evidence dates this scoped historical episode; no global priority is implied."
+      },
+      "statement": "Lobachevsky presented imaginary geometry at Kazan University.",
+      "evidence": [
+        {
+          "source": "mactutor-lobachevsky-lecture",
+          "locator": "Relevant historical discussion",
+          "supports": "Dates the Kazan presentation of imaginary geometry to 1826."
+        },
+        {
+          "source": "mactutor-elements-context",
+          "locator": "Relevant historical discussion",
+          "supports": "Contrasts alternatives to the Euclidean parallel postulate and discusses Lobachevsky and Bolyai."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "nikolai-lobachevsky",
+          "role": "developer",
+          "resource": "Developed and presented an alternative geometry.",
+          "evidence": [
+            {
+              "source": "mactutor-lobachevsky-lecture",
+              "locator": "Relevant historical discussion",
+              "supports": "Dates the Kazan presentation of imaginary geometry to 1826."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "nikolai-lobachevsky",
+      "role": "originator"
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest episode supported by the evidence collected here; not a global-priority claim."
+  },
+  "caveats": "The exact 1826 presentation content has not been checked in its original manuscript. Bolyai and Gauss also worked on related geometries; relative-consistency interpretations came later.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "impact": "recalled",
+      "tier": "recalled",
+      "links": "reviewed"
+    },
+    "note": "Independent source reading checked dated events, linked theory. Grain, impact and other unreviewed facets remain provisional."
+  },
+  "links": [
+    {
+      "from": "euclid-elements-deductive-geometry",
+      "type": "builds_on",
+      "status": "established",
+      "statement": "The geometry modifies Euclid’s parallel assumption within a related geometric framework.",
+      "evidence": [
+        {
+          "source": "mactutor-elements-context",
+          "locator": "Relevant historical discussion",
+          "supports": "Contrasts alternatives to the Euclidean parallel postulate and discusses Lobachevsky and Bolyai."
+        }
+      ]
+    }
+  ]
+}

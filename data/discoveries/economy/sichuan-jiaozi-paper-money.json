@@ -1,0 +1,133 @@
+{
+  "id": "sichuan-jiaozi-paper-money",
+  "name": "Sichuan merchant and state jiaozi",
+  "description": "Merchants in Sichuan issued paper bills for regional exchange; the Song state later took over their issue.",
+  "kind": "practice",
+  "domain": "economy.money",
+  "grain": "capability",
+  "concept": "paper-money",
+  "places": [
+    {
+      "place": "china"
+    }
+  ],
+  "events": [
+    {
+      "id": "private-issue-990s",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 990
+        },
+        "latest": {
+          "year": 999
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "990s CE",
+        "basis": "Von Glahn places merchant issue in the 990s."
+      },
+      "statement": "Sichuan merchants issued private jiaozi bills for intraregional exchange.",
+      "scope": "Merchant-issued bills in Sichuan, before the later state takeover.",
+      "evidence": [
+        {
+          "source": "von-glahn-2026-sichuan-jiaozi",
+          "locator": "Chapter 4 summary",
+          "supports": "Sichuan merchants issued private jiaozi bills for intraregional exchange."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Private merchants in Sichuan",
+          "role": "operator",
+          "resource": "Issued paper bills for exchange.",
+          "evidence": [
+            {
+              "source": "von-glahn-2026-sichuan-jiaozi",
+              "locator": "Chapter 4 summary",
+              "supports": "The chapter summary attributes the first issue to private merchants."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "state-takeover-1024",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 1024
+        },
+        "latest": {
+          "year": 1024
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1024 CE",
+        "basis": "Von Glahn dates the state takeover to 1024."
+      },
+      "statement": "The state took over the issue of jiaozi in Sichuan.",
+      "scope": "State takeover followed issuer insolvencies and attempted regulation.",
+      "evidence": [
+        {
+          "source": "von-glahn-2026-sichuan-jiaozi",
+          "locator": "Chapter 4 summary",
+          "supports": "The state took over the issue of jiaozi in Sichuan."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Song state authorities",
+          "role": "operator",
+          "resource": "Took over issue of jiaozi.",
+          "evidence": [
+            {
+              "source": "von-glahn-2026-sichuan-jiaozi",
+              "locator": "Chapter 4 summary",
+              "supports": "The summary dates state takeover to 1024."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "private-issue-990s",
+    "rationale": "Date and scope follow the cited event; this is the earliest episode established in this research, not a claim of world priority."
+  },
+  "caveats": "This is a regional history, not a claim that all earlier exchange instruments were banknotes. Chronology and reasons are taken from an academic chapter summary; original sources and individual users remain to be examined.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "links": "sourced"
+    },
+    "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "tang-flying-money-exchange-certificates",
+      "status": "candidate",
+      "statement": "Did Tang flying-money certificates contribute to the emergence of Sichuan jiaozi?",
+      "scope": "A possible institutional relationship, not an established transmission path.",
+      "finding": "The Met describes flying money as a possible precursor of later banknotes, but neither inspected summary traces this particular route.",
+      "evidence": [
+        {
+          "source": "met-2001-tang-flying-money",
+          "locator": "Chronology, approximately 810 CE",
+          "supports": "Describes flying money as a possible precursor of banknotes, without identifying a direct path to Sichuan jiaozi."
+        },
+        {
+          "source": "von-glahn-2026-sichuan-jiaozi",
+          "locator": "Chapter 4 summary",
+          "supports": "Reports Sichuan jiaozi issue in the 990s and state takeover in 1024."
+        }
+      ]
+    }
+  ]
+}

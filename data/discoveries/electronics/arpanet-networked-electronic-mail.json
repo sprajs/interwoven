@@ -1,0 +1,105 @@
+{
+  "id": "arpanet-networked-electronic-mail",
+  "name": "ARPANET networked electronic mail",
+  "description": "An early networked messaging implementation sent mail between TENEX users on separate ARPANET-connected hosts using recipient and host addressing.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "network-mail-1971",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1971
+        },
+        "latest": {
+          "year": 1971
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1971",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Ray Tomlinson demonstrated networked mail between two TENEX systems connected to the ARPANET in 1971.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "ray-tomlinson",
+          "role": "developer",
+          "resource": "Implemented the networked mail demonstration.",
+          "evidence": [
+            {
+              "source": "walden-2011-networked-email",
+              "locator": "Chapter 19, p. 493",
+              "supports": "The history attributes implementation and address separator to Tomlinson."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "walden-2011-networked-email",
+          "locator": "Chapter 19, pp. 493–494",
+          "supports": "Participant-based history describes the implementation, addressing and demonstration."
+        }
+      ]
+    },
+    {
+      "id": "community-use-1972",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1972
+        },
+        "latest": {
+          "year": 1972
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "early 1972 (approximate)",
+        "basis": "Date or approximate interval stated by the source for this event."
+      },
+      "statement": "Tomlinson recalled use of network mail among ARPANET collaborators in early 1972.",
+      "caveats": "The participant estimate of possible users is approximate and is not a measured adoption figure.",
+      "evidence": [
+        {
+          "source": "tomlinson-2009-oral-history",
+          "locator": "Interview pp. 12–13",
+          "supports": "Tomlinson recalls use across the limited ARPANET community."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "network-mail-1971",
+    "rationale": "Earliest dated event established in the cited sources for this scoped record; it does not assert global priority."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "ray-tomlinson",
+      "role": "originator"
+    }
+  ],
+  "caveats": "Local mailbox systems, including CTSS, existed earlier; the demonstration is one networked implementation, not the origin of all electronic messaging.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Source-backed initial research; independent review is pending."
+  },
+  "concept": "networked-electronic-mail"
+}

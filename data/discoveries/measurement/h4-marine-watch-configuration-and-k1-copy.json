@@ -106,6 +106,32 @@
           "locator": "Object ZAA0037, description",
           "supports": "Identifies H4, its 1759 completion and high-frequency balance."
         }
+      ],
+      "contributions": [
+        {
+          "organization": "board-of-longitude",
+          "role": "customer",
+          "resource": "Commissioned Kendall’s copy of H4; no expenditure is specified.",
+          "evidence": [
+            {
+              "source": "royal-museums-greenwich-nd-board-longitude-explorers",
+              "locator": "Single-page description, 1766 commission",
+              "supports": "The museum says the Board of Longitude commissioned Larcum Kendall to copy H4."
+            }
+          ]
+        },
+        {
+          "person": "larcum-kendall",
+          "role": "manufacturer",
+          "resource": "Commissioned to make the copy later called K1.",
+          "evidence": [
+            {
+              "source": "royal-museums-greenwich-nd-board-longitude-explorers",
+              "locator": "Single-page description, 1766 commission",
+              "supports": "The museum says the Board of Longitude commissioned Larcum Kendall to copy H4."
+            }
+          ]
+        }
       ]
     }
   ],
@@ -123,7 +149,7 @@
   },
   "caveats": "The commission demonstrates technical recognition by a named body, not universal acceptance or fleet-wide supply; the original Board minutes were not separately inspected.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -142,8 +168,10 @@
       "known_from": "sourced",
       "reception": "recalled",
       "fate": "recalled",
-      "events": "reviewed"
+      "events": "sourced",
+      "grain": "recalled"
     },
     "note": "Global-frontier identity audit: The holding institutions explicitly identify K1 as a commissioned copy of H4 for the same longitude-timekeeping application. No distinct cost, architecture, precision or application advance is asserted by the K1 records. Keep its 1769 completion and 1772–1775 voyage use as K1-scoped events; do not identify the two physical watches. Superseded copy relationship mech-h4-to-k1-copy and the removed K1 node are preserved verbatim, with their original evidence, in reviews/frontier-audit.json. The commission, K1 completion and voyage remain separately scoped historical events."
-  }
+  },
+  "grain": "instance"
 }

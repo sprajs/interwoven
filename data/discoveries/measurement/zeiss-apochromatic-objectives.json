@@ -168,7 +168,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -186,7 +186,46 @@
       "known_from": "sourced",
       "market": "sourced",
       "events": "reviewed",
-      "links": "reviewed"
+      "links": "reviewed",
+      "measures": "sourced"
     }
-  }
+  },
+  "measures": [
+    {
+      "quantity": "catalogue price",
+      "value": 100,
+      "unit": "marks",
+      "event": "commercial-offer-1889",
+      "subject": "16 mm dry apochromatic objective, numerical aperture 0.30",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "carl-zeiss-optical-1889-microscopes-microscopical-accessories",
+          "locator": "Printed p. 10 / PDF p. 14",
+          "supports": "The priced list gives 100 marks for this objective."
+        }
+      ],
+      "currency": "marks",
+      "money_context": "Nominal 1889 marks; listed component price, not a complete microscope or confirmed transaction.",
+      "conditions": "16 mm dry objective, 0.30 numerical aperture; fitting and other components may affect a complete system."
+    },
+    {
+      "quantity": "catalogue price",
+      "value": 500,
+      "unit": "marks",
+      "event": "commercial-offer-1889",
+      "subject": "3 mm homogeneous-immersion apochromatic objective, numerical aperture 1.40",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "carl-zeiss-optical-1889-microscopes-microscopical-accessories",
+          "locator": "Printed p. 10 / PDF p. 14",
+          "supports": "The priced list gives 500 marks for the 3 mm 1.40-aperture homogeneous-immersion objective."
+        }
+      ],
+      "currency": "marks",
+      "money_context": "Nominal 1889 marks; listed component price, not a complete microscope or confirmed transaction.",
+      "conditions": "3 mm homogeneous-immersion objective with 1.40 numerical aperture; not interchangeable with the dry objective."
+    }
+  ]
 }

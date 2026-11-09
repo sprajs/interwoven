@@ -1,0 +1,91 @@
+{
+  "id": "augsburg-diesel-engine",
+  "name": "Augsburg Diesel engine",
+  "description": "Rudolf Diesel and industrial collaborators developed a working compression-ignition engine in the 1890s.",
+  "kind": "technology",
+  "domain": "energy.fire",
+  "grain": "capability",
+  "concept": "compression-ignition-engine",
+  "places": [
+    {
+      "place": "germany",
+      "note": "Present-day country or region reference; ancient political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "working-engine-1897",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1897
+        },
+        "latest": {
+          "year": 1897
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1897",
+        "basis": "The cited source dates the episode."
+      },
+      "statement": "Rudolf Diesel and collaborators produced a functioning diesel engine after a series of experiments.",
+      "caveats": "The source dates a functional engine to the year; the exact acceptance date, operating conditions and first customer are not established here.",
+      "evidence": [
+        {
+          "source": "deutsches-museum-nd-diesel-engine",
+          "locator": "Diesel research and 1897 result",
+          "supports": "The Deutsches Museum dates the functional result and identifies Augsburg and Krupp as collaborators."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "rudolf-diesel",
+          "role": "developer",
+          "resource": "Developed the engine with industrial collaborators",
+          "evidence": [
+            {
+              "source": "deutsches-museum-nd-diesel-engine",
+              "locator": "Diesel research and 1897 result",
+              "supports": "The museum identifies Diesel and the collaborating companies."
+            }
+          ]
+        },
+        {
+          "organization": "maschinenfabrik-augsburg",
+          "role": "developer",
+          "resource": "Collaborated in engine development at Augsburg",
+          "evidence": [
+            {
+              "source": "man-nd-augsburg-diesel-site",
+              "locator": "Factory history, English paragraph",
+              "supports": "MAN describes Diesel and factory technicians working together in 1897."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "working-engine-1897",
+    "rationale": "Earliest episode established by the cited evidence for this precisely scoped record; not a claim of global origin."
+  },
+  "caveats": "The 1897 result was preceded by years of experimental work, and later vehicles and engines are not identified with this prototype.",
+  "people": [
+    {
+      "person": "rudolf-diesel",
+      "role": "originator"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "sourced"
+    },
+    "note": "Initial evidence-backed admission; classifications and historical interpretations await independent review. Independent review checked cited event dates, wording and, where marked, numerical measures; other facets retain their original status."
+  }
+}

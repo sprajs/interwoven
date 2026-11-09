@@ -1,0 +1,100 @@
+{
+  "id": "augustan-military-treasury",
+  "name": "Augustan military retirement treasury",
+  "description": "The Roman military treasury organized resources for discharge rewards to long-serving soldiers, within the developing imperial military system.",
+  "kind": "practice",
+  "domain": "warfare.organisation",
+  "grain": "capability",
+  "concept": "military-retirement-treasury",
+  "places": [
+    {
+      "place": "italy",
+      "note": "Present-day country or region reference; ancient political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "treasury-6",
+      "type": "invention",
+      "date": {
+        "earliest": {
+          "year": 6
+        },
+        "latest": {
+          "year": 6
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "6",
+        "basis": "The cited source dates the episode."
+      },
+      "statement": "Under Augustus, a military treasury was established to pay rewards to soldiers after long service.",
+      "caveats": "The text is Augustus’s retrospective and self-promotional claim, not independent proof of every payment or a universal first pension institution.",
+      "evidence": [
+        {
+          "source": "augustus-res-gestae-military-treasury",
+          "locator": "Section 17, English translation",
+          "supports": "Augustus’s own account says it was founded in the consulship translated as 6 CE for veterans’ rewards."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "augustus",
+          "role": "funder",
+          "resource": "Reported contributing funds from his own patrimony",
+          "evidence": [
+            {
+              "source": "augustus-res-gestae-military-treasury",
+              "locator": "Section 17, English translation",
+              "supports": "Augustus claims a personal contribution of 170 million sesterces."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "treasury-6",
+    "rationale": "Earliest episode established by the cited evidence for this precisely scoped record; not a claim of global origin."
+  },
+  "caveats": "This is a Roman institution; earlier military compensation existed. Date uses the translation’s identification of the consular year.",
+  "measures": [
+    {
+      "quantity": "reported endowment",
+      "value": 170000000,
+      "unit": "sesterces",
+      "event": "treasury-6",
+      "subject": "Augustus’s claimed personal transfer to the Roman military treasury",
+      "conditions": "Self-reported nominal sum in Augustus’s Res Gestae; not a modern inflation-adjusted value or a complete budget.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "augustus-res-gestae-military-treasury",
+          "locator": "Section 17, English translation",
+          "supports": "Claims 170 million sesterces from his patrimony."
+        }
+      ],
+      "currency": "sesterces",
+      "money_context": "Nominal ancient sesterces claimed by Augustus; no equivalent modern purchasing power is inferred."
+    }
+  ],
+  "people": [
+    {
+      "person": "augustus",
+      "role": "patron"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "sourced"
+    },
+    "note": "Initial evidence-backed admission; classifications and historical interpretations await independent review. Independent review checked cited event dates, wording and, where marked, numerical measures; other facets retain their original status."
+  }
+}

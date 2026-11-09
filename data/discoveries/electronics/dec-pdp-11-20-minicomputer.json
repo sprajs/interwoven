@@ -148,7 +148,7 @@
   },
   "caveats": "No particular customer, first shipment day or earlier sales offer is specified.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -166,7 +166,9 @@
       "reception": "recalled",
       "fate": "recalled",
       "market": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "measures": "sourced",
+      "grain": "recalled"
     },
     "unresolved": [
       {
@@ -187,5 +189,26 @@
       }
     ],
     "note": "Proposed community-entry claim; independent historical and lifecycle review pending."
-  }
+  },
+  "measures": [
+    {
+      "quantity": "reported configuration price",
+      "value": 10800,
+      "unit": "US dollars",
+      "event": "commercial-offer-1970",
+      "subject": "PDP-11/20 with 4K core memory and ASR-33 teleprinter",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "datamation-1970-pdp-news-clippings",
+          "locator": "PDF p. 5, Electronics 5 January 1970",
+          "supports": "The article reports the $10,800 price for a PDP-11/20 with 4K core and an ASR-33 teleprinter."
+        }
+      ],
+      "currency": "USD",
+      "money_context": "Nominal 1970 US dollars; reported offer, not observed purchase or lifetime cost.",
+      "conditions": "The distinct $7,700 PDP-11/10 configuration excludes a teleprinter."
+    }
+  ],
+  "grain": "instance"
 }

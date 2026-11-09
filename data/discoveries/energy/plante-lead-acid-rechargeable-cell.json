@@ -1,0 +1,123 @@
+{
+  "id": "plante-lead-acid-rechargeable-cell",
+  "name": "Planté lead–acid rechargeable battery",
+  "description": "A rechargeable electrochemical cell based on lead and sulfuric acid was developed by Gaston Planté.",
+  "kind": "technology",
+  "domain": "energy.storage",
+  "grain": "capability",
+  "concept": "lead-acid-rechargeable-battery",
+  "places": [
+    {
+      "place": "france",
+      "note": "Present-day country or region reference; ancient political boundaries are not implied."
+    }
+  ],
+  "events": [
+    {
+      "id": "secondary-cell-1859",
+      "type": "invention",
+      "date": {
+        "earliest": {
+          "year": 1859
+        },
+        "latest": {
+          "year": 1859
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1859",
+        "basis": "The cited source dates the episode."
+      },
+      "statement": "Gaston Planté developed a rechargeable lead–acid battery in France.",
+      "caveats": "The date comes from a retrospective; earlier related electrochemical experiments are distinct and global priority is not assumed.",
+      "evidence": [
+        {
+          "source": "maglab-nd-plante-battery-history",
+          "locator": "Planté design and Academy demonstration",
+          "supports": "Institutional account dates Planté’s work to 1859 and describes its recharge capability."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "gaston-plante",
+          "role": "developer",
+          "resource": "Developed the lead–acid rechargeable battery",
+          "evidence": [
+            {
+              "source": "maglab-nd-plante-battery-history",
+              "locator": "Planté design and Academy demonstration",
+              "supports": "The history credits Planté with the battery."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "academy-demo-1860",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1860
+        },
+        "latest": {
+          "year": 1860
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1860",
+        "basis": "The cited source dates the episode."
+      },
+      "statement": "Planté demonstrated an arrangement of nine rechargeable cells to the French Academy of Sciences.",
+      "caveats": "The secondary account provides no exact date of the Academy presentation.",
+      "evidence": [
+        {
+          "source": "maglab-nd-plante-battery-history",
+          "locator": "Planté design and Academy demonstration",
+          "supports": "The account reports nine cells demonstrated in 1860."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "secondary-cell-1859",
+    "rationale": "Earliest episode established by the cited evidence for this precisely scoped record; not a claim of global origin."
+  },
+  "caveats": "Different histories date the work 1859–1860; later lead–acid designs and markets are not assumed identical to the first cell.",
+  "measures": [
+    {
+      "quantity": "demonstrated cells",
+      "value": 9,
+      "unit": "cells",
+      "event": "academy-demo-1860",
+      "subject": "Planté Academy demonstration",
+      "conditions": "National laboratory retrospective; arrangement of nine cells.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "maglab-nd-plante-battery-history",
+          "locator": "Planté design and Academy demonstration",
+          "supports": "Reports nine connected cells."
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "person": "gaston-plante",
+      "role": "originator"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "sourced"
+    },
+    "note": "Initial evidence-backed admission; classifications and historical interpretations await independent review. Independent review checked cited event dates, wording and, where marked, numerical measures; other facets retain their original status."
+  }
+}

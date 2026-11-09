@@ -71,6 +71,46 @@
   "fate": "in_use",
   "events": [
     {
+      "id": "oxford-research-grant-1939",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1939
+        },
+        "latest": {
+          "year": 1939
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1939",
+        "basis": "Oxford Health Histories places the successful grant application in its 1939 timeline."
+      },
+      "statement": "The Oxford Dunn School obtained a Rockefeller Foundation grant during its penicillin research.",
+      "scope": "The wider Oxford research programme, not a documented line-item allocation to the 1941 patient.",
+      "caveats": "The amount, exact award date and additional funding sources are not given in this account.",
+      "evidence": [
+        {
+          "source": "histories-nd-penicillin",
+          "locator": "Timeline, 1939",
+          "supports": "The Oxford history reports a successful Rockefeller Foundation grant application for the Dunn School’s penicillin research."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "rockefeller-foundation",
+          "role": "funder",
+          "resource": "Grant to the Dunn School’s penicillin research programme.",
+          "evidence": [
+            {
+              "source": "histories-nd-penicillin",
+              "locator": "Timeline, 1939",
+              "supports": "The Oxford history reports a successful Rockefeller Foundation grant application for the Dunn School’s penicillin research."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "practical-use-1941",
       "type": "practical_use",
       "date": {
@@ -117,7 +157,7 @@
   },
   "caveats": "The account is a later institutional history. Supplies were limited and the patient died; no worldwide first or general access is claimed.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -135,8 +175,10 @@
       "known_from": "sourced",
       "reception": "recalled",
       "fate": "recalled",
-      "events": "reviewed"
+      "events": "sourced",
+      "grain": "recalled"
     },
     "note": "New, scoped proposal for independent historical review."
-  }
+  },
+  "grain": "instance"
 }
