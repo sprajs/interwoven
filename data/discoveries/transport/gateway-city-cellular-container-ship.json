@@ -1,0 +1,97 @@
+{
+  "id": "gateway-city-cellular-container-ship",
+  "name": "Gateway City cellular container ship",
+  "description": "A converted ship carried containers in cellular cargo holds and on deck.",
+  "kind": "technology",
+  "domain": "transport.logistics",
+  "grain": "improvement",
+  "concept": "cellular-container-ship",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Modern country or region reference, not a claim about historical boundaries."
+    }
+  ],
+  "events": [
+    {
+      "id": "voyage-1957",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1957,
+          "month": 10,
+          "day": 4
+        },
+        "latest": {
+          "year": 1957,
+          "month": 10,
+          "day": 4
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1957-10-04",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Gateway City began a voyage carrying stacked containers as its dedicated cargo.",
+      "caveats": "A converted ship followed Ideal X; initial route and number of loaded containers are not established here.",
+      "evidence": [
+        {
+          "source": "rotterdam-nd-gateway-city-container",
+          "locator": "Arrival of the container",
+          "supports": "Gateway City began a voyage carrying stacked containers as its dedicated cargo."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "voyage-1957",
+    "rationale": "Earliest sourced event establishing the capability in this record; earlier funding need not imply deployment."
+  },
+  "caveats": "Vessel capacity is not the number carried on the initial voyage.",
+  "measures": [
+    {
+      "quantity": "container capacity",
+      "value": 226,
+      "unit": "containers",
+      "event": "voyage-1957",
+      "subject": "Gateway City vessel",
+      "status": "claimed",
+      "conditions": "Historical vessel capacity, not the number carried on this voyage.",
+      "evidence": [
+        {
+          "source": "cudahy-2006-containership-revolution",
+          "locator": "TR News 246, pp. 6–7",
+          "supports": "The author compares Ideal X capacity of 58 with 226 on Gateway City."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "same_family",
+      "evidence": [
+        {
+          "source": "cudahy-2006-containership-revolution",
+          "locator": "TR News 246, pp. 6–7",
+          "supports": "The account describes both as successive developments in McLean’s container-shipping operations."
+        }
+      ],
+      "from": "ideal-x-container-shipping",
+      "status": "established",
+      "statement": "The 1957 vessel was a later member of the same operator’s container-shipping developments as Ideal X."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Initial evidence-backed admission; historical interpretations await independent review. Independent reader checked dated events against cited sources, and links and measures where marked."
+  }
+}

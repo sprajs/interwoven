@@ -1,0 +1,105 @@
+{
+  "id": "tesla-polyphase-ac-motor",
+  "name": "Tesla polyphase alternating-current motor",
+  "description": "A polyphase alternating-current motor used a rotating magnetic field for mechanical rotation.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "grain": "capability",
+  "concept": "polyphase-induction-motor",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Modern country or region reference, not a claim about historical boundaries."
+    }
+  ],
+  "events": [
+    {
+      "id": "lecture-1888",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1888,
+          "month": 5,
+          "day": 16
+        },
+        "latest": {
+          "year": 1888,
+          "month": 5,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1888-05-16",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Nikola Tesla presented an alternating-current motor and power-distribution system to the American Institute of Electrical Engineers in New York.",
+      "caveats": "Presentation is not the invention or first-sale date; Tesla acknowledged earlier AC motors.",
+      "evidence": [
+        {
+          "source": "nikola-tesla-museum-nd-1888-lecture",
+          "locator": "First lecture entry",
+          "supports": "Nikola Tesla presented an alternating-current motor and power-distribution system to the American Institute of Electrical Engineers in New York."
+        },
+        {
+          "source": "nikola-tesla-1888-ac-motors",
+          "locator": "Introduction",
+          "supports": "Lecture text describes motors and distribution."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "nikola-tesla",
+          "role": "developer",
+          "resource": "Presented his motor system",
+          "evidence": [
+            {
+              "source": "nikola-tesla-1888-ac-motors",
+              "locator": "Introduction",
+              "supports": "Tesla is the named author."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "lecture-1888",
+    "rationale": "Earliest sourced event establishing the capability in this record; earlier funding need not imply deployment."
+  },
+  "caveats": "IEEE identifies independent Ferraris and Tesla rotating-field demonstrations; earlier related work existed.",
+  "people": [
+    {
+      "person": "nikola-tesla",
+      "role": "originator"
+    }
+  ],
+  "links": [
+    {
+      "type": "independent_of",
+      "evidence": [
+        {
+          "source": "ieee-nd-induction-machines",
+          "locator": "Introduction",
+          "supports": "IEEE describes independent Ferraris and Tesla rotating-field demonstrations."
+        }
+      ],
+      "from": "ferraris-rotating-field-ac-motor",
+      "status": "established",
+      "statement": "The IEEE describes Tesla and Ferraris as independent demonstrators of the rotating magnetic field in the 1880s.",
+      "scope": "Independence applies to the rotating-field demonstrations; not proof that every development in the motor system occurred without contact."
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "links": "reviewed"
+    },
+    "note": "Initial evidence-backed admission; historical interpretations await independent review. Independent reader checked dated events against cited sources, and links and measures where marked."
+  }
+}

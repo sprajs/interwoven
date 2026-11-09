@@ -1,0 +1,81 @@
+{
+  "id": "nineveh-ashurbanipal-royal-library",
+  "name": "Ashurbanipal’s royal library at Nineveh",
+  "description": "A royal collection of cuneiform texts brought together scholarly, administrative and literary tablets at Nineveh.",
+  "kind": "practice",
+  "domain": "communication.records",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "royal-collection-7c-bce",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": -668
+        },
+        "latest": {
+          "year": -631
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "during reign, 668–631 BCE",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Ashurbanipal collected a library of cuneiform tablets at the Nineveh palace.",
+      "places": [
+        "iraq"
+      ],
+      "contributions": [
+        {
+          "person": "ashurbanipal",
+          "role": "contributor",
+          "resource": "King credited with assembling the royal collection.",
+          "evidence": [
+            {
+              "source": "bm-2008-ashurbanipal-library-wave5",
+              "locator": "Learning p. 5",
+              "supports": "Museum dates Ashurbanipal’s reign to 668–631 BCE and describes his library at Nineveh."
+            }
+          ]
+        }
+      ],
+      "caveats": "Reign gives a broad interval, not a precise foundation date. Collection estimates vary depending on treatment of fragments; the museum’s approximate 25,000 is not a dated royal inventory.",
+      "evidence": [
+        {
+          "source": "bm-2008-ashurbanipal-library-wave5",
+          "locator": "Learning p. 5",
+          "supports": "Museum dates Ashurbanipal’s reign to 668–631 BCE and describes his library at Nineveh."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "royal-collection-7c-bce",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "iraq"
+    }
+  ],
+  "people": [
+    {
+      "person": "ashurbanipal",
+      "role": "contributor"
+    }
+  ],
+  "concept": "royal-scholarly-library",
+  "caveats": "Earlier Mesopotamian tablet collections existed. The distinct Gilgamesh flood tablet already in the corpus is one literary witness to this library, not the whole institution.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled"
+    },
+    "note": "Initial sourced research; independent review pending."
+  }
+}

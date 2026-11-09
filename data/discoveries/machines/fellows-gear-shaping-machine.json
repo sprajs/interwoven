@@ -1,0 +1,137 @@
+{
+  "id": "fellows-gear-shaping-machine",
+  "name": "Fellows experimental gear-shaping machine",
+  "description": "A gear-shaped cutter and synchronized movement were used in a machine designed for generating gear teeth.",
+  "kind": "technology",
+  "domain": "machines.machine-tools",
+  "grain": "instance",
+  "concept": "gear-generating-shaper",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "massachusetts"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "prototype",
+      "date": {
+        "earliest": {
+          "year": 1896
+        },
+        "latest": {
+          "year": 1896
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1896",
+        "basis": "Date describes the reported event or archaeological context, not the origin of the general technique."
+      },
+      "statement": "The museum dates the first experimental 36-inch-capacity gear shaper to 1896 and says it was never sold.",
+      "places": [
+        "massachusetts"
+      ],
+      "evidence": [
+        {
+          "source": "apm-1896-fellows-gear-shaper",
+          "locator": "1896 experimental gear shaper",
+          "supports": "The museum dates the first experimental 36-inch-capacity gear shaper to 1896 and says it was never sold."
+        },
+        {
+          "source": "smithsonian-fellows-gear-shaper-archives",
+          "locator": "Biographical / historical, pp. 1–2",
+          "supports": "The archive identifies Fellows as the designer and Hartness as an early financial backer."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "edwin-r-fellows",
+          "role": "developer",
+          "resource": "Gear shaper",
+          "evidence": [
+            {
+              "source": "smithsonian-fellows-gear-shaper-archives",
+              "locator": "Biographical / historical, pp. 1–2",
+              "supports": "The archive identifies Fellows as the designer and Hartness as an early financial backer."
+            }
+          ]
+        },
+        {
+          "person": "james-hartness",
+          "role": "funder",
+          "resource": "Early gear-shaper enterprise, not a specified amount or sale",
+          "evidence": [
+            {
+              "source": "smithsonian-fellows-gear-shaper-archives",
+              "locator": "Biographical / historical, pp. 1–2",
+              "supports": "The archive identifies Fellows as the designer and Hartness as an early financial backer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric-vehicle-company-1898",
+      "type": "documented_description",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1898
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "By 1898",
+        "basis": "The Smithsonian archive says one of Fellows’ machines went to the Electric Vehicle Company as early as 1898."
+      },
+      "statement": "The Smithsonian archive reports a Fellows machine at the Electric Vehicle Company as early as 1898.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "smithsonian-fellows-gear-shaper-archives",
+          "locator": "Biographical / Historical, p. 2",
+          "supports": "The archive states a Fellows machine went to the Electric Vehicle Company as early as 1898."
+        }
+      ],
+      "caveats": "This was a machine from the firm; the source does not identify it as the unsold 1896 prototype."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "First researched event for this local case; it does not establish worldwide priority."
+  },
+  "caveats": "The museum identifies the first 1896 machine as experimental and unsold; the Smithsonian archival guide describes a 36-inch machine sent to a customer without explicitly resolving this apparent conflict.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the Fitchburg prototype, capacity, two conflicting institutional accounts and a later documented customer."
+  },
+  "measures": [
+    {
+      "quantity": "experimental gear shaper diameter capacity",
+      "value": 36,
+      "unit": "inches",
+      "event": "documented-case",
+      "subject": "1896 prototype",
+      "status": "claimed",
+      "conditions": "Museum reports a 36-inch capacity for the experimental machine.",
+      "evidence": [
+        {
+          "source": "apm-1896-fellows-gear-shaper",
+          "locator": "1896 experimental gear shaper",
+          "supports": "The museum dates the first experimental 36-inch-capacity gear shaper to 1896 and says it was never sold."
+        }
+      ]
+    }
+  ]
+}

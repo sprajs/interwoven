@@ -1,0 +1,145 @@
+{
+  "id": "general-postal-union-treaty-bern",
+  "name": "General Postal Union and Treaty of Bern",
+  "description": "Participating postal administrations agreed to exchange letters within a common international postal territory.",
+  "kind": "practice",
+  "domain": "communication.post",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "treaty-1874",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1874,
+          "month": 10,
+          "day": 9
+        },
+        "latest": {
+          "year": 1874,
+          "month": 10,
+          "day": 9
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "9 October 1874",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Representatives signed the Treaty of Bern establishing the General Postal Union.",
+      "places": [
+        "switzerland"
+      ],
+      "contributions": [
+        {
+          "person": "heinrich-von-stephan",
+          "role": "contributor",
+          "resource": "Proposed a plan for international postal union.",
+          "evidence": [
+            {
+              "source": "upu-postal-union-history-wave5",
+              "locator": "1874 conference and treaty",
+              "supports": "UPU recounts Bern meeting, treaty and unification of postal territory."
+            }
+          ]
+        }
+      ],
+      "caveats": "Signing is distinct from entry into force; this account identifies 22 nations attending the conference, not the number of all later participants.",
+      "evidence": [
+        {
+          "source": "upu-postal-union-history-wave5",
+          "locator": "1874 conference and treaty",
+          "supports": "UPU recounts Bern meeting, treaty and unification of postal territory."
+        }
+      ]
+    },
+    {
+      "id": "rename-1878",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1878
+        },
+        "latest": {
+          "year": 1878
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1878",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The organization became known as the Universal Postal Union in 1878.",
+      "evidence": [
+        {
+          "source": "upu-postal-union-history-wave5",
+          "locator": "9 October paragraph",
+          "supports": "UPU dates the name change to 1878."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "treaty-1874",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "switzerland"
+    }
+  ],
+  "people": [
+    {
+      "person": "heinrich-von-stephan",
+      "role": "contributor"
+    }
+  ],
+  "concept": "international-postal-union",
+  "measures": [
+    {
+      "quantity": "represented nations",
+      "value": 22,
+      "unit": "nations",
+      "event": "treaty-1874",
+      "subject": "Bern postal conference in 1874",
+      "status": "claimed",
+      "conditions": "Conference attendance reported by UPU; not current or eventual union membership.",
+      "evidence": [
+        {
+          "source": "upu-postal-union-history-wave5",
+          "locator": "Conference paragraph",
+          "supports": "UPU reports representatives of 22 nations."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "british-uniform-penny-post",
+      "status": "established",
+      "statement": "UPU’s history describes the British domestic reforms as an important early step toward international postal reform.",
+      "scope": "Historical development described by UPU, not a claim that Britain alone caused the treaty.",
+      "evidence": [
+        {
+          "source": "upu-postal-union-history-wave5",
+          "locator": "Sir Rowland Hill and Heinrich von Stephan",
+          "supports": "UPU identifies earlier national reforms and specifically British postage reform as the beginning of this process."
+        }
+      ]
+    }
+  ],
+  "caveats": "Earlier bilateral postal agreements existed. This is the creation of an international postal institution, not the first international correspondence.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled",
+      "measures": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Initial sourced research; independent review pending. Independent review checked UPU account of 22 nations at the 1874 conference and British reform as a historical precursor; signing is not entry into force."
+  }
+}

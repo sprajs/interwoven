@@ -1,0 +1,141 @@
+{
+  "id": "goddard-liquid-propellant-rocket-flight",
+  "name": "Goddard liquid-propellant rocket flight",
+  "description": "A research flight demonstrated a rocket powered by liquid propellants.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "grain": "capability",
+  "concept": "liquid-propellant-rocket-flight",
+  "places": [
+    {
+      "place": "massachusetts",
+      "note": "Modern country or region reference, not a claim about historical boundaries."
+    }
+  ],
+  "events": [
+    {
+      "id": "flight-1926",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1926,
+          "month": 3,
+          "day": 16
+        },
+        "latest": {
+          "year": 1926,
+          "month": 3,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1926-03-16",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Robert Goddard launched a liquid-propellant rocket on a brief flight in Auburn, Massachusetts.",
+      "caveats": "This was a short atmospheric flight, not an orbital launch.",
+      "evidence": [
+        {
+          "source": "nasa-2021-goddard-flight",
+          "locator": "Flight and funding paragraphs",
+          "supports": "Robert Goddard launched a liquid-propellant rocket on a brief flight in Auburn, Massachusetts."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "robert-goddard",
+          "role": "developer",
+          "resource": "Led the flight experiment",
+          "evidence": [
+            {
+              "source": "nasa-2021-goddard-flight",
+              "locator": "Flight and funding paragraphs",
+              "supports": "NASA attributes the launch to Goddard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smithsonian-grant-1917",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1917
+        },
+        "latest": {
+          "year": 1917
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1917",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The Smithsonian Institution gave Goddard a five-year grant for rocket research.",
+      "caveats": "The grant preceded this flight and supported research generally, not necessarily this particular vehicle.",
+      "evidence": [
+        {
+          "source": "nasa-2021-goddard-flight",
+          "locator": "Flight and funding paragraphs",
+          "supports": "The Smithsonian Institution gave Goddard a five-year grant for rocket research."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "smithsonian-institution",
+          "role": "funder",
+          "resource": "Provided a research grant",
+          "evidence": [
+            {
+              "source": "nasa-2021-goddard-flight",
+              "locator": "Flight and funding paragraphs",
+              "supports": "NASA identifies the Smithsonian as grantor."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "flight-1926",
+    "rationale": "Earliest sourced event establishing the capability in this record; earlier funding need not imply deployment."
+  },
+  "caveats": "Solid-propellant rocketry preceded this flight; no direct path to a particular later vehicle is asserted.",
+  "people": [
+    {
+      "person": "robert-goddard",
+      "role": "originator"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "research grant",
+      "value": 5000,
+      "unit": "USD",
+      "event": "smithsonian-grant-1917",
+      "subject": "Smithsonian five-year grant",
+      "conditions": "Nominal 1917 grant for research, not total 1926 flight cost.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "nasa-2021-goddard-flight",
+          "locator": "Flight and funding paragraphs",
+          "supports": "NASA reports $5,000 for five years."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Initial evidence-backed admission; historical interpretations await independent review. Independent reader checked dated events against cited sources, and links and measures where marked."
+  }
+}

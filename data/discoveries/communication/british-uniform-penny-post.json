@@ -1,0 +1,199 @@
+{
+  "id": "british-uniform-penny-post",
+  "name": "British uniform penny post",
+  "description": "A domestic postal tariff made prepaid letters within a weight limit cost the same regardless of distance.",
+  "kind": "practice",
+  "domain": "communication.post",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "uniform-penny-1840",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1840,
+          "month": 1,
+          "day": 10
+        },
+        "latest": {
+          "year": 1840,
+          "month": 1,
+          "day": 10
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "10 January 1840",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The British postal service introduced a uniform penny rate for eligible prepaid inland letters.",
+      "places": [
+        "england"
+      ],
+      "contributions": [
+        {
+          "person": "rowland-hill",
+          "role": "developer",
+          "resource": "Advocated and oversaw implementation of the reform.",
+          "evidence": [
+            {
+              "source": "postal-museum-rowland-hill-wave5",
+              "locator": "Uniform penny postage",
+              "supports": "Museum dates uniform penny post to 10 January 1840 and explains weight-based distance-independent rates."
+            }
+          ]
+        },
+        {
+          "organization": "british-general-post-office",
+          "role": "operator",
+          "resource": "Operated the reformed domestic post.",
+          "evidence": [
+            {
+              "source": "postal-museum-rowland-hill-wave5",
+              "locator": "Uniform penny postage",
+              "supports": "Museum dates uniform penny post to 10 January 1840 and explains weight-based distance-independent rates."
+            }
+          ]
+        }
+      ],
+      "caveats": "One penny applied to prepaid letters within the weight limit, not every item; unpaid letters cost more. Adhesive stamps were not yet available.",
+      "evidence": [
+        {
+          "source": "postal-museum-rowland-hill-wave5",
+          "locator": "Uniform penny postage",
+          "supports": "Museum dates uniform penny post to 10 January 1840 and explains weight-based distance-independent rates."
+        },
+        {
+          "source": "sg-2015-penny-black-rates-wave5",
+          "locator": "Rates",
+          "supports": "Postal history identifies the prepaid half-ounce class and double unpaid rate."
+        }
+      ]
+    },
+    {
+      "id": "adhesive-1840",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1840,
+          "month": 5,
+          "day": 6
+        },
+        "latest": {
+          "year": 1840,
+          "month": 5,
+          "day": 6
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "6 May 1840",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The Penny Black adhesive stamp was officially issued for prepaying postage.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "sg-2015-penny-black-rates-wave5",
+          "locator": "Day of issue",
+          "supports": "Account dates issue to 6 May 1840."
+        }
+      ],
+      "caveats": "The issue date does not establish the first day stamps were offered for sale; some were sold earlier."
+    },
+    {
+      "id": "volume-1850",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1850
+        },
+        "latest": {
+          "year": 1850
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1850",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The postal museum reports nearly 350 million chargeable letters in 1850.",
+      "caveats": "Volume is reported by a retrospective and cannot by itself establish a causal effect or unique senders.",
+      "evidence": [
+        {
+          "source": "postal-museum-rowland-hill-wave5",
+          "locator": "Outcomes",
+          "supports": "Museum reports 1850 chargeable letter count."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "uniform-penny-1840",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "people": [
+    {
+      "person": "rowland-hill",
+      "role": "contributor"
+    }
+  ],
+  "concept": "uniform-postage",
+  "measures": [
+    {
+      "quantity": "prepaid letter rate",
+      "value": 1,
+      "unit": "penny per letter",
+      "event": "uniform-penny-1840",
+      "subject": "Inland prepaid letter up to half an ounce",
+      "status": "claimed",
+      "conditions": "Nominal pre-decimal British penny; prepaid; heavier and unpaid letters cost more.",
+      "evidence": [
+        {
+          "source": "sg-2015-penny-black-rates-wave5",
+          "locator": "Rates",
+          "supports": "Account states 1d half-ounce prepaid rate."
+        },
+        {
+          "source": "uk-1840-post-office-duties-act",
+          "locator": "Section I and rate schedule",
+          "supports": "The later 1840 Act states one penny for prepaid inland letters not exceeding half an ounce, with a higher charge if unpaid."
+        }
+      ]
+    },
+    {
+      "quantity": "chargeable letters",
+      "value": 350000000,
+      "unit": "letters per year",
+      "event": "volume-1850",
+      "subject": "British chargeable postal letters in 1850",
+      "status": "claimed",
+      "conditions": "Approximately; museum says almost 350 million. Counts letters, not users.",
+      "evidence": [
+        {
+          "source": "postal-museum-rowland-hill-wave5",
+          "locator": "Outcomes",
+          "supports": "Reports almost 350 million chargeable letters by 1850."
+        }
+      ]
+    }
+  ],
+  "caveats": "The reform did not invent postal services, and means of payment, weight limits and eligibility matter.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled",
+      "measures": "reviewed"
+    },
+    "note": "Initial sourced research; independent review pending. Independent review distinguishes issued-for-use from first sale and checks statutory half-ounce and unpaid rates; 1850 volume counts letters, not senders."
+  }
+}

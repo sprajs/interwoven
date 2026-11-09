@@ -1,0 +1,156 @@
+{
+  "id": "rubel-paper-offset-lithography",
+  "name": "Rubel paper offset lithography",
+  "description": "A lithographic press transfers an inked image to an intermediate rubber surface before printing paper.",
+  "kind": "technology",
+  "domain": "communication.printing",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "press-1904",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1904
+        },
+        "latest": {
+          "year": 1904
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1904",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "A rotary offset press built by Ira Rubel operated in his New York plant.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "ira-rubel",
+          "role": "developer",
+          "resource": "Developed the paper offset press.",
+          "evidence": [
+            {
+              "source": "smithsonian-1996-lithographic-presses-wave5",
+              "locator": "pp. 55, 58",
+              "supports": "Smithsonian describes Rubel’s paper offset press and operation in 1904."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "smithsonian-1996-lithographic-presses-wave5",
+          "locator": "pp. 55, 58",
+          "supports": "Smithsonian describes Rubel’s paper offset press and operation in 1904."
+        }
+      ]
+    },
+    {
+      "id": "sale-1905",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1905
+        },
+        "latest": {
+          "year": 1905
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1905",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "Union Lithographic Company purchased the Rubel press for $5,500.",
+      "contributions": [
+        {
+          "organization": "union-lithographic-company",
+          "role": "customer",
+          "resource": "Purchased the press for use in San Francisco.",
+          "evidence": [
+            {
+              "source": "smithsonian-1996-lithographic-presses-wave5",
+              "locator": "p. 58",
+              "supports": "Catalog identifies purchaser and price."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "smithsonian-1996-lithographic-presses-wave5",
+          "locator": "p. 58",
+          "supports": "Smithsonian documents the 1905 sale and price."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "press-1904",
+    "rationale": "Earliest dated witness established by the cited source for this scoped record, not a claim of global first."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "ira-rubel",
+      "role": "originator"
+    }
+  ],
+  "concept": "offset-lithography",
+  "measures": [
+    {
+      "quantity": "sale price",
+      "value": 5500,
+      "unit": "USD",
+      "currency": "USD",
+      "money_context": "Nominal 1905 transaction; not a general retail price.",
+      "event": "sale-1905",
+      "subject": "Rubel press bought by Union Lithographic Company",
+      "status": "claimed",
+      "conditions": "Museum catalog report for one press and buyer.",
+      "evidence": [
+        {
+          "source": "smithsonian-1996-lithographic-presses-wave5",
+          "locator": "p. 58",
+          "supports": "Smithsonian records the sale price."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "planographic-stone-lithography",
+      "status": "established",
+      "statement": "Offset printing applied lithographic printing through an intermediate surface.",
+      "scope": "Lithographic process lineage, not a claim of direct personal contact with Senefelder.",
+      "evidence": [
+        {
+          "source": "smithsonian-1996-lithographic-presses-wave5",
+          "locator": "pp. 55–58",
+          "supports": "The catalog describes the development of lithography and offset transfer."
+        }
+      ]
+    }
+  ],
+  "caveats": "European tin printers had already used intermediate rubber cylinders; this record is a paper-printing implementation and does not claim global first for all offset printing.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "concept": "recalled",
+      "measures": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Initial sourced research; independent review pending. Independent review checked Smithsonian’s 1904 operation and the 1905 $5,500 sale; later San Francisco operation began in 1907."
+  }
+}

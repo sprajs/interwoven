@@ -1,0 +1,102 @@
+{
+  "id": "great-barrington-ac-transformer-distribution",
+  "name": "Great Barrington AC transformer distribution",
+  "description": "A transformer-based AC distribution system powered lighting in a Massachusetts town.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "grain": "capability",
+  "concept": "ac-transformer-distribution",
+  "places": [
+    {
+      "place": "massachusetts",
+      "note": "Modern country or region reference, not a claim about historical boundaries."
+    }
+  ],
+  "events": [
+    {
+      "id": "distribution-1886",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1886,
+          "month": 3,
+          "day": 20
+        },
+        "latest": {
+          "year": 1886,
+          "month": 3,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1886-03-20",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "William Stanley demonstrated alternating-current lighting distribution using transformers to serve Great Barrington businesses.",
+      "caveats": "The retrospective count is not evidence of sales or a global first.",
+      "evidence": [
+        {
+          "source": "ieee-2004-great-barrington-ac",
+          "locator": "Milestone history",
+          "supports": "William Stanley demonstrated alternating-current lighting distribution using transformers to serve Great Barrington businesses."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "william-stanley-jr",
+          "role": "developer",
+          "resource": "Developed the local distribution system",
+          "evidence": [
+            {
+              "source": "ieee-2004-great-barrington-ac",
+              "locator": "Milestone history",
+              "supports": "IEEE credits Stanley."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "distribution-1886",
+    "rationale": "Earliest sourced event establishing the capability in this record; earlier funding need not imply deployment."
+  },
+  "caveats": "Gaulard and Gibbs and other investigators built earlier transformer systems.",
+  "people": [
+    {
+      "person": "william-stanley-jr",
+      "role": "originator"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "business establishments supplied",
+      "value": 20,
+      "unit": "businesses",
+      "event": "distribution-1886",
+      "subject": "Great Barrington demonstration",
+      "conditions": "IEEE retrospective count, not individual customers.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "ieee-2004-great-barrington-ac",
+          "locator": "Milestone history",
+          "supports": "Reports 20 business establishments."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Initial evidence-backed admission; historical interpretations await independent review. Independent reader checked dated events against cited sources, and links and measures where marked."
+  }
+}

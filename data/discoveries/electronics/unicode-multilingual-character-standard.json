@@ -1,0 +1,126 @@
+{
+  "id": "unicode-multilingual-character-standard",
+  "name": "Unicode multilingual character standard",
+  "description": "A shared code for representing multilingual text across computer systems and applications.",
+  "kind": "practice",
+  "domain": "electronics.software",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "preview-1990",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1990,
+          "month": 10
+        },
+        "latest": {
+          "year": 1990,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "October 1990",
+        "basis": "Unicode Consortium dates its publicly distributed preview to October 1990."
+      },
+      "statement": "The Unicode Consortium distributed an early Unicode preview for public review.",
+      "caveats": "This draft contained initial code charts and mapping tables; it was not the released 1991 Unicode Standard. The source says it was fairly widely distributed but gives no user count.",
+      "evidence": [
+        {
+          "source": "unicode-draft-history-wave5",
+          "locator": "Dates of pre-publication drafts",
+          "supports": "The Unicode history lists an October 1990 public preview with draft charts and mapping tables."
+        }
+      ]
+    },
+    {
+      "id": "review-draft-1990",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1990,
+          "month": 12
+        },
+        "latest": {
+          "year": 1990,
+          "month": 12
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "December 1990",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "A Unicode 1.0 final-review draft was made public.",
+      "caveats": "This was a draft, not a final published standard. An earlier October 1990 preview contained initial draft charts.",
+      "evidence": [
+        {
+          "source": "unicode-draft-history-wave5",
+          "locator": "Pre-publication drafts",
+          "supports": "The consortium lists a public final-review draft in December 1990."
+        }
+      ]
+    },
+    {
+      "id": "unicode-1-1991",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1991,
+          "month": 10
+        },
+        "latest": {
+          "year": 1991,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "October 1991",
+        "basis": "Date or stated historical interval in cited source; see caveats."
+      },
+      "statement": "The Unicode Consortium published the first version of the Unicode Standard.",
+      "contributions": [
+        {
+          "organization": "unicode-consortium",
+          "role": "developer",
+          "resource": "Published version 1.0.",
+          "evidence": [
+            {
+              "source": "unicode-v1-publications-wave5",
+              "locator": "Reference",
+              "supports": "Consortium is publisher."
+            }
+          ]
+        }
+      ],
+      "caveats": "Version 1.0 used a 16-bit scheme and did not include every language or script; later Unicode differs.",
+      "evidence": [
+        {
+          "source": "unicode-v1-publications-wave5",
+          "locator": "Unicode 1.0.0",
+          "supports": "Consortium dates the first version to October 1991."
+        },
+        {
+          "source": "unicode-v1-introduction-wave5",
+          "locator": "Introduction",
+          "supports": "Original introduction explains multilingual representation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "preview-1990",
+    "rationale": "The October 1990 preview is the earliest documented public distribution among the events; it was a draft, not the 1991 standard release."
+  },
+  "concept": "multilingual-character-encoding",
+  "caveats": "Earlier national and international character codes preceded Unicode; formal encoding is not evidence that any particular community had fonts or software support.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "recalled"
+    },
+    "note": "Initial sourced research; independent review pending. Independent review identified the earlier October public preview and distinguishes it from the December final-review draft and 1991 version 1 release."
+  }
+}

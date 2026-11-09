@@ -1,0 +1,72 @@
+{
+  "id": "rocky-river-electric-pumped-storage",
+  "name": "Rocky River pumped-storage electricity",
+  "description": "A utility stored energy by pumping water for later hydroelectric generation.",
+  "kind": "technology",
+  "domain": "energy.storage",
+  "grain": "capability",
+  "concept": "pumped-storage-electricity",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Modern country or region reference, not a claim about historical boundaries."
+    }
+  ],
+  "events": [
+    {
+      "id": "operation-1929",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1929
+        },
+        "latest": {
+          "year": 1929
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1929",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Connecticut Light & Power operated a pumped-storage hydroelectric plant at Rocky River.",
+      "caveats": "Source provides a year, not a commissioning day or customer count.",
+      "evidence": [
+        {
+          "source": "asme-nd-rocky-river-storage",
+          "locator": "Plant history",
+          "supports": "Connecticut Light & Power operated a pumped-storage hydroelectric plant at Rocky River."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "connecticut-light-power",
+          "role": "operator",
+          "resource": "Operated the plant",
+          "evidence": [
+            {
+              "source": "asme-nd-rocky-river-storage",
+              "locator": "Plant history",
+              "supports": "ASME identifies the company."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "operation-1929",
+    "rationale": "Earliest sourced event establishing the capability in this record; earlier funding need not imply deployment."
+  },
+  "caveats": "Zürich’s earlier mechanically powered storage is distinct from this electrical application.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Initial evidence-backed admission; historical interpretations await independent review. Independent reader checked dated events against cited sources, and links and measures where marked."
+  }
+}

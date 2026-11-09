@@ -1,0 +1,133 @@
+{
+  "id": "1602-voc-amsterdam-subscribed-shares",
+  "name": "Amsterdam VOC share subscription and transfer",
+  "description": "Investors subscribed capital to the Amsterdam chamber of the Dutch East India Company, and the chamber later recorded transfers of interests.",
+  "kind": "practice",
+  "domain": "economy.money",
+  "grain": "instance",
+  "concept": "transferable-company-shares",
+  "events": [
+    {
+      "id": "subscription-1602",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1602,
+          "month": 8,
+          "day": 31
+        },
+        "latest": {
+          "year": 1602,
+          "month": 8,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "31 August 1602",
+        "basis": "The archive transcription dates the first entry 31 August and repeats that date for the entries that follow."
+      },
+      "statement": "The Amsterdam register records Grietgen Dirkx’s promise to subscribe 60 guilders.",
+      "evidence": [
+        {
+          "source": "w5-national-archives-voc-1602",
+          "locator": "Who invested and transcription of the 1602 shares register",
+          "supports": "The Dutch national archive transcribes the Amsterdam VOC register: Grietgen Dirkx promised 60 guilders on 31 August 1602, using a mark; the register records other investors and their pledged sums."
+        }
+      ],
+      "scope": "The register records a promise to pay; it does not establish when the entire amount was paid.",
+      "contributions": [
+        {
+          "person": "grietgen-dirkx",
+          "role": "contributor",
+          "resource": "Promised, but is not shown to have paid, a 60-guilder subscription recorded by a mark.",
+          "evidence": [
+            {
+              "source": "w5-national-archives-voc-1602",
+              "locator": "Who invested and transcription of the 1602 shares register",
+              "supports": "The Dutch national archive transcribes the Amsterdam VOC register: Grietgen Dirkx promised 60 guilders on 31 August 1602, using a mark; the register records other investors and their pledged sums."
+            }
+          ]
+        }
+      ],
+      "places": [
+        "amsterdam"
+      ]
+    },
+    {
+      "id": "transfer-1603",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1603,
+          "month": 3
+        },
+        "latest": {
+          "year": 1603,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "March 1603",
+        "basis": "Gelderblom and Jonker date the earliest registered Amsterdam transfers to March 1603."
+      },
+      "statement": "The Amsterdam chamber recorded transfers of VOC shares after its first call for capital.",
+      "evidence": [
+        {
+          "source": "w5-gelderblom-jonker-voc-shares",
+          "locator": "p. 656, transfer records",
+          "supports": "From the Amsterdam VOC journal the authors date the first registered share transfers to March 1603, following the first call for capital."
+        }
+      ],
+      "places": [
+        "amsterdam"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "subscription-1602",
+    "rationale": "The earliest event established in the sources collected here; not a claim of global priority."
+  },
+  "caveats": "The surviving register and subsequent transfers document this company and market, not the origin of joint ownership. Subscriptions could be promised before payment; participation required resources, and the company operated in a system of chartered colonial monopoly and coercion.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader checked the dated event, stated scope and event-specific contributions against the cited passages; other facets retain their stated basis."
+  },
+  "places": [
+    {
+      "place": "amsterdam"
+    }
+  ],
+  "people": [
+    {
+      "person": "grietgen-dirkx",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "subscription promised",
+      "value": 60,
+      "unit": "guilders",
+      "event": "subscription-1602",
+      "subject": "Grietgen Dirkx’s Amsterdam chamber subscription",
+      "conditions": "Nominal 1602 guilders promised in the register; not proof of payment or a modern purchasing-power equivalent.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w5-national-archives-voc-1602",
+          "locator": "Who invested and transcription of the 1602 shares register",
+          "supports": "The Dutch national archive transcribes the Amsterdam VOC register: Grietgen Dirkx promised 60 guilders on 31 August 1602, using a mark; the register records other investors and their pledged sums."
+        }
+      ]
+    }
+  ]
+}

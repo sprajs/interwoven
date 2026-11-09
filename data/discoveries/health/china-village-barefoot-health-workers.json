@@ -1,0 +1,120 @@
+{
+  "id": "china-village-barefoot-health-workers",
+  "name": "China’s village barefoot health workers",
+  "description": "Rural community health workers provided basic care and health education under village cooperative arrangements in China.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "capability",
+  "concept": "community-health-worker-system",
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1968
+        },
+        "latest": {
+          "year": 1968
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1968",
+        "basis": "Date applies to the stated documented event or archaeological context, not to a worldwide origin."
+      },
+      "statement": "China’s government endorsed the barefoot-doctor rural health-worker programme nationally in 1968.",
+      "evidence": [
+        {
+          "source": "fang-barefoot-doctors-rural-china",
+          "locator": "Introduction, national programme",
+          "supports": "The historical study describes national endorsement in 1968 of a rural health-worker programme, its local medical work and later transformation. Origins and local implementation were diverse."
+        }
+      ],
+      "caveats": "National endorsement in 1968 did not create all rural care from nothing; workers’ training, services and access varied, and political coercion and the Cultural Revolution context matter.",
+      "places": [
+        "china"
+      ],
+      "contributions": [
+        {
+          "group": "Rural barefoot health workers",
+          "role": "operator",
+          "resource": "China’s village barefoot health workers",
+          "evidence": [
+            {
+              "source": "fang-barefoot-doctors-rural-china",
+              "locator": "Introduction, national programme",
+              "supports": "The historical study describes national endorsement in 1968 of a rural health-worker programme, its local medical work and later transformation. Origins and local implementation were diverse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worker-estimate-1977",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1977
+        },
+        "latest": {
+          "year": 1977
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1977",
+        "basis": "Date applies to the stated documented event or archaeological context, not to a worldwide origin."
+      },
+      "statement": "A later historical review estimates approximately 1.8 million barefoot health workers in 1977.",
+      "places": [
+        "china"
+      ],
+      "evidence": [
+        {
+          "source": "hipgrave-2011-china-village-health-workers",
+          "locator": "Rural cooperative care and worker numbers",
+          "supports": "This review describes basic village care and health education and reports approximately one million barefoot doctors in 1970 and 1.8 million in 1977. The estimates concern worker headcount, not patients served or universal coverage."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this scoped case, not a claim of global first."
+  },
+  "caveats": "National endorsement in 1968 did not create all rural care from nothing; workers’ training, services and access varied, and political coercion and the Cultural Revolution context matter.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "reviewed",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the cited passages for the facets marked reviewed; remaining historical uncertainty and source limits are described in the caveats."
+  },
+  "places": [
+    {
+      "place": "china"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "estimated health workers",
+      "value": 1800000,
+      "unit": "workers",
+      "event": "worker-estimate-1977",
+      "subject": "Barefoot health workers in China",
+      "status": "claimed",
+      "conditions": "Historical review’s approximate 1977 headcount; not a count of patients or proof of universal coverage.",
+      "evidence": [
+        {
+          "source": "hipgrave-2011-china-village-health-workers",
+          "locator": "Rural cooperative care and worker numbers",
+          "supports": "This review describes basic village care and health education and reports approximately one million barefoot doctors in 1970 and 1.8 million in 1977. The estimates concern worker headcount, not patients served or universal coverage."
+        }
+      ]
+    }
+  ]
+}
