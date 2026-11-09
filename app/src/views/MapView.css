@@ -1,0 +1,46 @@
+/* Map view: the counts panel sits above the caption, which keeps the bottom-left corner. */
+
+.map-panel {
+  left: var(--gutter);
+  bottom: 38px;
+  max-width: 320px;
+}
+
+.map-panel p {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.map-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--rule-soft);
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--ink-3);
+}
+
+.map-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* The two dot shapes drawn on the map, at the same size. */
+.map-glyph {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-2);
+  flex: none;
+}
+
+.map-glyph.vague {
+  background: var(--paper);
+  border: 1.5px solid var(--ink-2);
+}

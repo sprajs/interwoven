@@ -182,7 +182,7 @@ export function useScale(): TimeScale {
 /** The full stretch of time the data covers, a little wider than the data itself. */
 export function useLimits(): [number, number] {
   const model = useModel()
-  return useMemo(() => [Math.min(model.extent[0] - 2000, -200000), PRESENT], [model])
+  return useMemo(() => [Math.min(Math.floor((model.extent[0] - 2000) / 50000) * 50000, -200000) + 1, PRESENT], [model])
 }
 
 /** Discoveries that pass the category switches and the tier switch. Search and time are applied by each view. */

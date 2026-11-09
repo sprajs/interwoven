@@ -89,8 +89,11 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
     y += h
   })
 
-  // Within a column the most consequential discoveries sit lowest, where the eye starts.
-  const ordered = [...inView].sort((a, b) => a.tier - b.tier || a.t! - b.t!)
+  // Within a column the most consequential discoveries sit lowest, where the eye starts. With
+  // every category in one pile, each column is grouped by category first so its colours read as bands.
+  const rank = new Map([...colorOf.keys()].map((id, i) => [id, i]))
+  const band = (e: Entry) => (categories ? 0 : (rank.get(of(e)) ?? 0))
+  const ordered = [...inView].sort((a, b) => band(a) - band(b) || a.tier - b.tier || a.t! - b.t!)
   const heights = rows.map(() => new Map<number, number>())
   const marks: Mark[] = []
   for (const e of ordered) {
