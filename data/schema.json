@@ -1,0 +1,1201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Interwoven data model",
+  "description": "One definition per kind of record. Two keywords go beyond JSON Schema: \"vocab\" names a list in vocab.json whose values are allowed, and \"ref\" names a register (discoveries, sources, places, people, organizations, societies, concepts, or fields from taxonomy.json) in which the value must exist. tools/validate.py enforces both.",
+  "$defs": {
+    "discovery": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A short name a reader would recognise."
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "One plain sentence: what it was and why it mattered."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exactly what was achieved: the specific arrangement, result or method this record stands for."
+        },
+        "kind": {
+          "type": "string",
+          "vocab": "kind"
+        },
+        "domain": {
+          "type": "string",
+          "ref": "fields",
+          "description": "The primary field. The file lives in the folder of its domain."
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "fields"
+          },
+          "description": "Other fields it belongs to."
+        },
+        "tier": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "description": "0: later work across several fields or generations visibly depended on it. 1: a major contribution to its field. 2: a bounded contribution, use or transmission. 3: fine detail or a witness."
+        },
+        "tier_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "advance": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "advance"
+          }
+        },
+        "scale": {
+          "type": "string",
+          "vocab": "scale"
+        },
+        "origin": {
+          "type": "string",
+          "vocab": "origin"
+        },
+        "concept": {
+          "type": "string",
+          "ref": "concepts",
+          "description": "The general capability, when the same thing was reached more than once."
+        },
+        "prompted_by": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "prompted_by"
+          }
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why it happened there and then: the need, resource or circumstance."
+        },
+        "limit_removed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "limit_removed"
+          }
+        },
+        "setting": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "setting"
+          }
+        },
+        "funding": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "funding"
+          }
+        },
+        "places": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "place": {
+                "type": "string",
+                "ref": "places"
+              },
+              "role": {
+                "type": "string",
+                "vocab": "place_role"
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "place",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "person": {
+                "type": "string",
+                "ref": "people"
+              },
+              "role": {
+                "type": "string",
+                "vocab": "person_role"
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "person",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string",
+                "ref": "organizations"
+              },
+              "role": {
+                "type": "string",
+                "vocab": "organization_role"
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "organization",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "societies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "societies"
+          }
+        },
+        "known_from": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "known_from"
+          }
+        },
+        "reception": {
+          "type": "string",
+          "vocab": "reception"
+        },
+        "fate": {
+          "type": "string",
+          "vocab": "fate"
+        },
+        "end_reason": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "end_reason"
+          }
+        },
+        "market": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "commercial",
+                "nonmarket",
+                "not_applicable"
+              ]
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "$ref": "#/$defs/evidence"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false,
+          "description": "Whether it was ever something bought and sold."
+        },
+        "measures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "quantity": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conditions": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "measured",
+                  "claimed",
+                  "derived"
+                ]
+              },
+              "evidence": {
+                "$ref": "#/$defs/evidence"
+              }
+            },
+            "required": [
+              "quantity",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Performance figures, so that later versions can be compared with earlier ones."
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/event"
+          },
+          "description": "Everything dated that is known about it, in order."
+        },
+        "earliest_record": {
+          "type": "object",
+          "properties": {
+            "event": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "The event that gives the earliest defensible date for this exact thing. null when none is established."
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "event"
+          ],
+          "additionalProperties": false,
+          "description": "The date at which the discovery is placed in time."
+        },
+        "community_entry": {
+          "type": "object",
+          "properties": {
+            "event": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+            },
+            "community": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Who came to have it."
+            },
+            "basis": {
+              "enum": [
+                "practical_use",
+                "public_awareness",
+                "recognition",
+                "commercial_availability",
+                "public_availability",
+                "first_commercial_availability",
+                "adoption"
+              ]
+            },
+            "strength": {
+              "enum": [
+                "direct",
+                "scoped_inference",
+                "awareness_proxy"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "proxy_reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "caveats": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "event"
+          ],
+          "additionalProperties": false,
+          "description": "When a community demonstrably used or knew it. Kept apart from the earliest record."
+        },
+        "witnesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+              },
+              "limitation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "event",
+              "limitation"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Surviving copies or objects that attest it without dating its origin."
+        },
+        "caveats": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What the record as a whole does not establish."
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "description": "Connections to other discoveries. Each is stored here, on the later or receiving discovery."
+        },
+        "external": {
+          "type": "object",
+          "properties": {
+            "wikidata": {
+              "type": "string",
+              "pattern": "^Q[0-9]+$"
+            },
+            "wikipedia": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "research": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "vocab": "research_status"
+            },
+            "basis": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "vocab": "basis"
+              },
+              "description": "For each facet, where its value comes from. A facet with no entry has not been researched."
+            },
+            "unresolved": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "about": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "note": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidence": {
+                    "$ref": "#/$defs/evidence"
+                  }
+                },
+                "required": [
+                  "about",
+                  "note"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Questions that were investigated and not settled."
+            },
+            "missing_prerequisites": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": "Things it depended on that have no record yet."
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "status",
+            "basis"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "kind",
+        "domain",
+        "events",
+        "earliest_record",
+        "research"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Unique within this discovery."
+        },
+        "type": {
+          "type": "string",
+          "vocab": "event"
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What happened, in one or two sentences."
+        },
+        "places": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "places"
+          }
+        },
+        "place_note": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Any qualification about where it happened."
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The exact arrangement this event concerns, when narrower than the discovery."
+        },
+        "applications": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "population": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Who was using or reached by it."
+        },
+        "market": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The market in which it was offered."
+        },
+        "caveats": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What the evidence does not establish."
+        },
+        "type_provisional": {
+          "type": "boolean",
+          "description": "true when the event type still needs a second reader."
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "date",
+        "statement",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "link": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "vocab": "link"
+        },
+        "from": {
+          "type": "string",
+          "ref": "discoveries",
+          "description": "The other discovery."
+        },
+        "from_event": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "The event of the other discovery that the link concerns."
+        },
+        "to_event": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "The event of this discovery that the link concerns."
+        },
+        "status": {
+          "type": "string",
+          "vocab": "link_status"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What the connection is, in one or two sentences."
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contribution": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "contribution"
+          }
+        },
+        "carrier": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "vocab": "carrier"
+          }
+        },
+        "influence": {
+          "type": "string",
+          "vocab": "influence"
+        },
+        "confidence": {
+          "type": "string",
+          "vocab": "confidence"
+        },
+        "alternatives": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Other routes or explanations."
+        },
+        "caveats": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timing": {
+          "type": "string",
+          "minLength": 1,
+          "description": "How the dates of the two relate."
+        },
+        "finding": {
+          "type": "string",
+          "minLength": 1,
+          "description": "For a candidate or insufficient link: what research has found so far."
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        }
+      },
+      "required": [
+        "type",
+        "from",
+        "status",
+        "statement"
+      ],
+      "additionalProperties": false
+    },
+    "date": {
+      "type": "object",
+      "properties": {
+        "earliest": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/point"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The earliest the event can have happened. null when the evidence gives only an upper limit."
+        },
+        "latest": {
+          "$ref": "#/$defs/point",
+          "description": "The latest the event can have happened."
+        },
+        "precision": {
+          "type": "string",
+          "vocab": "date_precision"
+        },
+        "status": {
+          "type": "string",
+          "vocab": "date_status"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The date as it should be read, such as \"c. 1608\" or \"by 1200\"."
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why the evidence supports this date."
+        }
+      },
+      "required": [
+        "earliest",
+        "latest",
+        "precision",
+        "status",
+        "label",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "point": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        }
+      },
+      "required": [
+        "year"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "ref": "sources"
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Where in the source: page, section or passage."
+          },
+          "supports": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What that passage establishes."
+          }
+        },
+        "required": [
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "description": "The sources that support the statement."
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Edition, volume, pages or the state of a web page."
+        },
+        "access": {
+          "type": "string",
+          "vocab": "access"
+        },
+        "accessed": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The date it was read, as YYYY-MM-DD."
+        },
+        "lineage": {
+          "type": "string",
+          "minLength": 1,
+          "description": "How the copy that was read relates to the original."
+        },
+        "passages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "description": "The passages that were actually read."
+        },
+        "file": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Path of the saved copy, relative to the repository root."
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "representation": {
+              "type": "string",
+              "minLength": 1,
+              "description": "What the saved copy is: the original, an excerpt, or notes."
+            },
+            "method": {
+              "type": "string",
+              "minLength": 1
+            },
+            "original_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "original_pages": {
+              "type": "integer"
+            },
+            "page_map": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "source_page": {
+                    "type": "integer"
+                  },
+                  "excerpt_page": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "source_page",
+                  "excerpt_page"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "authors",
+        "year",
+        "access"
+      ],
+      "additionalProperties": false
+    },
+    "place": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "vocab": "place_kind"
+        },
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{2}$",
+          "description": "ISO 3166-1 alpha-2 code of the present-day country."
+        },
+        "region": {
+          "type": "string",
+          "vocab": "world_region"
+        },
+        "within": {
+          "anyOf": [
+            {
+              "type": "string",
+              "ref": "places"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The enclosing place."
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "vocab": "basis"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "lat",
+        "lon",
+        "region",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "born": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "died": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "occupations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "vocab": "basis"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "vocab": "organization_kind"
+        },
+        "founded": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "dissolved": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "place": {
+          "type": "string",
+          "ref": "places"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "vocab": "basis"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "society": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "vocab": "society_kind"
+        },
+        "from": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "to": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "vocab": "basis"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "concept": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "lead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "era": {
+          "type": "string",
+          "minLength": 1
+        },
+        "near": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "discoveries"
+          },
+          "description": "Existing discoveries it may duplicate or connect to."
+        },
+        "source_leads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "authority": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "type": "string",
+          "vocab": "lead_status"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "status"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

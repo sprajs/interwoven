@@ -1,0 +1,792 @@
+{
+  "note": "Every discovery has one primary field and may list others. A field is written domain.field, such as food.crops.",
+  "groups": [
+    {
+      "id": "sustenance",
+      "name": "Sustenance and daily life"
+    },
+    {
+      "id": "making",
+      "name": "Materials and making"
+    },
+    {
+      "id": "power",
+      "name": "Energy and movement"
+    },
+    {
+      "id": "information",
+      "name": "Information and calculation"
+    },
+    {
+      "id": "understanding",
+      "name": "Understanding nature"
+    },
+    {
+      "id": "society",
+      "name": "Society and culture"
+    }
+  ],
+  "domains": [
+    {
+      "id": "food",
+      "name": "Food and farming",
+      "group": "sustenance",
+      "description": "Getting, growing, keeping and preparing food and drink.",
+      "fields": [
+        {
+          "id": "food.foraging",
+          "name": "Foraging and hunting",
+          "description": "Gathering wild food, hunting and trapping."
+        },
+        {
+          "id": "food.crops",
+          "name": "Crops",
+          "description": "Domesticating, breeding and growing plants; soils, fertiliser and field systems."
+        },
+        {
+          "id": "food.livestock",
+          "name": "Livestock",
+          "description": "Domesticating, breeding and keeping animals."
+        },
+        {
+          "id": "food.fishing",
+          "name": "Fishing and aquaculture",
+          "description": "Catching and farming fish and other water life."
+        },
+        {
+          "id": "food.irrigation",
+          "name": "Irrigation",
+          "description": "Bringing water to crops and sharing it out."
+        },
+        {
+          "id": "food.processing",
+          "name": "Food processing",
+          "description": "Milling, pressing, detoxifying and otherwise turning produce into food."
+        },
+        {
+          "id": "food.cooking",
+          "name": "Cooking",
+          "description": "Preparing food with heat and technique."
+        },
+        {
+          "id": "food.fermentation",
+          "name": "Fermentation and drink",
+          "description": "Brewing, wine, dairy cultures and other fermented or prepared drinks and foods."
+        },
+        {
+          "id": "food.preservation",
+          "name": "Food preservation",
+          "description": "Drying, salting, canning, chilling and storing food."
+        }
+      ]
+    },
+    {
+      "id": "health",
+      "name": "Health and medicine",
+      "group": "sustenance",
+      "description": "Keeping people alive and well.",
+      "fields": [
+        {
+          "id": "health.healing",
+          "name": "Healing practice",
+          "description": "Diagnosis and treatment as practised, including traditional medicine."
+        },
+        {
+          "id": "health.surgery",
+          "name": "Surgery",
+          "description": "Operating on the body, with anaesthesia and antisepsis."
+        },
+        {
+          "id": "health.drugs",
+          "name": "Drugs",
+          "description": "Medicines, from plant remedies to synthetic drugs and antibiotics."
+        },
+        {
+          "id": "health.immunity",
+          "name": "Vaccines and immunity",
+          "description": "Inoculation, vaccination and immunology in use."
+        },
+        {
+          "id": "health.disease",
+          "name": "Understanding disease",
+          "description": "What causes illness and how it spreads."
+        },
+        {
+          "id": "health.public-health",
+          "name": "Public health",
+          "description": "Sanitation, hygiene, quarantine and the health of populations."
+        },
+        {
+          "id": "health.diagnostics",
+          "name": "Diagnostics and imaging",
+          "description": "Instruments and tests that reveal the state of the body."
+        },
+        {
+          "id": "health.devices",
+          "name": "Medical devices",
+          "description": "Implants, prostheses and treatment machines."
+        },
+        {
+          "id": "health.body",
+          "name": "The human body",
+          "description": "Anatomy and physiology."
+        },
+        {
+          "id": "health.childbirth",
+          "name": "Childbirth and childcare",
+          "description": "Midwifery, obstetrics, contraception and infant care."
+        },
+        {
+          "id": "health.mind",
+          "name": "Mind and mental health",
+          "description": "Psychology and the treatment of mental illness."
+        }
+      ]
+    },
+    {
+      "id": "daily-life",
+      "name": "Daily life",
+      "group": "sustenance",
+      "description": "The home, the body and what people wear.",
+      "fields": [
+        {
+          "id": "daily-life.clothing",
+          "name": "Clothing",
+          "description": "Garments, footwear and protective wear."
+        },
+        {
+          "id": "daily-life.adornment",
+          "name": "Adornment and grooming",
+          "description": "Jewellery, cosmetics, hair and body care."
+        },
+        {
+          "id": "daily-life.household",
+          "name": "Household",
+          "description": "Furniture, utensils, cleaning, lighting and heating in the home."
+        },
+        {
+          "id": "daily-life.hygiene",
+          "name": "Personal hygiene",
+          "description": "Washing, soap, dental care and toilets."
+        }
+      ]
+    },
+    {
+      "id": "materials",
+      "name": "Materials",
+      "group": "making",
+      "description": "Finding, making and working substances.",
+      "fields": [
+        {
+          "id": "materials.stone",
+          "name": "Stone",
+          "description": "Knapping, grinding and working stone."
+        },
+        {
+          "id": "materials.wood-fibre",
+          "name": "Wood, fibre and hide",
+          "description": "Woodworking, cordage, basketry, leather and bone."
+        },
+        {
+          "id": "materials.adhesives-pigments",
+          "name": "Adhesives, pigments and dyes",
+          "description": "Glues, tars, paints, inks and dyes."
+        },
+        {
+          "id": "materials.ceramics",
+          "name": "Ceramics",
+          "description": "Fired clay, glazes, porcelain and bricks."
+        },
+        {
+          "id": "materials.glass",
+          "name": "Glass",
+          "description": "Making and forming glass."
+        },
+        {
+          "id": "materials.metallurgy",
+          "name": "Metallurgy",
+          "description": "Smelting, alloying, casting and working metals."
+        },
+        {
+          "id": "materials.mining",
+          "name": "Mining and extraction",
+          "description": "Getting ores, stone, salt, oil and gas out of the ground."
+        },
+        {
+          "id": "materials.textiles",
+          "name": "Textiles",
+          "description": "Spinning, weaving, knitting and finishing cloth."
+        },
+        {
+          "id": "materials.paper",
+          "name": "Paper and writing surfaces",
+          "description": "Papyrus, parchment, paper and board."
+        },
+        {
+          "id": "materials.chemicals",
+          "name": "Chemical manufacture",
+          "description": "Acids, alkalis, fertilisers, explosives and other made substances."
+        },
+        {
+          "id": "materials.polymers",
+          "name": "Rubber and plastics",
+          "description": "Natural and synthetic polymers."
+        },
+        {
+          "id": "materials.advanced",
+          "name": "Engineered materials",
+          "description": "Composites, semiconductors as materials, and materials designed at small scale."
+        }
+      ]
+    },
+    {
+      "id": "machines",
+      "name": "Tools and machines",
+      "group": "making",
+      "description": "Devices that apply force or carry out work.",
+      "fields": [
+        {
+          "id": "machines.hand-tools",
+          "name": "Hand tools",
+          "description": "Tools worked by hand, including hunting gear."
+        },
+        {
+          "id": "machines.mechanisms",
+          "name": "Mechanisms",
+          "description": "Levers, gears, screws, cams and other ways of passing on motion."
+        },
+        {
+          "id": "machines.mills",
+          "name": "Mills and lifting",
+          "description": "Water-lifting, grinding, sawing and other powered works."
+        },
+        {
+          "id": "machines.machine-tools",
+          "name": "Machine tools",
+          "description": "Lathes, borers, mills and precision manufacture."
+        },
+        {
+          "id": "machines.manufacturing",
+          "name": "Manufacturing systems",
+          "description": "Factories, interchangeable parts, assembly and production methods."
+        },
+        {
+          "id": "machines.automation",
+          "name": "Automation and robots",
+          "description": "Control, feedback, numerical control and robots."
+        }
+      ]
+    },
+    {
+      "id": "construction",
+      "name": "Building and infrastructure",
+      "group": "making",
+      "description": "Shelter and the works that settlements depend on.",
+      "fields": [
+        {
+          "id": "construction.shelter",
+          "name": "Shelter and housing",
+          "description": "Dwellings and the ways of building them."
+        },
+        {
+          "id": "construction.structures",
+          "name": "Structures",
+          "description": "Arches, domes, frames, tall buildings and monuments."
+        },
+        {
+          "id": "construction.building-materials",
+          "name": "Building materials",
+          "description": "Mortar, concrete, structural iron, steel and glass."
+        },
+        {
+          "id": "construction.water-works",
+          "name": "Water works",
+          "description": "Wells, reservoirs, dams, aqueducts, canals and drainage."
+        },
+        {
+          "id": "construction.sanitation",
+          "name": "Sanitation",
+          "description": "Sewers and waste."
+        },
+        {
+          "id": "construction.roads-bridges",
+          "name": "Roads, bridges and tunnels",
+          "description": "Built routes for travel."
+        },
+        {
+          "id": "construction.settlements",
+          "name": "Settlements",
+          "description": "Planning and running towns and cities."
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energy",
+      "group": "power",
+      "description": "Sources of heat and power and the means of turning one into another.",
+      "fields": [
+        {
+          "id": "energy.fire",
+          "name": "Fire and fuel",
+          "description": "Making and controlling fire; charcoal, coal, oil and gas as fuels."
+        },
+        {
+          "id": "energy.muscle",
+          "name": "Human and animal power",
+          "description": "Harnesses, treadmills and draught animals."
+        },
+        {
+          "id": "energy.water-wind",
+          "name": "Water and wind power",
+          "description": "Wheels, turbines, windmills and sails as prime movers."
+        },
+        {
+          "id": "energy.steam",
+          "name": "Steam and heat engines",
+          "description": "Steam engines, turbines and internal combustion."
+        },
+        {
+          "id": "energy.electric-power",
+          "name": "Electric power",
+          "description": "Generating, sending and using electricity."
+        },
+        {
+          "id": "energy.storage",
+          "name": "Batteries and storage",
+          "description": "Cells, batteries and other stores of energy."
+        },
+        {
+          "id": "energy.nuclear",
+          "name": "Nuclear energy",
+          "description": "Fission and fusion as sources of power."
+        },
+        {
+          "id": "energy.renewables",
+          "name": "Solar and other renewables",
+          "description": "Photovoltaics, modern wind and geothermal power."
+        },
+        {
+          "id": "energy.cooling",
+          "name": "Refrigeration and climate control",
+          "description": "Making cold and controlling indoor climate."
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Transport",
+      "group": "power",
+      "description": "Moving people and goods, and finding the way.",
+      "fields": [
+        {
+          "id": "transport.land",
+          "name": "Land transport",
+          "description": "Sledges, wheels, carts, cycles and motor vehicles."
+        },
+        {
+          "id": "transport.rail",
+          "name": "Railways",
+          "description": "Track, locomotives and railway operation."
+        },
+        {
+          "id": "transport.watercraft",
+          "name": "Boats and ships",
+          "description": "Building and sailing craft on water."
+        },
+        {
+          "id": "transport.navigation",
+          "name": "Navigation",
+          "description": "Finding position and direction at sea, on land and in the air."
+        },
+        {
+          "id": "transport.aviation",
+          "name": "Flight",
+          "description": "Balloons, aircraft and their engines."
+        },
+        {
+          "id": "transport.space",
+          "name": "Spaceflight",
+          "description": "Rockets, satellites and spacecraft."
+        },
+        {
+          "id": "transport.logistics",
+          "name": "Logistics",
+          "description": "Relays, posts of carriage, containers and the organisation of movement."
+        }
+      ]
+    },
+    {
+      "id": "warfare",
+      "name": "Warfare and security",
+      "group": "power",
+      "description": "Weapons, defence and the organisation of force.",
+      "fields": [
+        {
+          "id": "warfare.weapons",
+          "name": "Weapons",
+          "description": "Arms, from blades and bows to firearms and missiles."
+        },
+        {
+          "id": "warfare.explosives",
+          "name": "Explosives",
+          "description": "Gunpowder and later energetic materials."
+        },
+        {
+          "id": "warfare.fortification",
+          "name": "Fortification and armour",
+          "description": "Walls, forts and protection."
+        },
+        {
+          "id": "warfare.organisation",
+          "name": "Military organisation",
+          "description": "Tactics, logistics and command."
+        },
+        {
+          "id": "warfare.secrecy",
+          "name": "Codes and intelligence",
+          "description": "Ciphers, codebreaking and surveillance."
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Communication",
+      "group": "information",
+      "description": "Recording what is known and sending it to others.",
+      "fields": [
+        {
+          "id": "communication.language-writing",
+          "name": "Language and writing",
+          "description": "Scripts, alphabets, notation and translation."
+        },
+        {
+          "id": "communication.records",
+          "name": "Record keeping",
+          "description": "Tallies, archives, libraries and catalogues."
+        },
+        {
+          "id": "communication.printing",
+          "name": "Printing and publishing",
+          "description": "Block printing, movable type, presses and typesetting."
+        },
+        {
+          "id": "communication.post",
+          "name": "Post and messengers",
+          "description": "Carrying messages by person, animal or signal."
+        },
+        {
+          "id": "communication.telecommunication",
+          "name": "Telecommunication",
+          "description": "Telegraph, telephone, radio links, fibre and networks for messages."
+        },
+        {
+          "id": "communication.broadcasting",
+          "name": "Broadcasting",
+          "description": "Radio and television to the public."
+        },
+        {
+          "id": "communication.recording",
+          "name": "Sound and image recording",
+          "description": "Photography, film, sound recording and their formats."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics and computing",
+      "group": "information",
+      "description": "Controlling electric signals and computing with them.",
+      "fields": [
+        {
+          "id": "electronics.components",
+          "name": "Electronic components",
+          "description": "Detectors, valves, transistors, sensors and circuits."
+        },
+        {
+          "id": "electronics.semiconductors",
+          "name": "Semiconductor devices",
+          "description": "Semiconductor physics in use and the making of devices."
+        },
+        {
+          "id": "electronics.integrated-circuits",
+          "name": "Integrated circuits",
+          "description": "Circuits made as one piece, including processors and memory."
+        },
+        {
+          "id": "electronics.computers",
+          "name": "Computers",
+          "description": "Machines that compute, from mechanical calculators to modern systems."
+        },
+        {
+          "id": "electronics.storage",
+          "name": "Data storage",
+          "description": "Tape, disk and other ways of keeping data."
+        },
+        {
+          "id": "electronics.software",
+          "name": "Software",
+          "description": "Languages, operating systems, databases and algorithms as built."
+        },
+        {
+          "id": "electronics.networks",
+          "name": "Computer networks",
+          "description": "Linking computers, and what runs over the links."
+        },
+        {
+          "id": "electronics.ai",
+          "name": "Artificial intelligence",
+          "description": "Machines that learn or reason."
+        }
+      ]
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "group": "information",
+      "description": "Number, form, proof and methods of calculation.",
+      "fields": [
+        {
+          "id": "mathematics.number",
+          "name": "Number and arithmetic",
+          "description": "Numerals, place value, fractions and reckoning."
+        },
+        {
+          "id": "mathematics.calculation",
+          "name": "Calculation aids",
+          "description": "Tables, logarithms, slide rules and other methods and devices for computing by hand."
+        },
+        {
+          "id": "mathematics.algebra",
+          "name": "Algebra",
+          "description": "Equations and abstract structure."
+        },
+        {
+          "id": "mathematics.geometry",
+          "name": "Geometry",
+          "description": "Shape, space and trigonometry."
+        },
+        {
+          "id": "mathematics.analysis",
+          "name": "Calculus and analysis",
+          "description": "Change, limits and infinite processes."
+        },
+        {
+          "id": "mathematics.probability",
+          "name": "Probability and statistics",
+          "description": "Chance, data and inference."
+        },
+        {
+          "id": "mathematics.logic",
+          "name": "Logic and foundations",
+          "description": "Proof, sets and computation in principle."
+        }
+      ]
+    },
+    {
+      "id": "measurement",
+      "name": "Measurement and instruments",
+      "group": "information",
+      "description": "Measuring the world and building the instruments to do it.",
+      "fields": [
+        {
+          "id": "measurement.time",
+          "name": "Timekeeping and calendars",
+          "description": "Clocks, calendars and the measurement of time."
+        },
+        {
+          "id": "measurement.units",
+          "name": "Units and standards",
+          "description": "Weights, measures, scales and agreed standards."
+        },
+        {
+          "id": "measurement.surveying",
+          "name": "Surveying and maps",
+          "description": "Measuring land and sea and drawing them."
+        },
+        {
+          "id": "measurement.optical-instruments",
+          "name": "Optical instruments",
+          "description": "Lenses, spectacles, telescopes and microscopes."
+        },
+        {
+          "id": "measurement.laboratory",
+          "name": "Laboratory instruments and methods",
+          "description": "Apparatus and techniques for experiment and analysis."
+        },
+        {
+          "id": "measurement.sensing",
+          "name": "Detection and imaging",
+          "description": "Instruments that detect what the senses cannot."
+        }
+      ]
+    },
+    {
+      "id": "physical-sciences",
+      "name": "Physical sciences",
+      "group": "understanding",
+      "description": "How matter, energy and the universe behave.",
+      "fields": [
+        {
+          "id": "physical-sciences.astronomy",
+          "name": "Astronomy",
+          "description": "The sky, the solar system and the universe."
+        },
+        {
+          "id": "physical-sciences.mechanics",
+          "name": "Mechanics and gravitation",
+          "description": "Motion, force and gravity."
+        },
+        {
+          "id": "physical-sciences.optics",
+          "name": "Light and optics",
+          "description": "The nature and behaviour of light."
+        },
+        {
+          "id": "physical-sciences.heat",
+          "name": "Heat and thermodynamics",
+          "description": "Heat, work and energy."
+        },
+        {
+          "id": "physical-sciences.electromagnetism",
+          "name": "Electricity and magnetism",
+          "description": "Electric and magnetic phenomena and their theory."
+        },
+        {
+          "id": "physical-sciences.atomic",
+          "name": "Atoms, nuclei and quanta",
+          "description": "The structure of matter, relativity and quantum theory."
+        },
+        {
+          "id": "physical-sciences.chemistry",
+          "name": "Chemistry",
+          "description": "Substances, their composition and their reactions."
+        },
+        {
+          "id": "physical-sciences.earth",
+          "name": "Earth sciences",
+          "description": "Geology, weather, climate and the oceans."
+        }
+      ]
+    },
+    {
+      "id": "life-sciences",
+      "name": "Life sciences",
+      "group": "understanding",
+      "description": "How living things work, vary and change.",
+      "fields": [
+        {
+          "id": "life-sciences.natural-history",
+          "name": "Natural history",
+          "description": "Describing and classifying living things."
+        },
+        {
+          "id": "life-sciences.cells-microbes",
+          "name": "Cells and microbes",
+          "description": "Cells, micro-organisms and their workings."
+        },
+        {
+          "id": "life-sciences.genetics",
+          "name": "Genetics and molecular biology",
+          "description": "Heredity, DNA and the molecules of life."
+        },
+        {
+          "id": "life-sciences.evolution",
+          "name": "Evolution",
+          "description": "How species arise and change."
+        },
+        {
+          "id": "life-sciences.ecology",
+          "name": "Ecology",
+          "description": "Living things in their surroundings."
+        },
+        {
+          "id": "life-sciences.brain",
+          "name": "Brain and behaviour",
+          "description": "Nervous systems and behaviour."
+        }
+      ]
+    },
+    {
+      "id": "economy",
+      "name": "Economy and institutions",
+      "group": "society",
+      "description": "Ways of organising exchange, work, rule and learning.",
+      "fields": [
+        {
+          "id": "economy.money",
+          "name": "Money and finance",
+          "description": "Coinage, credit, banking and insurance."
+        },
+        {
+          "id": "economy.accounting",
+          "name": "Accounting",
+          "description": "Keeping track of goods, debts and obligations."
+        },
+        {
+          "id": "economy.trade",
+          "name": "Trade and markets",
+          "description": "Exchange, trade routes and commercial practice."
+        },
+        {
+          "id": "economy.law-government",
+          "name": "Law and government",
+          "description": "Codes, administration and public institutions."
+        },
+        {
+          "id": "economy.organisation",
+          "name": "Organisation of work",
+          "description": "Division of labour, firms, cooperation and management."
+        },
+        {
+          "id": "economy.education",
+          "name": "Education and scholarship",
+          "description": "Schools, universities, teaching and the passing on of learning."
+        },
+        {
+          "id": "economy.social-science",
+          "name": "Study of society",
+          "description": "Economics, linguistics, history and other knowledge of human affairs."
+        }
+      ]
+    },
+    {
+      "id": "arts",
+      "name": "Arts and entertainment",
+      "group": "society",
+      "description": "What people make and do for meaning and pleasure.",
+      "fields": [
+        {
+          "id": "arts.music",
+          "name": "Music",
+          "description": "Instruments, notation and ways of making music."
+        },
+        {
+          "id": "arts.visual",
+          "name": "Visual arts",
+          "description": "Painting, sculpture, perspective and design."
+        },
+        {
+          "id": "arts.literature",
+          "name": "Literature and storytelling",
+          "description": "Forms of telling and writing stories."
+        },
+        {
+          "id": "arts.performance",
+          "name": "Performance",
+          "description": "Theatre, dance and ceremony."
+        },
+        {
+          "id": "arts.games-sport",
+          "name": "Games and sport",
+          "description": "Board games, play, toys and organised sport."
+        },
+        {
+          "id": "arts.screen",
+          "name": "Film, broadcast and digital entertainment",
+          "description": "Cinema, programmes and video games."
+        }
+      ]
+    }
+  ]
+}

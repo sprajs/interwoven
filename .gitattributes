@@ -1,42 +1,7 @@
 # Evidence hashes cover exact bytes; never normalize source line endings.
 research/science-technology-graph/evidence/** -text
 
-# Selected acquisition snapshots use LFS; existing evidence stays in its current storage.
-research/science-technology-graph/evidence/acquired/cont-a-tea-lu2016.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-zhongba-salt-flad-2005.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-b-kapa-smithsonian-2014.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-b-wam-shunting-2024.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-nc-nist-2008.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-regenerator-siemens-court.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-hama-fstc2005.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-jomon-takakura-2020.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-silk-oxford-excerpt.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-wave2-inverform-pita1960.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-w2-asms-massspec.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-w3-fiber-telecoms-1983.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-hama-asme2013.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-float-society-award.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-flotation-brokenhill.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-regenerator-arts-1858.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-pdp11-vs-s360-1973.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-pup-1979.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-unix1984.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-vcord-1976.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-cullen-suan.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-hama-asme.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-hama-schriwer-excerpt.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-b-kapa-history-2020-excerpt.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-arcep-x25-2021.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-w2-meselson-stahl-1958.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-dalton-higgins-1789-excerpt.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-b-cieza-chronica.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-regenerator-lighthouse-1861.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-minitel-1983.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-regenerator-wessex.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-unix1974.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-compare-mashan-nga-excerpt.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-b-kuk-agriculture-2003.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-c-next-roller-northampton.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-a-shubayqa1-arranz-otaegui-2018.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-dec-pdp11-1992.pdf filter=lfs diff=lfs merge=lfs -text
-research/science-technology-graph/evidence/acquired/cont-d-w2-xray-1896-p187.jpg filter=lfs diff=lfs merge=lfs -text
+# Binary evidence uses LFS, including future captures of these formats.
+research/science-technology-graph/evidence/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+research/science-technology-graph/evidence/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+research/science-technology-graph/evidence/**/*.png filter=lfs diff=lfs merge=lfs -text

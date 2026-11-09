@@ -1,0 +1,458 @@
+{
+  "kind": {
+    "question": "What sort of thing is it? Exactly one.",
+    "values": {
+      "science": "Empirical knowledge or an explanation of the world.",
+      "mathematics": "A formal result, a representation or a method of calculation.",
+      "technology": "An artifact, instrument, material or reproducible technical process.",
+      "practice": "A learned skill or a social, organisational or cultural system, held in people more than in objects."
+    }
+  },
+  "origin": {
+    "question": "How did this community come to have it? Exactly one.",
+    "values": {
+      "first_known": "The earliest known achievement of this thing anywhere.",
+      "independent": "Reached separately, with no evidenced knowledge of an earlier achievement elsewhere.",
+      "derived": "Reached through evidenced transmission from an earlier achievement, then adopted or adapted.",
+      "revival": "Deliberately recovered or rebuilt after having been lost or abandoned.",
+      "unknown": "Investigated, and the evidence does not settle whether it was independent."
+    }
+  },
+  "advance": {
+    "question": "What was actually new? An entry can have several values.",
+    "values": {
+      "observation": "A phenomenon or object seen or detected for the first time.",
+      "measurement": "A quantity established, or established more precisely.",
+      "experimental_method": "A new way of finding things out.",
+      "explanation": "A new account of why something happens.",
+      "unification": "Separate bodies of knowledge shown to be one.",
+      "mathematical_method": "A new way of calculating, proving or representing.",
+      "correction": "An accepted idea shown to be wrong or replaced.",
+      "dataset": "A compiled resource others can draw on.",
+      "standard_or_scale": "A unit, scale, classification or interface others adopt.",
+      "field_or_clinical_trial": "A deliberate test in real conditions, on patients or at sea for example.",
+      "operating_principle": "A device that works in a fundamentally new way.",
+      "device_or_configuration": "A new artefact or arrangement using known principles.",
+      "performance_improvement": "The same thing made measurably better.",
+      "material": "A new or newly controllable substance.",
+      "manufacturing_process": "A new way of making something.",
+      "cost_or_scale": "The same thing made cheap or plentiful enough to change who uses it.",
+      "system_integration": "Existing parts combined into a working whole.",
+      "infrastructure": "A shared facility or network that others build on.",
+      "craft_practice": "Skill held in people and practice more than in documents.",
+      "new_application": "An existing thing put to a different use.",
+      "codification_or_teaching": "Knowledge written down or taught so it can spread.",
+      "reconstruction": "Something earlier rebuilt or revived deliberately."
+    }
+  },
+  "scale": {
+    "question": "How far did it disturb what came before? Choose one.",
+    "values": {
+      "incremental": "Technology: better within the same design.",
+      "modular": "Technology: one component changes, and the overall design stays.",
+      "architectural": "Technology: known components rearranged in a new way.",
+      "radical": "Technology: new principle and new arrangement.",
+      "extends": "Science: adds to accepted understanding.",
+      "revises": "Science: changes part of accepted understanding.",
+      "overturns": "Science: replaces a core premise.",
+      "opens_field": "Science: makes a new line of enquiry possible."
+    }
+  },
+  "prompted_by": {
+    "question": "What set people working on this? This is the prompt, not the enabler. An entry can have several values.",
+    "values": {
+      "new_capability": "A new instrument, method or material made people go and look.",
+      "prior_theory": "A theory made a prediction or pointed somewhere.",
+      "data_or_measurements": "Existing results demanded better accuracy or explanation.",
+      "anomaly_or_failure": "Something did not fit, or something broke.",
+      "practical_need": "An engineering, medical, navigational or everyday problem.",
+      "market_or_competition": "Commercial opportunity or a rival.",
+      "state_or_military": "A government, war or defence requirement.",
+      "transfer_from_other_field": "An idea carried across from another discipline.",
+      "transmission_from_other_place": "News or an example arriving from elsewhere.",
+      "systematic_search": "A deliberate, broad programme of trying things.",
+      "accident": "An unplanned result that someone recognised.",
+      "curiosity": "Understanding for its own sake, with no stated use."
+    }
+  },
+  "limit_removed": {
+    "question": "Which bottleneck did it relieve? Several values allowed.",
+    "values": {
+      "resolution": "Seeing or separating finer detail.",
+      "precision": "Measuring or making more exactly.",
+      "purity": "Controlling composition.",
+      "power_or_energy": "More energy or better conversion.",
+      "speed": "Doing it faster.",
+      "cost": "Doing it cheaper.",
+      "scale": "Doing more of it, or a larger one.",
+      "reliability": "Doing it dependably.",
+      "access": "Letting more people or places do it.",
+      "conceptual": "A way of thinking was the obstacle."
+    }
+  },
+  "reception": {
+    "question": "How was it received? Exactly one.",
+    "values": {
+      "immediate": "Taken up quickly by its community.",
+      "gradual": "Spread slowly without a real dispute.",
+      "contested": "Openly disputed before being settled.",
+      "delayed": "Largely ignored, then taken up much later.",
+      "lost_and_recovered": "Knowledge or practice lost, then recovered."
+    }
+  },
+  "end_reason": {
+    "question": "If it ended or declined, why? Several values allowed.",
+    "values": {
+      "better_substitute": "Something else did the job better.",
+      "cost": "It became uneconomic.",
+      "input_or_skill_lost": "A material, supplier or skill disappeared.",
+      "regulation_or_safety": "It was restricted or judged unsafe.",
+      "maker_failure": "The company or institution behind it ended.",
+      "social_or_political": "Rejection, conquest, collapse or policy."
+    }
+  },
+  "fate": {
+    "question": "Where does it stand today? Exactly one.",
+    "values": {
+      "in_use": "Still in ordinary use.",
+      "niche": "Survives in limited, specialist, ceremonial or heritage use.",
+      "incorporated": "No longer distinct, because later work absorbed it.",
+      "superseded": "Replaced by something better and no longer used.",
+      "abandoned": "Given up without a direct replacement.",
+      "lost": "The knowledge or skill itself was lost.",
+      "refuted": "Shown to be wrong."
+    }
+  },
+  "setting": {
+    "question": "In what kind of setting was the work done? Several values allowed.",
+    "values": {
+      "household": "A home or family.",
+      "community": "A village, band or people acting together.",
+      "workshop": "A craft workshop or small maker.",
+      "guild": "An organised trade body.",
+      "court": "A ruler's court or household.",
+      "religious": "A temple, monastery, mission or other religious body.",
+      "school": "A school or university.",
+      "learned_society": "An academy or scientific society.",
+      "state": "A government office, works or laboratory.",
+      "military": "An army, navy or defence body.",
+      "firm": "A business, including its laboratory.",
+      "hospital": "A hospital or clinic.",
+      "expedition": "A voyage, survey or field expedition.",
+      "individual": "One person working privately."
+    }
+  },
+  "funding": {
+    "question": "Who paid for the work? Several values allowed.",
+    "values": {
+      "self": "The people doing it.",
+      "patron": "A private patron or ruler.",
+      "state": "Public money.",
+      "military": "A defence budget.",
+      "religious": "A religious body.",
+      "commercial": "A firm's own revenue.",
+      "investors": "Outside investors.",
+      "university": "A school or university.",
+      "philanthropy": "A charity or foundation.",
+      "community": "Shared labour or resources.",
+      "prize": "A prize or award."
+    }
+  },
+  "known_from": {
+    "question": "What kind of record tells us about it? Several values allowed.",
+    "values": {
+      "archaeological_find": "Excavated remains or residues.",
+      "surviving_artifact": "An object kept above ground.",
+      "contemporary_text": "Writing from the time, by those involved or near them.",
+      "later_text": "A later account.",
+      "inscription": "A text cut or painted on a durable object.",
+      "administrative_record": "Accounts, registers or official papers.",
+      "patent": "A patent or other legal claim.",
+      "scientific_publication": "A paper, report or treatise presenting the work.",
+      "image": "A drawing, painting, photograph or film.",
+      "oral_tradition": "Knowledge handed down by word of mouth.",
+      "ethnographic_account": "An outside observer's record of living practice.",
+      "experimental_reconstruction": "A modern rebuilding or trial."
+    }
+  },
+  "event": {
+    "question": "What happened? Each dated event has exactly one type.",
+    "values": {
+      "conception": "The idea was formed.",
+      "invention": "A working thing was first made.",
+      "observation": "A phenomenon was seen or detected.",
+      "formulation": "An explanation, law or method was worked out.",
+      "experimental_confirmation": "A test confirmed it.",
+      "prototype": "A trial version existed.",
+      "demonstration": "It was shown working.",
+      "presentation": "It was presented to an audience.",
+      "documented_description": "A dated text or image describes it.",
+      "publication": "It was published.",
+      "public_disclosure": "It was made public by other means.",
+      "patent": "A patent was filed or granted.",
+      "archaeological_evidence": "Dated remains show it existed.",
+      "practical_use": "It was used for real work.",
+      "practical_deployment": "It was installed or put into service.",
+      "production": "It was made in quantity.",
+      "commercial_offer": "It was offered for sale.",
+      "commercial_availability": "It could be bought.",
+      "first_commercial_availability": "It could be bought for the first time anywhere.",
+      "launch": "It was formally launched.",
+      "public_availability": "It was open to the public without sale.",
+      "adoption": "A community or place took it up.",
+      "transmission": "It reached a new place or community from elsewhere.",
+      "recognition": "Others acknowledged it.",
+      "acceptance": "Its community came to accept it.",
+      "decline": "Its use fell away.",
+      "withdrawal": "A maker stopped offering it.",
+      "support_end": "A maker stopped supporting it.",
+      "end_of_use": "It stopped being used.",
+      "abandonment": "It was given up.",
+      "revival": "It was taken up again.",
+      "dated_assertion": "A dated record whose stage has not been classified."
+    }
+  },
+  "date_status": {
+    "question": "How well is the date known?",
+    "values": {
+      "known": "The evidence gives the date.",
+      "approximate": "The evidence gives roughly this date.",
+      "bounded": "The evidence gives a limit or a range, not the date itself."
+    }
+  },
+  "date_precision": {
+    "question": "How fine is the date?",
+    "values": {
+      "day": "Day.",
+      "month": "Month.",
+      "year": "Year.",
+      "decade": "Decade.",
+      "century": "Century.",
+      "millennium": "Millennium.",
+      "range": "Range."
+    }
+  },
+  "place_role": {
+    "question": "What happened at this place?",
+    "values": {
+      "origin": "Where it was devised, made or first done.",
+      "use": "Where it was used.",
+      "findspot": "Where evidence of it was found.",
+      "manufacture": "Where it was produced.",
+      "observation": "Where an observation was made.",
+      "publication": "Where it was published or presented.",
+      "study": "Where it was later studied or reconstructed."
+    }
+  },
+  "person_role": {
+    "question": "What did this person do?",
+    "values": {
+      "originator": "Devised, discovered or first made it.",
+      "contributor": "Worked on it with others.",
+      "builder": "Made the object or carried out the work.",
+      "author": "Wrote the account that records it.",
+      "patron": "Commissioned or paid for it.",
+      "user": "Used or operated it.",
+      "teacher": "Passed it on to others.",
+      "observer": "Witnessed or recorded it without taking part."
+    }
+  },
+  "organization_role": {
+    "question": "What did this organisation do?",
+    "values": {
+      "host": "The work was done there.",
+      "maker": "Produced it.",
+      "funder": "Paid for it.",
+      "publisher": "Published it.",
+      "operator": "Ran or used it.",
+      "customer": "Bought or commissioned it."
+    }
+  },
+  "place_kind": {
+    "question": "What sort of place is it?",
+    "values": {
+      "site": "A building, works, excavation or other single location.",
+      "settlement": "A village, town or city.",
+      "area": "A district, province, island or other part of a country.",
+      "country": "A present-day country.",
+      "region": "A named area larger than or cutting across countries.",
+      "water": "A sea, ocean, lake or river."
+    }
+  },
+  "world_region": {
+    "question": "Which part of the world? These match the population series.",
+    "values": {
+      "africa": "Africa.",
+      "asia": "Asia, including the Middle East.",
+      "europe": "Europe, including Russia.",
+      "north_america": "North and Central America and the Caribbean.",
+      "south_america": "South America.",
+      "oceania": "Australia, New Zealand and the Pacific islands."
+    }
+  },
+  "organization_kind": {
+    "question": "What sort of organisation is it?",
+    "values": {
+      "firm": "A business.",
+      "workshop": "A craft workshop or small maker.",
+      "university": "A school or university.",
+      "learned_society": "An academy or scientific society.",
+      "laboratory": "A research laboratory.",
+      "state": "A government body.",
+      "military": "A defence body.",
+      "religious": "A religious body.",
+      "hospital": "A hospital or clinic.",
+      "museum": "A museum, library or archive.",
+      "publisher": "A press or journal.",
+      "other": "None of these."
+    }
+  },
+  "society_kind": {
+    "question": "What sort of society is it?",
+    "values": {
+      "polity": "A state, empire, kingdom or other government.",
+      "culture": "An archaeological or historical culture.",
+      "people": "A people or nation identified by name."
+    }
+  },
+  "link": {
+    "question": "How are the two discoveries connected? The link is stored on the later or receiving discovery and points at the other.",
+    "values": {
+      "builds_on": "It developed out of the other.",
+      "adapts": "It modified the other's design.",
+      "requires": "It could not work without the function the other provides.",
+      "uses_instrument": "The other is the instrument that made this observation possible.",
+      "uses_process": "The other is the process that made this production possible.",
+      "uses_theory": "The other is the theory that informed this design.",
+      "transmitted_from": "Knowledge of the other actually travelled and was received.",
+      "supersedes": "It replaced the other.",
+      "part_of": "It is one component or refinement of the other.",
+      "independent_of": "The same thing reached separately, with no evidenced contact.",
+      "companion_of": "The two worked together as parts of one arrangement.",
+      "same_principle": "The two rest on the same documented principle.",
+      "same_family": "The two belong to one documented family of designs."
+    },
+    "layers": {
+      "dependence": [
+        "builds_on",
+        "adapts",
+        "requires",
+        "uses_instrument",
+        "uses_process",
+        "uses_theory",
+        "supersedes",
+        "part_of"
+      ],
+      "transmission": [
+        "transmitted_from"
+      ],
+      "parallel": [
+        "independent_of"
+      ],
+      "affinity": [
+        "companion_of",
+        "same_principle",
+        "same_family"
+      ]
+    }
+  },
+  "link_status": {
+    "question": "How far has the link been established?",
+    "values": {
+      "established": "The cited evidence supports it.",
+      "candidate": "A question worth researching. It is not a claim.",
+      "insufficient": "Researched, and the evidence found does not support it."
+    }
+  },
+  "contribution": {
+    "question": "What passed from the other discovery to this one? Several values allowed.",
+    "values": {
+      "supplied_instrument": "It was the tool used to observe or measure.",
+      "supplied_method": "It provided a technique.",
+      "supplied_material": "It provided a substance.",
+      "supplied_component": "It became a part of the later thing.",
+      "supplied_production_capability": "It made manufacture possible.",
+      "supplied_platform": "It was the base on which the later work took place.",
+      "supplied_theory_or_design_rule": "It told people what to do or expect.",
+      "supplied_data": "Its numbers or results were used.",
+      "supplied_mathematics": "It provided the formal tools.",
+      "posed_problem": "It raised the question being answered.",
+      "challenged_or_refuted": "The later work argued against it.",
+      "improved_on": "The later thing is a better version in the same line.",
+      "replaced": "The later thing displaced it in practice.",
+      "implemented": "An idea or design was turned into a working thing.",
+      "applied_to_new_use": "It was carried into a different purpose.",
+      "taught_or_transmitted": "Knowledge of it was passed on.",
+      "stimulated": "News or example prompted the work without supplying its content."
+    }
+  },
+  "carrier": {
+    "question": "How did it get across? Several values allowed.",
+    "values": {
+      "same_actor_or_team": "The same people did both.",
+      "institutional": "Colleagues within one organisation.",
+      "publication": "A published text.",
+      "news_or_report": "Word of it, without detail.",
+      "correspondence": "Letters or private exchange.",
+      "personal_contact": "People met or discussed it.",
+      "teaching": "Instruction or apprenticeship.",
+      "migration": "A person with the knowledge moved.",
+      "artifact_or_copying": "Someone had the object and copied or studied it.",
+      "patent_or_licence": "A formal transfer of rights.",
+      "commerce": "Buying and selling.",
+      "translation": "Moved between languages."
+    }
+  },
+  "influence": {
+    "question": "How much did this discovery rely on the other?",
+    "values": {
+      "minor": "A small evidenced contribution.",
+      "contributing": "One supported input among several.",
+      "major": "A substantial evidenced contribution.",
+      "essential": "Essential to this specific historical instance, not every possible route."
+    }
+  },
+  "confidence": {
+    "question": "How well does the evidence support the statement?",
+    "values": {
+      "high": "Directly stated by a good source.",
+      "medium": "Supported, with gaps.",
+      "low": "Weakly supported."
+    }
+  },
+  "basis": {
+    "question": "Where does a recorded value come from?",
+    "values": {
+      "sourced": "From evidence cited on the record.",
+      "recalled": "From general knowledge, entered without checking a source. Treat as a lead to verify.",
+      "reviewed": "Checked against the evidence by a second reader.",
+      "unknown": "Investigated, and the evidence does not settle it.",
+      "not_applicable": "The question does not apply to this discovery."
+    }
+  },
+  "research_status": {
+    "question": "How far has the whole record been taken?",
+    "values": {
+      "stub": "Named, with little else.",
+      "draft": "Written up, with some claims not yet sourced.",
+      "sourced": "Its dated events and links cite evidence.",
+      "reviewed": "Checked by a second reader."
+    }
+  },
+  "access": {
+    "question": "How much of the source was read?",
+    "values": {
+      "full-text": "The whole text.",
+      "partial-text": "Part of the text.",
+      "abstract": "The abstract only.",
+      "metadata": "The catalogue record only."
+    }
+  },
+  "lead_status": {
+    "question": "Where does a research lead stand?",
+    "values": {
+      "open": "Not yet researched.",
+      "insufficient": "Researched without finding enough evidence."
+    }
+  }
+}

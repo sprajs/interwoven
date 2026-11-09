@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 
-Install [Git LFS](https://git-lfs.com/) on each machine before running these commands. Selected binary research snapshots use LFS; the committed `.gitattributes` identifies them. Git stores their pointers and GitHub stores their contents under the same repository permissions. Text, graph data and review records stay in ordinary Git. LFS storage and downloads use the repository owner's GitHub allowance.
+Install [Git LFS](https://git-lfs.com/) on each machine before running these commands. PDF, JPG and PNG research evidence uses LFS; the committed `.gitattributes` also covers future captures. Git stores their pointers and GitHub stores their contents under the same repository permissions. Text, graph data and review records stay in ordinary Git. LFS storage and downloads use the repository owner's GitHub allowance.
 
 Then open http://localhost:5174. While the server runs, the chart rebuilds itself whenever the research changes.
 
