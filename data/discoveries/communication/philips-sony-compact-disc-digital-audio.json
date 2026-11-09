@@ -1,0 +1,100 @@
+{
+  "id": "philips-sony-compact-disc-digital-audio",
+  "name": "Compact Disc digital audio",
+  "description": "A jointly developed optical disc and playback format for digitally recorded consumer audio.",
+  "kind": "technology",
+  "domain": "communication.recording",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "japan-launch-1982",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1982
+        },
+        "latest": {
+          "year": 1982
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1982",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "Philips dates the Compact Disc launch in Japan to the end of 1982.",
+      "evidence": [
+        {
+          "source": "philips-2019-compact-disc-wave8",
+          "locator": "Description",
+          "supports": "Joint Philips/Sony development; Japan launch end 1982 and European introduction 1983."
+        }
+      ],
+      "caveats": "A company retrospective; this does not establish exact sales numbers or the date on which every model was in stores.",
+      "contributions": [
+        {
+          "organization": "philips",
+          "role": "developer",
+          "resource": "Joint development of the Compact Disc.",
+          "evidence": [
+            {
+              "source": "philips-2019-compact-disc-wave8",
+              "locator": "Description",
+              "supports": "Joint Philips/Sony development; Japan launch end 1982 and European introduction 1983."
+            }
+          ]
+        },
+        {
+          "organization": "sony",
+          "role": "developer",
+          "resource": "Joint development of the Compact Disc.",
+          "evidence": [
+            {
+              "source": "philips-2019-compact-disc-wave8",
+              "locator": "Description",
+              "supports": "Joint Philips/Sony development; Japan launch end 1982 and European introduction 1983."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "europe-introduction-1983",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1983
+        },
+        "latest": {
+          "year": 1983
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1983",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "Philips introduced the Compact Disc in Europe.",
+      "evidence": [
+        {
+          "source": "philips-2019-compact-disc-wave8",
+          "locator": "Description",
+          "supports": "Joint Philips/Sony development; Japan launch end 1982 and European introduction 1983."
+        }
+      ],
+      "caveats": "Introduction does not quantify consumers or purchases."
+    }
+  ],
+  "earliest_record": {
+    "event": "japan-launch-1982",
+    "rationale": "Earliest dated episode supported in the inspected evidence for this scope; no global priority asserted."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Independent reader checked the cited publication and the event-scoped claims."
+  },
+  "caveats": "Digital Compact Cassette is a separate later magnetic-tape format; the source does not establish that it derived from this specific disc."
+}

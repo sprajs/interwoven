@@ -1,0 +1,179 @@
+{
+  "id": "salk-polio-vaccine-field-trial",
+  "name": "1954 US polio vaccine field trial",
+  "description": "A large US field trial evaluated a polio vaccine in schoolchildren in 1954.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "instance",
+  "concept": "polio-vaccine-field-evaluation",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1954
+        },
+        "latest": {
+          "year": 1954
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1954",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "A large US field trial evaluated a polio vaccine in schoolchildren in 1954.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "w8-meldrum-polio-trials",
+          "locator": "Introduction and trial designs",
+          "supports": "The historian reports 623,972 children in vaccine-or-placebo groups and over a million in observed-control groups in the 1954 US field trials, sponsored by the National Foundation for Infantile Paralysis. Trial designs differed; the count is not the number vaccinated or a population adoption rate."
+        }
+      ],
+      "caveats": "The trial had different comparison designs. A 1955 manufacturing failure affected some batches after the field trials; the trial count is not the number vaccinated or community coverage.",
+      "contributions": [
+        {
+          "group": "Participating schoolchildren",
+          "role": "user",
+          "resource": "1954 US polio vaccine field trial",
+          "evidence": [
+            {
+              "source": "w8-meldrum-polio-trials",
+              "locator": "Introduction and trial designs",
+              "supports": "The historian reports 623,972 children in vaccine-or-placebo groups and over a million in observed-control groups in the 1954 US field trials, sponsored by the National Foundation for Infantile Paralysis. Trial designs differed; the count is not the number vaccinated or a population adoption rate."
+            }
+          ]
+        },
+        {
+          "role": "funder",
+          "resource": "1954 vaccine field trial",
+          "evidence": [
+            {
+              "source": "w8-meldrum-polio-trials",
+              "locator": "Introduction and trial designs",
+              "supports": "The historian reports 623,972 children in vaccine-or-placebo groups and over a million in observed-control groups in the 1954 US field trials, sponsored by the National Foundation for Infantile Paralysis. Trial designs differed; the count is not the number vaccinated or a population adoption rate."
+            }
+          ],
+          "organization": "national-foundation-infantile-paralysis"
+        },
+        {
+          "person": "jonas-salk",
+          "role": "developer",
+          "resource": "1954 US polio vaccine field trial",
+          "evidence": [
+            {
+              "source": "w8-meldrum-polio-trials",
+              "locator": "Introduction and trial designs",
+              "supports": "The historian reports 623,972 children in vaccine-or-placebo groups and over a million in observed-control groups in the 1954 US field trials, sponsored by the National Foundation for Infantile Paralysis. Trial designs differed; the count is not the number vaccinated or a population adoption rate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1955-safety-event",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1955
+        },
+        "latest": {
+          "year": 1955
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1955",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "A serious manufacturing failure affected some vaccine batches during the subsequent 1955 rollout.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "w8-cdc-polio-safety-history",
+          "locator": "1955 polio vaccine safety event",
+          "supports": "CDC records that a serious manufacturing failure affected some vaccine batches in 1955 and prompted changes in oversight. The event followed the 1954 field trials and should not be attributed to all vaccine production."
+        }
+      ],
+      "caveats": "The 1955 event was after the 1954 trial and did not involve all manufacturers."
+    },
+    {
+      "id": "trial-results-announced-1955",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1955
+        },
+        "latest": {
+          "year": 1955
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1955",
+        "basis": "Year of reported trial results, distinct from the field trial."
+      },
+      "statement": "The results of the 1954 field trial were announced in 1955.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "w8-meldrum-polio-trials",
+          "locator": "Introduction and trial designs",
+          "supports": "The historian reports 623,972 children in vaccine-or-placebo groups and over a million in observed-control groups in the 1954 US field trials, sponsored by the National Foundation for Infantile Paralysis. Trial designs differed; the count is not the number vaccinated or a population adoption rate."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this particular documented case, not a claim of global priority."
+  },
+  "caveats": "The trial had different comparison designs. A 1955 manufacturing failure affected some batches after the field trials; the trial count is not the number vaccinated or community coverage.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked facets marked reviewed. Other facets retain their prior basis; historical and source limits remain in the record."
+  },
+  "people": [
+    {
+      "person": "jonas-salk",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "vaccine-or-placebo trial participants",
+      "value": 623972,
+      "unit": "children",
+      "event": "documented-case",
+      "subject": "1954 US field trial",
+      "status": "claimed",
+      "conditions": "Children in vaccine or placebo arms; excludes over a million observed controls and does not count vaccinated children alone.",
+      "evidence": [
+        {
+          "source": "w8-meldrum-polio-trials",
+          "locator": "Introduction and trial designs",
+          "supports": "The historian reports 623,972 children in vaccine-or-placebo groups and over a million in observed-control groups in the 1954 US field trials, sponsored by the National Foundation for Infantile Paralysis. Trial designs differed; the count is not the number vaccinated or a population adoption rate."
+        }
+      ]
+    }
+  ]
+}

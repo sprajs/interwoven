@@ -1,0 +1,175 @@
+{
+  "id": "vsnl-india-public-internet-access",
+  "name": "VSNL public Internet access in India",
+  "description": "Publicly offered Internet access through India’s then state-owned international telecommunications operator.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "public-offering-1995",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1995,
+          "month": 8,
+          "day": 15
+        },
+        "latest": {
+          "year": 1995,
+          "month": 8,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1995-08-15",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "VSNL began offering Internet service to the Indian public.",
+      "evidence": [
+        {
+          "source": "trai-von-indian-internet-chronology-wave8",
+          "locator": "Annexure A",
+          "supports": "The submission dates the public offering to 15 August 1995 and mentions Internet telephony restrictions."
+        },
+        {
+          "source": "trai-2017-internet-odyssey-wave8",
+          "locator": "Trends in Internet services",
+          "supports": "TRAI describes VSNL public access beginning in 1995."
+        }
+      ],
+      "caveats": "A public offering does not establish universal access; restrictions on Internet telephony applied.",
+      "places": [
+        "india"
+      ],
+      "contributions": [
+        {
+          "organization": "vsnl",
+          "role": "operator",
+          "resource": "Offered public Internet service in India.",
+          "evidence": [
+            {
+              "source": "trai-von-indian-internet-chronology-wave8",
+              "locator": "Annexure A",
+              "supports": "The submission dates the public offering to 15 August 1995 and mentions Internet telephony restrictions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "student-package-1999",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1999,
+          "month": 8,
+          "day": 2
+        },
+        "latest": {
+          "year": 1999,
+          "month": 8,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1999-08-02",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "VSNL announced a student TCP/IP package of 100 hours for 1,075 rupees, scheduled to start the next day.",
+      "evidence": [
+        {
+          "source": "rediff-1999-vsnl-student-rate-wave8",
+          "locator": "Opening and executive remarks",
+          "supports": "Contemporary article quotes the offered student package."
+        }
+      ],
+      "caveats": "Offered price, not a transaction count; article reports the schedule, not an independent service-start verification.",
+      "places": [
+        "india"
+      ]
+    },
+    {
+      "id": "subscriber-estimate-1997",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1995
+        },
+        "latest": {
+          "year": 1997,
+          "month": 8,
+          "day": 15
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "within two years of 15 August 1995",
+        "basis": "The source gives the interval within two years, not an exact count date."
+      },
+      "statement": "TRAI retrospectively reports about 75,000 subscribers on the combined VSNL/DoT network within two years of the 1995 launch.",
+      "evidence": [
+        {
+          "source": "trai-2017-internet-odyssey-wave8",
+          "locator": "Trends in Internet services",
+          "supports": "The estimate aggregates VSNL and DoT subscriptions."
+        }
+      ],
+      "caveats": "A retrospective combined subscriber count; subscribers are not necessarily individual users."
+    }
+  ],
+  "earliest_record": {
+    "event": "public-offering-1995",
+    "rationale": "Earliest dated episode supported in the inspected evidence for this scope; no global priority asserted."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Independent reader checked the 1999 student price and planned start; the two TRAI PDFs could not be reopened for this review."
+  },
+  "places": [
+    {
+      "place": "india"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "offered student Internet package price",
+      "value": 1075,
+      "unit": "Indian rupees per 100 hours",
+      "event": "student-package-1999",
+      "subject": "VSNL student TCP/IP package",
+      "status": "claimed",
+      "conditions": "Announced 2 August 1999 for activation the following day; eligibility limited to students and actual take-up not established.",
+      "evidence": [
+        {
+          "source": "rediff-1999-vsnl-student-rate-wave8",
+          "locator": "Opening and executive remarks",
+          "supports": "Report states 100 hours for Rs 1,075."
+        }
+      ]
+    },
+    {
+      "quantity": "reported Internet subscriptions",
+      "value": 75000,
+      "unit": "subscriptions",
+      "event": "subscriber-estimate-1997",
+      "subject": "Combined VSNL and DoT network",
+      "status": "claimed",
+      "conditions": "TRAI retrospective: approximately within two years of the 1995 launch, not a count of individuals.",
+      "evidence": [
+        {
+          "source": "trai-2017-internet-odyssey-wave8",
+          "locator": "Trends in Internet services",
+          "supports": "TRAI reports approximately 75,000 combined subscribers."
+        }
+      ]
+    }
+  ],
+  "caveats": "Education and research networks predated this public offering; access depended on equipment, geography and affordability."
+}

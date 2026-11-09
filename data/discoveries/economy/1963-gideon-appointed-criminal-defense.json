@@ -1,0 +1,82 @@
+{
+  "id": "1963-gideon-appointed-criminal-defense",
+  "name": "Appointed counsel in state felony trials",
+  "description": "A U.S. Supreme Court decision required state courts to provide counsel to felony defendants unable to afford a lawyer.",
+  "kind": "practice",
+  "domain": "economy.law-government",
+  "grain": "capability",
+  "concept": "appointed-criminal-defense-counsel",
+  "events": [
+    {
+      "id": "dated-evidence",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1963,
+          "month": 3,
+          "day": 18
+        },
+        "latest": {
+          "year": 1963,
+          "month": 3,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "18 March 1963",
+        "basis": "Date of the Supreme Court decision."
+      },
+      "statement": "The Supreme Court reversed Gideon’s Florida conviction and held that an indigent criminal defendant has a right to counsel in the case before it.",
+      "scope": "This documented community and episode; not a universal first.",
+      "evidence": [
+        {
+          "source": "w8-gideon-supreme-court",
+          "locator": "Syllabus and opinion, pp. 335–345",
+          "supports": "The 18 March 1963 opinion overruled Betts and applied the right to counsel to a state felony case."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "clarence-earl-gideon",
+          "role": "user",
+          "resource": "Petitioned after counsel was denied in his Florida felony case.",
+          "evidence": [
+            {
+              "source": "w8-gideon-supreme-court",
+              "locator": "Syllabus and opinion, pp. 335–345",
+              "supports": "The 18 March 1963 opinion overruled Betts and applied the right to counsel to a state felony case."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-evidence",
+    "rationale": "Earliest episode established by the evidence gathered for this scoped capability, not global priority."
+  },
+  "caveats": "The ruling was a legal guarantee in U.S. state criminal proceedings; earlier defense systems existed and effective access, eligibility in other cases and quality require separate evidence.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Initial source pass; independent review is outstanding. Independent review checked the decision and procedural scope against the Court’s opinion; the formal guarantee does not establish effective delivery."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "clarence-earl-gideon",
+      "role": "contributor"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "id": "leavitt-cepheid-period-luminosity-1908",
+  "name": "Leavitt’s variable-star period–brightness relation",
+  "description": "Henrietta Leavitt found that brighter Magellanic Cloud variable stars have longer periods, a relationship later calibrated for astronomical distances.",
+  "kind": "science",
+  "domain": "physical-sciences.astronomy",
+  "grain": "capability",
+  "concept": "cepheid-period-luminosity-relation",
+  "people": [
+    {
+      "person": "henrietta-swan-leavitt",
+      "role": "originator"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1908
+        },
+        "latest": {
+          "year": 1908
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1908",
+        "basis": "Year of the dated publication, or a broad historian-estimated composition interval; no first discovery claimed."
+      },
+      "statement": "Leavitt noted the period–brightness pattern among 16 variables in her 1908 publication.",
+      "evidence": [
+        {
+          "source": "w8-harvard-leavitt-stars",
+          "locator": "Publishing the results section",
+          "supports": "Harvard dates Leavitt’s initial period–brightness observation to the 1908 list of 16 variables."
+        },
+        {
+          "source": "w8-leavitt-pickering-1912",
+          "locator": "Circular 173, pp. 1–2",
+          "supports": "The Harvard 1912 circular attributes its preparation to Leavitt and lists 25 variable-star periods."
+        },
+        {
+          "source": "w8-leavitt-original-1908",
+          "locator": "p. 107 and Table VI",
+          "supports": "The 1908 report refers to sixteen variables and the brightness–period pattern."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "henrietta-swan-leavitt",
+          "role": "developer",
+          "resource": "Published the 1908 period–brightness observation.",
+          "evidence": [
+            {
+              "source": "w8-harvard-leavitt-stars",
+              "locator": "Publishing the results section",
+              "supports": "Harvard dates Leavitt’s initial period–brightness observation to the 1908 list of 16 variables."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "circular-1912",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1912
+        },
+        "latest": {
+          "year": 1912
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1912",
+        "basis": "Year of the specified publication or documented episode, not necessarily the invention date."
+      },
+      "statement": "Leavitt prepared a Harvard College Observatory circular reporting 25 variables and a period–brightness relationship.",
+      "evidence": [
+        {
+          "source": "w8-harvard-leavitt-stars",
+          "locator": "Publishing the results section",
+          "supports": "Harvard identifies the sixteen-variable 1908 list and describes the later 1912 confirmation."
+        },
+        {
+          "source": "w8-leavitt-pickering-1912",
+          "locator": "Circular 173, pp. 1–2",
+          "supports": "Leavitt prepared the 1912 circular and it tabulates 25 variable-star periods."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "henrietta-swan-leavitt",
+          "role": "developer",
+          "resource": "Prepared the study and its relation between periods and brightness.",
+          "evidence": [
+            {
+              "source": "w8-leavitt-pickering-1912",
+              "locator": "Circular 173, pp. 1–2",
+              "supports": "Leavitt prepared the 1912 circular and it tabulates 25 variable-star periods."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Dated witness within the inspected evidence; not a global-priority claim."
+  },
+  "caveats": "The 1908 relation was a preliminary observation in one group of stars. Absolute calibration came later; the 1912 circular expanded the sample and was not the first statement. The 1908 paper says sixteen variables; the 1912 circular retrospectively refers to seventeen earlier periods. This discrepancy is unresolved.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "First research pass; grain is provisional and independent review remains open. Wave 8 independent reader checked the source facets marked reviewed; remaining facets retain their prior basis."
+  },
+  "measures": [
+    {
+      "quantity": "variable stars in period–brightness sample",
+      "value": 16,
+      "unit": "stars",
+      "event": "dated-episode",
+      "subject": "Stars in Leavitt’s 1908 period and magnitude list",
+      "conditions": "Sample size in the historical publication, not the full 1777-variable catalogue.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w8-harvard-leavitt-stars",
+          "locator": "Publishing the results section",
+          "supports": "The Harvard history describes the sixteen-variable 1908 list and the later 1912 confirmation."
+        },
+        {
+          "source": "w8-leavitt-original-1908",
+          "locator": "p. 107",
+          "supports": "The 1908 report refers to sixteen variables."
+        }
+      ]
+    },
+    {
+      "quantity": "variable stars in circular",
+      "value": 25,
+      "unit": "stars",
+      "event": "circular-1912",
+      "subject": "Small Magellanic Cloud variables with periods tabulated",
+      "conditions": "Sample size in the 1912 circular; not a count of all variable stars.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w8-leavitt-pickering-1912",
+          "locator": "Circular 173, pp. 1–2",
+          "supports": "Leavitt prepared the 1912 circular and it tabulates 25 variable-star periods."
+        }
+      ]
+    }
+  ]
+}

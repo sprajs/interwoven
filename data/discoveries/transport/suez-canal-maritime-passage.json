@@ -1,0 +1,136 @@
+{
+  "id": "suez-canal-maritime-passage",
+  "name": "Suez Canal maritime passage",
+  "description": "A sea-level canal across Egypt joined Mediterranean and Red Sea shipping routes.",
+  "kind": "technology",
+  "domain": "transport.navigation",
+  "grain": "capability",
+  "concept": "interoceanic-ship-canal",
+  "places": [
+    {
+      "place": "egypt",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "opening-1869",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1869,
+          "month": 11,
+          "day": 17
+        },
+        "latest": {
+          "year": 1869,
+          "month": 11,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1869-11-17",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The canal was inaugurated and a procession of ships entered the waterway.",
+      "evidence": [
+        {
+          "source": "sca-nd-suez-history-wave8",
+          "locator": "1854 concession, construction, inauguration and reopening",
+          "supports": "The authority reports Egyptian excavation labor, 1869 inauguration, a ship procession, 1967 closure and 1975 reopening; it reports total construction expenditure of 433 million francs."
+        }
+      ],
+      "caveats": "The celebratory procession is not a measure of ordinary traffic or unrestricted access.",
+      "contributions": [
+        {
+          "organization": "suez-canal-company",
+          "role": "operator",
+          "resource": "Canal enterprise operating the canal",
+          "evidence": [
+            {
+              "source": "state-dept-nd-suez-company-operation-wave8",
+              "locator": "Opening paragraph",
+              "supports": "The historian attributes operation from 1869 to the Suez Canal Company."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reopening-1975",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1975,
+          "month": 6,
+          "day": 5
+        },
+        "latest": {
+          "year": 1975,
+          "month": 6,
+          "day": 5
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1975-06-05",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The canal reopened for international navigation after its closure following the 1967 war.",
+      "evidence": [
+        {
+          "source": "sca-nd-suez-history-wave8",
+          "locator": "1854 concession, construction, inauguration and reopening",
+          "supports": "The authority reports Egyptian excavation labor, 1869 inauguration, a ship procession, 1967 closure and 1975 reopening; it reports total construction expenditure of 433 million francs."
+        }
+      ],
+      "caveats": "Reopening followed a period of closure; it was not the first opening."
+    }
+  ],
+  "earliest_record": {
+    "event": "opening-1869",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The sources inspected do not establish a specific technical transmission from any one earlier canal record.",
+        "evidence": [
+          {
+            "source": "sca-nd-suez-history-wave8",
+            "locator": "1854 concession, construction, inauguration and reopening",
+            "supports": "The authority reports Egyptian excavation labor, 1869 inauguration, a ship procession, 1967 closure and 1975 reopening; it reports total construction expenditure of 433 million francs."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "reported construction expenditure",
+      "value": 433000000,
+      "unit": "French francs",
+      "event": "opening-1869",
+      "subject": "Suez Canal construction",
+      "conditions": "Retrospective authority figure; nominal historical francs, not inflation-adjusted.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "sca-nd-suez-history-wave8",
+          "locator": "1854 concession, construction, inauguration and reopening",
+          "supports": "The authority reports Egyptian excavation labor, 1869 inauguration, a ship procession, 1967 closure and 1975 reopening; it reports total construction expenditure of 433 million francs."
+        }
+      ]
+    }
+  ]
+}

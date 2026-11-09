@@ -1,0 +1,206 @@
+{
+  "id": "seattle-outpatient-chronic-dialysis",
+  "name": "Seattle outpatient chronic dialysis",
+  "description": "The Seattle Artificial Kidney Center opened in 1962 to provide repeated dialysis outside hospital admission.",
+  "kind": "practice",
+  "domain": "health.healing",
+  "grain": "capability",
+  "concept": "outpatient-chronic-dialysis",
+  "places": [
+    {
+      "place": "washington-state"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1962
+        },
+        "latest": {
+          "year": 1962
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1962",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "The Seattle Artificial Kidney Center opened in 1962 to provide repeated dialysis outside hospital admission.",
+      "places": [
+        "washington-state"
+      ],
+      "evidence": [
+        {
+          "source": "w8-nwkidney-seattle-history",
+          "locator": "1960–1964 timeline",
+          "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+        },
+        {
+          "source": "w8-uw-dialysis-access-history",
+          "locator": "The 1960s",
+          "supports": "The university describes Scribner, Haviland and the opening of the Seattle centre in January 1962 and the scarcity of treatment and selection of patients by a committee. The account does not establish equal access."
+        }
+      ],
+      "caveats": "Access was severely constrained and patients were selected; an outpatient centre is distinct from the earlier acute treatment. This record does not claim unrestricted eligibility.",
+      "contributions": [
+        {
+          "person": "belding-scribner",
+          "role": "developer",
+          "resource": "Seattle outpatient chronic dialysis",
+          "evidence": [
+            {
+              "source": "w8-nwkidney-seattle-history",
+              "locator": "1960–1964 timeline",
+              "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+            }
+          ]
+        },
+        {
+          "group": "Dialysis centre staff",
+          "role": "operator",
+          "resource": "Seattle outpatient dialysis services",
+          "evidence": [
+            {
+              "source": "w8-nwkidney-seattle-history",
+              "locator": "1960–1964 timeline",
+              "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+            }
+          ]
+        },
+        {
+          "role": "funder",
+          "resource": "Seattle outpatient dialysis centre",
+          "evidence": [
+            {
+              "source": "w8-nwkidney-seattle-history",
+              "locator": "1960–1964 timeline",
+              "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+            }
+          ],
+          "organization": "john-a-hartford-foundation"
+        },
+        {
+          "role": "funder",
+          "resource": "Seattle outpatient dialysis centre",
+          "evidence": [
+            {
+              "source": "w8-nwkidney-seattle-history",
+              "locator": "1960–1964 timeline",
+              "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+            }
+          ],
+          "organization": "us-public-health-service"
+        }
+      ]
+    },
+    {
+      "id": "patients-served-1964",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1964
+        },
+        "latest": {
+          "year": 1964
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1964",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "The centre reports serving 47 patients at 10 stations in 1964.",
+      "places": [
+        "washington-state"
+      ],
+      "evidence": [
+        {
+          "source": "w8-nwkidney-seattle-history",
+          "locator": "1960–1964 timeline",
+          "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+        }
+      ],
+      "caveats": "Centre-specific counts do not measure unmet need."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this particular documented case, not a claim of global priority."
+  },
+  "caveats": "Access was severely constrained and patients were selected; an outpatient centre is distinct from the earlier acute treatment. This record does not claim unrestricted eligibility.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Independent review checked facets marked reviewed. Other facets retain their prior basis; historical and source limits remain in the record."
+  },
+  "people": [
+    {
+      "person": "belding-scribner",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "patients served",
+      "value": 47,
+      "unit": "patients",
+      "event": "patients-served-1964",
+      "subject": "Seattle Artificial Kidney Center",
+      "status": "claimed",
+      "conditions": "Centre-reported 1964 count, not all patients needing treatment.",
+      "evidence": [
+        {
+          "source": "w8-nwkidney-seattle-history",
+          "locator": "1960–1964 timeline",
+          "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+        }
+      ]
+    },
+    {
+      "quantity": "dialysis stations",
+      "value": 10,
+      "unit": "stations",
+      "event": "patients-served-1964",
+      "subject": "Seattle Artificial Kidney Center",
+      "status": "claimed",
+      "conditions": "Centre-reported number in 1964, not 1962 opening capacity.",
+      "evidence": [
+        {
+          "source": "w8-nwkidney-seattle-history",
+          "locator": "1960–1964 timeline",
+          "supports": "The centre dates its Seattle outpatient opening to 9 January 1962, describes support by the John A. Hartford Foundation and U.S. Public Health Service among others, and reports 47 patients served at 10 stations in 1964. The counts are specific to the centre, not nationwide access."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "kolff-artificial-kidney-1945",
+      "status": "insufficient",
+      "statement": "The source describes Scribner’s work as building on Kolff’s earlier dialysis work; a direct connection to the specific 1945 patient case remains unestablished.",
+      "scope": "General historical relationship between the earlier dialysis capability and later chronic treatment; no specific device transfer is established.",
+      "contribution": [
+        "improved_on"
+      ],
+      "caveats": "General intellectual lineage is supported, but the cited account does not identify the specific 1945 patient event as a prerequisite for this centre.",
+      "evidence": [
+        {
+          "source": "w8-ama-dialysis-ethics",
+          "locator": "Dialysis and access",
+          "supports": "The ethics history describes Scribner’s chronic dialysis work as building on Willem Kolff’s earlier dialysis work and discusses nonmedical selection criteria. This is a general historical relationship, not proof that a specific patient or device was directly transferred."
+        }
+      ]
+    }
+  ]
+}

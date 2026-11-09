@@ -1,0 +1,103 @@
+{
+  "id": "columbia-consumer-dry-cell",
+  "name": "Columbia consumer dry cell",
+  "description": "National Carbon marketed a portable sealed dry cell for consumer electrical uses.",
+  "kind": "technology",
+  "domain": "energy.storage",
+  "grain": "instance",
+  "concept": "portable-zinc-carbon-dry-cell",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "marketed-1896",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1896
+        },
+        "latest": {
+          "year": 1896
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1896",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "National Carbon marketed the Columbia dry cell in 1896.",
+      "evidence": [
+        {
+          "source": "acs-2005-columbia-dry-cell-wave8",
+          "locator": "Production of the Columbia Dry Cell Battery",
+          "supports": "The ACS identifies National Carbon as marketing the Columbia dry cell in 1896 and reports its nominal 1.5 volts. Earlier European dry-cell developments preceded it."
+        }
+      ],
+      "caveats": "Marketing is evidence of an offer, not a measured quantity sold or universal access.",
+      "contributions": [
+        {
+          "organization": "national-carbon-company",
+          "role": "manufacturer",
+          "resource": "Marketed the Columbia dry cell",
+          "evidence": [
+            {
+              "source": "acs-2005-columbia-dry-cell-wave8",
+              "locator": "Production of the Columbia Dry Cell Battery",
+              "supports": "The ACS identifies National Carbon as marketing the Columbia dry cell in 1896 and reports its nominal 1.5 volts. Earlier European dry-cell developments preceded it."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "marketed-1896",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "ACS describes earlier Gassner and Leclanché cells, but the inspected passage does not establish a link to the particular Volta or Planté specimens in the dataset.",
+        "evidence": [
+          {
+            "source": "acs-2005-columbia-dry-cell-wave8",
+            "locator": "Production of the Columbia Dry Cell Battery",
+            "supports": "The ACS identifies National Carbon as marketing the Columbia dry cell in 1896 and reports its nominal 1.5 volts. Earlier European dry-cell developments preceded it."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "nominal voltage",
+      "value": 1.5,
+      "unit": "V",
+      "event": "marketed-1896",
+      "subject": "Columbia dry cell",
+      "conditions": "Nominal reported cell voltage, not measured runtime or capacity.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "acs-2005-columbia-dry-cell-wave8",
+          "locator": "Production of the Columbia Dry Cell Battery",
+          "supports": "The ACS identifies National Carbon as marketing the Columbia dry cell in 1896 and reports its nominal 1.5 volts. Earlier European dry-cell developments preceded it."
+        }
+      ]
+    }
+  ]
+}

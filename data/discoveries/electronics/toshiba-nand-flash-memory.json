@@ -88,6 +88,37 @@
           "supports": "CHM dates production of 16-Mbit NAND to 1992."
         }
       ]
+    },
+    {
+      "id": "smartmedia-camera-case-2005",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2005,
+          "month": 5,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 23 May 2005",
+        "basis": "Date of report describing use; image capture date unspecified."
+      },
+      "statement": "An NTSB study recovered image files from a SmartMedia card used in an Olympus digital camera.",
+      "evidence": [
+        {
+          "source": "ntsb-2005-camera-smartmedia-wave8",
+          "locator": "pp. 1–3",
+          "supports": "Reports the camera and nine recovered images on its card."
+        },
+        {
+          "source": "kioxia-flash-history-wave8",
+          "locator": "Changing Lifestyle with Flash Memory",
+          "supports": "Connects SmartMedia with expansion of NAND flash memory and digital-camera storage."
+        }
+      ],
+      "caveats": "A single documented use; the source does not establish market share, earliest consumer use, or identity of a particular NAND chip.",
+      "scope": "Study report date, not necessarily the date the images were taken."
     }
   ],
   "earliest_record": {
@@ -125,18 +156,18 @@
       ]
     }
   ],
-  "caveats": "Electrically erasable and flash memories predated NAND. The source dates this implementation and does not establish the first consumer product.",
+  "caveats": "Electrically erasable and flash memories predated NAND. The source dates this implementation and does not establish the first consumer product. SmartMedia camera use is evidenced in a later case, not established as the first consumer use.",
   "research": {
     "status": "draft",
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "concept": "recalled",
       "places": "sourced",
       "people": "sourced",
       "measures": "reviewed"
     },
-    "note": "New source-backed draft; independent review pending. Independent reader checked the conference abstract and CHM’s funding and 1992 production account; chip capacity is not sales."
+    "note": "New source-backed draft; independent review pending. Independent reader checked the conference abstract and CHM’s funding and 1992 production account; chip capacity is not sales. Independent reader checked the 2005 NTSB SmartMedia case and Kioxia’s general account; they do not identify the individual chip or establish market share."
   }
 }

@@ -108,7 +108,27 @@ def audit(data: Dataset) -> dict:
             if domain in domain_rows:
                 domain_rows[domain].append(record)
 
-    links = [link for _, link in data.links()]
+    linked = list(data.links())
+    links = [link for _, link in linked]
+    layers = data.vocab["link"]["layers"]
+    type_layers = {link_type: layer for layer, types in layers.items() for link_type in types}
+    established_by_layer = Counter()
+    touched_by_layer: dict[str, set[str]] = {layer: set() for layer in layers}
+    for receiver, link in linked:
+        if link.get("status") != "established":
+            continue
+        layer = type_layers.get(link.get("type"))
+        if layer is None:
+            continue
+        established_by_layer[layer] += 1
+        touched_by_layer[layer].add(receiver["id"])
+        if link.get("from") in data.discoveries:
+            touched_by_layer[layer].add(link["from"])
+    causal_touch = touched_by_layer["dependence"] | touched_by_layer["transmission"]
+    no_causal_touch = sorted(set(data.discoveries) - causal_touch)
+    missing_prerequisites = sorted(r["id"] for r in records if r.get("research", {}).get("missing_prerequisites"))
+    absent_prerequisites = sum("missing_prerequisites" not in r.get("research", {}) for r in records)
+    empty_prerequisites = sum(r.get("research", {}).get("missing_prerequisites") == [] for r in records)
     statuses = (*data.vocab["link_status"]["values"], "missing")
     status_counts = Counter(link.get("status") or "missing" for link in links)
     leads = list(data.registers["leads"].values())
@@ -138,6 +158,8 @@ def audit(data: Dataset) -> dict:
             "grain": "Unassessed means no grain value; basis counts separately distinguish missing from unknown.",
             "link_coverage": "Carrier and contribution count links with at least one value, including candidate and insufficient links.",
             "leads": "Fields count only explicit lead.field values; unclassified leads have no field. Lead status is independent of discovery status.",
+            "established_network": "A link is stored on the receiving record and from identifies the other record, usually an antecedent (for part_of, the whole). Both endpoints count as touched; dependence and transmission are distinct from affinity and parallel. Missing established links are missing catalogue evidence, not evidence of no historical dependency. Counts do not measure historical importance.",
+            "missing_prerequisites": "Present means a nonempty list of recorded research leads; absent and empty do not prove no prerequisite existed.",
         },
         "counts": {
             "discoveries": len(records),
@@ -149,6 +171,12 @@ def audit(data: Dataset) -> dict:
         "overall": summarize(records),
         "domains": {k: summarize(v) for k, v in domain_rows.items()},
         "fields": {k: summarize(v) for k, v in field_rows.items()},
+        "established_network": {
+            "layers": {layer: {"links": established_by_layer[layer], "touched_records": len(touched_by_layer[layer])} for layer in layers},
+            "dependence_or_transmission": {"links": established_by_layer["dependence"] + established_by_layer["transmission"], "touched_records": len(causal_touch)},
+            "without_established_dependence_or_transmission": {"count": len(no_causal_touch), "records": no_causal_touch},
+        },
+        "missing_prerequisites": {"count": len(missing_prerequisites), "records": missing_prerequisites, "absent": absent_prerequisites, "empty": empty_prerequisites},
         "facet_basis": facets,
         "leads": {"fields": {field: lead_counts(counts) for field, counts in lead_fields.items()}, "unclassified": lead_counts(lead_unclassified)},
         "links": {

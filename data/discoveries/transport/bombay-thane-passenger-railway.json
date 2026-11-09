@@ -1,0 +1,93 @@
+{
+  "id": "bombay-thane-passenger-railway",
+  "name": "Bombay–Thane passenger railway",
+  "description": "Passenger railway service connected Bombay and Thane under the Great Indian Peninsula Railway.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "instance",
+  "concept": "passenger-steam-railway-service",
+  "places": [
+    {
+      "place": "india",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "inaugural-run-1853",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1853,
+          "month": 4,
+          "day": 16
+        },
+        "latest": {
+          "year": 1853,
+          "month": 4,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1853-04-16",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "An inaugural passenger train left Bori Bunder for Thane with about 400 guests and passengers.",
+      "evidence": [
+        {
+          "source": "indian-railways-nd-rpf-history-wave8",
+          "locator": "Evolution of Railways in India",
+          "supports": "Indian Railways describes the 16 April 1853 Bombay–Thane inaugural run with fourteen carriages and about 400 guests and passengers, and the 1854 Howrah–Hooghly public line."
+        }
+      ],
+      "caveats": "The inaugural trip does not establish the ticket conditions, class composition or ordinary daily traffic."
+    }
+  ],
+  "earliest_record": {
+    "event": "inaugural-run-1853",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The inspected account does not identify a specific represented locomotive as the design ancestor of this service.",
+        "evidence": [
+          {
+            "source": "indian-railways-nd-rpf-history-wave8",
+            "locator": "Evolution of Railways in India",
+            "supports": "Indian Railways describes the 16 April 1853 Bombay–Thane inaugural run with fourteen carriages and about 400 guests and passengers, and the 1854 Howrah–Hooghly public line."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "reported inaugural passengers",
+      "value": 400,
+      "unit": "people",
+      "event": "inaugural-run-1853",
+      "subject": "Guests and passengers on the Bombay–Thane inaugural run",
+      "conditions": "Approximately, as reported by Indian Railways; not an ordinary ridership count.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "indian-railways-nd-rpf-history-wave8",
+          "locator": "Evolution of Railways in India",
+          "supports": "Indian Railways describes the 16 April 1853 Bombay–Thane inaugural run with fourteen carriages and about 400 guests and passengers, and the 1854 Howrah–Hooghly public line."
+        }
+      ]
+    }
+  ]
+}

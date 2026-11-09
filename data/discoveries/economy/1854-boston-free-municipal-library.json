@@ -1,0 +1,80 @@
+{
+  "id": "1854-boston-free-municipal-library",
+  "name": "Boston free municipal library",
+  "description": "The Boston Public Library provided a municipally organized free public library with a physical collection.",
+  "kind": "practice",
+  "domain": "economy.education",
+  "grain": "capability",
+  "concept": "free-municipal-library",
+  "events": [
+    {
+      "id": "dated-evidence",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1854,
+          "month": 3,
+          "day": 20
+        },
+        "latest": {
+          "year": 1854,
+          "month": 3,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "20 March 1854",
+        "basis": "Date of building opening in the institutional history."
+      },
+      "statement": "Boston Public Library opened its Mason Street building to the public on 20 March 1854.",
+      "scope": "This documented community and episode; not a universal first.",
+      "evidence": [
+        {
+          "source": "w8-bpl-history",
+          "locator": "Establishment and Mason Street",
+          "supports": "The library’s history dates its establishment and the opening of its first building."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-evidence",
+    "rationale": "Earliest episode established by the evidence gathered for this scoped capability, not global priority."
+  },
+  "caveats": "Earlier public and subscription libraries existed. Opening and the stated aim of free service do not establish actual use, borrowing eligibility, or equal access for all residents.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "sourced",
+      "places": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Initial source pass; independent review is outstanding. Independent review found a corroborating Digital Commonwealth summary for the 1854 building opening and approximate collection; borrowing eligibility and exact start of lending remain separate questions."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "collection at opening",
+      "value": 16000,
+      "unit": "volumes",
+      "event": "dated-evidence",
+      "subject": "Boston Public Library collection",
+      "conditions": "Institutional historical account, approximate scale at the 1854 opening; not users or loans.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w8-bpl-history",
+          "locator": "Mason Street building",
+          "supports": "History reports a collection of sixteen thousand volumes at opening."
+        }
+      ]
+    }
+  ]
+}

@@ -84,6 +84,34 @@ class CoverageAuditTest(unittest.TestCase):
         self.assertEqual(self.result["links"]["carrier"], {"present": 1, "missing": 1})
         self.assertEqual(self.result["links"]["contribution"], {"present": 1, "missing": 1})
 
+    def test_established_network_separates_layers_and_counts_both_endpoints(self):
+        third = discovery("third")
+        fourth = discovery("fourth")
+        self.data.discoveries.update({"third": third, "fourth": fourth})
+        self.data.discoveries["first"]["links"] = [
+            {"type": "builds_on", "status": "established", "from": "second"},
+            {"type": "transmitted_from", "status": "candidate", "from": "third"},
+            {"type": "independent_of", "status": "established", "from": "third"},
+            {"type": "same_family", "status": "established", "from": "fourth"},
+        ]
+        self.data.discoveries["third"]["links"] = [
+            {"type": "transmitted_from", "status": "established", "from": "second"},
+            {"type": "requires", "status": "insufficient", "from": "fourth"},
+        ]
+        result = coverage.audit(self.data)["established_network"]
+        self.assertEqual(result["dependence_or_transmission"], {"links": 2, "touched_records": 3})
+        self.assertEqual(result["layers"]["parallel"], {"links": 1, "touched_records": 2})
+        self.assertEqual(result["layers"]["affinity"], {"links": 1, "touched_records": 2})
+        self.assertEqual(result["without_established_dependence_or_transmission"], {"count": 1, "records": ["fourth"]})
+
+    def test_prerequisites_absent_empty_and_populated(self):
+        self.data.discoveries["first"]["research"]["missing_prerequisites"] = []
+        result = coverage.audit(self.data)["missing_prerequisites"]
+        self.assertEqual(result, {"count": 0, "records": [], "absent": 1, "empty": 1})
+        self.data.discoveries["first"]["research"]["missing_prerequisites"] = ["Unknown predecessor"]
+        result = coverage.audit(self.data)["missing_prerequisites"]
+        self.assertEqual(result, {"count": 1, "records": ["first"], "absent": 1, "empty": 0})
+
     def test_cli_emits_json_and_existing_text_report_remains_text(self):
         script = str(Path(coverage.__file__))
         output = subprocess.check_output([sys.executable, script, "--json"], text=True)

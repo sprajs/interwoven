@@ -1,0 +1,89 @@
+{
+  "id": "diffie-hellman-public-key-distribution",
+  "name": "Diffie–Hellman public-key distribution",
+  "description": "A published method and framework for establishing shared keying information over a public communication channel.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "publication-1976",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1976,
+          "month": 11
+        },
+        "latest": {
+          "year": 1976,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1976-11",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "Diffie and Hellman published a possible public-key distribution method and described public-key encryption as a distinct open problem.",
+      "evidence": [
+        {
+          "source": "diffie-hellman-1976-directions-wave8",
+          "locator": "Abstract, introduction and first-page footnote",
+          "supports": "The authors set out public-key distribution and cite partial NSF support."
+        }
+      ],
+      "caveats": "A theoretical publication, not evidence of an operating secure public service; independent classified work is not assessed.",
+      "contributions": [
+        {
+          "person": "whitfield-diffie",
+          "role": "contributor",
+          "resource": "Coauthor of the paper.",
+          "evidence": [
+            {
+              "source": "diffie-hellman-1976-directions-wave8",
+              "locator": "Abstract, introduction and first-page footnote",
+              "supports": "The authors set out public-key distribution and cite partial NSF support."
+            }
+          ]
+        },
+        {
+          "person": "martin-hellman",
+          "role": "contributor",
+          "resource": "Coauthor of the paper.",
+          "evidence": [
+            {
+              "source": "diffie-hellman-1976-directions-wave8",
+              "locator": "Abstract, introduction and first-page footnote",
+              "supports": "The authors set out public-key distribution and cite partial NSF support."
+            }
+          ]
+        },
+        {
+          "organization": "national-science-foundation",
+          "role": "funder",
+          "resource": "Partial support under grant ENG 10173.",
+          "evidence": [
+            {
+              "source": "diffie-hellman-1976-directions-wave8",
+              "locator": "Abstract, introduction and first-page footnote",
+              "supports": "The authors set out public-key distribution and cite partial NSF support."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1976",
+    "rationale": "Earliest dated episode supported in the inspected evidence for this scope; no global priority asserted."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Independent reader checked the cited publication and the event-scoped claims."
+  },
+  "caveats": "The paper proposes a key-distribution method; it does not itself demonstrate a finished public-key encryption implementation or solve authentication for every application."
+}

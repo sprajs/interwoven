@@ -1,0 +1,203 @@
+{
+  "id": "philips-l-prize-white-led-lamp",
+  "name": "Philips L Prize white LED lighting lamp",
+  "description": "A screw-base solid-state lamp using LEDs and phosphor to provide white general illumination.",
+  "kind": "technology",
+  "domain": "electronics.components",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "l-prize-award-2011",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 2011,
+          "month": 8,
+          "day": 3
+        },
+        "latest": {
+          "year": 2011,
+          "month": 8,
+          "day": 3
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "3 August 2011",
+        "basis": "Date stated in the 2012 DOE program update."
+      },
+      "statement": "Philips was announced as winner of the L Prize for a 60-watt replacement LED lamp.",
+      "caveats": "Recognition of the tested lamp is not evidence of general retail availability at this date; the final production design could differ.",
+      "evidence": [
+        {
+          "source": "doe-2012-lprize-update-wave8",
+          "locator": "Slides 1–2",
+          "supports": "The May 2012 DOE update dates the award announcement to 3 August 2011."
+        }
+      ]
+    },
+    {
+      "id": "doe-performance-report-2012",
+      "type": "documented_description",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2012,
+          "month": 5,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 23 May 2012",
+        "basis": "A DOE update dated 23 May 2012 reports these figures. The FAQ refers to an 18 January 2012 webinar, but its own issue date is not explicit."
+      },
+      "statement": "DOE materials describe approximately 940 lumens and 94 lumens per watt for the Philips L Prize lamp.",
+      "caveats": "The FAQ recaps a webinar held on 18 January 2012; this does not independently establish its exact publication date. The figures describe the lamp reported by DOE, not an average across all LED bulbs.",
+      "evidence": [
+        {
+          "source": "doe-2012-philips-led-faq-wave8",
+          "locator": "Heading and Product Basics",
+          "supports": "The Q&A recap of the 18 January 2012 webinar reports approximately 940 lumens and 94 lm/W."
+        },
+        {
+          "source": "doe-2012-lprize-update-wave8",
+          "locator": "Performance comparison table",
+          "supports": "The May 2012 update reports 940 lumens and 94 lm/W for the L Prize lamp."
+        }
+      ]
+    },
+    {
+      "id": "online-sales-2012",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2012,
+          "month": 2
+        },
+        "latest": {
+          "year": 2012,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2012-02",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "Philips began selling the L Prize lamp online in February 2012.",
+      "evidence": [
+        {
+          "source": "uspto-2017-lprize-retail-wave8",
+          "locator": "pp. 2–3, paragraphs 6–7",
+          "supports": "A litigant’s 2017 complaint states the dates for online and retail sales of the lamp."
+        },
+        {
+          "source": "doe-2012-philips-led-faq-wave8",
+          "locator": "Product Basics",
+          "supports": "DOE reports approximately 940 lumens and 94 lm/W for the specific lamp."
+        }
+      ],
+      "caveats": "A particular white-light lamp, not the first white LED or first commercial LED bulb. The sales chronology is stated in a later litigant’s complaint, not a judicial finding.",
+      "contributions": [
+        {
+          "organization": "philips",
+          "role": "supplier",
+          "resource": "Sold the L Prize lamp.",
+          "evidence": [
+            {
+              "source": "uspto-2017-lprize-retail-wave8",
+              "locator": "pp. 2–3, paragraphs 6–7",
+              "supports": "The 2017 complaint attributes online and retail sales of the lamp to Philips."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "retail-sale-2012",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2012,
+          "month": 4,
+          "day": 22
+        },
+        "latest": {
+          "year": 2012,
+          "month": 4,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2012-04-22",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "The lamp entered retail stores on 22 April 2012, according to a later litigant’s complaint.",
+      "evidence": [
+        {
+          "source": "uspto-2017-lprize-retail-wave8",
+          "locator": "pp. 2–3, paragraphs 6–7",
+          "supports": "A litigant’s 2017 complaint states the dates for online and retail sales of the lamp."
+        }
+      ],
+      "caveats": "Sale is availability, not a count of buyers or installations. The sales chronology is stated in a later litigant’s complaint, not a judicial finding."
+    }
+  ],
+  "earliest_record": {
+    "event": "l-prize-award-2011",
+    "rationale": "The dated award establishes this tested lamp by August 2011; subsequent product availability is recorded separately."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader checked the DOE product figures and the 2017 complaint’s attributed sales chronology; the complaint is not a judicial decision. No asserted link to the specific Nichia emitter. Award and bounded measurement-report events added after independent review; the date in the FAQ identifies the webinar, not necessarily issuance."
+  },
+  "measures": [
+    {
+      "quantity": "light output",
+      "value": 940,
+      "unit": "lumens",
+      "event": "doe-performance-report-2012",
+      "subject": "Philips L Prize lamp",
+      "status": "claimed",
+      "conditions": "Approximate DOE-reported product output in materials associated with the January 2012 webinar and in a May 2012 update; not an independently sampled market average.",
+      "evidence": [
+        {
+          "source": "doe-2012-philips-led-faq-wave8",
+          "locator": "Product Basics",
+          "supports": "DOE reports approximately 940 lumens and 94 lm/W for the specific lamp."
+        },
+        {
+          "source": "doe-2012-lprize-update-wave8",
+          "locator": "Performance comparison table",
+          "supports": "The May 2012 update reports 940 lumens and 94 lm/W for the L Prize lamp."
+        }
+      ]
+    },
+    {
+      "quantity": "luminous efficacy",
+      "value": 94,
+      "unit": "lumens per watt",
+      "event": "doe-performance-report-2012",
+      "subject": "Philips L Prize lamp",
+      "status": "claimed",
+      "conditions": "Approximate DOE-reported product efficacy in materials associated with the January 2012 webinar and in a May 2012 update.",
+      "evidence": [
+        {
+          "source": "doe-2012-philips-led-faq-wave8",
+          "locator": "Product Basics",
+          "supports": "DOE reports approximately 940 lumens and 94 lm/W for the specific lamp."
+        },
+        {
+          "source": "doe-2012-lprize-update-wave8",
+          "locator": "Performance comparison table",
+          "supports": "The May 2012 update reports 940 lumens and 94 lm/W for the L Prize lamp."
+        }
+      ]
+    }
+  ],
+  "caveats": "Distinct from a blue emitter: this complete product includes conversion optics and lamp-level components. An exact component lineage to the existing 1993 Nichia device is not established."
+}

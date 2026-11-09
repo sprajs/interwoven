@@ -1,0 +1,80 @@
+{
+  "id": "tennessee-cotton-ginning-service-1801",
+  "name": "Tennessee cotton-ginning service",
+  "description": "By March 1801 Andrew Jackson owned a cotton gin and processed cotton for nearby farmers in the Nashville area, according to a historical buildings report.",
+  "kind": "practice",
+  "domain": "machines.manufacturing",
+  "grain": "instance",
+  "concept": "mechanical-cotton-ginning",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1801,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "By March 1801",
+        "basis": "The historical report describes ownership and service by March 1801; the start is unknown."
+      },
+      "statement": "By March 1801 Andrew Jackson owned a cotton gin and processed cotton for nearby farmers in the Nashville area, according to a historical buildings report.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "w8-habs-tennessee-cotton-gin",
+          "locator": "p. 6, cotton gin and note 25",
+          "supports": "The report cites a March 1801 receipt and describes Jackson processing neighbors’ cotton."
+        },
+        {
+          "source": "w8-loc-cotton-gin-enslaved-labor",
+          "locator": "History of the Cotton Gin",
+          "supports": "The Library of Congress discusses enslaved labor in cotton work and older ginning forms; it does not identify this gin’s workers."
+        }
+      ],
+      "caveats": "The report does not locate the particular 1801 machine precisely or identify its operators. Enslaved labor underpinned the region’s plantation economy; no unnamed individual is assigned to this specific gin.",
+      "contributions": [
+        {
+          "role": "contributor",
+          "resource": "Owner of gin and service arrangement; operator not identified",
+          "evidence": [
+            {
+              "source": "w8-habs-tennessee-cotton-gin",
+              "locator": "p. 6, cotton gin and note 25",
+              "supports": "The report cites a March 1801 receipt and describes Jackson processing neighbors’ cotton."
+            }
+          ],
+          "person": "andrew-jackson"
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this case, not a claim of global priority."
+  },
+  "caveats": "The report does not locate the particular 1801 machine precisely or identify its operators. Enslaved labor underpinned the region’s plantation economy; no unnamed individual is assigned to this specific gin.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked the historical-building report’s 1801 receipt and differentiated a later 1802 gin arrangement; the 1801 operator and exact location remain unknown."
+  }
+}

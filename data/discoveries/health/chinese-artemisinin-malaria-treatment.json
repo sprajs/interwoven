@@ -1,0 +1,97 @@
+{
+  "id": "chinese-artemisinin-malaria-treatment",
+  "name": "Chinese artemisinin discovery",
+  "description": "Tu Youyou’s team identified artemisinin in 1972 in research informed by earlier Chinese medical literature.",
+  "kind": "practice",
+  "domain": "health.drugs",
+  "grain": "capability",
+  "concept": "artemisinin-antimalarial",
+  "places": [
+    {
+      "place": "china"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "formulation",
+      "date": {
+        "earliest": {
+          "year": 1972
+        },
+        "latest": {
+          "year": 1972
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1972",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "Tu Youyou’s team identified artemisinin in 1972 in research informed by earlier Chinese medical literature.",
+      "places": [
+        "china"
+      ],
+      "evidence": [
+        {
+          "source": "w8-tu-2015-artemisinin-lecture",
+          "locator": "Project 523 history and Fig. 6",
+          "supports": "Tu recounts how historical Chinese medical literature informed the research, and dates the team’s identification of artemisinin to November 1972. Her account separates the 1972 plant-extract clinical trial from the first artemisinin clinical trial in 1973 and describes collaboration across teams."
+        }
+      ],
+      "caveats": "The team’s 1972 clinical observations concerned an earlier plant extract; the cited lecture dates an artemisinin clinical trial to 1973. Modern clinical use and access require separate evidence.",
+      "contributions": [
+        {
+          "person": "tu-youyou",
+          "role": "developer",
+          "resource": "Chinese artemisinin discovery",
+          "evidence": [
+            {
+              "source": "w8-tu-2015-artemisinin-lecture",
+              "locator": "Project 523 history and Fig. 6",
+              "supports": "Tu recounts how historical Chinese medical literature informed the research, and dates the team’s identification of artemisinin to November 1972. Her account separates the 1972 plant-extract clinical trial from the first artemisinin clinical trial in 1973 and describes collaboration across teams."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this particular documented case, not a claim of global priority."
+  },
+  "caveats": "The team’s 1972 clinical observations concerned an earlier plant extract; the cited lecture dates an artemisinin clinical trial to 1973. Modern clinical use and access require separate evidence.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Independent review checked facets marked reviewed. Other facets retain their prior basis; historical and source limits remain in the record.",
+    "missing_prerequisites": [
+      "Chinese medical writings describing Qinghao for periodic fevers, which Tu reports informed the research; no corresponding historical record has yet been established."
+    ],
+    "unresolved": [
+      {
+        "about": "traditional-literature-dependency",
+        "note": "Which specific surviving edition or translation can support a separate record for Ge Hong’s early Chinese medical writing and its historical reception, without assuming that its preparation was the modern medicine?",
+        "evidence": [
+          {
+            "source": "w8-tu-2015-artemisinin-lecture",
+            "locator": "Project 523 history and Fig. 6",
+            "supports": "Tu recounts how historical Chinese medical literature informed the research, and dates the team’s identification of artemisinin to November 1972. Her account separates the 1972 plant-extract clinical trial from the first artemisinin clinical trial in 1973 and describes collaboration across teams."
+          }
+        ]
+      }
+    ]
+  },
+  "people": [
+    {
+      "person": "tu-youyou",
+      "role": "contributor"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": "london-coal-gas-lighting-network",
+  "name": "London manufactured-gas lighting network",
+  "description": "Manufactured gas distributed through pipes supplied lamps across London.",
+  "kind": "technology",
+  "domain": "energy.fire",
+  "grain": "instance",
+  "concept": "municipal-gas-lighting-distribution",
+  "places": [
+    {
+      "place": "london",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "bridge-lighting-1813",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1813
+        },
+        "latest": {
+          "year": 1813
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1813",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Westminster Bridge was illuminated by gas lamps at the end of 1813.",
+      "evidence": [
+        {
+          "source": "london-museum-nd-gas-light-wave8",
+          "locator": "Gas lamps and company sections",
+          "supports": "The museum describes gas lighting on Westminster Bridge in 1813 and roughly 50,000 London gas lamps with 300 miles of pipes by the 1820s; it dates the company’s foundation to 1812."
+        }
+      ],
+      "caveats": "This is one observed lighting application, not the first gas lamp or proof of citywide coverage."
+    },
+    {
+      "id": "london-network-1820s",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1829
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by the 1820s",
+        "basis": "The museum says by the 1820s; no earliest year is stated."
+      },
+      "statement": "A museum estimates roughly 50,000 gas lamps in London connected by 300 miles of pipe by the 1820s.",
+      "evidence": [
+        {
+          "source": "london-museum-nd-gas-light-wave8",
+          "locator": "Gas lamps and company sections",
+          "supports": "The museum describes gas lighting on Westminster Bridge in 1813 and roughly 50,000 London gas lamps with 300 miles of pipes by the 1820s; it dates the company’s foundation to 1812."
+        }
+      ],
+      "caveats": "Retrospective approximate citywide figures; the source does not assign all lamps to one company."
+    }
+  ],
+  "earliest_record": {
+    "event": "bridge-lighting-1813",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending."
+  },
+  "measures": [
+    {
+      "quantity": "reported lamps",
+      "value": 50000,
+      "unit": "lamps",
+      "event": "london-network-1820s",
+      "subject": "London gas lamps",
+      "conditions": "Approximate retrospective figure for the 1820s.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "london-museum-nd-gas-light-wave8",
+          "locator": "Gas lamps and company sections",
+          "supports": "The museum describes gas lighting on Westminster Bridge in 1813 and roughly 50,000 London gas lamps with 300 miles of pipes by the 1820s; it dates the company’s foundation to 1812."
+        }
+      ]
+    },
+    {
+      "quantity": "reported network length",
+      "value": 300,
+      "unit": "miles",
+      "event": "london-network-1820s",
+      "subject": "London gas pipes",
+      "conditions": "Approximate retrospective figure for the 1820s.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "london-museum-nd-gas-light-wave8",
+          "locator": "Gas lamps and company sections",
+          "supports": "The museum describes gas lighting on Westminster Bridge in 1813 and roughly 50,000 London gas lamps with 300 miles of pipes by the 1820s; it dates the company’s foundation to 1812."
+        }
+      ]
+    }
+  ]
+}

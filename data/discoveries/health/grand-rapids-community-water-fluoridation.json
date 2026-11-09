@@ -1,0 +1,149 @@
+{
+  "id": "grand-rapids-community-water-fluoridation",
+  "name": "Grand Rapids community dental prevention",
+  "description": "Grand Rapids introduced community water fluoridation during a study of dental health in 1945.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "capability",
+  "concept": "community-water-fluoridation",
+  "places": [
+    {
+      "place": "michigan"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1945
+        },
+        "latest": {
+          "year": 1945
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1945",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "Grand Rapids introduced community water fluoridation during a study of dental health in 1945.",
+      "places": [
+        "michigan"
+      ],
+      "evidence": [
+        {
+          "source": "w8-cdc-fluoridation-history",
+          "locator": "History of Water Fluoridation",
+          "supports": "CDC describes the 1945 Grand Rapids and comparison-community study of community water fluoridation for dental health. This is one public health trial rather than the invention of all dental prevention or a direct estimate of individual benefit."
+        }
+      ],
+      "caveats": "The community study evaluated population outcomes; the initial local deployment is not evidence of universal access or a numerical effect on each person.",
+      "contributions": [
+        {
+          "group": "Grand Rapids public-water operators",
+          "role": "operator",
+          "resource": "Grand Rapids community dental prevention",
+          "evidence": [
+            {
+              "source": "w8-cdc-fluoridation-history",
+              "locator": "History of Water Fluoridation",
+              "supports": "CDC describes the 1945 Grand Rapids and comparison-community study of community water fluoridation for dental health. This is one public health trial rather than the invention of all dental prevention or a direct estimate of individual benefit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seventh-year-report",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1953
+        },
+        "latest": {
+          "year": 1953
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1953",
+        "basis": "Date refers to this scoped event or archaeological context, not to a global origin."
+      },
+      "statement": "Researchers reported comparative dental findings after approximately six and a half years.",
+      "places": [
+        "michigan"
+      ],
+      "evidence": [
+        {
+          "source": "w8-arnold-1953-grand-rapids",
+          "locator": "Seventh-year results",
+          "supports": "Age-group increments of decayed, missing or filled permanent teeth per child between ages six and nine were 1.781 in 1951 versus 3.123 before fluoridation, about 57 percent. Authors interpret these as mainly reflecting first permanent molars. This observational figure is not a 57-percent reduction or individual effect."
+        }
+      ],
+      "caveats": "The selected rate relates to a defined group and comparison, not all residents."
+    },
+    {
+      "id": "grand-rapids-examinations-1951",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1951
+        },
+        "latest": {
+          "year": 1951
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1951",
+        "basis": "The paper dates these age-group examinations to 1951; its report appeared in 1953."
+      },
+      "statement": "Researchers examined continuously resident schoolchildren in Grand Rapids in 1951 and compared age-group dental findings with pre-fluoridation examinations.",
+      "places": [
+        "michigan"
+      ],
+      "evidence": [
+        {
+          "source": "w8-arnold-1953-grand-rapids",
+          "locator": "Seventh-year results",
+          "supports": "Age-group increments of decayed, missing or filled permanent teeth per child between ages six and nine were 1.781 in 1951 versus 3.123 before fluoridation, about 57 percent. Authors interpret these as mainly reflecting first permanent molars. This observational figure is not a 57-percent reduction or individual effect."
+        }
+      ],
+      "caveats": "The selected rate relates to a defined group and comparison, not all residents."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this particular documented case, not a claim of global priority."
+  },
+  "caveats": "The community study evaluated population outcomes; the initial local deployment is not evidence of universal access or a numerical effect on each person.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked facets marked reviewed. Other facets retain their prior basis; historical and source limits remain in the record."
+  },
+  "measures": [
+    {
+      "quantity": "age-group increment in DMF teeth relative to baseline",
+      "value": 57,
+      "unit": "percent",
+      "event": "grand-rapids-examinations-1951",
+      "subject": "Grand Rapids continuous-resident children, ages six and nine",
+      "status": "claimed",
+      "conditions": "Differences in decayed, missing or filled permanent teeth per child between age groups six and nine: 1.781 in 1951 versus 3.123 in 1944–45, roughly 57% of baseline. These rates mainly reflect first molars; this is not a 57% reduction or a longitudinal individual effect.",
+      "evidence": [
+        {
+          "source": "w8-arnold-1953-grand-rapids",
+          "locator": "Seventh-year results",
+          "supports": "Age-group increments of decayed, missing or filled permanent teeth per child between ages six and nine were 1.781 in 1951 versus 3.123 before fluoridation, about 57 percent. Authors interpret these as mainly reflecting first permanent molars. This observational figure is not a 57-percent reduction or individual effect."
+        }
+      ]
+    }
+  ]
+}

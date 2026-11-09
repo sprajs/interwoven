@@ -1,0 +1,72 @@
+{
+  "id": "grove-gas-voltaic-battery",
+  "name": "Grove gas voltaic battery",
+  "description": "Grove described a gas voltaic battery that produced electricity from hydrogen and oxygen.",
+  "kind": "technology",
+  "domain": "energy.storage",
+  "grain": "instance",
+  "concept": "gas-voltaic-battery",
+  "places": [
+    {
+      "place": "united-kingdom",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "grove-letter-1842",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1842,
+          "month": 10
+        },
+        "latest": {
+          "year": 1842,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "October 1842",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "In an October 1842 letter to Faraday, Grove described his completed gas voltaic battery.",
+      "evidence": [
+        {
+          "source": "aps-2019-grove-gas-battery-wave8",
+          "locator": "Grove’s gas battery and October 1842 letter",
+          "supports": "APS reproduces an excerpt of Grove’s 1842 letter reporting a completed gas voltaic battery using hydrogen and oxygen; its account distinguishes this from his separate acid-based Grove cell."
+        }
+      ],
+      "caveats": "The cited historical account reproduces a letter excerpt; this is an experimental device, not a commercial power supply."
+    }
+  ],
+  "earliest_record": {
+    "event": "grove-letter-1842",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The account describes earlier electrolysis and a separate Grove cell but does not establish a causal link to a particular represented experimental apparatus.",
+        "evidence": [
+          {
+            "source": "aps-2019-grove-gas-battery-wave8",
+            "locator": "Grove’s gas battery and October 1842 letter",
+            "supports": "APS reproduces an excerpt of Grove’s 1842 letter reporting a completed gas voltaic battery using hydrogen and oxygen; its account distinguishes this from his separate acid-based Grove cell."
+          }
+        ]
+      }
+    ]
+  }
+}

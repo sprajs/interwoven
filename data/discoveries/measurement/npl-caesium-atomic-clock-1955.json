@@ -1,0 +1,150 @@
+{
+  "id": "npl-caesium-atomic-clock-1955",
+  "name": "NPL caesium atomic clock",
+  "description": "Louis Essen and J. V. L. Parry built a caesium atomic clock at the National Physical Laboratory in Teddington, using an atomic transition as a timekeeping reference.",
+  "kind": "technology",
+  "domain": "measurement.time",
+  "grain": "instance",
+  "concept": "caesium-atomic-timekeeping",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "london",
+      "note": "Teddington, within the London area"
+    }
+  ],
+  "events": [
+    {
+      "id": "unveiling-may-1955",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 1955,
+          "month": 5
+        },
+        "latest": {
+          "year": 1955,
+          "month": 5
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "May 1955",
+        "basis": "NIST dates the unveiling to May 1955; the museum attributes the 1955 clock to Essen and Parry."
+      },
+      "statement": "The NPL caesium clock built by Essen and Parry was unveiled in May 1955.",
+      "places": [
+        "london"
+      ],
+      "place_note": "National Physical Laboratory, Teddington",
+      "evidence": [
+        {
+          "source": "w8-smg-1955-caesium-clock",
+          "locator": "Catalogue description, 1955 clock",
+          "supports": "Identifies Essen, Parry, NPL, Teddington and 1955."
+        },
+        {
+          "source": "w8-nist-atomic-time-history",
+          "locator": "A Special Atom",
+          "supports": "Dates the unveiling to May 1955 and describes earlier research and the Ramsey design."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "louis-essen",
+          "role": "developer",
+          "resource": "Caesium atomic clock.",
+          "evidence": [
+            {
+              "source": "w8-smg-1955-caesium-clock",
+              "locator": "Catalogue description",
+              "supports": "Attributes the device to Essen."
+            }
+          ]
+        },
+        {
+          "person": "jack-parry",
+          "role": "developer",
+          "resource": "Caesium atomic clock.",
+          "evidence": [
+            {
+              "source": "w8-smg-1955-caesium-clock",
+              "locator": "Catalogue description",
+              "supports": "Attributes the device to J. V. L. Parry."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "unveiling-may-1955",
+    "rationale": "The inspected evidence establishes the May 1955 unveiling, not the first conception or universal first atomic clock."
+  },
+  "measures": [
+    {
+      "quantity": "Museum-reported equivalent timing accuracy",
+      "value": 1,
+      "unit": "second per 300 years",
+      "status": "claimed",
+      "event": "unveiling-may-1955",
+      "subject": "The 1955 NPL caesium clock",
+      "conditions": "Museum retrospective gives an equivalent rate; it does not report a 300-year observation or specify the measurement interval.",
+      "evidence": [
+        {
+          "source": "w8-smg-1955-caesium-clock",
+          "locator": "Catalogue description",
+          "supports": "Reports accuracy equivalent to one second in 300 years."
+        }
+      ]
+    }
+  ],
+  "caveats": "NIST describes an earlier ammonia-based atomic clock; the present record is the specific NPL caesium apparatus, not a global first claim. Later SI definition did not require adoption of this one device.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed",
+      "people": "reviewed",
+      "organizations": "reviewed"
+    },
+    "missing_prerequisites": [
+      "Ramsey’s 1949 separated-oscillatory-field measurement design used in the caesium clock."
+    ],
+    "unresolved": [
+      {
+        "about": "Ramsey measurement-design prerequisite",
+        "note": "NIST identifies the 1949 design in this clock, but a separate record and the original design publication remain to be examined before a directed link is added.",
+        "evidence": [
+          {
+            "source": "w8-nist-atomic-time-history",
+            "locator": "A Special Atom",
+            "supports": "States that Essen used a design invented by Norman Ramsey in 1949."
+          }
+        ]
+      }
+    ],
+    "note": "Independent parent checked SMG object1962-59 and NIST historical sections. Performance remains a catalogue claim; NPL is host rather than an inferred separate developer or funder."
+  },
+  "organizations": [
+    {
+      "organization": "uk-national-physical-laboratory",
+      "role": "host",
+      "note": "Laboratory where the instrument was built; funding not inferred."
+    }
+  ],
+  "people": [
+    {
+      "person": "louis-essen",
+      "role": "builder"
+    },
+    {
+      "person": "jack-parry",
+      "role": "builder"
+    }
+  ]
+}

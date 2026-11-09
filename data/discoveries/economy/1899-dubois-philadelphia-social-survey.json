@@ -1,0 +1,124 @@
+{
+  "id": "1899-dubois-philadelphia-social-survey",
+  "name": "Du Bois’s Philadelphia urban social survey",
+  "description": "The Philadelphia study combined local household surveying with maps, interviews and records to analyze a Black urban community.",
+  "kind": "science",
+  "domain": "economy.social-science",
+  "grain": "capability",
+  "concept": "urban-social-survey",
+  "events": [
+    {
+      "id": "dated-evidence",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1899
+        },
+        "latest": {
+          "year": 1899
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1899",
+        "basis": "Dated publication, legal decision, institution or documented practice; not a global origin claim."
+      },
+      "statement": "The University of Pennsylvania published Du Bois’s social study of Philadelphia, including a Seventh Ward house-to-house inquiry.",
+      "scope": "This documented community and episode; not a universal first.",
+      "evidence": [
+        {
+          "source": "w8-boddie-hillier-philadelphia",
+          "locator": "Introduction and survey methods",
+          "supports": "Boddie and Hillier describe the 1899 publication and its methods."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "web-du-bois",
+          "role": "developer",
+          "resource": "Conducted and authored the social study.",
+          "evidence": [
+            {
+              "source": "w8-boddie-hillier-philadelphia",
+              "locator": "Introduction and survey methods",
+              "supports": "Boddie and Hillier describe the 1899 publication and its methods."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "university-offer-1896",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1896
+        },
+        "latest": {
+          "year": 1896
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1896",
+        "basis": "Dated publication, legal decision, institution or documented practice; not a global origin claim."
+      },
+      "statement": "The university offered Du Bois an appointment of up to $900 for one year, following prompting by women of the College Settlement Association.",
+      "scope": "An offer, not verified final payment or a count of participants.",
+      "evidence": [
+        {
+          "source": "w8-boddie-hillier-philadelphia",
+          "locator": "Appointment telegram discussion",
+          "supports": "The authors reproduce and contextualize the university’s one-year offer."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-evidence",
+    "rationale": "Earliest episode established by the evidence gathered for this scoped capability, not global priority."
+  },
+  "caveats": "The study built on a wider social-survey movement and was not the first survey. Its categories and coverage were historically situated; the 1896 offer was not necessarily the final amount paid.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass; independent review is outstanding. Independent review checked the study, methods and the 1896 telegram’s maximum offer in Boddie and Hillier; no actual payment is inferred."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "web-du-bois",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "maximum compensation offered for one year",
+      "value": 900,
+      "unit": "US dollars",
+      "currency": "USD",
+      "money_context": "Nominal 1896 US dollars; an offer, not confirmed paid compensation.",
+      "event": "university-offer-1896",
+      "subject": "Du Bois university appointment offer",
+      "conditions": "Maximum for one year as stated in the telegram; not the entire project cost.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w8-boddie-hillier-philadelphia",
+          "locator": "Appointment telegram discussion",
+          "supports": "Reproduces the one-year offer of a maximum $900."
+        }
+      ]
+    }
+  ]
+}

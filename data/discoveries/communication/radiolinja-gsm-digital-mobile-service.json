@@ -1,0 +1,117 @@
+{
+  "id": "radiolinja-gsm-digital-mobile-service",
+  "name": "Radiolinja GSM digital mobile service",
+  "description": "A Finnish GSM cellular network and digital mobile telephone service operated by Radiolinja.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "official-call-1991",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1991,
+          "month": 7,
+          "day": 1
+        },
+        "latest": {
+          "year": 1991,
+          "month": 7,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1991-07-01",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "An official call was made over Radiolinja’s GSM network on 1 July 1991.",
+      "evidence": [
+        {
+          "source": "ericsson-1991-gsm-call-wave8",
+          "locator": "Radiolinja and photograph caption",
+          "supports": "Dates the official network call and identifies Nokia as network supplier."
+        }
+      ],
+      "caveats": "A ceremonial call is not itself proof of mass subscriber access.",
+      "places": [
+        "finland"
+      ],
+      "contributions": [
+        {
+          "organization": "radiolinja",
+          "role": "operator",
+          "resource": "Operated the network used for the call.",
+          "evidence": [
+            {
+              "source": "ericsson-1991-gsm-call-wave8",
+              "locator": "Radiolinja and photograph caption",
+              "supports": "Dates the official network call and identifies Nokia as network supplier."
+            }
+          ]
+        },
+        {
+          "organization": "nokia",
+          "role": "supplier",
+          "resource": "Radiolinja ordered its GSM network from Nokia.",
+          "evidence": [
+            {
+              "source": "ericsson-1991-gsm-call-wave8",
+              "locator": "Radiolinja and photograph caption",
+              "supports": "Dates the official network call and identifies Nokia as network supplier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal-availability-1992",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1992,
+          "month": 6
+        },
+        "latest": {
+          "year": 1992,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1992-06",
+        "basis": "Date in the cited source; see scope and caveats."
+      },
+      "statement": "A Finnish university study dates availability of interim-approved GSM terminals and practical commercial launches to June 1992.",
+      "evidence": [
+        {
+          "source": "gsm-finnish-market-2003-wave8",
+          "locator": "pp. 202–203, opening of networks",
+          "supports": "Distinguishes 1991 opening from availability of approved terminals in June 1992."
+        }
+      ],
+      "caveats": "The study dates Radiolinja’s network opening to December 1991; operator histories use different definitions of the start of commercial service.",
+      "places": [
+        "finland"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "official-call-1991",
+    "rationale": "Earliest dated episode supported in the inspected evidence for this scope; no global priority asserted."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced"
+    },
+    "note": "Independent reader checked Ericsson’s 1991 ceremonial-call and Nokia order account; the university PDF for the 1992 launch could not be reopened."
+  },
+  "places": [
+    {
+      "place": "finland"
+    }
+  ]
+}

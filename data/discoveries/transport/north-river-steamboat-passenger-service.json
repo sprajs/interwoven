@@ -1,0 +1,138 @@
+{
+  "id": "north-river-steamboat-passenger-service",
+  "name": "North River steamboat passenger service",
+  "description": "A steam-powered Hudson River passenger service advertised fares from Paule’s Hook toward Albany.",
+  "kind": "technology",
+  "domain": "transport.watercraft",
+  "grain": "instance",
+  "concept": "commercial-steamboat-passenger-service",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "fare-offer-1807",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1807,
+          "month": 9,
+          "day": 2
+        },
+        "latest": {
+          "year": 1807,
+          "month": 9,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1807-09-02",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A September advertisement offered a scheduled North River steamboat passage to Albany for seven dollars.",
+      "evidence": [
+        {
+          "source": "picture-1846-hudson-steamboats-wave8",
+          "locator": "pp. 104–105, extracts dated September and October 1807",
+          "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
+        }
+      ],
+      "caveats": "The fare is an offer reproduced in a later guide, not an observed payment."
+    },
+    {
+      "id": "passengers-1807",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1807,
+          "month": 10,
+          "day": 2
+        },
+        "latest": {
+          "year": 1807,
+          "month": 10,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1807-10-02",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A newspaper report described a departure with ninety passengers.",
+      "evidence": [
+        {
+          "source": "picture-1846-hudson-steamboats-wave8",
+          "locator": "pp. 104–105, extracts dated September and October 1807",
+          "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
+        }
+      ],
+      "caveats": "The source reports departure, not confirmed arrival or the fare paid by each passenger."
+    }
+  ],
+  "earliest_record": {
+    "event": "fare-offer-1807",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The reproduced historical note identifies a Boulton and Watt engine but does not identify it with a particular represented Soho engine.",
+        "evidence": [
+          {
+            "source": "picture-1846-hudson-steamboats-wave8",
+            "locator": "pp. 104–105, extracts dated September and October 1807",
+            "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "advertised passage fare",
+      "value": 7,
+      "unit": "US dollars",
+      "event": "fare-offer-1807",
+      "subject": "One advertised Paule’s Hook–Albany passage",
+      "conditions": "September 1807 nominal fare; not adjusted for inflation and no ticket sale asserted.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "picture-1846-hudson-steamboats-wave8",
+          "locator": "pp. 104–105, extracts dated September and October 1807",
+          "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
+        }
+      ]
+    },
+    {
+      "quantity": "reported passengers",
+      "value": 90,
+      "unit": "people",
+      "event": "passengers-1807",
+      "subject": "Passengers aboard on reported departure",
+      "conditions": "Newspaper count quoted in a later guide; not an annual traffic figure.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "picture-1846-hudson-steamboats-wave8",
+          "locator": "pp. 104–105, extracts dated September and October 1807",
+          "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
+        }
+      ]
+    }
+  ]
+}

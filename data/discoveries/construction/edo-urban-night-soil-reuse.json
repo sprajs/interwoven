@@ -1,0 +1,107 @@
+{
+  "id": "edo-urban-night-soil-reuse",
+  "name": "Edo residence waste collection rights",
+  "description": "A residence in Edo contracted collection rights to a farmer from Tanashi village in 1742, within a market supplying agricultural fertilizer.",
+  "kind": "practice",
+  "domain": "construction.sanitation",
+  "grain": "instance",
+  "concept": "urban-waste-reuse-contract",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "japan"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1742
+        },
+        "latest": {
+          "year": 1742
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1742",
+        "basis": "Date for the cited specific instance, not an invention or global priority date."
+      },
+      "statement": "A residence in Edo contracted collection rights to a farmer from Tanashi village in 1742, within a market supplying agricultural fertilizer.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "w8-hanley-edo-sanitation",
+          "locator": "p. 12, contractual market",
+          "supports": "Hanley reports the contract, parties, alternative payments and regional agricultural demand."
+        }
+      ],
+      "caveats": "This is a historian’s account of one arrangement, not a citywide adoption rate, sanitation outcome or origin of reuse.",
+      "contributions": [
+        {
+          "group": "Hitotsubashi household",
+          "role": "rights_holder",
+          "resource": "Collection rights at its residence",
+          "evidence": [
+            {
+              "source": "w8-hanley-edo-sanitation",
+              "locator": "p. 12, contractual market",
+              "supports": "Hanley reports the contract, parties, alternative payments and regional agricultural demand."
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "resource": "Contracted collection rights",
+          "evidence": [
+            {
+              "source": "w8-hanley-edo-sanitation",
+              "locator": "p. 12, contractual market",
+              "supports": "Hanley reports the contract, parties, alternative payments and regional agricultural demand."
+            }
+          ],
+          "person": "hanbei-of-tanashi"
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this case, not a claim of global priority."
+  },
+  "caveats": "This is a historian’s account of one arrangement, not a citywide adoption rate, sanitation outcome or origin of reuse.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked Hanley’s account of the 1742 rights contract and its alternative payments; the contract is not evidence of citywide coverage or health outcomes."
+  },
+  "measures": [
+    {
+      "quantity": "contract cash payment option",
+      "value": 2,
+      "unit": "ryō",
+      "event": "documented-case",
+      "subject": "1742 Hitotsubashi–Hanbei contract",
+      "status": "claimed",
+      "conditions": "One of three alternatives at the buyer’s choice, not an additional charge or modern currency conversion.",
+      "evidence": [
+        {
+          "source": "w8-hanley-edo-sanitation",
+          "locator": "p. 12, contractual market",
+          "supports": "Hanley reports the contract, parties, alternative payments and regional agricultural demand."
+        }
+      ]
+    }
+  ]
+}

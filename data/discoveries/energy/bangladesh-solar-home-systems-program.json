@@ -1,0 +1,195 @@
+{
+  "id": "bangladesh-solar-home-systems-program",
+  "name": "Bangladesh solar home systems program",
+  "description": "A national off-grid program financed and delivered photovoltaic electricity systems to rural households.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "instance",
+  "concept": "off-grid-solar-home-service",
+  "places": [
+    {
+      "place": "bangladesh",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "program-start-2003",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2003
+        },
+        "latest": {
+          "year": 2003
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2003",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The government began a solar home systems program under IDCOL leadership.",
+      "evidence": [
+        {
+          "source": "world-bank-2021-bangladesh-solar-wave8",
+          "locator": "Program background, sales and finance paragraphs",
+          "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+        }
+      ],
+      "caveats": "Program commencement does not establish the first individual system installation.",
+      "contributions": [
+        {
+          "organization": "bangladesh-idcol",
+          "role": "operator",
+          "resource": "Led the program",
+          "evidence": [
+            {
+              "source": "world-bank-2021-bangladesh-solar-wave8",
+              "locator": "Program background, sales and finance paragraphs",
+              "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sales-through-2018",
+      "type": "adoption",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2018
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 2018",
+        "basis": "The report gives cumulative sales and people served by 2018, not an exact 2018 observation date."
+      },
+      "statement": "By 2018 the program had sold more than 4.1 million units and brought electricity services to about 20 million people.",
+      "evidence": [
+        {
+          "source": "world-bank-2021-bangladesh-solar-wave8",
+          "locator": "Program background, sales and finance paragraphs",
+          "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+        }
+      ],
+      "caveats": "Cumulative reported units sold and estimated people served are different quantities; no claim that all installations remained in service.",
+      "contributions": [
+        {
+          "group": "Rural Bangladeshi households",
+          "role": "user",
+          "resource": "Obtained electricity services from solar home systems",
+          "evidence": [
+            {
+              "source": "world-bank-2021-bangladesh-solar-wave8",
+              "locator": "Program background, sales and finance paragraphs",
+              "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "world-bank-financing-reported-2021",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2021
+        },
+        "latest": {
+          "year": 2021
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2021",
+        "basis": "The World Bank report describes past financing without identifying dates of individual contributions."
+      },
+      "statement": "A World Bank retrospective reports that it and other partners financed the solar home systems program.",
+      "caveats": "The source describes funding over consecutive projects and does not date all financing to the 2003 launch.",
+      "contributions": [
+        {
+          "organization": "world-bank",
+          "role": "funder",
+          "resource": "Financed the program with other development partners",
+          "evidence": [
+            {
+              "source": "world-bank-2021-bangladesh-solar-wave8",
+              "locator": "Program background, sales and finance paragraphs",
+              "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "world-bank-2021-bangladesh-solar-wave8",
+          "locator": "Program background, sales and finance paragraphs",
+          "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "sales-through-2018",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "Photovoltaic modules are necessary, but the inspected program account does not identify a direct lineage from the specific 1954 Bell Labs device.",
+        "evidence": [
+          {
+            "source": "world-bank-2021-bangladesh-solar-wave8",
+            "locator": "Program background, sales and finance paragraphs",
+            "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "cumulative units sold",
+      "value": ">4100000",
+      "unit": "systems",
+      "event": "sales-through-2018",
+      "subject": "Bangladesh solar home systems program",
+      "conditions": "Cumulative through 2018, as reported by the World Bank.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "world-bank-2021-bangladesh-solar-wave8",
+          "locator": "Program background, sales and finance paragraphs",
+          "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+        }
+      ]
+    },
+    {
+      "quantity": "estimated people served",
+      "value": 20000000,
+      "unit": "people",
+      "event": "sales-through-2018",
+      "subject": "People served by the program",
+      "conditions": "Approximately, through 2018; estimate rather than a count of unique installations.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "world-bank-2021-bangladesh-solar-wave8",
+          "locator": "Program background, sales and finance paragraphs",
+          "supports": "The Bank says the government launched the off-grid program under IDCOL leadership in 2003 with World Bank and other partners’ financing; it reports over 4.1 million units sold by 2018 and approximately 20 million people served."
+        }
+      ]
+    }
+  ]
+}

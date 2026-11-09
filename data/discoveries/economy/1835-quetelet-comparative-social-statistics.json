@@ -1,0 +1,100 @@
+{
+  "id": "1835-quetelet-comparative-social-statistics",
+  "name": "Quételet’s comparative social statistics",
+  "description": "Quételet compared aggregate social and demographic observations using administrative statistics.",
+  "kind": "science",
+  "domain": "economy.social-science",
+  "grain": "capability",
+  "concept": "comparative-social-statistics",
+  "events": [
+    {
+      "id": "dated-evidence",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1835
+        },
+        "latest": {
+          "year": 1835
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1835",
+        "basis": "Dated publication, legal decision, institution or documented practice; not a global origin claim."
+      },
+      "statement": "In his 1835 social-physics book, Quételet analyzed French court statistics from 1826–1831.",
+      "scope": "This documented community and episode; not a universal first.",
+      "evidence": [
+        {
+          "source": "w8-mactutor-quetelet-crime",
+          "locator": "Book and court statistics",
+          "supports": "The history dates the book and identifies the period of the court records."
+        },
+        {
+          "source": "w8-athenaeum-quetelet-1835",
+          "locator": "pp. 593–594",
+          "supports": "The contemporary review describes comparisons by place and demographic characteristics."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "adolphe-quetelet",
+          "role": "developer",
+          "resource": "Analyzed published administrative statistics.",
+          "evidence": [
+            {
+              "source": "w8-mactutor-quetelet-crime",
+              "locator": "Book and court statistics",
+              "supports": "The history dates the book and identifies the period of the court records."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-evidence",
+    "rationale": "Earliest episode established by the evidence gathered for this scoped capability, not global priority."
+  },
+  "caveats": "Court statistics capture recorded prosecutions and their institutional context, not all offenses; his predictions and ideas of social regularity are historical interpretations, not established social laws.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "sourced",
+      "places": "sourced",
+      "people": "sourced"
+    },
+    "note": "Initial source pass; independent review is outstanding. Independent review verified the book and French 1826–1831 court records in the MacTutor excerpt; the contemporary review PDF was inaccessible, so wider comparisons remain sourced.",
+    "missing_prerequisites": [
+      "French criminal court statistical reporting, 1826–1831"
+    ],
+    "unresolved": [
+      {
+        "about": "French court statistics production",
+        "note": "Identify and date the system that compiled these court data and its limits before treating statistics as recorded crime.",
+        "evidence": [
+          {
+            "source": "w8-mactutor-quetelet-crime",
+            "locator": "1835 book and French court statistics",
+            "supports": "The source states that Quételet used statistics gathered from French criminal courts in 1826–1831."
+          }
+        ]
+      }
+    ]
+  },
+  "places": [
+    {
+      "place": "france",
+      "note": "France identifies the court statistics’ geographic coverage; the cited passage does not establish the author’s location while writing."
+    }
+  ],
+  "people": [
+    {
+      "person": "adolphe-quetelet",
+      "role": "contributor"
+    }
+  ]
+}
