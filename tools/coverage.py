@@ -6,6 +6,7 @@
     python tools/coverage.py --missing places     # discoveries with no value for a facet
     python tools/coverage.py --basis recalled     # discoveries with any facet entered from memory
     python tools/coverage.py --basis recalled --facet people
+    python tools/coverage.py --grid               # discoveries per domain, by region and by era
 
 This is how one facet is researched across the whole dataset: list what is missing, fill it in,
 and run it again.
@@ -17,7 +18,7 @@ import argparse
 import sys
 from collections import Counter, defaultdict
 
-from dataset import FACETS, Dataset
+from dataset import FACETS, Dataset, year_value
 
 BASES = ("reviewed", "sourced", "recalled", "unknown", "not_applicable")
 
@@ -34,15 +35,51 @@ def table(records: list[dict]) -> list[str]:
     return lines
 
 
+REGIONS = ("africa", "asia", "europe", "north_america", "south_america", "oceania")
+#: The eras of the grid: a name and the year each one ends before.
+ERAS = (("before 3000 BCE", -2999), ("to 500 CE", 501), ("to 1500", 1501), ("to 1800", 1801), ("to 1950", 1951), ("since 1950", 10**9))
+
+
+def grid(data: Dataset) -> list[str]:
+    """Discoveries per domain, across the regions and across the eras. An empty cell is a gap to fill."""
+    places = data.registers["places"]
+    by_region: dict[str, Counter] = defaultdict(Counter)
+    by_era: dict[str, Counter] = defaultdict(Counter)
+    for record in data.discoveries.values():
+        domain = record["domain"].split(".")[0]
+        regions = {places[p["place"]]["region"] for p in record.get("places", []) if p["place"] in places}
+        for region in regions or {"unplaced"}:
+            by_region[domain][region] += 1
+        event = data.earliest_record(record)
+        if event is None:
+            by_era[domain]["undated"] += 1
+        else:
+            year = year_value(event["date"]["latest"])
+            by_era[domain][next(name for name, end in ERAS if year < end)] += 1
+    domains = [d["id"] for d in data.taxonomy["domains"]]
+    lines = ["By region", f"{'domain':<20}" + "".join(f"{r[:13]:>14}" for r in (*REGIONS, "unplaced"))]
+    lines += [f"{d:<20}" + "".join(f"{by_region[d][r] or '.':>14}" for r in (*REGIONS, "unplaced")) for d in domains]
+    eras = [name for name, _ in ERAS] + ["undated"]
+    lines += ["", "By era", f"{'domain':<20}" + "".join(f"{e:>16}" for e in eras)]
+    lines += [f"{d:<20}" + "".join(f"{by_era[d][e] or '.':>16}" for e in eras) for d in domains]
+    return lines
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--by", choices=["domain", "kind", "tier"], help="split the table")
     parser.add_argument("--missing", metavar="FACET", choices=FACETS, help="list discoveries lacking this facet")
     parser.add_argument("--basis", choices=BASES, help="list discoveries with a facet on this basis")
     parser.add_argument("--facet", choices=FACETS, help="with --basis, look at one facet only")
+    parser.add_argument("--grid", action="store_true", help="count discoveries per domain by region and by era")
     args = parser.parse_args()
 
-    records = sorted(Dataset.load().discoveries.values(), key=lambda r: (r["domain"], r["id"]))
+    data = Dataset.load()
+    records = sorted(data.discoveries.values(), key=lambda r: (r["domain"], r["id"]))
+
+    if args.grid:
+        print("\n".join(grid(data)))
+        return 0
 
     if args.missing:
         rows = [r for r in records if facet_state(r, args.missing) == "missing"]
