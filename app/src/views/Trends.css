@@ -36,6 +36,40 @@
   color: var(--ink-3);
 }
 
+/* The breakdown of a lit bin lies over the note, which stays in place unseen so the header keeps its height. */
+.trends-note {
+  position: relative;
+}
+
+.trends-head .trends-breakdown {
+  position: absolute;
+  inset: 0 0 auto;
+  margin: 1px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.trends-breakdown .swatch {
+  margin-right: 5px;
+}
+
+/* Three short lines, kept small so the card fits above the plot. */
+.tooltip.trends-card {
+  padding: 6px 10px 7px;
+}
+
+.tooltip.trends-card h4 {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.tooltip.trends-card p {
+  margin: 1px 0 0;
+}
+
 /* Over the canvas rather than instead of it, so the frame keeps its size and still pans and zooms. */
 .trends-empty {
   position: absolute;

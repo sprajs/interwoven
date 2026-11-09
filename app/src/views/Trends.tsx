@@ -45,7 +45,7 @@ const PAD_LEFT = 84
 const PAD_RIGHT = 20
 /** The page margin, as `--gutter` in styles.css. */
 const GUTTER = 20
-/** Room at the right for naming the regional lines at their ends. */
+/** Room at the right for naming the regional population lines at their ends. */
 const PAD_RIGHT_NAMED = 116
 /** The width each bin aims for on screen, gap included. */
 const BIN = 23
@@ -54,14 +54,19 @@ const SEGMENT_GAP = 1.5
 /** Bars sit a little back from full strength, so they do not outweigh everything else in the app. */
 const BAR_ALPHA = 0.86
 /**
- * A region's rate is shown only where it rests on this many discoveries: with fewer, one discovery
- * over a small population makes a spike that flattens every other line.
+ * A rate is given only where it rests on this many discoveries. With fewer, one discovery in a short
+ * stretch or over a small population makes the tallest bar on the chart from the least evidence.
  */
 const MIN_FOR_RATE = 3
 /** Spacing between names at the ends of lines. */
 const NAME_GAP = 15
+/** Names further than this from their line's end are dropped rather than left to float. */
+const NAME_DRIFT = 10
 /** Room above the plot for the unit label. */
 const TOP = 34
+/** Between the rows of the small multiples, and the room each gives its name. */
+const ROW_GAP = 8
+const ROW_HEAD = 20
 const RULER = 30
 const GAP = 16
 /** The population chart, title included. */
@@ -83,8 +88,18 @@ interface Bin {
   total: number
   /** World person-years lived during the bin, or null before the estimates begin. */
   lived: number | null
-  /** Person-years lived in each category's own region; filled only when regions are divided separately. */
+  /** Person-years lived in each category's own region; filled only for the regional small multiples. */
   livedIn: (number | null)[]
+}
+
+/** One region's own small bar chart, on its own scale. */
+interface Row {
+  category: Category
+  top: number
+  plotTop: number
+  bottom: number
+  /** The value at the top of the row's scale, where its one gridline sits. */
+  peak: number
 }
 
 interface PopulationLine {
@@ -109,22 +124,24 @@ interface Plan {
   du: number
   bins: Bin[]
   categories: Category[]
-  /** Separate rates per region, drawn as lines because they cannot be stacked. */
-  lines: boolean
+  /** One row per region, each divided by its own population, because such rates cannot be stacked. */
+  rows: Row[] | null
   /** Each bin's value for each category in the chosen measure; null where it cannot be worked out. */
   values: (number | null)[][]
   /** Each bin's value for everything in it, in the chosen measure against the whole world. */
   headline: (number | null)[]
+  /** Whether bars on one or two discoveries are outlined rather than given as rates. */
+  guarded: boolean
+  /** Whether any outlined bar is in view. */
+  outlined: boolean
   grid: number[]
   yMax: number
   top: number
   baseline: number
   population: PopulationChart | null
   counted: number
-  /** Discoveries in view that the chart cannot show: those with no place, when dividing by regional population. */
+  /** Discoveries in view that the chart cannot show: those with no place, in the regional rows. */
   unplaced: number
-  /** False when regional rates are asked for but no region has enough discoveries for one anywhere in view. */
-  rated: boolean
 }
 
 /**
@@ -132,12 +149,11 @@ interface Plan {
  * and turn the counts into the chosen measure.
  */
 function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) => string, measure: Measure, regional: boolean, population: Population | null, height: number): Plan {
-  const lines = regional && measure === 'person' && population !== null
+  const multiples = regional && measure === 'person' && population !== null
   // Regional rates need a population for the region, which "no place yet" does not have.
-  const categories = lines ? all.filter((c) => population.person_years[c.id]) : all
+  const categories = multiples ? all.filter((c) => population.person_years[c.id]) : all
   const indexOf = new Map(categories.map((c, i) => [c.id, i]))
-  // A rate for one region rests on few discoveries, so its points cover wider stretches than a bar does.
-  const n = Math.max(1, Math.round((axis.x1 - axis.x0) / (lines ? BIN * 2.5 : BIN)))
+  const n = Math.max(1, Math.round((axis.x1 - axis.x0) / BIN))
   const { scale } = axis
   const u0 = scale.u(axis.t0)
   const du = (scale.u(axis.t1) - u0) / n
@@ -155,7 +171,7 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
       counts: categories.map(() => 0),
       total: 0,
       lived: world ? livedBetween(world, t0, t1) : null,
-      livedIn: lines ? categories.map((c) => livedBetween(population.person_years[c.id]!, t0, t1)) : [],
+      livedIn: multiples ? categories.map((c) => livedBetween(population.person_years[c.id]!, t0, t1)) : [],
     }
   })
 
@@ -180,9 +196,9 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
   }
   const values = bins.map((bin) =>
     bin.counts.map((count, k) => {
-      if (lines) {
+      if (multiples) {
         const lived = bin.livedIn[k]
-        return count >= MIN_FOR_RATE && lived && lived > 0 ? (count * PER_BILLION) / lived : null
+        return lived && lived > 0 ? (count * PER_BILLION) / lived : null
       }
       const f = factor(bin)
       return f === null ? null : count * f
@@ -192,13 +208,32 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     const f = factor(bin)
     return f === null ? null : bin.total * f
   })
-  // With regional rates, only the points that qualify set the peak.
-  const peak = Math.max(0, ...(lines ? values.flat() : headline).map((v) => v ?? 0))
-  const rated = !lines || values.some((row) => row.some((v) => v !== null))
+
+  const guarded = measure !== 'count'
+  const weak = (count: number) => guarded && count > 0 && count < MIN_FOR_RATE
+  const outlined = bins.some((bin, i) => (multiples ? bin.counts.some((c, k) => weak(c) && values[i]![k] !== null) : weak(bin.total) && headline[i] !== null))
+  // Outlined bars do not set the scale; plain counts are all equally sure.
+  const peak = multiples ? 0 : guarded ? sturdyPeak(bins.map((bin, i) => ({ count: bin.total, value: headline[i] ?? null }))) : Math.max(0, ...headline.map((v) => v ?? 0))
   const grid = niceTicks(peak, measure === 'count')
   const popBottom = height - FOOT
   const popTop = population ? popBottom - POPULATION : popBottom
   const baseline = popTop - RULER - (population ? GAP : 0)
+
+  let rows: Row[] | null = null
+  if (multiples) {
+    // The rows share the height of the main chart equally.
+    const h = (baseline - TOP - (categories.length - 1) * ROW_GAP) / Math.max(1, categories.length)
+    rows = categories.map((category, k) => {
+      const top = TOP + k * (h + ROW_GAP)
+      return {
+        category,
+        top,
+        plotTop: top + ROW_HEAD,
+        bottom: top + h,
+        peak: sturdyPeak(bins.map((bin, i) => ({ count: bin.counts[k]!, value: values[i]![k] ?? null }))),
+      }
+    })
+  }
 
   return {
     axis,
@@ -206,9 +241,11 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     du,
     bins,
     categories,
-    lines,
+    rows,
     values,
     headline,
+    guarded,
+    outlined,
     grid,
     yMax: grid[grid.length - 1] ?? 1,
     top: TOP,
@@ -216,7 +253,6 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     population: population ? populationChart(population, axis, regional ? all : null, popTop, popBottom) : null,
     counted,
     unplaced,
-    rated,
   }
 }
 
@@ -270,15 +306,26 @@ function describe(plan: Plan, measure: Measure, searching: boolean): string {
   const calendar = plan.axis.scale.id === 'calendar'
   // Only the calendar scale has one length of bar; on the others the length changes across the axis.
   const covers = calendar || a === b ? `about ${a}` : `from about ${a} at the left to ${b} at the right`
-  const marks = plan.lines ? 'Points are equal steps' : 'Bars are equal widths'
-  let text = `${plural(plan.counted, 'discovery', 'discoveries')}${searching ? ' matching the search' : ''} in view. ${marks} on screen; on this scale each covers ${covers}.`
+  let text = `${plural(plan.counted, 'discovery', 'discoveries')}${searching ? ' matching the search' : ''} in view. Bars are equal widths on screen; on this scale each covers ${covers}.`
   if (measure === 'count' && !calendar) text += ' Bars cover different lengths of time, so compare them per century or per person.'
-  if (plan.lines) {
-    // Keep the number in words in step with MIN_FOR_RATE.
-    text += ' Each region is divided by its own population. A rate is shown only where a region has at least three discoveries in the stretch.'
-    if (plan.unplaced) text += ` Left out: ${plural(plan.unplaced, 'discovery', 'discoveries')} with no place yet.`
-  }
+  if (plan.rows) text += ' Each region is divided by its own population and has its own scale.'
+  // Keep "one or two" in step with MIN_FOR_RATE.
+  if (plan.outlined) text += ' Outlined bars hold one or two discoveries: too few for a rate.'
+  if (plan.rows && plan.unplaced) text += ` Left out: ${plural(plan.unplaced, 'discovery', 'discoveries')} with no place yet.`
   return text
+}
+
+/** What the lit bin is made of, for the line under the title: a count per category, or each region's own rate. */
+function breakdown(plan: Plan, index: number): { category: Category; text: string }[] {
+  const bin = plan.bins[index]
+  if (!bin) return []
+  return plan.categories.flatMap((category, k) => {
+    const count = bin.counts[k] ?? 0
+    if (!plan.rows) return count ? [{ category, text: group(count) }] : []
+    const rate = plan.values[index]?.[k] ?? null
+    const text = count === 0 ? '0' : rate === null ? 'no estimate' : count < MIN_FOR_RATE ? 'too few' : formatValue(rate)
+    return [{ category, text }]
+  })
 }
 
 export function Trends() {
@@ -305,8 +352,7 @@ export function Trends() {
     return layout(entries, axis, categories, dimension.of, measure, regional, population, size.height)
   }, [size, scale, span, dimension, filtered, matches, hidden, measure, regional, population])
 
-  const notice = !plan ? null : plan.counted === 0 ? 'No discoveries are recorded in this stretch of time.' : !plan.rated ? 'Too few discoveries per region in this stretch of time to give rates. Widen the stretch, or switch the measure.' : null
-  const empty = notice !== null
+  const empty = plan !== null && plan.counted === 0
   const hoverBin = tip?.bin ?? null
 
   const canvas = useCanvas(
@@ -314,44 +360,29 @@ export function Trends() {
     (ctx, { width }) => {
       if (!plan || empty) return
       const { axis, bins, baseline, top } = plan
-      const yOf = (v: number) => baseline - (v / plan.yMax) * (baseline - top)
 
       ctx.font = font(11.5)
       ctx.fillStyle = INK_3
       ctx.textBaseline = 'middle'
+      ctx.textAlign = 'left'
       ctx.fillText(UNITS[measure], GUTTER, top - 18)
 
-      // The bin under the pointer, carried down through both charts.
+      // The bin under the pointer, carried down through every chart.
       const lit = hoverBin === null ? undefined : bins[hoverBin]
       if (lit) {
         ctx.fillStyle = alpha(INK, 0.07)
         ctx.fillRect(lit.x0, top - 8, lit.x1 - lit.x0, (plan.population?.bottom ?? baseline) - top + 8)
       }
 
-      // Gridlines and their values.
-      ctx.font = font(12)
-      ctx.textBaseline = 'middle'
-      ctx.textAlign = 'right'
-      for (const value of plan.grid) {
-        const y = Math.round(yOf(value))
-        if (value > 0) {
-          ctx.fillStyle = RULE_SOFT
-          ctx.fillRect(axis.x0, y, axis.x1 - axis.x0, 1)
-        }
-        ctx.fillStyle = INK_3
-        // Gridlines sit on round values already, so they are labelled exactly.
-        ctx.fillText(value >= 100 ? group(value) : String(value), axis.x0 - 10, y)
-      }
-      ctx.textAlign = 'left'
-
-      if (plan.lines) drawRates(ctx, plan, yOf)
-      else drawStacks(ctx, plan, yOf, hoverBin)
+      if (plan.rows) drawRows(ctx, plan, plan.rows, hoverBin)
+      else drawStacks(ctx, plan, hoverBin)
 
       ctx.fillStyle = RULE
       ctx.fillRect(axis.x0, Math.round(baseline), axis.x1 - axis.x0, 1)
 
-      // The date ruler, shared by both charts.
+      // The date ruler, shared by every chart.
       ctx.font = font(12.5)
+      ctx.textAlign = 'left'
       for (const tick of ticks(axis, 84)) {
         ctx.fillStyle = RULE
         ctx.fillRect(Math.round(tick.x), Math.round(baseline), 1, 7)
@@ -386,13 +417,32 @@ export function Trends() {
   }
 
   const tipBin = tip && plan && !empty ? plan.bins[tip.bin] : undefined
+  const parts = tip && plan && tipBin ? breakdown(plan, tip.bin) : null
   const searching = matches !== null
   return (
     <div className="trends">
       <header className="trends-head">
         <div>
           <h2>{TITLES[measure]}</h2>
-          <p>{plan && !empty ? describe(plan, measure, searching) : ' '}</p>
+          {/* While a bin is lit, its make-up takes the note's place; the note keeps its room so nothing moves. */}
+          <div className="trends-note">
+            <p style={parts ? { visibility: 'hidden' } : undefined}>{plan && !empty ? describe(plan, measure, searching) : ' '}</p>
+            {parts && (
+              <p className="trends-breakdown">
+                {parts.length === 0
+                  ? 'No discoveries in this stretch.'
+                  : parts.map((part, i) => (
+                      <Fragment key={part.category.id}>
+                        {i > 0 && ' · '}
+                        <span>
+                          <i className="swatch" style={{ background: part.category.color }} />
+                          {part.category.name} {part.text}
+                        </span>
+                      </Fragment>
+                    ))}
+              </p>
+            )}
+          </div>
         </div>
         <Menu label="Measure" value={MEASURES.find((m) => m.id === measure)!.name} align="right">
           <MenuHeading>What each bar counts</MenuHeading>
@@ -448,7 +498,7 @@ export function Trends() {
         }}
       >
         <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
-        {notice && <p className="notice trends-empty">{notice}</p>}
+        {empty && <p className="notice trends-empty">No discoveries are recorded in this stretch of time.</p>}
       </div>
       {tip && plan && tipBin && <BinCard plan={plan} index={tip.bin} frame={tip.frame} measure={measure} population={population} />}
       <p className="caption">These charts show how far the research has reached, not how much was discovered.</p>
@@ -456,19 +506,46 @@ export function Trends() {
   )
 }
 
-/** Stacked bars: categories in their fixed order from the bottom, with paper between them. */
-function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) => number, lit: number | null): void {
+/** Gridlines across the main chart, each with its value at the left. */
+function drawGrid(ctx: CanvasRenderingContext2D, axis: Axis, values: number[], yOf: (v: number) => number): void {
+  ctx.font = font(12)
+  ctx.textBaseline = 'middle'
+  ctx.textAlign = 'right'
+  for (const value of values) {
+    const y = Math.round(yOf(value))
+    if (value > 0) {
+      ctx.fillStyle = RULE_SOFT
+      ctx.fillRect(axis.x0, y, axis.x1 - axis.x0, 1)
+    }
+    ctx.fillStyle = INK_3
+    // Gridlines sit on round values already, so they are labelled exactly.
+    ctx.fillText(value >= 100 ? group(value) : String(value), axis.x0 - 10, y)
+  }
+  ctx.textAlign = 'left'
+}
+
+/**
+ * Stacked bars: categories in their fixed order from the bottom, with paper between them. A bar on
+ * one or two discoveries is only outlined, since its rate means little.
+ */
+function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, lit: number | null): void {
+  const { baseline, top } = plan
+  const yOf = (v: number) => baseline - (v / plan.yMax) * (baseline - top)
+  drawGrid(ctx, plan.axis, plan.grid, yOf)
   plan.bins.forEach((bin, i) => {
     const total = plan.headline[i]
     if (!total) return
     const x = bin.x0 + BAR_GAP / 2
     const w = bin.x1 - bin.x0 - BAR_GAP
-    const top = yOf(total)
+    if (plan.guarded && bin.total < MIN_FOR_RATE) {
+      outlineBar(ctx, x, w, yOf(Math.min(total, plan.yMax)), baseline, total > plan.yMax)
+      return
+    }
     const strength = i === lit ? 1 : BAR_ALPHA
     // Clip the whole stack to a shape rounded at the top, so only the topmost segment shows the curve.
     ctx.save()
     ctx.beginPath()
-    ctx.roundRect(x, top, w, plan.baseline - top, [2, 2, 0, 0])
+    ctx.roundRect(x, yOf(total), w, baseline - yOf(total), [2, 2, 0, 0])
     ctx.clip()
     let below = 0
     plan.categories.forEach((category, k) => {
@@ -487,52 +564,69 @@ function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) 
 }
 
 /**
- * One line per region, each divided by its own population. A point is drawn only where the region
- * has enough discoveries for a rate; fewer leave a hollow mark on the baseline, and the line breaks.
+ * Small multiples: one row per region, each a bar chart of that region's discoveries per billion of
+ * its own person-years, on its own scale with one gridline at its peak.
  */
-function drawRates(ctx: CanvasRenderingContext2D, plan: Plan, yOf: (v: number) => number): void {
-  const centre = (bin: Bin) => (bin.x0 + bin.x1) / 2
-  const ends: LineEnd[] = []
-  ctx.lineJoin = 'round'
-  ctx.lineCap = 'round'
-  plan.categories.forEach((category, k) => {
-    ctx.strokeStyle = category.color
-    ctx.lineWidth = 2
-    ctx.beginPath()
-    let pen = false
+function drawRows(ctx: CanvasRenderingContext2D, plan: Plan, rows: Row[], lit: number | null): void {
+  const { axis } = plan
+  rows.forEach((row, k) => {
+    const yOf = (v: number) => row.bottom - (v / row.peak) * (row.bottom - row.plotTop)
+    // Each row's baseline is a soft rule that also parts it from the row below; the last is the chart's own baseline.
+    if (k < rows.length - 1) {
+      ctx.fillStyle = RULE_SOFT
+      ctx.fillRect(axis.x0, Math.round(row.bottom), axis.x1 - axis.x0, 1)
+    }
+    ctx.fillStyle = row.category.color
+    ctx.fillRect(axis.x0, row.top + 3, 8, 8)
+    ctx.font = font(12.5, 600)
+    ctx.fillStyle = INK_2
+    ctx.textBaseline = 'middle'
+    ctx.textAlign = 'left'
+    ctx.fillText(row.category.name, axis.x0 + 14, row.top + 7.5)
+    if (row.peak > 0) {
+      const y = Math.round(row.plotTop)
+      ctx.fillStyle = RULE_SOFT
+      ctx.fillRect(axis.x0, y, axis.x1 - axis.x0, 1)
+      ctx.font = font(12)
+      ctx.fillStyle = INK_3
+      ctx.textAlign = 'right'
+      ctx.fillText(formatValue(row.peak), axis.x0 - 10, y)
+      ctx.textAlign = 'left'
+    }
+
     plan.bins.forEach((bin, i) => {
       const value = plan.values[i]![k]
-      if (value === null || value === undefined) {
-        pen = false
+      const count = bin.counts[k]!
+      if (!count || value === null || value === undefined || row.peak <= 0) return
+      const x = bin.x0 + BAR_GAP / 2
+      const w = bin.x1 - bin.x0 - BAR_GAP
+      if (count < MIN_FOR_RATE) {
+        outlineBar(ctx, x, w, yOf(Math.min(value, row.peak)), row.bottom, value > row.peak)
         return
       }
-      if (pen) ctx.lineTo(centre(bin), yOf(value))
-      else ctx.moveTo(centre(bin), yOf(value))
-      pen = true
-    })
-    ctx.stroke()
-    const last = plan.values.findLastIndex((row) => row[k] !== null && row[k] !== undefined)
-    if (last >= 0) ends.push({ name: category.name, color: category.color, x: centre(plan.bins[last]!), y: yOf(plan.values[last]![k]!) })
-
-    // Each region's marks on the baseline sit a little apart, so that they do not cover one another.
-    const offset = (k - (plan.categories.length - 1) / 2) * 7
-    plan.bins.forEach((bin, i) => {
-      const value = plan.values[i]![k]
-      if (value !== null && value !== undefined) {
-        ctx.fillStyle = category.color
-        ctx.beginPath()
-        ctx.arc(centre(bin), yOf(value), 2.5, 0, Math.PI * 2)
-        ctx.fill()
-      } else if (bin.counts[k]) {
-        ctx.strokeStyle = category.color
-        ctx.lineWidth = 1.25
-        ctx.beginPath()
-        ctx.arc(centre(bin) + offset, plan.baseline - 4, 2.25, 0, Math.PI * 2)
-        ctx.stroke()
-      }
+      ctx.fillStyle = alpha(row.category.color, i === lit ? 1 : BAR_ALPHA)
+      ctx.beginPath()
+      ctx.roundRect(x, yOf(value), w, row.bottom - yOf(value), [2, 2, 0, 0])
+      ctx.fill()
     })
   })
-  nameEnds(ctx, ends, plan.axis.x1 + 8, plan.top, plan.baseline - 6)
+}
+
+/** A bar on one or two discoveries: an outline only, left open at the top where it runs off the scale. */
+function outlineBar(ctx: CanvasRenderingContext2D, x: number, w: number, top: number, bottom: number, clamped: boolean): void {
+  const left = Math.round(x) + 0.5
+  const right = Math.round(x + w) - 0.5
+  const floor = Math.round(bottom)
+  const ceiling = Math.round(Math.min(top, bottom - 3)) + 0.5
+  ctx.strokeStyle = alpha(INK, 0.4)
+  ctx.lineWidth = 1
+  ctx.beginPath()
+  ctx.moveTo(left, floor)
+  ctx.lineTo(left, ceiling)
+  if (clamped) ctx.moveTo(right, ceiling)
+  else ctx.lineTo(right, ceiling)
+  ctx.lineTo(right, floor)
+  ctx.stroke()
 }
 
 function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, axis: Axis): void {
@@ -571,54 +665,31 @@ function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, a
     ctx.stroke()
   }
 
-  // The regional lines are named at the right; one world line needs no name beside its title.
+  // The regional lines are named at their right ends; one world line needs no name beside its title.
   if (chart.lines.length < 2) return
   const ends = chart.lines.flatMap((line) => {
     const end = line.points[line.points.length - 1]
-    return end ? [{ name: line.name, color: line.color, x: end.x, y: end.y }] : []
+    return end ? [{ name: line.name, color: line.color, y: end.y }] : []
   })
-  nameEnds(ctx, ends, axis.x1 + 8, chart.plotTop, chart.bottom)
-}
-
-/** Where a line ends, and what to call it. */
-interface LineEnd {
-  name: string
-  color: string
-  x: number
-  y: number
-}
-
-/**
- * Names in the right margin at the height where each line ends, pushed apart where they crowd and
- * kept within [lo, hi]. A name that had to move gets a faint leader back to its line.
- */
-function nameEnds(ctx: CanvasRenderingContext2D, ends: LineEnd[], x: number, lo: number, hi: number): void {
-  const sorted = [...ends].sort((a, b) => a.y - b.y)
+  ends.sort((a, b) => a.y - b.y)
   const ys = spread(
-    sorted.map((end) => end.y),
+    ends.map((end) => end.y),
     NAME_GAP,
-    lo,
-    hi,
+    chart.plotTop,
+    chart.bottom,
   )
   ctx.font = font(12.5)
-  ctx.textAlign = 'left'
   ctx.textBaseline = 'middle'
-  sorted.forEach((end, i) => {
+  ends.forEach((end, i) => {
     const y = ys[i]!
-    if (Math.abs(y - end.y) > 4) {
-      ctx.strokeStyle = alpha(end.color, 0.5)
-      ctx.lineWidth = 1
-      ctx.beginPath()
-      ctx.moveTo(end.x + 3, end.y)
-      ctx.lineTo(x - 1, y)
-      ctx.stroke()
-    }
+    // A name pushed far from its line would read as belonging to another; the rows above name the regions anyway.
+    if (Math.abs(y - end.y) > NAME_DRIFT) return
     ctx.fillStyle = end.color
     ctx.beginPath()
-    ctx.arc(x + 3, y, 3, 0, Math.PI * 2)
+    ctx.arc(axis.x1 + 11, y, 3, 0, Math.PI * 2)
     ctx.fill()
     ctx.fillStyle = INK_2
-    ctx.fillText(end.name, x + 10, y)
+    ctx.fillText(end.name, axis.x1 + 18, y)
   })
 }
 
@@ -630,8 +701,8 @@ interface Box {
 }
 
 /**
- * A card for the bin under the pointer: its period, its value, and what it is made of. It sits beside
- * the bin at the top of the plot, so it never covers the bar being read.
+ * A small card for the lit bin: its period, its value, and how many discoveries and people stand
+ * behind it. It sits above the plot, centred on the bin, so it never covers a bar.
  */
 function BinCard({ plan, index, frame, measure, population }: { plan: Plan; index: number; frame: Box; measure: Measure; population: Population | null }) {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -640,26 +711,20 @@ function BinCard({ plan, index, frame, measure, population }: { plan: Plan; inde
   useLayoutEffect(() => {
     const bin = plan.bins[index]
     if (!ref.current || !bin) return
-    const width = ref.current.getBoundingClientRect().width
-    const right = frame.left + bin.x1 + 14
-    const left = frame.left + bin.x0 - 14 - width
-    const fitsRight = right + width <= frame.right - 4
-    setPosition({ left: fitsRight || left < frame.left + 4 ? right : left, top: frame.top + plan.top })
+    const box = ref.current.getBoundingClientRect()
+    const centre = frame.left + (bin.x0 + bin.x1) / 2
+    const left = Math.max(frame.left + 4, Math.min(frame.right - 4 - box.width, centre - box.width / 2))
+    setPosition({ left, top: frame.top + plan.top - 6 - box.height })
   }, [frame, index, plan, measure])
 
   const bin = plan.bins[index]!
   const value = plan.headline[index] ?? null
   const world = population?.series.world ? populationAt(population.series.world, bin.mid) : null
-  const rows = plan.categories.flatMap((category, k) => {
-    const count = bin.counts[k] ?? 0
-    if (!count) return []
-    const rate = plan.values[index]?.[k] ?? null
-    const text = !plan.lines ? group(count) : rate !== null ? formatValue(rate) : count < MIN_FOR_RATE ? `${count}, too few for a rate` : 'no estimate'
-    return [{ category, text }]
-  })
+  const people = world === null ? null : `world population about ${formatPeople(world)}`
+  const footing = measure === 'count' ? (people && people[0]!.toUpperCase() + people.slice(1)) : [plural(bin.total, 'discovery', 'discoveries'), people].filter(Boolean).join(' · ')
 
   return (
-    <div ref={ref} className="tooltip" role="tooltip" style={position ?? { left: 0, top: 0, visibility: 'hidden' }}>
+    <div ref={ref} className="tooltip trends-card" role="tooltip" style={position ?? { left: 0, top: 0, visibility: 'hidden' }}>
       <h4>{formatPeriod(bin.t0, bin.t1)}</h4>
       <p className="trends-value">
         {value === null ? (
@@ -670,28 +735,22 @@ function BinCard({ plan, index, frame, measure, population }: { plan: Plan; inde
           </>
         ) : (
           <>
-            <strong>{formatValue(value)}</strong> {measure === 'century' ? 'per century' : `per billion person-years${plan.lines ? ' worldwide' : ''}`}
+            <strong>{formatValue(value)}</strong> {measure === 'century' ? 'per century' : `per billion person-years${plan.rows ? ' worldwide' : ''}`}
           </>
         )}
       </p>
-      {measure !== 'count' && <div className="meta">{plural(bin.total, 'discovery', 'discoveries')}</div>}
-      {rows.length > 0 && (
-        <div className="rows">
-          {rows.map((row) => (
-            <Fragment key={row.category.id}>
-              <span>
-                <i className="swatch" style={{ background: row.category.color }} />
-                {row.category.name}
-              </span>
-              <span>{row.text}</span>
-            </Fragment>
-          ))}
-        </div>
-      )}
-      {plan.lines && rows.length > 0 && <p className="meta">Each region per billion of its own person-years.</p>}
-      {world !== null && <p className="meta">World population about {formatPeople(world)}</p>}
+      {footing && <p className="meta">{footing}</p>}
     </div>
   )
+}
+
+/**
+ * The value at the top of a scale: the highest among bins resting on enough discoveries to give a
+ * rate, or the highest of all when none does, so that a sparse chart still has a scale.
+ */
+function sturdyPeak(bins: { count: number; value: number | null }[]): number {
+  const sturdy = bins.filter((b) => b.count >= MIN_FOR_RATE)
+  return Math.max(0, ...(sturdy.length ? sturdy : bins).map((b) => b.value ?? 0))
 }
 
 /** Which of `n` equal steps from `u0` a position falls in; the window's end belongs to the last. */
