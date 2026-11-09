@@ -4,6 +4,7 @@ import { sharedWith, type Entry } from '../data/model.ts'
 import type { Basis, Evidence, Link } from '../data/types.ts'
 import { dateLabel, tierName, words } from '../lib/text.ts'
 import { useApp, useModel } from '../store.ts'
+import { yearLabel } from '../time.ts'
 
 /** Facets a record can have that are shown in the fact list, in reading order. */
 const FACET_NAMES: Record<string, string> = {
@@ -154,9 +155,6 @@ export function Detail({ entry }: { entry: Entry }) {
     ['Sold', entry.market ? words(entry.market.status) : null, basis.market],
   ]
 
-  const builtOn = stated.filter((l) => l.to === entry.id).length
-  const ledTo = stated.length - builtOn
-  const sharing = new Set(shared.flatMap((x) => x.entries.map((e) => e.id))).size
   const shownFacts = facts.filter(([, value]) => value)
   return (
     <aside className="detail" aria-label={entry.name}>
@@ -174,13 +172,9 @@ export function Detail({ entry }: { entry: Entry }) {
       </p>
       <p className="summary">{entry.summary ?? entry.description}</p>
       <p className="glance">
-        <span title={entry.tier_reason}>{tierName(entry.tier)}</span>
-        <span>{words(entry.kind)}</span>
-        <span>{model.fieldNames.get(entry.domain)}</span>
-        {builtOn > 0 && <span>Built on {builtOn}</span>}
-        {ledTo > 0 && <span>Led to {ledTo}</span>}
-        {sharing > 0 && <span title="Other discoveries with the same person, organisation, town or concept">Shares with {sharing}</span>}
+        {tierName(entry.tier)} · {words(entry.kind)} · {model.fieldNames.get(entry.domain)}
       </p>
+      <Lineage entry={entry} links={stated} />
 
       <Section id="facts" title="What is recorded" count={shownFacts.length}>
         {entry.summary && <p className="small scope">{entry.description}</p>}
@@ -217,12 +211,10 @@ export function Detail({ entry }: { entry: Entry }) {
               <time>
                 {dateLabel(event.label)}
                 <span className="type">{words(event.type)}</span>
+                {event.id === entry.earliest_record.event && <em className="flag">Earliest record</em>}
+                {event.id === entry.community_entry?.event && <em className="flag">In use or known</em>}
               </time>
-              <p>
-                {event.statement}
-                {event.id === entry.earliest_record.event && <em className="flag"> · Earliest record</em>}
-                {event.id === entry.community_entry?.event && <em className="flag"> · In use or known</em>}
-              </p>
+              <p>{event.statement}</p>
             </li>
           ))}
         </ol>
@@ -274,6 +266,68 @@ export function Detail({ entry }: { entry: Entry }) {
         </Section>
       )}
     </aside>
+  )
+}
+
+/** How many rows of the rail to show on each side before pointing at the full list. */
+const RAIL = 4
+
+/**
+ * What this discovery came from and what followed from it, as a short rail through time. It also
+ * lists the other places that reached the same thing, since that is a connection too.
+ */
+function Lineage({ entry, links }: { entry: Entry; links: Link[] }) {
+  const model = useModel()
+  const causal = links.filter((l) => l.layer === 'dependence' || l.layer === 'transmission')
+  const byDate = (a: Entry, b: Entry) => (a.t ?? 0) - (b.t ?? 0)
+  const pick = (ids: string[]) => [...new Set(ids)].map((id) => model.byId.get(id)).filter((e): e is Entry => !!e).sort(byDate)
+  const before = pick(causal.filter((l) => l.to === entry.id).map((l) => l.from))
+  const after = pick(causal.filter((l) => l.from === entry.id).map((l) => l.to))
+  const elsewhere = entry.concept ? model.entries.filter((e) => e.concept === entry.concept && e.id !== entry.id).sort(byDate) : []
+  if (!before.length && !after.length && !elsewhere.length) return null
+  const row = (e: Entry, self = false) =>
+    self ? (
+      <div className="lineage-row" data-self="true" key={e.id}>
+        <i />
+        <time>{e.date ? yearLabel(e.date) : ''}</time>
+        <span>{e.name}</span>
+      </div>
+    ) : (
+      <button className="lineage-row" key={e.id} onClick={() => useApp.getState().select(e.id)}>
+        <i />
+        <time>{e.date ? yearLabel(e.date) : ''}</time>
+        <span>{e.name}</span>
+      </button>
+    )
+  const hidden = Math.max(0, before.length - RAIL) + Math.max(0, after.length - RAIL)
+  return (
+    <>
+      {(before.length > 0 || after.length > 0) && (
+        <div className="lineage">
+          <h3>What it built on, and what followed</h3>
+          {before.slice(-RAIL).map((e) => row(e))}
+          {row(entry, true)}
+          {after.slice(0, RAIL).map((e) => row(e))}
+          {hidden > 0 && <p className="lineage-more">and {hidden} more under Connections</p>}
+        </div>
+      )}
+      {elsewhere.length > 0 && (
+        <div className="lineage">
+          <h3>Also reached elsewhere: {model.bundle.concepts[entry.concept!]?.name ?? entry.concept}</h3>
+          {elsewhere.slice(0, 6).map((e) => (
+            <button className="lineage-row" key={e.id} onClick={() => useApp.getState().select(e.id)}>
+              <i />
+              <time>{e.date ? yearLabel(e.date) : ''}</time>
+              <span>
+                {e.name}
+                {e.at && <span className="relation"> · {model.bundle.places[e.at.place]?.name}</span>}
+              </span>
+            </button>
+          ))}
+          {elsewhere.length > 6 && <p className="lineage-more">and {elsewhere.length - 6} more under Connections</p>}
+        </div>
+      )}
+    </>
   )
 }
 

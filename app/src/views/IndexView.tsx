@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import type { Entry } from '../data/model.ts'
 import { plural, tierName, words } from '../lib/text.ts'
 import { useApp, useDimension, useFiltered, useMatches, useModel } from '../store.ts'
-import { formatYear } from '../time.ts'
+import { yearLabel } from '../time.ts'
 
 type SortKey = 'name' | 'date' | 'field' | 'place' | 'origin' | 'tier' | 'filled'
 
@@ -11,7 +11,7 @@ const COLUMNS: { key: SortKey; name: string; hint?: string; wide?: boolean }[] =
   { key: 'date', name: 'Earliest record' },
   { key: 'field', name: 'Field' },
   { key: 'place', name: 'Place' },
-  { key: 'origin', name: 'Origin', wide: true },
+  { key: 'origin', name: 'Origin', hint: 'A dash means nobody has researched it yet. Unsettled means it was researched and the evidence does not say.', wide: true },
   { key: 'tier', name: 'Weight', hint: 'Landmark: several fields or generations depended on it. Major: a major contribution to its field. Minor: a bounded contribution. Detail: one instance or a fine point.', wide: true },
   { key: 'filled', name: 'Researched', hint: 'How many of the facets have a value, and where the values come from', wide: true },
 ]
@@ -153,7 +153,7 @@ export function IndexView() {
                   {e.name}
                 </td>
                 <td className="num date" title={e.date?.label}>
-                  {e.date ? yearCell(e.date) : <span className="muted">No date yet</span>}
+                  {e.date ? yearLabel(e.date) : <span className="muted">No date yet</span>}
                 </td>
                 <td>{model.fieldNames.get(e.domain)}</td>
                 <td>{e.at ? model.bundle.places[e.at.place]?.name : <span className="muted">—</span>}</td>
@@ -174,13 +174,6 @@ export function IndexView() {
       )}
     </div>
   )
-}
-
-/** A date reduced to one year, so that a column of them can be read down: "by 1776", "c. 3200 BCE". */
-function yearCell(date: { t: number; t0?: number; status: string }): string {
-  const year = formatYear(date.t, date.t < -20000 ? 1000 : 1)
-  if (date.status === 'bounded' && date.t0 === undefined) return `by ${year}`
-  return date.status === 'known' ? year : `c. ${year}`
 }
 
 function Bar({ reviewed, sourced, recalled, total }: { reviewed: number; sourced: number; recalled: number; total: number }) {

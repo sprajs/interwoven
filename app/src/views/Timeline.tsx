@@ -129,7 +129,7 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
       for (let c = Math.floor((left - 6 - axis.x0) / cell); c <= Math.floor((left + w + 6 - axis.x0) / cell); c++) skyline = Math.min(skyline, top(c))
       const y = skyline - 8 - lineHeight
       const leader = anchorY - (y + lineHeight)
-      if (leader > LEADER || y < lanes[lane]!.top + LANE_HEAD - 6) continue
+      if (leader > LEADER || y < lanes[lane]!.top + LANE_HEAD + 2) continue
       if (placed.some((p) => left < p.x1 + 14 && left + w > p.x0 - 14 && y < p.y1 + 2 && y + lineHeight > p.y0 - 2)) continue
       placed.push({ x0: left, x1: left + w, y0: y, y1: y + lineHeight })
       labels.push({ mark, x: left, y, width: w, anchorY })
@@ -276,8 +276,12 @@ export function Timeline() {
 
       // Names of the landmarks.
       ctx.textBaseline = 'alphabetic'
+      const chosen = selected ? plan.byId.get(selected) : undefined
       for (const label of labels) {
         if (matches && !matches.has(label.mark.entry.id)) continue
+        // The selected record is always named, so nothing else may sit where its name goes.
+        if (chosen && label.mark !== chosen && Math.abs(label.y - (chosen.y - 24)) < 20 && label.x < chosen.x + 260 && label.x + label.width > chosen.x - 260) continue
+        if (label.mark === chosen) continue
         const lx = label.mark.x + side / 2
         ctx.strokeStyle = alpha(INK, 0.35)
         ctx.lineWidth = 1
@@ -293,6 +297,18 @@ export function Timeline() {
         ctx.strokeText(label.mark.entry.name, label.x, label.y + 12.5)
         ctx.fillStyle = INK
         ctx.fillText(label.mark.entry.name, label.x, label.y + 12.5)
+      }
+      if (chosen) {
+        ctx.font = font(13.5, 600)
+        const w = ctx.measureText(chosen.entry.name).width
+        const x = Math.max(PAD_X, Math.min(width - PAD_X - w, chosen.x + side / 2 - w / 2))
+        const y = Math.max(RULER + 16, chosen.y - 10)
+        ctx.strokeStyle = PAPER
+        ctx.lineWidth = 5
+        ctx.lineJoin = 'round'
+        ctx.strokeText(chosen.entry.name, x, y)
+        ctx.fillStyle = INK
+        ctx.fillText(chosen.entry.name, x, y)
       }
     },
     [plan, matches, selected, hoverId, layers, model],
@@ -367,6 +383,11 @@ export function Timeline() {
       <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
       <p className="caption">
         {plural(plan?.marks.length ?? 0, 'discovery', 'discoveries')} in view, one square each, at its earliest record. {scale.hint}.
+        <span className="caption-key">
+          <i />
+          <i />
+          paler squares are minor
+        </span>
       </p>
     </div>
   )

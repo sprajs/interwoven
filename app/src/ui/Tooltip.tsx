@@ -16,8 +16,9 @@ export function Tooltip() {
     const box = ref.current.getBoundingClientRect()
     let left = hover.x + 14
     if (left + box.width > window.innerWidth - 8) left = hover.x - box.width - 14
+    // Near the top of the page the card goes below its mark, clear of the bar and the ruler.
     let top = hover.y - box.height - 10
-    if (top < 8) top = hover.y + 22
+    if (hover.y < 220 || top < 8) top = hover.y + 24
     setPosition({ left: Math.max(8, left), top })
   }, [hover])
 

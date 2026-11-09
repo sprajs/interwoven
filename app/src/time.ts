@@ -178,15 +178,10 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
       const t = year < 0 ? year + 1 : year === 0 ? 1 : year
       const x = axis.x(t)
       if (x < axis.x0 - 0.5 || x > axis.x1 + 0.5 || !free(x)) continue
-      // A fine tick alone in a wide gap reads as an accident: 1825 between 1700 and 1900. A tick
-      // must be at least an eighth of the gap it divides.
-      let before = axis.t0
-      let after = axis.t1
-      for (const other of out) {
-        if (other.t < t && other.t > before) before = other.t
-        if (other.t > t && other.t < after) after = other.t
-      }
-      if (out.length && step < (after - before) / 8) continue
+      // Ticks of one step come all together or not at all: where its neighbours would not fit,
+      // a lone tick reads as an accident, like 1720 between 1700 and 1750.
+      const spacing = Math.min(Math.abs(axis.x(t + step) - x), Math.abs(x - axis.x(t - step)))
+      if (out.length && spacing < minGap * 0.8) continue
       const cell = Math.floor(x / minGap)
       taken.set(cell, [...(taken.get(cell) ?? []), x])
       out.push({ t, x, label: formatYear(t), level })
@@ -198,4 +193,17 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
     }
   }
   return out.sort((a, b) => a.x - b.x)
+}
+
+/**
+ * A date reduced to one year for lists and tables: "1765", "by 1776", "c. 4200 BCE". An uncertain
+ * date is rounded to what it can bear, so a range midpoint never reads as an exact year.
+ */
+export function yearLabel(date: { t: number; t0?: number; status: string }): string {
+  const loose = date.status !== 'known'
+  const year = yearOf(date.t)
+  const round = !loose ? 1 : year <= -20000 ? 1000 : year <= -3000 ? 100 : year <= -1000 ? 50 : year <= 1000 ? 10 : 1
+  const text = formatYear(date.t, round)
+  if (date.status === 'bounded' && date.t0 === undefined) return `by ${text}`
+  return loose ? `c. ${text}` : text
 }

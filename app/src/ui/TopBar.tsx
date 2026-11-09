@@ -1,9 +1,8 @@
 import { useMemo, useState } from 'react'
 import { LAYERS } from '../data/model.ts'
 import { DIM_ORDER } from '../dims.ts'
-import { shortDate } from '../lib/text.ts'
 import { useApp, useDimension, useDimensions, useFiltered, useModel, VIEWS } from '../store.ts'
-import type { ScaleId } from '../time.ts'
+import { yearLabel, type ScaleId } from '../time.ts'
 import { Menu, MenuHeading, Option } from './Menu.tsx'
 
 const SCALES: { id: ScaleId; name: string; hint: string }[] = [
@@ -36,13 +35,6 @@ export function TopBar() {
         ))}
       </nav>
       <div className="tools">
-        <Menu label="Time" value={SCALES.find((s) => s.id === scale)!.name}>
-          <MenuHeading>How time is spread across the page</MenuHeading>
-          {SCALES.map((s) => (
-            <Option key={s.id} single name={s.name} hint={s.hint} on={scale === s.id} onChoose={() => app.setScale(s.id)} />
-          ))}
-        </Menu>
-        <ColourMenu />
         {(view === 'timeline' || view === 'map') && (
           <Menu label="Links" value={linkNames.length === 0 ? 'None' : linkNames.length === 1 ? linkNames[0]! : `${linkNames.length} kinds`}>
             <MenuHeading>Draw the stated links between discoveries</MenuHeading>
@@ -51,6 +43,13 @@ export function TopBar() {
             ))}
           </Menu>
         )}
+        <Menu label="Time" value={SCALES.find((s) => s.id === scale)!.name}>
+          <MenuHeading>How time is spread across the page</MenuHeading>
+          {SCALES.map((s) => (
+            <Option key={s.id} single name={s.name} hint={s.hint} on={scale === s.id} onChoose={() => app.setScale(s.id)} />
+          ))}
+        </Menu>
+        <ColourMenu />
         <Menu label="Show" value={majorOnly ? 'Major only' : 'Everything'} align="right">
           <MenuHeading>Which discoveries</MenuHeading>
           <Option single name="Everything" hint="Every discovery recorded so far" on={!majorOnly} onChoose={() => app.setMajorOnly(false)} />
@@ -170,7 +169,7 @@ function Search() {
           {results.slice(0, 10).map((e, i) => (
             <button key={e.id} role="option" aria-selected={i === active} data-active={i === active} className="search-result" onMouseDown={() => choose(e.id)}>
               <span>{e.name}</span>
-              <span>{e.date ? shortDate(e.date.label) : 'undated'}</span>
+              <span>{e.date ? yearLabel(e.date) : 'undated'}</span>
             </button>
           ))}
           {results.length > 10 && <div className="search-empty">and {results.length - 10} more, picked out in the view</div>}
