@@ -4,6 +4,12 @@ A map and timeline of what people have discovered and invented, and how each thi
 
 It is a selective, growing record. It shows how far the research has reached, not everything that happened.
 
+![The timeline: one square per discovery, with time spread by the number of people alive](docs/screenshots/timeline.png)
+
+| | |
+| --- | --- |
+| ![The map](docs/screenshots/map.png) | ![Trends per person](docs/screenshots/trends.png) |
+
 | Folder | What it holds |
 | --- | --- |
 | `data/` | The dataset: one file per discovery and per source, registers of places, people, organisations and societies, and the vocabularies and schema that define them |
@@ -27,10 +33,11 @@ Then open http://localhost:5175. The app rebuilds its data whenever a file in `d
 python3 tools/validate.py                    # check everything
 python3 tools/coverage.py                    # how much of each facet is researched
 python3 tools/coverage.py --missing funding  # the records still lacking one facet
+python3 tools/coverage.py --grid             # gaps by domain, region and era
 npm test                                     # tests for the tools and the app
 ```
 
-Read `docs/data-model.md` for what a record holds and `docs/research-guide.md` for how to add to it. `AGENTS.md` has the working rules for this repository.
+Read `docs/data-model.md` for what a record holds, `docs/research-guide.md` for how to add to it, and `docs/importance.md` for how importance is judged and what to add next. `AGENTS.md` has the working rules for this repository.
 
 ## Evidence
 
