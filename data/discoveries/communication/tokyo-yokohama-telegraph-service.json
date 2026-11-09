@@ -68,23 +68,62 @@
       "applications": [
         "Telegraph service"
       ],
-      "caveats": "Only the year is used; calendar conversion and exact public tariff remain unassessed.",
+      "caveats": "NTT gives 1870. The National Diet Library gives 14 September 1869; a Kanagawa prefectural history instead dates construction of the Tokyo–Yokohama line to March 1870. The conflict and exact public tariff remain unresolved.",
       "evidence": [
         {
           "source": "ntt-nd-ntt-history-innovation",
           "locator": "1870 chronology",
           "supports": "NTT dates telegraph service in Tokyo and Yokohama to 1870."
+        },
+        {
+          "source": "ndi-nd-meiji-cipher-wheel-wave7",
+          "locator": "Opening paragraph",
+          "supports": "The National Diet Library gives a conflicting 1869 date."
+        },
+        {
+          "source": "kanagawa-nd-yokohama-civilization-wave7",
+          "locator": "PDF pp. 1–2",
+          "supports": "Distinguishes an 1869 local Yokohama line and a Tokyo–Yokohama line described as under construction in March 1870."
+        }
+      ]
+    },
+    {
+      "id": "ndl-1869-date-assertion",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1869,
+          "month": 9,
+          "day": 14
+        },
+        "latest": {
+          "year": 1869,
+          "month": 9,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "14 September 1869 (disputed account)",
+        "basis": "Date stated by National Diet Library; conflicts with other institutional accounts."
+      },
+      "statement": "The National Diet Library dates Tokyo–Yokohama telegraph operations to 14 September 1869.",
+      "caveats": "Conflicts with NTT’s 1870 year and the prefectural history’s construction chronology; retain as an attributed claim, not a settled operating date.",
+      "evidence": [
+        {
+          "source": "ndi-nd-meiji-cipher-wheel-wave7",
+          "locator": "Opening paragraph",
+          "supports": "The library states the 14 September 1869 date."
         }
       ]
     }
   ],
   "earliest_record": {
     "event": "practical-use-1870",
-    "rationale": "A dated operating communication service is preferable to equipment construction or a speculative sale date. Only the year is used; calendar conversion and exact public tariff remain unassessed."
+    "rationale": "Retains the NTT-dated 1870 operating anchor pending resolution of the conflicting National Diet Library 1869 account and Kanagawa construction chronology; it is not a settled first-use date."
   },
-  "caveats": "Only the year is used; calendar conversion and exact public tariff remain unassessed.",
+  "caveats": "Institutional sources disagree whether Tokyo–Yokohama service began in 1869 or 1870; see attributed events and evidence. Public tariff remains unassessed.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -100,10 +139,10 @@
       "societies": "sourced",
       "known_from": "sourced",
       "fate": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "recalled"
     },
-    "note": "Proposed distinct configuration and community entry; requires independent review."
+    "note": "Conflicting institutional chronologies require historical source reconciliation; no earlier operation is asserted as settled. Independent reader checked the National Diet Library’s attributed 1869 date; the Kanagawa PDF could not be retrieved for this review, so conflicting chronologies remain unresolved."
   },
   "grain": "instance"
 }

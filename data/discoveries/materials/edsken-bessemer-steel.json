@@ -104,6 +104,60 @@
           "supports": "Reproduces the October 1858 producer account that the firm’s works were engaged in Bessemer steelmaking."
         }
       ]
+    },
+    {
+      "id": "london-agreement-1857",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1857
+        },
+        "latest": {
+          "year": 1857
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1857",
+        "basis": "Date as stated by the cited account for this scoped event."
+      },
+      "statement": "During a visit to London, Göransson saw Bessemer’s demonstration and agreed to acquire a share of the Swedish patent rights; the company account says Bessemer undertook to send equipment and an expert to Edsken.",
+      "places": [
+        "england"
+      ],
+      "caveats": "An 1883 company retrospective supplies this account; the exact patent share and the individual expert are not established by this passage.",
+      "evidence": [
+        {
+          "source": "w7-sandviken-bessemer-1883",
+          "locator": "pp. 5–6",
+          "supports": "The Swedish-language company history describes the London demonstration, patent offer and agreement and promised transfer of equipment and expertise."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "goran-fredrik-goransson",
+          "role": "contributor",
+          "resource": "London demonstration and patent agreement",
+          "evidence": [
+            {
+              "source": "w7-sandviken-bessemer-1883",
+              "locator": "pp. 5–6",
+              "supports": "The account names Göransson as the visitor and participant."
+            }
+          ]
+        },
+        {
+          "person": "henry-bessemer",
+          "role": "contributor",
+          "resource": "Undertaking to send equipment and a knowledgeable person to Edsken",
+          "evidence": [
+            {
+              "source": "w7-sandviken-bessemer-1883",
+              "locator": "pp. 5–6",
+              "supports": "The company account says Bessemer undertook to send equipment and an expert. The promise is distinguished from any separately verified delivery."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -130,19 +184,24 @@
       "scope": "Edsken, 1858.",
       "confidence": "high",
       "alternatives": "Crucible and open-hearth steelmaking provided other routes.",
-      "caveats": "The inspected source establishes method identity, not the detailed licensing or personnel channel.",
+      "caveats": "The 1883 company account describes a London demonstration, a patent rights agreement, and promised equipment and expertise; details of the delivery and exact patent share remain to be checked.",
       "timing": "The 1856 patent precedes the 1858 implementation.",
       "evidence": [
         {
           "source": "jernkontoret-nd-history-swedish-steel",
           "locator": "The Bessemer process, paragraph beginning When, in 1858",
           "supports": "Explicit implementation of Bessemer process."
+        },
+        {
+          "source": "w7-sandviken-bessemer-1883",
+          "locator": "pp. 5–6",
+          "supports": "The company account describes demonstration, patent negotiation and machinery arranged for Edsken."
         }
       ]
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -159,10 +218,11 @@
       "people": "sourced",
       "societies": "sourced",
       "known_from": "sourced",
-      "events": "reviewed",
-      "links": "reviewed",
+      "events": "sourced",
+      "links": "sourced",
       "grain": "recalled"
-    }
+    },
+    "note": "Independent depth review checked the Swedish-language 1883 company retrospective, pp. 5–6: it reports an agreed patent transaction and promised equipment and expertise. Delivery of the expert is not independently established; later steelmaking claims remain scoped to their cited sources."
   },
   "grain": "instance"
 }

@@ -37,6 +37,39 @@
           "source": "historic-england-northfleet-aspdin-kiln",
           "locator": "Description, paragraph on 1846 kiln",
           "supports": "Historic England dates construction of William Aspdin’s cement kiln to approximately 1846."
+        },
+        {
+          "source": "w7-kent-aspdin-works",
+          "locator": "Historical background and listing details",
+          "supports": "The heritage account states Aspdin took over Parker and Wyatt’s existing Roman-cement works in 1846."
+        }
+      ]
+    },
+    {
+      "id": "works-nine-kilns-1850s",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1850
+        },
+        "latest": {
+          "year": 1859
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "1850s",
+        "basis": "Date as stated by the cited account for this scoped event."
+      },
+      "statement": "In the 1850s the larger Northfleet works had nine bottle kilns and made a Portland cement called Nine Bottle Cement, according to the heritage record.",
+      "places": [
+        "kent"
+      ],
+      "caveats": "The count refers to the later works as a whole and is not the 1846 kiln count, annual output, or proof that all kilns operated simultaneously.",
+      "evidence": [
+        {
+          "source": "w7-kent-aspdin-works",
+          "locator": "Listing details, paragraph beginning The surviving kiln",
+          "supports": "The heritage record reproduces the listing’s statement that the works had nine bottle kilns in the 1850s."
         }
       ]
     }
@@ -54,8 +87,27 @@
       "concept": "sourced",
       "origin": "unknown",
       "places": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "measures": "reviewed"
     },
-    "note": "Independently checked the circa 1846 construction and process attribution; kiln design is credited to Joseph Aspdin’s patent, not unambiguously William’s own design."
-  }
+    "note": "Independent depth review checked the Kent heritage account for the inherited works and the later site-wide nine-kiln estimate; no 1846 production capacity is inferred."
+  },
+  "measures": [
+    {
+      "quantity": "bottle kilns",
+      "value": 9,
+      "unit": "kilns",
+      "event": "works-nine-kilns-1850s",
+      "subject": "Northfleet cement works",
+      "status": "claimed",
+      "conditions": "Site-wide number in the 1850s, not annual output or a count for 1846; simultaneous use not established.",
+      "evidence": [
+        {
+          "source": "w7-kent-aspdin-works",
+          "locator": "Listing details, paragraph beginning The surviving kiln",
+          "supports": "The heritage record gives nine bottle kilns for the works in the 1850s."
+        }
+      ]
+    }
+  ]
 }

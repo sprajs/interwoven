@@ -58,6 +58,32 @@
           "supports": "The RFC summarizes introduction and gradual deployment."
         }
       ]
+    },
+    {
+      "id": "berkeley-dns-deployment-1985",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1985
+        },
+        "latest": {
+          "year": 1985
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1985",
+        "basis": "Date or interval stated in the cited source; see caveats."
+      },
+      "statement": "Berkeley began installing campus machines dependent on DNS in spring 1985; the two DARPA Internet mail gateways were converted in fall.",
+      "population": "University of California, Berkeley campus network and email users",
+      "caveats": "The authors describe an institutional transition, not universal adoption across the Internet; older hosts elsewhere continued using HOSTS.TXT.",
+      "evidence": [
+        {
+          "source": "mockapetris-dunlap-1988-dns-development-wave7",
+          "locator": "Section 3, Berkeley deployment",
+          "supports": "Authors date campus machine and mail-gateway transitions and describe the impact on mail addressing."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -73,7 +99,7 @@
       "events": "reviewed",
       "people": "reviewed"
     },
-    "note": "Second reader checked RFC 882 and RFC 1296: a dated specification and a later approximate introduction claim are distinct from a dated first operational installation."
+    "note": "Second reader checked RFC 882 and RFC 1296: a dated specification and a later approximate introduction claim are distinct from a dated first operational installation. Independent review checked RFC 882, RFC 1296, and the authors’ 1988 Berkeley deployment account; the latter describes campus transition rather than global adoption."
   },
   "people": [
     {

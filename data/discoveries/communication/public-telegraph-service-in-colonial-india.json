@@ -82,7 +82,7 @@
       "applications": [
         "Public telegraph messages"
       ],
-      "caveats": "Abstract only; individual class, regional and price barriers remain unassessed. The book abstract does not specify tariffs, languages, eligibility or how broadly access extended.",
+      "caveats": "The source describes public opening and people using offices; individual class and regional barriers remain unassessed. See separate retrospective 1855 inland tariff event.",
       "evidence": [
         {
           "source": "bonea-2016-news-empire-telegraphy",
@@ -104,13 +104,41 @@
           ]
         }
       ]
+    },
+    {
+      "id": "inland-tariff-1855",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1855,
+          "month": 2
+        },
+        "latest": {
+          "year": 1855,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "February 1855",
+        "basis": "Start month in later government statistical tariff table."
+      },
+      "statement": "A later colonial statistical publication reports an inland tariff of one rupee for sixteen words per 400 miles of telegraph line from February 1855.",
+      "scope": "Inland telegraph tariff; historical terms, not a measured individual payment.",
+      "caveats": "The historical tariff table does not establish affordability, language eligibility, number of customers or terms for all international messages. It reports a revision from April 1859.",
+      "evidence": [
+        {
+          "source": "india-1903-financial-statistics-telegraph-wave7",
+          "locator": "X Telegraph, tariff for inland telegrams",
+          "supports": "The retrospective official table gives rate, unit and initial month."
+        }
+      ]
     }
   ],
   "earliest_record": {
     "event": "practical-use-1855",
     "rationale": "Use and public opening are documented, while the military-administrative origins do not establish public access. Abstract only; individual class, regional and price barriers remain unassessed."
   },
-  "caveats": "Abstract only; individual class, regional and price barriers remain unassessed.",
+  "caveats": "Public access was constrained by local availability and cost; degree of affordability, eligibility and actual reach remain unassessed.",
   "research": {
     "status": "sourced",
     "basis": {
@@ -131,9 +159,28 @@
       "known_from": "sourced",
       "fate": "recalled",
       "events": "sourced",
-      "grain": "recalled"
+      "grain": "recalled",
+      "measures": "sourced"
     },
-    "note": "Proposed distinct configuration and community entry; requires independent review."
+    "note": "Proposed distinct configuration and community entry; requires independent review. Independent review could not retrieve the full 1903 statistical source; tariff and related measure remain sourced pending direct verification."
   },
-  "grain": "capability"
+  "grain": "capability",
+  "measures": [
+    {
+      "quantity": "inland telegram tariff",
+      "value": 1,
+      "unit": "rupee",
+      "event": "inland-tariff-1855",
+      "subject": "Colonial Indian inland telegraph tariff",
+      "status": "claimed",
+      "conditions": "Per sixteen words per 400 miles of telegraph line, from February 1855 according to 1903 retrospective table; not an individual transaction.",
+      "evidence": [
+        {
+          "source": "india-1903-financial-statistics-telegraph-wave7",
+          "locator": "X Telegraph, tariff for inland telegrams",
+          "supports": "One rupee for sixteen words per 400 miles of line."
+        }
+      ]
+    }
+  ]
 }

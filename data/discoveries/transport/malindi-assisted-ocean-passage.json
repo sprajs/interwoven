@@ -17,7 +17,7 @@
   "prompted_by": [
     "practical_need"
   ],
-  "why": "Da Gama's crews did not know the route or seasonal winds across the Arabian Sea, so they took on a local pilot at Malindi.",
+  "why": "The expedition asked the ruler of Malindi to supply a pilot to guide its passage to India.",
   "setting": [
     "expedition"
   ],
@@ -49,6 +49,35 @@
     "contemporary_text"
   ],
   "events": [
+    {
+      "id": "pilot-arrangement-1498",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1498,
+          "month": 4,
+          "day": 22
+        },
+        "latest": {
+          "year": 1498,
+          "month": 4,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1498-04-22",
+        "basis": "The cited source identifies the date or interval."
+      },
+      "statement": "The expedition asked for the promised pilots while detaining a servant of Malindi’s ruler; a pilot was supplied and the servant released.",
+      "caveats": "This narrative does not establish the pilot’s identity, religious affiliation, or whether the pilot volunteered.",
+      "evidence": [
+        {
+          "source": "chronicler-1898-journal-first-voyage",
+          "locator": "pp. 45–48",
+          "supports": "The narrator describes the expedition’s request, detention of a ruler’s servant, the pilot’s arrival, and release of the servant."
+        }
+      ]
+    },
     {
       "id": "practical-deployment-1498",
       "type": "practical_deployment",
@@ -84,7 +113,7 @@
   ],
   "earliest_record": {
     "event": "practical-deployment-1498",
-    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Voyage narrative places departure on 24 April, land sighting on 18 May and identification/arrival on 20 May. One narrated application; identity and religious labels are not adopted. No generic astrolabe, compass or Ibn Majid lineage is inferred. This is the earliest supported record currently established here, not certification of absolute priority."
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Voyage narrative places departure on 24 April, land sighting on 18 May and identification/arrival on 20 May. One narrated application; identity and religious labels are not adopted. No generic astrolabe, compass or Ibn Majid lineage is inferred. This is the earliest supported record currently established here, not certification of absolute priority. The earlier arrangement is context; the crossing is the earliest established use of this scoped capability."
   },
   "community_entry": {
     "event": "practical-deployment-1498",
@@ -96,7 +125,7 @@
   },
   "caveats": "One narrated application; identity and religious labels are not adopted. No generic astrolabe, compass or Ibn Majid lineage is inferred.",
   "research": {
-    "status": "reviewed",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -111,7 +140,21 @@
       "known_from": "sourced",
       "events": "reviewed",
       "grain": "recalled"
-    }
+    },
+    "unresolved": [
+      {
+        "about": "attribution",
+        "note": "The narrator does not name the pilot or establish the pilot’s voluntary status.",
+        "evidence": [
+          {
+            "source": "chronicler-1898-journal-first-voyage",
+            "locator": "pp. 45–48",
+            "supports": "The narrator describes the expedition’s request, detention of a ruler’s servant, the pilot’s arrival, and release of the servant."
+          }
+        ]
+      }
+    ],
+    "note": "Independent review checked the event claims against the cited historical and institutional sources; other basis labels are unchanged."
   },
   "grain": "instance"
 }

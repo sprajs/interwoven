@@ -19,7 +19,7 @@
   "prompted_by": [
     "prior_theory"
   ],
-  "why": "No Hawaiian still held traditional navigation, so the voyaging project recruited Mau from Satawal, where non-instrument navigation was still practised, to test deliberate ancient voyaging.",
+  "why": "The Polynesian Voyaging Society invited experienced Satawal navigator Mau Piailug to guide its 1976 voyage without instruments.",
   "setting": [
     "expedition"
   ],
@@ -141,6 +141,45 @@
           "locator": "p. 25908, Mau paragraph",
           "supports": "Describes Mau’s noninstrument guidance of the 1976 crossing."
         }
+      ],
+      "contributions": [
+        {
+          "person": "mau-piailug",
+          "role": "operator",
+          "resource": "Guided the outbound voyage",
+          "evidence": [
+            {
+              "source": "pvs-nd-hokulea-1976-crew",
+              "locator": "Crew members Hawaiʻi–Tahiti",
+              "supports": "The Society lists Mau Piailug as navigator for the outbound voyage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tahiti-welcome-1976",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1976
+        },
+        "latest": {
+          "year": 1976
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1976",
+        "basis": "The cited source identifies the date or interval."
+      },
+      "statement": "The canoe’s arrival in Tahiti was welcomed by a large crowd.",
+      "caveats": "The estimated attendance counts a welcome audience, not navigators or independent adopters.",
+      "evidence": [
+        {
+          "source": "smithsonian-2022-hokulea-tahiti-welcome",
+          "locator": "Photo caption",
+          "supports": "The Smithsonian reports more than 17,000 people welcomed the canoe in Tahiti in 1976."
+        }
       ]
     }
   ],
@@ -185,7 +224,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -204,8 +243,46 @@
       "fate": "recalled",
       "events": "reviewed",
       "links": "reviewed",
-      "grain": "recalled"
-    }
+      "grain": "recalled",
+      "measures": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "practice",
+        "note": "The inspected sources do not establish that no Hawaiian retained any traditional navigational knowledge before this voyage.",
+        "evidence": [
+          {
+            "source": "pvs-nd-hokulea-1976-crew",
+            "locator": "Crew members Hawaiʻi–Tahiti",
+            "supports": "The Society lists Mau Piailug as navigator for the outbound voyage."
+          },
+          {
+            "source": "uh-2008-hokulea-legacy",
+            "locator": "Voyage and wayfinding paragraphs",
+            "supports": "The account describes Mau’s Satawal knowledge and the voyage."
+          }
+        ]
+      }
+    ],
+    "note": "Independent review checked the event claims against the cited historical and institutional sources; other basis labels are unchanged."
   },
-  "grain": "instance"
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "estimated welcome attendance",
+      "value": ">17000",
+      "unit": "people",
+      "conditions": "Smithsonian retrospective estimate for the 1976 Tahiti welcome.",
+      "status": "claimed",
+      "event": "tahiti-welcome-1976",
+      "subject": "People welcoming Hōkūleʻa in Tahiti",
+      "evidence": [
+        {
+          "source": "smithsonian-2022-hokulea-tahiti-welcome",
+          "locator": "Photo caption",
+          "supports": "The Smithsonian reports more than 17,000 people welcomed the canoe in Tahiti in 1976."
+        }
+      ]
+    }
+  ]
 }

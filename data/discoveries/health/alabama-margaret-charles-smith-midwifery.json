@@ -75,13 +75,67 @@
           "supports": "The publisher page and quoted review say Smith obtained her Alabama midwife permit in 1949 and attended nearly 3,000 births through 1981. Only the publisher description and review were inspected, not the book itself."
         }
       ]
+    },
+    {
+      "id": "segregated-rural-care",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1949
+        },
+        "latest": {
+          "year": 1981
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1949–1981 career period",
+        "basis": "The date applies to this particular documented event or period, not to the origin of the practice."
+      },
+      "statement": "Smith provided care in rural Greene County amid racial barriers to hospital access; some families paid in produce and some could not pay.",
+      "places": [
+        "alabama"
+      ],
+      "evidence": [
+        {
+          "source": "w7-alabama-hall-smith-midwifery",
+          "locator": "Biography",
+          "supports": "The institutional biography says Smith obtained a permit in 1949, describes racial barriers to hospital access and reports that some clients paid in produce or could not pay. Its over-3,500 lifetime birth estimate differs from the approximately 3,000 reported by a review quoted by her oral-history publisher."
+        }
+      ],
+      "caveats": "The institutional biography reports these conditions across her career without dating each payment or patient encounter.",
+      "contributions": [
+        {
+          "person": "margaret-charles-smith",
+          "role": "operator",
+          "resource": "Community midwifery care",
+          "evidence": [
+            {
+              "source": "w7-alabama-hall-smith-midwifery",
+              "locator": "Biography",
+              "supports": "The institutional biography says Smith obtained a permit in 1949, describes racial barriers to hospital access and reports that some clients paid in produce or could not pay. Its over-3,500 lifetime birth estimate differs from the approximately 3,000 reported by a review quoted by her oral-history publisher."
+            }
+          ]
+        },
+        {
+          "group": "Families receiving Smith’s midwifery care",
+          "role": "user",
+          "resource": "Community midwifery care",
+          "evidence": [
+            {
+              "source": "w7-alabama-hall-smith-midwifery",
+              "locator": "Biography",
+              "supports": "The institutional biography says Smith obtained a permit in 1949, describes racial barriers to hospital access and reports that some clients paid in produce or could not pay. Its over-3,500 lifetime birth estimate differs from the approximately 3,000 reported by a review quoted by her oral-history publisher."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
     "event": "documented-case",
     "rationale": "Date of this scoped case, not a claim of global first."
   },
-  "caveats": "The permit dates a documented career milestone, not the start of community midwifery or necessarily Smith’s first care. The source inspected is a publisher description quoting a review of her oral history.",
+  "caveats": "The permit dates a documented career milestone, not the start of community midwifery or necessarily Smith’s first care. The source inspected is a publisher description quoting a review of her oral history. Retrospective sources report different lifetime birth totals, and neither has been verified against a full patient register.",
   "research": {
     "status": "draft",
     "basis": {
@@ -93,7 +147,7 @@
       "people": "reviewed",
       "measures": "reviewed"
     },
-    "note": "Independent review checked the cited passages for the facets marked reviewed; remaining historical uncertainty and source limits are described in the caveats."
+    "note": "Independent review checked the depth additions and the facets marked reviewed; retained source and interpretation limits are stated in the record."
   },
   "places": [
     {
@@ -114,12 +168,17 @@
       "event": "career-total-1981",
       "subject": "Margaret Charles Smith’s career",
       "status": "claimed",
-      "conditions": "Approximate cumulative figure for 1949–1981 reported by a review quoted on the publisher’s page; not independently audited patient records.",
+      "conditions": "Approximate cumulative figure for 1949–1981 reported by a review quoted on the publisher’s page; not independently audited patient records. The Alabama Women’s Hall of Fame gives a different lifetime count of over 3,500; neither total has been verified against a complete patient register.",
       "evidence": [
         {
           "source": "ohio-state-1996-smith-midwife",
           "locator": "Publisher description and quoted JAMA review",
           "supports": "The publisher page and quoted review say Smith obtained her Alabama midwife permit in 1949 and attended nearly 3,000 births through 1981. Only the publisher description and review were inspected, not the book itself."
+        },
+        {
+          "source": "w7-alabama-hall-smith-midwifery",
+          "locator": "Biography",
+          "supports": "The institutional biography says Smith obtained a permit in 1949, describes racial barriers to hospital access and reports that some clients paid in produce or could not pay. Its over-3,500 lifetime birth estimate differs from the approximately 3,000 reported by a review quoted by her oral-history publisher."
         }
       ]
     }

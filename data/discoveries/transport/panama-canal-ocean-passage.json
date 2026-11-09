@@ -8,6 +8,70 @@
   "concept": "interoceanic-ship-canal",
   "events": [
     {
+      "id": "construction-workforce-1904-1913",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1904
+        },
+        "latest": {
+          "year": 1913
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1904–1913",
+        "basis": "The cited source identifies the date or interval."
+      },
+      "statement": "West Indian workers formed a substantial part of the workforce in the U.S. construction period.",
+      "caveats": "The Canal Authority’s retrospective category figures do not sum to its reported total; its counting method is not explained.",
+      "evidence": [
+        {
+          "source": "panama-canal-2014-human-capital",
+          "locator": "Annual Report 2014, pp. 163–165",
+          "supports": "The retrospective report gives approximately 56,307 workers and 31,071 West Indian workers between 1904 and 1913."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "West Indian construction workers",
+          "role": "contributor",
+          "resource": "Construction labor",
+          "evidence": [
+            {
+              "source": "panama-canal-2014-human-capital",
+              "locator": "Annual Report 2014, pp. 163–165",
+              "supports": "The retrospective report gives approximately 56,307 workers and 31,071 West Indian workers between 1904 and 1913."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "payroll-directive-1906",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1906
+        },
+        "latest": {
+          "year": 1906
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1906",
+        "basis": "The cited source identifies the date or interval."
+      },
+      "statement": "A 1906 canal administration directive addressed transfers between unequal gold and silver payroll classifications, with citizenship exceptions.",
+      "caveats": "The directive and historical description do not establish how every worker was classified in practice.",
+      "evidence": [
+        {
+          "source": "nara-1997-canal-gold-silver",
+          "locator": "Gold and silver rolls and 1906 memorandum",
+          "supports": "The National Archives discusses unequal racially structured payroll classifications and a 1906 directive."
+        }
+      ]
+    },
+    {
       "id": "passage-1914",
       "type": "practical_use",
       "date": {
@@ -55,8 +119,8 @@
         "label": "1914-08-15",
         "basis": "The cited source dates this scoped episode."
       },
-      "statement": "The canal formally opened with the transit of the Ancon; the U.S. government had announced commerce for vessels drawing no more than 30 feet.",
-      "caveats": "The advance commercial notice states the planned limit; it is not a detailed record of actual traffic on the opening day.",
+      "statement": "The canal opened for commerce with the Ancon transit; the U.S. government had announced commerce for vessels drawing no more than 30 feet.",
+      "caveats": "The advance commercial notice states the planned draft limit, not actual opening-day traffic. It calls a separate official opening planned for March 1915; the later Canal Authority account uses official transit for the 1914 Ancon passage.",
       "evidence": [
         {
           "source": "canal-authority-nd-completion",
@@ -130,7 +194,7 @@
   ],
   "earliest_record": {
     "event": "passage-1914",
-    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed."
+    "rationale": "Earliest dated episode established in the cited passages for this scoped referent; no global priority beyond the event is assumed. Earlier construction and labor events are preparation and institutional context, not canal passage."
   },
   "caveats": "The Suez Canal and earlier overland routes are antecedent capabilities; canal construction involved French and U.S. efforts and a complex political and labor history.",
   "people": [
@@ -153,8 +217,56 @@
       "concept": "sourced",
       "events": "reviewed",
       "people": "reviewed",
-      "places": "reviewed"
+      "places": "reviewed",
+      "measures": "reviewed"
     },
-    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
-  }
+    "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred. Independent review checked the event claims against the cited historical and institutional sources; other basis labels are unchanged.",
+    "unresolved": [
+      {
+        "about": "measurement",
+        "note": "The source’s listed regional subtotals do not sum to its stated overall workforce; definitions and calculation need further checking.",
+        "evidence": [
+          {
+            "source": "panama-canal-2014-human-capital",
+            "locator": "Annual Report 2014, pp. 163–165",
+            "supports": "The retrospective report gives approximately 56,307 workers and 31,071 West Indian workers between 1904 and 1913."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "reported construction workforce",
+      "value": 56307,
+      "unit": "people",
+      "conditions": "Approximately, for 1904–1913; retrospective Canal Authority figure with unspecified counting method.",
+      "status": "claimed",
+      "event": "construction-workforce-1904-1913",
+      "subject": "Workers on U.S. canal construction",
+      "evidence": [
+        {
+          "source": "panama-canal-2014-human-capital",
+          "locator": "Annual Report 2014, pp. 163–165",
+          "supports": "The retrospective report gives approximately 56,307 workers and 31,071 West Indian workers between 1904 and 1913."
+        }
+      ]
+    },
+    {
+      "quantity": "reported West Indian construction workforce",
+      "value": 31071,
+      "unit": "people",
+      "conditions": "Approximately, for 1904–1913; the source’s listed categories do not sum to its total.",
+      "status": "claimed",
+      "event": "construction-workforce-1904-1913",
+      "subject": "West Indian workers on U.S. canal construction",
+      "evidence": [
+        {
+          "source": "panama-canal-2014-human-capital",
+          "locator": "Annual Report 2014, pp. 163–165",
+          "supports": "The retrospective report gives approximately 56,307 workers and 31,071 West Indian workers between 1904 and 1913."
+        }
+      ]
+    }
+  ]
 }

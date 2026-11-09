@@ -71,6 +71,35 @@
           "supports": "Paper specifies authors, GPU network and 2012 contest result."
         }
       ]
+    },
+    {
+      "id": "chm-source-release-2025",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 3,
+          "day": 20
+        },
+        "latest": {
+          "year": 2025,
+          "month": 3,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "20 March 2025",
+        "basis": "Museum publication date for release announcement."
+      },
+      "statement": "Computer History Museum and Google made the historical AlexNet source code available as open source.",
+      "caveats": "The 2012 paper had already made a GPU implementation publicly available; this release concerns the historical source archive and does not establish its first public access.",
+      "evidence": [
+        {
+          "source": "hsu-2025-chm-alexnet-wave7",
+          "locator": "Opening; Releasing the Source Code",
+          "supports": "Museum describes the release and Google’s role."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -122,12 +151,34 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "sourced",
+      "events": "reviewed",
       "concept": "recalled",
       "places": "sourced",
       "people": "sourced",
-      "measures": "sourced"
+      "measures": "reviewed",
+      "links": "reviewed"
     },
-    "note": "Source-backed initial research; independent review is pending."
-  }
+    "note": "Source-backed initial research; independent review is pending. Independent review checked the 2012 paper, its public cuda-convnet footnote and 15.3% contest variant, plus the CHM release and CUDA implementation account."
+  },
+  "links": [
+    {
+      "type": "requires",
+      "from": "nvidia-cuda-gpu-computing-platform",
+      "status": "established",
+      "statement": "The reported 2012 implementation extended CUDA-written cuda-convnet to train the ImageNet network on GPUs.",
+      "caveats": "This applies to the authors’ implementation and historical experiment, not a claim that the abstract network architecture can only run on CUDA.",
+      "evidence": [
+        {
+          "source": "hsu-2025-chm-alexnet-wave7",
+          "locator": "Creating AlexNet",
+          "supports": "Museum curator identifies the original CUDA code and its extension for ImageNet."
+        },
+        {
+          "source": "krizhevsky-2012-imagenet-cnn",
+          "locator": "Section 1 and footnote 1",
+          "supports": "The authors identify their publicly available GPU implementation as cuda-convnet."
+        }
+      ]
+    }
+  ]
 }

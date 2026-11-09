@@ -106,20 +106,6 @@
           "locator": "Opening-night purchasing discussion",
           "supports": "Names Holt and Brooks and dates their appointment to 12 December 1844."
         }
-      ],
-      "contributions": [
-        {
-          "group": "Pioneer purchasers John Holt and David Brooks",
-          "role": "contributor",
-          "resource": "Were appointed to purchase stock for opening night.",
-          "evidence": [
-            {
-              "source": "cooperative-heritage-rochdale-1844",
-              "locator": "Opening-night purchasing discussion",
-              "supports": "Names Holt and Brooks as the purchasers appointed 12 December 1844."
-            }
-          ]
-        }
       ]
     },
     {
@@ -155,6 +141,64 @@
       ],
       "scope": "Opening of one member consumer society in Rochdale, rather than the origin of cooperatives in general.",
       "population": "Original society members and customers served by the Rochdale shop"
+    },
+    {
+      "id": "education-fund-rule-1854",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1854,
+          "month": 10,
+          "day": 23
+        },
+        "latest": {
+          "year": 1854,
+          "month": 10,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "23 October 1854",
+        "basis": "Fairbairn dates the amended statutes to 23 October 1854."
+      },
+      "statement": "The amended statutes set aside 2.5 percent of annual surplus before distribution for a separate education fund for members and their families.",
+      "scope": "A rule for allocation; not proof that a particular amount was spent or a person attended.",
+      "evidence": [
+        {
+          "source": "w7-fairbairn-rochdale-principles",
+          "locator": "p. 9",
+          "supports": "The historical study describes the 1854 education fund and the rule’s intended beneficiaries."
+        }
+      ]
+    },
+    {
+      "id": "equal-vote-rule-1845",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1845,
+          "month": 8,
+          "day": 7
+        },
+        "latest": {
+          "year": 1845,
+          "month": 8,
+          "day": 7
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "7 August 1845",
+        "basis": "Fairbairn dates the registration of the revised rule."
+      },
+      "statement": "A revised rule registered in 1845 stipulated one vote per member; monthly meetings were also provided in 1845.",
+      "scope": "Formal membership governance; no implication that all residents could become members.",
+      "evidence": [
+        {
+          "source": "w7-fairbairn-rochdale-principles",
+          "locator": "p. 9",
+          "supports": "Fairbairn dates registration of the single-vote rule and describes 1845 monthly meetings."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -166,12 +210,12 @@
     "status": "sourced",
     "basis": {
       "domain": "reviewed",
-      "events": "sourced",
+      "events": "reviewed",
       "places": "sourced",
       "concept": "sourced",
-      "measures": "sourced"
+      "measures": "reviewed"
     },
-    "note": "The underlying event and domain were independently checked in an earlier pass. Place, scope and contributions were added in a subsequent sourcing pass and have not been independently checked; event basis is sourced to reflect the new additions."
+    "note": "The underlying event and domain were independently checked in an earlier pass. Place, scope and contributions were added in a subsequent sourcing pass and have not been independently checked; event basis is sourced to reflect the new additions. Wave 7 added sourced material; changed events await independent review. Independent review checked the August meeting, shop opening and appointment against the heritage trust, and the 1845 one-vote rule and 1854 education allocation against Fairbairn; rules and observed expenditures remain distinct."
   },
   "places": [
     {
@@ -224,6 +268,22 @@
         "basis": "The heritage account attributes 28 founders to the society that opened its shop on this date."
       },
       "subject": "Founders described in the heritage account"
+    },
+    {
+      "quantity": "education fund share of annual surplus before distribution",
+      "value": 2.5,
+      "unit": "percent",
+      "event": "education-fund-rule-1854",
+      "subject": "Rochdale society education fund rule",
+      "conditions": "Share stipulated in 1854 amended statutes; neither actual expenditure nor participation.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w7-fairbairn-rochdale-principles",
+          "locator": "p. 9",
+          "supports": "Reports the 2.5 percent statutory allocation before distribution."
+        }
+      ]
     }
   ],
   "community_entry": {

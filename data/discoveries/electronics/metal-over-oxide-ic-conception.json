@@ -15,7 +15,7 @@
     "manufacturing_process"
   ],
   "scale": "architectural",
-  "origin": "independent",
+  "origin": "unknown",
   "concept": "integrated-circuit",
   "prompted_by": [
     "new_capability"
@@ -186,7 +186,7 @@
       "tier": "reviewed",
       "advance": "sourced",
       "scale": "recalled",
-      "origin": "sourced",
+      "origin": "unknown",
       "concept": "sourced",
       "prompted_by": "recalled",
       "limit_removed": "recalled",
@@ -200,6 +200,24 @@
       "fate": "recalled",
       "events": "reviewed",
       "links": "reviewed"
-    }
+    },
+    "unresolved": [
+      {
+        "about": "origin",
+        "note": "What knowledge, if any, passed from Kilby’s work to Noyce’s specific interconnection conception remains unresolved. The Fairchild IC programme’s response to TI’s later announcement is distinct from the earlier conception; neither establishes complete independence.",
+        "evidence": [
+          {
+            "source": "computer-history-museum-nd-practical-monolithic-integrated",
+            "locator": "Main narrative, Noyce and Hoerni; filing chronology",
+            "supports": "Describes Noyce’s metal-over-oxide conception as building on Hoerni’s planar approach and dates the patent filing."
+          },
+          {
+            "source": "kilby-1976-integrated-circuit",
+            "locator": "Historical account, discussion of TI March 1959 announcement and Noyce",
+            "supports": "Kilby’s retrospective places Noyce considering Fairchild technology in response to TI’s public announcement; it does not establish the timing of every earlier Noyce idea."
+          }
+        ]
+      }
+    ]
   }
 }

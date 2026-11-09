@@ -50,6 +50,67 @@
       "places": [
         "czechia"
       ]
+    },
+    {
+      "id": "society-publication-1866",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1866
+        },
+        "latest": {
+          "year": 1866
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1866",
+        "basis": "Date of this specific publication or contemporary episode, not the date of the original discovery."
+      },
+      "statement": "Mendel’s paper appeared in the Brünn Natural History Society’s yearbook in 1866; the manuscript also bears a note ordering 40 copies for him, whose date the cited account does not specify.",
+      "evidence": [
+        {
+          "source": "w7-mendel-manuscript-abbey",
+          "locator": "Mendel’s work and manuscript",
+          "supports": "The manuscript account identifies publication, Niessl’s role and a note ordering 40 copies; it does not date the order."
+        },
+        {
+          "source": "w7-mendel-lectures-history",
+          "locator": "Historical discussion of lectures and publication",
+          "supports": "Describes the society’s 1865 lectures and the later paper."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "gregor-mendel",
+          "role": "developer",
+          "resource": "Authored the published paper.",
+          "evidence": [
+            {
+              "source": "w7-mendel-manuscript-abbey",
+              "locator": "Mendel’s work and manuscript",
+              "supports": "Identifies the 1866 society yearbook publication and the manuscript note ordering forty offprints."
+            },
+            {
+              "source": "w7-mendel-lectures-history",
+              "locator": "Historical discussion of lectures and publication",
+              "supports": "Describes the society’s 1865 lectures and the later paper."
+            }
+          ]
+        },
+        {
+          "person": "gustav-niessl",
+          "role": "contributor",
+          "resource": "Requested Mendel’s manuscript and handled its publication in the society yearbook.",
+          "evidence": [
+            {
+              "source": "w7-mendel-manuscript-abbey",
+              "locator": "Mendel’s work and manuscript",
+              "supports": "Identifies the 1866 society yearbook publication and the manuscript note ordering forty offprints."
+            }
+          ]
+        }
+      ],
+      "scope": "The manuscript note records an order, not the date of the order, copies actually delivered, readers or total issue print run."
     }
   ],
   "earliest_record": {
@@ -61,14 +122,14 @@
     "status": "sourced",
     "basis": {
       "domain": "sourced",
-      "events": "sourced",
+      "events": "reviewed",
       "people": "sourced",
-      "measures": "sourced",
+      "measures": "reviewed",
       "concept": "sourced",
       "places": "sourced",
       "grain": "recalled"
     },
-    "note": "Independent check of cited event and numerical evidence; wider facets remain sourced, not blanket reviewed. Event contributions, concept, places and extended measure scope were added in a later pass and have not been independently reviewed."
+    "note": "Independent check of cited event and numerical evidence; wider facets remain sourced, not blanket reviewed. Event contributions, concept, places and extended measure scope were added in a later pass and have not been independently reviewed. Wave 7 adds source-specific historical context; new facets and events await independent review. Independent review checked the publication and manuscript account; the order is undated and not asserted to be offprints."
   },
   "people": [
     {

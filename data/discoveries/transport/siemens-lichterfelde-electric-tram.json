@@ -68,12 +68,17 @@
         "basis": "The cited account dates this scoped episode."
       },
       "statement": "Siemens und Halske opened its Lichterfelde electric railway.",
-      "caveats": "Precise terms of service and fare are not established by this short museum account.",
+      "caveats": "Precise terms of service and fare are not established by this short museum account. A Siemens company history instead dates operation to 12 May; the difference remains unresolved.",
       "evidence": [
         {
           "source": "deutschlandmuseum-nd-lichterfelde-tram",
           "locator": "The Lichterfelde electric railway starts operation",
           "supports": "Museum dates opening by Siemens und Halske."
+        },
+        {
+          "source": "siemens-2022-175-years-railways",
+          "locator": "pp. 43–44",
+          "supports": "Company history dates the railway’s operation to 12 May 1881."
         }
       ],
       "contributions": [
@@ -148,14 +153,37 @@
     "status": "draft",
     "basis": {
       "domain": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "measures": "reviewed",
       "people": "reviewed",
       "places": "reviewed",
       "grain": "sourced",
       "concept": "sourced"
     },
-    "note": "Second-reader check of named facets against translated letter and museum opening account. Speed statement is a participant claim, not an independently measured service speed."
+    "note": "Second-reader check of named facets against translated letter and museum opening account. Speed statement is a participant claim, not an independently measured service speed.",
+    "unresolved": [
+      {
+        "about": "dating",
+        "note": "The museum says 16 May opening; the Siemens history says operation began 12 May. The contemporary letter documents testing and approval on 12 May but does not resolve the public-service date.",
+        "evidence": [
+          {
+            "source": "siemens-2022-175-years-railways",
+            "locator": "pp. 43–44",
+            "supports": "Company history dates the railway’s operation to 12 May 1881."
+          },
+          {
+            "source": "deutschlandmuseum-nd-lichterfelde-tram",
+            "locator": "The Lichterfelde electric railway starts operation",
+            "supports": "Museum dates opening by Siemens und Halske."
+          },
+          {
+            "source": "siemens-1881-electric-trolley-letter",
+            "locator": "Letter to Wiedemann, 12 May 1881, translated excerpt",
+            "supports": "Describes testing and approval."
+          }
+        ]
+      }
+    ]
   },
   "people": [
     {

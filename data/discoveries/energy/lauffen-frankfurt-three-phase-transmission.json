@@ -66,6 +66,45 @@
   "fate": "incorporated",
   "events": [
     {
+      "id": "line-construction-1891",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1891
+        },
+        "latest": {
+          "year": 1891
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1891",
+        "basis": "The cited source identifies the date or interval."
+      },
+      "statement": "Postal administration crews helped construct the overhead line for the Lauffen–Frankfurt transmission.",
+      "caveats": "The retrospective account does not give crew size or specific work dates.",
+      "evidence": [
+        {
+          "source": "vde-nd-lauffen-frankfurt-history",
+          "locator": "Project planning and 1891 exhibition",
+          "supports": "VDE identifies AEG and Oerlikon with the system and describes postal administration crews constructing the line."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Postal administration crews",
+          "role": "contributor",
+          "resource": "Constructed the transmission line",
+          "evidence": [
+            {
+              "source": "vde-nd-lauffen-frankfurt-history",
+              "locator": "Project planning and 1891 exhibition",
+              "supports": "VDE identifies AEG and Oerlikon with the system and describes postal administration crews constructing the line."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "practical-use-1891",
       "type": "practical_use",
       "date": {
@@ -104,7 +143,7 @@
   ],
   "earliest_record": {
     "event": "practical-use-1891",
-    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Evidence for this dated community entry; not necessarily the first possible use. Exhibition supply is not evidence of paid municipal service or worldwide adoption. The waterfall’s 25 August operation is not asserted. This is the earliest supported record currently established here, not certification of absolute priority."
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Evidence for this dated community entry; not necessarily the first possible use. Exhibition supply is not evidence of paid municipal service or worldwide adoption. The waterfall’s 25 August operation is not asserted. This is the earliest supported record currently established here, not certification of absolute priority. Line construction is project preparation, not a dated use of the completed transmission capability."
   },
   "community_entry": {
     "event": "practical-use-1891",
@@ -138,7 +177,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "draft",
     "basis": {
       "summary": "recalled",
       "domain": "sourced",
@@ -157,9 +196,44 @@
       "fate": "recalled",
       "events": "reviewed",
       "links": "reviewed",
-      "grain": "recalled"
+      "grain": "recalled",
+      "measures": "reviewed"
     },
-    "note": "Proposed distinct configuration and community entry; requires independent review."
+    "note": "Proposed distinct configuration and community entry; requires independent review. Independent review checked the event claims against the cited historical and institutional sources; other basis labels are unchanged."
   },
-  "grain": "instance"
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "lamps lit",
+      "value": 900,
+      "unit": "lamps",
+      "conditions": "Approximately, on 25 August 1891 according to the contemporary report.",
+      "status": "claimed",
+      "event": "practical-use-1891",
+      "subject": "Frankfurt exhibition lamps",
+      "evidence": [
+        {
+          "source": "kapp-1891-lauffen-frankfort-power",
+          "locator": "Western Electrician, 10 October 1891, pp. 222–223",
+          "supports": "Contemporary report gives the approximate transmission distance and the number of lamps lit on 25 August."
+        }
+      ]
+    },
+    {
+      "quantity": "transmission distance",
+      "value": 175,
+      "unit": "km",
+      "conditions": "Approximate route distance reported for the 1891 exhibition transmission.",
+      "status": "claimed",
+      "event": "practical-use-1891",
+      "subject": "Lauffen–Frankfurt transmission",
+      "evidence": [
+        {
+          "source": "kapp-1891-lauffen-frankfort-power",
+          "locator": "Western Electrician, 10 October 1891, pp. 222–223",
+          "supports": "Contemporary report gives the approximate transmission distance and the number of lamps lit on 25 August."
+        }
+      ]
+    }
+  ]
 }

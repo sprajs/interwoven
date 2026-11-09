@@ -69,6 +69,60 @@
           "supports": "Dates subak system roots to the ninth century and describes channels and weirs."
         }
       ]
+    },
+    {
+      "id": "world-heritage-inscription-2012",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 2012
+        },
+        "latest": {
+          "year": 2012
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2012",
+        "basis": "The date applies to this particular documented event or period, not to the origin of the practice."
+      },
+      "statement": "UNESCO inscribed selected Balinese subak landscapes and water temples as a World Heritage property.",
+      "places": [
+        "bali"
+      ],
+      "evidence": [
+        {
+          "source": "unesco-world-heritage-2012-cultural-landscape-bali",
+          "locator": "Property details, protection and management",
+          "supports": "UNESCO lists the serial property at 19,519.9 hectares in 2012 and describes community contributions of funds, materials and volunteer labour for temple maintenance."
+        }
+      ],
+      "caveats": "The property area is a modern heritage designation, not the extent of ninth-century irrigation or the area under rice.",
+      "contributions": [
+        {
+          "group": "Local subak communities",
+          "role": "maintainer",
+          "resource": "Water temples and associated living landscape",
+          "evidence": [
+            {
+              "source": "unesco-world-heritage-2012-cultural-landscape-bali",
+              "locator": "Property details, protection and management",
+              "supports": "UNESCO lists the serial property at 19,519.9 hectares in 2012 and describes community contributions of funds, materials and volunteer labour for temple maintenance."
+            }
+          ]
+        },
+        {
+          "group": "Local subak communities",
+          "role": "funder",
+          "resource": "Temple maintenance",
+          "evidence": [
+            {
+              "source": "unesco-world-heritage-2012-cultural-landscape-bali",
+              "locator": "Property details, protection and management",
+              "supports": "UNESCO lists the serial property at 19,519.9 hectares in 2012 and describes community contributions of funds, materials and volunteer labour for temple maintenance."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -86,7 +140,7 @@
   },
   "caveats": "UNESCO’s broad summary does not date each existing temple, channel, rule or local group to the ninth century; this is not proof of uniform or uninterrupted institutions.",
   "research": {
-    "status": "reviewed",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -101,9 +155,28 @@
       "known_from": "sourced",
       "fate": "recalled",
       "events": "reviewed",
-      "grain": "recalled"
+      "grain": "recalled",
+      "measures": "reviewed"
     },
-    "note": "A candidate regional configuration, deliberately bounded to the cited setting."
+    "note": "Independent review checked the depth additions and the facets marked reviewed; retained source and interpretation limits are stated in the record."
   },
-  "grain": "capability"
+  "grain": "capability",
+  "measures": [
+    {
+      "quantity": "inscribed heritage property area",
+      "value": 19519.9,
+      "unit": "hectares",
+      "event": "world-heritage-inscription-2012",
+      "subject": "Cultural Landscape of Bali Province",
+      "status": "claimed",
+      "conditions": "UNESCO property area as listed for the serial site, not irrigated area, rice area, or extent of all subak.",
+      "evidence": [
+        {
+          "source": "unesco-world-heritage-2012-cultural-landscape-bali",
+          "locator": "Property details, protection and management",
+          "supports": "UNESCO lists the serial property at 19,519.9 hectares in 2012 and describes community contributions of funds, materials and volunteer labour for temple maintenance."
+        }
+      ]
+    }
+  ]
 }

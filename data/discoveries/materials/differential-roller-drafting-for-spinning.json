@@ -109,6 +109,57 @@
           "source": "bates-1996-cotton-spinning-northampton",
           "locator": "Printed pp. 240 and 250",
           "supports": "Documents Northampton mill commercial spinning while noting that no machines survive and the sparse evidence does not settle their exact construction."
+        },
+        {
+          "source": "w7-smg-arkwright-capital",
+          "locator": "Nottingham partnership and mill",
+          "supports": "The museum says the partnership converted the premises to horse power and that the mill entered operation in December 1772."
+        },
+        {
+          "source": "w7-knitting-nottingham-power",
+          "locator": "The arrival of Arkwright",
+          "supports": "The heritage account describes the cost of maintaining and expanding horse power as a constraint and the search for a different power source."
+        }
+      ]
+    },
+    {
+      "id": "nottingham-investment-1770",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1770
+        },
+        "latest": {
+          "year": 1770
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1770",
+        "basis": "Date as stated by the cited account for this scoped event."
+      },
+      "statement": "Samuel Need and Jedediah Strutt invested £500 and joined Arkwright’s partnership in January 1770, according to the museum account.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "w7-smg-arkwright-capital",
+          "locator": "Nottingham partnership and mill",
+          "supports": "The museum reports that the two investors jointly invested £500 and joined the partnership in January 1770."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Samuel Need and Jedediah Strutt",
+          "role": "funder",
+          "resource": "Joint investment in the Nottingham spinning partnership",
+          "evidence": [
+            {
+              "source": "w7-smg-arkwright-capital",
+              "locator": "Nottingham partnership and mill",
+              "supports": "The museum reports their joint £500 investment and partnership."
+            }
+          ]
         }
       ]
     }
@@ -128,7 +179,7 @@
   },
   "caveats": "The 1738 Paul patent described differential roller pairs and an alternative. Styles links the drafting-roller design to the Northampton machines used from 1743; Seymour-Jones argues the operative Paul–Wyatt machines used the spindle-drawing alternative, while Bates notes that none survive and the evidence is sparse. Their exact earlier configuration is disputed. Earlier use of Arkwright’s rollers is also possible. The Nottingham account does not inventory each machine, so application of the 1769 specification is an inference. No first-global-use or first-commercial-sale claim is made.",
   "research": {
-    "status": "reviewed",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -145,7 +196,8 @@
       "known_from": "sourced",
       "fate": "recalled",
       "market": "sourced",
-      "events": "reviewed"
+      "events": "sourced",
+      "measures": "reviewed"
     },
     "unresolved": [
       {
@@ -170,6 +222,24 @@
         ]
       }
     ],
-    "note": "Independent historical, lifecycle, and global-frontier review required."
-  }
+    "note": "Independent depth review checked the museum’s account of a joint £500 investment in January 1770 and Nottingham horse-powered mill; the earlier machine configuration remains contested and the investment is not total capital."
+  },
+  "measures": [
+    {
+      "quantity": "joint partnership investment",
+      "value": 500,
+      "unit": "GBP",
+      "event": "nottingham-investment-1770",
+      "status": "claimed",
+      "subject": "Samuel Need and Jedediah Strutt",
+      "conditions": "Nominal £500 jointly invested in January 1770; no present-day value or total project cost inferred.",
+      "evidence": [
+        {
+          "source": "w7-smg-arkwright-capital",
+          "locator": "Nottingham partnership and mill",
+          "supports": "The museum attributes an investment of £500 to the two partners together."
+        }
+      ]
+    }
+  ]
 }
