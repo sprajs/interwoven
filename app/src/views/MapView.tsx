@@ -117,6 +117,7 @@ interface Backdrop {
   base: Basemap
 }
 
+/** Fit the whole globe to the frame and trace its outlines once, since they only change with the frame's size. */
 function basemap(width: number, height: number): Basemap {
   const projection = geoEqualEarth().fitExtent(
     [
@@ -173,6 +174,7 @@ function placeEntries(filtered: Entry[], projection: GeoProjection, placeName: (
   return placed
 }
 
+/** Each established link between two placed discoveries, traced along the great circle between their places. */
 function linkArcs(links: { from: string; to: string; layer: LinkLayer }[], placed: Placed, projection: GeoProjection): Arc[] {
   const arcs: Arc[] = []
   for (const link of links) {
@@ -217,6 +219,7 @@ function from(ts: Float64Array, t: number): number {
   return lo
 }
 
+/** Where the view puts the projected map on the screen. */
 function transformOf(view: View, [x0, y0, x1, y1]: Box, width: number, height: number): Transform {
   return { k: view.k, tx: width / 2 - view.k * (x0 + view.fx * (x1 - x0)), ty: height / 2 - view.k * (y0 + view.fy * (y1 - y0)) }
 }
@@ -241,6 +244,7 @@ function dotSize(k: number): { r: number; spacing: number } {
   return { r, spacing: 2 * r + 1 }
 }
 
+/** A count with its noun, in the interface's number style. */
 function plural(n: number, one: string, many: string): string {
   return `${n.toLocaleString('en-GB')} ${n === 1 ? one : many}`
 }
