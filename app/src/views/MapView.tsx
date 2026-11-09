@@ -1,5 +1,5 @@
-import { geoEqualEarth, geoGraticule, geoInterpolate, geoPath, type GeoProjection } from 'd3-geo'
-import type { FeatureCollection } from 'geojson'
+import { geoArea, geoEqualEarth, geoGraticule, geoInterpolate, geoPath, type GeoProjection } from 'd3-geo'
+import type { FeatureCollection, Position } from 'geojson'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { feature } from 'topojson-client'
 import type { GeometryCollection, Topology } from 'topojson-specification'
@@ -9,7 +9,7 @@ import type { LinkLayer, Place } from '../data/types.ts'
 import { useCanvas, useSize } from '../lib/canvas.ts'
 import { plural } from '../lib/text.ts'
 import { useApp, useDimension, useFiltered, useMatches, useModel, useScale } from '../store.ts'
-import { alpha, font, INK, INK_2, INK_3, LAND, LAND_EDGE, NEUTRAL, PAPER, RULE_SOFT } from '../theme.ts'
+import { alpha, font, INK, INK_2, LAND, LAND_EDGE, NEUTRAL, PAPER, RULE_SOFT } from '../theme.ts'
 import './MapView.css'
 
 /** Room left around the globe when it is fitted to the frame. */
@@ -17,8 +17,11 @@ const MARGIN = 20
 const MAX_ZOOM = 24
 /** Past this zoom the 50m coastline looks blocky, so the 10m one is used. */
 const FINE_ZOOM = 3.5
-/** From this zoom on, sites and towns are named and the web of links gives way to the focused one. */
+/** From this zoom on, sites and towns are named and only links within the frame are drawn. */
 const CLOSE_ZOOM = 2.5
+/** Where a click on a crowded place far out flies to. */
+const CLUSTER_ZOOM = 5
+const FLIGHT_MS = 350
 /** The golden angle, which spreads a bloom evenly however many dots it holds. */
 const GOLDEN = (137.508 * Math.PI) / 180
 const TAU = Math.PI * 2
@@ -31,24 +34,44 @@ const ARC_SAMPLES = 24
 const ARRIVAL = 0.025
 /** How near, in pixels, the pointer must be to a dot or ring to pick it. */
 const HIT = 7
-/** The ring left at a vague place whose discoveries are all before the window. */
-const GHOST_RING = 4
+/** Far out, a click this near a single dot picks it rather than zooming into its crowd. */
+const DOT_HIT = 5
+/** Dots and rings for discoveries before the window: small, and grey so that pale colour only ever means minor. */
+const GHOST_DOT = 2.5
+const GHOST_RING = 3
+const GHOST = alpha(INK, 0.28)
 const LABEL_GAP = 6
+/** Nothing is drawn in this strip at the top, where the app's key line sits over the frame. */
+const TOP = 6
+/** Links whose ends are this near the frame still count as in view when close up. */
+const LINK_SLACK = 40
 
-/**
- * Dot strength by level, where level = dimmed * 4 + ghost * 2 + minor. Minor discoveries are
- * lighter, the past before the window is a faint ghost, and search misses all but vanish.
- */
-const STRENGTH = [1, 0.5, 0.22, 0.11, 0.12, 0.12, 0.05, 0.05]
+/** Strength of a dot in the window by level, where level = missed by search * 2 + minor. */
+const STRENGTH = [1, 0.5, 0.12, 0.12]
 /** Faintest first, so that strong dots sit on top. */
-const LEVEL_ORDER = [6, 7, 3, 4, 5, 2, 1, 0]
+const LEVEL_ORDER = [2, 3, 1, 0]
 const LEVELS = STRENGTH.length
 
 type Land = FeatureCollection
 
+/** A polygon wound so that d3's spherical rule reads it as the smaller of the two areas its rings bound. */
+function rewind(rings: Position[][]): Position[][] {
+  return geoArea({ type: 'Polygon', coordinates: rings }) > TAU ? rings.map((ring) => [...ring].reverse()) : rings
+}
+
+/**
+ * Decode a world-atlas land file. A few 10m polygons are wound the wrong way for d3, which then
+ * reads each as the whole globe less an island and fills the sea as land; they are turned round.
+ */
 function decode(json: unknown): Land {
   const topology = json as Topology<{ land: GeometryCollection }>
-  return feature(topology, topology.objects.land)
+  const land = feature(topology, topology.objects.land)
+  for (const f of land.features) {
+    const g = f.geometry
+    if (g.type === 'MultiPolygon') g.coordinates = g.coordinates.map(rewind)
+    else if (g.type === 'Polygon') g.coordinates = rewind(g.coordinates)
+  }
+  return land
 }
 
 /** The 50m land, decoded once: it never changes, and decoding it takes a moment. */
@@ -65,9 +88,9 @@ function fine(): Promise<Land> {
   return fineLand
 }
 
-/** A ring's radius grows gently with how many discoveries it holds. */
+/** A ring grows gently with how many discoveries it holds, and stops before a big country shouts. */
 function ringRadius(n: number): number {
-  return 5 + 2.2 * Math.sqrt(n)
+  return Math.min(11, 4.5 + 1.8 * Math.sqrt(n))
 }
 
 /** [x0, y0, x1, y1] */
@@ -138,10 +161,17 @@ interface Placed {
   indexOf: Map<string, number>
 }
 
-/** How many of each place's discoveries a window shows: drawn includes the ghosts before it, live does not. */
-interface Counts {
+/**
+ * Each place on the screen for one window and view. Drawn counts include the grey dots before
+ * the window and live ones do not; rings are nudged apart so that neighbouring regions stay distinct.
+ */
+interface Layout {
   drawn: Int32Array
   live: Int32Array
+  cx: Float32Array
+  cy: Float32Array
+  /** The radius the place's marks fill: its ring, or the outer edge of its bloom. */
+  reach: Float32Array
 }
 
 /** A link as a great circle between two places, in projected pixels. */
@@ -281,21 +311,48 @@ function from(ts: Float64Array, t: number): number {
   return lo
 }
 
-function countsIn(groups: Group[], t0: number, t1: number): Counts {
-  const drawn = new Int32Array(groups.length)
-  const live = new Int32Array(groups.length)
-  groups.forEach((g, i) => {
-    drawn[i] = after(g.ts, t1)
-    live[i] = drawn[i]! - from(g.ts, t0)
-  })
-  return { drawn, live }
+/** Dot size and the spacing of blooms, in screen pixels. Dots grow a little once the map is close up. */
+function dotSize(k: number): { r: number; spacing: number } {
+  const r = k > 3 ? 4.5 : 3.5
+  return { r, spacing: 2 * r + 1 }
 }
 
-/** The screen radius a place's marks fill: its ring, or the outer edge of its bloom. */
-function reachOf(group: Group, drawn: number, live: number, r: number, spacing: number): number {
-  if (!drawn) return 0
-  if (group.vague) return live ? ringRadius(live) : GHOST_RING
-  return spacing * Math.sqrt(drawn - 1) + r
+function layoutFrame(placed: Placed, [t0, t1]: [number, number], { k, tx, ty }: Transform): Layout {
+  const { groups } = placed
+  const n = groups.length
+  const out: Layout = { drawn: new Int32Array(n), live: new Int32Array(n), cx: new Float32Array(n), cy: new Float32Array(n), reach: new Float32Array(n) }
+  const { r, spacing } = dotSize(k)
+  const rings: number[] = []
+  groups.forEach((g, i) => {
+    const drawn = after(g.ts, t1)
+    const live = drawn - from(g.ts, t0)
+    out.drawn[i] = drawn
+    out.live[i] = live
+    out.cx[i] = tx + k * g.x
+    out.cy[i] = ty + k * g.y
+    if (!drawn) return
+    if (g.vague) {
+      out.reach[i] = live ? ringRadius(live) : GHOST_RING
+      rings.push(i)
+    } else out.reach[i] = spacing * Math.sqrt(drawn - 1) + r
+  })
+  // Rings that would overlap are moved apart, the smaller outward from the larger until they just touch.
+  rings.sort((a, b) => out.reach[b]! - out.reach[a]! || a - b)
+  rings.forEach((j, rank) => {
+    for (let m = 0; m < rank; m++) {
+      const i = rings[m]!
+      const need = out.reach[i]! + out.reach[j]!
+      const dx = out.cx[j]! - out.cx[i]!
+      const dy = out.cy[j]! - out.cy[i]!
+      const d = Math.hypot(dx, dy)
+      if (d >= need) continue
+      const ux = d > 0.01 ? dx / d : 1
+      const uy = d > 0.01 ? dy / d : 0
+      out.cx[j] = out.cx[i]! + ux * need
+      out.cy[j] = out.cy[i]! + uy * need
+    }
+  })
+  return out
 }
 
 /** Where the view puts the projected map on the screen. */
@@ -317,17 +374,22 @@ function zoomAbout(view: View, factor: number, cx: number, cy: number, box: Box,
   return viewOf({ k, tx: cx - (k * (cx - t.tx)) / t.k, ty: cy - (k * (cy - t.ty)) / t.k }, box, width, height)
 }
 
-/** Dot size and the spacing of blooms, in screen pixels. Dots grow a little once the map is close up. */
-function dotSize(k: number): { r: number; spacing: number } {
-  const r = k > 3 ? 4.5 : 3.5
-  return { r, spacing: 2 * r + 1 }
-}
-
 /** Whether a circle and a box overlap. */
 function touches([x0, y0, x1, y1]: Box, cx: number, cy: number, radius: number): boolean {
   const dx = cx - Math.max(x0, Math.min(x1, cx))
   const dy = cy - Math.max(y0, Math.min(y1, cy))
   return dx * dx + dy * dy < radius * radius
+}
+
+/** A mark under the pointer: the discovery it stands for, and the top of the mark in viewport pixels. */
+interface Picked {
+  index: number
+  x: number
+  y: number
+  /** Distance from the pointer to the mark, zero inside a ring. */
+  distance: number
+  /** An individual dot, rather than a ring standing for several. */
+  dot: boolean
 }
 
 export function MapView() {
@@ -345,6 +407,7 @@ export function MapView() {
   const [view, setView] = useState<View>(HOME)
   const [detail, setDetail] = useState<Land | null>(null)
   const backdrop = useRef<Backdrop | null>(null)
+  const flight = useRef(0)
   const linksOn = layers.size > 0
   const wantsDetail = view.k > FINE_ZOOM
 
@@ -353,6 +416,7 @@ export function MapView() {
     // Until the fine coastline arrives, or if it cannot be fetched, the 50m one serves.
     fine().then(setDetail, () => undefined)
   }, [wantsDetail, detail])
+  useEffect(() => () => cancelAnimationFrame(flight.current), [])
 
   const base = useMemo(() => (size.width && size.height ? basemap(size.width, size.height) : null), [size])
   // The 10m outline is costly to trace, so it is traced only when it will be drawn.
@@ -365,53 +429,54 @@ export function MapView() {
     if (!placed) return null
     const palette = [...dimension.categories.map((c) => c.color), NEUTRAL]
     const slot = new Map(dimension.categories.map((c, i) => [c.id, i]))
-    const of = Uint8Array.from(placed.entries, (e) => slot.get(dimension.of(e)) ?? palette.length - 1)
-    // A ring takes its category's colour only when everything at that place shares it.
-    const ring = placed.groups.map((g) => {
-      const first = of[g.members[0]!]!
-      return g.members.every((i) => of[i] === first) ? palette[first]! : INK_3
-    })
-    return { palette, of, ring }
+    return { palette, of: Uint8Array.from(placed.entries, (e) => slot.get(dimension.of(e)) ?? palette.length - 1) }
   }, [placed, dimension])
   const us = useMemo(() => (placed ? Float64Array.from(placed.entries, (e) => scale.u(e.t!)) : null), [placed, scale])
   const arcs = useMemo(() => (placed && base && linksOn ? linkArcs(model.links, placed, base.projection) : null), [placed, base, model, linksOn])
   const transform = useMemo(() => (base ? transformOf(view, base.box, size.width, size.height) : null), [base, view, size])
+  const layout = useMemo(() => (placed && transform ? layoutFrame(placed, span, transform) : null), [placed, span, transform])
 
   const canvas = useCanvas(
     size,
     (ctx, { width, height }) => {
-      if (!base || !placed || !colors || !us || !transform) return
+      if (!base || !placed || !colors || !us || !transform || !layout) return
       const { k, tx, ty } = transform
       const { r, spacing } = dotSize(k)
-      const ghostR = r * 0.8
       const [t0, t1] = span
       const end = after(placed.ts, t1)
       const { x, y, ox, oy, groups } = placed
-      const counts = countsIn(groups, t0, t1)
-      const reach = (g: number) => reachOf(groups[g]!, counts.drawn[g]!, counts.live[g]!, r, spacing)
-      const sx = (i: number) => tx + k * x[i]! + spacing * ox[i]!
-      const sy = (i: number) => ty + k * y[i]! + spacing * oy[i]!
+      const { cx, cy, reach, drawn, live } = layout
+      const vague = placed.vague
+      const gOf = placed.group
+      // A discovery at a vague place sits at its ring's centre, which may have been nudged off the place.
+      const sx = (i: number) => (vague[i] ? cx[gOf[i]!]! : tx + k * x[i]! + spacing * ox[i]!)
+      const sy = (i: number) => (vague[i] ? cy[gOf[i]!]! : ty + k * y[i]! + spacing * oy[i]!)
       const missed = (i: number) => matches !== null && !matches.has(placed.entries[i]!.id)
       const focus = hoverId ?? selected
       const close = k >= CLOSE_ZOOM
 
       ctx.drawImage(paintBackdrop(backdrop, base, fineLandPath, transform, width, height), 0, 0, width, height)
+      ctx.save()
+      ctx.beginPath()
+      ctx.rect(0, TOP, width, height - TOP)
+      ctx.clip()
 
-      // Links, under the marks. Close up, only the focused discovery's links are drawn: the rest are rays off the frame.
+      // Links, under the marks. Close up, only links with both ends in sight are drawn, unless they are the focus's.
       if (arcs && linksOn) {
         const lit = new Path2D()
         const rest = new Path2D()
         const jump = (base.box[2] - base.box[0]) / 2
+        const inSight = (px: number, py: number) => px > -LINK_SLACK && py > -LINK_SLACK && px < width + LINK_SLACK && py < height + LINK_SLACK
         for (const arc of arcs) {
           if (!layers.has(arc.layer) || arc.a >= end || arc.b >= end) continue
           const isLit = focus !== null && (arc.from === focus || arc.to === focus)
-          if (close && !isLit) continue
-          const path = isLit ? lit : rest
-          const ax = spacing * ox[arc.a]!
-          const ay = spacing * oy[arc.a]!
-          const bx = spacing * ox[arc.b]!
-          const by = spacing * oy[arc.b]!
           const p = arc.points
+          const ax = sx(arc.a) - (tx + k * p[0]!)
+          const ay = sy(arc.a) - (ty + k * p[1]!)
+          const bx = sx(arc.b) - (tx + k * p[2 * ARC_SAMPLES]!)
+          const by = sy(arc.b) - (ty + k * p[2 * ARC_SAMPLES + 1]!)
+          if (close && !isLit && !(inSight(sx(arc.a), sy(arc.a)) && inSight(sx(arc.b), sy(arc.b)))) continue
+          const path = isLit ? lit : rest
           for (let j = 0; j <= ARC_SAMPLES; j++) {
             const s = j / ARC_SAMPLES
             const px = tx + k * p[2 * j]! + ax + (bx - ax) * s
@@ -422,7 +487,7 @@ export function MapView() {
           }
         }
         ctx.lineWidth = 1
-        ctx.strokeStyle = alpha(INK, focus !== null ? 0.07 : 0.15)
+        ctx.strokeStyle = alpha(INK, focus !== null ? 0.07 : close ? 0.22 : 0.15)
         ctx.stroke(rest)
         ctx.lineWidth = 1.5
         ctx.strokeStyle = alpha(INK, 0.75)
@@ -437,7 +502,7 @@ export function MapView() {
         for (let i = end - 1; i >= 0 && us[i]! >= u1 - recent; i--) {
           if (missed(i)) continue
           const age = recent > 0 ? (u1 - us[i]!) / recent : 1
-          const markR = placed.vague[i] ? reach(placed.group[i]!) : r
+          const markR = vague[i] ? reach[gOf[i]!]! : r
           ctx.beginPath()
           ctx.arc(sx(i), sy(i), markR + 2 + age * 9, 0, TAU)
           ctx.fillStyle = alpha(colors.palette[colors.of[i]!]!, 0.22 * (1 - age))
@@ -445,20 +510,26 @@ export function MapView() {
         }
       }
 
-      // Dots at precise places, gathered into one path per colour and strength so that thousands cost a few fills.
+      // Dots at precise places: grey before the window, coloured within it, one path per colour and strength.
+      const ghosts = new Path2D()
       const buckets: (Path2D | undefined)[] = new Array(colors.palette.length * LEVELS)
       for (let i = 0; i < end; i++) {
-        if (placed.vague[i]) continue
+        if (vague[i]) continue
         const px = sx(i)
         const py = sy(i)
         if (px < -r || py < -r || px > width + r || py > height + r) continue
-        const ghost = placed.ts[i]! < t0
-        const level = (missed(i) ? 4 : 0) + (ghost ? 2 : 0) + placed.minor[i]!
+        if (placed.ts[i]! < t0) {
+          ghosts.moveTo(px + GHOST_DOT, py)
+          ghosts.arc(px, py, GHOST_DOT, 0, TAU)
+          continue
+        }
+        const level = (missed(i) ? 2 : 0) + placed.minor[i]!
         const path = (buckets[colors.of[i]! * LEVELS + level] ??= new Path2D())
-        const radius = ghost ? ghostR : r
-        path.moveTo(px + radius, py)
-        path.arc(px, py, radius, 0, TAU)
+        path.moveTo(px + r, py)
+        path.arc(px, py, r, 0, TAU)
       }
+      ctx.fillStyle = GHOST
+      ctx.fill(ghosts)
       for (const level of LEVEL_ORDER) {
         colors.palette.forEach((color, c) => {
           const path = buckets[c * LEVELS + level]
@@ -468,64 +539,81 @@ export function MapView() {
         })
       }
 
-      // One ring per vaguely known place, holding the count of what it stands for.
-      ctx.lineWidth = 1.5
-      ctx.font = font(11, 600)
+      // One ring per vaguely known place: a small donut of its categories, with its count inside. A sea's ring is dashed.
+      const tally = new Int32Array(colors.palette.length)
+      ctx.font = font(10.5, 600)
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       groups.forEach((group, g) => {
-        if (!group.vague || !counts.drawn[g]) return
-        const gx = tx + k * group.x
-        const gy = ty + k * group.y
-        const radius = reach(g)
+        if (!group.vague || !drawn[g]) return
+        const gx = cx[g]!
+        const gy = cy[g]!
+        const radius = reach[g]!
         if (gx < -radius || gy < -radius || gx > width + radius || gy > height + radius) return
-        const live = counts.live[g]!
-        ctx.beginPath()
-        ctx.arc(gx, gy, radius, 0, TAU)
-        if (!live) {
-          ctx.strokeStyle = alpha(colors.ring[g]!, 0.25)
+        const n = live[g]!
+        ctx.setLineDash(group.kind === 'water' ? [2, 2] : [])
+        if (!n) {
+          ctx.beginPath()
+          ctx.arc(gx, gy, radius, 0, TAU)
+          ctx.lineWidth = 1.5
+          ctx.strokeStyle = GHOST
           ctx.stroke()
           return
         }
         const first = from(group.ts, t0)
         let hit = matches === null
-        for (let m = first; !hit && m < first + live; m++) hit = !missed(group.members[m]!)
+        tally.fill(0)
+        for (let m = first; m < first + n; m++) {
+          const i = group.members[m]!
+          tally[colors.of[i]!]! += 1
+          hit ||= !missed(i)
+        }
+        ctx.beginPath()
+        ctx.arc(gx, gy, radius, 0, TAU)
         ctx.fillStyle = alpha(PAPER, 0.85)
         ctx.fill()
-        ctx.strokeStyle = alpha(colors.ring[g]!, hit ? 1 : 0.12)
-        ctx.stroke()
-        if (live > 1) {
-          ctx.fillStyle = alpha(INK_2, hit ? 1 : 0.3)
-          ctx.fillText(String(live), gx, gy + 0.5)
+        ctx.lineWidth = 2
+        let angle = -Math.PI / 2
+        tally.forEach((count, c) => {
+          if (!count) return
+          const sweep = (TAU * count) / n
+          ctx.beginPath()
+          ctx.arc(gx, gy, radius, angle, angle + sweep)
+          ctx.strokeStyle = alpha(colors.palette[c]!, hit ? 1 : 0.12)
+          ctx.stroke()
+          angle += sweep
+        })
+        if (n >= 2) {
+          ctx.fillStyle = alpha(INK, hit ? 1 : 0.3)
+          ctx.fillText(String(n), gx, gy + 0.5)
         }
       })
+      ctx.setLineDash([])
       ctx.textAlign = 'left'
 
       for (const id of [selected, hoverId]) {
         const i = id ? placed.indexOf.get(id) : undefined
         if (i === undefined || i >= end) continue
         ctx.beginPath()
-        const radius = placed.vague[i] ? reach(placed.group[i]!) : placed.ts[i]! < t0 ? ghostR : r
+        const radius = vague[i] ? reach[gOf[i]!]! : placed.ts[i]! < t0 ? GHOST_DOT : r
         ctx.arc(sx(i), sy(i), radius + 2.5, 0, TAU)
         ctx.strokeStyle = INK
         ctx.lineWidth = id === selected ? 2 : 1.25
         ctx.stroke()
       }
 
-      // Place names. Far out only the rings are named, at one scale; close up, sites and towns join them.
-      // Ranking by everything drawn, ghosts included, keeps the names steady while time sweeps.
-      const marks: { g: number; cx: number; cy: number; reach: number }[] = []
-      groups.forEach((group, g) => {
-        if (!counts.drawn[g]) return
-        const cx = tx + k * group.x
-        const cy = ty + k * group.y
-        const radius = reach(g)
-        if (cx + radius < 0 || cy + radius < 0 || cx - radius > width || cy - radius > height) return
-        marks.push({ g, cx, cy, reach: radius })
+      // Place names, each beside its own mark. Counted rings and seas are always named, first; single
+      // rings and, close up, sites and towns follow while there is room. Only places with something in
+      // the window are named, and ranking by everything drawn keeps the names steady while time sweeps.
+      const marks: number[] = []
+      groups.forEach((_, g) => {
+        if (drawn[g] && cx[g]! + reach[g]! > 0 && cy[g]! + reach[g]! > TOP && cx[g]! - reach[g]! < width && cy[g]! - reach[g]! < height) marks.push(g)
       })
-      const candidates = marks
-        .filter((m) => groups[m.g]!.vague || (close && NAMED_CLOSE.has(groups[m.g]!.kind)))
-        .sort((a, b) => counts.drawn[b.g]! - counts.drawn[a.g]! || a.g - b.g)
+      const byWeight = (a: number, b: number) => drawn[b]! - drawn[a]! || a - b
+      const named = marks.filter((g) => live[g])
+      const counted = (g: number) => groups[g]!.vague && (live[g]! >= 2 || groups[g]!.kind === 'water')
+      const always = named.filter(counted).sort(byWeight)
+      const others = named.filter((g) => !counted(g) && (groups[g]!.vague || (close && NAMED_CLOSE.has(groups[g]!.kind)))).sort(byWeight)
       const limit = close ? Math.round(10 * Math.sqrt(k)) : 8
       const taken: Box[] = []
       const namedRings: Group[] = []
@@ -535,73 +623,109 @@ export function MapView() {
       ctx.lineWidth = 3
       ctx.strokeStyle = PAPER
       ctx.fillStyle = INK_2
-      for (const mark of candidates) {
-        if (taken.length >= limit) break
-        const group = groups[mark.g]!
-        if (group.vague && namedRings.some((o) => o.ancestors.has(group.id) || group.ancestors.has(o.id))) continue
+      /** Name a place on the first free side of its mark; with `strict` off, other marks may be overlapped. */
+      const label = (g: number, strict: boolean): boolean => {
+        const group = groups[g]!
         const w = ctx.measureText(group.name).width
+        const gx = cx[g]!
+        const gy = cy[g]!
+        const edge = reach[g]!
         const spots: [number, number][] = [
-          [mark.cx + mark.reach + LABEL_GAP, mark.cy],
-          [mark.cx - mark.reach - LABEL_GAP - w, mark.cy],
-          [mark.cx - w / 2, mark.cy - mark.reach - LABEL_GAP - 9],
+          [gx + edge + LABEL_GAP, gy],
+          [gx - edge - LABEL_GAP - w, gy],
+          [gx - w / 2, gy - edge - LABEL_GAP - 9],
         ]
         for (const [left, middle] of spots) {
           const box: Box = [left - 3, middle - 9, left + w + 3, middle + 9]
-          if (box[0] < 4 || box[2] > width - 4 || box[1] < 4 || box[3] > height - 4) continue
+          if (box[0] < 4 || box[2] > width - 4 || box[1] < TOP || box[3] > height - 4) continue
           if (taken.some((o) => box[0] < o[2] && box[2] > o[0] && box[1] < o[3] && box[3] > o[1])) continue
-          if (marks.some((o) => o !== mark && touches(box, o.cx, o.cy, o.reach))) continue
+          if (strict && marks.some((o) => o !== g && touches(box, cx[o]!, cy[o]!, reach[o]!))) continue
           taken.push(box)
           if (group.vague) namedRings.push(group)
           ctx.strokeText(group.name, left, middle)
           ctx.fillText(group.name, left, middle)
-          break
+          return true
         }
+        return false
       }
+      for (const g of always) if (!label(g, true)) label(g, false)
+      for (const g of others) {
+        if (taken.length >= limit) break
+        const group = groups[g]!
+        if (group.vague && namedRings.some((o) => o.ancestors.has(group.id) || group.ancestors.has(o.id))) continue
+        label(g, true)
+      }
+      ctx.restore()
     },
-    [base, fineLandPath, placed, colors, us, arcs, transform, span, matches, layers, linksOn, playing, selected, hoverId, scale],
+    [base, fineLandPath, placed, colors, us, arcs, transform, layout, span, matches, layers, linksOn, playing, selected, hoverId, scale],
   )
 
-  /**
-   * The drawn mark nearest a point on the page, within reach of the pointer, as the discovery it
-   * stands for and the top of the mark in viewport pixels. A ring stands for its earliest discovery in the window.
-   */
-  const markAt = (clientX: number, clientY: number): { index: number; x: number; y: number } | null => {
-    if (!placed || !transform || !frame.current) return null
+  /** The drawn mark nearest a point on the page, within reach of the pointer. A ring stands for its earliest discovery in the window. */
+  const markAt = (clientX: number, clientY: number): Picked | null => {
+    if (!placed || !transform || !layout || !frame.current) return null
     const box = frame.current.getBoundingClientRect()
     const px = clientX - box.left
     const py = clientY - box.top
     const { k, tx, ty } = transform
     const { r, spacing } = dotSize(k)
     const end = after(placed.ts, span[1])
-    let best: { index: number; x: number; y: number } | null = null
-    let bestScore = HIT
+    let best: Picked | null = null
     for (let i = 0; i < end; i++) {
       if (placed.vague[i]) continue
       const cx = tx + k * placed.x[i]! + spacing * placed.ox[i]!
       const cy = ty + k * placed.y[i]! + spacing * placed.oy[i]!
       const d = Math.hypot(cx - px, cy - py)
-      if (d < bestScore) {
-        bestScore = d
-        best = { index: i, x: box.left + cx, y: box.top + cy - r }
-      }
+      if (d < (best?.distance ?? HIT)) best = { index: i, x: box.left + cx, y: box.top + cy - r, distance: d, dot: true }
     }
-    const counts = countsIn(placed.groups, span[0], span[1])
     placed.groups.forEach((group, g) => {
-      if (!group.vague || !counts.drawn[g]) return
-      const radius = reachOf(group, counts.drawn[g]!, counts.live[g]!, r, spacing)
-      const cx = tx + k * group.x
-      const cy = ty + k * group.y
-      const d = Math.max(0, Math.hypot(cx - px, cy - py) - radius)
-      if (d >= bestScore) return
-      bestScore = d
-      const earliest = counts.live[g] ? from(group.ts, span[0]) : 0
-      best = { index: group.members[earliest]!, x: box.left + cx, y: box.top + cy - radius }
+      if (!group.vague || !layout.drawn[g]) return
+      const cx = layout.cx[g]!
+      const cy = layout.cy[g]!
+      const d = Math.max(0, Math.hypot(cx - px, cy - py) - layout.reach[g]!)
+      if (d >= (best?.distance ?? HIT)) return
+      const earliest = layout.live[g] ? from(group.ts, span[0]) : 0
+      best = { index: group.members[earliest]!, x: box.left + cx, y: box.top + cy - layout.reach[g]!, distance: d, dot: false }
     })
     return best
   }
 
+  /** A crowded place under the pointer: a counted ring, or a bloom of six or more dots. */
+  const crowdAt = (clientX: number, clientY: number): number | null => {
+    if (!placed || !layout || !frame.current) return null
+    const box = frame.current.getBoundingClientRect()
+    const px = clientX - box.left
+    const py = clientY - box.top
+    let best: number | null = null
+    let bestDistance = Infinity
+    placed.groups.forEach((group, g) => {
+      if (group.vague ? layout.live[g]! < 2 : layout.drawn[g]! < 6) return
+      const d = Math.hypot(layout.cx[g]! - px, layout.cy[g]! - py)
+      if (d <= layout.reach[g]! + 3 && d < bestDistance) {
+        best = g
+        bestDistance = d
+      }
+    })
+    return best
+  }
+
+  /** Ease the view to a target, so that the eye can follow where it went. */
+  const flyTo = (target: View) => {
+    cancelAnimationFrame(flight.current)
+    const start = view
+    const begun = performance.now()
+    const step = (now: number) => {
+      const s = Math.min(1, (now - begun) / FLIGHT_MS)
+      const e = 1 - (1 - s) ** 3
+      setView({ k: start.k + (target.k - start.k) * e, fx: start.fx + (target.fx - start.fx) * e, fy: start.fy + (target.fy - start.fy) * e })
+      if (s < 1) flight.current = requestAnimationFrame(step)
+    }
+    flight.current = requestAnimationFrame(step)
+    useApp.getState().setHover(null)
+  }
+
   const zoomBy = (factor: number, cx = size.width / 2, cy = size.height / 2) => {
     if (!base) return
+    cancelAnimationFrame(flight.current)
     setView((v) => zoomAbout(v, factor, cx, cy, base.box, size.width, size.height))
     useApp.getState().setHover(null)
   }
@@ -619,6 +743,7 @@ export function MapView() {
         className="canvas-frame"
         style={{ cursor: hoverId ? 'pointer' : 'grab' }}
         onPointerDown={(event) => {
+          cancelAnimationFrame(flight.current)
           drag.current = { x: event.clientX, y: event.clientY, moved: false, view }
           event.currentTarget.setPointerCapture(event.pointerId)
         }}
@@ -645,6 +770,16 @@ export function MapView() {
           drag.current = null
           if (held?.moved) return
           const mark = markAt(event.clientX, event.clientY)
+          // Far out, a click on a crowd flies in to it; a click right on one dot still picks that dot.
+          if (base && view.k < CLOSE_ZOOM && !(mark?.dot && mark.distance <= DOT_HIT)) {
+            const crowd = crowdAt(event.clientX, event.clientY)
+            if (crowd !== null) {
+              const { x, y } = placed!.groups[crowd]!
+              const [x0, y0, x1, y1] = base.box
+              flyTo({ k: CLUSTER_ZOOM, fx: (x - x0) / (x1 - x0), fy: (y - y0) / (y1 - y0) })
+              return
+            }
+          }
           useApp.getState().select(mark ? placed!.entries[mark.index]!.id : null)
         }}
         onPointerLeave={() => useApp.getState().setHover(null)}
@@ -667,7 +802,7 @@ export function MapView() {
           −
         </button>
         {zoomed && (
-          <button aria-label="Show the whole world" title="Show the whole world" onClick={() => setView(HOME)}>
+          <button aria-label="Show the whole world" title="Show the whole world" onClick={() => flyTo(HOME)}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
               <circle cx="7" cy="7" r="5.5" />
               <path d="M1.5 7h11M7 1.5c-2 2.8-2 8.2 0 11M7 1.5c2 2.8 2 8.2 0 11" />
@@ -677,7 +812,7 @@ export function MapView() {
       </div>
       <p className="caption">
         {plural(inWindow, 'discovery', 'discoveries')} on the map
-        {before > 0 && ` · ${before} earlier, shown faintly`}
+        {before > 0 && ` · ${plural(before, 'grey dot', 'grey dots')} came before this stretch`}
         {unplaced > 0 && ` · ${unplaced} with no place or date yet`}. A ring is a place known only as a country or region.
       </p>
     </>
