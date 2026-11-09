@@ -4,7 +4,7 @@ import { useApp, useDimension, useDimensions, useFiltered, useModel } from '../s
 import { calendar, log, type ScaleId } from '../time.ts'
 
 const SCALES: { id: ScaleId; name: string; hint: string }[] = [
-  { id: 'people', name: 'By people alive', hint: 'Every stretch holds the same number of human lifetimes' },
+  { id: 'people', name: 'People alive', hint: 'Every stretch holds the same number of human lifetimes' },
   { id: 'calendar', name: calendar.name, hint: calendar.hint },
   { id: 'log', name: log.name, hint: log.hint },
 ]
@@ -56,29 +56,15 @@ export function Controls() {
       )}
       <div className="spacer" />
       <div className="control">
-        <span className="control-name">Show</span>
-        <div className="choices">
-          <button className="choice" aria-pressed={!majorOnly} onClick={() => app.setMajorOnly(false)}>
-            Everything
+        {view === 'timeline' && (
+          <button className="choice toggle" aria-pressed={lanes} title="Give each category a row of its own" onClick={() => app.setLanes(!lanes)}>
+            Split rows
           </button>
-          <button className="choice" aria-pressed={majorOnly} title="Only discoveries that a field, or several fields, went on to depend on" onClick={() => app.setMajorOnly(true)}>
-            Major only
-          </button>
-        </div>
+        )}
+        <button className="choice toggle" aria-pressed={majorOnly} title="Only discoveries that a field, or several fields, went on to depend on" onClick={() => app.setMajorOnly(!majorOnly)}>
+          Major only
+        </button>
       </div>
-      {view === 'timeline' && (
-        <div className="control">
-          <span className="control-name">Rows</span>
-          <div className="choices">
-            <button className="choice" aria-pressed={lanes} onClick={() => app.setLanes(true)}>
-              Split
-            </button>
-            <button className="choice" aria-pressed={!lanes} onClick={() => app.setLanes(false)}>
-              Together
-            </button>
-          </div>
-        </div>
-      )}
       </div>
       <Legend />
     </div>

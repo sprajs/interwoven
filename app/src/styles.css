@@ -261,6 +261,14 @@ a:hover {
   color: var(--paper);
 }
 
+.choice.toggle {
+  border: 1px solid var(--rule);
+}
+
+.choice.toggle[aria-pressed='true'] {
+  border-color: var(--ink);
+}
+
 .controls .spacer {
   flex: 1;
 }
@@ -318,6 +326,7 @@ a:hover {
   position: absolute;
   left: var(--gutter);
   bottom: 8px;
+  max-width: calc(100% - 2 * var(--gutter));
   z-index: 2;
   margin: 0;
   font-size: 13px;

@@ -2,6 +2,7 @@ import { useMemo, useRef } from 'react'
 import type { Entry } from '../data/model.ts'
 import type { Category } from '../dims.ts'
 import { roundRect, useCanvas, useSize } from '../lib/canvas.ts'
+import { plural } from '../lib/text.ts'
 import { useApp, useDimension, useFiltered, useLimits, useMatches, useModel, useScale } from '../store.ts'
 import { alpha, font, INK, INK_2, INK_3, PAPER, RULE, RULE_SOFT, TINT } from '../theme.ts'
 import { makeAxis, panWindow, ticks, zoomWindow, type Axis } from '../time.ts'
@@ -10,6 +11,8 @@ const RULER = 30
 const PAD_X = 20
 const LANE_HEAD = 24
 const LANE_FOOT = 10
+/** Room kept clear at the bottom for the caption. */
+const FOOT = 30
 
 interface Mark {
   entry: Entry
@@ -53,13 +56,13 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
   const inView = entries.filter((e) => e.t! >= axis.t0 && e.t! <= axis.t1)
   const laneOf = (e: Entry) => (categories ? categories.findIndex((c) => c.id === of(e)) : 0)
   const bodyTop = RULER
-  const bodyHeight = height - RULER
+  const bodyHeight = height - RULER - FOOT
 
   // Find the largest square at which every pile fits.
   let cell = 4
   let size = 3
   let peaks: number[] = []
-  for (const candidate of [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3]) {
+  for (const candidate of [18, 16, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3]) {
     const step = candidate + (candidate >= 7 ? 2 : 1)
     const counts = rows.map(() => new Map<number, number>())
     for (const e of inView) {
@@ -172,7 +175,7 @@ export function Timeline() {
     size,
     (ctx, { width, height }) => {
       if (!plan) return
-      const { axis, cell, marks, lanes, labels } = plan
+      const { axis, marks, lanes, labels } = plan
       const side = plan.size
 
       // The ruler, with its bands carried down the page so a date can be read anywhere.
@@ -254,8 +257,10 @@ export function Timeline() {
       const radius = side >= 8 ? 2 : 1
       for (const mark of marks) {
         const { entry } = mark
-        const dimmed = (matches && !matches.has(entry.id)) || (layers.size > 0 && focus !== null && !linked.has(entry.id) && entry.id !== focus)
-        const strength = dimmed ? 0.13 : entry.tier <= 1 ? 1 : 0.5
+        const unmatched = matches !== null && !matches.has(entry.id)
+        // With links drawn and something in focus, what it is not linked to steps back a little.
+        const aside = layers.size > 0 && focus !== null && !linked.has(entry.id) && entry.id !== focus
+        const strength = unmatched ? 0.13 : (entry.tier <= 1 ? 1 : 0.5) * (aside ? 0.4 : 1)
         roundRect(ctx, mark.x, mark.y, side, side, radius)
         ctx.fillStyle = alpha(mark.color, strength)
         ctx.fill()
@@ -281,13 +286,14 @@ export function Timeline() {
         ctx.lineTo(Math.round(lx) + 0.5, label.anchorY - 2)
         ctx.stroke()
         ctx.font = font(13.5, 600, label.mark.entry.kind === 'science')
-        // A little paper behind the name keeps it clear of the ruler bands.
-        ctx.fillStyle = alpha(PAPER, 0.8)
-        ctx.fillRect(label.x - 3, label.y - 1, label.width + 6, 17)
+        // A halo of paper keeps the name clear of the leader lines and marks around it.
+        ctx.strokeStyle = PAPER
+        ctx.lineWidth = 4
+        ctx.lineJoin = 'round'
+        ctx.strokeText(label.mark.entry.name, label.x, label.y + 12.5)
         ctx.fillStyle = INK
         ctx.fillText(label.mark.entry.name, label.x, label.y + 12.5)
       }
-      void cell
     },
     [plan, matches, selected, hoverId, layers, model],
   )
@@ -359,6 +365,9 @@ export function Timeline() {
       }}
     >
       <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
+      <p className="caption">
+        One square per discovery, at its earliest record. {scale.hint}. {plural(plan?.marks.length ?? 0, 'discovery', 'discoveries')} in view.
+      </p>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useCanvas, useSize } from '../lib/canvas.ts'
 import { useApp, useFiltered, useLimits, useScale } from '../store.ts'
 import { alpha, font, INK, INK_3, PAPER, SHEET } from '../theme.ts'
-import { formatSpan, formatYear, makeAxis, PRESENT, ticks } from '../time.ts'
+import { formatSpan, formatYear, log, makeAxis, PRESENT, ticks } from '../time.ts'
 
 const STARTS: { name: string; t: number | null }[] = [
   { name: 'All', t: null },
@@ -22,7 +22,10 @@ const SWEEP = 24
  * drag an end to resize it, or press play to sweep forward from its start.
  */
 export function TimeBar() {
-  const scale = useScale()
+  const chosen = useScale()
+  // On a calendar almost all of the data sits in the last sliver of the strip, where it cannot be
+  // picked out. The strip is for finding one's way, so it falls back to the logarithm there.
+  const scale = chosen.id === 'calendar' ? log : chosen
   const limits = useLimits()
   const span = useApp((s) => s.window)
   const playing = useApp((s) => s.playing)
@@ -84,14 +87,14 @@ export function TimeBar() {
     const state = useApp.getState()
     const [from, to] = target.current ?? state.window
     target.current = [from, to]
-    const u0 = scale.u(from)
-    const u1 = scale.u(to)
+    const u0 = chosen.u(from)
+    const u1 = chosen.u(to)
     const begun = performance.now()
-    state.setWindow([from, scale.t(u0 + (u1 - u0) * 0.002)])
+    state.setWindow([from, chosen.t(u0 + (u1 - u0) * 0.002)])
     let raf = 0
     const step = (now: number) => {
       const share = Math.min(1, (now - begun) / (SWEEP * 1000))
-      useApp.getState().setWindow([from, scale.t(u0 + (u1 - u0) * Math.max(0.002, share))])
+      useApp.getState().setWindow([from, chosen.t(u0 + (u1 - u0) * Math.max(0.002, share))])
       if (share >= 1) {
         target.current = null
         useApp.getState().setPlaying(false)
@@ -99,7 +102,7 @@ export function TimeBar() {
     }
     raf = requestAnimationFrame(step)
     return () => cancelAnimationFrame(raf)
-  }, [playing, scale])
+  }, [playing, chosen])
 
   const stop = () => {
     const state = useApp.getState()
