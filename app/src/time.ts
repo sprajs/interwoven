@@ -1,0 +1,185 @@
+/**
+ * Time, and the ways of spreading it across a page.
+ *
+ * A moment is a number of years, `t`, where 1 CE is 1 and 1 BCE is 0. A scale turns a moment into
+ * an abstract position `u`; an axis turns a window of time into pixels. Every scale is monotone,
+ * so anything written against `Axis` works with all of them.
+ */
+
+/** The right-hand end of every axis. */
+export const PRESENT = 2026
+
+export type ScaleId = 'calendar' | 'log' | 'people'
+
+export interface TimeScale {
+  id: ScaleId
+  name: string
+  /** One line saying what equal widths mean on this scale. */
+  hint: string
+  u(t: number): number
+  t(u: number): number
+}
+
+export const calendar: TimeScale = {
+  id: 'calendar',
+  name: 'Calendar',
+  hint: 'Every year is the same width',
+  u: (t) => t,
+  t: (u) => u,
+}
+
+/** Years before the present, on a logarithm. The offset keeps the last few decades from stretching without limit. */
+const LOG_OFFSET = 40
+export const log: TimeScale = {
+  id: 'log',
+  name: 'Logarithmic',
+  hint: 'Each step back in time covers ten times as many years',
+  u: (t) => -Math.log10(PRESENT + LOG_OFFSET - t),
+  t: (u) => PRESENT + LOG_OFFSET - 10 ** -u,
+}
+
+/** Person-years lived: every stretch of the axis holds the same amount of human life. */
+export function peopleScale(personYears: [number, number][]): TimeScale {
+  const years = personYears.map((p) => p[0])
+  const totals = personYears.map((p) => p[1])
+  const last = years.length - 1
+  // Past the last estimate, carry on at the final rate.
+  const finalRate = (totals[last]! - totals[last - 1]!) / (years[last]! - years[last - 1]!)
+  const interpolate = (xs: number[], ys: number[], x: number, slopeAfter: number, slopeBefore: number) => {
+    if (x <= xs[0]!) return ys[0]! + (x - xs[0]!) * slopeBefore
+    if (x >= xs[last]!) return ys[last]! + (x - xs[last]!) * slopeAfter
+    let lo = 0
+    let hi = last
+    while (hi - lo > 1) {
+      const mid = (lo + hi) >> 1
+      if (xs[mid]! <= x) lo = mid
+      else hi = mid
+    }
+    return ys[lo]! + ((x - xs[lo]!) / (xs[hi]! - xs[lo]!)) * (ys[hi]! - ys[lo]!)
+  }
+  const firstRate = (totals[1]! - totals[0]!) / (years[1]! - years[0]!)
+  return {
+    id: 'people',
+    name: 'By people alive',
+    hint: 'Every stretch holds the same number of human lifetimes',
+    u: (t) => interpolate(years, totals, t, finalRate, firstRate),
+    t: (u) => interpolate(totals, years, u, 1 / finalRate, 1 / firstRate),
+  }
+}
+
+export interface Axis {
+  scale: TimeScale
+  t0: number
+  t1: number
+  x0: number
+  x1: number
+  x(t: number): number
+  t(x: number): number
+}
+
+export function makeAxis(scale: TimeScale, t0: number, t1: number, x0: number, x1: number): Axis {
+  const u0 = scale.u(t0)
+  const span = scale.u(t1) - u0 || 1
+  return {
+    scale,
+    t0,
+    t1,
+    x0,
+    x1,
+    x: (t) => x0 + ((scale.u(t) - u0) / span) * (x1 - x0),
+    t: (x) => scale.t(u0 + ((x - x0) / (x1 - x0)) * span),
+  }
+}
+
+/** Zoom a window of time about a moment, keeping that moment where it is on the page. */
+export function zoomWindow(scale: TimeScale, [t0, t1]: [number, number], about: number, factor: number, limits: [number, number]): [number, number] {
+  const u0 = scale.u(t0)
+  const u1 = scale.u(t1)
+  const ua = scale.u(about)
+  const lo = scale.u(limits[0])
+  const hi = scale.u(limits[1])
+  let n0 = ua - (ua - u0) * factor
+  let n1 = ua + (u1 - ua) * factor
+  const least = (hi - lo) / 4000
+  if (n1 - n0 < least) return [t0, t1]
+  n0 = Math.max(lo, n0)
+  n1 = Math.min(hi, n1)
+  return [scale.t(n0), scale.t(n1)]
+}
+
+/** Slide a window of time by a share of its own width, stopping at the limits. */
+export function panWindow(scale: TimeScale, [t0, t1]: [number, number], share: number, limits: [number, number]): [number, number] {
+  const u0 = scale.u(t0)
+  const u1 = scale.u(t1)
+  let shift = (u1 - u0) * share
+  shift = Math.max(scale.u(limits[0]) - u0, Math.min(scale.u(limits[1]) - u1, shift))
+  return [scale.t(u0 + shift), scale.t(u1 + shift)]
+}
+
+/** The calendar year a moment falls in, with no year 0. */
+export function yearOf(t: number): number {
+  const whole = Math.floor(t)
+  return whole <= 0 ? whole - 1 : whole
+}
+
+const group = (n: number) => (n < 10000 ? String(n) : groupAll(n))
+const groupAll = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
+/** A year as a reader would write it: 1850, 500 CE, 3000 BCE, 190 000 BCE. */
+export function formatYear(t: number, round = 1): string {
+  let year = yearOf(t)
+  if (round > 1) year = Math.round(year / round) * round || 1
+  if (year < 0) return `${group(-year)} BCE`
+  return year < 1000 ? `${year} CE` : String(year)
+}
+
+/** A span of years in words: "40 years", "2 centuries", "12 000 years". */
+export function formatSpan(years: number): string {
+  if (years < 1.5) return '1 year'
+  if (years < 100) return `${Math.round(years)} years`
+  if (years < 1000) return `${Math.round(years / 10) * 10} years`
+  return `${group(Math.round(years / 100) * 100)} years`
+}
+
+export interface Tick {
+  t: number
+  x: number
+  label: string
+  /** 0 for the coarsest ticks placed, rising as they get finer. */
+  level: number
+}
+
+const STEPS = [100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+
+/**
+ * Round years across an axis, as many as fit. Coarse years are placed first and finer ones fill
+ * whatever room is left, so a stretched part of a curved scale gets finer ticks than a squeezed one.
+ */
+export function ticks(axis: Axis, minGap = 72): Tick[] {
+  const out: Tick[] = []
+  const taken = new Map<number, number[]>()
+  const free = (x: number) => {
+    const cell = Math.floor(x / minGap)
+    for (const c of [cell - 1, cell, cell + 1]) for (const other of taken.get(c) ?? []) if (Math.abs(other - x) < minGap) return false
+    return true
+  }
+  const y0 = yearOf(axis.t0)
+  const y1 = yearOf(axis.t1)
+  let level = 0
+  for (const step of STEPS) {
+    if ((y1 - y0) / step > 3000) break
+    let placed = false
+    for (let year = Math.ceil(y0 / step) * step; year <= y1; year += step) {
+      // There is no year 0: the tick between the eras sits at 1 CE.
+      const t = year < 0 ? year + 1 : year === 0 ? 1 : year
+      const x = axis.x(t)
+      if (x < axis.x0 - 0.5 || x > axis.x1 + 0.5 || !free(x)) continue
+      const cell = Math.floor(x / minGap)
+      taken.set(cell, [...(taken.get(cell) ?? []), x])
+      out.push({ t, x, label: formatYear(t), level })
+      placed = true
+    }
+    if (placed) level += 1
+  }
+  return out.sort((a, b) => a.x - b.x)
+}
