@@ -44,7 +44,7 @@ const GAP = 16
 const POPULATION = 130
 const POPULATION_HEAD = 24
 /** Clear paper under the charts for the caption. */
-const FOOT = 34
+const FOOT = 42
 const PER_BILLION = 1e9
 
 interface Bin {
@@ -110,7 +110,8 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
   // Regional rates need a population for the region, which "no place yet" does not have.
   const categories = lines ? all.filter((c) => population.person_years[c.id]) : all
   const indexOf = new Map(categories.map((c, i) => [c.id, i]))
-  const n = Math.max(1, Math.round((axis.x1 - axis.x0) / BIN))
+  // A rate for one region rests on few discoveries, so its points cover wider stretches than a bar does.
+  const n = Math.max(1, Math.round((axis.x1 - axis.x0) / (lines ? BIN * 2.5 : BIN)))
   const { scale } = axis
   const u0 = scale.u(axis.t0)
   const du = (scale.u(axis.t1) - u0) / n

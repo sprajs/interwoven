@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { sharedWith, type Entry } from '../data/model.ts'
 import type { Basis, Evidence, Link } from '../data/types.ts'
-import { plural, words } from '../lib/text.ts'
+import { dateLabel, plural, words } from '../lib/text.ts'
 import { useApp, useModel } from '../store.ts'
 
 /** Facets a record can have that are shown in the fact list, in reading order. */
@@ -63,7 +63,8 @@ export function Detail({ entry }: { entry: Entry }) {
     entry.research.unresolved?.forEach((u) => add(u.evidence))
     return [...ids].map((id) => ({ id, ...bundle.sources[id]! })).filter((s) => s.title)
   }, [entry, links, bundle])
-  const missing = bundle.facets.filter((f) => FACET_NAMES[f] && !basis[f])
+  // A link is held by the later discovery, so an earlier one can have links and no basis for them.
+  const missing = bundle.facets.filter((f) => FACET_NAMES[f] && !basis[f] && !(f === 'links' && stated.length > 0))
   const place = entry.at ? bundle.places[entry.at.place] : undefined
   const country = place?.within ? bundle.places[place.within] : undefined
 
@@ -134,7 +135,7 @@ export function Detail({ entry }: { entry: Entry }) {
         </button>
       </div>
       <p className="dateline">
-        <strong>{entry.date?.label ?? 'No date established'}</strong>
+        <strong>{entry.date ? dateLabel(entry.date.label) : 'No date established'}</strong>
         {place && ` · ${place.name}${country && country.id !== place.id ? `, ${country.name}` : ''}`}
         {` · ${words(entry.kind)}`}
       </p>
@@ -170,7 +171,7 @@ export function Detail({ entry }: { entry: Entry }) {
         {entry.events.map((event) => (
           <li key={event.id}>
             <time>
-              {event.label}
+              {dateLabel(event.label)}
               <span className="type">{words(event.type)}</span>
             </time>
             <p>

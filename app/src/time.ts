@@ -166,8 +166,12 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
   const y0 = yearOf(axis.t0)
   const y1 = yearOf(axis.t1)
   let level = 0
+  let coarser = 0
   for (const step of STEPS) {
     if ((y1 - y0) / step > 3000) break
+    // Each finer step must divide the one before it, so ticks never fall at uneven intervals
+    // such as 1700, 1720, 1750.
+    if (coarser && coarser % step !== 0) continue
     let placed = false
     for (let year = Math.ceil(y0 / step) * step; year <= y1; year += step) {
       // There is no year 0: the tick between the eras sits at 1 CE.
@@ -179,7 +183,10 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
       out.push({ t, x, label: formatYear(t), level })
       placed = true
     }
-    if (placed) level += 1
+    if (placed) {
+      level += 1
+      coarser = step
+    }
   }
   return out.sort((a, b) => a.x - b.x)
 }
