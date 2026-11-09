@@ -82,6 +82,16 @@ Historical acceptance is scoped to the recorded propositions and inspected passa
 
 Sources distinguish retained originals, mapped excerpts, attributed partial research notes and external-only access. Selected PDF excerpts retain original-document hashes and explicit page mappings. A blocked download or metadata-only representation is never described as a captured original.
 
+## Evidence storage
+
+Keep canonical JSONL, reviews, source metadata and small text captures in ordinary Git. Selected binary acquisition snapshots use Git LFS, with explicit paths in the repository's `.gitattributes`. Evidence files disable Git line-ending conversion so their hashes also survive checkout on other platforms. Install Git LFS on every machine, then run `git lfs install --local` and `git lfs pull` from the repository root before verifying or extracting evidence. `git lfs fsck` checks the local LFS objects.
+
+The 2026-11-09 storage commit preserves 120 acquisition files in their original paths: 117 already have hashes in `handovers/self-audit/comparison-inputs.json`; the three additional captures are catalogued in `reviews/evidence-storage-2026-11-09.json`. Preservation does not approve their historical claims. The additional captures include bibliographic metadata, an unreviewed excerpt and a failed web-access page; the failed page is retained only as an acquisition record. Existing canonical source representations and hashes remain authoritative.
+
+For another binary snapshot, run `git lfs track --filename research/science-technology-graph/evidence/acquired/NAME.pdf` from the repository root, then stage `.gitattributes` and that file together. Use explicit paths so adding a snapshot does not change the storage of existing evidence. Record its source, representation, inspected limits and SHA-256 in the appropriate source or acquisition record. Do not replace an evidenced excerpt with a full download under the same identity without documenting the change.
+
+This adds LFS prospectively. Earlier evidence remains in ordinary Git, and published history is preserved. LFS storage and downloads count against the GitHub repository owner's allowance; no billing settings are changed. Temporary extraction output, failed retries with no provenance value, build output and reproducible caches belong in ignored working directories. Large future simulation outputs should have a separate storage decision and a committed configuration and checksum manifest rather than entering this evidence collection by default.
+
 ## Kind, relation and consequence boundaries
 
 Kinds describe the referent: `science` is empirical knowledge or explanation;

@@ -1,0 +1,1960 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UH Electrical & Computer Engineering</title>
+<link rel="stylesheet" href="/public/includes/bootstrap/4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/public/css/main/main.css">
+<link rel="stylesheet" href="/public/css/main/collapse.css">
+<link rel="stylesheet" href="/public/css/main/responsive.css">
+<link rel="stylesheet" href="/public/css/main/style.css">
+<link rel="stylesheet" href="/public/css/main/yamm.css">
+<link rel="stylesheet" href="/public/includes/font-awesome-4.7.0/css/font-awesome.min.css"/>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+<link rel="shortcut icon" href="/gfx/EE.ico">
+
+<script>
+function bodyonload(){
+  document.body.innerHTML = document.body.innerHTML.replace(/(?!Hawaiian)Hawaii|Hawai[?]i|Hawai[']i/g, 'Hawai&#699i');
+  document.body.innerHTML = document.body.innerHTML.replace(/Manoa|M[?]noa/g, 'M&#257noa');
+};
+</script>
+</head>
+<body onload="bodyonload()" >
+  <a href="#content" class="skip-to-content" role="navigation">Skip to Main Content</a>
+  <div id="page-container">
+<script type="text/javascript" src="https://ece.hawaii.edu/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="https://ece.hawaii.edu/public/js/popper-1.14.3.min.js"></script> -->
+<script type="text/javascript" src="https://ece.hawaii.edu/public/includes/bootstrap/4.1/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/public/includes/DataTables/datatables.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        if ($('#navbar-toggler').is(':visible')) {
+            mobile_init();
+        } else {
+            desktop_init();
+        }
+        if (window.location.hash.substr(1) != "") {
+            $('#' + window.location.hash.substr(1)).find('div.collapse').addClass('show');
+        }
+    });
+    //Handle click event
+    $(document).on("click", function(e) {
+        if (parseInt($('nav.navbar').css('width'), 10) >= parseInt('750px', 10)) {
+            $('.submenu-toggle').removeClass('rotate-180');
+            $('.submenu').css({
+                'display': 'none',
+                'display': '',
+                'display': ''
+            });
+        }
+    });
+
+    $(window).on("load", function() {
+        UpdateTitle()
+        handleNavCollapse();
+        toggleNavSubMenu();
+        render_scrollToTop();
+    });
+    $(window).on("resize", function(e) {
+        closeNavToggler();
+    });
+
+    function UpdateTitle() {
+        document.title = $('.page-title').text() + " | UH Electrical & Computer Engineering";
+    }
+
+    function closeNavToggler() {
+        if (parseInt($('nav.navbar').css('width'), 10) >= parseInt('768px', 10)) {
+            if (!$('#navbar-toggler').hasClass('collapsed')) {
+                $('#navbar-toggler').trigger('click');
+            }
+        }
+    }
+
+    function closeResizedNavSubMenu() {
+        if (parseInt($('nav.navbar').css('width'), 10) < parseInt('750px', 10)) {
+            $('.submenu-toggle').removeClass('rotate-180');
+            $('.submenu').css({
+                'display': 'none'
+            });
+        } else if (parseInt($('nav.navbar').css('width'), 10) >= parseInt('750px', 10)) {
+            $('.submenu').css({
+                'display': 'none',
+                'display': '',
+                'display': ''
+            });
+        }
+    }
+
+    function handleNavCollapse() {
+        $('#navbarResponsive').on("show.bs.collapse", function() {
+            $('nav.navbar').css('height', '100vh');
+            $('body').css('background-color', '#024731');
+            $('#body-container').hide();
+        });
+        $('#navbarResponsive').on("hide.bs.collapse", function() {
+            $('nav.navbar').css('height', 'auto');
+            $('body').css('background-color', 'white');
+            $('#body-container').fadeIn();
+        });
+    }
+
+    function toggleNavSubMenu() {
+
+        $('.submenu-toggle.first').on("click", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if ($(this).siblings('.submenu.first').is(':hidden')) { //open submenu
+                $('.submenu-toggle.first').removeClass('rotate-180');
+                $('.submenu.first').css({
+                    'display': 'none'
+                })
+                $(this).siblings('.submenu.first').slideDown();
+                $(this).addClass('rotate-180');
+            } else { //close submenu
+                $(this).siblings('.submenu.first').slideUp();
+                $(this).removeClass('rotate-180');
+            }
+        });
+        $('.submenu-toggle.second').on("click", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if ($(this).siblings('.submenu.second').is(':hidden')) { //open submenu
+                console.log("toggleNavSubMenu() | open submenu...2");
+
+                $(this).siblings('.submenu.second').slideDown();
+                $(this).addClass('rotate-180');
+            } else { //close submenu
+                console.log("toggleNavSubMenu() | close submenu...2");
+                $(this).siblings('.submenu.second').slideUp();
+                $(this).removeClass('rotate-180');
+            }
+        });
+        $('.submenu-toggle.third').on("click", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if ($(this).siblings('.submenu.third').is(':hidden')) { //open submenu      
+                $(this).siblings('.submenu.third').slideDown();
+                $(this).addClass('rotate-180');
+            } else { //close submenu
+                console.log("toggleNavSubMenu() | close submenu...2");
+                $(this).siblings('.submenu.third').slideUp();
+                $(this).removeClass('rotate-180');
+            }
+        });
+    }
+
+    // hide footer menu when navbar toggler is open -->
+    function hideFooterMenu() {
+        console.log("hideFooterMenu()")
+        if ($('#navbar-toggler').hasClass('collapsed')) {
+            $('.page-footer').hide();
+        } else {
+            $('.page-footer').show();
+        }
+    }
+
+    // ~~~~~~~~~~~~~~~~~ DEFAULT FUNCTIONS BELOW ~~~~~~~~~~~~~~~~~~~~~
+
+    // init function
+    function mobile_init() {
+        $('.submenu').hide();
+        $('.yamm-grid').attr('class', 'yamm-grid col-xs');
+        $('.dropdown').off();
+    }
+
+    function desktop_init() {
+        $('.yamm-grid').attr('class', 'yamm-grid row mx-auto');
+    }
+
+    function render_scrollToTop() {
+        var duration = 300;
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 0) {
+                $('.back-to-top').fadeIn(duration);
+            } else {
+                $('.back-to-top').fadeOut(duration);
+            }
+        });
+        $('.back-to-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, duration);
+            return false;
+        });
+    }
+
+    function wrapText(splitText, textLimit) {
+        returnText = ''
+        while (splitText.length > 0) {
+            tmpText = ''
+            while (((tmpText + splitText[0]).length) <= textLimit && splitText.length > 0) {
+                tmpText += splitText.shift() + ' ';
+            }
+            if (splitText.length > 0) {
+                returnText += tmpText + '<br/>';
+            } else {
+                returnText += tmpText;
+            }
+        }
+        return returnText;
+    }
+</script>
+
+</body>
+
+</html>
+
+<header id="topbanner" style="">
+  <div id="new_logo_container" class="" style="">
+    <div id="logo_COE"><a class="logo_link" href="https://www.eng.hawaii.edu/"><img src="/gfx/navbar/Logo_COE_border.svg" alt="College Home Page" class="new-img-responsive" /></a></div>
+    <div id="logo_EE"><a class="logo_link" href="/"><img src="/gfx/navbar/Logo_ECE.svg" alt="E C E Home Page" class="new-img-responsive" /></a></div>
+  </div>
+  <!-- Navigation -->
+  <!-- DEBUG: maybe add smart scroll -->
+  <nav class="navbar smart-scroll yamm navbar-expand-md navbar-dark" role="navigation" aria-label="Top Navigation">
+    <div id="new_mobile_logo"><a class="logo_link col-10" href="/"><img src="/gfx/navbar/Logo_ECE_white.svg" alt="EE Logo" border="0" class="img-responsive" /></a></div>
+    <button id="navbar-toggler" class="navbar-toggler collapsed ml-auto col-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onClick="this.blur(); hideFooterMenu();">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button>
+    <div id="menuContainer" class="container">
+
+      <div class="navbar-collapse collapse" id="navbarResponsive">
+        <ul id="main-dropdown-menu" class="navbar-nav" role="none">
+            <li class="top-nav-item nav-item dropdown yamm active" role="none">
+    <a href="/home/page?pag=19" class="nav-link menu-link dropdown-toggle" aria-haspopup="false" role="listitem" aria-expanded="false">
+      <span>About</span>    </a>
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu <span>About</span>">
+      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+    <ul class="dropdown-menu submenu first" role="menu">
+      <li role="none">
+        <div class="yamm-content submenu-accent ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/home/page?pag=2" role="listitem">
+                    <h6 style="">EE & CENG</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /home/page?pag=19' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/home/page?pag=4" role="listitem">
+                    <h6 style="">Mission Statement</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /home/page?pag=19' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/home/page?pag=5" role="listitem">
+                    <h6 style="">Objectives & Outcomes</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /home/page?pag=19' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/home/page?pag=21" role="listitem">
+                    <h6 style="">ALOHAnet</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /home/page?pag=19' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/home/page?pag=6" role="listitem">
+                    <h6 style="">Contact Us</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /home/page?pag=19' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/home/page?pag=25" role="listitem">
+                    <h6 style="">Giving</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /home/page?pag=19' );</script> -->
+              </ul>
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+            <li class="top-nav-item nav-item dropdown yamm ">
+    <a href="/student/undergrad" class="nav-link menu-link dropdown-toggle">
+      <span>Undergraduate</span>    </a>
+
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+      <icon class="fa fa-angle-down" aria-hidden style="background-color: 0; vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+
+    <div class="arrow-up-container"><span class="arrow-up"></span></div> <!-- can delete?? -->
+
+    <ul class="dropdown-menu submenu first" role="menu" style="">
+      <li class="submenu-accent ">
+        <div class="yamm-content ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad#Prospective-Students" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Prospective Students                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Prospective Students">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/admission-information" style="display:inline-block;">
+                                      <h6 class="" style="">Admission Information</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/tuition-information" style="display:inline-block;">
+                                      <h6 class="" style="">Tuition Information</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad#Current-Students" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Current Students                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Current Students">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+
+                                  <li class="nav-item dropdown yamm" style="padding-right:0px;">
+
+                                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad/degree-requirements" style="display:inline-block;">
+                                      <h6 class="" style="">Degree Requirements</h6>
+                                    </a>
+
+                                    <button class="submenu-toggle third" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+                                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style=" vertical-align: top; font-size:xx-large;"></icon>
+                                    </button>
+
+                                    <ul class="dropdown-menu submenu third nav-submenu submenu-accent " role="menu">
+                                      <li class="nav-submenu-li" style="position: relative !important;">
+                                        <div class="yamm-content yamm-submenu">
+                                          <div class="yamm-grid-row" style="text-align: left;">
+
+
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/electrical-engineering" style="display:inline-block;">
+                                                    <h6 class="" style="">Electrical Engineering</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/computer-engineering" style="display:inline-block;">
+                                                    <h6 class="" style="">Computer Engineering</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/bam-bs-ms" target="_blank" rel="noopener noreferrer"" style="display:inline-block;">
+                                                    <h6 class="" style="">BAM (BS & MS)</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/concentrations" style="display:inline-block;">
+                                                    <h6 class="" style="">Concentrations</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+
+                                  </li>
+
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+
+                                  <li class="nav-item dropdown yamm" style="padding-right:0px;">
+
+                                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad/courses" style="display:inline-block;">
+                                      <h6 class="" style="">Courses</h6>
+                                    </a>
+
+                                    <button class="submenu-toggle third" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+                                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style=" vertical-align: top; font-size:xx-large;"></icon>
+                                    </button>
+
+                                    <ul class="dropdown-menu submenu third nav-submenu submenu-accent " role="menu">
+                                      <li class="nav-submenu-li" style="position: relative !important;">
+                                        <div class="yamm-content yamm-submenu">
+                                          <div class="yamm-grid-row" style="text-align: left;">
+
+
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/course-descriptions" style="display:inline-block;">
+                                                    <h6 class="" style="">Course Descriptions</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/course-syllabi" style="display:inline-block;">
+                                                    <h6 class="" style="">Course Syllabi</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/class-schedules" style="display:inline-block;">
+                                                    <h6 class="" style="">Class Schedules</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/planned-offerings" style="display:inline-block;">
+                                                    <h6 class="" style="">Planned Offerings</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/ee-technical-electives" style="display:inline-block;">
+                                                    <h6 class="" style="">EE Technical Electives</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/ceng-technical-electives" style="display:inline-block;">
+                                                    <h6 class="" style="">CENG Technical Electives</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/engineering-breadth" style="display:inline-block;">
+                                                    <h6 class="" style="">Engineering Breadth</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/events/catalog/Special-Courses?ect=12" target="_blank" rel="noopener noreferrer"" style="display:inline-block;">
+                                                    <h6 class="" style="">Highlighted Courses</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+
+                                  </li>
+
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+
+                                  <li class="nav-item dropdown yamm" style="padding-right:0px;">
+
+                                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad/x96-projects" style="display:inline-block;">
+                                      <h6 class="" style="">x96 Projects</h6>
+                                    </a>
+
+                                    <button class="submenu-toggle third" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+                                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style=" vertical-align: top; font-size:xx-large;"></icon>
+                                    </button>
+
+                                    <ul class="dropdown-menu submenu third nav-submenu submenu-accent " role="menu">
+                                      <li class="nav-submenu-li" style="position: relative !important;">
+                                        <div class="yamm-content yamm-submenu">
+                                          <div class="yamm-grid-row" style="text-align: left;">
+
+
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/project?pco=1" style="display:inline-block;">
+                                                    <h6 class="" style="">ECE 296</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/project?pco=2" style="display:inline-block;">
+                                                    <h6 class="" style="">ECE 396</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/project?pco=3" style="display:inline-block;">
+                                                    <h6 class="" style="">ECE 496</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/instructions-for-ece-496" style="display:inline-block;">
+                                                    <h6 class="" style="">Instructions for ECE 496</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+
+                                  </li>
+
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/advising" style="display:inline-block;">
+                                      <h6 class="" style="">Advising</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/ta-office-hours" style="display:inline-block;">
+                                      <h6 class="" style="">TA Office Hours</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/undergrad/forms" style="display:inline-block;">
+                                      <h6 class="" style="">Forms</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad/scholarships-financial-aid" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Scholarships & Financial Aid                      </h6>
+                    </a>
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/undergrad/assistantship-opportunities" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Assistantship Opportunities                      </h6>
+                    </a>
+
+                  
+                </li>
+              </ul>
+
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+            <li class="top-nav-item nav-item dropdown yamm ">
+    <a href="/student/graduate" class="nav-link menu-link dropdown-toggle">
+      <span>Graduate</span>    </a>
+
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+      <icon class="fa fa-angle-down" aria-hidden style="background-color: 0; vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+
+    <div class="arrow-up-container"><span class="arrow-up"></span></div> <!-- can delete?? -->
+
+    <ul class="dropdown-menu submenu first" role="menu" style="">
+      <li class="submenu-accent ">
+        <div class="yamm-content ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/graduate#Prospective-Students" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Prospective Students                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Prospective Students">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/how-to-apply" style="display:inline-block;">
+                                      <h6 class="" style="">How to Apply</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/tuition-information" style="display:inline-block;">
+                                      <h6 class="" style="">Tuition Information</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/admitted-students" style="display:inline-block;">
+                                      <h6 class="" style="">Admitted Students</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/local-information" style="display:inline-block;">
+                                      <h6 class="" style="">Local Information</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/graduate#Current-Students" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Current Students                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Current Students">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+
+                                  <li class="nav-item dropdown yamm" style="padding-right:0px;">
+
+                                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/graduate/degree-requirements" style="display:inline-block;">
+                                      <h6 class="" style="">Degree Requirements</h6>
+                                    </a>
+
+                                    <button class="submenu-toggle third" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+                                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style=" vertical-align: top; font-size:xx-large;"></icon>
+                                    </button>
+
+                                    <ul class="dropdown-menu submenu third nav-submenu submenu-accent " role="menu">
+                                      <li class="nav-submenu-li" style="position: relative !important;">
+                                        <div class="yamm-content yamm-submenu">
+                                          <div class="yamm-grid-row" style="text-align: left;">
+
+
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/masters-degree-1" style="display:inline-block;">
+                                                    <h6 class="" style="">Master's Degree</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/doctoral-degree" style="display:inline-block;">
+                                                    <h6 class="" style="">Doctoral Degree</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/bam-bs-ms" style="display:inline-block;">
+                                                    <h6 class="" style="">BAM (BS & MS)</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+
+                                  </li>
+
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+
+                                  <li class="nav-item dropdown yamm" style="padding-right:0px;">
+
+                                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/graduate/courses-1" style="display:inline-block;">
+                                      <h6 class="" style="">Courses</h6>
+                                    </a>
+
+                                    <button class="submenu-toggle third" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+                                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style=" vertical-align: top; font-size:xx-large;"></icon>
+                                    </button>
+
+                                    <ul class="dropdown-menu submenu third nav-submenu submenu-accent " role="menu">
+                                      <li class="nav-submenu-li" style="position: relative !important;">
+                                        <div class="yamm-content yamm-submenu">
+                                          <div class="yamm-grid-row" style="text-align: left;">
+
+
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/course-descriptions" style="display:inline-block;">
+                                                    <h6 class="" style="">Course Descriptions</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/course-syllabi" style="display:inline-block;">
+                                                    <h6 class="" style="">Course Syllabi</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                              
+                                              
+
+                                              <ul class="list-unstyled mr-auto nav-submenu-item" style="">
+                                                <li class="nav-submenu-li" style="margin-top:8px; ">
+                                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/class-schedules" style="display:inline-block;">
+                                                    <h6 class="" style="">Class Schedules</h6>
+                                                  </a>
+                                                </li>
+                                              </ul>
+
+                                            
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+
+                                  </li>
+
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/ta-responsibilities" style="display:inline-block;">
+                                      <h6 class="" style="">TA Responsibilities</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/student-rights" style="display:inline-block;">
+                                      <h6 class="" style="">Student Rights</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate/forms" style="display:inline-block;">
+                                      <h6 class="" style="">Forms</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+                              
+                              
+                              
+                                <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                  <li style="">
+                                    <a style="content:none;" class="dropdown-header nav-submenu-link" href="/student/graduate?stp=15" style="display:inline-block;">
+                                      <h6 class="" style="">Seminar Policy</h6>
+                                    </a>
+                                  </li>
+                                </ul>
+
+                              
+
+                            
+
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/graduate/scholarships-financial-aid" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Scholarships & Financial Aid                      </h6>
+                    </a>
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/student/graduate/assistantship-opportunities" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Assistantship Opportunities                      </h6>
+                    </a>
+
+                  
+                </li>
+              </ul>
+
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+            <li class="top-nav-item nav-item dropdown yamm ">
+    <a href="/research" class="nav-link menu-link dropdown-toggle">
+      <span>Research</span>    </a>
+
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();">
+      <icon class="fa fa-angle-down" aria-hidden style="background-color: 0; vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+
+    <div class="arrow-up-container"><span class="arrow-up"></span></div> <!-- can delete?? -->
+
+    <ul class="dropdown-menu submenu first" role="menu" style="">
+      <li class="submenu-accent ">
+        <div class="yamm-content ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/research/catalog/biomedical-engineering" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Biomedical Engineering                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Biomedical Engineering">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/biomedical-engineering/groups-projects" style="display:inline-block;">
+                                    <h6 class="" style="">Groups & Projects</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/biomedical-engineering/related-graduate-courses" style="display:inline-block;">
+                                    <h6 class="" style="">Related Graduate Courses</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/research/catalog/computer-engineering" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Computer Engineering                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Computer Engineering">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/computer-engineering/groups-projects" style="display:inline-block;">
+                                    <h6 class="" style="">Groups & Projects</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/computer-engineering/related-graduate-courses" style="display:inline-block;">
+                                    <h6 class="" style="">Related Graduate Courses</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/research/catalog/electrophysics" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Electrophysics                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Electrophysics">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/electrophysics/groups-projects" style="display:inline-block;">
+                                    <h6 class="" style="">Groups & Projects</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/electrophysics/related-graduate-courses" style="display:inline-block;">
+                                    <h6 class="" style="">Related Graduate Courses</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/research/catalog/power-energy" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Power & Energy                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Power & Energy">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/power-energy/groups-projects" style="display:inline-block;">
+                                    <h6 class="" style="">Groups & Projects</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/power-energy/related-graduate-courses" style="display:inline-block;">
+                                    <h6 class="" style="">Related Graduate Courses </h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+              
+              
+              <ul class="list-unstyled mr-auto ">
+                <li class="nav-item dropdown yamm nav-submenu-li " style="">
+
+                  
+                    <!-- MARK 1 -->
+                    <a class="dropdown-header nav-submenu-link" aria-haspopup="true" aria-expanded="true" href="/research/catalog/systems-data-science" style="display:inline-block;">
+                      <h6 class="" style="">
+                        Systems & Data Science                      </h6>
+                    </a>
+
+
+                    <!-- <span class="submenu-toggle second"><icon class="fa fa-angle-down" onClick="console.log('here')" aria-hidden style="vertical-align: top; font-size:xx-large; "></icon></span> -->
+                    <button class="submenu-toggle second" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu Systems & Data Science">
+                      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+                    </button>
+
+                    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+
+                    <ul class="dropdown-menu submenu second nav-submenu submenu-accent " role="menu">
+                      <li class="nav-item dropdown yamm nav-submenu-li " style="">
+                        <div class="yamm-content yamm-submenu">
+                          <div class="yamm-grid-row" style="text-align: left;">
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/systems-data-science/groups-projects" style="display:inline-block;">
+                                    <h6 class="" style="">Groups & Projects</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                              
+                              
+                              <ul class="list-unstyled mr-auto nav-submenu-item default-case" style=" display:inline-block;">
+                                <li style="">
+                                  <a style="content:none;" class="dropdown-header nav-submenu-link" href="/research/catalog/systems-data-science/related-graduate-courses" style="display:inline-block;">
+                                    <h6 class="" style="">Related Graduate Courses</h6>
+                                  </a>
+                                </li>
+                              </ul>
+
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+
+                  
+                </li>
+              </ul>
+
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+            <li class="top-nav-item nav-item dropdown yamm " role="none">
+    <a href="/faculty" class="nav-link menu-link dropdown-toggle" aria-haspopup="false" role="listitem" aria-expanded="false">
+      <span>People</span>    </a>
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu <span>People</span>">
+      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+    <ul class="dropdown-menu submenu first" role="menu">
+      <li role="none">
+        <div class="yamm-content submenu-accent ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/faculty/track?utr=2" role="listitem">
+                    <h6 style=""> Computer Engineering</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /faculty' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/faculty/track?utr=3" role="listitem">
+                    <h6 style=""> Electrophysics</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /faculty' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/faculty/track?utr=1" role="listitem">
+                    <h6 style="">Systems & Data Science</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /faculty' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/faculty/track?utr=9" role="listitem">
+                    <h6 style="">Affiliate / Cooperating</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /faculty' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/faculty/track?utr=4" role="listitem">
+                    <h6 style="">Staff</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /faculty' );</script> -->
+              </ul>
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+            <li class="top-nav-item nav-item dropdown yamm " role="none">
+    <a href="/events" class="nav-link menu-link dropdown-toggle" aria-haspopup="false" role="listitem" aria-expanded="false">
+      <span>News&nbsp;&amp;&nbsp;Events</span>    </a>
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu <span>News&nbsp;&amp;&nbsp;Events</span>">
+      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+    <ul class="dropdown-menu submenu first" role="menu">
+      <li role="none">
+        <div class="yamm-content submenu-accent ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events/news" role="listitem">
+                    <h6 style="">Latest News</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=8" role="listitem">
+                    <h6 style="">ECE Seminars</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=2" role="listitem">
+                    <h6 style="">Theses and Dissertations</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=11" role="listitem">
+                    <h6 style="">Undergraduate Presentations</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=10" role="listitem">
+                    <h6 style="">Affiliate Events</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=6" role="listitem">
+                    <h6 style="">Conferences</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=4" role="listitem">
+                    <h6 style="">Alumni Events</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=9" role="listitem">
+                    <h6 style="">Outstanding Graduating Seniors</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+                          <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/events?ect=12" role="listitem">
+                    <h6 style="">Highlighted Courses</h6>
+                  </a>
+                </li>
+                <!-- <script>console.log('Debug Objects: /events' );</script> -->
+              </ul>
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+          
+  <li class="top-nav-item nav-item dropdown yamm " role="none">
+    <a href="/resources" class="nav-link menu-link dropdown-toggle" aria-haspopup="false" role="listitem" aria-expanded="false">
+      <span>Resources</span>    </a>
+    <button class="submenu-toggle first" style="float:right; background: 0; border:0; color:white; " onclick="this.blur();" label="Toggle dropdown menu <span>Resources</span>">
+      <icon class="fa fa-angle-down" onClick="console.log('now here')" aria-hidden style="vertical-align: top; font-size:xx-large;"></icon>
+    </button>
+    <div class="arrow-up-container"><span class="arrow-up"></span></div>
+    <ul class="dropdown-menu submenu first" role="menu">
+      <li role="none">
+        <div class="yamm-content submenu-accent ">
+          <div class="yamm-grid-row" style="text-align: left;">
+
+            
+              <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/resources?rsc=4" role="listitem">
+                    <h6 style="">
+                      Student Organizations</h6>
+                  </a>
+                </li>
+              </ul>
+            
+              <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/resources?rsc=5" role="listitem">
+                    <h6 style="">
+                      Computer Information</h6>
+                  </a>
+                </li>
+              </ul>
+            
+              <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/resources?rsc=6" role="listitem">
+                    <h6 style="">
+                      Career Opportunities</h6>
+                  </a>
+                </li>
+              </ul>
+            
+              <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="http://manoa.hawaii.edu/students/" target="_blank" rel="noopener noreferrer"" role="listitem">
+                    <h6 style="">
+                      University Resources</h6>
+                  </a>
+                </li>
+              </ul>
+            
+              <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/resources?rsc=11" role="listitem">
+                    <h6 style="">
+                      Faculty Recruiting</h6>
+                  </a>
+                </li>
+              </ul>
+            
+              <ul class="list-unstyled mr-auto" role="none">
+                <li role="none">
+                  <a class="dropdown-header radio-1" href="/admin" target="_blank" rel="noopener noreferrer"" role="listitem">
+                    <h6 style="">
+                      Faculty Web Console</h6>
+                  </a>
+                </li>
+              </ul>
+            
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<!--end top banner-->
+<!--Scroll to top button-->
+<a href="#" class="back-to-top">
+  <span class="fa-stack fa-lg">
+    <icon class="fa fa-circle fa-stack-2x"></icon>
+    <icon class="fa fa-angle-up fa-stack-2x fa-inverse" style="bottom: 0px;font-size: 42px;"></icon>
+  </span>
+
+</a><script type="text/javascript">
+    $(document).ready(function() {
+        homeSidebar();
+    });
+    $(window).on("load", function() {
+        carousel_playPause();
+    });
+    var paused = 0;
+
+    function carousel_playPause() {
+        $('#carouselPlayPauseCtrl').on('click', function(f) {
+            f.stopPropagation();
+            f.preventDefault();
+            var state = (paused) ? 'cycle' : 'pause';
+            paused = (paused) ? 0 : 1;
+            $('#carouselHome').carousel('pause');
+            $(this).children('.PlayPauseIcon').toggleClass('pause');
+        });
+    }
+
+    function homeSidebar() {
+        let elements = document.body.getElementsByClassName("sidebar-header");
+        var found;
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].text.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim() == $('.page-title').text()) {
+                found = elements[i];
+                break;
+            }
+        }
+        if ($(found) !== undefined) {
+            $(found).find('h2').css({
+                'font-weight': 'bold',
+                'color': '#024731'
+            });
+        }
+    }
+</script><div id="body-container" class="container">
+  <div class="main-content-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- ============= Sidebar Content Areass ============= -->
+        <div class="col order-2 order-lg-1 sidebar-wrapper toggled">
+          <div class="sidebar-bar"></div>
+          <nav class="sidebar-menu-nav" id="ssidebar" aria-labelledby="sidenav-heading" role="navigation" >
+            <h1 class="sidebar-title" id="sidenav-heading" ><a href="/home/page?pag=19" style="color: black"><span>About Us</span></a></h1>  <ul class="list-group components sidebar-menu">
+          <li class="btn btn-link">
+        <a class="sidebar-header radio-1" style="text-decoration: none; " href="/home/page?pag=2">
+          <h2 style="">EE & CENG</h2>
+        </a>
+      </li>
+          <li class="btn btn-link">
+        <a class="sidebar-header radio-1" style="text-decoration: none; " href="/home/page?pag=4">
+          <h2 style="">Mission Statement</h2>
+        </a>
+      </li>
+          <li class="btn btn-link">
+        <a class="sidebar-header radio-1" style="text-decoration: none; " href="/home/page?pag=5">
+          <h2 style="">Objectives & Outcomes</h2>
+        </a>
+      </li>
+          <li class="btn btn-link">
+        <a class="sidebar-header radio-1" style="text-decoration: none; " href="/home/page?pag=21">
+          <h2 style="">ALOHAnet</h2>
+        </a>
+      </li>
+          <li class="btn btn-link">
+        <a class="sidebar-header radio-1" style="text-decoration: none; " href="/home/page?pag=6">
+          <h2 style="">Contact Us</h2>
+        </a>
+      </li>
+          <li class="btn btn-link">
+        <a class="sidebar-header radio-1" style="text-decoration: none; " href="/home/page?pag=25">
+          <h2 style="">Giving</h2>
+        </a>
+      </li>
+      </ul>
+          </nav>
+        </div>
+        <!-- ============= Post Content Area ============= -->
+        <div class="col order-1 order-lg-2 content-wrapper">
+          <div class="single-blog-content">
+            <!-- Post Content -->
+            <main class="post-content">
+              <h1 id="content" class="page-title">ALOHAnet</h1>
+              <div style="text-align: left;">There was a time before the internet and cellphones!</div><div><br></div><div>Back in 1968, professors in the Electrical &amp; Computer Engineering department at the University of Hawaii at Manoa, Prof. Norman Abramson Prof. Thomas Gaarder, Prof. Franklin Kuo, Prof. Shu Lin, Prof. Wesley Peterson, and Prof. Edward ("Ned") Weldon, started working on the ALOHA network protocol.</div><div><br></div><div>The goal was to connect users at the Manoa campus on the island of O'ahu with users at other University of Hawaii campuses on other islands using low-cost commercial radio equipment. The first broadcast was made in 1971.</div><div><br></div><div>ALOHAnet is an important part of telecommunication development because it demonstrated the viability of random access protocols. Unlike existing protocols at the time in which users directly communicated to one another to avoid collisions between user traffics, ALOHAnet proposed the wild idea of letting all the client nodes communicate with each other on the same frequency. How then did ALOHAnet avoid user collisions?&nbsp;</div><div><br></div><div>The control mechanism of ALOHAnet was simple: each user would send its data without controlling when it was sent; if there was no traffic, the data got through. If there was traffic, then the user waited a random amount of time before resending. Such a simple control scheme meant a huge decrease in protocol complexity as well as in the cost of networking hardware. The random-access channel was the basis for Ethernet development and later Wi-Fi networks. Later advancements of the ALOHA protocol also appeared in satellite communications and GSM networks.&nbsp;</div><div><br></div><div>Why did they think that such a simple control scheme would work? With math! (<a href="https://en.wikipedia.org/wiki/ALOHAnet" target="_blank">See Wikipedia page for detail</a>.) They showed that the probability of collision on a random-access channel is small enough that the ALOHAnet is an efficient way of transmitting data.</div><div><br></div><div>The College of Engineering at the University of Hawaii at Manoa was presented with an IEEE MILESTONE plaque in October 2020.&nbsp;</div><div><br></div><div style="text-align: center; "><img src="/public/gfx/contents/ALOHAnet-plaque1.jpg" style="width: 512px;"><br></div><div style="text-align: center; "><br></div><div style="text-align: center; "><iframe frameborder="0" src="//www.youtube.com/embed/mM3yd3PxfTI" width="640" height="360" class="note-video-clip"></iframe><br></div>            </main>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div><!--end main-content-wrapper-->
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+  <div id="footer-container" class="row container justify-content-between" style="font-size:16px;">
+
+    <div class="col-12 col-sm-6 col-lg-auto footer-info order-sm-1 order-lg-1" >
+      <address>
+        <strong>Electrical&nbsp;&&nbsp;Computer&nbsp;Engineering</strong>
+        <br>2540&nbsp;Dole&nbsp;Street,&nbsp;Holmes&nbsp;Hall&nbsp;483
+        <br>Honolulu,&nbsp;HI&nbsp;96822&nbsp;USA
+      </address>
+    </div>
+
+
+    <div class="col-12 col-sm-6 col-lg-auto footer-info order-sm-3 row-md-2 order-lg-2" >
+      <address>
+        <icon class="fa fa-envelope standard-icon"></icon>&nbsp;&nbsp;<script type="text/javascript">
+	//<![CDATA[
+	var l=new Array();
+	l[0] = '>';
+	l[1] = 'a';
+	l[2] = '/';
+	l[3] = '<';
+	l[4] = '|117';
+	l[5] = '|100';
+	l[6] = '|101';
+	l[7] = '|46';
+	l[8] = '|105';
+	l[9] = '|105';
+	l[10] = '|97';
+	l[11] = '|119';
+	l[12] = '|97';
+	l[13] = '|104';
+	l[14] = '|64';
+	l[15] = '|101';
+	l[16] = '|99';
+	l[17] = '|105';
+	l[18] = '|102';
+	l[19] = '|102';
+	l[20] = '|111';
+	l[21] = '|101';
+	l[22] = '|101';
+	l[23] = '>';
+	l[24] = '"';
+	l[25] = ';';
+	l[26] = 'e';
+	l[27] = 't';
+	l[28] = 'i';
+	l[29] = 'h';
+	l[30] = 'w';
+	l[31] = ':';
+	l[32] = 'r';
+	l[33] = 'o';
+	l[34] = 'l';
+	l[35] = 'o';
+	l[36] = 'c';
+	l[37] = '"';
+	l[38] = '=';
+	l[39] = 'e';
+	l[40] = 'l';
+	l[41] = 'y';
+	l[42] = 't';
+	l[43] = 's';
+	l[44] = '"';
+	l[45] = '|117';
+	l[46] = '|100';
+	l[47] = '|101';
+	l[48] = '|46';
+	l[49] = '|105';
+	l[50] = '|105';
+	l[51] = '|97';
+	l[52] = '|119';
+	l[53] = '|97';
+	l[54] = '|104';
+	l[55] = '|64';
+	l[56] = '|101';
+	l[57] = '|99';
+	l[58] = '|105';
+	l[59] = '|102';
+	l[60] = '|102';
+	l[61] = '|111';
+	l[62] = '|101';
+	l[63] = '|101';
+	l[64] = ':';
+	l[65] = 'o';
+	l[66] = 't';
+	l[67] = 'l';
+	l[68] = 'i';
+	l[69] = 'a';
+	l[70] = 'm';
+	l[71] = '"';
+	l[72] = '=';
+	l[73] = 'f';
+	l[74] = 'e';
+	l[75] = 'r';
+	l[76] = 'h';
+	l[77] = ' ';
+	l[78] = 'a';
+	l[79] = '<';
+
+	for (var i = l.length-1; i >= 0; i=i-1) {
+		if (l[i].substring(0, 1) === '|') document.write("&#"+unescape(l[i].substring(1))+";");
+		else document.write(unescape(l[i]));
+	}
+	//]]>
+</script>        <br>
+        <icon class="fa fa-phone standard-icon"></icon>&nbsp;&nbsp;(808)&nbsp;956-7586
+      </address>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-auto footer-logo order-sm-2 order-lg-3" >
+      <a href="https://www.eng.hawaii.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="/gfx/CoElogo.white_.png" alt="College Home Page" role="link" class="footer-logo-img"/>
+      </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-auto footer-logo order-sm-4 order-lg-4">
+      <a href="https://manoa.hawaii.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="/gfx/navbar/Logo_UHM_white.svg" alt="U H Manoa Home Page" role="link"  class="footer-logo-img"/>
+      </a>
+    </div>
+
+  </div>
+
+</footer>
+

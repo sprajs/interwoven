@@ -1,0 +1,448 @@
+Pup: An Internetwork Architecture (https://nobbyville.com/PUP_An_Internetwork_Architecture_Jul79.pdf)
+citeturn1589search12 [wordlim: 200] Published: 16.0 years ago; Pup: An Internetwork Architecture ... CSL-79-10    July 1979 ... This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+Pup: An Internetwork Architecture
+
+by David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe¹
+
+CSL-79-10    July 1979
+
+**Abstract:** Pup is the name of an internet packet format (*PARC Universal Packet*), a hierarchy of protocols, and a style of internetwork communication. The fundamental abstraction is an end-to-end media-independent internetwork datagram. Higher levels of functionality are achieved by end-to-end protocols that are strictly a matter of agreement among the communicating end processes.
+
+This report explores important design issues, sets forth principles that have guided the Pup design, discusses the present implementation in moderate detail, and summarizes experience with an operational internetwork. This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+**Key words and phrases:** computer networks, protocols, packet switching, internets, network interconnection, gateways, datagrams, virtual circuits, fragmentation
+
+¹Present affiliation: Computer Systems Laboratory, Stanford University, Stanford, California 94305.
+
+XEROX  
+PALO ALTO RESEARCH CENTER  
+3333 Coyote Hill Road / Palo Alto / California 94304--------------------------------------------------------------------------------
+Pup: An Internetwork Architecture (https://www.bitsavers.org/pdf/xerox/alto/ethernet/pupArch.pdf)
+citeturn1589search13 [wordlim: 200] Crawled: 7 months ago; Pup: An Internetwork Architecture ... CSL-79-10    July 1979, revised October 1979 ... This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+Pup: An Internetwork Architecture
+
+by David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe¹
+
+CSL-79-10    July 1979, revised October 1979
+
+**Abstract:** Pup is the name of an internet packet format (*PARC Universal Packet*), a hierarchy of protocols, and a style of internetwork communication. The fundamental abstraction is an end-to-end media-independent internetwork datagram. Higher levels of functionality are achieved by end-to-end protocols that are strictly a matter of agreement among the communicating end processes.
+
+This report explores important design issues, sets forth principles that have guided the Pup design, discusses the present implementation in moderate detail, and summarizes experience with an operational internetwork. This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+**Key words and phrases:** computer networks, protocols, packet switching, internets, network interconnection, gateways, datagrams, virtual circuits, fragmentation
+
+Accepted for publication in IEEE Transactions on Communications, April 1980.
+
+¹Present affiliation: Computer Systems Laboratory, Stanford University, Stanford, California 94305.
+
+XEROX  
+PALO ALTO RESEARCH CENTER  
+3333 Coyote Hill Road / Palo Alto / California 94304--------------------------------------------------------------------------------
+· 
+Pup: An Internetwork Architecture 
+By David R. (https://www.nobbyville.com/PUP_An_Internetwork_Architecture_Jul79.pdf)
+citeturn1589search14 [wordlim: 200] Published: 6 months ago; Pup: An Internetwork Architecture ... July 1979 ... system that provides service to about 1000 computers, on 25 networks of 5 different types, ... Key words ahd phrases: computer networks, protocols, packet switching, internets,
+Pup: An Internetwork Architecture 
+by David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe 1 
+CSL· 79·10 
+July 1979 
+Abstract: Pup is the name of an internet packet format (PARe Universal Packet), a hierarchy 
+The fundamental abstraction is an 
+of protocols, and a style of internetwork communication. 
+end·to·end media· independent internetwork datagram. 
+achieved by end·to·end protocols that are strictly a 
+Higher levels of functionality are 
+matter of agreement among the 
+communicating end processes. 
+This report explores important design issues, sets forth principles that have guided the Pup 
+design, discusses the present implementation in moderate d~tail, and summarizes experience 
+with an operational internetwork. This work serves as the basis for a functioning internetwork 
+system that provides service to about 1000 computers, on 25 networks of 5 different types, 
+using 20 internetwork gateways. 
+Key words ahd phrases: computer networks, protocols, packet switching, internets, 
+network interconnection, gateways, datagrams, virtual circuits, fragmentation 
+1present affiliation: Computer Systems Laboratory, Stanford University, Stanford, California 94305. 
+XEROX 
+PALO ALTO RESEA RCH CENTER 
+3333 Coyote Hill Road I Palo Alto I California 94304--------------------------------------------------------------------------------
+Pup: An Internetwork Architectureby David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe¹CSL-79-10       July 1979, revised October 1979Abstract: Pup is the name of an internet packet format (PARC Universal Packet), a hierarchy (https://xeroxalto.computerhistory.org/_cd8_/pup/.puppaper.press%211.pdf)
+citeturn1589search15 [wordlim: 200] Published: 7 months ago; PUP: AN INTERNETWORK ARCHITECTURE224. ... approximately 1000 hosts, attached to 25 networks of 5 different types, using 20 internetwork ... percent of which are intranetwork packets [Shoch & Hupp, 1979].
+PUP: AN INTERNETWORK ARCHITECTURE224. Evolution, actual experience, and performanceThe Pup architecture emerged against a background of Arpanet protocols. Many of its
+important ideas and those of its key relative, TCP first appeared during the course of a series of
+meetings of the International Network Working Group (IFIP TC-6 WG6.1) during 1973. Pup and
+TCP share a number of important principles, most notably that of reliable end-to-end transmission
+through an internet. Pup subsequently diverged from TCP as the desire for implementation within
+Xerox required decoupling it from TCP’s long and sometimes painful standardization process.The fundamentals of the Pup design crystallized in 1974 and have remained essentially
+unchanged since then.  During this interval many higher-level protocols have been developed, the
+implementations have evolved considerably, and the internetwork system has grown to include
+approximately 1000 hosts, attached to 25 networks of 5 different types, using 20 internetwork
+gateways.  The system is in regular use, is quite stable, and requires little regular maintenance or
+attention.From a functional point of view, this internetwork architecture has been able to fulfill the
+needs of a very diverse community.  While the bulk of all traffic is carried by means of a few
+standard protocols, it has proven extremely valuable to be able to define new protocols aiming at
+different points in the space of performance, cost, and functionality and to fit them into the
+internet protocol hierarchy at any of several levels.In terms of performance, the internetwork gateways impose very little overhead because they
+are so simple.  In regions of the internet where multiple high-bandwidth local networks are
+interconnected directly by a single minicomputer-based gateway, there is almost no noticeable
+difference between intranet and internet performance.  Total throughput in an individual gateway is
+high, ranging from 400 to 1000 kilobits per seconds (depending on the particular implementation),
+and the typical delay experienced by maximum-length Pups in the case just mentioned is 2 to 5
+milliseconds.These figures don’t represent limits to what is achievable even with the relatively low-powered
+machines now being used as gateways because the gateway software has not been highly tuned for
+this application but rather is based on general-purpose software packages that are also used in many
+other hosts.  But the current performance is adequate because the internetwork traffic load is
+typically only a tiny fraction of the capacity of the underlying local network channels.  There exists
+one Alto-based gateway that interconnects three 3-megabit per second Ethernet channels as well as
+several 9.6-kilobit per second leased lines and a Packet Radio interface.  In general the bottlenecks
+are not the gateways but rather the slower communication channels; discard of Pups due to
+congestion in gateways is almost exclusively due to overload of the 9.6-kilobit per second lines.As might be expected, most of the traffic in our local networks is intranetwork that is,
+consisting of Pups whose source and destination are on the same network. For example,
+measurement of one such network has shown a typical volume of 2.2 million packets per day, 72
+percent of which are intranetwork packets [Shoch & Hupp, 1979]. Furthermore, of the remaining--------------------------------------------------------------------------------
+[_cd8_]<pup>puppaper.dm!1>Pup12.bravo (https://xeroxalto.computerhistory.org/_cd8_/pup/puppaper.dm%211_/.Pup12.bravo.html)
+citeturn1589search0 [wordlim: 200] Published: 47.1 years ago; Crawled: 4.5 years ago; Pup: An Internetwork Architecture ... This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways. ... The computational environment includes a large number of ‘‘Alto’’ minicomputers [Kay, 1977; Thacker et al., 1979] and other personal computers capable of high-quality interaction with human users. ... Pup is a framework for computer communications research, and simplicity is one of the best ways to minimize restrictions and maximize flexibility for experimentation.
+
+P UP: A N I NTERNETWORK A RCHITECTURE
+
+Pup: An Internetwork Architecture
+
+by David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe 1
+
+CSL-79-10 July 1979, revised October 1979
+
+Abstract: Pup is the name of an internet packet format (P ARC Universal Packet), a hierarchy of protocols, and a style of internetwork communication. The fundamental abstraction is an end-to-end media-independent internetwork datagram. Higher levels of functionality are achieved by end-to-end protocols that are strictly a matter of agreement among the communicating end processes.
+
+This report explores important design issues, sets forth principles that have guided the Pup design, discusses the present implementation in moderate detail, and summarizes experience with an operational internetwork. This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+Key words and phrases: computer networks, protocols, packet switching, internets, network interconnection, gateways, datagrams, virtual circuits, fragmentation
+
+Accepted for publication in IEEE Transactions on Communications, April 1980.
+
+1 Present affiliation: Computer Systems Laboratory, Stanford University, Stanford, California 94305.
+
+XEROX
+
+PALO ALTO RESEARCH CENTER
+3333 Coyote Hill Road / Palo Alto / California 94304
+
+1. Introduction
+
+Research in network interconnection techniques has been motivated by the desire to permit communication among diverse, geographically distributed computing resources and users interconnected by a wide variety of network technologies.
+
+It is the purpose of an internetwork architecture to provide a uniform framework for communication within a heterogeneous computing, communication, and applications environment. The work described in this paper represents one internetwork architecture, known as Pup, in widespread regular use within Xerox. The name referred originally to the abstract design of a standard internetwork datagram (the P ARC Universal Packet), but has expanded in usage to include the whole hierarchy of internetwork protocols as well as a general style for internetwork communication.
+
+To assist in understanding the design of the Pup protocols, it is useful to characterize briefly the environment in which this architecture has evolved.
+
+The computational environment includes a large number of ‘‘Alto’’ minicomputers [Kay, 1977; Thacker et al., 1979] and other personal computers capable of high-quality interaction with human users. Supporting these are various specialized server systems that are shared among many users and provide access to expensive peripherals such as large disks, magnetic tapes, and high-quality printers. Additionally, there are several general-purpose time sharing systems providing customary services for terminal users.
+
+--------------------------------------------------------------------------------
+Top 262 IEEE Transactions on Communications papers published in 1980 (https://scispace.com/journals/ieee-transactions-on-communications-r4vy07z3/1980)
+citeturn1589search1 [wordlim: 200] Crawled: last month; Pup: An Internetwork Architecture ... This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+Pup: An Internetwork Architecture
+
+[...]
+
+[Input][Input]
+
+David R. Boggs^{1}, John F. Shoch^{1}, Edward A. Taft^{1}, R. Metcalfe^{1}•Institutions (1)
+
+PARC^{1}
+
+01 Jan 1980-IEEE Transactions on Communications
+
+TL;DR: This report explores important design issues, sets forth principles that have guided the Pup design, discusses the present implementation in moderate detail, and summarizes experience with an operational internetwork.
+
+...read more read less
+
+[Input]
+
+Abstract: Pup is the name of an internet packet format (PARC Universal Packet), a hierarchy of protocols, and a style of internetwork communication. The fundamental abstraction is an end-to-end media-in dependent internetwork datagram. Higher levels of functionality are achieved by end-to-end protocols that are strictly a matter of agreement among the communicating end processes. This report explores important design issues, sets forth principles that have guided the Pup design, discusses the present implementation in moderate detail, and summarizes experience with an operational internetwork. This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+...read more read less
+
+PDFGo to Paper
+
+194 citations
+
+Journal Article•10.1109/TCOM.1980.1094576•
+
+An Analysis of Automatic Equalizers for Orthogonally Multiplexed QAM Systems
+
+[...]
+
+[Input][Input]
+
+--------------------------------------------------------------------------------
+(PDF) Pup: An Internetwork Architecture (1980) | David R. Boggs | 194 Citations (https://scispace.com/papers/pup-an-internetwork-architecture-4okodjyxeo)
+citeturn1589search2 [wordlim: 200] Published: 46.9 years ago; Crawled: last week; # Pup: An Internetwork Architecture ... This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways. ... CSL· 79·10 July 1979
+This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+Pup: An Internetwork Architecture
+By David R. Boggs,
+John F. Shoch, Edward A. Taft,
+and Robert M. Metcalfe
+
+Pup: An Internetwork Architecture
+by David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe 1
+CSL· 79·10 July 1979
+Abstract: Pup is the name of an internet packet format (PARe Universal Packet), a hierarchy
+of protocols, and a style of internetwork communication.
+end·to·end media· independent internetwork datagram.
+achieved by end·to·end protocols that are strictly a
+communicating end processes.
+The fundamental abstraction is an
+Higher levels of functionality are
+matter of agreement among the
+This report explores important design issues, sets forth principles that have guided the Pup
+design, discusses the present implementation in moderate d ~ t a i l , and summarizes experience
+with an operational internetwork. This work serves as the basis for a functioning internetwork
+system that provides service to about 1000 computers, on 25 networks of 5 different types,
+using 20 internetwork gateways.
+Key words ahd phrases: computer networks, protocols, packet switching, internets,
+network interconnection, gateways, datagrams, virtual circuits, fragmentation
+
+PUP: AN INTERNETWORK ARCHITECTURE
+Levels 4 and above
+Application-defined protocols
+Level 3
+Conventions for
+data structuring and
+process interaction
+Level 2
+Interprocess
+communication
+primitives
+Level 1
+EFTP
+Document
+printing
+RTP
+FTP Telnet
+SSP WFS
+5
+Woodstock
+• • •
+Routing table
+maintenance
+• •
+Internet packet format
+Internet addressing
+Internet routing
+Internetwork datagram (Pup)
+Level 0
+Packet transport
+mechanisms Ethernet MCA Arpanet
+Figure 1. Pup Protocol Hierarchy
+Leased
+lines
+Packet
+Radio
+• •
+--------------------------------------------------------------------------------
+Chapter 7 File servers (https://www.researchgate.net/publication/251396299_Chapter_7_File_servers)
+citeturn1589search3 [wordlim: 200] Crawled: 3 months ago;   * Jan 1979 ... Pup: An Internetwork Architecture ... This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+Article
+
+  * May 1980
+
+  * David R. Boggs
+  * John F. Shoch
+  * Edward A. Taft
+  * Robert M. Metcalfe
+
+Pup is the name of an internet packet format (PARC Universal Packet), a hierarchy of protocols, and a style of internetwork communication. The fundamental abstraction is an end-to-end media-in dependent internetwork datagram. Higher levels of functionality are achieved by end-to-end protocols that are strictly a matter of agreement among the communicating end processes. This report explores important design issues, sets forth principles that have guided the Pup design, discusses the present implementation in moderate detail, and summarizes experience with an operational internetwork. This work serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways.
+
+View
+
+Show abstract
+
+WFS: A Simple Shared File System for a Distributed Environment
+
+Conference Paper
+
+  * Jan 1979
+
+  * Daniel C. Swinehart
+  * Gene McDaniel
+  * David Boggs
+
+WFS is a shared file server available to a large network community. WFS responds to a carefully limited repertoire of commands that client programs transmit over the network. The system does not utilize connections, but instead behaves like a remote disk and reacts to page-level requests. The design emphasizes reliance upon client programs to implement the traditional facilities (stream IO, a directory system, etc.) of a file system. The use of atomic commands and connectionless protocols nearly eliminates the need for WFS to maintain transitory state information from request to request. Various uses of the system are discussed and extensions are proposed to provide security and protection without violating the design principles.
+
+--------------------------------------------------------------------------------
+ (https://www.rfc-editor.org/rfc/rfc1060.html)
+citeturn1589search4 [wordlim: 200] Published: 36.7 years ago; Crawled: last month; Metcalfe, "PUP: An
+              Internetwork Architecture", XEROX Palo Alto Research Center, ...               Gateways", RFC-1009, Obsoletes RFC-985, Information Sciences ...               Massachusetts Computer Associates, 4 March 1976. ...        [25]   Crispin, M., "Telnet Logout Option", Stanford University-AI,
+              (version 2.1)", ISI/TM-80-18, Information Sciences Institute,
+              July 1980.
+    
+       [8]    Boggs, D., J. Shoch, E. Taft, and R. Metcalfe, "PUP: An
+              Internetwork Architecture", XEROX Palo Alto Research Center,
+              CSL-79-10, July 1979; also in IEEE Transactions on
+              Communication, Volume COM-28, Number 4, April 1980.
+    
+       [9]    Borman, D., Editor, "Telnet Linemode Option",
+              RFC 1116, Cray Research, Inc., August 1989.
+    
+       [10]   Braden, R., "NETRJS Protocol", RFC-740, NIC 42423,
+              Information Sciences Institute, November 1977.
+    
+       [11]   Braden, R., and J. Postel, "Requirements for Internet
+              Gateways", RFC-1009, Obsoletes RFC-985, Information Sciences
+              Institute, June 1987.
+    
+       [12]   Bressler, B., "Remote Job Entry Protocol",  RFC-407,
+              NIC 12112, October 1972.
+    
+       [13]   Bressler, R., "Inter-Entity Communication -- An Experiment",
+--------------------------------------------------------------------------------
+ (https://ftp.belnet.be/mirror/ietf-ftp/rfc/std/std2.html)
+citeturn1589search5 [wordlim: 200] Published: 32.1 years ago; Crawled: 7.5 years ago;     Thus, the host table address 10.83.0.207 corresponds to the X.25 ... Metcalfe, "PUP: An
+          Internetwork Architecture", XEROX Palo Alto Research Center,
+          CSL-79-10, July 1979; also in IEEE Transactions on ...               Protocol (Enhanced AHIP)", RFC 1005, BBN Communications
+              Massachusetts, revised, December 1981.
+    
+    [ETHERNET] "The Ethernet, A Local Area Network: Data Link Layer and
+               Physical Layer Specification", AA-K759B-TK, Digital
+               Equipment Corporation, Maynard, MA.  Also as: "The Ethernet
+               - A Local Area Network", Version 1.0, Digital Equipment
+               Corporation, Intel Corporation, Xerox Corporation,
+               September 1980.  And: "The Ethernet, A Local Area Network:
+               Data Link Layer and Physical Layer Specifications",
+               Digital, Intel and Xerox, November 1982.  And: XEROX, "The
+               Ethernet, A Local Area Network: Data Link Layer and
+               Physical Layer Specification", X3T51/80-50, Xerox
+               Corporation, Stamford, CT., October 1980.
+    
+    [PUP] Boggs, D., J. Shoch, E. Taft, and R. Metcalfe, "PUP: An
+          Internetwork Architecture", XEROX Palo Alto Research Center,
+          CSL-79-10, July 1979; also in IEEE Transactions on
+          Communication, Volume COM-28, Number 4, April 1980.
+--------------------------------------------------------------------------------
+IP Is Not the Internet (https://marknichols.com/ip-is-not-the-internet/)
+citeturn1589search6 [wordlim: 200] Crawled: 3 weeks ago; The Pup paper of 1979 states its own count twice, in its abstract and in its section 4: the architecture “serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways,” the five types being, by the paper’s own section 3.1, the Ethernet, the Multiprocessor Communications Adapter, the Arpanet, a leased-line store-and-forward network, and the ARPA Packet Radio network; and PUP, XNS, IPX, DECnet, and CLNP each supplied addressing and forwarding between networks and each ran real traffic on real internetworks, their existence stated on The “Internet Protocols” page as part of this record’s machine declaratives.
+
+### 6. The Cousins Did Not Just Resemble the Label, They Ran: Real Internetworks Addressed and Forwarded Without IP
+
+6.1 The family of section 2 was not a paper family. The Pup paper of 1979 states its own count twice, in its abstract and in its section 4: the architecture “serves as the basis for a functioning internetwork system that provides service to about 1000 computers, on 25 networks of 5 different types, using 20 internetwork gateways,” the five types being, by the paper’s own section 3.1, the Ethernet, the Multiprocessor Communications Adapter, the Arpanet, a leased-line store-and-forward network, and the ARPA Packet Radio network; and PUP, XNS, IPX, DECnet, and CLNP each supplied addressing and forwarding between networks and each ran real traffic on real internetworks, their existence stated on The “Internet Protocols” page as part of this record’s machine declaratives.
+
+as documented in 1979, and PUP, XNS, IPX, DECnet, and CLNP each supplied addressing and forwarding between networks and each ran real traffic on real internetworks, their existence stated on The "Internet Protocols" page as part of this record's machine declaratives.
+
+6.2 Historical dominance is not conceptual necessity. IP won the election in the internetwork that came to be called the Internet, and winning an election does not retroactively make the winner the office.
+
+--------------------------------------------------------------------------------
+Stanford BIRTH OF THE INTERNET Plaque: Retract the Headline (https://marknichols.com/stanford-retract-the-plaque/)
+citeturn1589search7 [wordlim: 200] Crawled: 4 weeks ago; Metcalfe, was substantially complete in its fundamental design by 1974, and Xerox PARC report CSL-79-10 of July 1979, "Pup: An Internetwork Architecture," documents an operational internetwork serving approximately 1,000 computers across 25 networks of five different types through 20 gateways, running on PUP and not on TCP/IP.
+Three unlike networks joined by operated gateways meets the definition, a network of networks, and the definition was met by the gateway engineer's software, not by the specification.
+
+5.6 Xerox PARC, 1974 to 1979. The PUP internetwork architecture, designed by David R. Boggs, John F. Shoch, Edward A. Taft, and Robert M. Metcalfe, was substantially complete in its fundamental design by 1974, and Xerox PARC report CSL-79-10 of July 1979, "Pup: An Internetwork Architecture," documents an operational internetwork serving approximately 1,000 computers across 25 networks of five different types through 20 gateways, running on PUP and not on TCP/IP. Robert M. Metcalfe and John F. Shoch stand in this plaque's own Stanford roster: two of the men the plaque honors built and documented an operational internetwork of twenty-five networks on a protocol family that was not TCP/IP. Twenty-five networks of five different types through twenty gateways meets the definition, a network of networks, at scale, in documented operation, and not one byte of that internetwork required TCP/IP.
+
+5.7 The public X.25 world, 1975 to 1988. Telenet began operation in the United States in 1975, Datapac in Canada in 1976 was the first public data network designed for X.25, Transpac opened in France in December 1978, and the International Packet Switched Service, created in 1978 by Britain's Post Office Telecommunications with Western Union International and Tymnet, reached Canada, Hong Kong, and Australia by 1981 and listed approximately 800 global sites by 1988. The national public networks were interconnected through X.75 gateways: that record is commercial internetworking around the planet, in production for paying customers, without TCP. A planet of national networks joined through gateways meets the definition, a network of networks, commercially, and TCP was not on the invoice. The optionality that world proves is examined at TCP: The Battlefield Protocol and at OSI.
+
+--------------------------------------------------------------------------------
+ (https://ftp.funet.fi/pub/doc/rfc/rfc787.html)
+citeturn1589search8 [wordlim: 200] Published: 45.4 years ago; Crawled: 7.5 years ago; PUP: An Internetwork Architecture. ...                      Sharing Computer Network.
+             Date:           9/80
+    
+     44. PUP: An Internetwork Architecture.
+    
+             Source:         D.R. Boggs,  J.F.  Shoch,  E.A.  Taft,
+                                     R.M. Metcalfe
+             Reference:      IEEE  Transactions  on  Communications
+                             COM-28 No. 4
+             Date:           4/80
+    
+     45. Delta-t Protocol Preliminary Specification.
+    
+             Source:         R.W. Watson
+             Reference:      Lawrence Livermore Laboratories
+             Date:           11/79
+    
+     46. The Evolving IEEE 802 (Local Network) Standard.
+    
+             Source:         Bryan   R.   Hoover,   Hewlett-Packard
+                                     Corporation
+             Reference:
+             Date:
+    
+     47. A System for  Interprocess  Communication  in  a  Resource
+                     Sharing Computer Network.
+    
+             Source:         D. Walden
+             Reference:      Communications of the ACM Vol. 15
+             Date:           4/72--------------------------------------------------------------------------------
+ (https://ftp.math.utah.edu/pub/mirrors/ftp.rfc-editor.org/rfc/std/std2.html)
+citeturn1589search9 [wordlim: 200] Published: 32.1 years ago; Crawled: 7.5 years ago; Metcalfe, "PUP: An
+          Internetwork Architecture", XEROX Palo Alto Research Center,
+          CSL-79-10, July 1979; also in IEEE Transactions on ...               Protocol (Enhanced AHIP)", RFC 1005, BBN Communications
+               Corporation, Intel Corporation, Xerox Corporation,
+               September 1980.  And: "The Ethernet, A Local Area Network:
+               Data Link Layer and Physical Layer Specifications",
+               Digital, Intel and Xerox, November 1982.  And: XEROX, "The
+               Ethernet, A Local Area Network: Data Link Layer and
+               Physical Layer Specification", X3T51/80-50, Xerox
+               Corporation, Stamford, CT., October 1980.
+    
+    [PUP] Boggs, D., J. Shoch, E. Taft, and R. Metcalfe, "PUP: An
+          Internetwork Architecture", XEROX Palo Alto Research Center,
+          CSL-79-10, July 1979; also in IEEE Transactions on
+          Communication, Volume COM-28, Number 4, April 1980.
+    
+    [RFC791] Postel, J., ed., "Internet Protocol - DARPA Internet Program
+             Protocol Specification", STD 5, RFC 791, USC/Information
+             Sciences Institute, September 1981.
+    
+    [RFC878] Malis, Andrew, "The ARPANET 1822L Host Access Protocol",
+--------------------------------------------------------------------------------
+RFC 1700 - STD: 2 ISI | RFCinfo (https://rfcinfo.com/rfc-1700/)
+citeturn1589search10 [wordlim: 200] Published: 32.1 years ago; Crawled: last month; Metcalfe, "PUP: An
+          Internetwork Architecture", XEROX Palo Alto Research Center,
+          CSL-79-10, July 1979; also in IEEE Transactions on ...               Protocol (Enhanced AHIP)", RFC 1005, BBN Communications
+    Reynolds & Postel                                             [Page 188]
+    
+    RFC 1700                    Assigned Numbers                October 1994
+    
+              an IMP", Report 1822, Bolt Beranek and Newman, Cambridge,
+              Massachusetts, revised, December 1981.
+    
+    [ETHERNET] "The Ethernet, A Local Area Network: Data Link Layer and
+               Physical Layer Specification", AA-K759B-TK, Digital
+               Equipment Corporation, Maynard, MA.  Also as: "The Ethernet
+               Data Link Layer and Physical Layer Specifications",
+               Digital, Intel and Xerox, November 1982.  And: XEROX, "The
+               Ethernet, A Local Area Network: Data Link Layer and
+               Physical Layer Specification", X3T51/80-50, Xerox
+               Corporation, Stamford, CT., October 1980.
+    
+    [PUP] Boggs, D., J. Shoch, E. Taft, and R. Metcalfe, "PUP: An
+          Internetwork Architecture", XEROX Palo Alto Research Center,
+          CSL-79-10, July 1979; also in IEEE Transactions on
+--------------------------------------------------------------------------------
+ (https://mirror.apps.cam.ac.uk/pub/doc/rfc/rfc1060.html)
+citeturn1589search11 [wordlim: 200] Published: 36.7 years ago; Crawled: 7.5 years ago; Metcalfe, "PUP: An
+              Internetwork Architecture", XEROX Palo Alto Research Center, ...               Gateways", RFC-1009, Obsoletes RFC-985, Information Sciences ...               Massachusetts Computer Associates, 4 March 1976.
+    
+       [5]    Bennett, C., "A Simple NIFTP-Based Mail System", IEN 169,
+              University College, London, January 1981.
+    
+       [6]    Bhushan, A., "A Report on the Survey Project", RFC-530,
+              NIC 17375, June 1973.
+    
+       [7]    Bisbey, R., D. Hollingworth, and B. Britt, "Graphics Language
+              (version 2.1)", ISI/TM-80-18, Information Sciences Institute,
+              July 1980.
+    
+       [8]    Boggs, D., J. Shoch, E. Taft, and R. Metcalfe, "PUP: An
+              Internetwork Architecture", XEROX Palo Alto Research Center,
+              CSL-79-10, July 1979; also in IEEE Transactions on
+              Communication, Volume COM-28, Number 4, April 1980.
+    
+       [9]    Borman, D., Editor, "Telnet Linemode Option",
+              RFC 1116, Cray Research, Inc., August 1989.
+    
+       [10]   Braden, R., "NETRJS Protocol", RFC-740, NIC 42423,
+              Information Sciences Institute, November 1977.
+    
+       [11]   Braden, R., and J. --------------------------------------------------------------------------------
+List of packet-switched networks (https://en.wikipedia.org/wiki/List_of_packet-switched_networks)
+citeturn1589search16 [wordlim: 200] Crawled: 4 months ago; Merit Network, an independent nonprofit organization governed by Michigan's public universities, was formed in 1966 as the Michigan Educational Research Information Triad to explore computer networking between three of Michigan's public universities as a means to help the state's educational and economic development. ... Prior to the introduction of X.25 in 1976, about twenty different network technologies had been developed. ... Interlinking of Computer Networks: Proceedings of the NATO Advanced Study Institute held at Bonas, France, August 28 - September 8, 1978. ... Bibcode:1987IAHC....9c.221C. doi:10.1109/MAHC.1987.10023. ... "Pup: An Internetwork Architecture".

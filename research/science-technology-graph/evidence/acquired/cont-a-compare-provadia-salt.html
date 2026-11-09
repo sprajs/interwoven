@@ -1,0 +1,721 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archaeological Season 2006 - National Archaeological Institute with Museum</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <meta name="description" lang="en" content="Archaeological Season 2006 Bulgarian National Archaeological Institute with Museum">
+  <meta name="keywords" lang="en" content="National Archaeological Institute with Museum">
+  <meta name="revisit-after" content="2 days">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="generаl">
+  <meta name="generator" content="Genera Studio">
+  <meta name="author" content="">
+  
+      <meta property="og:image" content="https://naim.bg/imagesSlider/naim.jpg">
+  
+  <link rel="preload" href="/fonts/Akrobat-Regular.woff2" as="font" type="font/woff2">
+  <link rel="preload" href="/fonts/Akrobat-SemiBold.woff2" as="font" type="font/woff2">
+
+          
+  <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen">
+  <script src="/js/main.js" type="module"></script>
+
+  
+    
+    
+  
+</head>
+<body v-scope @vue:mounted="initGalleries">
+  <header class="text-teal-600 lg:h-28 grid grid-rows-[auto,1fr]">
+  <div
+  class="w-full bg-orange-400"
+  :class="openedMenuItem !== null ? 'overflow-visible' : 'overflow-hidden' ">
+  <div
+    class="bg-orange-400 grid max-lg:grid-rows-[theme(spacing.10),calc(100%_-_theme(spacing.10))] content-start grid-cols-[1fr,theme(spacing.8)] lg:grid-cols-[30%,auto] items-center lg:items-start p-4 lg:p-8 text-white relative z-40"
+    :class="{'max-lg:fixed max-lg:w-full max-lg:h-screen' : hamburgerIsOpen, 'lg:shadow-xl' : menuIsOpen}">
+    <a
+      @mouseover="logoOver"
+      @mouseleave="logoOut"
+            :class="[logoIsHovered ? 'lg:relative lg:w-[calc(100vw_-_theme(spacing.8))] xl:w-[calc(100vw_-_theme(spacing.32))] ' : '', ]"
+      class="flex items-center bg-main"
+      href="https://naim.bg/en/home/">
+      <img v-if="!logoIsHovered" class="h-10 md:h-12" src="/img/logotype.svg">
+      <img v-else class="h-10 md:h-12" src="/img/logotype-full.svg">
+    </a>
+
+    <button
+      class="lg:hidden"
+      @click="switchHamburger">
+      <img v-if="!hamburgerIsOpen" class="h-10" src="/img/open-menu.svg">
+      <img v-else class="h-10" src="/img/close-menu.svg">
+    </button>
+
+    <nav
+      class="max-lg:max-h-full max-lg:max-w-full max-lg:max-w-96 max-lg:justify-self-center max-lg:col-span-2 flex flex-col flex-nowrap lg:flex-row items-stretch lg:items-start gap-x-8 max-lg:gap-y-8 max-lg:py-8 flex-wrap lg:items-start lg:justify-end max-lg:overflow-y-auto text-3xl lg:text-base"
+      :class="[hamburgerIsOpen ? 'max-lg:pointer-events-auto max-lg:h-auto max-lg:opacity-100 transition' : 'max-lg:pointer-events-none max-lg:absolute max-lg:opacity-0 max-lg:h-0 transition']">
+      <ul
+        class="flex flex-col items-stretch lg:flex-row lg:items-start justify-end gap-2 md:gap-4 [font:var(--font-main-menu)]"
+        :class="{'lg:hidden': logoIsHovered}">
+                                        <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(100)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">About us</span>
+              </button>
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 100">
+                                                                                                    <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/100/32/">
+                            About NAIM-BAS
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/100/78/">
+                            Annual reports
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/100/31/">
+                            Directorate
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/100/86/">
+                            Boards and committies
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/100/33/">
+                            Legislation
+                          </a>
+                                                  </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+            </li>
+                                                  <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(200)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">Structure</span>
+              </button>
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 200">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/200/128/">
+                            Scientific Secretariat
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/200/89/">
+                            Research units and departments
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/200/90/">
+                            Service Department
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/200/127/">
+                            Young Scholars
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/200/92/">
+                            PhD Students
+                          </a>
+                                                  </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </ul>
+            </li>
+                                                  <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(300)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">Museum</span>
+              </button>
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 300">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/132/">
+                            Museum Education
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/131/">
+                            Museum Initiatives
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/91/">
+                            Gallery
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/73/">
+                            Permanent Exhibitions
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/64/">
+                            Temporary Exhibitions
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/53/">
+                            The Museum As An Institution And A Research Facility
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/54/">
+                            The Museum Building
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/300/80/">
+                            Еntrance tickets and working time
+                          </a>
+                                                  </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+            </li>
+                                                  <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(400)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">Projects</span>
+              </button>
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 400">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/400/52/">
+                            NAIM-BAS Initiatives & Activities
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/400/130/">
+                            Academic Seminar
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/400/840/">
+                            Archaeological excavations
+                          </a>
+                                                  </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </ul>
+            </li>
+                                        <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(500)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">Publications</span>
+              </button>
+
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 500">
+                                  <li class="lg:w-48">
+                    <a class="" href="https://publications.naim.bg/" target="_blank">
+                      Academic Publications
+                    </a>
+                  </li>
+                                  <li class="lg:w-48">
+                    <a class="" href="https://catalogues.naim.bg/index.php/catalogues" target="_blank">
+                      Catalogues
+                    </a>
+                  </li>
+                              </ul>
+            </li>
+                                                            <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(600)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">News</span>
+              </button>
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 600">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/600/857/">
+                            News
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/600/900/">
+                            Ads
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/600/880/">
+                            Competitions
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/600/885/">
+                            Buyer profile (before 15.04.2016)
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/600/886/">
+                            Buyer profile (after 15.04.2016)
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/news/600/887/">
+                            Electronic public procurement after 13.06.2020
+                          </a>
+                                                  </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </ul>
+            </li>
+                                                  <li class="flex flex-col items-stretch">
+              <button class="lg:py-4" @click="switchMenu(700)">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">Contacts</span>
+              </button>
+              <ul
+                class="flex flex-col max-lg:p-4 max-lg:pr-0 gap-1 lg:w-0 lg:overflow-x-visible [font:var(--font-small-menu)]"
+                v-show="openedMenuItem === 700">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/700/34/">
+                            Contacts
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/category/700/35/">
+                            How to get to NAIM-BAS
+                          </a>
+                                                  </li>
+                                                                                                                              <li class="lg:w-48">
+                          <a class="" href="https://naim.bg/en/content/person/700/0/">
+                            Alphabetical list of employees
+                          </a>
+                                                  </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+            </li>
+                                                    </ul>
+
+      <ul class="lg:h-12 flex flex-col lg:flex-row items-center justify-center gap-2 md:gap-4 [font:var(--font-small-menu)] lowercase m-0 text-center" :class="{'lg:hidden': logoIsHovered}">
+                                                                                                                                                        
+        
+        <li class="lg:py-[calc(theme(spacing.4)_+_2px)]">
+                      <a class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]" href="/en/content/category/300/80/#buy-online">online<br>tickets</a>
+                  </li>
+      </ul>
+
+      <ul class="lg:h-12 flex flex-col lg:flex-row items-center justify-end gap-2 md:gap-4 [font:var(--font-small-menu)] lowercase m-0" :class="{'lg:hidden': logoIsHovered}">
+        <li class="lg:py-[calc(theme(spacing.4)_+_2px)]">
+                                    <a class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]" href="https://naim.bg/bg/home/">bg</a>
+                                                    </li>
+      </ul>
+
+      <div class="lg:hidden w-full">
+        <form method="post" name="searchForm" class="searchForm w-full grid grid-cols-[1fr_auto] bg-white">
+          <input
+            class="searchWord px-2 focus-visible:outline-none text-base text-teal-700 bg-white"
+            type="text"
+            name="squery"
+            value="search..."
+            autocomplete="off"
+            onFocus="javascript: if(value=='search...'){value=''};"
+            onBlur="javascript: if(value==''){value='search...'};">
+
+          <input type="hidden" name="langIs" value="en">
+
+          <input class="searchButton bg-white h-8" type="image" src="/img/icon-search.svg" value="" name="search">
+        </form>
+      </div>
+    </nav>
+  </div>
+</div>
+  </header>  <div class="flex flex-wrap gap-x-2 py-1 px-4 lg:px-8 text-xs text-teal-600 bg-teal-50">
+  <a href="https://naim.bg/en/home/">Home</a><img class="h-2 my-1" src="/img/next-s.svg" alt="">
+  <a>Projects </a>
+      <img class="h-2 my-1" src="/img/next-s.svg" alt=""> <a href="https://naim.bg/en/content/news/400/840/">Archaeological excavations</a>
+        <img class="h-2 my-1" src="/img/next-s.svg" alt=""> Archaeological Season 2006
+  </div>
+  <main class="newsbyid grid grid-cols-[1fr,auto] text-teal-600">
+    <section class="flex flex-col items-center">
+      
+      <div class="w-full lg:max-w-192 xxl:max-w-256 p-4 sm:p-8 md:p-12 xxl:p-16 fhd:p-24 bg-teal-50">
+                  <div>
+            <div class="text-xs">2007-01-04</div>
+          </div>
+                <h1 class="na-page-title m-0">
+                      Archaeological Season 2006
+                  </h1>
+      </div>
+
+      <div class="w-full max-w-192 xxl:max-w-256 p-4 sm:p-8 md:p-12 xxl:p-16 fhd:p-32">
+        <p class="">
+                      <I>Tell Yunatsite</I><br>
+One of the aims of the last excavation season, directed by Dr. Yavor Boyadzhiev and Dr. Ioannis Aslanis, was the search for a cemetery of the Chalcolithic settlement. Trenches were made to the south, west and northwest of the tell, on the left bank of the Topolnitsa river. Cultural deposits dated to the Chalcolithic were recorded 200 m away from the river. They extend to 1.50 m at some places and the virgin soil there had not been reached. The results attest that the area of the Chalcolithic site was considerably larger than the presupposed one. The tell formed an acropolis at the end of the settlement.<p>
+
+
+<I>A &#964;&#965;&#961;&#963;&#953;&#962; of a 4th century BC Thracian Ruler, near Koprivshtitsa</I><br>
+The &#964;&#965;&#961;&#963;&#953;&#962; is situated in the Smilovene locality near the town of Koprivshtitsa; the excavations were directed by Daniela Agre. An area 25 m long and 11 m wide is enclosed by a defensive wall. It is constructed in opus emplecton technique; both faces are made of nicely shaped quadrae without mortar. The thickness of the wall varies between 2.50 and 2.80 m. Three sections (ca. 210 sq. m) of the &#964;&#965;&#961;&#963;&#953;&#962; area were excavated. A drainage channel was unearthed in the middle part of the eastern wall. The excavations yielded numerous pottery sherds dated to the late Iron Age and the Roman period. The coins are dated in a broad chronological framework: from the 5th century BC to the 4th century AD. Therefore the construction of the &#964;&#965;&#961;&#963;&#953;&#962; is dated to the end of the 5th or the 4th century BC. It was occupied again during the Roman period.<p>
+
+<I>A Tumulus at Popovo, near Bolyarovo</I><br>
+A tumulus at the village of Popovo, near Bolyarovo was excavated by Daniela Agre. Apparently, it is a complicated ritual assemblage, which yielded 37 burials. 9 of them date to the early Bronze Age, 25 date to the late Bronze Age, two more date to the early and late Iron Age respectively. The central burial dug into the bedrock is a cenotaph. Some of the Bronze Age graves contain only parts of the bodies; only arms in an anatomic order, a skull or a thigh bone. The Bronze Age skeletons are covered by a thick layer of red ochre; the burials contain ceramic vessels as grave goods. One of the graves yielded silver earrings. The body of the deceased from the early Iron Age was put in a coffin; this fact is recorded for the first time in Thrace. Cremation burials date back to the late Iron Age; the human remains have been collected in urns.<p>
+
+<I>Iron Age Pit Sanctuary and an early Bronze Age Settlement, near Svilengrad</I><br>
+The total number of the ritual pits at the site excavated by the team directed by Dr. Georgi Nehrizov exceeds 200. Most of the pits date to the both phases of the Iron Age although there are pits, which date to the early Bronze Age or the Middle Ages. Remains from animal sacrifices were found in many pits; 16 pits yielded complete skeletons or parts of them. The pits yielded complete as well as fragmented ceramic vessels, grinding stones, flint tools, spindle whirls, loom weights, ceramic stamps for vessel decoration, anthropomorphs and zoomorphs. The most interesting find from the site is a fragment of a bronze Posamenteriefibel, the first one ever found in Bulgaria.<p>
+
+<I>Tumulus No 8 in the cemetery at Kolokita locality, near Sozopol</I><br>
+In 2006, a team directed by Dr. Anelia Bozhkova excavated tumulus No 8 in the cemetery on Cape Kolokita to the south of Sozopol. The cover of the tumulus consists of soil and stones; it yielded sherds of amphorae, some of them with stamps. A ring with stones of various sizes was found on the level of the virgin soil. A smaller stone semi-arch was excavated in the western section; it abuts concentration of more than 17 complete Heraclean amphorae. These amphorae provide the date for the construction of the tumulus: the middle of the first half of 4th century BC. The cover of the tumulus yielded sherds of amphorae dating from the first half of 4th century BC and coming from other urban centers as well as of a black glazed cup-skyphos dating from the same period.<p>
+
+<I>The ancient cemetery of Apollonia, near Sozopol</I><br>
+The rescue excavations at the ancient cemetery of Apollonia Pontica were directed by Dr. Krastina Panayotova. An area of 1100 sq. m. was excavated. 210 burials as well as dozens of remains of post-burial rituals were unearthed; they date from the mid-5th to the 3rd century BC and are divided into family plots. A red-figure lekythos with gilded decoration made by the Apollonian craftsman, a polychrome anthropomorphic oinochoe as well as an iron sword/xiphos, a golden ring and a red-figure crater made in a barbotino technique with gilding are the most impressive items among the numerous finds in the cemetery.<br>
+A medieval building with two kilns and a church with a cemetery dating from the12th to 14th century were also excavated on the territory of the ancient cemetery.<p>
+
+<I>“Old Nessebar” Architectural and Archaeological Reserve</I><br>
+Dr. Anelia Bozkova and Dr. Hristo Preshlenov directed the archaeological excavations at the northeastern part of the Nessebar peninsula. The total thickness of the cultural deposits extended to 3 m. The excavated features date from the early Iron Age (8th to 7th century BC) to the late Middle Ages (late 14th to early 15th century AD). The results of the excavations include 5 pits dating to the early Iron Age and the Classic period and containing numerous pottery sherds; parts of walls and layers containing debris and dating to the Hellenistic period (3rd to 2nd century BC); a Roman cistern; 21 burials dating to the 7th century and probably related to Virgin Mary Eleusa Church (basilica); foundations of late Roman/early Byzantine building; parts of two kilns dating to the Hellenistic and late Roman/early Byzantine periods; and 14 negative features dating to the middle Byzantine period (11th to 13th century AD).
+<p>
+<I>A Roman center for burnt lime production</I><br>
+It is the second excavation season (directed by Dr. Lyudmil Vagalinski) at the Roman center for burnt lime production, near the village of Krivina, Ruse region (Roman Iatrus) at the Danube. The barrel-shaped kilns have been dug into the loess and measure 4.50 m (maximal height) х 4 m х 3.65 m (diameters). 7 kilns were excavated and four more were recorded. The manufactory, which functioned during the last third of the 1st and the 2nd century AD, was owned by legio I Italica. The assemblage at Krivina is the largest and the best preserved example of a Roman center for burnt lime production in Europe.<p>
+
+<I>Excavations at the bi-ritual cemetery at Balchik</I><br>
+The excavations of the biritual cemetery at Balchik continued in 2006 under the direction of Prof. Lyudmila Doncheva-Petkova. Forty-seven more burials were excavated in 2006; the total of burials excavated up to now is 222. It is for the first time this season that the inhumations prevail over the cremation burials. Some of them yielded animal skeletons as well: oxen, cows and sheep. Both cremation and inhumation burials contain other types of grave goods as well; the ceramic vessels are the most common. Metal finds and especially the buckles confirm the early date of the cemetery: late 7th and the 8th century AD.<p>
+
+<I>A Collective find of tools, everyday life artifacts and weapons</I><br>
+The archaeological excavations at the village of Krum, near Dimitrovgrad, directed by Emilia Evtimova, yielded a collective find of iron artifacts: agricultural tools (ploughshares, pruning knives, goads, fruit-grower\\\\\\\\\\\\\\\'s tools and a scythe), carpenter’s tools (scraper, chisel and adze), everyday life objects (padlock, key, scissors, grill and casing for a wooden bucket), and weapons (sword, plug for a spear and axe-hammer). The sword is bent. Four of the items (sword, scissors, axe-hammer and padlock) date to the 11th century AD, which gives the general dating of the collective find.<p>
+
+<I>Excavations at the Lyutitsa Fortress</I><br>
+The archaeological excavations at the Lyutitsa fortress near Ivailovgrad were directed by Dr. Bonny Petrunova, and yielded materials dating from the late Bronze Age to the 17th century AD. A burial of a high-ranking priest was excavated. It yielded a bronze silvered cross nicely decorated and bearing an inscription in Greek and Bulgarian. The find dates to the 10th century AD. A set of five exagii as well as a bronze pair of scales and a jug dating to the 13th century AD were found on the floor of a room in the foothills of the citadel.<p>
+
+<I>A Getic royal cemetery (4th and 3rd century BC) in the Sboryanovo Archaeological Reserve, near Isperih</I><br>
+The archaeological excavations at the royal cemetery of the capital and the religious center of the Getae, which was identified as Dausdava or the “City of the Wolves” mentioned by Claudius Ptolemeus, were directed by Dr. Diana Gergova. The excavations of the highest tumulus – Golyamata Sveshtarsva mogila – revealed for the first time on the Thracian territory a high tree grown up at this place in the past. Being the sacred “Tree of Life” and an important element of the burial and ritual assemblage, it was covered by the 20 m thick layer of soil, which formed the tumulus coat.<p>
+
+<I>Late Roman and Early Byzantine Kaleto Archaeological Site at Mezdra</I><br>
+The earliest fortification activities on the hill have been dated to the middle or very beginning of the second half of the 2nd century AD. Part of its fortification wall is still preserved up to a height of 6 m above the surrounding area and is the best preserved 2nd century AD Roman masonry in Bulgaria.<br>
+An important ritual center was established during the second decade of the 3rd century AD within the area enclosed by the defensive wall. It functioned most probably until the end of the 3rd century AD. The archaeological excavations 2005-2006 brought to light numerous ritual hearths and roughly shaped clay altars, which were related to the practices in the ritual center. The hearths and the altars were in the open, most probably surrounding a temple, which took the central position in the assemblage. Epigraphic finds from the sanctuary attest to the worship of various Graeco-Roman, Near Eastern and local Thracian deities: Zeus, Hera, Artemis, Demeter, Asklepios, Telesphoros, Hekate, Mitra, the Thracian horseman, Diikonos. An official Roman inscription on the pedestal of an emperor’s statue was also found here. It was in honor of Emperor Severus Alexander on behalf of the Municipal Council of Serdica and Marcus Ulpius Saturninus, the Governor of the province of Thrace. A couple of the most valuable finds discovered during the last excavation seasons - an uncirculated aureus, struck in Rome in the spring of 222 AD and a bronze medallion, belonging to a very rare issue of Perinthus mint – have been related to the same emperor. The coins were buried as offerings in the sanctuary. Four clay moulds for figure appliqu&#233;s on clay vessels were found in 2006; they were part of a offering dated to the second quarter of the 3rd century AD. Two of the moulds represent Heracles in full height, and the third one is a figure of Genius (?). The fourth mould represents in negative the head of Athena whose helmet is decorated with horns.<br>
+
+An Early Byzantine fortified settlement was established during the second half of the 4th century AD on the territory of the destroyed and abandoned sanctuary. The settlement functioned until the late 6th or the early 7th century AD.<br>
+
+Dr. Sergey Torbatov, Senior Research Associate<p>
+
+
+
+ <I>The Earliest Salt Production Center in Europe</I><br>
+A team of the Institute of Archaeology and Museum – BAS made extremely interesting discoveries at an archaeological site located near Provadia and called Solnitsata, whose shape and dimensions were until quite recently not very well defined.<br>
+The archaeological excavations, which ended recently, have confirmed the hypothesis and produced sensational evidence for the earliest salt extraction in Europe. It happened ca. 5400 BC, in the late Neolithic, when a group of people from Thrace crossed the Stara Planina Mountains and settled down at the salt springs near the present-day town of Provadia. The settlers started to boil the water running out of the salt mirror, containing 160-190 g of salt per liter. Evidence for this production technique are the thousands sherds of thin walled though roughly smoothed ceramic bowls, 40-45 cm in diameter, which are typical for this site only. They were use for boiling and evaporating of water at special facilities. The final product was a lump with standard dimensions, which was ready for exchange or trade. The study of Prof. Ivan Havezov (Institute of General and Inorganic chemistry – BAS) on a number of these fragments revealed the presence of a considerable amount of salt on their surfaces as well as on the inside. The importance of the discovery at Provadia is related to the necessary daily intake of salt for the normal functioning of the human body: 12-18 g. The animals, especially the domestic ones, have the same needs. Until quite recently there was no data on the salt production in the Balkans and this problem was omitted by the studies. However, the simple calculations reveal that the early farmers (6th millennium BC) of Thrace only, the area where the settlers of Provadia have come from, needed at least 500 tons of salt per year (including the needs of the domestic animals). The salt producing “colony” apparently traded the salt and supplied the population of Thrace with salt and probably got in return food and other necessary products. The discovery of the salt production center in northeast Bulgaria opens possibilities for research on this vital aspect of the economy of the earliest European civilization.<br>
+
+Another hypothesis was confirmed during this season, namely that the salt production continued at the same place in the Chalcolithic (5th millennium BC) as well, in the time of the spectacular Varna Chalcolithic cemetery including. This cemetery is situated only 20 km east of the salt production center. The reason for the accumulation of an extreme wealth consisting of prestige objects made of gold, copper, flint, horn/bone, sea shells, etc. was not properly explained for more than 30 years but now we could argue with a great degree of probability that it was directly related to the continuing production of considerable amounts of salt near Provadia and the salt trade. It is exactly the time when the salt production center - with regular round shape, 105 m in diameter - was surrounded by a ditch and a stone rampart behind it as well as with a palisade, which was solidly constructed of vertical wooden posts, plastered with a thick layer of clay. Apparently the salt producers had good reasons to build up this labor-consuming defensive system, which was aimed to protect their wealth.<br>
+
+The migrations of nomadic tribes coming from the North and the demographic changes in the eastern Balkans at the end of the 5th millennium BC marked the end of the Chalcolithic civilization in the region.<br>
+
+A tumulus, 12 m high and 80 m in diameter, was made after a long break, in the 4th century BC. It was made with soil taken from the 8 m high tell accumulated during the functioning of the salt production center. It was a very impressive Thracian cult center, whose total height exceeded 20 m. The ‘tumulus’ is situated to the north on the top of the tell, so that the rest of the terrain forms a terrace, up to 22 m wide to the south and paved with small stones. Apparently it was the area aimed for the participants in the rituals. In this direction the ‘tumulus’ faces a stone structure, whose function is still unknown. The Thracian cult center functioned ca. one millennium.<br>
+
+The continuing archaeological excavations will soon define Provadia-Solnitsata as one of the most interesting archaeological sites in Bulgaria.<br>
+Prof. Dr. Vassil Nikolov, Institute of Archaeology and Museum – BAS<p>
+
+
+<I>Early Iron Age pit field and early medieval settlement at Kapitan Andreevo, near Svilengrad</I><br>
+The excavations at site No 27 on the intended Plovdiv–Svilengrad railway continued in 2006 under the direction of Dr. Hristo Popov. The excavated features are 132, including 8 early medieval houses and 2 early Byzantine kilns. The rest are pits and most of them date to the early Iron Age.<br>
+The early medieval settlement is an extremely interesting site and dates back to the end of the 6th and the first half of the 7th century AD. It precedes the establishment of the First Bulgarian Kingdom and is related to the early Slavic settlers on the Balkans.<br>
+Dr. Hristo Popov, Research Associate<p>
+
+
+
+<I>Late Bronze and early Iron Age settlement in Kush Kaya locality at Valche pole, near Lyubimets</I><br>
+The archaeological site in Kush kaya locality is a late Bronze and early Iron Age settlement and was excavated under the direction of Dr. Hristo Popov. Its area expanded in the early Iron Age and was surrounded by a fortification wall. The occupied area was larger than 2500 sq. m. Four houses dating to the later phase of the late Bronze Age, a large building dating to the early Iron Age and part of the eastern fortification wall dating to the same period were excavated in 2006. The cultural deposit extended to 2 meters at some places. This site provides an excellent opportunity to consider the regional late Bronze and early Iron Age chronological sequences.<br>
+Dr. Hristo Popov, Research Associate<p>
+                  </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="flex flex-col items-stretch text-white bg-teal-700">
+  <nav class="p-8 lg:p-16 flex flex-col items-stretch gap-8 lg:gap-16 ">
+    <div class="flex justify-center px-8 lg:px-16">
+      <img class="h-24" src="/img/logotype-v.svg" alt="НАИМ-БАН">
+    </div>
+
+    <div>
+      <ul class="flex justify-center px-8 xl:px-16 lowercase">
+        <li>
+                                    <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/bg/home/">Български</a>
+                                                    </li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="flex flex-col gap-8 lg:gap-16 md:flex-row md:flex-wrap md:items-start md:justify-center [font:var(--font-main-menu)]">
+                  
+                      <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                About us
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                                                                                    <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/100/32/">
+                            About NAIM-BAS
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/100/78/">
+                            Annual reports
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/100/31/">
+                            Directorate
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/100/86/">
+                            Boards and committies
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/100/33/">
+                            Legislation
+                          </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+            </li>
+                            
+                      <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                Structure
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/200/128/">
+                            Scientific Secretariat
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/200/89/">
+                            Research units and departments
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/200/90/">
+                            Service Department
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/200/127/">
+                            Young Scholars
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/200/92/">
+                            PhD Students
+                          </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </ul>
+            </li>
+                            
+                      <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                Museum
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/132/">
+                            Museum Education
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/131/">
+                            Museum Initiatives
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/91/">
+                            Gallery
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/73/">
+                            Permanent Exhibitions
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/64/">
+                            Temporary Exhibitions
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/53/">
+                            The Museum As An Institution And A Research Facility
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/54/">
+                            The Museum Building
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/300/80/">
+                            Еntrance tickets and working time
+                          </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+            </li>
+                            
+                      <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                Projects
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/400/52/">
+                            NAIM-BAS Initiatives & Activities
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/400/130/">
+                            Academic Seminar
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/400/840/">
+                            Archaeological excavations
+                          </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </ul>
+            </li>
+                                        <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                <span class="hover:shadow-[0_2px_0_0_theme(colors.orange.300)]">Publications</span>
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                  <li class="lg:w-48">
+                    <a class="" href="https://publications.naim.bg/" target="_blank">
+                      Academic Publications
+                    </a>
+                  </li>
+                                  <li class="lg:w-48">
+                    <a class="" href="https://catalogues.naim.bg/index.php/catalogues" target="_blank">
+                      Catalogues
+                    </a>
+                  </li>
+                              </ul>
+            </li>
+          
+                            
+                      <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                News
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/600/857/">
+                            News
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/600/900/">
+                            Ads
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/600/880/">
+                            Competitions
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/600/885/">
+                            Buyer profile (before 15.04.2016)
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/600/886/">
+                            Buyer profile (after 15.04.2016)
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/news/600/887/">
+                            Electronic public procurement after 13.06.2020
+                          </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </ul>
+            </li>
+                            
+                      <li class="flex flex-col items-stretch">
+              <h3 class="self-start pb-1 mb-4 shadow-[0_2px_0_0_theme(colors.teal.500)]">
+                Contacts
+              </h3>
+
+              <ul class="flex flex-col gap-2 [font:var(--font-small-menu)]">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/700/34/">
+                            Contacts
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/category/700/35/">
+                            How to get to NAIM-BAS
+                          </a>
+                        </li>
+                                                                                                                              <li class="md:w-64">
+                          <a class="hover:shadow-[0_2px_0_0_theme(colors.teal.500)]" href="https://naim.bg/en/content/person/700/0/">
+                            Alphabetical list of employees
+                          </a>
+                        </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+            </li>
+                            
+                        </ul>
+    </div>
+  </nav>
+
+  <div class="flex flex-col items-center justify-center gap-1 text-white bg-teal-800 p-4 [font:var(--font-fine-print)]">
+    <div>© 2026 National Archaeological Institute with Museum</div>
+          <div class="text-xs">The renovation and redesign of the NAIM-BAS website was made within the context of the project INFRAMAT Д01-322/2023</div>
+      </div>
+</footer>
+
+<!-- Lightbox -->
+<div v-if="lightboxOpen" @click="closeLightbox" class="lightbox-overlay">
+  <div class="lightbox-container">
+    <button @click="closeLightbox" class="lightbox-close" aria-label="Close lightbox">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <button v-if="lightboxImages.length > 1" @click.stop="prevImage" class="lightbox-nav lightbox-nav-prev" aria-label="Previous image">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <div class="lightbox-image-wrapper" @click.stop>
+      <!-- Loading spinner -->
+      <div v-if="lightboxImageLoading" class="lightbox-loading">
+        <svg class="animate-spin h-12 w-12 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+      <!-- Image -->
+      <img v-if="!lightboxImageLoading" :src="currentLightboxImage" class="lightbox-image" alt="Gallery image">
+    </div>
+
+    <button v-if="lightboxImages.length > 1" @click.stop="nextImage" class="lightbox-nav lightbox-nav-next" aria-label="Next image">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <div v-if="lightboxImages.length > 1" class="lightbox-counter">
+      $[ lightboxCurrentIndex + 1 ] / $[ lightboxImages.length ]
+    </div>
+  </div>
+</div>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFXK7ZLHR1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-WFXK7ZLHR1');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,596 @@
+Quarterly Reviews of Biophysics 19, 3/4 (1987), pp. 183-220 (https://doc.rero.ch/record/299893/files/S0033583500004121.pdf)
+citeturn1839search6 [wordlim: 200] Published: last year; Ernst ... Johnson et al. 1983), represents a variant of Fourier imaging which turned out to ... Spin-warp imaging differs from conventional Fourier imaging by the fact that
+the phase-encoding period is fixed in length and that instead the amplitude of the
+212 
+R.R. Ernst
+an inhomogeneous magnet (Sekihara et al. 1984). While the projection-
+reconstruction technique leads to increasing blurring of the image for increasing
+field inhomogeneity, the Fourier imaging method merely causes a slight distortion
+of the otherwise clear image. The advantages in view of diagnostic applications
+are obvious.
+8.3 Spin-warp imaging
+Spin-warp imaging, proposed by Hutchison and co-workers (Edelstein et al. 1980;
+Johnson et al. 1983), represents a variant of Fourier imaging which turned out to
+be particularly easy to implement and has been very successful in commercial
+instruments.
+Spin-warp imaging differs from conventional Fourier imaging by the fact that
+the phase-encoding period is fixed in length and that instead the amplitude of the
+applied magnetic-field gradient(s) is incremented from experiment to experiment.
+This has the advantage that relaxation effects during the phase-encoding time r
+remain the same through all experiments. The resolution in the phase-encoded
+direction is then independent of relaxation and exclusively limited by maximum
+available gradient field strength.
+The experimental scheme of spin-warp imaging is shown in Fig. 28. The
+R.f.
+Fig. 28. Experimental scheme for spin warp imaging. In contrast to Fourier imaging (Figs.
+24, 25), the phase encoding is obtained by increasing from experiment to experiment the
+amplitude of the gradient gy, rather than varying the duration of the evolution period r.
+use, available at https:/www.cambridge.org/core/terms. https://doi.org/10.1017/S0033583500004121
+Downloaded from https:/www.cambridge.org/core. University of Basel Library, on 11 Jul 2017 at 10:13:42, subject to the Cambridge Core terms of--------------------------------------------------------------------------------
+Complete Introduction to Nuclear Magnetic Resonance and NMR Spectroscopy - Macomber R.S. - 1998 (https://djvu.online/file/W5cOfJ7OAwCDG)
+citeturn1839search0 [wordlim: 200] Published: 28.9 years ago; Crawled: today;     12.6 Homonuclear Spin Decoupling 198
+    12.7 Homonuclear Difference NOE: The Test for Proximity 198 ...     16.4 Image Contrast ...     16.7 NMR Movies: Echo Planar Imaging ...     We will let this fanning out evolve for a period x, at which ...     3.6.4 Phase-Sensitive Detection and Spin
+    Review Problems 236
+    Chapter 14 NMR STUDIES OF BIOLOGICALLY IMPORTANT MOLECULES 252
+    14.1 Introduction 252
+    14.2 NMR Line Widths of Biopolymers 252
+    14.3 Exchangeable and Nonexchangeable Protons 253
+    14.4 Chemical Exchange 254
+    14.5 The Effects of pH on the NMR Spectra of Biomolecules 256
+    14.6 NMR Studies of Proteins 256
+    14.7 NMR Studies of Nucleic Acids 263
+    14.8 Lipids and Biological Membranes 270
+    14.9 Carbohydrates 275
+    Chapter Summary 277
+    References 277
+    
+    
+    
+    * * *
+    
+    CONTENTS ix
+    Additional Resources
+    Review Problems
+    Chapter 15 SOLID-STATE NMR SPECTROSCOPY
+    15.1 Why Study Materials in the Solid State?
+    15.2 Why is NMR of Solids Different from NMR of Fluids?
+    15.3 Chemical Shifts in Solids
+    15.4 Spin-Spin Coupling
+    15.5 Quadrupole Coupling
+    15.6 Overcoming Long 7"i: Cross Polarization
+    Chapter Summary
+    Additional Resources
+    Review Problems
+    Chapter 16 NMR IN MEDICINE AND BIOLOGY: NMR IMAGING
+    16.1 A Window into Anatomy and Physiology
+    16.2 Biomedical NMR
+    16.3 Pictures with NMR: Magnetic Resonance Imaging
+    16.4 Image Contrast
+    16.5 Higher Dimensional Imaging
+    16.6 Chemical Shift Imaging
+    16.7 NMR Movies: Echo Planar Imaging
+    16.8 NMR Microscopy
+    16.9 In Vivo NMR Spectroscopy
+    16.10 Nonmedical Applications of MRI
+    Chapter Summary
+    Additional Resources
+    Appendix 1 ANSWERS TO REVIEW PROBLEMS
+    Appendix 2 PERIODIC TABLE
+    SUBJECT INDEX
+    CHEMICAL COMPOUNDS INDEX
+    
+    PREFACE
+    In the decade since the first version of this book was written,
+    the field of nuclear magnetic resonance (NMR) spectroscopy
+    has made, quite literally, quantum leaps. Computer-controlled
+    NMR spectrometers with high-field superconducting mag-
+    magnets, once available only to the most well-funded institutions,
+    are now commonplace. Two-dimensional NMR techniques,
+    in their infancy a decade ago, have blossomed into an indis-
+    indispensable array of tools to elucidate the molecular structure of
+    compounds as complex as proteins.     2.2.2 Precession and the Larmor Frequency
+    We now know that nuclei with 7*0, when immersed in a
+    magnetic field, adopt 27 + 1 spin orientations, each with a
+    different energy. But before these nuclei can absorb photons,
+    they must be oscillating in some sort of uniform periodic
+    motion (Section 1.3). Fortunately, quantum mechanics re-
+    requires that the magnetic moments are actually not statically
+    aligned exactly parallel or antiparallel to the external mag-
+    magnetic field, as Figure 2.2 implied. Instead, they are forced to
+    remain at a certain angle to Bo, and this causes them to
+    "wobble" around the axis of the field at a fixed frequency.
+    Why is this so?
+    If you have ever played with a spinning top, you may know
+    that it is the spin angular momentum of the top that prevents
+    it from falling over and also causes it to wobble in addition to
+    spinning. This periodic wobbling motion that the top assumes
+    in a gravitational field is called precession. The earth pre-
+    cesses on its axis in much the same way, though much more
+    slowly. In an exactly analogous way, the magnetic moment
+    vector of a nucleus in a magnetic field also precesses with a
+    characteristic angular frequency called the Larmor fre-
+    frequency (go), which is a function solely of y and Bo:
+    go = y Bo B.5)
+    The angular Larmor frequency, in units of radians per second,
+    can be transformed into linear frequency v (in reciprocal
+    seconds or hertz) by division by 2n:
+    quency is independent of m, so that all spin orientations of a
+    given nucleus precess at the same frequency in a fixed mag-
+    magnetic field.
+    ■ EXAMPLE 2.6 (a) At 5.87 T, what is the precession
+    frequency v of a 'H nucleus? A I3C nucleus? (b) In what
+    region of the electromagnetic spectrum does radiation of these
+    frequencies occur?
+    □ Solution: (a) For'H, using they value from Table2.1, we
+    so the maximum signal intensity will occur when a equals
+    90° (Why?).
+    There is one other type of relaxation process that must be
+    mentioned at this point. After irradiation ceases and B, disap-
+    disappears, not only do the populations of the m = +^ and m = -i
+    states revert to the Boltzmann distribution, but also the indi-
+    individual nuclear magnetic moments begin to lose their phase
+    coherence and return to a random arrangement around the z
+    axis (Figure 2.7a). This latter process, called spin-spin (or
+    transverse) relaxation, causes decay of M,_y at a rate control-
+    controlled by the spin-spin relaxation time T2. Normally, T2 is
+    much shorter than 7",. A little thought should convince you
+    that if T2 < Th then spin-spin (dephasing) relaxation takes
+    place much faster than spin-lattice (Boltzmann distribution)
+    relaxation.
+    2.4 THE ROTATING FRAME OF REFERENCE
+    Frequently in this book we will want to depict nuclear spin
+    orientations like those shown in Figure 2.7.     exact phasing has not, as shown in Figure 2.13. Repetition of
+    this process with other pairs of up/down spins will have the
+    ultimate effect of randomizing their phasing, driving M.x y to
+    zero and with it the NMR signal.
+    Spin-spin relaxation can also occur when other nearby
+    oscillating magnetic or electric fields interfere with the exter-
+    external field Bq, causing some of the nuclei to experience a
+    slightly augmented magnetic field while others experience a
+    slightly diminished one. Those nuclei in the region of the
+    augmented field will precess slightly faster, while those ex-
+    experiencing the diminished field will precess slightly slower
+    (Figure 2.14). This will result in the "fanning out" of individ-
+    individual spin vectors again with no net energy change.
+    As we will see in Section 3.2, there is also a limit to the
+    homogeneity of Bo itself. Even the finest magnets produce a
+    field strength that varies ever so slightly around the region
+    containing the sample.     SoI
+    I
+    Magnetic Field Strength
+    (a)
+    Magnetic Field Strength
+    (b)
+    Figure 3.9. (a) The Bo field strength required for two different nuclei to attain the same spin state
+    energy gap AE. (b) Resulting field-sweep NMR spectrum.
+    ■ EXAMPLE 3.4 Suppose that, at a nominal field
+    strength of 2.35 T, NMR signals were detected at 100 and 25.2
+    MHz. (a) What are the two isotopes giving rise to the signals?
+    (b) If the spectrum were obtained by the field-sweep method,
+    what field strength would be required to observe the latter
+    signal using an operating frequency of 100 MHz?
+    □ Solution: (a) By referring back to the v column in Table
+    2.1, we see that isotopes are 'H and I3C, respectively, (b) Use
+    Eq. C.3) and the value of y for I3C from Table 2.1:
+    _ 2tiv0 _ 2C.14 radXIOO x 106 sr') _ 9 33 T
+    C"'3 Yc-13 67.3x 106radT-'s-'
+    It is impossible for an NMR electromagnet designed for
+    2.35 T to produce a 9.33-T field! □
+    3.3.3 Spinning Sidebands and the Signal-to-Noise
+    Ratio
+    A closer examination of the signals in Figures 3.Sb and 3.9b
+    brings up some additional points. Figure 3.10 is an enlarge-
+    enlargement of one of the peaks. Notice the two small signals
+    symmetrically flanking the large signal. These so-called side-
+    sidebands or satellite peaks, marked with asterisks in the figure,
+    are an unavoidable result of spinning the sample to improve
+    field homogeneity (Section 3.2.1). If the field has been well
+    shimmed, such spinning sidebands rarely exceed 1 % of the
+    height of the main peak. Moreover, they will always be
+    separated from the main peak by exactly the spin rate in hertz.
+    This is, in fact, the most direct way to measure the sample spin
+    rate. One can, of course, completely eliminate spinning side-
+    sidebands by turning off the spinner. But this would cause sub-
+    undergoes relaxation [Eq. C.14b)] governed by the "true" spin-
+    spin relaxation time Ti-
+    The spin echo technique, which has many uses in NMR
+    spectroscopy, has introduced us to our first example of a
+    multipulse sequence: 90^-1-180y-x-acquire. We will see
+    another example below and many more examples in Chapters
+    12 and 13.
+    3.6.4 Phase-Sensitive Detection and Spin
+    Inversion—Recovery
+    Because of the way the FID signal is electronically sensed,
+    there is information buried in the FID data other than simply
+    the frequency, intensity, and relaxation time of the nuclei. The
+    detector circuit also detects the phase of the signal. Back in
+    Figure 1.1 we showed that the magnetic and electric vectors
+    of an electromagnetic wave are "in phase," both reaching
+    peaks and valleys at the same instant. Two waves are exactly
+    out of phase when one reaches a peak at the same instant the
+    other reaches a valley. The phase of an FID signal is always
+    compared to the phase of v0, which is taken to define the +y'
+    axis of the rotating frame. Thus, whenever M has a component
+    on the +y' axis, the resulting signal is said to have a positive
+    phase (with respect to v0). Fourier transformation of such a
+    signal results in a normal (upward) Lorentzian peak. If, in-
+    instead, M is aligned with the -y' axis, it is exactly 180° out of
+    phase with v0. The FT of this FID will lead to a negative
+    (downward) peak.
+    Take a moment to look at review problem 2.7 and Figures
+    A.2 and A.3 in Appendix 1. In this problem the 0.20-ms pulse
+    resulted in an inversion of M (a flip angle of 180° resulting
+    from a 180t. pulse). Then M decayed exponentially back to
+    Mq as described by the equation
+    l-2exp-
+    C.15)
+    The extra 2 in this equation, compared to Eq. C.13a), arises
+    from the fact that, when fully inverted, M must relax from
+    -Mq, through zero, to +Mq, or a total of 2Mq. If we could
+    measure the exact time (tz) required for M to reach zero (the
+    asterisk in Figure A.3), we could then calculate 7, by recasting
+    turn is mainly dependent on inhomogeneities in the
+    magnetic field.
+    6. An NMR spectrometer can only be configured to
+    examine one isotope at a time, resulting in a homonu-
+    clear spectrum. Because the magnetic field strength
+    Bo is fixed, each different isotope requires a different
+    Bi oscillator (operating) frequency v0.
+    7. When preparing solution samples for NMR, care
+    should be taken in the choice of a solvent. It is best if
+    the solvent is deuteriated, inert, and lacks any nuclei
+    of the target isotope.
+    8. The spin echo technique is a multipulse sequence used
+    (among other things) to measure true T2 values. The
+    spin inversion-recovery techniques is a multipulse 2D
+    
+    4
+    A LITTLE BIT OF SYMMETRY
+    4.1 SYMMETRY OPERATIONS AND
+    DISTINGUISHABILITY
+    Before we can begin to predict the appearance of NMR
+    spectra, we must be able to recognize when the nuclei (i.e.,
+    atoms) in a given structure will be distinguishable and when
+    they will not.     " From High Resolution NMR Spectra Catalog, Varian Instruments,
+    Palo Alto, CA, 1963. The symbol m indicates a multiplet, several
+    close lines that are not completely resolved.
+    ''From The Sadtler Guide to Carbon-li NMR Spectra, Sadtler
+    Research Laboratories, Division of Bio-Rad Laboratories, Philadel-
+    Philadelphia, 1983.
+    
+    8
+    FIRST-ORDER (WEAK) SPIN-SPIN COUPLING
+    8.1 UNEXPECTED LINES IN AN NMR SPECTRUM
+    Alas, things are not as simple as they may have appeared.
+    From the discussions in Chapters 6 and 7 you might be under
+    the impression that typical 'H NMR spectra exhibit just one
+    sharp signal line for each 'H nucleus (or each set of equivalent
+    'H nuclei) and that the same thing is true for I3C spectra as
+    well as for spectra of any other isotope. Actually, this is not
+    usually the case. Instead, the individual signals expected on
+    the basis of the molecule's symmetry are themselves often
+    split into symmetrical patterns (multiplets) consisting of two
+The resulting spectrum
+    (shown below the spin state diagram) consists of two dou-
+    doublets, one centered at 5a, the other at 5b, with coupling constant
+    J separating the two lines of each doublet.
+    132
+    
+    
+    
+    * * *
+    
+    9.1 NUCLEAR SPIN ENERGY DIAGRAMS AND THE SIGN OF J 133
+    hv.
+    kv.
+    l<
+    a b
+    hv.
+    it
+    a b
+    a b
+    a b
+    H.
+    H. + Hb
+    combinations
+    Hb
+    Figure 9.1. Nuclear spin states of two ' H nuclei. Ha (on the left), Hb (on the right), and Ha + Hb (center,
+    with J = 0).
+    ■ EXAMPLE 9.1 What is the relationship between A
+    (expressed in hertz) and 7?
+    □ Solution: Because the separation between lines 2 and 3
+    in the coupled case is 7 hertz, each line must have moved
+    7/2 hertz away from 5a. Line 2 involves a transition
+    between spin state 1 (which was raised by A) to spin state
+    3 (which was lowered by A). Therefore, 7/2 must equal
+    2A, or 7 = 4A. □
+    Next, compare Figure 9.2c with 9.2b. Because this time
+    the antiparallel states are raised (by A) and the parallel ones
+    lowered, the positions of lines 2 and 3 have been reversed, as
+    have the positions of lines 1 and 4. But the resulting spectrum
+    itself is indistinguishable from the one in Figure 9.2a.
+    If the (a) and (c) (coupled) spectra are identical (except for
+    the ordering of lines), what difference, if any, is there between
+    the two cases? The answer is the sign of the coupling constant.
+    A positive value G > 0) implies that antiparallel spin states are
+    lowered and parallel ones raised, while a negative value G <
+    0) implies the converse. Thus, while a coupling constant
+    and Ha0. And in C, the hydrogens are not magnetically
+    equivalent, nor are the fluorines, because VIrans is greater
+    than Vcis. □
+    The situation becomes more complicated when we con-
+    consider molecules with multiple conformations. For example,
+    look carefully at the structure of 1,1,1-trifluoroethane:
+    H
+    F H
+    side view
+    F H
+    end view
+    9-2
+    If this molecule were "frozen" in the conformation shown, the
+    hydrogens would not be magnetically equivalent because
+    their couplings to the three fluorines would involve three
+    different dihedral angles and hence three different values of
+    37Hf- Thus, we would label them H, H', H", F, F, and F".
+    However, just as we saw with the methyl group of toluene
+    (Section 4.2), there is rapid rotation around the C-C single
+    bond, which averages all the H-F couplings (see Example
+    9.7). Thus, all three hydrogens are rendered magnetically
+    equivalent on the time average, as are the three fluorines. But
+    if this rotation were slowed or stopped, the effects of their
+    magnetic nonequivalence would reemerge.
+    9.8 POPLE SPIN SYSTEM NOTATION
+    We are now ready to introduce a shorthand method developed
+    by Pople for labeling spin-coupled systems. These labels will
+    help us recognize some of the more common coupled multi-
+    plet patterns. Here is how it works. Assign a capital letter to
+    each magnetic nucleus involved in the coupled system. Select
+    letters whose alphabetic relationship reflects the relative
+    chemical shifts of the various nuclei. Thus, for two nuclei of
+    very different chemical shift (or different isotopes), pick A
+    and X; for nuclei that have very similar (but not identical)
+    chemical shifts, use A and B. For three nuclei of moderately
+    different chemical shifts, use A, M, and X. (Just how much of
+    a difference constitutes "very different" or "very similar" is
+□
+    ■ EXAMPLE 9.11 Label the H/F spin system (neglect-
+    (neglecting carbon coupling) in p-fluoronitrobenzene (9-1).
+    □ Solution: The completely correct answer is AA'BB'X.
+    But since para (five-bond) couplings (A-B' and A'-B) are
+    essentially zero, we can regard the spin system as two
+    equivalent (and superimposed) ABX systems. □
+    But why go to the trouble of labeling spin systems? The
+    answer is that spin systems with identical labels give spectra
+    that are very similar in appearance. We can learn to recognize
+    these recurring patterns and realize immediately what aspects
+    of molecular structure generates them. For example, an
+    ethoxy group (CH3-CH2-O-) is an example of an A3X2 spin
+    system and always gives the familiar triplet (for three A nuclei
+    split by two X nuclei) and quartet (for two X nuclei split by
+    three A nuclei), as we saw in Section 8.1 and Example 8.18.
+    See also Sections 9.11 and 9.12.
+    ■ EXAMPLE 9.12 What type of spectra would you ex-
+    fitting.
+    REFERENCES
+    'Becker, E. D., High Resolution NMR, 2nd ed., Academic,
+    New York, 1980.
+    
+    
+    
+    * * *
+    
+    156 FACTORS THAT INFLUENCE THE SIGN AND MAGNITUDE OF J: SECOND-ORDER (STRONG) COUPLING EFFECTS
+    2Lazlo, P., and Stang, P. J., Organic Spectroscopy, Harper
+    & Row, New York, 1971.
+    3J. G. and Quin, L. D., Ed., Phosphorus-31 NMR Spectros-
+    Spectroscopy in Stereochemical Analysis. Organic Compounds
+    and Metal Complexes, Verkade, VCH Publishers, Deer-
+    field Beach, FL, 1987.
+    4Silverstein, R. M, Bassler, G. C, and Morrill, T. C,
+    Spectrometric Identification of Organic Compounds, 5th
+    ed., Wiley, New York, 1991.
+    5S. Castellano and A. A. Bothner-By, available from the
+    Quantum Chemistry Program Exchange at Indiana Uni-
+    University, Bloomington, IN 47401.
+    6Wiberg, K. B., and Nist, B. J., Identification of NMR
+    Spectra, Benjamin, New York, 1962.
+    
+    10
+    THE STUDY OF DYNAMIC PROCESSES BY NMR
+    10.1 REVERSIBLE AND IRREVERSIBLE
+    DYNAMIC PROCESSES
+    In chemistry the term dynamic implies changing with time.
+    Dynamic physical and chemical processes are of two basic
+    types, irreversible and reversible.
+    Irreversible processes are normally encountered in the
+    context of chemical reactions. When the free energy (G°) of
+    the product(s) of a reaction is sufficiently lower than the free
+    energy of the reactant(s), the final (equilibrium) reaction
+    mixture will comprise essentially all product(s) and no reac-
+    tant(s). For example, a free-energy difference as little as 5
+    kcal/mol (ca. 21 kJ/mol) means the equilibrium mixture will
+    consist of >99.97% products at 25°C [Eq. B.8)]. In such
+    cases, we can regard the reaction as essentially irreversible,
+    that is, going in only one direction, or "going to completion."
+    If the rate of an irreversible reaction is slow enough that
+A0.10) can be rewritten
+    in the form
+    A0.12)
+    H + G
+    Such complexes are sometimes called supramolecules. The
+    choice of which molecule is the host and which is the guest is
+    somewhat arbitrary, but the larger molecule is usually deemed
+    the host. Enzyme-substrate complexes are a prime biochemi-
+    biochemical example of such interactions. Cram, Pedersen, and Lehn
+    shared the 1987 Nobel Prize in chemistry for their pioneering
+    work in the area of molecular recognition and supramolecular
+    chemistry. The recent chemical literature is replete with ex-
+    examples in which NMR has been used to study such complexa-
+    complexation.6
+    Of particular interest is the strength of the complexation,
+    as measured by equilibrium constant K:
+    [H\0(\-Xc)(r-Xc)
+    where r is the ratio [G]o/[H]O.
+    10.6.2 Determining K under Fast-Exchange Conditions
+    Under fast-exchange conditions the observed chemical shift
+    E) of the nucleus of interest will be the population average of
+    5n and 5^:
+    A0.13)
+    5 - XH 5H ■
+    This leads to the relationship
+    Xr =
+    sH-s
+    A5
+    A0.14)
+    
+    
+    
+    * * *
+    
+    166 THE STUDY OF DYNAMIC PROCESSES BY NMR
+    Now we can use the observed fast-exchange chemical shift 5,
+    together with 5H and 5C from slow-exchange measurements
+    and the known values of [H]o and [G]o, to evaluate K using
+    Eq. A0.12).
+    The observed chemical shift under fast-exchange condi-
+    conditions is a complicated function of [H]o, [G]o, 5H, 5C, and K;
+    A0.15)
+    where b = 1 + r + (K [H]o)~"' (see review problem 10.4).
+    enantiomer (or each enantiotopic nucleus) will be re-
+    resolved.
+    
+    11
+    ELECTRON PARAMAGNETIC RESONANCE
+    SPECTROSCOPY AND CHEMICALLY INDUCED DYNAMIC
+    NUCLEAR POLARIZATION
+    11.1 ELECTRON PARAMAGNETIC RESONANCE
+    From Section 2.1.2 you will recall that individual electrons,
+    like protons, have magnetic spin (/ = i) and can therefore
+    adopt either of two precessing spin orientations,
+    ms = +^ or - i (differing slightly in energy), when immersed
+    in an external magnetic field (Figure 2.1). Thus, in a molecule
+    with an unpaired electron, it should be possible to induce
+    transitions between these electronic spin energy levels by
+    subjecting the electrons to electromagnetic radiation equal in
+    frequency to their precessional frequency. This fact is the
+    basis of electron paramagnetic resonance (EPR) spectros-
+    spectroscopy,1-2 also known as electron spin resonance (ESR) spec-
+    spectroscopy, a technique that traces its origin to experiments by
+    Zavoisky in 1945.
+--------------------------------------------------------------------------------
+Stereophile 1996 01 | PDF | Loudspeaker | Sound Production Technology (https://ro.scribd.com/document/726860147/Stereophile-1996-01)
+citeturn1839search1 [wordlim: 200] Published: 30.9 years ago; Crawled: 2.5 years ago; wind of anew digital encoding scheme earned an Economics degree at Musahi Parasound because it does, in fact, do ... Tom Jung re ..tied hearing differ- ... If you see aspider web's worth of spin- midway in the procedure. ... audible differences in the cables' it directly relates to rise time and phase 4» Two lmm (14 gauge) round ... In 1988 TARA Labs developed runs of equal mass (i.e. same D.C. examining its internal structure. ... We at the Imaging Science Foundation are high-end electronic imaging consultants.
+report elsewhere in this issue), Icaught loved Western Classical music, he We reproduce the following letter from
+wind of anew digital encoding scheme earned an Economics degree at Musahi Parasound because it does, in fact, do
+being developed by Sony. David Smith, University. Yamanaka attributed his just that, and also offers an instructive
+Director of Audio Operations at Sony love of audio to his exposure to his analysis of the market forces that led
+Music Studios in New York, provided a older brother's HMV 203 gramophone. them to such adecision.
+hint of the new process during amas- He was a founding member of the `To Members of the Press
+tering workshop, then provided me Japan Audio Society, joining while a From Richard Schram, Parasound
+with some details later. student, and was instrumental in estab- November 1, 1995
+The new encoding technique is lishing the Japan Audio Fair —now "Spica has along and illustrious his-
+called DSD, for "Direct Stream Dig- celebrating its 44th year. tory as an innovative and value-con-
+He was primarily associated with had changed, presenting unexpected
+By creating asingle-format profes- Stereo Sound magazine, having written and daunting obstacles.
+sional encoder from which digital sig- for them since the magazine's inception ". We were anticipating sales from
+nals with variable sampling rates and in 1966, although he also contributed to our Spica dealers, but we found many
+resolutions can be made, Sony is posi- HiVi, Record Getjutsu, and other publica- of them weakened and suffering slow
+tioning themselves for the new high- tions. He welcomed new technology traffic because of their refusal to em-
+density CDs on their way. The new and new ideas—he was one of the first brace Home Theater. Many of the deal-
+"Super CD," which can store much Japanese audiophiles to construct apri- ers on whom we were counting could
+higher-resolution digital audio, still has vate Home Theater system, having not qualify for open credit lines, and
+no established standard for number of added aCRT video projector to ahigh- many had already gone out of business.
+of speaker brands, it seems inescapable them, then receives aprocessed CDR in Month," have been processed by asingle
+that even Spica's legendary natural return. This CD remastering is expect- DTI•Pro 32 by mastering engineer Ber-
+sound and dedication to value would ed to cost $30-40. As you may imagine, nie Grundman. (The DTI-processed
+not be compelling enough reasons to significant copyright problems are asso- AudioQuest discs are identified with a
+assure its success. Simply stated, it would dated with this venture. Audio Al- credit.) The new ERD system is report-
+be abig investment with risk. chemy is trying to resolve the copyright edly vastly better than asingle DTI•Pro
+"Therefore, we have decided to sus- issues and have the process on-line for 32—and better than the PC-based
+pend R&D for new models. Our Albu- accepting customer discs by January. processing used on the demonstration
+querque factory will continue building Audio Alchemy loaned me aCDR disc Iheard. Audio Alchemy intends to
+TC-60s through at least spring 1996. ## LIKE MOST READERS,
+
+nMI I11.I si iii
+with the built-in nique, I've cleaned Sin, •
+
+## flashlights: you'll look records I thought
+
+like adork, but you're
+an audiophile, so ob- ICAN ENJOY THINGS were clean but noisy
+and have ended up
+11 5511 Mu,
+
+ICAN'T HAVE.
+noe•I mmolobis misi l
+
+## viously that won't with cleaner and o, mil 1511 1,51
+
+•I ill mo
+much quieter rec-
+I•
+
+## bother you, and you'll
+
+have both hands free.
+Even if the record IT'S AN ords. They even look
+different. Unfortu- '
+IN- • •it -
+
+## looks pristine, wear
+
+can be invisible: Ial- ADULT ADJUSTMENT nately, one ofWayne's
+tools is the sadly dis-
+ways check the hole
+for wear, and the la-
+bel for spindle marks.
+TO ENVY. continued Allsop Or-
+bitrac, which is cheap
+and very effective
+The Model 78
+Disappearing Act-
+If you see aspider web's worth of spin- midway in the procedure.
+Analog lovers: we must get the Or- \\.• .,mm duel rem loqmo4, .1 lin \111.1.4
+dle marks, or the hole shows white If Ilwor f•scfp!.....11% rftlimt.1
+where the colored label has been worn bitrac back in production. ## Frequency it's possible to make good predictions
+
+about the sound of acable just by
+In 1988 TARA Labs developed runs of equal mass (i.e. same D.C. examining its internal structure. In Part
+Constant Current Impedance Testine resistance) but varying conductor Two, we'll examine why various
+(CCZT), atesting method which has been shape and arrangement. They are set conductor configurations yield the
+used in advanced university engineering up in atest jig having the same parallel differences in frequency linearity (and
+studies to measure cable performance. configuration between the send and therefore, sound) demonstrated here,
+These measurements provide reliable return lines. This methodology ac- and what to look for when comparing
+predictions about the sound to be heard curately compares the design qualities cable designs.
+from the changes of cable conductor of the conductors themselves while
+
+ARALM3S
+design and configuration. With CCZT, we keeping all other factors identical.
+have been able to reliably and repeatably The results of the tests are shown
+
+120 S
+TEREOPHILE, J
+ANUARY 1996
+"
+W ITHOUT CONTENT, TELEVISION IS NOTHING MORE THAN LIGHTS IN ABOX."
+-EDWARD R. MURROW
+
+IIK Box?
+OPPOSING VIEWS ON THE MARRIAGE BETWEEN AUDIO AND Vie y •
+1.
+
+## JOEL SILVER PRO
+
+D
+ear Steve: The marriage of audio and video is far from being in trouble. In fact, in the next
+12 months this union will blossom into anew era of high-end electronic home enter-
+tainment. That era will begin with the introduction of the Digital Video Disc format—
+the DVD.
+We at the Imaging Science Foundation are high-end electronic imaging consultants. We're
+already pushing the envelope of this new format for better video with designs for agenera-
+tion of high-end DVD machines. This new 120mm disc will deliver better-quality
+Home Theater images than laserdiscs.
+The video part of this marriage looks marvelous! And we all know the
+state of laserdisc audio. DVD audio is what you should be focusing on.
+The audio side of this marriage did okay with the feeble old CD.
+Will the audio side produce your high-end sound with the DVD?

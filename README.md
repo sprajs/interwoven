@@ -8,9 +8,13 @@ An interactive chart of how science and technology build on one another, and the
 | `web` | The chart. It reads the research and never writes to it |
 
 ```bash
+git lfs install --local
+git lfs pull
 npm install
 npm run dev
 ```
+
+Install [Git LFS](https://git-lfs.com/) on each machine before running these commands. Selected binary research snapshots use LFS; the committed `.gitattributes` identifies them. Git stores their pointers and GitHub stores their contents under the same repository permissions. Text, graph data and review records stay in ordinary Git. LFS storage and downloads use the repository owner's GitHub allowance.
 
 Then open http://localhost:5174. While the server runs, the chart rebuilds itself whenever the research changes.
 

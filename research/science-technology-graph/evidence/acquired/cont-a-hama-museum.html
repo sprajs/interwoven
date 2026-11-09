@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="The Discover Islamic Art Virtual Museum and Virtual Exhibitions present the Islamic heritage of the Mediterranean basin, alongside collections of Islamic art hosted by the participating museums, with a Database of 1850 objects and 385 monuments.">
+<meta name="keyword" content="virtual museum, online museum, virtual exhibitions, online exhibitions, online collection, baroque art, baroque architecture, baroque heritage, european baroque, enlightenment, exoticism, devotion, moravian baroque, portuguese baroque, discover, network, museums, curatorial exhibitions">
+<meta name="author" content="">     
+<title>Norias (&lt;i&gt;nawa’ir&lt;/i&gt;) of Hama - Discover Islamic Art - Virtual Museum</title>
+        <!-- GOOGLE WEB FONT-->
+        <link rel="stylesheet" href="css/font-awesome.css" type='text/css' />
+                <link rel="stylesheet" href="css/style.css" type='text/css' />
+        <link rel="stylesheet" href="css/style_inside.css" type='text/css' />
+        <link rel="stylesheet" href="css/style_responsive.css" type='text/css' />       
+                        
+        <link rel="stylesheet" href="css/swiper.css" type='text/css' />
+        <link rel="stylesheet" href="css/_styles_print.css" type="text/css" media="print">
+          <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        <!-- GOOGLE MAPS API -->
+        <script src="js/html5.js"></script>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/tooltip.js"></script>
+        <script type="text/javascript" src="js/swiper.min.js"></script>
+        <script type="text/javascript" src="js/_javascript.js"></script>
+        <script type="text/javascript" src="js/touchSwipe.min.js"></script>
+<!------------------------------Google analytics ---------------------------->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G-D1YFYQ8WGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D1YFYQ8WGS');
+</script>
+<!------------------------------Google analytics ---------------------------->    </head>
+    <body class="inside">
+<div class="align">
+    <div class="print_header">
+        <div style="float: right;"></div>
+        <div style="float: left;"><img src="images/logo_print.gif" alt="" width="130" height="55" border="0"></div>
+    </div>
+    <section class="header">
+        <header class="inside">
+            <div class="logo">
+                <a href="https://www.museumwnf.org/"><img src="images/logo_isl_en.png" /></a>
+            </div>      
+            <div class="header_heading">
+                                    <div>
+                        <a href="https://islamicart.museumwnf.org"><p>&nbsp;</p>
+                        <h3>Discover Islamic Art</h3></a>
+                    </div>  
+                            </div>
+            <div class="portal_links">
+                <ul class="inside">
+                    <li><a href="https://www.museumwnf.org" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Return to MWNF Portal">MWNF Portal</a></li>
+                    <li><a href="https://islamicart.museumwnf.org" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Discover Islamic Art homepage">Home</a></li>
+                </ul>
+                <div class="language_selection">
+                    <form name="change_lng"  method="post">
+                    <select title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Navigation language" name="lng" class="language"  onChange="change_lng.submit()" aria-required="true" aria-invalid="false" maxlength="2" required placeholder="Language">
+                    <option value="en" selected>English</option><option value="es" >Español</option><option value="fr" >Français</option><option value="ar" >العربية</option>                    </select> 
+                    </form>
+                </div>
+            </div>  
+        <div class="consolace-main-menu-button-wrapper consolaceMenu">
+    <div class="swipe-area"></div>
+    <div class="consolace-main-menu-button">
+        <div class="consolace-main-menu-button-middle"></div>
+    </div>
+</div>
+<div class="consolace-main-wrapper" id="menu_contents">
+    <div class="consolace-main-wrapper-inner">
+        <div class="consolace-main">
+                <div class="consolace_mob_menu">
+                    <ul>
+                        <li><a href="pc_entrance.php">Permanent Collection</a></li>
+                        <li><a href="database.php">Database</a></li>
+                        <li><a href="#" onClick="javascript:openExhibitions();">Exhibitions</a></li>
+                        <li><a href="#" onClick="javascript:openArtIndroduction();">Artistic Introduction</a></li>
+                        <li><a href="partners.php">Partners</a></li>
+                        <li><a href="hcr_home.php">Timeline</a></li>
+                        <li><a href="dynasties/">Islamic Dynasties<br/>
+</a></li>
+                        <li><a href="https://www.museumwnf.org/mycollection/my_welcome.php" target="_blank">My Collection</a></li>
+                    </ul>
+                </div>
+            <!-- mobile menu--------------->
+        </div>
+    </div>
+</div>
+<div class="consolace-main-background" id="consolace-menu-background"></div>
+<div class="consolace-background-overlay" id="consolace-background-overlay"></div>
+<script>
+var $K = jQuery.noConflict();
+$K(document).ready(function() {
+$K(".consolace-main-menu-button").click(function() {
+    if ( $K( ".consolaceMenu" ).hasClass( "consolace-menu-active" ) ) {
+        $K(this).parent().removeClass("consolace-menu-active");
+        $K( "#menu_contents" ).removeClass( "consolace-main-wrapper-active" );
+        $K( "#consolace-menu-background" ).removeClass( "consolace-main-background-active" );
+        $K( "#consolace-background-overlay" ).removeClass( "consolace-background-overlay-active" );
+    } else {
+        $K(this).parent().addClass("consolace-menu-active");
+        $K( "#menu_contents" ).addClass( "consolace-main-wrapper-active" );
+        $K( "#consolace-menu-background" ).addClass( "consolace-main-background-active" );
+        $K( "#consolace-background-overlay" ).addClass( "consolace-background-overlay-active" );
+    }
+});
+$K("#consolace-background-overlay").click(function() {
+    $K( "#consolace-background-overlay" ).removeClass( "consolace-background-overlay-active" );
+        $K( "#menu_contents" ).removeClass( "consolace-main-wrapper-active" );
+        $K( "#consolace-menu-background" ).removeClass( "consolace-main-background-active" );
+        $K( ".consolaceMenu" ).removeClass( "consolace-menu-active" );
+});
+
+/*===============*/
+$K(".swipe-area").swipe({
+    swipeStatus:function(event, phase, direction, distance, duration, fingers)
+        {
+            if (phase=="move" && direction =="right") {
+                    $K(this).parent().addClass("consolace-menu-active");
+                    $K( "#menu_contents" ).addClass( "consolace-main-wrapper-active" );
+                    $K( "#consolace-menu-background" ).addClass( "consolace-main-background-active" );
+                    $K( "#consolace-background-overlay" ).addClass( "consolace-background-overlay-active" );
+                 return false;
+            }
+            if (phase=="move" && direction =="left") {
+                    $K(this).parent().removeClass("consolace-menu-active");
+                    $K( "#menu_contents" ).removeClass( "consolace-main-wrapper-active" );
+                    $K( "#consolace-menu-background" ).removeClass( "consolace-main-background-active" );
+                    $K( "#consolace-background-overlay" ).removeClass( "consolace-background-overlay-active" );
+                 return false;
+            }
+        }
+});
+/*===============*/
+$K(document).ready(function() {
+  function setHeight() {
+    windowHeight = $K(window).innerHeight();
+    $K('.swipe-area').css('min-height', windowHeight);
+  };
+  setHeight();
+
+  $K(window).resize(function() {
+    setHeight();
+  });
+});
+
+/*===============*/
+$K(".submenu_hide").click(function() {
+    if ($K( ".has_submenu" ).hasClass( "has_submenu-active" ) ) {
+        $K(this).parent().removeClass("has_submenu-active");
+        $K( ".sub-menu" ).removeClass( "sub-menu-active" );
+    } else {
+        $K(this).parent().addClass("has_submenu-active");
+        $K( ".has_submenu-active .sub-menu" ).addClass( "sub-menu-active" );
+    }
+});
+});
+</script>
+        </header>
+    </section>
+    <section class="menu">
+        <ul class="nav">
+                    <li><a href="pc_entrance.php">Permanent Collection</a></li>
+            <li><a href="database.php">Database</a></li>
+            <li><a href="javascript:openExhibitions();">Exhibitions</a></li>
+            <li><a href="javascript:openArtIndroduction();">Artistic Introduction</a></li>
+            <li><a href="partners.php">Partners</a></li>
+            <li><a href="hcr_home.php">Timeline</a></li>
+            <li><a href="dynasties/" target="_blank">Islamic Dynasties<br/>
+</a></li>
+            <li><a target="_self" href="https://www.museumwnf.org/mycollection/my_welcome.php">My Collection</a></li>
+            
+         
+        </ul>
+</section>
+<link rel="stylesheet" href="css/zoom.css">
+<script type="text/javascript" src="js/zoom.js"></script>
+<script type="text/javascript" src="js/galleryPradeep.js"></script>
+<section class="banner banner_inside">
+  <div class="banner-image">
+    <div class="banner-text">
+      <h2><span><span class="first">D</span>atabase </span></h2>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="js/copy_paste.js"></script>
+  <section class="language_option"><ul class="language_options"><li><a href='database_item.php?id=monument;isl;sy;mon01;32;fr' title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Languages available for this item">Français</a></li><li><a href='database_item.php?id=monument;isl;sy;mon01;32;es' title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Languages available for this item">Español</a></li><li class="active"><a href="#">English</a></li><li><a href='database_item.php?id=monument;isl;sy;mon01;32;ar' title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Languages available for this item">العربية</a></li></ul></section>  <section class="inner_contents">
+    <div class="container">
+      <div class="row">
+
+        <!--=================== Left Section Starts =============-->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-a-12 inner_left">
+          <div class="breadcrumbs">
+                          <a href="javascript:history.go(-1);" class="arrow_bakward"><img src="images/back_arrow.png">Back</a>
+            
+                          <a href="pc_entrance.php" class="arrow_bakward"><img src="images/back_arrow.png">Collection start page</a>
+                      </div>
+          <!--=================== Image Zoom Area =============-->
+          <div class="page"><div class="sp-wrap"><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/1.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/1.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/2.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/2.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/3.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/3.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/4.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/4.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/5.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/5.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/6.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/6.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/7.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/7.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/8.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/8.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/9.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/9.jpg" alt="Photograph:&nbsp;Muhammad al-Roumi"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/11.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/11.jpg" alt="Photograph:&nbsp;Zishan Sheikh"></a><a href="https://images.museumwnf.org/zoom/monuments/isl/sy/1/32/plans/1.jpg"><img src="https://images.museumwnf.org/medium/monuments/isl/sy/1/32/plans/1.jpg" alt=""></a></div></div>
+          <script type="text/javascript">
+            /* wait for images to load */
+            var $c = jQuery.noConflict();
+            $c(window).load(function() {
+              $c('.sp-wrap').smoothproducts();
+            });
+          </script>
+          <!--=================== Image Zoom Area =============-->
+          <br /><br />
+          <div class="leftLink">
+            <a href="https://www.museumwnf.org/mycollection/add_to_group.php?id=monument;isl;sy;mon01;32;en&pla=detail" class="arrow_bakward addtomycollection" style="font-size: 16px !important;font-weight: 400;color: #222;">Add to My Collection</a>
+          </div>
+        </div>
+        <!--=================== Left Section Ends =============-->
+
+        <!--=================== Content Section Starts =============-->
+        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-12">
+                      <div class="center_contents non_arabic">
+              <form name="glossary" action="glossary1.php" method="post" target="popupwindow">
+                <input id="term" name="term" type="hidden" />
+                <input id="lng" name="lng" type="hidden" />
+              </form>
+              <h3>Name of Monument:</h3><p>Norias (<i>nawa’ir</i>) of Hama</p><h3>Location:</h3><p>Hama along the Orontes River, Syria</p><h3>Date of Monument:</h3><p>Hegira 6th–10th century / AD 12th–16th century</p><h3>Period / Dynasty:</h3><p>Atabeg, Ayyubid, Mamluk, and Ottoman</p><h3>Description:</h3><p>The waterwheel, or <i><a href="javascript:showGlossary('noria','en');" style="text-decoration: underline;">noria</a> </i>(properly pronounced <i><a href="javascript:showGlossary('na'ura','en');" style="text-decoration: underline;">na'ura</a> </i>(singular) and <i><a href="javascript:showGlossary('nawa'ir','en');" style="text-decoration: underline;">nawa'ir</a> </i>(plural)), is an ancient hydraulic structure designed for collecting and distributing water by utilising the power of a running stream. It is also the visual and aural hallmark of the city of Hama, 226 km north of Damascus, straddling the meandering River Orontes. The use of waterwheels in Syria dates to the Classical and Hellenistic periods, possibly even the Nabataean period (2nd century BC–AD 2nd century), and the first visual depiction of a <i><a href="javascript:showGlossary('na'ura','en');" style="text-decoration: underline;">na'ura</a></i> is found on a mosaic from the ancient city of Apamea, 55 km north of Hama, dated AD 469. During the medieval period, however, there was a marked increase of references to <i><a href="javascript:showGlossary('nawa'ir','en');" style="text-decoration: underline;">nawa'ir</a> </i>in Islamic geographical writing, indicating their improved and multiplied development.<br />
+Under the Seljuq <a href="javascript:showGlossary('sultanate','en');" style="text-decoration: underline;">sultanate</a> and their various <a href="javascript:showGlossary('Atabeg','en');" style="text-decoration: underline;">Atabeg</a>, Zangid and Ayyubid vassals, when Syria's cities witnessed robust urban development, the <i><a href="javascript:showGlossary('nawa'ir','en');" style="text-decoration: underline;">nawa'ir</a></i> of Hama received special attention. Nur al-Din Mahmud <a href="javascript:showGlossary('bin','en');" style="text-decoration: underline;">bin</a> Zangi went on a rebuilding campaign after the earthquake of AH 551 / AD 1157, which included the restoration of Hama's water system and <i><a href="javascript:showGlossary('nawa'ir','en');" style="text-decoration: underline;">nawa'ir</a></i>.<br />
+The earliest of the surviving <i><a href="javascript:showGlossary('nawa'ir','en');" style="text-decoration: underline;">nawa'ir</a> </i>are attributed to the Ayyubid period (late AH 6th – 7th / AD 11th - 12th centuries) while the earliest inscribed <i><a href="javascript:showGlossary('na'ura','en');" style="text-decoration: underline;">na'ura</a></i> tower, named al-Muhammadiyya, dates to the Mamluk period in AH 763 / AD 1361. This is also one of the two largest <i><a href="javascript:showGlossary('nawa'ir','en');" style="text-decoration: underline;">nawa'ir</a></i> of the city: 21 m in wheel diameter and 17.5 m in aqueduct height. The aqueduct of al-Muhammadiyya is particularly long as it supplies water for the Great <a href="javascript:showGlossary('Mosque','en');" style="text-decoration: underline;">Mosque</a> quarter, nearly a kilometre away from the banks of the River Orontes. The second largest <i><a href="javascript:showGlossary('na'ura','en');" style="text-decoration: underline;">na'ura</a></i>, also 21 m in diameter and known as al-Mamuriyya, is early Ottoman, dated AH 867 (1453).<br />
+<i><a href="javascript:showGlossary('Nawa'ir','en');" style="text-decoration: underline;">Nawa'ir</a></i> are constructed basically in two parts: the mobile wheel, usually made of poplar wood, and the static aqueduct, usually made of stone. The wheel consists of a group of broad beams fixed perpendicularly around the axle, creating a quadrangular formation in the centre, and radiating out towards the wheel's periphery. These beams are held together by circular frames and further supported by more beams that are nailed in at successive angles. At the periphery of the wheel are paddles that facilitate the wheel's circular movement and compartments (<i><a href="javascript:showGlossary('sanadiq','en');" style="text-decoration: underline;">sanadiq</a></i>) that collect the water. Given that the wheel is largely a wooden construction, its beams need regular maintenance and changing every 15 years or so.<br />
+Stone constructions, like the aqueduct for transporting water and the small dam controlling the river's water level, are also part of the <i><a href="javascript:showGlossary('noria','en');" style="text-decoration: underline;">noria</a>'s</i> successful construction. The aqueduct is a tall rectangular receptacle standing parallel to the wheel and designed to be as wide as possible in order to receive maximum water per rotation. Attached to this receptacle is the long duct set on an arcade that serves the adjacent areas, providing them with water for domestic and irrigation purposes. On average, a <i><a href="javascript:showGlossary('na'ura','en');" style="text-decoration: underline;">na'ura</a></i> can raise 50 litres of water per second, and irrigate no less than 75 hectares.</p><i><a class="tag arrow" style="font-weight:500;">View Short Description</a></i><p class="tag_close">The city of Hama is famous for its waterwheels, or <i><a href="javascript:showGlossary('norias','en');" style="text-decoration: underline;">norias</a></i>, which charmingly dot the meandering River Orontes, which passes through the city. The technique for building these waterwheels is an ancient one, but remarkably effective and still in use. The wheels are typically made of poplar wood, requiring regular maintenance, while their supportive structures, like aqueducts and dams, are made of stone. The dimensions of the total hydraulic construction are inter-related, depending on each other to collect the maximum amount of water efficiently and ensure its most effective distribution.</p><h3>How Monument was dated:</h3><p>Some <i>nawa'ir</i> are dated by inscriptions but mostly by approximation based on archaeological evidence and historical sources. Recent excavations that have taken place under water are proving that most <i>nawa'ir</i> have ancient origins and have been continuously restructured throughout the ages.</p><h3>Selected bibliography:</h3><p>Burns, R., <i>Monuments of Syria: An Historical Guide, </i>1999, pp.126–9.<br />
+Delpech, A., et al, <i>Les norias de l'Oronte: analyse technologique d'un éléments du patrimoine syrien, </i>Damascus, 2005.</p><h3>Citation of this web page:</h3><p>Waal&nbsp;Hafian "Norias (<i>nawa’ir</i>) of Hama" in <i>Discover Islamic Art</i>, Museum With No Frontiers,&nbsp;2026. 2026. <br/><i>https://islamicart.museumwnf.org/database_item.php?id=monument;isl;sy;mon01;32;en</i></p><p>Prepared by: Waal Hafian<br/>Copyedited by: <a class="su_tooltip_1">Mandi Gomez<span class="su_tooltip_1-content"><span class="su_tooltip_1-text"><span class="su_tooltip_1-inner"><span class="su_tooltip_1-body"><b>Mandi Gomez</b><br/><br/>Amanda Gomez is a freelance copy-editor and proofreader working in London. She studied Art History and Literature at Essex University (1986–89) and received her MA (Area Studies Africa: Art, Literature, African Thought) from SOAS in 1990. She worked as an editorial assistant for the independent publisher Bellew Publishing (1991–94) and studied at Bookhouse and the London College of Printing on day release. She was publications officer at the Museum of London until 2000 and then took a role at Art Books International, where she worked on projects for independent publishers and arts institutions that included MWNF’s English-language editions of the books series Islamic Art in the Mediterranean. She was part of the editorial team for further MWNF iterations: Discover Islamic Art in the Mediterranean Virtual Museum and the illustrated volume <i>Discover Islamic Art in the Mediterranean</i>.<br/>
+<br/>
+True to its ethos of connecting people through the arts, MWNF has provided Amanda with valuable opportunities for discovery and learning, increased her editorial experience, and connected her with publishers and institutions all over the world. More recently, the projects she has worked on include MWNF’s Sharing History Virtual Museum and Exhibition series, Vitra Design Museum’s <i>Victor Papanek</i> and <i>Objects of Desire</i>, and Haus der Kulturen der Welt’s online publication <i>2 or 3 Tigers</i> and its volume <i>Race, Nation, Class</i>.</span></span></span></span></a><br/></p><p>MWNF Working Number: SY 40</p>            </div>
+                  </div>
+        <!--=================== Content Section Ends =============-->
+
+        <!--=================== Right Section Starts =============-->
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding:0;">
+          <div class="item_colr_bg">
+            <p class="main_heading"><strong>RELATED CONTENT</strong></p>
+            <div class="related_objects"><p style="margin-bottom: 3px;"><strong>Related objects</strong></p><a href="database_item.php?id=object;ISL;uk;Mus02;9;en" title="" data-toggle="tooltip" data-placement="left" data-original-title="Basin - United Kingdom. A marble basin that was sponsored by the Ayyubid ruler of Hama, Mansur II, probably for public use at a mosque. The water supply was provided by water from the Nawa’ir of Hama."><img src="https://images.museumwnf.org/lo_res/objects/isl/uk/2/9/1.jpg" /></a><a href="database_item.php?id=object;ISL;uk;Mus04;10;en" title="" data-toggle="tooltip" data-placement="left" data-original-title="Jug - United Kingdom. Jars such as this were popular during the Ayyubid period; the zigzag lines possibly represent a river."><img src="https://images.museumwnf.org/lo_res/objects/isl/uk/4/10/1.jpg" /></a></div>            <p style="margin-top: -5px;margin-bottom: 3px;"><strong>Related monuments</strong></p><div class="related_objects" style="margin-bottom: 12px;"><a href="database_item.php?id=monument;ISL;eg;Mon01;1;en" title="" data-toggle="tooltip" data-placement="left" data-original-title="Nilometer - Egypt. While Hama is famous for its nawa’ir, Cairo is famous for its Nilometer."><img src="https://images.museumwnf.org/lo_res/monuments/isl/eg/1/1/1.jpg" /></a><a href="database_item.php?id=monument;ISL;pa;Mon01;33;en" title="" data-toggle="tooltip" data-placement="left" data-original-title="Madrasa al-Salahiyya - Palestine. The Ayyubid ruler of Hama ensured the water supply for the Islamic Madrasa al-Salahiyya in Palestine, which was also a Christian Church."><img src="https://images.museumwnf.org/lo_res/monuments/isl/pa/1/33/1.jpg" /></a><a href="database_item.php?id=monument;ISL;sy;Mon01;9;en" title="" data-toggle="tooltip" data-placement="left" data-original-title="Hospital (Bimaristan) al-Qaymari - Syria. Bimaristan al-Qaymari was supplied by a small noria from the Yazid branch of the Barada River which runs just outside its windows."><img src="https://images.museumwnf.org/lo_res/monuments/isl/sy/1/9/1.jpg" /></a><a href="database_item.php?id=monument;ISL;sy;Mon01;12;en" title="" data-toggle="tooltip" data-placement="left" data-original-title="The tali' (water system) of Damascus - Syria. Unlike the water supplied by the Nawa’ir and aqueduct of Hama, in Damascus the water supply was governed by the Tali' system."><img src="https://images.museumwnf.org/lo_res/monuments/isl/sy/1/12/1.jpg" /></a></div>
+            <p><a href="javascript:openArtIndroduction();" target="_self">&nbsp;Artistic Introduction</a></p>
+
+                          <p><a onclick="openhcr('monument;isl;sy;mon01;32;en');" id="myBtn" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Historical events that took place during the period when the work was created. The events convey history from the local perspective of the country concerned.">&nbsp;Timeline for this item</a></p>
+              <script type="text/javascript">
+                function openhcr(item_id) {
+                  hcrw = window.open("hcr.php?id=" + item_id + "&", 'hcr', 'width=790,height=600,toolbar=0,resizable=0,directories=0,menubar=0,status=0,location=0,scrollbars=0');
+                  hcrw.focus();
+                }
+              </script>
+            
+                          <div>
+                <p>Islamic Dynasties / Period</p>
+                <p><a href="#" onclick="opendynasty('6');">Atabegs</a></p><p><a href="#" onclick="opendynasty('8');">Ayyubids</a></p><p><a href="#" onclick="opendynasty('19');">Ottomans</a></p><p><a href="#" onclick="opendynasty('42');">Mamluks</a></p>              </div>
+              <script type="text/javascript">
+                function opendynasty(item_id) {
+                  dnst = window.open("dynasty.php?id=" + item_id + "&", 'dynasty', 'width=780,height=600,toolbar=0,resizable=0,directories=0,menubar=0,status=1,location=0,scrollbars=1');
+                  dnst.focus();
+                }
+              </script>
+                                                              <p style="margin-bottom:10px;margin-top: 16px;"><br /><strong><u>On display in</u></strong></p>
+              <p style="margin-bottom: 10px;margin-top: 0px; font-weight: 500;"><strong>Exhibition(s)</strong></p>
+                                      <div style="margin-top: 0;margin-bottom: 10px;">
+                <p><strong><i>Discover Islamic Art</i></strong></p>
+                                  <a><i><a href="exhibitions/ISL/water/exhibition.php?theme=1&page=4" target="_blank">Water | <i>Water Management</i></a></i></a>
+                              </div>
+            
+                              <div style="margin-top: 0; margin-bottom: 10px;">
+                    <p><strong><i>The Table Is Set</i></strong></p>
+                                            <a href="https://exhibitions.museumwnf.org/the_table_is_set/en/theme/4/1/5" target="_blank" style="padding-left: 14px;"><i>Environment 
+						| The Balance Between Food and Nature</i></a>
+                                      </div>
+                              <div style="margin-top: 0; margin-bottom: 10px;">
+                    <p><strong><i>Water in Islam</i></strong></p>
+                                            <a href="https://exhibitions.museumwnf.org/water_in_islam/en/theme/5/3/23" target="_blank" style="padding-left: 14px;"><i>Contemporary Context: Water in the Islamic World Today 
+						| Urban Transformation and Symbolism</i></a>
+                                            <a href="https://exhibitions.museumwnf.org/water_in_islam/en/theme/2/4/2" target="_blank" style="padding-left: 14px;"><i>Domestic and Urban Spheres 
+						| Transport</i></a>
+                                            <a href="https://exhibitions.museumwnf.org/water_in_islam/en/theme/1/3/15" target="_blank" style="padding-left: 14px;"><i>Water and Agriculture in Islamic Civilisation 
+						| Engineering the Flow: Irrigation Technologies and Water Management</i></a>
+                                            <a href="https://exhibitions.museumwnf.org/water_in_islam/en/theme/1/3/18" target="_blank" style="padding-left: 14px;"><i>Water and Agriculture in Islamic Civilisation 
+						| Engineering the Flow: Irrigation Technologies and Water Management</i></a>
+                                            <a href="https://exhibitions.museumwnf.org/water_in_islam/en/theme/1/2/4" target="_blank" style="padding-left: 14px;"><i>Water and Agriculture in Islamic Civilisation 
+						| Rivers of Life: Agriculture Along the Great Waterways</i></a>
+                                      </div>
+                                                  <div>
+                <p><strong><br />See also</strong></p>
+                            <a target="_blank" href="https://travels.museumwnf.org/index.php">Related MWNF Tour</a>              <a target="_blank" href="https://books.museumwnf.org/book/41/en">Related MWNF Travel Book</a>              <div><p>Virtual Visit Exhibition Trail<p><p><a href="https://explore.museumwnf.org/itineraries/c-sy/i-88" target="_blank">The Ayyubid Era. Art and Architecture in Medieval Syria</a></p></div>                            </div>
+                        <br />
+            <p class="download">Download</p>
+                        <!--<a href="javascript:window.print();" class="flip">As PDF (including images)</a>-->
+                                    <a href="javascript:window.print();" class="flip">As PDF (including images)</a>
+
+            <a href="export.php?id=monument;isl;sy;mon01;32;en" class="flip">As Word (text only)</a>
+          </div>
+        </div>
+        <!--=================== Right Section Ends =============-->
+
+      </div>
+    </div>
+  </section>
+
+<script>
+  var $s = jQuery.noConflict();
+  $s(document).ready(function() {
+    $s(".tag").click(function() {
+      if ($s(".tag_close").hasClass("open")) {
+        $s(".tag_close").removeClass("open");
+        $s(".tag").html("View Short Description");
+
+      } else {
+        $s(".tag_close").addClass("open");
+        $s(".tag").html("Hide Short Description");
+      }
+    });
+  });
+</script>
+<footer class="footer">
+    <p><a href="https://www.museumwnf.org/about">About MWNF</a>&nbsp;|&nbsp;<a href="https://www.museumwnf.org/about/contact">Contact</a>&nbsp;|&nbsp;<a href="https://www.museumwnf.org/about/legal-notice">Legal Notice</a>&nbsp;|&nbsp;<a href="https://www.museumwnf.org/about/credits">Credits</a>&nbsp;|&nbsp;<a href="https://www.museumwnf.org/about/language-policy">Language Policy</a>&nbsp;|&nbsp;<a href="https://www.museumwnf.org/about/cookies" target="_blank">Cookies</a>&nbsp;|&nbsp;© Museum With No Frontiers (MWNF) 2004 –  2026</p>
+<div class="socialIcons">
+
+
+       <!--<div id="social-media"><a href="https://www.facebook.com/pages/Museum-With-No-Frontiers/370544525423" target="_blank"><i class="fa fa-facebook-f" data-toggle="tooltip" data-placement="top" data-original-title="MWNF on Facebook"></i></a>&nbsp;<a href="https://twitter.com/mwnf_org/" title="" data-toggle="tooltip" data-placement="top" data-original-title="MWNF on Twitter"target="_blank"><i class="fa fa-twitter"></i></a>&nbsp;<a href="https://www.instagram.com/museumwithnofrontiers/" target="_blank"><i class="fa fa-instagram" data-toggle="tooltip" data-placement="top" data-original-title="MWNF on Instagram"></i></a>&nbsp;<a href="https://www.youtube.com/channel/UC5X2a5jDFyIfTEV5prWNF5Q" data-toggle="tooltip" data-placement="top" data-original-title="MWNF on YouTube"target="_blank"><i class="fa fa-youtube-play"></i></a>&nbsp;<a href="https://www.weibo.com/6540990409/profile?topnav=1&wvr=6&is_all=1" target="_blank"><i class="fa fa-weibo" data-toggle="tooltip" data-placement="top" data-original-title="MWNF on Weibo"></i></a>&nbsp;<a href="https://www.linkedin.com/company/museum-with-no-frontiers/" target="_blank"><i class="fa fa-linkedin-square" data-toggle="tooltip" data-placement="top" data-original-title="MWNF on LinkedIn"></i></a></div>-->
+
+       <!-- SVG Icons -->
+
+
+<div id="social-media"><a href="https://www.youtube.com/channel/UC5X2a5jDFyIfTEV5prWNF5Q" target="_blank"><svg class="svg-inline--fa fa-square-youtube" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="square-youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path></svg></a><a href="https://x.com/mwnf_org/" target="_blank"><svg class="svg-inline--fa fa-square-x-twitter" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="square-x-twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"></path></svg></a><a href="http://www.facebook.com/pages/Museum-With-No-Frontiers/370544525423" target="_blank"><svg class="svg-inline--fa fa-square-facebook" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="square-facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg></a><a href="https://www.instagram.com/museumwithnofrontiers/" target="_blank"><svg class="svg-inline--fa fa-square-instagram" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="square-instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"></path></svg></a><a href="https://www.weibo.com/6540990409/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank"><svg class="svg-inline--fa fa-weibo" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="weibo" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="" fill="currentColor" d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"></path></svg></a><a href="https://www.linkedin.com/company/museum-with-no-frontiers/" target="_blank"><svg class="svg-inline--fa fa-linkedin" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a></div>
+
+<!-- SVG Icons -->
+
+
+
+	</div>
+</footer> 
+<script>
+var $d = jQuery.noConflict();
+$d(function() {
+  $d('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+<script>
+// Get the modal
+/*var modal = document.getElementById('hcr_timeline');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}*/
+</script>
+<div id="gotoTop" class="icon-angle-up" ></div>
+<script>
+var $M = jQuery.noConflict();
+$M(document).ready(function(){	
+	//Check to see if the window is top if not then display button
+	$M(window).scroll(function(){
+		if ($M(this).scrollTop() > 100) {
+			$M('#gotoTop').fadeIn();
+		} else {
+			$M('#gotoTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$M('#gotoTop').click(function(){
+		$M('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+</script>
+<script type="text/javascript" src="js/scrollsmooth.js"></script>
+<script>
+var $s = jQuery.noConflict();
+var $window = $s(window);		//Window object
+var scrollTime = 0.8;			//Scroll time
+var scrollDistance = 300;		//Distance. Use smaller value for shorter scroll and greater value for longer scroll
+
+mobile_ie = -1 !== navigator.userAgent.indexOf("IEMobile");
+
+function smoothScrollListener(event){
+    event.preventDefault();
+
+    var delta = event.wheelDelta / 120 || -event.detail / 3;
+    var scrollTop = $window.scrollTop();
+    var finalScroll = scrollTop - parseInt(delta * scrollDistance);
+
+    TweenLite.to($window, scrollTime, {
+        scrollTo: {
+            y: finalScroll, autoKill: !0
+        },
+        ease: Power1.easeOut,
+        autoKill: !0,
+        overwrite: 5
+    });
+
+}
+
+if (!$s('html').hasClass('touch') && !mobile_ie) {
+
+
+
+    if (window.addEventListener) {
+        window.addEventListener('mousewheel', smoothScrollListener, false);
+        window.addEventListener('DOMMouseScroll', smoothScrollListener, false);
+    }
+
+}
+	
+
+</script>
+<!--<script type="text/javascript">
+function click (e) {
+  if (!e)
+    e = window.event;
+  if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+    if (window.opera)
+      window.alert("");
+    return false;
+  }
+}
+if (document.layers)
+  document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = click;
+document.oncontextmenu = click;
+</script>-->
+<script type="text/javascript">
+document.oncontextmenu = function(e) {
+    e = e || window.event;
+    if (/^img$/i.test((e.target || e.srcElement).nodeName)) return false;
+};
+</script>
+<script>
+var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof global?global:this||window;(_gsScope._gsQueue||(_gsScope._gsQueue=[])).push(function(){"use strict";var t=document.documentElement,e=window,i=function(i,s){var r="x"===s?"Width":"Height",n="scroll"+r,a="client"+r,o=document.body;return i===e||i===t||i===o?Math.max(t[n],o[n])-(e["inner"+r]||Math.max(t[a],o[a])):i[n]-i["offset"+r]},s=_gsScope._gsDefine.plugin({propName:"scrollTo",API:2,version:"1.7.4",init:function(t,s,r){return this._wdw=t===e,this._target=t,this._tween=r,"object"!=typeof s&&(s={y:s}),this.vars=s,this._autoKill=s.autoKill!==!1,this.x=this.xPrev=this.getX(),this.y=this.yPrev=this.getY(),null!=s.x?(this._addTween(this,"x",this.x,"max"===s.x?i(t,"x"):s.x,"scrollTo_x",!0),this._overwriteProps.push("scrollTo_x")):this.skipX=!0,null!=s.y?(this._addTween(this,"y",this.y,"max"===s.y?i(t,"y"):s.y,"scrollTo_y",!0),this._overwriteProps.push("scrollTo_y")):this.skipY=!0,!0},set:function(t){this._super.setRatio.call(this,t);var s=this._wdw||!this.skipX?this.getX():this.xPrev,r=this._wdw||!this.skipY?this.getY():this.yPrev,n=r-this.yPrev,a=s-this.xPrev;this._autoKill&&(!this.skipX&&(a>7||-7>a)&&i(this._target,"x")>s&&(this.skipX=!0),!this.skipY&&(n>7||-7>n)&&i(this._target,"y")>r&&(this.skipY=!0),this.skipX&&this.skipY&&(this._tween.kill(),this.vars.onAutoKill&&this.vars.onAutoKill.apply(this.vars.onAutoKillScope||this._tween,this.vars.onAutoKillParams||[]))),this._wdw?e.scrollTo(this.skipX?s:this.x,this.skipY?r:this.y):(this.skipY||(this._target.scrollTop=this.y),this.skipX||(this._target.scrollLeft=this.x)),this.xPrev=this.x,this.yPrev=this.y}}),r=s.prototype;s.max=i,r.getX=function(){return this._wdw?null!=e.pageXOffset?e.pageXOffset:null!=t.scrollLeft?t.scrollLeft:document.body.scrollLeft:this._target.scrollLeft},r.getY=function(){return this._wdw?null!=e.pageYOffset?e.pageYOffset:null!=t.scrollTop?t.scrollTop:document.body.scrollTop:this._target.scrollTop},r._kill=function(t){return t.scrollTo_x&&(this.skipX=!0),t.scrollTo_y&&(this.skipY=!0),this._super._kill.call(this,t)}}),_gsScope._gsDefine&&_gsScope._gsQueue.pop()();
+</script>
+</body>
+</html>
