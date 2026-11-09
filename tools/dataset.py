@@ -40,6 +40,7 @@ FACETS = (
     "advance",
     "scale",
     "origin",
+    "concept",
     "prompted_by",
     "limit_removed",
     "setting",
@@ -58,7 +59,7 @@ FACETS = (
 )
 
 #: Facets that share another facet's basis, because they are settled together.
-FACET_FOLLOWS = {"fields": "domain", "concept": "origin", "why": "prompted_by", "end_reason": "fate"}
+FACET_FOLLOWS = {"fields": "domain", "why": "prompted_by", "end_reason": "fate"}
 
 
 def read_json(path: Path) -> Any:

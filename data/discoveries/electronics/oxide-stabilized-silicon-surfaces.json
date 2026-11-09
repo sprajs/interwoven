@@ -1,0 +1,197 @@
+{
+  "id": "oxide-stabilized-silicon-surfaces",
+  "name": "Oxide-stabilized silicon surfaces",
+  "summary": "Measurements showing that a thermally grown oxide layer gives silicon surfaces stable electrical behaviour, which made reliable silicon transistors and MOS devices possible.",
+  "description": "Atalla, Tannenbaum and Scheibner measured thermally oxidized silicon interfaces and device behavior, finding stable surface potentials with characteristic interface states.",
+  "kind": "science",
+  "domain": "electronics.semiconductors",
+  "fields": [
+    "physical-sciences.chemistry"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "observation",
+    "measurement",
+    "manufacturing_process"
+  ],
+  "scale": "opens_field",
+  "prompted_by": [
+    "practical_need",
+    "prior_theory"
+  ],
+  "why": "Transistor characteristics drifted because silicon surfaces were electrically unstable; Bardeen's surface-state ideas pointed to the surface as the cause.",
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "bell-labs-murray-hill",
+      "note": "String names only New Jersey; Murray Hill assumed as Bell Labs' main site"
+    }
+  ],
+  "people": [
+    {
+      "person": "mohamed-atalla",
+      "role": "originator"
+    },
+    {
+      "person": "e-tannenbaum",
+      "role": "contributor"
+    },
+    {
+      "person": "e-j-scheibner",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "reception": "immediate",
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "presentation-1958",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1958
+        },
+        "latest": {
+          "year": 1958
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1958",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Atalla reported oxide surface stabilization at a 1958 Electrochemical Society meeting.",
+      "places": [
+        "united-states"
+      ],
+      "caveats": "Meeting presentation is documented retrospectively; source does not support universal efficacy or precise later uptake date.",
+      "evidence": [
+        {
+          "source": "moore-2006-oral-history-interview",
+          "locator": "Transcript p. 61, 1958 Electrochemical Society report",
+          "supports": "Atalla reported oxide surface stabilization at a 1958 Electrochemical Society meeting."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1959",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1958
+        },
+        "latest": {
+          "year": 1959
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1958–59",
+        "basis": "A 1958 ECS report is discussed in the Moore/Last oral history; the full experimental paper was received January 1959 and published May 1959."
+      },
+      "statement": "Atalla, Tannenbaum and Scheibner measured thermally oxidized silicon interfaces and device behavior, finding stable surface potentials with characteristic interface states.",
+      "places": [
+        "bell-labs-murray-hill"
+      ],
+      "place_note": "String names only New Jersey; Murray Hill assumed as Bell Labs' main site",
+      "caveats": "The report explicitly rejects universal applicability. Stability is not elimination of every surface state; exact first experimental date remains unresolved.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "atalla-1959-stabilization-silicon-surfaces",
+          "locator": "p. 749 abstract; pp. 781–782 §VII",
+          "supports": "Experiments, interface stability and applicability limits."
+        },
+        {
+          "source": "moore-2006-oral-history-interview",
+          "locator": "Transcript p. 61",
+          "supports": "1958 surface-stabilization report."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "presentation-1958",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence. Meeting presentation is documented retrospectively; source does not support universal efficacy or precise later uptake date. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "presentation-1958",
+    "community": "Electrochemical Society meeting participants",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "A participant identifies a specific specialist communication rather than assuming general adoption from the initial measurements.",
+    "proxy_reason": "A specialist communication establishes awareness, while independent applications of these exact surface findings remain under-specified.",
+    "caveats": "Meeting presentation is documented retrospectively; source does not support universal efficacy or precise later uptake date."
+  },
+  "caveats": "The report explicitly rejects universal applicability. Stability is not elimination of every surface state; exact first experimental date remains unresolved.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "surface-state-hypothesis",
+      "from_event": "dated-assertion-1947",
+      "to_event": "dated-assertion-1959",
+      "status": "established",
+      "statement": "Atalla and colleagues explicitly used the surface-state/space-charge framework and credited Bardeen when interpreting treated surfaces.",
+      "scope": "Bell Labs surface-stabilization investigation reported 1958–59.",
+      "confidence": "high",
+      "alternatives": "The paper also discusses Tamm and Shockley surface-state models and empirical surface treatments.",
+      "caveats": "The paper’s citation and explicit explanation establish use of a concept, not transmission of a particular laboratory procedure.",
+      "timing": "1947 published theory precedes the 1958–59 experiments/report.",
+      "evidence": [
+        {
+          "source": "atalla-1959-stabilization-silicon-surfaces",
+          "locator": "pp. 751–752 §1.2; reference 17 on p. 783",
+          "supports": "Bardeen concept explains surface treatment and charge balance."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

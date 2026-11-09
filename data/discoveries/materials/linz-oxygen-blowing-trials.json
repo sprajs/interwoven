@@ -1,0 +1,164 @@
+{
+  "id": "linz-oxygen-blowing-trials",
+  "name": "Linz oxygen-blowing trials",
+  "summary": "In 1949 converter trials at Linz found that gentler oxygen blowing from a lance held further away gave steel good enough to roll into sheet.",
+  "description": "Lower oxygen pressure and a more distant lance yielded steel suitable for rolling into sheet in converter trials.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "experimental_method",
+    "performance_improvement"
+  ],
+  "scale": "incremental",
+  "concept": "oxygen-steelmaking",
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "linz"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "voestalpine",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "austria"
+  ],
+  "known_from": [
+    "later_text",
+    "patent"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "demonstration-1949",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1949
+        },
+        "latest": {
+          "year": 1949
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1949",
+        "basis": "VÖEST chronology: trials began 3 June; changed lance position and pressure on 25 June; larger experimental vessel in October."
+      },
+      "statement": "Lower oxygen pressure and a more distant lance yielded steel suitable for rolling into sheet in converter trials.",
+      "places": [
+        "linz"
+      ],
+      "caveats": "Company history reports the result; this node does not attach later production capacity to the trials.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "voestalpine-2012-story-ld-process",
+          "locator": "Printed p. 11: Development of the LD process; cached text lines 301–315",
+          "supports": "Trial dates, operating change and reported result."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1966",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1966,
+          "month": 7,
+          "day": 6
+        },
+        "latest": {
+          "year": 1966,
+          "month": 7,
+          "day": 6
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1966-07-06",
+        "basis": "The U.S. District Court’s decision is dated 6 July 1966; the exact date of Federal Supplement publication has not been established."
+      },
+      "statement": "In its patent decision, the district court described the 1949 Linz trial sequence and treated the reduced-pressure, higher-lance results as a satisfactory oxygen-blowing process.",
+      "places": [
+        "eastern-district-of-michigan"
+      ],
+      "place_note": "Federal judicial district",
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "United States District Court for the Eastern District of Michigan and the parties to the patent case",
+      "caveats": "This is legal recognition of reported historical trial results, not independent metallurgical validation or adoption of the 1949 pilot apparatus. Federal Supplement publication date and earlier technical-publication history remain unverified.",
+      "evidence": [
+        {
+          "source": "united-states-district-1966-henry-j-kaiser",
+          "locator": "Background: The tests at Linz and their results; comparison of the tests",
+          "supports": "The dated district-court opinion recounts the test sequence and assesses the reported results in resolving the patent case."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1949",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. VÖEST chronology: trials began 3 June; changed lance position and pressure on 25 June; larger experimental vessel in October. Company history reports the result; this node does not attach later production capacity to the trials. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1966",
+    "community": "United States District Court for the Eastern District of Michigan and the parties to the patent case",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "The court’s dated use and recognition of the trial evidence in an actual patent dispute supplies a narrowly defined legal specialist community beyond the original experiment.",
+    "caveats": "This is legal recognition of reported historical trial results, not independent metallurgical validation or adoption of the 1949 pilot apparatus. Federal Supplement publication date and earlier technical-publication history remain unverified."
+  },
+  "caveats": "Company history reports the result; this node does not attach later production capacity to the trials.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "gerlafingen-oxygen-converter",
+      "from_event": "demonstration-1948",
+      "to_event": "demonstration-1949",
+      "status": "established",
+      "statement": "Durrer advised VÖEST on top blowing following technical contact with Gerlafingen; Linz then ran its own trials.",
+      "scope": "Swiss–Austrian cooperation before and during 1949.",
+      "confidence": "high",
+      "alternatives": "Other oxygen experiments existed; they are not collapsed into this channel.",
+      "caveats": "Transmission of an approach is documented; the successful operating adjustment occurred at Linz.",
+      "timing": "Gerlafingen’s 1948 experiment precedes Linz’s 1949 trials.",
+      "evidence": [
+        {
+          "source": "voestalpine-2012-story-ld-process",
+          "locator": "Printed p. 11, paragraphs before and after the laboratory photograph; cached lines 289–315",
+          "supports": "Named adviser, contact, transferred approach and subsequent experiments."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "concept": "recalled",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

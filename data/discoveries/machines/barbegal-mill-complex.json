@@ -1,0 +1,169 @@
+{
+  "id": "barbegal-mill-complex",
+  "name": "Barbegal mill complex",
+  "summary": "Barbegal near Arles: sixteen Roman watermills in two stepped rows of eight, fed by an aqueduct, one of the largest machine complexes of the ancient world.",
+  "description": "Two rows of eight watermills supplied by the redirected southern aqueduct branch.",
+  "kind": "technology",
+  "domain": "machines.mills",
+  "fields": [
+    "energy.water-wind",
+    "food.processing"
+  ],
+  "tier": 2,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "origin": "derived",
+  "concept": "watermill",
+  "limit_removed": [
+    "scale"
+  ],
+  "places": [
+    {
+      "place": "barbegal-mills",
+      "note": "Roman Gaul"
+    },
+    {
+      "place": "provence"
+    }
+  ],
+  "societies": [
+    "roman-empire"
+  ],
+  "known_from": [
+    "archaeological_find",
+    "scientific_publication"
+  ],
+  "fate": "abandoned",
+  "events": [
+    {
+      "id": "dated-assertion-130",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 120
+        },
+        "latest": {
+          "year": 130
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "c. 120–130 CE",
+        "basis": "The 2018 site account dates diversion to the new mills around 120–130; the 2024 account retains a second-century placement."
+      },
+      "statement": "Two rows of eight watermills supplied by the redirected southern aqueduct branch.",
+      "places": [
+        "barbegal-mills",
+        "provence"
+      ],
+      "place_note": "Roman Gaul",
+      "caveats": "Wooden wheels are lost. Exact housing, output and customer reconstructions are outside this node.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "surmelihindi-2018-second-century-ce",
+          "locator": "Results, The Barbegal site, paragraph 1; Fig. 1",
+          "supports": "Configuration, supply relationship and approximate construction/diversion date."
+        },
+        {
+          "source": "passchier-2024-operation-decline-barbegal",
+          "locator": "p. 595, §2 opening",
+          "supports": "Detached branch and new parallel aqueduct bridge feeding the mill complex."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-300",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 300
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 300 CE",
+        "basis": "Carbonate records years of operations; the source inherits an early-third-century archaeological abandonment date. 300 is a conservative upper bound, not a measured commissioning year."
+      },
+      "statement": "The mill complex operated for years after the aqueduct was diverted and before its early-third-century abandonment.",
+      "places": [
+        "barbegal-mills",
+        "provence"
+      ],
+      "place_note": "Roman Gaul",
+      "applications": [
+        "water-powered milling"
+      ],
+      "population": "Operators of the Barbegal mill complex near Arelate",
+      "caveats": "The early-third-century dating is an inherited archaeological interpretation, not a precise date measured from the carbonate; the first operational day and customers are unknown.",
+      "evidence": [
+        {
+          "source": "surmelihindi-2018-second-century-ce",
+          "locator": "Results, The Barbegal site; Results and Discussion, carbonate deposits and end of operation",
+          "supports": "Describes the diverted aqueduct, mill-run carbonate formed over several decades, and abandonment in the early third century."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": null,
+    "rationale": "Historian/date dispute retained. A later community witness is not an automatic earliest-record anchor."
+  },
+  "community_entry": {
+    "event": "practical-use-300",
+    "community": "Operators of the Barbegal mill complex near Arelate",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The mill complex operated for years after the aqueduct was diverted and before its early-third-century abandonment.",
+    "caveats": "The early-third-century dating is an inherited archaeological interpretation, not a precise date measured from the carbonate; the first operational day and customers are unknown."
+  },
+  "caveats": "Wooden wheels are lost. Exact housing, output and customer reconstructions are outside this node.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "arelate-supply-aqueduct",
+      "from_event": "practical-deployment-120",
+      "to_event": "dated-assertion-130",
+      "status": "established",
+      "statement": "A branch previously supplying Arelate was redirected to supply the Barbegal mills.",
+      "scope": "Southern Alpilles–Barbegal, c. 120–130 CE.",
+      "confidence": "high",
+      "alternatives": "Other water sources or new conduits were possible; no counterfactual cost comparison.",
+      "caveats": "Historical relationship supported; Barbegal’s later diffusion influence is unknown.",
+      "timing": "Earlier node records city-supply use through c. 120; receiving node records subsequent diversion c. 120–130.",
+      "evidence": [
+        {
+          "source": "surmelihindi-2018-second-century-ce",
+          "locator": "Results, The Barbegal site, paragraph 1",
+          "supports": "Explicit previous city use and subsequent diversion."
+        },
+        {
+          "source": "passchier-2024-operation-decline-barbegal",
+          "locator": "p. 595, §2",
+          "supports": "Explicit detachment and connection by a new parallel bridge."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "recalled",
+      "concept": "recalled",
+      "limit_removed": "recalled",
+      "places": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

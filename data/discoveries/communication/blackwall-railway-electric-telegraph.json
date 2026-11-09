@@ -1,0 +1,168 @@
+{
+  "id": "blackwall-railway-electric-telegraph",
+  "name": "Blackwall railway electric telegraph",
+  "summary": "From 1840 the London and Blackwall Railway used Cooke and Wheatstone electric telegraphs to send instructions to its winding-engine operators, an early working use of telegraphy on a railway.",
+  "description": "Cooke and Wheatstone telegraph instruments on the London and Blackwall Railway, carrying instructions to winding-engine operators.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "fields": [
+    "transport.rail"
+  ],
+  "tier": 2,
+  "tier_reason": "Prefer a bounded railway application tier; the current object/service is not the whole Cooke–Wheatstone telegraph invention. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "new_application"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The line's carriages were hauled by rope from stationary winding engines, so engine operators needed instant word on when to start and stop.",
+  "limit_removed": [
+    "speed"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "london"
+    }
+  ],
+  "people": [
+    {
+      "person": "william-fothergill-cooke",
+      "role": "originator"
+    },
+    {
+      "person": "charles-wheatstone",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "london-and-blackwall-railway",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1840",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1840
+        },
+        "latest": {
+          "year": 1840
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1840",
+        "basis": "Evidence for this dated community entry; not necessarily the first possible use."
+      },
+      "statement": "The railway used electric telegraph messages for the winding engines.",
+      "places": [
+        "london"
+      ],
+      "applications": [
+        "Railway operations"
+      ],
+      "caveats": "Specific needle count and start month not identified.",
+      "evidence": [
+        {
+          "source": "london-museum-nd-how-telegraph-took",
+          "locator": "Commercial railway applications paragraph",
+          "supports": "The railway used electric telegraph messages for the winding engines."
+        },
+        {
+          "source": "hamel-1859-historical-account-introduction",
+          "locator": "Final historical-summary paragraph, 1840 Blackwall line",
+          "supports": "Hamel’s summary dates establishment of the Blackwall railway telegraph to 1840."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1840",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Evidence for this dated community entry; not necessarily the first possible use. Specific needle count and start month not identified. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1840",
+    "community": "London and Blackwall Railway winding-engine operators",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A real railway operating use is later and stronger than the earlier Paddington demonstration.",
+    "caveats": "Specific needle count and start month not identified."
+  },
+  "caveats": "Specific needle count and start month not identified.",
+  "links": [
+    {
+      "type": "requires",
+      "from": "current-deflects-a-needle",
+      "status": "established",
+      "statement": "The English needle-telegraph system used on the Blackwall railway embodied the current-induced magnetic-needle deflection observed in Oersted’s experiments.",
+      "scope": "The scientific effect and railway signal instruments, with intervening development; no identity of the physical apparatus.",
+      "confidence": "medium",
+      "alternatives": "Schilling, Muncke, Ampere, Wheatstone and others made distinct intervening contributions; other telegraph types need not use needles.",
+      "caveats": "Cooke contested Hamel’s claim that a specific earlier Schilling apparatus had been copied into English service. The exact service date of the surviving five-needle specimen is not separately established.",
+      "timing": "1820 scientific observation precedes 1840 railway use; the surviving catalogue object may represent a later instrument.",
+      "evidence": [
+        {
+          "source": "orsted-1820-experiments-effect-current",
+          "locator": "Original experiment report, needle deviation in a closed current",
+          "supports": "Reports the physical current–magnet needle effect."
+        },
+        {
+          "source": "cooke-1859-comments-dr-hamels",
+          "locator": "Comments on Hamel, discussion of Ampere’s idea and English telegraph",
+          "supports": "Participant explicitly states that the English telegraph embodied signalling by a magnetic needle under a voltaic current."
+        },
+        {
+          "source": "science-museum-group-nd-five-needle-train",
+          "locator": "Object 1912-3 identification",
+          "supports": "Identifies a five-needle signalling instrument used on the Blackwall railway."
+        },
+        {
+          "source": "hamel-1859-historical-account-introduction",
+          "locator": "Final historical summary, 1840 Blackwall line",
+          "supports": "Dates Cooke’s establishment of the railway telegraph to 1840."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Proposed distinct configuration and community entry; requires independent review."
+  }
+}

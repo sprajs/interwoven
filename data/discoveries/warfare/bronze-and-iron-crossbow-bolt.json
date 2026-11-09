@@ -1,0 +1,153 @@
+{
+  "id": "bronze-and-iron-crossbow-bolt",
+  "name": "Bronze-and-iron crossbow bolt",
+  "summary": "A single Eastern Zhou crossbow bolt in the British Museum joins a leaded-bronze head to an iron shaft, probably by casting the bronze onto the iron.",
+  "description": "CB3 combines a leaded-bronze head with the treated iron shaft.",
+  "kind": "technology",
+  "domain": "warfare.weapons",
+  "fields": [
+    "materials.metallurgy"
+  ],
+  "tier": 3,
+  "tier_reason": "Demote this specimen-level composite; reject merging away its distinct material/assembly contribution. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "setting": [
+    "workshop"
+  ],
+  "places": [
+    {
+      "place": "china",
+      "note": "Exact findspot unrecorded"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "british-museum",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "eastern-zhou"
+  ],
+  "known_from": [
+    "surviving_artifact",
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "practical-use-301bce",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": -301
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "by c. 301 BCE (museum attribution)",
+        "basis": "CB3 is museum-attributed to the fifth–fourth centuries BCE; the historical manufacture/use inference has no independently known earliest bound and the findspot is unrecorded."
+      },
+      "statement": "A completed composite crossbow bolt with a bronze head and an iron shaft existed within the museum-attributed Eastern Zhou horizon.",
+      "places": [
+        "china"
+      ],
+      "place_note": "Exact findspot unrecorded",
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "The historical makers of the single CB3 composite object",
+      "caveats": "The exact findspot and archaeological context are unrecorded; historical use as a weapon or dates of manufacture cannot be observed directly. The 2006 study is not the ancient use date. The makers are inferred from the finished object, and actual firing is not documented.",
+      "evidence": [
+        {
+          "source": "wayman-2006-metallurgy-early-chinese",
+          "locator": "p. 98 Table 1 CB3; pp. 99–100 object and metallographic analysis",
+          "supports": "The same CB3 object, attributed 5th–4th century BCE, combines the head and the analyzed shaft."
+        }
+      ]
+    },
+    {
+      "id": "archaeological-evidence-301bce",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -500
+        },
+        "latest": {
+          "year": -301
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "500–301 BCE",
+        "basis": "Same CB3 attribution as its shaft; these are two production stages evidenced by one object."
+      },
+      "statement": "CB3 combines a leaded-bronze head with the treated iron shaft.",
+      "places": [
+        "china"
+      ],
+      "place_note": "Exact findspot unrecorded",
+      "caveats": "Casting-on is proposed, not directly observed in manufacture.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "wayman-2006-metallurgy-early-chinese",
+          "locator": "Table 1 p. 98; pp. 99–100; Fig. 1",
+          "supports": "Composite object and head composition."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "archaeological-evidence-301bce",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Same CB3 attribution as its shaft; these are two production stages evidenced by one object. Casting-on is proposed, not directly observed in manufacture. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-301bce",
+    "community": "The historical makers of the single CB3 composite object",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "A complete historical artifact provides scoped evidence of the material used as a bolt component, subject to attribution and context limits.",
+    "proxy_reason": "Material application is inferred from the finished form and attribution; one object does not demonstrate it was fired, sold, widely adopted or made at a known findspot.",
+    "caveats": "The exact findspot and archaeological context are unrecorded; historical use as a weapon or dates of manufacture cannot be observed directly. The 2006 study is not the ancient use date. The makers are inferred from the finished object, and actual firing is not documented."
+  },
+  "caveats": "Casting-on is proposed, not directly observed in manufacture.",
+  "links": [
+    {
+      "type": "companion_of",
+      "from": "cast-and-decarburized-iron-shaft",
+      "from_event": "archaeological-evidence-301bce",
+      "to_event": "archaeological-evidence-301bce",
+      "status": "established",
+      "statement": "CB3 combines the treated iron shaft with a bronze head.",
+      "scope": "Single Eastern Zhou-attributed museum object CB3.",
+      "confidence": "high",
+      "alternatives": "Other sampled bolts use wrought-iron shafts.",
+      "caveats": "Assembly by casting-on remains an interpretation.",
+      "timing": "Dates coincide: component preparation precedes assembly within one object, not a claimed centuries-long development.",
+      "evidence": [
+        {
+          "source": "wayman-2006-metallurgy-early-chinese",
+          "locator": "pp. 98–100, CB3 results",
+          "supports": "Same-object combination."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "steam-powered-engine-shop-tools",
+  "name": "Steam-powered engine-shop tools",
+  "summary": "The Soho double-acting steam engine was later connected to lathes and drills in Boulton and Watt's engine shops, using steam to power machine tools.",
+  "description": "The same Soho double-reciprocating engine was subsequently applied to lathes and drills in the engine shops; Southern called it the boring engine.",
+  "kind": "technology",
+  "domain": "machines.machine-tools",
+  "fields": [
+    "energy.steam",
+    "machines.manufacturing"
+  ],
+  "tier": 3,
+  "tier_reason": "A re-tasked installation is fine detail; the archive documents changed use, which is a legitimate event/role rather than a new general engine invention. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "new_application"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "limit_removed": [
+    "power_or_energy"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "soho-manufactory-birmingham"
+    }
+  ],
+  "people": [
+    {
+      "person": "john-southern",
+      "role": "observer"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "boulton-and-watt",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "administrative_record"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-1803",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1783
+        },
+        "latest": {
+          "year": 1803
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1783–1803",
+        "basis": "Conversion occurred after the engine’s 1783 corn-mill use and before dismantling in 1803; the exact conversion year is unknown."
+      },
+      "statement": "The same Soho double-reciprocating engine was subsequently applied to lathes and drills in the engine shops; Southern called it the boring engine.",
+      "places": [
+        "soho-manufactory-birmingham"
+      ],
+      "caveats": "The conversion year, individual tools, and products made with them are not identified. No arrow back to the earlier Wilkinson machine is asserted.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340, final paragraph",
+          "supports": "Reassignment from corn mill to engine-shop lathes/drills; Southern identification; dismantling in 1803."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1803",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Conversion occurred after the engine’s 1783 corn-mill use and before dismantling in 1803; the exact conversion year is unknown. The conversion year, individual tools, and products made with them are not identified. No arrow back to the earlier Wilkinson machine is asserted. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1803",
+    "community": "Soho engine-shop workers operating lathes and drills",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The archive directly identifies application to shop machinery, bounded between initial corn-mill work and 1803 dismantling.",
+    "caveats": "The precise conversion year, individual tools and products are unknown."
+  },
+  "caveats": "The conversion year, individual tools, and products made with them are not identified. No arrow back to the earlier Wilkinson machine is asserted.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "soho-double-acting-engine",
+      "from_event": "dated-assertion-1783",
+      "to_event": "practical-deployment-1803",
+      "status": "established",
+      "statement": "The Soho engine was reassigned from corn milling to powering the engine shops' lathes and drills.",
+      "scope": "Same named engine at Soho, after initial 1783 service and before dismantling in 1803.",
+      "confidence": "high",
+      "alternatives": "Water, manual labour and other prime movers could power tools; no universal dependence is asserted.",
+      "caveats": "Precise conversion date and produced parts are unknown.",
+      "timing": "Intervals overlap only at the 1783 lower bound; the source explicitly orders corn-mill use before tool-driving use.",
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340, final paragraph",
+          "supports": "Explicit initial and subsequent duties of the same engine."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

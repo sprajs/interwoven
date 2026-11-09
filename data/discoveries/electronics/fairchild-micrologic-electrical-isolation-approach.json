@@ -1,0 +1,180 @@
+{
+  "id": "fairchild-micrologic-electrical-isolation-approach",
+  "name": "Fairchild Micrologic electrical-isolation approach",
+  "summary": "Fairchild engineers separated the parts of a chip electrically with diffused p–n junctions, a manufacturable way to build working integrated circuits.",
+  "description": "The Fairchild Micrologic approach of electrically isolating semiconductor circuit regions; Haas and Kattner’s working boron-diffused p–n junction-isolated flip-flops of September 1960 are early physical witnesses.",
+  "kind": "technology",
+  "domain": "electronics.integrated-circuits",
+  "fields": [
+    "electronics.semiconductors"
+  ],
+  "tier": 1,
+  "tier_reason": "The isolation approach is more than a single sold specimen; preserve its uncertain exact chronology separately. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "manufacturing_process"
+  ],
+  "scale": "modular",
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "california",
+      "note": "Fairchild Semiconductor; site not stated"
+    }
+  ],
+  "people": [
+    {
+      "person": "isy-haas",
+      "role": "originator"
+    },
+    {
+      "person": "lionel-kattner",
+      "role": "originator"
+    },
+    {
+      "person": "james-nall",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "fairchild-semiconductor",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "dated-assertion-1960",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1960
+        },
+        "latest": {
+          "year": 1960
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "27 Sep 1960",
+        "basis": "Working boron-diffused isolation circuits dated 27 September; public Micrologic announcement followed March 1961."
+      },
+      "statement": "Haas and Kattner’s boron-diffusion isolation process produced working flip-flop circuits using p–n junction separation.",
+      "places": [
+        "california"
+      ],
+      "place_note": "Fairchild Semiconductor; site not stated",
+      "caveats": "This is not the claim that all integrated circuits require p–n junction isolation.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-first-planar-integrated",
+          "locator": "Main narrative paragraphs 4–5",
+          "supports": "Isolation method and working/announcement dates."
+        },
+        {
+          "source": "moore-1998-role-fairchild-silicon",
+          "locator": "p. 59 §III",
+          "supports": "Electrical isolation and diffused wells."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1960",
+      "type": "recognition",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1960,
+          "month": 11,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 1960-11-01",
+        "basis": "Latest documented community-use or recognition bound; no earliest date is established."
+      },
+      "statement": "Fairchild R&D engineer James Nall favorably assessed electrical isolation for Micrologic by 1 November 1960, following the reported diffused-isolation flip-flops.",
+      "places": [
+        "california"
+      ],
+      "scope": "Fairchild Micrologic electrical isolation of semiconductor circuit regions, with working boron-diffused junction-isolated flip-flops reported in the same development chronology.",
+      "applications": [
+        "integrated circuit fabrication"
+      ],
+      "caveats": "Nall evaluates electrical isolation in general; the quoted report excerpt does not identify the exact flip-flop specimen. Its association with the diffused approach is drawn from the participant chronology. The 1961 Type F die has not been identified as this specimen.",
+      "evidence": [
+        {
+          "source": "haas-2007-oral-history-panel",
+          "locator": "Printed p. 33, September and November 1960 chronology quoting R&D reports",
+          "supports": "Identifies successful September diffused-isolation flip-flops and Nall’s 1 November 1960 favorable assessment of the electrical isolation method."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "recognition-1960",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest documented community-use or recognition bound; no earliest date is established. Nall evaluates electrical isolation in general; the quoted report excerpt does not identify the exact flip-flop specimen. Its association with the diffused approach is drawn from the participant chronology. The 1961 Type F die has not been identified as this specimen. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1960",
+    "community": "Fairchild R&D engineer James Nall and Micrologic development team",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "A named engineer’s favorable assessment of electrical isolation within the Micrologic team supplies actual specialist recognition of the refined method beyond the September initial tests.",
+    "caveats": "Nall evaluates electrical isolation in general; the quoted report excerpt does not identify the exact flip-flop specimen. Its association with the diffused approach is drawn from the participant chronology. The 1961 Type F die has not been identified as this specimen."
+  },
+  "caveats": "Nall’s assessment addresses electrical isolation as a method and does not identify a particular flip-flop specimen; a later commercial Type F circuit is not assumed to be identical.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "physically-isolated-micrologic-flip-flop",
+      "from_event": "prototype-1960",
+      "to_event": "dated-assertion-1960",
+      "status": "established",
+      "statement": "The same flip-flop programme progressed from physical isolation to a working junction-isolated production approach.",
+      "scope": "Fairchild, May–September 1960.",
+      "confidence": "high",
+      "alternatives": "Epoxy-filled channels and p–n junctions are alternative ways to separate components.",
+      "caveats": "No claim that the May device caused the underlying junction-isolation idea.",
+      "timing": "Exact dates establish May before September despite equal year anchors.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-first-planar-integrated",
+          "locator": "Main narrative paragraphs 3–4",
+          "supports": "Sequential working implementations and preferred isolation method."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

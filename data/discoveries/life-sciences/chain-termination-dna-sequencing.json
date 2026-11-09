@@ -1,0 +1,221 @@
+{
+  "id": "chain-termination-dna-sequencing",
+  "name": "Chain-termination DNA sequencing",
+  "summary": "Sanger, Nicklen and Coulson read DNA by copying it with chain-stopping nucleotides and sorting the fragments by length, the method that dominated DNA sequencing for decades.",
+  "description": "Sanger, Nicklen and Coulson generated base-specific terminated extension products using nucleotide analogues and read the size-separated products on gels.",
+  "kind": "technology",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "measurement.laboratory"
+  ],
+  "tier": 0,
+  "tier_reason": "The reusable sequencing method underlies later automated sequencing and genome production across molecular research and medicine.",
+  "advance": [
+    "experimental_method"
+  ],
+  "scale": "radical",
+  "concept": "dna-sequencing",
+  "prompted_by": [
+    "new_capability"
+  ],
+  "limit_removed": [
+    "speed",
+    "reliability"
+  ],
+  "setting": [
+    "state"
+  ],
+  "funding": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "mrc-lmb-cambridge"
+    }
+  ],
+  "people": [
+    {
+      "person": "frederick-sanger",
+      "role": "originator"
+    },
+    {
+      "person": "steve-nicklen",
+      "role": "contributor"
+    },
+    {
+      "person": "alan-coulson",
+      "role": "contributor"
+    },
+    {
+      "person": "cesar-milstein",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "mrc-laboratory-of-molecular-biology",
+      "role": "host"
+    },
+    {
+      "organization": "medical-research-council",
+      "role": "funder"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "immediate",
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "demonstration-1977",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1977,
+          "month": 10,
+          "day": 3
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 3 October 1977",
+        "basis": "Method demonstrated by contribution on 3 October 1977; December publication is a later report milestone."
+      },
+      "statement": "Sanger, Nicklen and Coulson generated base-specific terminated extension products using nucleotide analogues and read the size-separated products on gels.",
+      "places": [
+        "mrc-lmb-cambridge"
+      ],
+      "caveats": "The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "sanger-1977-dna-sequencing-chain",
+          "locator": "p. 5463, abstract, Principle and Methods",
+          "supports": "Terminator method and demonstrated application."
+        }
+      ]
+    },
+    {
+      "id": "publication-1977",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1977,
+          "month": 12
+        },
+        "latest": {
+          "year": 1977,
+          "month": 12
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1977-12",
+        "basis": "Date of this published account, not the date of first invention or first use."
+      },
+      "statement": "A published research account described chain-termination dna sequencing.",
+      "caveats": "This is a dated publication, not proof of first awareness, acceptance, external deployment or sale.",
+      "evidence": [
+        {
+          "source": "sanger-1977-dna-sequencing-chain",
+          "locator": "PNAS 74, pp. 5463–5467, December issue and method",
+          "supports": "The named publication reports this scientific result or technical method and is dated by its journal issue."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1978",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1978,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by Nov 1978",
+        "basis": "The November 1978 report establishes only an upper bound on the authors’ cDNA sequencing application."
+      },
+      "statement": "Hamlyn and colleagues used an adaptation of the Sanger–Nicklen–Coulson method to sequence an immunoglobulin cDNA.",
+      "places": [
+        "cambridge-england"
+      ],
+      "caveats": "The 1978 work adapted the method for cDNA and shares the Cambridge MRC laboratory setting with the originating team; it is not proof of identical reagents, first outside use, or an independent institution.",
+      "evidence": [
+        {
+          "source": "hamlyn-1978-complete-sequence-constant",
+          "locator": "Abstract and Cell issue date November 1978",
+          "supports": "Other authors identify the 1977 chain-termination method and report adapting it for a cDNA sequence."
+        },
+        {
+          "source": "mrc-laboratory-molecular-nd-mrc-laboratory-molecular",
+          "locator": "1978 Cell 15:1067–1075 catalogue entry",
+          "supports": "The institutional catalogue spells George G. Brownlee; PubMed indexes Browniee."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1977",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Method demonstrated by contribution on 3 October 1977; December publication is a later report milestone. The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1978",
+    "community": "Hamlyn and colleagues conducting the cDNA-sequencing study",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A separate team applied an adaptation in a substantive cDNA sequencing study; the report bounds actual research use and shares the MRC Laboratory setting.",
+    "caveats": "The 1978 work adapted the method for cDNA and shares the Cambridge MRC laboratory setting with the originating team; it is not proof of identical reagents, first outside use, or an independent institution."
+  },
+  "caveats": "The paper used both dideoxy and arabino analogues and credited earlier inhibitor chemistry; it is not credited with the first φX174 genome report.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "plus-minus-dna-sequencing",
+      "from_event": "demonstration-1974",
+      "to_event": "demonstration-1977",
+      "status": "established",
+      "statement": "Sanger, Nicklen and Coulson presented chain termination as a further polymerase sequencing method related to plus/minus.",
+      "scope": "Cambridge method development by October 1977.",
+      "confidence": "high",
+      "alternatives": "Maxam–Gilbert chemical cleavage and Barnes ribosubstitution are acknowledged contemporary alternatives.",
+      "caveats": "The new assay also depends on inhibitor chemistry; the plus/minus method is not its sole antecedent.",
+      "timing": "Earlier plus/minus development is distinct from the later 1977 method.",
+      "evidence": [
+        {
+          "source": "sanger-1977-dna-sequencing-chain",
+          "locator": "p. 5463, abstract and opening paragraphs",
+          "supports": "Explicit relationship and performance motivation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

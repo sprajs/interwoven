@@ -1,0 +1,250 @@
+{
+  "id": "mapped-clone-genome-sequencing",
+  "name": "Mapped-clone genome sequencing",
+  "summary": "The public Human Genome Project sequenced the genome in mapped pieces cloned in bacteria, reading each with automated fluorescent machines and assembling them by computer.",
+  "description": "The public consortium sequenced mapped BAC/PAC clones with automated fluorescent reads and computational assembly.",
+  "kind": "technology",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "electronics.software",
+    "machines.manufacturing"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "system_integration",
+    "cost_or_scale"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "systematic_search"
+  ],
+  "limit_removed": [
+    "scale"
+  ],
+  "setting": [
+    "state",
+    "school"
+  ],
+  "funding": [
+    "state",
+    "philanthropy"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    },
+    {
+      "place": "united-kingdom"
+    },
+    {
+      "place": "japan"
+    },
+    {
+      "place": "france"
+    },
+    {
+      "place": "germany"
+    },
+    {
+      "place": "china"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "international-human-genome-sequencing-consortium",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-states",
+    "united-kingdom",
+    "japan",
+    "france",
+    "germany",
+    "china"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1999",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1999,
+          "month": 3
+        },
+        "latest": {
+          "year": 1999,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1999-3",
+        "basis": "Date of the cited public report or documented event."
+      },
+      "statement": "The international public human-genome effort moved its mapped-clone sequencing strategy into full-scale production.",
+      "caveats": "Pilot activity occurred before this date; it is not asserted as the first use or a commercial offer.",
+      "evidence": [
+        {
+          "source": "international-human-genome-2001-initial-sequencing-analysis",
+          "locator": "p. 863, The beginning of the Human Genome Project, production phase; pp. 864–867 workflow",
+          "supports": "The consortium dates full-scale production to March 1999 and describes the hierarchical workflow."
+        }
+      ]
+    },
+    {
+      "id": "practical-deployment-2000",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1999
+        },
+        "latest": {
+          "year": 2000
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1999–2000",
+        "basis": "Dates the public consortium’s production phase and procedures used for the October 2000 draft, not invention of shotgun sequencing."
+      },
+      "statement": "The public consortium sequenced mapped BAC/PAC clones with automated fluorescent reads and computational assembly.",
+      "places": [
+        "united-states",
+        "united-kingdom",
+        "japan",
+        "france",
+        "germany",
+        "china"
+      ],
+      "caveats": "This node is the public consortium configuration, not Celera’s whole-genome strategy or every possible way to assemble a genome.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "international-human-genome-2001-initial-sequencing-analysis",
+          "locator": "pp. 863–867, strategy, technology and sequencing",
+          "supports": "Production workflow and period."
+        }
+      ]
+    },
+    {
+      "id": "publication-2001",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2001,
+          "month": 2,
+          "day": 15
+        },
+        "latest": {
+          "year": 2001,
+          "month": 2,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2001-2-15",
+        "basis": "Date of this published account, not the date of first invention or first use."
+      },
+      "statement": "A published research account described mapped-clone genome sequencing.",
+      "caveats": "This is a dated publication, not proof of first awareness, acceptance, external deployment or sale.",
+      "evidence": [
+        {
+          "source": "international-human-genome-2001-initial-sequencing-analysis",
+          "locator": "Nature 409 pp. 863–867, publication describing production workflow",
+          "supports": "The named publication reports this scientific result or technical method and is dated by its journal issue."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1999",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of the cited public report or documented event. Pilot activity occurred before this date; it is not asserted as the first use or a commercial offer. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1999",
+    "community": "Participating public-consortium sequencing centers",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Documented operational production within multiple project centers is an actual community-use milestone rather than the date of an earlier sequencing invention.",
+    "caveats": "Pilot activity occurred before this date; it is not asserted as the first use or a commercial offer."
+  },
+  "caveats": "This node is the public consortium configuration, not Celera’s whole-genome strategy or every possible way to assemble a genome.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "fluorescent-terminator-sequencing",
+      "from_event": "demonstration-1987",
+      "to_event": "practical-deployment-2000",
+      "status": "established",
+      "statement": "The consortium cited Prober’s dye-labelled terminators among production-enabling laboratory advances.",
+      "scope": "Public human genome sequencing production, 1999–2000.",
+      "confidence": "high",
+      "alternatives": "Dye-primer reads were also used.",
+      "caveats": "Later reagents and workflows intervened.",
+      "timing": "The demonstration reported by October 1987 precedes the later described production workflow; the demonstration’s earliest date is unresolved.",
+      "evidence": [
+        {
+          "source": "international-human-genome-2001-initial-sequencing-analysis",
+          "locator": "p. 864, technology paragraph and reference 67; p. 867",
+          "supports": "Cited advance and actual varied dye-terminator use."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "four-colour-primer-readout",
+      "from_event": "demonstration-1985",
+      "to_event": "practical-deployment-2000",
+      "status": "established",
+      "statement": "The consortium identified four-colour fluorescence detection, citing Smith et al., among the advances supporting automated reads.",
+      "scope": "Public human genome sequencing production, 1999–2000.",
+      "confidence": "high",
+      "alternatives": "Production also used dye-terminators and varied detectors.",
+      "caveats": "No claim that every centre used the 1986 apparatus.",
+      "timing": "The demonstrated readout predates production-scale refinements.",
+      "evidence": [
+        {
+          "source": "international-human-genome-2001-initial-sequencing-analysis",
+          "locator": "p. 864, technology paragraph and reference 62",
+          "supports": "Explicit cited contribution."
+        }
+      ]
+    },
+    {
+      "type": "uses_process",
+      "from": "intel-4004-cpu",
+      "status": "insufficient",
+      "statement": "Genomics has no link to computing. What computing was required for assembly? This would join the DNA thread to electronics.",
+      "caveats": "Evidence needed: Assembly methods in the 2001 papers. Needs intermediate computing entries rather than one long link.",
+      "finding": "The genome source identifies concrete software used in sequencing analysis and assembly, providing a potential computational intermediate. It does not identify the hardware processor used or connect the specific Intel 4004 to that work. PHRED/PHRAP production use and GigAssembler draft assembly are distinct; neither is direct evidence for a 4004-to-genome link."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "sourced",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

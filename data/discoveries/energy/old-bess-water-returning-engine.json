@@ -1,0 +1,144 @@
+{
+  "id": "old-bess-water-returning-engine",
+  "name": "Old Bess water-returning engine",
+  "summary": "Old Bess, a large Watt separate-condenser engine at Soho, pumped water back up from the mill's tail race so the waterwheel kept turning.",
+  "description": "The larger Soho separate-condenser pumping engine known as Old Bess, returning tail-race water to the mill’s head race.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "energy.water-wind"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "new_application"
+  ],
+  "concept": "water-returning-engine",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The Soho mill relied on a waterwheel whose stream could run short, so returning spent water kept the mill supplied.",
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "soho-manufactory-birmingham"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-watt",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "boulton-and-watt",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "surviving_artifact",
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1779",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1779
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "by c. 1779",
+        "basis": "The museum identifies the pumping engine as 1777; Watt’s memoir as quoted by Smiles gives a larger replacement about 1778 or 1779."
+      },
+      "statement": "The museum identifies Old Bess as the water-returning mill engine; Watt’s quoted memoir places the larger replacement around 1778–1779.",
+      "places": [
+        "soho-manufactory-birmingham"
+      ],
+      "applications": [
+        "factory water return"
+      ],
+      "caveats": "The museum’s 1777 attribution conflicts with the quoted 1778–1779 replacement chronology; exact commissioning and machine alterations are unresolved.",
+      "evidence": [
+        {
+          "source": "science-museum-group-nd-remains-cornish-pumping",
+          "locator": "Object co50947, description",
+          "supports": "Museum identifies the surviving Old Bess engine and its use to pump water back to the Soho head race."
+        },
+        {
+          "source": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter XVI note 254, Watt memoir; chapter XII Old Bess context",
+          "supports": "Quotes Watt on replacement by a larger expansive engine around 1778 or 1779 and records later regular working."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1779",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The museum identifies the pumping engine as 1777; Watt’s memoir as quoted by Smiles gives a larger replacement about 1778 or 1779. The museum’s 1777 attribution conflicts with the quoted 1778–1779 replacement chronology; exact commissioning and machine alterations are unresolved. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1779",
+    "community": "Soho mill workers dependent on the returning water",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The museum identifies Old Bess as the water-returning mill engine; Watt’s quoted memoir places the larger replacement around 1778–1779.",
+    "proxy_reason": "Sources associate the surviving engine with regular mill pumping, but disagree on the replacement year; a latest c.1779 horizon is an interpretive bound.",
+    "caveats": "The museum’s 1777 attribution conflicts with the quoted 1778–1779 replacement chronology; exact commissioning and machine alterations are unresolved."
+  },
+  "caveats": "The museum’s 1777 attribution conflicts with the quoted 1778–1779 replacement chronology; exact commissioning and machine alterations are unresolved.",
+  "links": [
+    {
+      "type": "requires",
+      "from": "separate-condenser-specification",
+      "from_event": "documented-description-1769",
+      "to_event": "practical-use-1779",
+      "status": "established",
+      "statement": "Old Bess embodied Watt’s separate-condenser arrangement, keeping condensation separate from the working cylinder.",
+      "scope": "Only the identified configurations and source-described contribution.",
+      "confidence": "high",
+      "alternatives": "No unique historical route or universal necessity asserted.",
+      "caveats": "The arrangement is a scoped functional input, not proof that a particular later printed edition instructed the builders.",
+      "timing": "The relation concerns the scoped events and functions; no transmission inferred from chart placement.",
+      "evidence": [
+        {
+          "source": "science-museum-group-nd-remains-cornish-pumping",
+          "locator": "Object description: engine embodied the separate condenser",
+          "supports": "Old Bess embodied Watt’s separate-condenser arrangement, keeping condensation separate from the working cylinder."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "concept": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

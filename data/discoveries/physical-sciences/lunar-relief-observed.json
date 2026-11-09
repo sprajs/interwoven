@@ -1,0 +1,180 @@
+{
+  "id": "lunar-relief-observed",
+  "name": "Lunar relief observed",
+  "summary": "Watching light and shadow along the Moon's terminator through his telescope, Galileo concluded the Moon has mountains and valleys rather than a perfectly smooth surface.",
+  "description": "Repeated telescopic views of the lunar light-shadow boundary and isolated illuminated features interpreted as an uneven surface with elevations and depressions.",
+  "kind": "science",
+  "domain": "physical-sciences.astronomy",
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "observation",
+    "explanation"
+  ],
+  "scale": "revises",
+  "prompted_by": [
+    "new_capability"
+  ],
+  "setting": [
+    "individual"
+  ],
+  "places": [
+    {
+      "place": "padua",
+      "note": "Republic of Venice"
+    }
+  ],
+  "people": [
+    {
+      "person": "galileo-galilei",
+      "role": "originator"
+    },
+    {
+      "person": "johannes-kepler",
+      "role": "observer"
+    }
+  ],
+  "societies": [
+    "republic-of-venice"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "image",
+    "contemporary_text"
+  ],
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "observation-1609",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1609
+        },
+        "latest": {
+          "year": 1609
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1609",
+        "basis": "Museo Galileo dates the surviving Moon drawings to November–December 1609; the interpretation was published in 1610."
+      },
+      "statement": "Repeated telescopic views of the lunar light-shadow boundary and isolated illuminated features interpreted as an uneven surface with elevations and depressions.",
+      "places": [
+        "padua"
+      ],
+      "place_note": "Republic of Venice",
+      "caveats": "This is Galileo's observation programme, not the first human telescopic look at the Moon; the inference is distinct from a direct topographic survey.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "museo-galileo-istituto-2009-galileo-galilei-drawings",
+          "locator": "Catalogue entry, object date and description; Ms. Gal.48, f.28r",
+          "supports": "Dates the telescope-based lunar drawings to November–December 1609."
+        },
+        {
+          "source": "galilei-1610-sidereus-nuncius-sidereal",
+          "locator": "Original fol.7v; translation printed p. 13 (PDF p. 14)",
+          "supports": "Connects repeated observed shading and boundary irregularities to the inference of lunar relief."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1610",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1610,
+          "month": 4,
+          "day": 19
+        },
+        "latest": {
+          "year": 1610,
+          "month": 4,
+          "day": 19
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "19 April 1610",
+        "basis": "Evidence dates the scoped event."
+      },
+      "statement": "Kepler responded to Galileo’s published account and discussed interpretation of lunar light, shadow and relief.",
+      "places": [
+        "prague"
+      ],
+      "place_note": "Bohemia",
+      "caveats": "Kepler had not yet independently confirmed the discoveries with an equivalent telescope; agreement was not universal. Receipt by Galileo or a wider correspondence is not established by the date of Kepler’s signed letter.",
+      "evidence": [
+        {
+          "source": "kepler-1610-dissertatio-cum-nuncio",
+          "locator": "Dissertatio, sections beginning Transis secundo ad phaenomena Lunaria and Omnino optice demonstras",
+          "supports": "The dated response engages directly with Galileo’s specific claim."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "observation-1609",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Museo Galileo dates the surviving Moon drawings to November–December 1609; the interpretation was published in 1610. This is Galileo's observation programme, not the first human telescopic look at the Moon; the inference is distinct from a direct topographic survey. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1610",
+    "community": "Johannes Kepler in Prague",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "A named astronomer’s explicit substantive engagement provides documented specialist recognition, stronger than taking March publication alone as proof of reception.",
+    "caveats": "Kepler had not yet independently confirmed the discoveries with an equivalent telescope; agreement was not universal. Receipt by Galileo or a wider correspondence is not established by the date of Kepler’s signed letter."
+  },
+  "caveats": "This is Galileo's observation programme, not the first human telescopic look at the Moon; the inference is distinct from a direct topographic survey.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "galileo-astronomical-telescopes",
+      "from_event": "dated-assertion-1610",
+      "to_event": "observation-1609",
+      "status": "established",
+      "statement": "Galileo's improved telescope resolved lunar light-shadow details used to infer elevations and depressions.",
+      "scope": "Padua, November–December 1609; Galileo's lunar observing programme.",
+      "confidence": "high",
+      "alternatives": "Other observers and telescopes could make lunar observations; relief inference also requires illumination geometry.",
+      "caveats": "Not an assertion that telescope possession alone produces the correct interpretation.",
+      "timing": "The late-1609 instrument state predates these observations; the source instrument interval also covers further improvements for 1610 work.",
+      "evidence": [
+        {
+          "source": "museo-galileo-istituto-2009-galileo-galilei-drawings",
+          "locator": "Object date and description for Ms. Gal.48, f.28r",
+          "supports": "Directly ties the 1609 drawings to telescopic observation."
+        },
+        {
+          "source": "galilei-1610-sidereus-nuncius-sidereal",
+          "locator": "Original fol.7v; translation printed p. 13 (PDF p. 14)",
+          "supports": "Describes repeated observed irregularities and the surface-relief inference."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

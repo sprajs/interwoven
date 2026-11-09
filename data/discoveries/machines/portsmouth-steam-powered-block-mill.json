@@ -1,0 +1,139 @@
+{
+  "id": "portsmouth-steam-powered-block-mill",
+  "name": "Portsmouth steam-powered block mill",
+  "summary": "At Portsmouth dockyard a line of steam-driven machines made pulley blocks for the navy's rigging in sequence, an early model of machine-based mass production.",
+  "description": "Brunel-designed, Maudslay-built sequence of steam-driven machines for producing naval rigging blocks at Portsmouth.",
+  "kind": "technology",
+  "domain": "machines.manufacturing",
+  "fields": [
+    "machines.machine-tools",
+    "transport.watercraft"
+  ],
+  "tier": 1,
+  "tier_reason": "Prefer promotion for an integrated production system, distinguishing the system from each surviving constituent machine. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "manufacturing_process",
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "state_or_military"
+  ],
+  "why": "The Royal Navy needed very large numbers of rigging blocks during the wars with France, and hand-making them was slow and costly.",
+  "limit_removed": [
+    "scale",
+    "speed"
+  ],
+  "setting": [
+    "state",
+    "military"
+  ],
+  "funding": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "portsmouth-dockyard"
+    }
+  ],
+  "people": [
+    {
+      "person": "marc-isambard-brunel",
+      "role": "originator"
+    },
+    {
+      "person": "henry-maudslay",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-navy",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "surviving_artifact",
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-1803",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1803
+        },
+        "latest": {
+          "year": 1803
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1803 initial operation",
+        "basis": "The Historic England building chronology states that the first set of Brunel’s machines was operational in 1803. The Navy survey reports steam-powered operation by 1803."
+      },
+      "statement": "The Navy’s Portsmouth block-making machinery was operating by 1803 with steam power and sequential specialist machinery.",
+      "places": [
+        "portsmouth-dockyard"
+      ],
+      "applications": [
+        "ship rigging-block production"
+      ],
+      "caveats": "One installed set operated by 1803; this is not a claim the whole system was complete then or the first mechanized production worldwide.",
+      "evidence": [
+        {
+          "source": "england-2007-thematic-survey-royal",
+          "locator": "Printed pp.63–64, Mechanised and powered sawing",
+          "supports": "Names Brunel, Maudslay, steam drive and operation by 1803."
+        },
+        {
+          "source": "science-museum-group-nd-original-coaking-machine",
+          "locator": "Object 1933-133, system description",
+          "supports": "Describes the sequential production machines for Royal Navy pulley blocks."
+        },
+        {
+          "source": "guillery-2017-block-mills-portsmouth",
+          "locator": "Printed p. 5, 1803 chronology",
+          "supports": "Dates operation of the first set of Brunel’s machinery to 1803; all three sets were working by March 1805."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1803",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The Historic England building chronology states that the first set of Brunel’s machines was operational in 1803. The Navy survey reports steam-powered operation by 1803. One installed set operated by 1803; this is not a claim the whole system was complete then or the first mechanized production worldwide. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1803",
+    "community": "Royal Navy dockyard block-making workers",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The Navy’s Portsmouth block-making machinery was operating by 1803 with steam power and sequential specialist machinery.",
+    "caveats": "One installed set operated by 1803; this is not a claim the whole system was complete then or the first mechanized production worldwide."
+  },
+  "caveats": "One installed set operated by 1803; this is not a claim the whole system was complete then or the first mechanized production worldwide.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "recalled",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

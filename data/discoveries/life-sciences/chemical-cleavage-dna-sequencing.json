@@ -1,0 +1,152 @@
+{
+  "id": "chemical-cleavage-dna-sequencing",
+  "name": "Chemical cleavage DNA sequencing",
+  "summary": "Maxam and Gilbert's method read DNA by labelling one end, breaking it chemically at specific bases and sorting the pieces on a gel; others used it to sequence adenovirus DNA.",
+  "description": "Terminally labelled DNA is cleaved in base-specific chemical reactions and separated by gel electrophoresis, the Maxam–Gilbert approach.",
+  "kind": "technology",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "measurement.laboratory",
+    "physical-sciences.chemistry"
+  ],
+  "tier": 1,
+  "tier_reason": "Prefer promotion of the chemical-sequencing method, with1977 publication distinct from1979 adenovirus use. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "experimental_method"
+  ],
+  "scale": "radical",
+  "concept": "dna-sequencing",
+  "limit_removed": [
+    "speed"
+  ],
+  "setting": [
+    "school"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "allan-maxam",
+      "role": "originator"
+    },
+    {
+      "person": "walter-gilbert",
+      "role": "originator"
+    },
+    {
+      "person": "francis-galibert",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "harvard-university",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1979",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1979,
+          "month": 5
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 1979-5",
+        "basis": "Published source gives an upper bound for use, not its first date."
+      },
+      "statement": "Researchers applied chemical sequencing to determine the adenovirus 2 EcoRI-F sequence.",
+      "caveats": "The paper gives a use-by bound, not first uptake; later decline is not dated here.",
+      "evidence": [
+        {
+          "source": "galibert-1979-nucleotide-sequence-ecori",
+          "locator": "PMID 478297 abstract",
+          "supports": "The separate research team expressly used the Maxam–Gilbert method to determine the adenovirus EcoRI-F sequence."
+        },
+        {
+          "source": "maxam-1977-method-sequencing-dna",
+          "locator": "PMID 265521 abstract",
+          "supports": "The original authors describe base-specific chemical cleavage, terminal labels and gel separation."
+        }
+      ]
+    },
+    {
+      "id": "publication-1979",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1979,
+          "month": 5
+        },
+        "latest": {
+          "year": 1979,
+          "month": 5
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1979-5",
+        "basis": "Date of the sourced local use, recognition, or sale."
+      },
+      "statement": "A publication described chemical cleavage dna sequencing.",
+      "caveats": "Publication of a report is not proof of first invention, deployment, community acceptance or sale.",
+      "evidence": [
+        {
+          "source": "galibert-1979-nucleotide-sequence-ecori",
+          "locator": "Gene issue May 1979 and abstract",
+          "supports": "This source is a dated published account of the specified configuration."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1979",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Published source gives an upper bound for use, not its first date. The paper gives a use-by bound, not first uptake; later decline is not dated here. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1979",
+    "community": "Galibert, Hérissé and Courtois working on adenovirus DNA",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Independent use on a real viral sequence demonstrates the alternative technique beyond its initial disclosure.",
+    "caveats": "The paper gives a use-by bound, not first uptake; later decline is not dated here."
+  },
+  "caveats": "The paper gives a use-by bound, not first uptake; later decline is not dated here.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "note": "New, scoped proposal for independent historical review."
+  }
+}

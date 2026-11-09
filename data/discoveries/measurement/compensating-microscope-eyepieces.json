@@ -1,0 +1,197 @@
+{
+  "id": "compensating-microscope-eyepieces",
+  "name": "Compensating microscope eyepieces",
+  "summary": "Abbe designed microscope eyepieces with a deliberate colour error that cancelled the objective's leftover colour fringing, giving sharper colour-true images toward the edge of view.",
+  "description": "Eyepieces deliberately given a color-dependent magnification opposite to the remaining lateral color difference of the objective, so the combined microscope image has less color error away from the axis.",
+  "kind": "technology",
+  "domain": "measurement.optical-instruments",
+  "fields": [
+    "physical-sciences.optics"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "device_or_configuration",
+    "performance_improvement"
+  ],
+  "scale": "modular",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The new apochromatic objectives still magnified different colours slightly differently, which an eyepiece with the opposite error could cancel.",
+  "limit_removed": [
+    "resolution"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "zeiss-works-jena"
+    }
+  ],
+  "people": [
+    {
+      "person": "ernst-abbe",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "carl-zeiss-ag",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "germany"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "contemporary_text"
+  ],
+  "market": {
+    "status": "commercial",
+    "note": "Zeiss offered this configuration for sale at stated prices in its 1889 catalogue. This supports commercial applicability but does not establish the first offer or a completed sale.",
+    "evidence": [
+      {
+        "source": "carl-zeiss-optical-1889-microscopes-microscopical-accessories",
+        "locator": "printed p. 13 / PDF p. 16, List of Compensating Eye-pieces",
+        "supports": "Priced list of the specific eyepieces; visual inspection."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "dated-assertion-1886",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1886
+        },
+        "latest": {
+          "year": 1886
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1886",
+        "basis": "Abbe explains the construction in his 1886 paper; Zeiss retrospectively dates the named eyepiece introduction with the objectives to August 1886."
+      },
+      "statement": "Eyepieces deliberately given a color-dependent magnification opposite to the remaining lateral color difference of the objective, so the combined microscope image has less color error away from the axis.",
+      "places": [
+        "zeiss-works-jena"
+      ],
+      "caveats": "This specific compensation design is not a claim that eyepiece correction was wholly new. Compatibility depended on objective and eyepiece properties, not the name alone.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "abbe-1887-improvements-microscope-aid",
+          "locator": "pp. 25–26, paragraphs on color amplification and its correction by an eyepiece",
+          "supports": "Compensation principle and coordinated objective design."
+        },
+        {
+          "source": "carl-zeiss-optical-1889-microscopes-microscopical-accessories",
+          "locator": "Printed p. 1 / PDF p. 5, second paragraph",
+          "supports": "1886 introduction of the named eyepieces."
+        }
+      ]
+    },
+    {
+      "id": "commercial-offer-1889",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1889
+        },
+        "latest": {
+          "year": 1889
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1889",
+        "basis": "The dated Zeiss No. 28 catalogue lists prices."
+      },
+      "statement": "By the 1889 catalogue, Zeiss listed compensating eyepieces at prices for different microscope bodies.",
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "Prospective Zeiss microscope purchasers, including English and continental fittings",
+      "caveats": "The 1886 date of being brought out and the 1889 price list do not establish the first sale or its day. The catalogue’s English and continental fittings identify instrument fit, not purchaser locations; distribution geography is not established.",
+      "evidence": [
+        {
+          "source": "carl-zeiss-optical-1889-microscopes-microscopical-accessories",
+          "locator": "printed p. 13 / PDF p. 16, List of Compensating Eye-pieces",
+          "supports": "Priced list of the specific eyepieces; visual inspection."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1886",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Abbe explains the construction in his 1886 paper; Zeiss retrospectively dates the named eyepiece introduction with the objectives to August 1886. This specific compensation design is not a claim that eyepiece correction was wholly new. Compatibility depended on objective and eyepiece properties, not the name alone. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-offer-1889",
+    "community": "Prospective Zeiss microscope purchasers, including English and continental fittings",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "A directly priced public offer is a stronger commercial entry than the earlier design, manufacture, or ambiguous introduction.",
+    "caveats": "The 1886 date of being brought out and the 1889 price list do not establish the first sale or its day. The catalogue’s English and continental fittings identify instrument fit, not purchaser locations; distribution geography is not established."
+  },
+  "caveats": "This specific compensation design is not a claim that eyepiece correction was wholly new. Compatibility depended on objective and eyepiece properties, not the name alone.",
+  "links": [
+    {
+      "type": "companion_of",
+      "from": "zeiss-apochromatic-objectives",
+      "from_event": "dated-assertion-1886",
+      "to_event": "dated-assertion-1886",
+      "status": "established",
+      "statement": "Zeiss introduced special compensating eyepieces for use with its new objective series; Abbe explains their coordinated correction of color-dependent magnification.",
+      "scope": "Zeiss apochromatic objective–eyepiece system introduced in 1886.",
+      "confidence": "high",
+      "alternatives": "Dallinger also tried the compensating eyepieces on his existing objectives.",
+      "caveats": "The direction indicates the stated companion configuration; neither component is claimed to have been invented earlier than the other.",
+      "timing": "Both components were introduced together in 1886; this edge records combination, not chronological succession.",
+      "evidence": [
+        {
+          "source": "carl-zeiss-optical-1889-microscopes-microscopical-accessories",
+          "locator": "Printed p. 1 / PDF p. 5, paragraphs on special eyepieces and introduction",
+          "supports": "Actual paired product configuration."
+        },
+        {
+          "source": "abbe-1887-improvements-microscope-aid",
+          "locator": "pp. 25–26, color-amplification correction",
+          "supports": "Functional reason for the combination."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "newton-reflecting-telescope",
+      "status": "insufficient",
+      "statement": "Should astronomical optics connect to Abbe's microscope optics, or are these separate traditions?",
+      "caveats": "Evidence needed: Abbe or Zeiss sources naming earlier achromatic theory.",
+      "finding": "Newton describes a reflecting telescope response to refractive colour error; Abbe describes coordinated microscope objective and compensating-eyepiece correction. The checked sources do not document a transmission or development from that specific reflecting telescope to Abbe’s eyepiece design."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

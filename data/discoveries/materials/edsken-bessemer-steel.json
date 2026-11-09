@@ -1,0 +1,166 @@
+{
+  "id": "edsken-bessemer-steel",
+  "name": "Edsken Bessemer steel",
+  "summary": "At Edsken in Sweden, Göran Fredrik Göransson made the Bessemer air-blowing method work at practical scale in 1858, producing satisfactory steel ingots and converting his works to it.",
+  "description": "Göran Fredrik Göransson applied the Bessemer method on a practical scale and obtained satisfactory steel ingots.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "performance_improvement",
+    "manufacturing_process"
+  ],
+  "scale": "incremental",
+  "origin": "derived",
+  "concept": "pneumatic-steelmaking",
+  "prompted_by": [
+    "transmission_from_other_place"
+  ],
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "edsken"
+    }
+  ],
+  "people": [
+    {
+      "person": "goran-fredrik-goransson",
+      "role": "originator"
+    }
+  ],
+  "societies": [
+    "sweden"
+  ],
+  "known_from": [
+    "later_text",
+    "contemporary_text"
+  ],
+  "events": [
+    {
+      "id": "dated-assertion-1858",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1858
+        },
+        "latest": {
+          "year": 1858
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1858",
+        "basis": "Practical-scale implementation at Edsken dated by the Swedish steel industry historical account."
+      },
+      "statement": "Göran Fredrik Göransson applied the Bessemer method on a practical scale and obtained satisfactory steel ingots.",
+      "places": [
+        "edsken"
+      ],
+      "caveats": "Institutional retrospective account; its universal-first and sweeping railway claims are not adopted.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "jernkontoret-nd-history-swedish-steel",
+          "locator": "The Bessemer process, paragraphs 1–4; cached text lines 37–41",
+          "supports": "Named method, Edsken implementation and year."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1858",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1858,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by October 1858",
+        "basis": "Göransson’s producer account, quoted in Bishop, reports the works already using the process by October 1858."
+      },
+      "statement": "By October 1858 Göransson reported that his firm had shifted its works to steelmaking by the Bessemer process.",
+      "places": [
+        "edsken"
+      ],
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "Edsken/Högbo workers and Göransson’s Swedish steel business",
+      "caveats": "This is a retrospective transcription of a contemporary producer claim; exact commencement and buyer transactions remain unresolved.",
+      "evidence": [
+        {
+          "source": "bishop-1959-beginnings-cheap-steel",
+          "locator": "p. 37, Goransson paragraph and note 65",
+          "supports": "Reproduces the October 1858 producer account that the firm’s works were engaged in Bessemer steelmaking."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1858",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Göransson’s producer account, quoted in Bishop, reports the works already using the process by October 1858. This is a retrospective transcription of a contemporary producer claim; exact commencement and buyer transactions remain unresolved. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1858",
+    "community": "Edsken/Högbo workers and Göransson’s Swedish steel business",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The production report is distinct from the July experimental success and establishes practical, local industrial use.",
+    "caveats": "This is a retrospective transcription of a contemporary producer claim; exact commencement and buyer transactions remain unresolved."
+  },
+  "caveats": "Institutional retrospective account; its universal-first and sweeping railway claims are not adopted.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "bessemer-air-conversion",
+      "from_event": "documented-description-1856",
+      "to_event": "dated-assertion-1858",
+      "status": "established",
+      "statement": "Göransson’s Edsken work implemented the named Bessemer method at practical scale.",
+      "scope": "Edsken, 1858.",
+      "confidence": "high",
+      "alternatives": "Crucible and open-hearth steelmaking provided other routes.",
+      "caveats": "The inspected source establishes method identity, not the detailed licensing or personnel channel.",
+      "timing": "The 1856 patent precedes the 1858 implementation.",
+      "evidence": [
+        {
+          "source": "jernkontoret-nd-history-swedish-steel",
+          "locator": "The Bessemer process, paragraph beginning When, in 1858",
+          "supports": "Explicit implementation of Bessemer process."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "sourced",
+      "concept": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

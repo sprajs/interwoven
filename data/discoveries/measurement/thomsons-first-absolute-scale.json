@@ -1,0 +1,171 @@
+{
+  "id": "thomsons-first-absolute-scale",
+  "name": "Thomson’s first absolute scale",
+  "summary": "Thomson proposed a temperature scale defined by the work heat can do rather than by any substance, an early step towards absolute temperature.",
+  "description": "A thermometric scale in which a unit of heat descending through any one degree yields the same mechanical effect, constructed from Carnot-style reasoning and an approximate use of Regnault’s steam data.",
+  "kind": "science",
+  "domain": "measurement.units",
+  "fields": [
+    "physical-sciences.heat"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "standard_or_scale"
+  ],
+  "scale": "revises",
+  "prompted_by": [
+    "prior_theory",
+    "data_or_measurements"
+  ],
+  "why": "Carnot's theory suggested measuring temperature by mechanical effect, and Regnault's new steam data made an approximate calculation possible.",
+  "limit_removed": [
+    "conceptual"
+  ],
+  "setting": [
+    "school"
+  ],
+  "places": [
+    {
+      "place": "cambridge-england",
+      "note": "Society communication context"
+    }
+  ],
+  "people": [
+    {
+      "person": "lord-kelvin",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "university-of-glasgow",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "publication-1848",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1848,
+          "month": 10
+        },
+        "latest": {
+          "year": 1848,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "October 1848 publication",
+        "basis": "October 1848 Philosophical Magazine, volume 33, pp. 313–317, dates the published proposal."
+      },
+      "statement": "A thermometric scale in which a unit of heat descending through any one degree yields the same mechanical effect, constructed from Carnot-style reasoning and an approximate use of Regnault’s steam data.",
+      "places": [
+        "united-kingdom"
+      ],
+      "caveats": "This caloric-based 1848 proposal is not the later linear Kelvin scale. Thomson still expresses doubt about heat/work conversion and lacks reliable saturated-vapour densities across the full range.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "thomson-1848-absolute-thermometric-scale",
+          "locator": "Printed pp. 313–317, especially definition on p. 316 and data limits on p. 317",
+          "supports": "Published scale definition, use of steam measurements, and limits of the calculation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1848",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. October 1848 Philosophical Magazine, volume 33, pp. 313–317, dates the published proposal. This caloric-based 1848 proposal is not the later linear Kelvin scale. Thomson still expresses doubt about heat/work conversion and lacks reliable saturated-vapour densities across the full range. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1848",
+    "community": "Scientific readers of the October 1848 Philosophical Magazine",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "The published proposal exposed this particular 1848 scale to scientific readers.",
+    "proxy_reason": "No later independent use of this specific non-linear 1848 scale was established, so its dated publication is an awareness proxy, not acceptance.",
+    "caveats": "This caloric-based scale must not be conflated with the later linear Kelvin temperature scale; later adoption of this exact proposal is not established."
+  },
+  "caveats": "This caloric-based 1848 proposal is not the later linear Kelvin scale. Thomson still expresses doubt about heat/work conversion and lacks reliable saturated-vapour densities across the full range.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "clapeyrons-analytic-heat-cycle",
+      "from_event": "publication-1834",
+      "to_event": "publication-1848",
+      "status": "established",
+      "statement": "Thomson stated that he knew Carnot’s theory through Clapeyron’s paper and used that theory in his 1848 thermometric-scale proposal.",
+      "scope": "Thomson’s October 1848 paper, p. 313 footnote and pp. 315–316.",
+      "confidence": "high",
+      "alternatives": "Regnault’s measurements provided additional numerical input.",
+      "caveats": "The source names Clapeyron’s 1834 paper and its English translation; it does not establish which physical copy Thomson used.",
+      "timing": "1834 original and 1837 translation precede the 1848 proposal.",
+      "evidence": [
+        {
+          "source": "thomson-1848-absolute-thermometric-scale",
+          "locator": "Printed p. 313 first footnote; pp. 315–316",
+          "supports": "Explicit absence of access to Carnot’s original and named Clapeyron channel; scale argument."
+        }
+      ]
+    },
+    {
+      "type": "transmitted_from",
+      "from": "regnaults-steam-measurements",
+      "from_event": "publication-1847",
+      "to_event": "publication-1848",
+      "status": "established",
+      "statement": "Thomson used Regnault’s measured latent heats and steam pressures to compare his proposed scale with the air thermometer, while identifying missing vapour-density data.",
+      "scope": "1848 scale calculation, approximately 0–230 °C.",
+      "confidence": "high",
+      "alternatives": "Other thermometric substances and gas-law approximations were available; the historical calculation remained incomplete.",
+      "caveats": "No claim that the calculated scale was fully verified across the entire interval.",
+      "timing": "1847 published data precede 1848 use.",
+      "evidence": [
+        {
+          "source": "thomson-1848-absolute-thermometric-scale",
+          "locator": "Printed pp. 316–317",
+          "supports": "Explicit data use, approximate density assumptions and limits."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "sourced",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

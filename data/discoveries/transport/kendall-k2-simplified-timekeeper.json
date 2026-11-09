@@ -1,0 +1,163 @@
+{
+  "id": "kendall-k2-simplified-timekeeper",
+  "name": "Kendall K2 simplified timekeeper",
+  "summary": "Kendall's K2, a simplified version of the H4 and K1 marine timekeepers, issued by the Board of Longitude to Phipps's 1773 Arctic voyage.",
+  "description": "Kendall’s K2, commissioned as a simplified H4/K1-type marine timekeeper.",
+  "kind": "technology",
+  "domain": "transport.navigation",
+  "fields": [
+    "measurement.time"
+  ],
+  "tier": 3,
+  "tier_reason": "A particular simplified copy fits fine detail; keep it distinct from H4 and K1 and retain its independent voyage history. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "incremental",
+  "origin": "derived",
+  "concept": "marine-chronometer",
+  "prompted_by": [
+    "state_or_military"
+  ],
+  "why": "The Board of Longitude sought a simpler and cheaper timekeeper of the H4 type for naval use.",
+  "limit_removed": [
+    "cost"
+  ],
+  "setting": [
+    "workshop",
+    "expedition",
+    "military"
+  ],
+  "funding": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "arctic-ocean",
+      "note": "HMS Racehorse, 1773 Phipps Arctic expedition (waters north of Svalbard)"
+    }
+  ],
+  "people": [
+    {
+      "person": "larcum-kendall",
+      "role": "builder"
+    },
+    {
+      "person": "constantine-phipps",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "board-of-longitude",
+      "role": "customer"
+    },
+    {
+      "organization": "royal-navy",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "surviving_artifact"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1773",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1773
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by the 1773 voyage",
+        "basis": "Royal Museums Greenwich reports K2 issued to Phipps for his 1773 voyage."
+      },
+      "statement": "The Board issued the simplified K2 watch to Phipps for an actual naval voyage.",
+      "places": [
+        "arctic-ocean"
+      ],
+      "place_note": "HMS Racehorse, 1773 Phipps Arctic expedition (waters north of Svalbard)",
+      "applications": [
+        "marine navigation"
+      ],
+      "caveats": "Issue to the expedition does not establish that a particular observation was made, the watch’s performance, fleet-wide availability or any sale.",
+      "evidence": [
+        {
+          "source": "royal-museums-greenwich-nd-kendalls-marine-timekeeper",
+          "locator": "K2 history, first paragraph",
+          "supports": "Describes the simplified design, 1772 completion and issue to the 1773 Racehorse expedition."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1773",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Royal Museums Greenwich reports K2 issued to Phipps for his 1773 voyage. Issue to the expedition does not establish that a particular observation was made, the watch’s performance, fleet-wide availability or any sale. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1773",
+    "community": "Captain Constantine Phipps’s 1773 naval expedition",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The Board issued the simplified K2 watch to Phipps for an actual naval voyage.",
+    "proxy_reason": "Use on the expedition is inferred from its issue for that named voyage; operation and navigational readings were not independently checked.",
+    "caveats": "Issue to the expedition does not establish that a particular observation was made, the watch’s performance, fleet-wide availability or any sale."
+  },
+  "caveats": "Issue to the expedition does not establish that a particular observation was made, the watch’s performance, fleet-wide availability or any sale.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "kendall-k1-navigation-timekeeper",
+      "from_event": "production-1769",
+      "to_event": "practical-use-1773",
+      "status": "established",
+      "statement": "K2 was commissioned as a simplified version of the H4/K1 timekeeper configuration.",
+      "scope": "Board timekeepers, Britain, completion and 1773 naval issue.",
+      "confidence": "medium",
+      "alternatives": "Other mechanisms, makers or applications could serve similar purposes.",
+      "caveats": "The museum describes a design family and does not prove every part was copied from K1 rather than H4.",
+      "timing": "Dates attach to the scoped event or source described, not automatic global primacy.",
+      "evidence": [
+        {
+          "source": "royal-museums-greenwich-nd-kendalls-marine-timekeeper",
+          "locator": "K2 history, opening sentence",
+          "supports": "Describes K2 as a simplified H4/K1 version."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "sourced",
+      "concept": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

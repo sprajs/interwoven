@@ -1,0 +1,265 @@
+{
+  "id": "fully-implanted-cardiac-pacemaker",
+  "name": "Fully implanted cardiac pacemaker",
+  "summary": "In 1958 Stockholm surgeons put a whole battery-powered pacemaker inside a heart-block patient, the start of pacemakers that later sold in thousands.",
+  "description": "A self-contained implanted pulse generator sends timed electrical stimulation through implanted cardiac electrodes.",
+  "kind": "technology",
+  "domain": "health.devices",
+  "fields": [
+    "electronics.components"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Arne Larsson suffered repeated attacks of heart block that external pacing could not manage over the long term.",
+  "setting": [
+    "hospital",
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "sweden"
+    }
+  ],
+  "people": [
+    {
+      "person": "ake-senning",
+      "role": "originator"
+    },
+    {
+      "person": "rune-elmqvist",
+      "role": "builder"
+    },
+    {
+      "person": "arne-larsson",
+      "role": "user"
+    },
+    {
+      "person": "wilson-greatbatch",
+      "role": "contributor"
+    },
+    {
+      "person": "william-chardack",
+      "role": "contributor"
+    },
+    {
+      "person": "sven-effert",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "karolinska-hospital",
+      "role": "host"
+    },
+    {
+      "organization": "elema-schonander",
+      "role": "maker"
+    },
+    {
+      "organization": "medtronic",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "sweden",
+    "united-states",
+    "west-germany"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "reception": "immediate",
+  "fate": "in_use",
+  "market": {
+    "status": "commercial",
+    "note": "A documented market offering or sale demonstrates applicability without proving the first global transaction.",
+    "evidence": [
+      {
+        "source": "durham-nd-medical-science-research",
+        "locator": "Chardack–Greatbatch paragraph",
+        "supports": "The exhibit, citing Jeffrey, reports sales during 1961–63."
+      },
+      {
+        "source": "knuckey-1965-method-testing-implanted",
+        "locator": "Printed p. 483",
+        "supports": "Australian clinicians describe commercially available implanted devices and name Medtronic models by 1965."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "practical-deployment-1958",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1958,
+          "month": 10,
+          "day": 8
+        },
+        "latest": {
+          "year": 1958,
+          "month": 10,
+          "day": 8
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1958-10-08",
+        "basis": "The source dates the scoped event to this interval."
+      },
+      "statement": "Surgeons implanted and used an electronic pacemaker for a patient with recurrent heart block on 8 October 1958.",
+      "places": [
+        "stockholm"
+      ],
+      "scope": "Elmqvist–Senning implant with an internal pulse generator and epicardial electrodes.",
+      "applications": [
+        "Treatment of heart block"
+      ],
+      "population": "Surgeons treating Arne Larsson at Karolinska",
+      "caveats": "The first unit operated only several hours and was replaced the next morning. A 2008 editorial says three hours, while a 2006 history quotes Senning recalling eight hours. Prior external and wearable electrical pacemakers already existed; this one case does not establish routine use or long-term function.",
+      "evidence": [
+        {
+          "source": "van-hemel-2008-october-d-day",
+          "locator": "1958 implantation paragraph",
+          "supports": "The clinical history reports implantation on 8 October 1958 and initial device operation for about three hours."
+        },
+        {
+          "source": "aquilina-2006-brief-history-cardiac",
+          "locator": "1952, 1957, and 1958 historical sections",
+          "supports": "The overview distinguishes earlier pacing configurations and quotes Senning’s recollection that the first unit lasted eight hours."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1961",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1961,
+          "month": 9,
+          "day": 12
+        },
+        "latest": {
+          "year": 1961,
+          "month": 9,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1961-09-12",
+        "basis": "The source dates the scoped event to this interval."
+      },
+      "statement": "A later German clinical history reports that Sven Effert ordered a Medtronic implantable pacemaker through its German distributor on 12 September 1961.",
+      "places": [
+        "dusseldorf"
+      ],
+      "place_note": "West Germany",
+      "scope": "Chardack–Greatbatch implantable pacemaker ordered by a clinic from Medtronic’s German distributor.",
+      "applications": [
+        "Cardiac pacing treatment"
+      ],
+      "population": "Düsseldorf clinic and distributor Heinrich G. Ulrich",
+      "caveats": "The article cites a facsimile in a dissertation not independently inspected; the order does not establish a payment date or a first worldwide offer. The unit was not the 1958 Swedish prototype.",
+      "evidence": [
+        {
+          "source": "lemke-2024-geschichte-herzschrittmacher-therapie",
+          "locator": "Section Erste Herzschrittmacher-Implantationen in Deutschland",
+          "supports": "The history cites a dated clinic order, and notes other participants recalled procurement differently."
+        }
+      ]
+    },
+    {
+      "id": "commercial-availability-1963",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1963
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1963",
+        "basis": "Latest supported use or availability; the first worldwide entry is not established."
+      },
+      "statement": "An NYU historical exhibit reports that Medtronic sold more than 2,000 Chardack–Greatbatch implantable pacemakers between 1961 and 1963.",
+      "scope": "Medtronic Chardack–Greatbatch implantable pacemakers, later than the 1958 Elmqvist–Senning device.",
+      "applications": [
+        "Cardiac pacing treatment"
+      ],
+      "population": "Clinicians and institutions offered Chardack–Greatbatch implantable pacemakers",
+      "caveats": "This is a later product in the broad class, not the original 1958 generator. Neither source establishes the first worldwide offer or first paid transaction.",
+      "evidence": [
+        {
+          "source": "durham-nd-medical-science-research",
+          "locator": "Chardack–Greatbatch paragraph",
+          "supports": "The exhibit, citing Jeffrey, reports sales during 1961–63."
+        },
+        {
+          "source": "knuckey-1965-method-testing-implanted",
+          "locator": "Printed p. 483",
+          "supports": "Australian clinicians describe commercially available implanted devices and name Medtronic models by 1965."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1958",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The source dates the scoped event to this interval. The first unit operated only several hours and was replaced the next morning. A 2008 editorial says three hours, while a 2006 history quotes Senning recalling eight hours. Prior external and wearable electrical pacemakers already existed; this one case does not establish routine use or long-term function. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1958",
+    "community": "Surgeons treating Arne Larsson at Karolinska",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The source describes a real therapeutic clinical application, including its immediate failure and replacement.",
+    "caveats": "The first unit operated only several hours and was replaced the next morning. A 2008 editorial says three hours, while a 2006 history quotes Senning recalling eight hours. Prior external and wearable electrical pacemakers already existed; this one case does not establish routine use or long-term function."
+  },
+  "caveats": "The first unit operated only several hours and was replaced the next morning. A 2008 editorial says three hours, while a 2006 history quotes Senning recalling eight hours. Prior external and wearable electrical pacemakers already existed; this one case does not establish routine use or long-term function.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "A first commercial offer or sale is not established.",
+        "evidence": [
+          {
+            "source": "van-hemel-2008-october-d-day",
+            "locator": "1958 implantation paragraph",
+            "supports": "The clinical history reports implantation on 8 October 1958 and initial device operation for about three hours."
+          },
+          {
+            "source": "aquilina-2006-brief-history-cardiac",
+            "locator": "1952, 1957, and 1958 historical sections",
+            "supports": "The overview distinguishes earlier pacing configurations and quotes Senning’s recollection that the first unit lasted eight hours."
+          }
+        ]
+      }
+    ],
+    "note": "Candidate historical and lifecycle assertions await independent review."
+  }
+}

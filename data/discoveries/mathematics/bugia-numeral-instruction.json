@@ -1,0 +1,139 @@
+{
+  "id": "bugia-numeral-instruction",
+  "name": "Bugia numeral instruction",
+  "summary": "Leonardo of Pisa (Fibonacci) wrote that in Bugia, North Africa, he was taught to calculate with the nine Indian figures, learning he later set out in Liber abaci.",
+  "description": "Leonardo Pisano reports receiving instruction in calculation with the nine Indian figures while his father served the Pisan merchant community at Bugia.",
+  "kind": "practice",
+  "domain": "mathematics.number",
+  "fields": [
+    "economy.education"
+  ],
+  "tier": 2,
+  "tier_reason": "Practice fits the reported instruction episode. Keep it distinct from the mathematical content and from a named teacher or text chain not established. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "codification_or_teaching"
+  ],
+  "origin": "derived",
+  "prompted_by": [
+    "transmission_from_other_place"
+  ],
+  "why": "His father served the Pisan merchant community at Bugia, a North African trading port where he met calculation with Indian figures.",
+  "places": [
+    {
+      "place": "bejaia",
+      "note": "Medieval Bugia"
+    }
+  ],
+  "people": [
+    {
+      "person": "fibonacci",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "republic-of-pisa",
+    "almohad-caliphate"
+  ],
+  "known_from": [
+    "contemporary_text"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "practical-use-1202",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1202
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "By 1202",
+        "basis": "Leonardo’s 1202 prologue retrospectively describes his instruction before composition."
+      },
+      "statement": "Leonardo recounts being taught calculation using Indian figures in Bugia.",
+      "places": [
+        "bejaia"
+      ],
+      "place_note": "Medieval Bugia",
+      "applications": [
+        "teaching written arithmetic"
+      ],
+      "caveats": "The instruction is not precisely dated; its teacher’s name, breadth of local practice, and exact start are unknown.",
+      "evidence": [
+        {
+          "source": "pisano-nd-liber-abaci-prologue",
+          "locator": "Prologue I.3 / G:I.7; Boncompagni p. 1",
+          "supports": "The author describes the instruction and its merchant setting."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1202",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1202
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "by the 1202 composition",
+        "basis": "Leonardo retrospectively places this instruction in his childhood before composing Liber abaci in 1202. The biographical birth estimate of about 1170 does not establish a hard lower bound for the lesson; no exact lesson year is attested."
+      },
+      "statement": "Leonardo Pisano reports receiving instruction in calculation with the nine Indian figures while his father served the Pisan merchant community at Bugia.",
+      "places": [
+        "bejaia"
+      ],
+      "place_note": "Medieval Bugia",
+      "caveats": "This is autobiographical testimony preserved in the revised work. The teacher's identity, exact year, language and ethnic identity are not supplied and are not guessed.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "pisano-nd-liber-abaci-prologue",
+          "locator": "Prologue I.3 / G:I.7; Boncompagni p. 1",
+          "supports": "Leonardo explicitly reports the instruction, location and subsequent study."
+        },
+        {
+          "source": "oconnor-1998-leonardo-pisano-fibonacci",
+          "locator": "Quick Info and biography paragraphs on Bugia and return to Pisa",
+          "supports": "Supplies approximate life-date bounds and geographic identification."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1202",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Leonardo retrospectively places this instruction in his childhood before composing Liber abaci in 1202. The biographical birth estimate of about 1170 does not establish a hard lower bound for the lesson; no exact lesson year is attested. This is autobiographical testimony preserved in the revised work. The teacher's identity, exact year, language and ethnic identity are not supplied and are not guessed. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1202",
+    "community": "A teacher and learner connected with the Pisan merchant community in Bugia",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Instruction of an identified pupil is actual specialist-community use, not just Leonardo’s later book composition.",
+    "caveats": "The instruction is not precisely dated; its teacher’s name, breadth of local practice, and exact start are unknown."
+  },
+  "caveats": "This is autobiographical testimony preserved in the revised work. The teacher's identity, exact year, language and ethnic identity are not supplied and are not guessed.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "origin": "sourced",
+      "prompted_by": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "market": "sourced",
+      "events": "reviewed"
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "id": "ibm-726-magnetic-tape-unit",
+  "name": "IBM 726 magnetic tape unit",
+  "summary": "The IBM 726 was a magnetic tape drive sold with IBM's 701 computer, using vacuum columns to buffer the tape so data could be read and written quickly.",
+  "description": "IBM 726 vacuum-column magnetic tape reader and recorder supplied for IBM 701 electronic computers.",
+  "kind": "technology",
+  "domain": "electronics.storage",
+  "fields": [
+    "electronics.computers"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "modular",
+  "concept": "magnetic-tape-data-storage",
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "ibm",
+      "role": "maker"
+    },
+    {
+      "organization": "douglas-aircraft-company",
+      "role": "customer"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "later_text",
+    "contemporary_text",
+    "administrative_record"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "commercial",
+    "note": "A commercial offer or sale is evidenced; first availability remains separate.",
+    "evidence": [
+      {
+        "source": "computer-history-museum-nd-tape-unit-developed",
+        "locator": "IBM Model 726 paragraph",
+        "supports": "CHM says IBM announced the 726 for sale in 1952 and cites an $850 monthly rental."
+      },
+      {
+        "source": "rand-1954-univac-i-operating",
+        "locator": "Section III, Uniservo tape transport and floating pulleys",
+        "supports": "The earlier UNISERVO used mechanical tape-loop buffering for rapid tape motion."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "commercial-offer-1952",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1952
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1952",
+        "basis": "Latest documented event, not a claim to the earliest possible event."
+      },
+      "statement": "IBM announced the 726 for sale with its 701 computer in 1952.",
+      "applications": [
+        "Magnetic storage for computing"
+      ],
+      "caveats": "The source does not establish the first order, delivery or transaction; the date of the rental price is not independently specified.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-tape-unit-developed",
+          "locator": "IBM Model 726 paragraph",
+          "supports": "CHM says IBM announced the 726 for sale in 1952 and cites an $850 monthly rental."
+        },
+        {
+          "source": "rand-1954-univac-i-operating",
+          "locator": "Section III, Uniservo tape transport and floating pulleys",
+          "supports": "The earlier UNISERVO used mechanical tape-loop buffering for rapid tape motion."
+        }
+      ]
+    },
+    {
+      "id": "commercial-availability-1953",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1953
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1953",
+        "basis": "Latest documented availability or use; no earliest entry date is asserted."
+      },
+      "statement": "The Computer History Museum reports that the IBM 726 was sold with the IBM 701 in 1953.",
+      "applications": [
+        "Magnetic storage for computing"
+      ],
+      "caveats": "Exact first offer and first sale dates, buyers and number of machines are not established.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-memory-storage-ibm",
+          "locator": "1952 IBM 726 entry",
+          "supports": "The museum identifies the vacuum tape system, rental, and initial sales with IBM 701 in 1953."
+        },
+        {
+          "source": "computer-history-museum-nd-tape-unit-developed",
+          "locator": "Uniservo and IBM 726 magnetic-tape paragraphs",
+          "supports": "The earlier UNISERVO used metal tape; IBM used oxide tape and vacuum-column buffering."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1961",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1961,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 1961-03",
+        "basis": "The last bound is the report date; the earlier actual date is unknown."
+      },
+      "statement": "The March 1961 BRL survey lists a third IBM 726 tape unit in the rental configuration of Douglas Aircraft’s Tulsa IBM 701.",
+      "places": [
+        "tulsa"
+      ],
+      "scope": "An IBM 726 magnetic-tape unit listed alongside Douglas Aircraft’s IBM 701.",
+      "applications": [
+        "Computing tape storage"
+      ],
+      "population": "Douglas Aircraft Company, Tulsa",
+      "caveats": "The system’s customer acceptance date in the survey does not establish that the separately listed third tape unit had been delivered on that date. The survey does not document a particular tape operation, first deployment, or last use.",
+      "evidence": [
+        {
+          "source": "weik-1961-third-survey-domestic",
+          "locator": "Printed p. 393 / original PDF segment p. 94 / excerpt p. 1",
+          "supports": "The survey lists Douglas Tulsa’s IBM 701 standard components and a third IBM 726 tape unit at $850 per month."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "commercial-offer-1952",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest documented event, not a claim to the earliest possible event. The source does not establish the first order, delivery or transaction; the date of the rental price is not independently specified. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-offer-1952",
+    "community": "Prospective IBM 701 computer customers",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "A stated offer places the device in the customer market; the 1953 sale is separately retained.",
+    "caveats": "The source does not establish the first order, delivery or transaction; the date of the rental price is not independently specified."
+  },
+  "caveats": "Exact first offer and first sale dates, buyers and number of machines are not established.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "A dated offer or sale is evidenced; the first commercial availability has not been established.",
+        "evidence": [
+          {
+            "source": "computer-history-museum-nd-tape-unit-developed",
+            "locator": "IBM Model 726 paragraph",
+            "supports": "CHM says IBM announced the 726 for sale in 1952 and cites an $850 monthly rental."
+          },
+          {
+            "source": "rand-1954-univac-i-operating",
+            "locator": "Section III, Uniservo tape transport and floating pulleys",
+            "supports": "The earlier UNISERVO used mechanical tape-loop buffering for rapid tape motion."
+          }
+        ]
+      }
+    ],
+    "note": "Proposed community-entry claim; independent historical and lifecycle review pending."
+  }
+}

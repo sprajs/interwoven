@@ -1,0 +1,194 @@
+{
+  "id": "silicon-gate-3708-multiplexer",
+  "name": "Silicon-gate 3708 multiplexer",
+  "summary": "Fairchild's 3708 multiplexer was the first product made with silicon-gate MOS processing, which made chips faster and denser and became the industry standard.",
+  "description": "Faggin and Klein brought polysilicon-gate processing to ICs; Faggin redesigned an eight-channel analog multiplexer as the Fairchild 3708.",
+  "kind": "technology",
+  "domain": "electronics.integrated-circuits",
+  "fields": [
+    "electronics.semiconductors"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "manufacturing_process",
+    "performance_improvement"
+  ],
+  "scale": "modular",
+  "limit_removed": [
+    "speed",
+    "scale"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "california",
+      "note": "Fairchild Semiconductor; site not stated"
+    }
+  ],
+  "people": [
+    {
+      "person": "federico-faggin",
+      "role": "originator"
+    },
+    {
+      "person": "thomas-klein",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "fairchild-semiconductor",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "market": {
+    "status": "commercial",
+    "note": "The documented product sale or offer establishes market applicability, without establishing first commercial availability of the complete configuration.",
+    "evidence": [
+      {
+        "source": "faggin-2007-fairchild-oral-history",
+        "locator": "PDF p. 4, sales by end 1968",
+        "supports": "Faggin reports commercial sales of the 3708."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "commercial-availability-1968",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1968
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1968",
+        "basis": "Latest documented community-use or recognition bound; no earliest date is established."
+      },
+      "statement": "Faggin recalled that the silicon-gate 3708 was being sold by the end of 1968.",
+      "places": [
+        "united-states"
+      ],
+      "caveats": "Participant recollection; first sale, quantity and geography of customers unresolved.",
+      "evidence": [
+        {
+          "source": "faggin-2007-fairchild-oral-history",
+          "locator": "PDF p. 4, Faggin presentation",
+          "supports": "Faggin recalled that the silicon-gate 3708 was being sold by the end of 1968."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1968",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1968
+        },
+        "latest": {
+          "year": 1968
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1968",
+        "basis": "Commercial 3708 introduction in 1968; abbreviated technical presentation in October 1968, full paper in 1970."
+      },
+      "statement": "Faggin and Klein brought polysilicon-gate processing to ICs; Faggin redesigned an eight-channel analog multiplexer as the Fairchild 3708.",
+      "places": [
+        "california"
+      ],
+      "place_note": "Fairchild Semiconductor; site not stated",
+      "caveats": "Not the origin of every self-aligned-gate idea: Bell Labs and Watkins antecedents are acknowledged as next-depth gaps.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-silicon-gate-technology",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "3708 identity, contributors and date."
+        },
+        {
+          "source": "faggin-1970-silicon-gate-technology",
+          "locator": "Abstract and presentation footnote",
+          "supports": "Polysilicon-gate process and 1968 presentation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1968",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Commercial 3708 introduction in 1968; abbreviated technical presentation in October 1968, full paper in 1970. Not the origin of every self-aligned-gate idea: Bell Labs and Watkins antecedents are acknowledged as next-depth gaps. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-availability-1968",
+    "community": "Fairchild 3708 customers",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "Actual sales to customers are a stronger community-entry anchor than the invention or development date.",
+    "caveats": "Participant recollection; first sale, quantity and geography of customers unresolved."
+  },
+  "caveats": "Not the origin of every self-aligned-gate idea: Bell Labs and Watkins antecedents are acknowledged as next-depth gaps.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "insulated-gate-mos-transistor",
+      "from_event": "dated-assertion-1960",
+      "to_event": "dated-assertion-1968",
+      "status": "established",
+      "statement": "Fairchild’s MOS research followed the Atalla–Kahng MOS report; Faggin and Klein later applied a silicon gate to a MOS multiplexer, replacing the metal-gate approach exemplified by the earlier device.",
+      "scope": "Bell Labs MOS presentation and Fairchild MOS research, 1960 onward; silicon-gate 3708 multiplexer, 1968.",
+      "confidence": "medium",
+      "alternatives": "Other MOS developments and suppliers contributed; metal-gate and alternative transistor technologies also remained available.",
+      "caveats": "Moore describes Fairchild’s response to the Bell Labs presentation, not the engineering chain for every transistor in the 3708. The CHM account identifies the later multiplexer; the 1970 Faggin–Klein full text has not been inspected. No direct personal collaboration or exclusive ancestry is inferred.",
+      "timing": "The Bell Labs result and 1960 report preceded Fairchild MOS research; the 3708 product was introduced by 1968.",
+      "evidence": [
+        {
+          "source": "moore-1998-role-fairchild-silicon",
+          "locator": "Printed pp. 60–61, section IV: Kahng and Atalla presentation, Fairchild’s subsequent MOS work",
+          "supports": "Fairchild participant Moore explicitly says their MOS research followed the Kahng–Atalla presentation and describes the insulated gate structure."
+        },
+        {
+          "source": "computer-history-museum-nd-silicon-gate-technology",
+          "locator": "Main narrative paragraphs 1–2: Bell Labs silicon gate and Fairchild 3708",
+          "supports": "Identifies silicon-gate adaptation of MOS technology and Faggin’s redesign of a p-channel metal-gate multiplexer into the 3708."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "recalled",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

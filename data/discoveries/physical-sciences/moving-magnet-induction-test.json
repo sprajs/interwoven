@@ -1,0 +1,166 @@
+{
+  "id": "moving-magnet-induction-test",
+  "name": "Moving-magnet induction test",
+  "summary": "Faraday showed that pushing a magnet into a coil, or pulling it out, makes a brief electric current, while a magnet held still makes none.",
+  "description": "A cylindrical permanent magnet is inserted into and withdrawn from a hollow coil connected to a galvanometer; motion gives opposite current impulses, and a stationary magnet gives none.",
+  "kind": "science",
+  "domain": "physical-sciences.electromagnetism",
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "observation"
+  ],
+  "scale": "extends",
+  "concept": "electromagnetic-induction",
+  "setting": [
+    "learned_society"
+  ],
+  "places": [
+    {
+      "place": "london"
+    }
+  ],
+  "people": [
+    {
+      "person": "michael-faraday",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-society",
+      "role": "publisher"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "presentation-1831",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1831,
+          "month": 11,
+          "day": 24
+        },
+        "latest": {
+          "year": 1831,
+          "month": 11,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1831-11-24",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "The moving-magnet and coil experiment was reported to the Royal Society in the paper read 24 November 1831.",
+      "places": [
+        "london"
+      ],
+      "caveats": "Exact independent reproduction and wider adoption of this particular configuration are not established.",
+      "evidence": [
+        {
+          "source": "faraday-1849-experimental-researches-electricity",
+          "locator": "First Series §39 and report heading",
+          "supports": "The moving-magnet and coil experiment was reported to the Royal Society in the paper read 24 November 1831."
+        }
+      ]
+    },
+    {
+      "id": "observation-1831",
+      "type": "observation",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1831,
+          "month": 11,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 24 November 1831",
+        "basis": "First Series read 24 November 1831 reports the performed test; no exact day inferred from paragraph order."
+      },
+      "statement": "A cylindrical permanent magnet is inserted into and withdrawn from a hollow coil connected to a galvanometer; motion gives opposite current impulses, and a stationary magnet gives none.",
+      "places": [
+        "london"
+      ],
+      "caveats": "The account is not in strict chronological order. No battery is required as the inducing source in this particular configuration; magnet preparation is outside the claim.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "faraday-1849-experimental-researches-electricity",
+          "locator": "First Series §§34–43, especially §39",
+          "supports": "Explains the confound being tested, permanent-magnet insertion/withdrawal and outside-coil control."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "observation-1831",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. First Series read 24 November 1831 reports the performed test; no exact day inferred from paragraph order. The account is not in strict chronological order. No battery is required as the inducing source in this particular configuration; magnet preparation is outside the claim. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "presentation-1831",
+    "community": "Royal Society audience",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "A named research-community presentation is established; the private laboratory date alone does not establish community entry.",
+    "proxy_reason": "The original apparatus was publicly communicated in this scientific forum; this is a proxy for awareness, not uptake.",
+    "caveats": "Exact independent reproduction and wider adoption of this particular configuration are not established."
+  },
+  "caveats": "The account is not in strict chronological order. No battery is required as the inducing source in this particular configuration; magnet preparation is outside the claim.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "switching-induces-a-second-current",
+      "from_event": "observation-1831",
+      "to_event": "observation-1831",
+      "status": "established",
+      "statement": "Faraday extended the induction investigation from changing an iron core’s magnetization to moving a permanent magnet, testing whether formation of a magnet was essential.",
+      "scope": "Faraday’s 1831 induction investigations.",
+      "confidence": "high",
+      "alternatives": "Permanent-magnet motion provides a current-producing route without a battery as inducing source.",
+      "caveats": "The report rearranges experiments; the edge expresses the stated experimental rationale, not an exact day-by-day laboratory sequence.",
+      "timing": "Both configurations were demonstrated before the November 1831 presentation; no date ordering is inferred merely from paragraph numbers.",
+      "evidence": [
+        {
+          "source": "faraday-1849-experimental-researches-electricity",
+          "locator": "§§27–39, especially the motivation opening §39",
+          "supports": "Connects preceding magnetization experiments to the discriminating insertion test."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "id": "b-dna-helical-constraints",
+  "name": "B-DNA helical constraints",
+  "summary": "From X-ray patterns of wet DNA fibres, Franklin and Gosling inferred in 1953 a probable two-chain helix with phosphates outside, key measurements for solving DNA's structure.",
+  "description": "Franklin and Gosling inferred a probable helix, approximately 34 Å repeat and 20 Å diameter, with exterior phosphates and a probable two-chain unit.",
+  "kind": "science",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "physical-sciences.chemistry"
+  ],
+  "tier": 1,
+  "tier_reason": "Raise the scientific constraints; my specialist-only rationale underweighted the result. The precise pre-model transmission route stays flagged for a historian. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "measurement",
+    "observation"
+  ],
+  "scale": "extends",
+  "prompted_by": [
+    "new_capability"
+  ],
+  "limit_removed": [
+    "resolution"
+  ],
+  "setting": [
+    "school"
+  ],
+  "funding": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "kings-college-london"
+    }
+  ],
+  "people": [
+    {
+      "person": "rosalind-franklin",
+      "role": "originator"
+    },
+    {
+      "person": "raymond-gosling",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "kings-college-london",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "dated-assertion-1953",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1953
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by Apr 1953",
+        "basis": "This node is the qualified interpretation documented in the account signed 2 April 1953, not the earlier photographic exposure."
+      },
+      "statement": "Franklin and Gosling inferred a probable helix, approximately 34 Å repeat and 20 Å diameter, with exterior phosphates and a probable two-chain unit.",
+      "places": [
+        "kings-college-london"
+      ],
+      "caveats": "The authors did not call diffraction alone direct proof of helicity or offer a complete structure; the model involved additional density and chemical arguments.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "franklin-1953-molecular-configuration-sodium",
+          "locator": "pp. 740–741, analysis and concluding paragraphs",
+          "supports": "Geometry, two-chain qualification and lack of direct proof."
+        }
+      ]
+    },
+    {
+      "id": "publication-1953",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1953,
+          "month": 4,
+          "day": 25
+        },
+        "latest": {
+          "year": 1953,
+          "month": 4,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1953-4-25",
+        "basis": "Date of the cited public report or documented event."
+      },
+      "statement": "Franklin and Gosling published their qualified B-form structural interpretation in Nature.",
+      "caveats": "Publication does not prove other scientists agreed with every part, nor establish earliest external exposure.",
+      "evidence": [
+        {
+          "source": "franklin-1953-molecular-configuration-sodium",
+          "locator": "Nature 171, pp. 740–741, complete article and issue date",
+          "supports": "Public scientific account of B-form dimensions and qualified helix and chain interpretation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1953",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of the cited public report or documented event. Publication does not prove other scientists agreed with every part, nor establish earliest external exposure. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1953",
+    "community": "DNA structural researchers reading Nature",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "The Nature paper exposed the qualified inferences to the structural-biology literature rather than using the earlier undated inference.",
+    "proxy_reason": "The article is a documented route to specialist awareness; later adoption of this exact bundle was not established.",
+    "caveats": "Publication does not prove other scientists agreed with every part, nor establish earliest external exposure."
+  },
+  "caveats": "The authors did not call diffraction alone direct proof of helicity or offer a complete structure; the model involved additional density and chemical arguments.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "humidity-varied-dna-diffraction",
+      "from_event": "demonstration-1953",
+      "to_event": "dated-assertion-1953",
+      "status": "established",
+      "statement": "Hydration-dependent fibre diffraction supplied the patterns from which Franklin and Gosling inferred B-form geometry.",
+      "scope": "King’s College London, 1952–April 1953.",
+      "confidence": "high",
+      "alternatives": "Chemical accessibility, density and hydration behaviour also constrain the interpretation.",
+      "caveats": "A pattern is not a direct picture of molecular chains.",
+      "timing": "Earlier exposures and subsequent interpretation overlap in the evidence; the inference was documented by 1953, without an established date of first formulation.",
+      "evidence": [
+        {
+          "source": "franklin-1953-molecular-configuration-sodium",
+          "locator": "pp. 740–741, image and analysis",
+          "supports": "Pattern-to-geometry inference."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

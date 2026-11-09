@@ -1,0 +1,156 @@
+{
+  "id": "latin-dixit-algorizmi",
+  "name": "Latin Dixit Algorizmi",
+  "summary": "A twelfth-century Latin reworking of al-Khwarizmi's arithmetic, keeping place value, nine numerals and a circle for zero, that carried the method into Europe.",
+  "description": "Latin reworking of al-Khwarizmi-derived arithmetic, preserving decimal positions, nine numeral signs and a small-circle placeholder; includes operational arithmetic rules.",
+  "kind": "mathematics",
+  "domain": "mathematics.number",
+  "tier": 2,
+  "tier_reason": "Retain a distinct Latin transmission/redaction role. Being derived does not make it the Arabic original or justify deletion. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "codification_or_teaching"
+  ],
+  "scale": "extends",
+  "origin": "derived",
+  "concept": "hindu-arabic-numeral-arithmetic",
+  "prompted_by": [
+    "transmission_from_other_place"
+  ],
+  "places": [
+    {
+      "place": "iberia",
+      "note": "Latin Europe; translation probably in Iberia"
+    }
+  ],
+  "people": [
+    {
+      "person": "al-khwarizmi",
+      "role": "originator"
+    }
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "dated-assertion-1199",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1100
+        },
+        "latest": {
+          "year": 1199
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "12th c.",
+        "basis": "Folkerts dates the Latin translation and redaction to the twelfth century; the anchor is a display midpoint. Surviving manuscript copies are later."
+      },
+      "statement": "Latin reworking of al-Khwarizmi-derived arithmetic, preserving decimal positions, nine numeral signs and a small-circle placeholder; includes operational arithmetic rules.",
+      "places": [
+        "iberia"
+      ],
+      "place_note": "Latin Europe; translation probably in Iberia",
+      "caveats": "Cambridge Ii.6.5 and New York HC 397/726 preserve differing revisions, not the lost first translation. Neither a named translator nor Toledo is asserted as settled.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "folkerts-1997-alteste-lateinische-schrift",
+          "locator": "Preface PDF p. 9; chapter 4 PDF p. 29; edition §§1.1–1.6 PDF pp. 38–45",
+          "supports": "Establishes mediated Latin descent and the actual place-value/empty-place text."
+        }
+      ]
+    },
+    {
+      "id": "public-availability-1300",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1201
+        },
+        "latest": {
+          "year": 1300
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "13th-century copy",
+        "basis": "Folkerts dates a surviving New York manuscript witness to the thirteenth century."
+      },
+      "statement": "A manuscript copy transmits the Latin Dixit Algorizmi reworking.",
+      "applications": [
+        "manuscript copying"
+      ],
+      "caveats": "The Arabic original is lost and the Latin is mediated; the manuscript date is a scholarly range, not a proven first reception. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established.",
+      "evidence": [
+        {
+          "source": "folkerts-1997-alteste-lateinische-schrift",
+          "locator": "Chapter 4, PDF p. 29, New York Hispanic Society MS HC397/726 ff. 17r–24v; edition §§1.1–1.6",
+          "supports": "Identifies and dates a witness preserving the arithmetical text and numeral/placeholder discussion."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1199",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Folkerts dates the Latin translation and redaction to the twelfth century; the anchor is a display midpoint. Surviving manuscript copies are later. Cambridge Ii.6.5 and New York HC 397/726 preserve differing revisions, not the lost first translation. Neither a named translator nor Toledo is asserted as settled. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "public-availability-1300",
+    "community": "The copyist of the Latin Dixit Algorizmi witness",
+    "basis": "public_availability",
+    "strength": "scoped_inference",
+    "rationale": "The surviving copy documents actual transmission rather than assuming that the text’s reconstruction date equals its earliest audience.",
+    "proxy_reason": "A surviving copied text supports access by that particular copyist; this narrow availability does not establish broader distribution, comprehension or performance of the arithmetic methods.",
+    "caveats": "The Arabic original is lost and the Latin is mediated; the manuscript date is a scholarly range, not a proven first reception. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established."
+  },
+  "witnesses": [
+    {
+      "event": "public-availability-1300",
+      "limitation": "The Arabic original is lost and the Latin is mediated; the manuscript date is a scholarly range, not a proven first reception. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established."
+    }
+  ],
+  "caveats": "Cambridge Ii.6.5 and New York HC 397/726 preserve differing revisions, not the lost first translation. Neither a named translator nor Toledo is asserted as settled.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "al-khwarizmi-numeral-algorithms",
+      "from_event": "documented-description-850",
+      "to_event": "dated-assertion-1199",
+      "status": "established",
+      "statement": "The lost Arabic arithmetic was translated into Latin and reworked into the tradition witnessed by Dixit Algorizmi.",
+      "scope": "Ninth-century Baghdad work to twelfth-century Latin translation/redaction, probably Iberia.",
+      "confidence": "high",
+      "alternatives": "Other contacts and arithmetic texts also transmitted positional calculation.",
+      "caveats": "The precise translator and first Latin wording are unknown; the claim is mediated descent, not a literal unchanged translation.",
+      "timing": "The original work precedes the twelfth-century translation; thirteenth-century witnesses do not redate the translation.",
+      "evidence": [
+        {
+          "source": "folkerts-1997-alteste-lateinische-schrift",
+          "locator": "Preface PDF p. 9; chapter 4 PDF p. 29",
+          "supports": "Explicitly identifies the translation followed by redaction, distinct from surviving copies."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "sourced",
+      "concept": "sourced",
+      "prompted_by": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

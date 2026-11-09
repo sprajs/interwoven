@@ -1,0 +1,169 @@
+{
+  "id": "regnaults-steam-measurements",
+  "name": "Regnault’s steam measurements",
+  "summary": "Regnault's published measurements of steam pressure and latent heat gave engineers and physicists reliable numbers for steam-engine and heat-theory calculations.",
+  "description": "Published measurements of saturated-steam pressure and latent heat per unit mass, undertaken for steam-engine calculations; Thomson describes the published range as 0–230 °C and the missing density information needed for his calculations.",
+  "kind": "science",
+  "domain": "physical-sciences.heat",
+  "fields": [
+    "energy.steam",
+    "measurement.laboratory"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "measurement",
+    "dataset"
+  ],
+  "scale": "extends",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The experiments were undertaken to supply the numerical data needed for calculating steam engines.",
+  "limit_removed": [
+    "precision"
+  ],
+  "funding": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "france"
+    }
+  ],
+  "people": [
+    {
+      "person": "henri-victor-regnault",
+      "role": "originator"
+    },
+    {
+      "person": "lord-kelvin",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "college-de-france",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "france"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "immediate",
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "publication-1847",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1847
+        },
+        "latest": {
+          "year": 1847
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1847 publication",
+        "basis": "First published volume of the government-commissioned Relation des expériences, as identified contemporaneously by Thomson. Individual measurement dates are not assigned."
+      },
+      "statement": "Published measurements of saturated-steam pressure and latent heat per unit mass, undertaken for steam-engine calculations; Thomson describes the published range as 0–230 °C and the missing density information needed for his calculations.",
+      "places": [
+        "france"
+      ],
+      "caveats": "The recipient’s contemporary account and bibliographic record were inspected; Regnault’s underlying experimental volume was not retrieved (Gallica 403). No claim of auditing its apparatus or tables.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "thomson-1848-absolute-thermometric-scale",
+          "locator": "Printed p. 313 footnote and pp. 316–317",
+          "supports": "Government commission, 1847 volume, measured quantities, temperature span and incomplete density data."
+        },
+        {
+          "source": "de-france-nd-bnf-notice-frbnf31188460",
+          "locator": "FRBNF31188460: title and publication fields",
+          "supports": "Publication identity and explicit purpose of supplying laws/data for steam-engine calculations."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1848",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1848,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by October 1848",
+        "basis": "Thomson published the calculation in the October 1848 issue. The prior date of his actual use of the data is unknown."
+      },
+      "statement": "By the October 1848 publication, Thomson had used Regnault’s steam data when calculating a comparison for his thermometric scale.",
+      "places": [
+        "united-kingdom"
+      ],
+      "scope": "Regnault’s published saturated-steam pressure and latent-heat measurements used in Thomson’s calculation.",
+      "caveats": "The underlying Regnault tables were not audited. The publication bounds Thomson’s actual use but does not date it exactly or establish market distribution or universal adoption.",
+      "evidence": [
+        {
+          "source": "thomson-1848-absolute-thermometric-scale",
+          "locator": "Printed pp. 315–317",
+          "supports": "Applies the published steam measurements and notes missing vapour-density data."
+        },
+        {
+          "source": "de-france-nd-bnf-notice-frbnf31188460",
+          "locator": "Regnault bibliographic notice",
+          "supports": "Dates the underlying publication series from 1847."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1847",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. First published volume of the government-commissioned Relation des expériences, as identified contemporaneously by Thomson. Individual measurement dates are not assigned. The recipient’s contemporary account and bibliographic record were inspected; Regnault’s underlying experimental volume was not retrieved (Gallica 403). No claim of auditing its apparatus or tables. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1848",
+    "community": "William Thomson and scientific readers of his thermometry proposal",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A specific researcher’s documented use of the data is stronger than the data’s original publication alone.",
+    "caveats": "The underlying Regnault tables were not audited. The publication bounds Thomson’s actual use but does not date it exactly or establish market distribution or universal adoption."
+  },
+  "caveats": "The recipient’s contemporary account and bibliographic record were inspected; Regnault’s underlying experimental volume was not retrieved (Gallica 403). No claim of auditing its apparatus or tables.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    }
+  }
+}

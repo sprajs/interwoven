@@ -1,0 +1,138 @@
+{
+  "id": "portsmouth-coaking-machine",
+  "name": "Portsmouth coaking machine",
+  "summary": "One surviving machine from the Portsmouth block mills, which cut the recesses for the bushes in naval pulley blocks as part of the production line.",
+  "description": "Original 1804 Maudslay-built coaking machine in Brunel’s Portsmouth naval pulley-block system, object 1933-133.",
+  "kind": "technology",
+  "domain": "machines.machine-tools",
+  "fields": [
+    "machines.manufacturing"
+  ],
+  "tier": 3,
+  "tier_reason": "A coaking machine is fine detail but has a separate dated component role. Keep the split on which its system relation depends. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "setting": [
+    "state",
+    "military"
+  ],
+  "places": [
+    {
+      "place": "portsmouth-dockyard"
+    }
+  ],
+  "people": [
+    {
+      "person": "marc-isambard-brunel",
+      "role": "originator"
+    },
+    {
+      "person": "henry-maudslay",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-navy",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "surviving_artifact"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1805",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1805,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by March 1805",
+        "basis": "The museum identifies installation in 1804; the building history reports all three machine sets working by March 1805."
+      },
+      "statement": "The original coaking machine was installed in the Navy’s Portsmouth block mill and belonged to its operating sequence.",
+      "places": [
+        "portsmouth-dockyard"
+      ],
+      "applications": [
+        "pulley-block manufacture"
+      ],
+      "caveats": "A precise first operation date for this individual machine is not reported; its relationship to the operating sequence is a contextual inference.",
+      "evidence": [
+        {
+          "source": "science-museum-group-nd-original-coaking-machine",
+          "locator": "Object 1933-133, installation and process description",
+          "supports": "Identifies the original 1804 coaking machine as part of the block-making system."
+        },
+        {
+          "source": "guillery-2017-block-mills-portsmouth",
+          "locator": "Printed p.5, chronology for 1803–1805",
+          "supports": "Reports the first set in operation by 1803 and all three by March 1805; individual machine first-use dates are not given."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1805",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The museum identifies installation in 1804; the building history reports all three machine sets working by March 1805. A precise first operation date for this individual machine is not reported; its relationship to the operating sequence is a contextual inference. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1805",
+    "community": "Royal Navy block-mill workers",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The original coaking machine was installed in the Navy’s Portsmouth block mill and belonged to its operating sequence.",
+    "proxy_reason": "The specific machine’s installation and the documented operating system support a conservative contextual-use inference, not an exact first use.",
+    "caveats": "A precise first operation date for this individual machine is not reported; its relationship to the operating sequence is a contextual inference."
+  },
+  "caveats": "A precise first operation date for this individual machine is not reported; its relationship to the operating sequence is a contextual inference.",
+  "links": [
+    {
+      "type": "companion_of",
+      "from": "portsmouth-steam-powered-block-mill",
+      "from_event": "practical-deployment-1803",
+      "to_event": "practical-use-1805",
+      "status": "established",
+      "statement": "The surviving coaking machine belonged to the integrated Portsmouth block-making machine system.",
+      "scope": "Royal Navy Portsmouth block mill and surviving object 1933-133.",
+      "confidence": "medium",
+      "alternatives": "Other mechanisms, makers or applications could serve similar purposes.",
+      "caveats": "The relationship does not identify which other individual machine produced each component.",
+      "timing": "Dates attach to the scoped event or source described, not automatic global primacy.",
+      "evidence": [
+        {
+          "source": "science-museum-group-nd-original-coaking-machine",
+          "locator": "Object title and first three description paragraphs",
+          "supports": "Identifies installation and role in the block-making system."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "recalled",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

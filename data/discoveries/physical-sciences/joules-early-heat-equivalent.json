@@ -1,0 +1,223 @@
+{
+  "id": "joules-early-heat-equivalent",
+  "name": "Joule’s early heat equivalent",
+  "summary": "Joule's first experimental estimate of how much mechanical work produces a given amount of heat, a scattered but early number linking the two.",
+  "description": "Joule compared mechanical expenditure with heating in magneto-electric experiments, reporting an initial mean equivalent of 838 foot-pounds per pound of water warmed by one Fahrenheit degree, while acknowledging substantial scatter.",
+  "kind": "science",
+  "domain": "physical-sciences.heat",
+  "fields": [
+    "physical-sciences.electromagnetism",
+    "measurement.units"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "measurement",
+    "experimental_method"
+  ],
+  "scale": "revises",
+  "origin": "independent",
+  "concept": "mechanical-equivalent-of-heat",
+  "limit_removed": [
+    "conceptual"
+  ],
+  "setting": [
+    "individual"
+  ],
+  "funding": [
+    "self"
+  ],
+  "places": [
+    {
+      "place": "broom-hill-pendlebury",
+      "note": "Place of presentation"
+    },
+    {
+      "place": "cork"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-prescott-joule",
+      "role": "originator"
+    },
+    {
+      "person": "rudolf-clausius",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "british-association-for-the-advancement-of-science",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "delayed",
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "dated-assertion-1843",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1843
+        },
+        "latest": {
+          "year": 1843
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1843 report",
+        "basis": "July 1843 dated paper; August presentation and later 1843 serial publication, distinguished from the 1884 collected edition."
+      },
+      "statement": "Joule compared mechanical expenditure with heating in magneto-electric experiments, reporting an initial mean equivalent of 838 foot-pounds per pound of water warmed by one Fahrenheit degree, while acknowledging substantial scatter.",
+      "places": [
+        "broom-hill-pendlebury",
+        "cork"
+      ],
+      "place_note": "Place of presentation",
+      "caveats": "838 is the historical reported estimate, not the accepted modern equivalent. The claim of reverse convertibility goes beyond a direct demonstration in every stated case.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "Collected pp. 156–158; conclusion, July signature and postscript; p. 156 visually inspected",
+          "supports": "Initial numerical equivalent, acknowledged discrepancies, planned improved apparatus and water-friction comparison."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1851",
+      "type": "recognition",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1851,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by August 1851",
+        "basis": "The inspected English translation appearing in the August 1851 Philosophical Magazine cites Joule’s 1843 magneto-electric result; the relevant separate 1850 German installment was not inspected."
+      },
+      "statement": "By the August 1851 English translation, Clausius had acknowledged Joule’s 1843 magneto-electric determination in his heat–work analysis.",
+      "places": [
+        "berlin",
+        "europe"
+      ],
+      "place_note": "Berlin scientific community; European readership",
+      "scope": "Joule’s 1843 magneto-electric determination of the mechanical equivalent of heat.",
+      "caveats": "Clausius gives a converted figure; numerical conventions and temperature references are not silently equated. The 1851 translation bounds this recognition from above; the relevant 1850 German installment was not inspected.",
+      "evidence": [
+        {
+          "source": "clausius-1851-moving-force-heat",
+          "locator": "Phil. Mag. series 4, vol. 2 no. 9, August 1851, printed p. 119 and footnote",
+          "supports": "Clausius compares Joule’s magneto-electric result in converted units and cites the 1843 Phil. Mag. vol. 23 p. 441."
+        },
+        {
+          "source": "clausius-1867-moving-force-heat",
+          "locator": "First Memoir, printed pp. 15 and 68–69, including Joule note",
+          "supports": "Cites Joule’s 1843 magneto-electric determination and its heat–work implications."
+        },
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "Collected pp. 150–156",
+          "supports": "Original 1843 report of the equivalent, including its scatter."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1843",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. July 1843 dated paper; August presentation and later 1843 serial publication, distinguished from the 1884 collected edition. 838 is the historical reported estimate, not the accepted modern equivalent. The claim of reverse convertibility goes beyond a direct demonstration in every stated case. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1851",
+    "community": "Clausius and readers of his heat-theory memoir",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "Specific later scientific engagement is stronger than the initial 1843 report.",
+    "caveats": "Clausius gives a converted figure; numerical conventions and temperature references are not silently equated. The 1851 translation bounds this recognition from above; the relevant 1850 German installment was not inspected."
+  },
+  "caveats": "838 is the historical reported estimate, not the accepted modern equivalent. The claim of reverse convertibility goes beyond a direct demonstration in every stated case.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "joules-revised-magnetocalorimeter",
+      "from_event": "documented-description-1843",
+      "to_event": "dated-assertion-1843",
+      "status": "established",
+      "statement": "In the later series 2 arrangement, Joule used the immersed rotating electromagnet with a newly built stationary inducing magnet to measure heating; he repeated that series with falling weights when estimating the 1843 heat equivalent.",
+      "scope": "The revised series 2 configuration reported in 1843, not the initial engine-magnet setup.",
+      "confidence": "high",
+      "alternatives": "The postscript also reports fluid-friction experiments with a different apparatus.",
+      "caveats": "The rotating component was reused but the stationary inducing magnet changed; the configurations remain separate.",
+      "timing": "Both are dated by the report; apparatus use precedes the resulting analysis within that episode.",
+      "evidence": [
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "collected pp. 124–129 and 150–156",
+          "supports": "Replacement of the original stationary inducing magnets, reused immersed rotating component, series 2 heating measurements and repetition with falling weights."
+        }
+      ]
+    },
+    {
+      "type": "transmitted_from",
+      "from": "cannon-friction-heat-apparatus",
+      "from_event": "dated-assertion-1798",
+      "to_event": "dated-assertion-1843",
+      "status": "established",
+      "statement": "Joule explicitly discussed Rumford’s cannon-friction experiment as a precedent consistent with heat generation rather than a change in metal heat capacity.",
+      "scope": "1843 paper postscript and its discussion of friction experiments.",
+      "confidence": "high",
+      "alternatives": "Joule also investigated electricity and fluid friction independently.",
+      "caveats": "This is explicit engagement with a reported result, not proof that Rumford supplied Joule’s instrument design.",
+      "timing": "1798 report precedes the 1843 discussion.",
+      "evidence": [
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "Collected p. 157 postscript continuing onto p. 158",
+          "supports": "Names Rumford and the cannon-boring interpretation directly."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "recalled",
+      "concept": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

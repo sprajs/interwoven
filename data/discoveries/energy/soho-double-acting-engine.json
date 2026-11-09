@@ -1,0 +1,208 @@
+{
+  "id": "soho-double-acting-engine",
+  "name": "Soho double-acting engine",
+  "summary": "An 18-inch double-acting steam engine at Soho that used sun-and-planet gearing to turn a shaft, first driving a corn mill in 1783.",
+  "description": "An 18-inch-cylinder, double-acting rotative engine using rack-and-sector connection and internal sun-and-planet gear, initially driving a corn mill.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "machines.mills",
+    "machines.mechanisms"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "system_integration",
+    "device_or_configuration"
+  ],
+  "scale": "architectural",
+  "concept": "rotative-steam-engine",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Milling corn needed continuous rotary power rather than the up-and-down stroke of a pumping engine.",
+  "limit_removed": [
+    "access"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "soho-manufactory-birmingham"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-watt",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "boulton-and-watt",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "administrative_record",
+    "image"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1783",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1783
+        },
+        "latest": {
+          "year": 1783
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1783",
+        "basis": "The archive gives 1783 and reports inconsistent March/June evidence."
+      },
+      "statement": "The engine was initially used to drive a corn mill at Soho in 1783.",
+      "places": [
+        "soho-manufactory-birmingham"
+      ],
+      "scope": "18-inch-cylinder double-acting engine with rack-and-sector and internal sun-and-planet gearing.",
+      "caveats": "Sources cited by the archive disagree on the month and stroke; no customer sale or first market offer is inferred.",
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340, technical description and final paragraph",
+          "supports": "Describes the 18-inch double-acting rack-and-sector engine with internal sun-and-planet gear driving a corn mill; records disagree on March/June 1783."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1783",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1782
+        },
+        "latest": {
+          "year": 1783
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1782–83",
+        "basis": "First drawing dated August 1782; operation appears in a March 1783 diary reference, while the engine list gives first trial in June 1783."
+      },
+      "statement": "An 18-inch-cylinder, double-acting rotative engine using rack-and-sector connection and internal sun-and-planet gear, initially driving a corn mill.",
+      "places": [
+        "soho-manufactory-birmingham"
+      ],
+      "caveats": "Item-level catalogue inspected, not all drawings or diary leaves. The catalogue notes conflicting stroke lengths and first-operation records; no precise stroke or month is asserted.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340: technical specification; August 1782 first drawing; final paragraph",
+          "supports": "Configuration, initial corn-mill duty and conflicting March/June 1783 operation evidence."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1783",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. First drawing dated August 1782; operation appears in a March 1783 diary reference, while the engine list gives first trial in June 1783. Item-level catalogue inspected, not all drawings or diary leaves. The catalogue notes conflicting stroke lengths and first-operation records; no precise stroke or month is asserted. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1783",
+    "community": "Workers at the Soho Manufactory corn mill",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The named mill’s operation establishes actual use of this specific machine, rather than only the drawing or patent.",
+    "caveats": "Sources cited by the archive disagree on the month and stroke; no customer sale or first market offer is inferred."
+  },
+  "caveats": "Item-level catalogue inspected, not all drawings or diary leaves. The catalogue notes conflicting stroke lengths and first-operation records; no precise stroke or month is asserted.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "double-acting-steam-specification",
+      "from_event": "documented-description-1782",
+      "to_event": "dated-assertion-1783",
+      "status": "established",
+      "statement": "The Soho engine implemented Watt's double-acting arrangement with rack-and-sector transmission, combined with internal sun-and-planet gearing.",
+      "scope": "Boulton & Watt's Soho development, 1782–1783.",
+      "confidence": "high",
+      "alternatives": "The patent permits other piston-to-beam connections; later engines used parallel motion.",
+      "caveats": "This does not assert that the Soho engine continuously used expansive cutoff.",
+      "timing": "March/July 1782 specification precedes August 1782 drawings and 1783 operation.",
+      "evidence": [
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 26: Second and Fourth Improvements",
+          "supports": "Double action and rack-and-sector design."
+        },
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340: technical specification and final paragraph",
+          "supports": "Named engine, rack/sector, double action and Boulton & Watt development context."
+        }
+      ]
+    },
+    {
+      "type": "adapts",
+      "from": "sun-and-planet-specification",
+      "from_event": "documented-description-1782",
+      "to_event": "dated-assertion-1783",
+      "status": "established",
+      "statement": "The Soho double-reciprocating engine used the internal sun-and-planet arrangement included in Watt's 1781 patent.",
+      "scope": "Soho, drawings 1782 and operation 1783.",
+      "confidence": "high",
+      "alternatives": "Cranks and other reciprocating-to-rotary converters were available; patent constraints affected selection.",
+      "caveats": "No inference that all rotary steam engines descended from this mechanism.",
+      "timing": "Grant 1781 and enrollment February 1782 precede August 1782 drawings and 1783 use.",
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340, final paragraph",
+          "supports": "Explicitly identifies the engine's internal sun-and-planet mechanism with Watt's 1781 patent."
+        },
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 23: Fifth Method, drawing No. 5 figures 3–4",
+          "supports": "Internal-tooth configuration in the specification."
+        }
+      ]
+    },
+    {
+      "type": "uses_process",
+      "from": "oughtred-sliding-scales",
+      "status": "insufficient",
+      "statement": "Were slide rules part of engine calculation at Soho? This would join calculating tools to steam.",
+      "caveats": "Evidence needed: Soho or Watt papers documenting slide-rule use for engine work on this configuration.",
+      "finding": "The two inspected records establish a calculating instrument and the particular Soho engine independently, but neither says the Soho engine was calculated or manufactured using Oughtred’s instrument. Chronology and plausible utility do not establish a link."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

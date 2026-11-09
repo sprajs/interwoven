@@ -1,0 +1,196 @@
+{
+  "id": "bloomfield-pumping-engine",
+  "name": "Bloomfield pumping engine",
+  "summary": "The Boulton & Watt pumping engine set to work at Bloomfield Colliery in 1776, an early working example of Watt's fuel-saving steam engine.",
+  "description": "Boulton & Watt's single-acting mine-pumping engine at Bloomfield, with a 50-inch cylinder ordered from Wilkinson in June 1775.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "materials.mining"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "system_integration",
+    "performance_improvement"
+  ],
+  "scale": "modular",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The colliery needed to drain water from its workings, and coal-fired atmospheric engines used a great deal of fuel.",
+  "limit_removed": [
+    "power_or_energy",
+    "cost"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "bloomfield-colliery-tipton"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-watt",
+      "role": "originator"
+    },
+    {
+      "person": "matthew-boulton",
+      "role": "contributor"
+    },
+    {
+      "person": "john-wilkinson",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "boulton-and-watt",
+      "role": "maker"
+    },
+    {
+      "organization": "bloomfield-colliery",
+      "role": "customer"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "administrative_record",
+    "later_text"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-1776",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1776,
+          "month": 3,
+          "day": 11
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 11 March 1776",
+        "basis": "The 11 March 1776 newspaper account, reproduced in an 1868 chronicle, states the engine was set to work on the preceding Friday."
+      },
+      "statement": "Boulton & Watt's single-acting mine-pumping engine at Bloomfield, with a 50-inch cylinder ordered from Wilkinson in June 1775.",
+      "places": [
+        "bloomfield-colliery-tipton"
+      ],
+      "caveats": "The original Gazette issue and original cylinder order were not independently inspected; the 1868 newspaper transcription was inspected. This does not establish a first commercial offer or universal priority.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-boulton-watt-collection",
+          "locator": "Products: Steam Engines for Land, 1775–circa 1845, opening paragraph",
+          "supports": "Named colliery, single-acting pumping configuration and March 1776 start report."
+        },
+        {
+          "source": "andrew-2009-john-wilkinson-improved",
+          "locator": "Printed p. 15 and notes 13–14, p. 20",
+          "supports": "50-inch Wilkinson cylinder ordered June 1775 and engine set to work March 1776."
+        },
+        {
+          "source": "langford-1868-century-birmingham-life",
+          "locator": "Printed pp. 221–222, entry headed 11 March 1776",
+          "supports": "Reprints the Gazette report that the Bloomfield engine had been set to work the preceding Friday."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1776",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The 11 March 1776 newspaper account, reproduced in an 1868 chronicle, states the engine was set to work on the preceding Friday. The original Gazette issue and original cylinder order were not independently inspected; the 1868 newspaper transcription was inspected. This does not establish a first commercial offer or universal priority. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1776",
+    "community": "Owners and workers at Bloomfield Colliery",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A named mine operating a full-sized engine is direct deployment beyond earlier workshop trials.",
+    "caveats": "The Gazette issue was inspected through an 1868 transcription; the date is a latest bound and does not establish first commercial availability."
+  },
+  "caveats": "The cited newspaper and original order were not separately retrieved. This is not claimed to be the first steam engine or the origin of every later engine.",
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "bersham-cylinder-boring",
+      "from_event": "dated-assertion-1776",
+      "to_event": "practical-deployment-1776",
+      "status": "established",
+      "statement": "Wilkinson's large-cylinder machining supplied Bloomfield's 50-inch cylinder; the technical history associates this scale of supply with his stationary-cylinder through-bar arrangement.",
+      "scope": "Bersham manufacture for Bloomfield, order June 1775 and operation March 1776.",
+      "confidence": "medium",
+      "alternatives": "Other founders supplied other castings, and different boring-machine designs existed.",
+      "caveats": "Exact machine commissioning and machining record for this individual cylinder were not inspected; the supplier is firmer than the reconstructed configuration-to-product assignment.",
+      "timing": "Production occurs in the 1775–76 supply interval and before engine operation; overlapping intervals reflect uncertain machine dating, not a later cause.",
+      "evidence": [
+        {
+          "source": "andrew-2009-john-wilkinson-improved",
+          "locator": "Printed pp. 15–16 and notes 13–15",
+          "supports": "Named 50-inch supply and historical reconstruction of the large-cylinder boring method."
+        },
+        {
+          "source": "birmingham-archives-collections-nd-boulton-watt-collection",
+          "locator": "AdminHistory: Boulton & Watt, 1775–1800, subcontracting paragraph",
+          "supports": "Bersham boring works and Wilkinson's sustained cylinder-supply role."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "soho-engine-trials",
+      "from_event": "demonstration-1775",
+      "to_event": "practical-deployment-1776",
+      "status": "established",
+      "statement": "The successful Soho development work was followed by the partners supplying a full-size commercial pumping engine at Bloomfield.",
+      "scope": "Boulton & Watt development and supply programme, Soho to Tipton, 1775–1776.",
+      "confidence": "high",
+      "alternatives": "Patent extension, commercial organization, site erection and another Wilkinson cylinder also mattered.",
+      "caveats": "Bloomfield was a newly built installation, not the same experimental engine moved to a mine.",
+      "timing": "1775 trial episode precedes March 1776 deployment.",
+      "evidence": [
+        {
+          "source": "andrew-2009-john-wilkinson-improved",
+          "locator": "Printed p. 15, consecutive trial and Bloomfield paragraphs",
+          "supports": "Explicit transition from promising trials to customer engines and Bloomfield operation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

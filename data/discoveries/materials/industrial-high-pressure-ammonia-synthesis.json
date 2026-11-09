@@ -1,0 +1,216 @@
+{
+  "id": "industrial-high-pressure-ammonia-synthesis",
+  "name": "Industrial high-pressure ammonia synthesis",
+  "summary": "In 1913 BASF opened at Oppau the first industrial plant making ammonia directly from nitrogen and hydrogen under high pressure, the basis of today's synthetic fertilizer.",
+  "description": "Industrial direct catalytic synthesis of ammonia from nitrogen and hydrogen at high pressure using catalysts and pressure-resistant industrial equipment.",
+  "kind": "technology",
+  "domain": "materials.chemicals",
+  "fields": [
+    "food.crops",
+    "physical-sciences.chemistry"
+  ],
+  "tier": 0,
+  "tier_reason": "Large-scale fixed-nitrogen production supports successive agricultural and chemical-production systems, not merely one factory.",
+  "advance": [
+    "manufacturing_process"
+  ],
+  "scale": "radical",
+  "origin": "first_known",
+  "prompted_by": [
+    "market_or_competition",
+    "practical_need"
+  ],
+  "why": "Fertilizer and explosives depended on limited Chilean nitrate, and once Haber showed the high-pressure reaction worked, BASF saw a market in fixing atmospheric nitrogen.",
+  "limit_removed": [
+    "scale",
+    "cost"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "oppau-ludwigshafen"
+    }
+  ],
+  "people": [
+    {
+      "person": "fritz-haber",
+      "role": "originator"
+    },
+    {
+      "person": "carl-bosch",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "basf",
+      "role": "operator"
+    },
+    {
+      "organization": "norsk-hydro",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "german-empire",
+    "norway"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "reception": "immediate",
+  "fate": "in_use",
+  "market": {
+    "status": "commercial",
+    "note": "BASF describes operating an industrial ammonia plant that supplied feedstock for industrial fertilizer production; this establishes commercial applicability, not the first external sale.",
+    "evidence": [
+      {
+        "source": "basf-nd-weltweit-erste-ammoniaksyntheseanlage",
+        "locator": "1913 chronology entry, main text",
+        "supports": "Describes operation of the plant and ammonia as feedstock for industrial fertilizer production."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "practical-deployment-1913",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1913
+        },
+        "latest": {
+          "year": 1913
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1913",
+        "basis": "BASF dates the Oppau ammonia-synthesis plant’s start of operation to 1913."
+      },
+      "statement": "BASF’s Oppau works put an industrial ammonia-synthesis plant into operation.",
+      "places": [
+        "oppau-ludwigshafen"
+      ],
+      "scope": "BASF’s industrial high-pressure synthesis of ammonia from nitrogen and hydrogen at the Oppau plant.",
+      "applications": [
+        "industrial ammonia manufacture"
+      ],
+      "population": "BASF operators producing ammonia at the Oppau works",
+      "caveats": "Manufacturer historical summary; exact start date, downstream batches and first sale are not established. It does not show all fertilizer production moved to this process.",
+      "evidence": [
+        {
+          "source": "basf-nd-weltweit-erste-ammoniaksyntheseanlage",
+          "locator": "1913 chronology entry, main text",
+          "supports": "Dates BASF’s Oppau industrial ammonia synthesis operation to 1913."
+        }
+      ]
+    },
+    {
+      "id": "practical-deployment-1928",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1928,
+          "month": 2,
+          "day": 9
+        },
+        "latest": {
+          "year": 1928,
+          "month": 2,
+          "day": 9
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "9 February 1928",
+        "basis": "NIA reports that the Notodden ammonia-synthesis plant began operation on 9 February 1928."
+      },
+      "statement": "Norsk Hydro put its Notodden ammonia-synthesis plant into operation.",
+      "places": [
+        "notodden"
+      ],
+      "applications": [
+        "industrial ammonia synthesis for calcium-nitrate production"
+      ],
+      "population": "Norsk Hydro Notodden ammonia plant operators",
+      "caveats": "The local plant used NEC and international components; this event does not establish that Oppau equipment was physically transferred to Notodden.",
+      "evidence": [
+        {
+          "source": "hereid-2021-livsviktig-fornyelse",
+          "locator": "Introductory paragraph; 1927–1928 and final 1934 sections",
+          "supports": "States that the company changed its calcium-nitrate production route from arc fixation to ammonia; dates Notodden synthesis start to 9 February 1928 and the last local arc furnace to 1934."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1913",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. BASF dates the Oppau ammonia-synthesis plant’s start of operation to 1913. Manufacturer historical summary; exact start date, downstream batches and first sale are not established. It does not show all fertilizer production moved to this process. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1913",
+    "community": "BASF operators producing ammonia at the Oppau works",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The 1913 Oppau operation demonstrates industrial implementation beyond earlier high-pressure laboratory trials; the event is scoped to that plant.",
+    "caveats": "Manufacturer historical summary; exact start date, downstream batches and first sale are not established. It does not show all fertilizer production moved to this process."
+  },
+  "caveats": "The 1913 Oppau plant was a documented industrial deployment of a process developed from earlier laboratory work; preceding electric-arc and cyanamide routes also fixed nitrogen. Exact earliest commercial availability is unresolved.",
+  "links": [
+    {
+      "type": "supersedes",
+      "from": "magnetically-spread-arc-nitrogen-fixation",
+      "from_event": "practical-deployment-1907",
+      "to_event": "practical-deployment-1928",
+      "status": "established",
+      "statement": "At Notodden, Norsk Hydro shifted calcium-nitrate manufacture toward ammonia synthesis; the new synthesis plant operated from 1928 while the last local Birkeland–Eyde furnace continued until 1934.",
+      "scope": "Norsk Hydro’s Notodden transition from the 1920s to 1934.",
+      "confidence": "medium",
+      "alternatives": "Electric-arc fixation continued locally during the transition; calcium cyanamide and natural nitrate were other available routes.",
+      "caveats": "The Notodden plant used NEC-associated technology; the relationship is to the generic direct-ammonia process, not a claim that the 1913 Oppau plant or its equipment was relocated.",
+      "timing": "The 1907 arc deployment preceded the 1928 Notodden ammonia operation; both operated during the transition.",
+      "evidence": [
+        {
+          "source": "hereid-2021-livsviktig-fornyelse",
+          "locator": "Introductory paragraph; 1927–1928 and final 1934 sections",
+          "supports": "States that the company changed its calcium-nitrate production route from arc fixation to ammonia; dates Notodden synthesis start to 9 February 1928 and the last local arc furnace to 1934."
+        },
+        {
+          "source": "johnson-2022-making-ammonia-fritz",
+          "locator": "Printed pp. 77–79 / PDF pp. 84–86",
+          "supports": "Explains the spread disc-shaped arc, its calcium-nitrate product and comparison with cyanamide and other electric-arc approaches."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "recalled",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "New, scoped candidate for independent historical review."
+  }
+}

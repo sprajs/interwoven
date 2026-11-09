@@ -1,0 +1,102 @@
+{
+  "id": "xing-white-glazed-stoneware",
+  "name": "Xing white-glazed stoneware",
+  "summary": "Thin white Xing ware with a clear glaze, from kilns in Hebei, travelled in the Belitung ship's cargo around 850 CE, carried as cargo on a long-distance trading voyage.",
+  "description": "Northern Chinese thinly potted white stoneware or porcelain with a colorless glaze, including pieces matched to Xing kiln material.",
+  "kind": "technology",
+  "domain": "materials.ceramics",
+  "fields": [
+    "economy.trade"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded ceramic production/wreck witness fits2; the source distinguishes a kiln tradition from the cargo deposition. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "material"
+  ],
+  "setting": [
+    "workshop"
+  ],
+  "places": [
+    {
+      "place": "xing-region-hebei",
+      "note": "Belitung shipwreck, found off Belitung Island"
+    },
+    {
+      "place": "java-sea"
+    }
+  ],
+  "societies": [
+    "tang-dynasty"
+  ],
+  "known_from": [
+    "archaeological_find"
+  ],
+  "events": [
+    {
+      "id": "practical-use-850",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 850
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "by c. 850 CE",
+        "basis": "The ship sailed approximately in the second quarter of the ninth century, and the identified whiteware was included in its cargo; 850 is an approximate contextual bound."
+      },
+      "statement": "Some Xing-attributed whiteware vessels were carried among the ship’s cargo.",
+      "places": [
+        "xing-region-hebei",
+        "java-sea"
+      ],
+      "place_note": "Belitung shipwreck, found off Belitung Island",
+      "applications": [
+        "maritime cargo"
+      ],
+      "population": "Maritime traders handling the Belitung ship’s northern Chinese whitewares",
+      "caveats": "The cargo includes pieces from several kiln groups; individual attributions, destination and sale are not established, and the ship did not reach its planned destination.",
+      "evidence": [
+        {
+          "source": "krahl-2010-white-wares-northern",
+          "locator": "printed pp. 200–203, cargo and Xing descriptions",
+          "supports": "Reports some 300 northern whiteware items and matches some high-quality cargo vessels to Xing kilns."
+        },
+        {
+          "source": "krahl-2010-tang-blue-white",
+          "locator": "printed p. 208, Belitung departure",
+          "supports": "Places the ship’s departure around the second quarter of the ninth century."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-850",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The ship sailed approximately in the second quarter of the ninth century, and the identified whiteware was included in its cargo; 850 is an approximate contextual bound. The cargo includes pieces from several kiln groups; individual attributions, destination and sale are not established, and the ship did not reach its planned destination. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-850",
+    "community": "Maritime traders handling the Belitung ship’s northern Chinese whitewares",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "A vessel physically loaded into a merchant cargo evidences a narrow trading application.",
+    "proxy_reason": "The trade application is inferred from the archaeological cargo context and kiln comparison; it is not proof of a particular transaction or later delivery.",
+    "caveats": "The cargo includes pieces from several kiln groups; individual attributions, destination and sale are not established, and the ship did not reach its planned destination."
+  },
+  "caveats": "The cargo includes pieces from several kiln groups; individual attributions, destination and sale are not established, and the ship did not reach its planned destination.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    },
+    "note": "The indicated historical claim is supported by the cited passages; scope and chronology remain subject to independent review."
+  }
+}

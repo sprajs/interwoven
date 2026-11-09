@@ -1,0 +1,143 @@
+{
+  "id": "qiwus-reported-steelmaking",
+  "name": "Qiwu’s reported steelmaking",
+  "summary": "A Chinese biography says the sixth-century smith Qiwu made sabre steel by heating powdered cast iron with soft-iron blanks for days, an early described steelmaking recipe.",
+  "description": "A biography describes heating powdered cast iron with soft-iron blanks for several days to make steel for sabres.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "fields": [
+    "warfare.weapons"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "manufacturing_process"
+  ],
+  "concept": "co-fusion-steelmaking",
+  "prompted_by": [
+    "state_or_military"
+  ],
+  "setting": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "northern-china"
+    }
+  ],
+  "people": [
+    {
+      "person": "qiwu-huaiwen",
+      "role": "originator"
+    }
+  ],
+  "societies": [
+    "northern-qi"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "dated-assertion-599",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 500
+        },
+        "latest": {
+          "year": 599
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "6th century CE",
+        "basis": "Practice assigned retrospectively to Qiwu Huaiwen in Beishi, chapter 89; this is the reported sixth-century activity, not the later compilation date."
+      },
+      "statement": "A biography describes heating powdered cast iron with soft-iron blanks for several days to make steel for sabres.",
+      "places": [
+        "northern-china"
+      ],
+      "caveats": "Location and exact thermal procedure are uncertain. The modern label co-fusion does not establish that both components melted; the 1955 reconstruction is excluded.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "wagner-nd-co-fusion-steelmaking",
+          "locator": "Opening section: Beishi 89 quotation, translation and source discussion",
+          "supports": "Reported ingredients, operation and sixth-century actor."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-600",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 600
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by the end of the 6th century CE, reported",
+        "basis": "The translated later Beishi biography assigns Qiwu’s work to a sixth-century historical context. The account supplies no precisely measured start or manufacturing date."
+      },
+      "statement": "The retrospective biography reports Qiwu producing sabres with a layered cast-iron and soft-iron treatment in a sixth-century military setting.",
+      "places": [
+        "northern-china"
+      ],
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "The reported sixth-century northern Chinese sabre-making setting",
+      "caveats": "The passage is a later literary testimony, not surviving sixth-century workshop evidence; precise date, scale, technical interpretation and performance claims are uncertain.",
+      "evidence": [
+        {
+          "source": "wagner-nd-co-fusion-steelmaking",
+          "locator": "opening Beishi 89 translation and discussion",
+          "supports": "The account describes making sabres and the named material treatment while serving Shenwu-di."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-599",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Practice assigned retrospectively to Qiwu Huaiwen in Beishi, chapter 89; this is the reported sixth-century activity, not the later compilation date. Location and exact thermal procedure are uncertain. The modern label co-fusion does not establish that both components melted; the 1955 reconstruction is excluded. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-600",
+    "community": "The reported sixth-century northern Chinese sabre-making setting",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The reported manufacture of functional sabres is a scoped local practical-use inference, distinct from an abstract invention claim.",
+    "proxy_reason": "The inference relies on a retrospective literary description of object-making; it cannot prove that a particular surviving blade was used or that the method spread broadly.",
+    "caveats": "The passage is a later literary testimony, not surviving sixth-century workshop evidence; precise date, scale, technical interpretation and performance claims are uncertain."
+  },
+  "caveats": "Location and exact thermal procedure are uncertain. The modern label co-fusion does not establish that both components melted; the 1955 reconstruction is excluded.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "cast-and-decarburized-iron-shaft",
+      "status": "insufficient",
+      "statement": "Is the Chinese cast-iron tradition a documented precursor of Qiwu's reported process?",
+      "caveats": "Evidence needed: Wagner or Needham-tradition sources for this specific line.",
+      "finding": "CB3 is interpreted as a cast-and-decarburized shaft, while the historical account describes heating cast iron with soft-iron blanks. The inspected studies do not connect this specific object or its production practice to Qiwu’s later reported technique; regional continuity is not established."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "concept": "recalled",
+      "prompted_by": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "unknown"
+    }
+  }
+}

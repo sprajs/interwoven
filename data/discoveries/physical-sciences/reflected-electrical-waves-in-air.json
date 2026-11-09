@@ -1,0 +1,186 @@
+{
+  "id": "reflected-electrical-waves-in-air",
+  "name": "Reflected electrical waves in air",
+  "summary": "Hertz bounced electrical waves off a metal wall and detected the pattern of strong and weak spots they formed, showing such waves travel through air like light.",
+  "description": "A spark oscillator illuminates a metal reflecting wall; moving and turning a spark-gap loop detects spatial strengthening and weakening consistent with incident/reflected waves.",
+  "kind": "science",
+  "domain": "physical-sciences.electromagnetism",
+  "fields": [
+    "communication.telecommunication"
+  ],
+  "tier": 1,
+  "tier_reason": "Retain the scoped reflection result at1; the review's0 borrows importance from the broader demonstration of electromagnetic waves without tracing dependence on this particular result. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "observation",
+    "experimental_method"
+  ],
+  "scale": "extends",
+  "prompted_by": [
+    "prior_theory"
+  ],
+  "why": "Maxwell's theory predicted that electrical disturbances should travel as waves, and Hertz's fast spark apparatus finally made them detectable.",
+  "setting": [
+    "school"
+  ],
+  "funding": [
+    "university"
+  ],
+  "places": [
+    {
+      "place": "karlsruhe"
+    }
+  ],
+  "people": [
+    {
+      "person": "heinrich-hertz",
+      "role": "originator"
+    },
+    {
+      "person": "oliver-lodge",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "karlsruhe-institute-of-technology",
+      "role": "host"
+    },
+    {
+      "organization": "royal-institution",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "german-empire"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "immediate",
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "observation-1888",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1887
+        },
+        "latest": {
+          "year": 1888
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1887–1888",
+        "basis": "Follows the November 1887 dielectric work and is reported in the 1888 air-wave paper; this interval avoids equating publication year with an unverified exact performance date."
+      },
+      "statement": "A spark oscillator illuminates a metal reflecting wall; moving and turning a spark-gap loop detects spatial strengthening and weakening consistent with incident/reflected waves.",
+      "places": [
+        "karlsruhe"
+      ],
+      "caveats": "Qualitative reflection/wave behavior only. Hertz later rejected the reliability of the air-versus-wire velocity comparison because of room/resonance effects; no precise light-speed measurement is claimed.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "hertz-1893-electric-waves-being",
+          "locator": "Paper VIII, printed pp. 124–127 and 132–136; Introduction A pp. 11–12",
+          "supports": "1888 source, reflector/loop setup, wave pattern and later qualification of numerical results."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1894",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1894,
+          "month": 6,
+          "day": 1
+        },
+        "latest": {
+          "year": 1894,
+          "month": 6,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1894-06-01",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Lodge explicitly discussed and demonstrated reflection of electromagnetic waves for the Royal Institution audience.",
+      "places": [
+        "london"
+      ],
+      "caveats": "Lodge used a different receiving configuration; this is recognition of the reflection result, not a claim that the original loop was reproduced.",
+      "evidence": [
+        {
+          "source": "lodge-1894-signalling-across-space",
+          "locator": "pp. 39–42, reflection by a metal sheet; introductory credit to Hertz",
+          "supports": "Lodge explicitly discussed and demonstrated reflection of electromagnetic waves for the Royal Institution audience."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "observation-1888",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Follows the November 1887 dielectric work and is reported in the 1888 air-wave paper; this interval avoids equating publication year with an unverified exact performance date. Qualitative reflection/wave behavior only. Hertz later rejected the reliability of the air-versus-wire velocity comparison because of room/resonance effects; no precise light-speed measurement is claimed. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1894",
+    "community": "Royal Institution audience and wireless researchers",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "Independent public experimental use and recognition of the result are stronger than the original discovery date.",
+    "caveats": "Lodge used a different receiving configuration; this is recognition of the reflection result, not a claim that the original loop was reproduced."
+  },
+  "caveats": "Qualitative reflection/wave behavior only. Hertz later rejected the reliability of the air-versus-wire velocity comparison because of room/resonance effects; no precise light-speed measurement is claimed.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "fast-spark-oscillator-and-receiver",
+      "from_event": "dated-assertion-1887",
+      "to_event": "observation-1888",
+      "status": "established",
+      "statement": "The rapid oscillator and spark-gap secondary conductor, reused with a reflecting metal wall, made spatial wave/reflection patterns observable.",
+      "scope": "Karlsruhe lecture room, 1888 air-wave experiments.",
+      "confidence": "high",
+      "alternatives": "Hertz also examined waves guided along wires; the air-and-reflector arrangement addressed propagation outside a guide.",
+      "caveats": "The qualitative observation is supported; later acknowledged numerical wavelength/velocity problems remain excluded.",
+      "timing": "The receiving development follows the source development.",
+      "evidence": [
+        {
+          "source": "hertz-1893-electric-waves-being",
+          "locator": "Paper VIII, printed pp. 124–127",
+          "supports": "Describes the reflecting wall, reuse of the primary conductor and the secondary circle’s spark responses."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

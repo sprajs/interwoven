@@ -1,0 +1,220 @@
+{
+  "id": "joules-refined-heat-equivalent",
+  "name": "Joule’s refined heat equivalent",
+  "summary": "Joule's refined value of about 772 foot-pounds per British thermal unit, from friction in water, mercury and iron, became the working figure used by physicists.",
+  "description": "Water, mercury and cast-iron friction series compared expended mechanical work with corrected heating. Joule preferred the water result 772.692 foot-pounds and rounded his conclusion to 772 per pound of water warmed by 1 °F near 55–60 °F.",
+  "kind": "science",
+  "domain": "physical-sciences.heat",
+  "fields": [
+    "measurement.units"
+  ],
+  "tier": 0,
+  "tier_reason": "Quantitative equivalence of heat and work supplied thermodynamic reasoning and energy accounting across physics and engineering.",
+  "advance": [
+    "measurement"
+  ],
+  "scale": "extends",
+  "origin": "derived",
+  "concept": "mechanical-equivalent-of-heat",
+  "prompted_by": [
+    "data_or_measurements"
+  ],
+  "why": "Joule's earlier determinations disagreed with one another, and a precise figure was needed before heat–work equivalence could be used in calculation.",
+  "limit_removed": [
+    "precision"
+  ],
+  "setting": [
+    "individual"
+  ],
+  "funding": [
+    "self"
+  ],
+  "places": [
+    {
+      "place": "oak-field-manchester",
+      "note": "Royal Society presentation"
+    },
+    {
+      "place": "london"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-prescott-joule",
+      "role": "originator"
+    },
+    {
+      "person": "lord-kelvin",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-society",
+      "role": "publisher"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "immediate",
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "dated-assertion-1849",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1849
+        },
+        "latest": {
+          "year": 1849
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1849 report",
+        "basis": "Paper dated 4 June, received 6 June, read 21 June 1849; 1850 is its journal publication year."
+      },
+      "statement": "Water, mercury and cast-iron friction series compared expended mechanical work with corrected heating. Joule preferred the water result 772.692 foot-pounds and rounded his conclusion to 772 per pound of water warmed by 1 °F near 55–60 °F.",
+      "places": [
+        "oak-field-manchester",
+        "london"
+      ],
+      "place_note": "Royal Society presentation",
+      "caveats": "Historical result and thermal reference conditions are retained. No claim that the last digits represent modern accuracy; Joule explicitly notes residual vibration and sound.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "joule-1850-mechanical-equivalent-heat",
+          "locator": "Printed p. 61 dates; pp. 69–70 corrections; p. 82 Table IX, qualification and final dated conclusion (visually checked)",
+          "supports": "Reported chronology, multiple friction series, preferred numerical result, units and qualifications."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1852",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1852
+        },
+        "latest": {
+          "year": 1852
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1852 publication",
+        "basis": "Thomson’s detailed printed credit or use appears in the Philosophical Magazine volume for July–December 1852. A 1851 reading is not treated as proof of the exact contents of that oral presentation."
+      },
+      "statement": "Thomson cited Joule’s value of approximately 772.69 and used a rounded equivalent in calculations in the 1852 printed paper.",
+      "places": [
+        "united-kingdom"
+      ],
+      "scope": "Joule’s corrected water-friction result 772.692 foot-pounds per pound of water per Fahrenheit degree.",
+      "caveats": "Thomson refers to a 32–33 °F thermal unit, while Joule’s water experiments were near 55–60 °F. The exact oral contents of the earlier 1851 reading have not been independently established.",
+      "evidence": [
+        {
+          "source": "thomson-1852-dynamical-theory-heat",
+          "locator": "Printed pp. 107–108, §29",
+          "supports": "The 1852 original journal printing explicitly contains the stated credit or numerical use."
+        },
+        {
+          "source": "joule-1850-mechanical-equivalent-heat",
+          "locator": "Printed p. 82 Table IX and conclusion",
+          "supports": "Gives the 772.692 water result and Joule’s rounded conclusion."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1849",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Paper dated 4 June, received 6 June, read 21 June 1849; 1850 is its journal publication year. Historical result and thermal reference conditions are retained. No claim that the last digits represent modern accuracy; Joule explicitly notes residual vibration and sound. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1852",
+    "community": "Thomson and readers of his 1852 scientific paper",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "Thomson’s named numerical use documents specialist uptake by the 1852 printing, beyond the original 1849 experiment.",
+    "caveats": "Thomson refers to a 32–33 °F thermal unit, while Joule’s water experiments were near 55–60 °F. The exact oral contents of the earlier 1851 reading have not been independently established."
+  },
+  "caveats": "Historical result and thermal reference conditions are retained. No claim that the last digits represent modern accuracy; Joule explicitly notes residual vibration and sound.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "precision-friction-calorimeter",
+      "from_event": "dated-assertion-1849",
+      "to_event": "dated-assertion-1849",
+      "status": "established",
+      "statement": "The falling-weight calorimetric apparatus, calibrated thermometers and correction measurements supplied the work and heating quantities in Joule’s refined estimate.",
+      "scope": "Oak Field experiments documented in the June 1849 report.",
+      "confidence": "high",
+      "alternatives": "Mercury and iron-friction configurations supplied additional comparisons.",
+      "caveats": "Calibration and controls contribute to the inference; this edge does not certify every reported digit.",
+      "timing": "Physical measurements precede the reported synthesis; both anchors are the same dated report, not asserted manufacture dates.",
+      "evidence": [
+        {
+          "source": "joule-1850-mechanical-equivalent-heat",
+          "locator": "Printed pp. 64–66, 69–70 and 82",
+          "supports": "Instrument operation, corrections and final equivalent."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "joules-early-heat-equivalent",
+      "from_event": "dated-assertion-1843",
+      "to_event": "dated-assertion-1849",
+      "status": "established",
+      "statement": "Joule explicitly traced his refined friction determination to the earlier magneto-electric, gas and paddle experiments, seeking greater numerical accuracy.",
+      "scope": "Joule’s experimental programme, 1843–1849.",
+      "confidence": "high",
+      "alternatives": "Several modalities contributed; the branch does not make magneto-electric experiments the exclusive route.",
+      "caveats": "The 1849 paper’s retrospective summary is not an independently dated laboratory notebook for every trial.",
+      "timing": "1843 result precedes the paper dated/read in June 1849.",
+      "evidence": [
+        {
+          "source": "joule-1850-mechanical-equivalent-heat",
+          "locator": "Printed pp. 63–64",
+          "supports": "Retrospective dates/results and explicit motivation for the present accuracy improvement."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "sourced",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

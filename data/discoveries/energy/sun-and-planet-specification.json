@@ -1,0 +1,155 @@
+{
+  "id": "sun-and-planet-specification",
+  "name": "Sun-and-planet specification",
+  "summary": "Watt's patented sun-and-planet gearing turned an engine's back-and-forth beam motion into continuous rotation, letting steam engines drive mills and factory machinery.",
+  "description": "Watt's fifth patented method converts reciprocating engine motion into continuous shaft rotation with sun-and-planet gearing; the specification also describes an internal-tooth variant.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "machines.mechanisms"
+  ],
+  "tier": 2,
+  "tier_reason": "Prefer consistency with the other separately scoped patent specifications; rank the implemented rotative system separately from its legal description. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "modular",
+  "concept": "rotative-steam-engine",
+  "prompted_by": [
+    "practical_need",
+    "market_or_competition"
+  ],
+  "why": "Manufacturers wanted rotary power for mills, and a rival patent on the simple crank pushed Watt to patent alternative ways of producing rotation.",
+  "limit_removed": [
+    "access"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "great-britain"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-watt",
+      "role": "originator"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "patent",
+    "contemporary_text",
+    "administrative_record"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "documented-description-1782",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1781
+        },
+        "latest": {
+          "year": 1782
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1781–82",
+        "basis": "Patent granted 25 October 1781; detailed specification signed 13 February and enrolled 23 February 1782."
+      },
+      "statement": "Watt's fifth patented method converts reciprocating engine motion into continuous shaft rotation with sun-and-planet gearing; the specification also describes an internal-tooth variant.",
+      "places": [
+        "great-britain"
+      ],
+      "caveats": "The primary specification was read in a web transcription of a scholarly documentary edition. Its OCR errors and intermediate hosting are recorded; invention priority between Watt and Murdock is not asserted.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 23: introductory dates; Fifth Method; drawing No. 5 figures 1–4; concluding enrollment",
+          "supports": "Mechanism, internal variant and distinct grant/specification dates."
+        },
+        {
+          "source": "birmingham-archives-collections-nd-boulton-watt-collection",
+          "locator": "AdminHistory: Boulton & Watt, 1775–1800, paragraph on subsequent patents",
+          "supports": "25 October 1781 patent and its sun-and-planet content."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1783",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1783
+        },
+        "latest": {
+          "year": 1783
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1783",
+        "basis": "The archive dates the Soho engine’s corn-mill service to 1783 and gives conflicting March/June records."
+      },
+      "statement": "A Soho double-acting engine used the internal sun-and-planet gearing included in Watt’s 1781 patent to drive a corn mill.",
+      "places": [
+        "soho-manufactory-birmingham"
+      ],
+      "scope": "Internal-tooth sun-and-planet gearing converting a reciprocating steam engine’s motion into shaft rotation.",
+      "caveats": "The operating month is disputed. This shows use of the internal variant, not market availability of all five mechanisms in the specification.",
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340, technical description and final paragraph",
+          "supports": "Describes the 18-inch double-acting rack-and-sector engine with internal sun-and-planet gear driving a corn mill; records disagree on March/June 1783."
+        },
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "1781 specification, fifth method and internal-tooth variant",
+          "supports": "Describes the geared reciprocation-to-rotation arrangement."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-1782",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Patent granted 25 October 1781; detailed specification signed 13 February and enrolled 23 February 1782. The primary specification was read in a web transcription of a scholarly documentary edition. Its OCR errors and intermediate hosting are recorded; invention priority between Watt and Murdock is not asserted. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1783",
+    "community": "Soho Manufactory corn-mill workers and engine builders",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The archive explicitly connects the actual corn-mill machinery with the patented gearing.",
+    "caveats": "The operating month is disputed. This shows use of the internal variant, not market availability of all five mechanisms in the specification."
+  },
+  "caveats": "The primary specification was read in a web transcription of a scholarly documentary edition. Its OCR errors and intermediate hosting are recorded; invention priority between Watt and Murdock is not asserted.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    }
+  }
+}

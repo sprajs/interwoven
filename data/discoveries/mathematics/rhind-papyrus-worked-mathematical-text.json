@@ -1,0 +1,105 @@
+{
+  "id": "rhind-papyrus-worked-mathematical-text",
+  "name": "Rhind papyrus worked mathematical text",
+  "summary": "An Egyptian papyrus copied by the scribe Ahmose, holding worked problems in arithmetic, fractions and areas, one of the oldest surviving mathematics texts.",
+  "description": "The mathematical text preserved in the Rhind papyrus: worked problems with arithmetic, fractions and areas, copied by the scribe Aḥmose.",
+  "kind": "mathematics",
+  "domain": "mathematics.number",
+  "fields": [
+    "mathematics.geometry",
+    "economy.education"
+  ],
+  "tier": 2,
+  "tier_reason": "Retain2 for the papyrus witness. Its status as chief surviving witness is not enough to promote it under the owner's consequence test. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "codification_or_teaching"
+  ],
+  "places": [
+    {
+      "place": "egypt",
+      "note": "Ancient Egypt"
+    }
+  ],
+  "people": [
+    {
+      "person": "ahmose-scribe",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "ancient-egypt"
+  ],
+  "known_from": [
+    "surviving_artifact",
+    "contemporary_text"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "This node is scoped to mathematical knowledge and scholarly interpretation."
+  },
+  "events": [
+    {
+      "id": "public-availability-1550bce",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": -1650
+        },
+        "latest": {
+          "year": -1550
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "About 1650–1550 BCE (different scholarly estimates)",
+        "basis": "Chace’s 1927 edition estimates about 1650 BCE; the modern British Museum exhibition guide estimates about 1550 BCE. These two approximate estimates define the displayed range, not proven chronological limits."
+      },
+      "statement": "Aḥmose copied a mathematical text that includes arithmetic and geometric problems.",
+      "applications": [
+        "manuscript copying"
+      ],
+      "caveats": "The British Museum estimates about 1550 BCE, while Chace’s older edition gives about 1650 BCE; the competing estimates and approximate range do not establish an exact copying year. The particular copied exemplar is lost; the scribe’s understanding and contemporary readership are not demonstrated.",
+      "evidence": [
+        {
+          "source": "british-museum-2022-hieroglyphs-unlocking-ancient",
+          "locator": "Printed p. 144 / PDF p. 144, Textbook maths",
+          "supports": "Describes the surviving papyrus, its mathematical problems, and approximate date."
+        },
+        {
+          "source": "chace-1927-rhind-mathematical-papyrus",
+          "locator": "PDF pp. 17 and 57, description and copyist",
+          "supports": "Identifies Aḥmose as copyist and discusses uncertainties about comprehension."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "public-availability-1550bce",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Chace’s 1927 edition estimates about 1650 BCE; the modern British Museum exhibition guide estimates about 1550 BCE. These two approximate estimates define the displayed range, not proven chronological limits. The British Museum estimates about 1550 BCE, while Chace’s older edition gives about 1650 BCE; the competing estimates and approximate range do not establish an exact copying year. The particular copied exemplar is lost; the scribe’s understanding and contemporary readership are not demonstrated. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "public-availability-1550bce",
+    "community": "Aḥmose, the copyist",
+    "basis": "public_availability",
+    "strength": "scoped_inference",
+    "rationale": "The named scribe had access to a mathematical source for copying.",
+    "proxy_reason": "A copied text implies access to an exemplar by that copyist, not actual performance of each computation or widespread dissemination.",
+    "caveats": "The British Museum estimates about 1550 BCE, while Chace’s older edition gives about 1650 BCE; the competing estimates and approximate range do not establish an exact copying year. The particular copied exemplar is lost; the scribe’s understanding and contemporary readership are not demonstrated."
+  },
+  "caveats": "The British Museum estimates about 1550 BCE, while Chace’s older edition gives about 1650 BCE; the competing estimates and approximate range do not establish an exact copying year. The particular copied exemplar is lost; the scribe’s understanding and contemporary readership are not demonstrated.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Candidate node with an explicitly scoped community-entry anchor."
+  }
+}

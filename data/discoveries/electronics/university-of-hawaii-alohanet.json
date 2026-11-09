@@ -1,0 +1,160 @@
+{
+  "id": "university-of-hawaii-alohanet",
+  "name": "University of Hawaiʻi ALOHAnet",
+  "summary": "The University of Hawaii's ALOHAnet, working by 1971, linked remote terminals to a central computer over shared radio channels, an early packet radio network that ran until 1976.",
+  "description": "University of Hawaiʻi ALOHANET radio packet network with remote terminals and central computer.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "fields": [
+    "communication.telecommunication"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "system_integration",
+    "operating_principle"
+  ],
+  "scale": "radical",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The university's sites were spread across islands, and leased telephone lines were costly and poor for computer links, so it tried radio.",
+  "limit_removed": [
+    "access",
+    "cost"
+  ],
+  "setting": [
+    "school"
+  ],
+  "places": [
+    {
+      "place": "hawaii"
+    }
+  ],
+  "people": [
+    {
+      "person": "norman-abramson",
+      "role": "originator"
+    },
+    {
+      "person": "franklin-kuo",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "university-of-hawaii",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "practical-use-1971",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1971
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1971",
+        "basis": "Latest documented event, not a claim to the earliest possible event."
+      },
+      "statement": "By the end of 1971 the University of Hawaiʻi ALOHANET had an operational central station and four remote terminals.",
+      "places": [
+        "hawaii"
+      ],
+      "applications": [
+        "Remote access to university computing"
+      ],
+      "caveats": "Kuo describes operation in 1970–76 whereas IEEE gives June 1971 for commencement. IEEE’s plaque says inter-island access in June, but its body names an Oʻahu first terminal and leaves timing of other-island links unclear.",
+      "evidence": [
+        {
+          "source": "ieee-engineering-technology-nd-demonstration-aloha-packet",
+          "locator": "Milestone description, operational network and remote terminals",
+          "supports": "IEEE reports operation in June 1971 and four remote terminals by year-end."
+        },
+        {
+          "source": "kuo-1981-computer-networks-aloha",
+          "locator": "Section 3",
+          "supports": "Kuo describes the university packet-radio network as in operation during 1970–76."
+        }
+      ]
+    },
+    {
+      "id": "end-of-use-1976",
+      "type": "end_of_use",
+      "date": {
+        "earliest": {
+          "year": 1976
+        },
+        "latest": {
+          "year": 1976
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "autumn 1976",
+        "basis": "Kuo reports the named network stopped in the fall of 1976; no day or month is established."
+      },
+      "statement": "Kuo reported that the original ALOHANET stopped operating in autumn 1976.",
+      "places": [
+        "hawaii"
+      ],
+      "scope": "Original University of Hawaiʻi ALOHANET experimental radio network",
+      "applications": [
+        "University computing access"
+      ],
+      "caveats": "Only the specific original experimental network ended; ALOHA methods and later applications continued.",
+      "evidence": [
+        {
+          "source": "kuo-1981-computer-networks-aloha",
+          "locator": "Section 6, first paragraph",
+          "supports": "Kuo says the original ALOHANET stopped in fall 1976 after sponsor funding ended."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1971",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest documented event, not a claim to the earliest possible event. Kuo describes operation in 1970–76 whereas IEEE gives June 1971 for commencement. IEEE’s plaque says inter-island access in June, but its body names an Oʻahu first terminal and leaves timing of other-island links unclear. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1971",
+    "community": "University of Hawaiʻi network researchers and remote-terminal operators",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "By-year-end remote-terminal operation documents a working user community without resolving the conflicting earlier date or inter-island extent.",
+    "caveats": "Kuo describes operation in 1970–76 whereas IEEE gives June 1971 for commencement. IEEE’s plaque says inter-island access in June, but its body names an Oʻahu first terminal and leaves timing of other-island links unclear."
+  },
+  "caveats": "Kuo describes operation in 1970–76 whereas IEEE gives June 1971 for commencement. IEEE’s plaque says inter-island access in June, but its body names an Oʻahu first terminal and leaves timing of other-island links unclear.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "recalled",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Proposed community-entry claim; independent historical and lifecycle review pending."
+  }
+}

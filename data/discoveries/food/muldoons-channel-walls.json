@@ -1,0 +1,154 @@
+{
+  "id": "muldoons-channel-walls",
+  "name": "Muldoons channel walls",
+  "summary": "Gunditjmara builders added multi-tiered basalt walls along the older Muldoons channel at Lake Condah about 1150 to 1350 CE, part of a stone fish-trap system.",
+  "description": "Multi-tiered basalt walls added along the pre-existing F10 channel.",
+  "kind": "technology",
+  "domain": "food.fishing",
+  "fields": [
+    "construction.water-works"
+  ],
+  "tier": 1,
+  "tier_reason": "A wall-phase demotion may be sensible, but its construction/phasing source is still unread; preserve that qualification rather than agreeing to an authenticated identity. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "infrastructure"
+  ],
+  "concept": "fish-trap",
+  "setting": [
+    "community"
+  ],
+  "places": [
+    {
+      "place": "lake-condah",
+      "note": "Gunditjmara Country"
+    },
+    {
+      "place": "southwestern-victoria"
+    }
+  ],
+  "societies": [
+    "gunditjmara"
+  ],
+  "known_from": [
+    "archaeological_find",
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1350",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1350
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "by c. 1350 CE (inferred)",
+        "basis": "The authors date construction and initial use of the later walled F10 channel approximately c. 1150–1350 CE (600–800 cal BP), based on sediment mixing."
+      },
+      "statement": "Archaeological interpretation places initial use of F10 with its later walls within c. 1150–1350 CE.",
+      "places": [
+        "lake-condah",
+        "southwestern-victoria"
+      ],
+      "place_note": "Gunditjmara Country",
+      "applications": [
+        "water management within the F10 fishery complex"
+      ],
+      "population": "Gunditjmara users of the Muldoons F10 water channel",
+      "caveats": "This approximate archaeological interpretation is not a hard upper bound, a directly witnessed catch or proof of uninterrupted use since the older channel. The source was inspected online; no local copy could be retained in the current pass.",
+      "evidence": [
+        {
+          "source": "mcniven-2012-dating-aboriginal-stone",
+          "locator": "§§3.9, 4.1–4.3, Table 1",
+          "supports": "The authors distinguish earlier F10 excavation from later walls, and infer construction and initial use of the walled channel around 600–800 cal BP."
+        }
+      ]
+    },
+    {
+      "id": "archaeological-evidence-1350",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": 1150
+        },
+        "latest": {
+          "year": 1350
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "c. 1150–1350",
+        "basis": "Article assigns walls to c. 600–800 cal BP; conversion uses BP=1950."
+      },
+      "statement": "Multi-tiered basalt walls added along the pre-existing F10 channel.",
+      "places": [
+        "lake-condah",
+        "southwestern-victoria"
+      ],
+      "place_note": "Gunditjmara Country",
+      "caveats": "A long sedimentary hiatus separates phases; continuous operation or unchanged knowledge transmission is not established.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "mcniven-2012-dating-aboriginal-stone",
+          "locator": "§§3.9, 4.2–4.3",
+          "supports": "Later rock-wall construction and its relationship to the excavated channel."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": null,
+    "rationale": "Historian/date dispute retained. A later community witness is not an automatic earliest-record anchor."
+  },
+  "community_entry": {
+    "event": "practical-use-1350",
+    "community": "Gunditjmara users of the Muldoons F10 water channel",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "Archaeological interpretation places initial use of F10 with its later walls within c. 1150–1350 CE.",
+    "proxy_reason": "Use is an archaeological interpretation of the later constructed water-channel context; it does not convert the much older infill date into an observed fishing-use date.",
+    "caveats": "This approximate archaeological interpretation is not a hard upper bound, a directly witnessed catch or proof of uninterrupted use since the older channel. The source was inspected online; no local copy could be retained in the current pass."
+  },
+  "caveats": "A long sedimentary hiatus separates phases; continuous operation or unchanged knowledge transmission is not established.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "muldoons-excavated-channel",
+      "from_event": "archaeological-evidence-4500bce",
+      "to_event": "archaeological-evidence-1350",
+      "status": "established",
+      "statement": "Later basalt walls modified the sides of the previously excavated F10 channel.",
+      "scope": "Muldoons Trap Complex, Gunditjmara Country; modification c. 1150–1350 CE.",
+      "confidence": "medium",
+      "alternatives": "Other trap features and maintenance strategies are not assigned this chronology.",
+      "caveats": "No claim of continuous use, unbroken transmission or regional simultaneity.",
+      "timing": "The early node dates basal infill evidence; the later dated modification follows a sedimentary hiatus.",
+      "evidence": [
+        {
+          "source": "mcniven-2012-dating-aboriginal-stone",
+          "locator": "§§3.9, 4.1–4.3",
+          "supports": "Authors distinguish initial block removal and later added rock walls in the same feature."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "concept": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

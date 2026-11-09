@@ -1,0 +1,215 @@
+{
+  "id": "four-colour-primer-readout",
+  "name": "Four-colour primer readout",
+  "summary": "Smith, Hood and colleagues labelled sequencing primers with four coloured dyes so all four reactions could run in one gel lane and be read by computer, automating DNA sequencing.",
+  "description": "Smith and colleagues tagged primers with four fluorophores, combined reaction products in one gel tube and acquired detected bands by computer.",
+  "kind": "technology",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "measurement.laboratory",
+    "machines.automation"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "experimental_method",
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "concept": "fluorescent-dna-sequencing",
+  "limit_removed": [
+    "speed",
+    "scale"
+  ],
+  "setting": [
+    "school",
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "caltech-pasadena",
+      "note": "Applied Biosystems"
+    },
+    {
+      "place": "foster-city"
+    }
+  ],
+  "people": [
+    {
+      "person": "lloyd-m-smith",
+      "role": "originator"
+    },
+    {
+      "person": "leroy-hood",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "california-institute-of-technology",
+      "role": "host"
+    },
+    {
+      "organization": "applied-biosystems",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "patent"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "demonstration-1985",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1985,
+          "month": 12,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 30 December 1985",
+        "basis": "The demonstrated system was submitted 30 December 1985 and described in June 1986; interval avoids treating the journal date as invention day."
+      },
+      "statement": "Smith and colleagues tagged primers with four fluorophores, combined reaction products in one gel tube and acquired detected bands by computer.",
+      "places": [
+        "caltech-pasadena",
+        "foster-city"
+      ],
+      "place_note": "Applied Biosystems",
+      "caveats": "Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "smith-1986-fluorescence-detection-automated",
+          "locator": "Abstract; publisher receipt date and affiliations",
+          "supports": "Specified readout and development locations."
+        }
+      ]
+    },
+    {
+      "id": "publication-1986",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1986,
+          "month": 6,
+          "day": 12
+        },
+        "latest": {
+          "year": 1986,
+          "month": 6,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1986-6-12",
+        "basis": "Date of this published account, not the date of first invention or first use."
+      },
+      "statement": "A published research account described four-colour primer readout.",
+      "caveats": "This is a dated publication, not proof of first awareness, acceptance, external deployment or sale.",
+      "evidence": [
+        {
+          "source": "smith-1986-fluorescence-detection-automated",
+          "locator": "PMID 3713851, Nature 321 pp. 674–679, issue date 12 June 1986",
+          "supports": "The named publication reports this scientific result or technical method and is dated by its journal issue."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1991",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1991,
+          "month": 12,
+          "day": 27
+        },
+        "latest": {
+          "year": 1991,
+          "month": 12,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1991-12-27",
+        "basis": "Date of the cited public report or documented event."
+      },
+      "statement": "A separate patent application recognized Smith and colleagues’ four-dye, single-gel-lane and computer readout approach.",
+      "caveats": "Recognition does not prove identical reproduction of Smith’s original apparatus or earliest recognition; the statement about sold sequencers concerns later products.",
+      "evidence": [
+        {
+          "source": "beck-1991-sequencing-nucleic-acids",
+          "locator": "Description, Non-radioactive detection for DNA sequencing, Smith 1986 citation and four-dye-one-lane discussion",
+          "supports": "The separate authors identify and describe the previously reported labelled-primer approach."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1985",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The demonstrated system was submitted 30 December 1985 and described in June 1986; interval avoids treating the journal date as invention day. Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1991",
+    "community": "Molecular-sequencing researchers and patent authors at Millipore",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "A later, independent technical account explicitly identifies the published method rather than counting Smith’s original private experiment as uptake.",
+    "caveats": "Recognition does not prove identical reproduction of Smith’s original apparatus or earliest recognition; the statement about sold sequencers concerns later products."
+  },
+  "caveats": "Partial automation, not an autonomous genome factory; the inspected abstract does not establish a commercial launch date.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "chain-termination-dna-sequencing",
+      "status": "established",
+      "statement": "The later fluorescent-primer work applied an earlier enzymatic sequencing approach.",
+      "scope": "1986 Caltech and Applied Biosystems research system; primers carry fluorophores and reaction products share a gel tube.",
+      "confidence": "high",
+      "alternatives": "Fluorescent dye-terminator sequencing used a different labelling arrangement.",
+      "caveats": "The source establishes a relationship between techniques; it does not show that the separate 1978 Hamlyn study caused the later work.",
+      "timing": "The sources document the relevant concepts or later program; selected community-entry events are not asserted to be direct causal intermediates.",
+      "evidence": [
+        {
+          "source": "sanger-1977-dna-sequencing-chain",
+          "locator": "p. 5463, Principle of the Method",
+          "supports": "Defines the earlier chain-termination method."
+        },
+        {
+          "source": "smith-1986-fluorescence-detection-automated-2",
+          "locator": "pp. 674–675, opening and Strategy; p. 678 ref. 1",
+          "supports": "The 1986 paper explicitly applies its primer strategy to Sanger enzymatic sequencing and identifies the 1977 chain-termination paper."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "concept": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

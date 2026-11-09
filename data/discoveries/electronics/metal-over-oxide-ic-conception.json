@@ -1,0 +1,205 @@
+{
+  "id": "metal-over-oxide-ic-conception",
+  "name": "Metal-over-oxide IC conception",
+  "summary": "Noyce proposed linking parts on a silicon chip with metal lines laid over its protective oxide, the wiring method that made chips practical to mass-produce.",
+  "description": "Noyce proposed deposited metal conductors crossing retained oxide to connect semiconductor regions without shorting junctions, including multi-device circuits.",
+  "kind": "technology",
+  "domain": "electronics.integrated-circuits",
+  "fields": [
+    "electronics.semiconductors"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "device_or_configuration",
+    "manufacturing_process"
+  ],
+  "scale": "architectural",
+  "origin": "independent",
+  "concept": "integrated-circuit",
+  "prompted_by": [
+    "new_capability"
+  ],
+  "why": "Fairchild's planar process left a protective oxide layer on silicon, which allowed metal connections to run across the surface without shorting junctions.",
+  "limit_removed": [
+    "scale",
+    "reliability"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "california",
+      "note": "Fairchild Semiconductor; site not stated"
+    }
+  ],
+  "people": [
+    {
+      "person": "robert-noyce",
+      "role": "originator"
+    },
+    {
+      "person": "jay-last",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "fairchild-semiconductor",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "patent",
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "dated-assertion-1959",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1959
+        },
+        "latest": {
+          "year": 1959
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1959",
+        "basis": "Concept developed in 1959 and disclosed in the application filed 30 July; not a working chip at filing."
+      },
+      "statement": "Noyce proposed deposited metal conductors crossing retained oxide to connect semiconductor regions without shorting junctions, including multi-device circuits.",
+      "places": [
+        "california"
+      ],
+      "place_note": "Fairchild Semiconductor; site not stated",
+      "caveats": "No Kilby-to-Noyce transmission is claimed. This patent’s isolation configuration must not be silently equated with every later junction-isolated IC.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "noyce-1961-semiconductor-device-lead",
+          "locator": "Filing header; columns 1–4; Figures 3–5",
+          "supports": "Date, insulated metal leads and multi-device layout."
+        },
+        {
+          "source": "computer-history-museum-nd-practical-monolithic-integrated",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "Context of extending Hoerni’s process."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1960",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1960,
+          "month": 5,
+          "day": 26
+        },
+        "latest": {
+          "year": 1960,
+          "month": 5,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1960-05-26",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Last team built a monolithic flip-flop based on the planar approach and Noyce interconnection patent.",
+      "places": [
+        "california"
+      ],
+      "caveats": "May 1960 physical isolation cannot be equated to later junction-isolated sold products.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-first-planar-integrated",
+          "locator": "Main narrative, Last project based on Noyce patent and May 1960 result",
+          "supports": "Last team built a monolithic flip-flop based on the planar approach and Noyce interconnection patent."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1959",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Concept developed in 1959 and disclosed in the application filed 30 July; not a working chip at filing. No Kilby-to-Noyce transmission is claimed. This patent’s isolation configuration must not be silently equated with every later junction-isolated IC. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1960",
+    "community": "Fairchild integrated-circuit development team",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Use by a separate integrated-circuit development team is stronger than the 1959 concept alone.",
+    "caveats": "May 1960 physical isolation cannot be equated to later junction-isolated sold products."
+  },
+  "caveats": "No Kilby-to-Noyce transmission is claimed. This patent’s isolation configuration must not be silently equated with every later junction-isolated IC.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "retained-oxide-planar-conception",
+      "from_event": "conception-1957",
+      "to_event": "dated-assertion-1959",
+      "status": "established",
+      "statement": "Noyce extended Hoerni’s retained-oxide idea by using the oxide as insulation beneath circuit interconnections.",
+      "scope": "Fairchild, 1959; Noyce’s device-and-lead proposal.",
+      "confidence": "high",
+      "alternatives": "Kilby’s separately wired germanium elements demonstrated a different approach.",
+      "caveats": "No inference of influence from Kilby is made.",
+      "timing": "The source is the 1957 conception, avoiding a false claim that the March 1959 demonstration caused an earlier 1959 idea.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-practical-monolithic-integrated",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "Ralls prompted other uses of Hoerni’s process."
+        },
+        {
+          "source": "noyce-1961-semiconductor-device-lead",
+          "locator": "Columns 1–2",
+          "supports": "Metal conductors over retained oxide."
+        }
+      ]
+    },
+    {
+      "type": "transmitted_from",
+      "from": "kilby-semiconductor-phase-shift-oscillator-configuration",
+      "status": "insufficient",
+      "statement": "Was there documented influence between Kilby and Noyce, or were these independent? If independent, record that explicitly.",
+      "caveats": "Evidence needed: Patent histories and oral histories. If nothing supports influence, reject this and say why.",
+      "finding": "The preserved Fairchild participant chronology reports that TI’s March 1959 Solid Circuit announcement prompted Noyce to discuss a response and spur the subsequent Fairchild IC programme. Noyce’s own monolithic interconnection idea is dated January 1959, before that announcement; the evidence therefore does not justify attributing that earlier idea directly to the specific September 1958 oscillator or declaring complete independence."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "sourced",
+      "concept": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

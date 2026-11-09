@@ -1,0 +1,179 @@
+{
+  "id": "kilby-semiconductor-phase-shift-oscillator-configuration",
+  "name": "Kilby semiconductor phase-shift oscillator configuration",
+  "summary": "Kilby built a working oscillator whose transistor, resistor and capacitor were all made from semiconductor material, the first demonstration of an integrated circuit.",
+  "description": "Kilby’s semiconductor phase-shift oscillator combines a transistor, resistive elements and a distributed resistor-capacitor network with electrical connections; his 1958 germanium oscillators are early physical witnesses.",
+  "kind": "technology",
+  "domain": "electronics.integrated-circuits",
+  "fields": [
+    "electronics.semiconductors"
+  ],
+  "tier": 1,
+  "tier_reason": "Retain1 for this oscillator configuration. Integrated circuits being absent at0 does not make every early demonstration the whole breakthrough. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "concept": "integrated-circuit",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Electronics makers struggled to wire together ever more separate components, and Kilby looked for a way to make all of them from one semiconductor material.",
+  "limit_removed": [
+    "scale",
+    "reliability"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "texas",
+      "note": "Texas Instruments; site not stated"
+    }
+  ],
+  "people": [
+    {
+      "person": "jack-kilby",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "texas-instruments",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "patent",
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "dated-assertion-1958",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1958
+        },
+        "latest": {
+          "year": 1958
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "12 Sep 1958",
+        "basis": "Museum dates the working oscillator to 12 September 1958."
+      },
+      "statement": "Kilby connected germanium transistor, capacitor and resistor elements with fine gold wires to make an oscillator.",
+      "places": [
+        "texas"
+      ],
+      "place_note": "Texas Instruments; site not stated",
+      "caveats": "Museum caption calls this a multi-chip oscillator. It is not labelled a monolithic silicon IC; later TI flip-flops require separate nodes.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-all-semiconductor-solid",
+          "locator": "Original oscillator caption; paragraph beginning On September 12, 1958",
+          "supports": "Germanium elements, wire connections and working oscillator."
+        }
+      ]
+    },
+    {
+      "id": "publication-1964",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1964,
+          "month": 6,
+          "day": 23
+        },
+        "latest": {
+          "year": 1964,
+          "month": 6,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1964-06-23",
+        "basis": "Date the patent was issued and published; original application filing does not establish public access."
+      },
+      "statement": "Kilby’s issued patent publicly disclosed a semiconductor phase-shift oscillator configuration.",
+      "places": [
+        "united-states"
+      ],
+      "scope": "Patent Figs. 8a–8c depict a semiconductor phase-shift oscillator with transistor and distributed resistor–capacitor elements; Kilby later described the embodiment as basically his 1958 oscillator.",
+      "applications": [
+        "oscillator circuits"
+      ],
+      "caveats": "The patent does not identify the actual 1958 physical specimen or independently establish that its oscillator embodiment used germanium and gold wires; the related 1959 publicly announced flip-flop is a different circuit.",
+      "evidence": [
+        {
+          "source": "kilby-1964-miniaturized-electronic-circuits",
+          "locator": "Issue date and Figs. 8a–8c, oscillator description",
+          "supports": "The issued patent discloses a semiconductor transistor and distributed RC phase-shift oscillator."
+        },
+        {
+          "source": "kilby-1976-integrated-circuit",
+          "locator": "pp. 650–652, Figure 2 and patent application discussion",
+          "supports": "Kilby describes the 1958 germanium oscillator and says one patent embodiment was basically that design."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1958",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Museum dates the working oscillator to 12 September 1958. Museum caption calls this a multi-chip oscillator. It is not labelled a monolithic silicon IC; later TI flip-flops require separate nodes. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1964",
+    "community": "Semiconductor engineers and readers of issued United States patents",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "The 1964 issued patent publicly describes the related oscillator configuration and predates the Nobel lecture; it does not conflate the 1959 flip-flop.",
+    "proxy_reason": "The issued patent supports public technical awareness of the broadly refined configuration, not sale, adoption, the exact first disclosure, or exhibition of the 1958 specimen.",
+    "caveats": "The patent does not identify the actual 1958 physical specimen or independently establish that its oscillator embodiment used germanium and gold wires; the related 1959 publicly announced flip-flop is a different circuit."
+  },
+  "caveats": "The 1964 patent’s oscillator embodiment is described by Kilby as basically the 1958 design; the patent does not establish that the identical 1958 physical specimen or all materials were publicly displayed.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "germanium-point-contact-amplifier",
+      "status": "insufficient",
+      "statement": "Kilby's circuit has no links. What did it draw on?",
+      "caveats": "Evidence needed: Kilby's lecture and Texas Instruments records.",
+      "finding": "Kilby’s oscillator used a germanium mesa p–n–p transistor and passive elements, while the Bell device used closely spaced point contacts. The sources establish a shared semiconductor family but not a direct contribution by this particular 1947 prototype to Kilby’s oscillator."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "recalled",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "unknown"
+    }
+  }
+}

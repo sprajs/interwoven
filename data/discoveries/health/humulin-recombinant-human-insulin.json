@@ -1,0 +1,169 @@
+{
+  "id": "humulin-recombinant-human-insulin",
+  "name": "Humulin recombinant human insulin",
+  "summary": "Eli Lilly's Humulin was human insulin made by genetically engineered bacteria, sold from about 1982 instead of insulin taken from animal pancreases.",
+  "description": "Eli Lilly Humulin human insulin produced using recombinant-DNA bacterial manufacturing.",
+  "kind": "technology",
+  "domain": "health.drugs",
+  "fields": [
+    "life-sciences.genetics"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "manufacturing_process"
+  ],
+  "scale": "modular",
+  "prompted_by": [
+    "market_or_competition"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "eli-lilly",
+      "role": "maker"
+    },
+    {
+      "organization": "genentech",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "in_use",
+  "market": {
+    "status": "commercial",
+    "note": "Lilly reports a 1982 launch, and HAI identifies U.S. market introduction.",
+    "evidence": [
+      {
+        "source": "ricks-2023-need-make-insulin",
+        "locator": "Printed p. 9, David Ricks prepared statement, A. Embracing the Next Century of Innovation",
+        "supports": "Lilly’s CEO retrospectively states the company launched Humulin in 1982; the statement does not specify country or an exact first-availability date."
+      },
+      {
+        "source": "kaplan-2016-insulin-patent-profile",
+        "locator": "Printed p. 8 / PDF p. 9, A Brief History of Patents on Insulin",
+        "supports": "Reports Humulin R and N were brought to the United States market in 1982."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "commercial-availability-1982",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1982
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "By 1982",
+        "basis": "Lilly’s CEO retrospectively dates launch to 1982, HAI dates U.S. market entry to 1982, and a National Academies history says first sale was 1983. No exact first day is asserted."
+      },
+      "statement": "Lilly retrospectively reports a Humulin launch in 1982; a historical account reports Humulin R and N reached the U.S. market that year.",
+      "places": [
+        "united-states"
+      ],
+      "caveats": "Lilly’s CEO reports a 1982 launch without specifying geography; Health Action International dates U.S. market introduction to 1982, while a National Academies account says first sold in 1983. The discrepancy is unresolved; these retrospective accounts do not establish a precise first-availability day or every patient’s access.",
+      "evidence": [
+        {
+          "source": "ricks-2023-need-make-insulin",
+          "locator": "Printed p. 9, David Ricks prepared statement, A. Embracing the Next Century of Innovation",
+          "supports": "Lilly’s CEO retrospectively states the company launched Humulin in 1982; the statement does not specify country or an exact first-availability date."
+        },
+        {
+          "source": "kaplan-2016-insulin-patent-profile",
+          "locator": "Printed p. 8 / PDF p. 9, A Brief History of Patents on Insulin",
+          "supports": "Reports Humulin R and N were brought to the United States market in 1982."
+        },
+        {
+          "source": "institute-medicine-national-1995-incentives-focus-university",
+          "locator": "Chapter 7, printed p. 173, commercial development and sale",
+          "supports": "A later National Academies account instead dates first sale to 1983."
+        },
+        {
+          "source": "food-nd-years-insulin",
+          "locator": "100 Years of Insulin, recombinant human insulin discussion",
+          "supports": "Dates FDA approval to 28 October 1982; approval is distinct from commercial availability."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": null,
+    "rationale": "Historian/date dispute retained. A later community witness is not an automatic earliest-record anchor."
+  },
+  "community_entry": {
+    "event": "commercial-availability-1982",
+    "community": "Prospective U.S. health-care purchasers of Humulin R and N",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "Lilly retrospectively reports a 1982 product launch; an independent history identifies U.S. market entry that year. FDA approval and a conflicting 1983 sale account are separate facts.",
+    "caveats": "Lilly’s CEO reports a 1982 launch without specifying geography; Health Action International dates U.S. market introduction to 1982, while a National Academies account says first sold in 1983. The discrepancy is unresolved; these retrospective accounts do not establish a precise first-availability day or every patient’s access."
+  },
+  "caveats": "Lilly’s CEO reports a 1982 launch without specifying geography; Health Action International dates U.S. market introduction to 1982, while a National Academies account says first sold in 1983. The discrepancy is unresolved; these retrospective accounts do not establish a precise first-availability day or every patient’s access.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "recombinant-bacterial-plasmid-cloning",
+      "from_event": "practical-use-1979",
+      "to_event": "commercial-availability-1982",
+      "status": "established",
+      "statement": "The Genentech insulin expression research was followed by scale-up and modified bacterial expression for Lilly’s commercial Humulin.",
+      "scope": "Genentech–Lilly insulin development in the United States; process changed between research and manufacture.",
+      "confidence": "high",
+      "alternatives": "Other bacterial expression strategies and later manufacturing configurations are possible.",
+      "caveats": "The final commercial process should not be treated as an unchanged copy of the early laboratory procedure.",
+      "timing": "The 1979 research report precedes U.S. market entry reported in 1982; another history dates first sale to 1983.",
+      "evidence": [
+        {
+          "source": "goeddel-1979-expression-escherichia-coli",
+          "locator": "PMID 85300 abstract",
+          "supports": "The specific early research expressed separately cloned insulin-chain genes."
+        },
+        {
+          "source": "institute-medicine-national-1995-incentives-focus-university",
+          "locator": "chapter 7, pp. 171–174, insulin research and commercial development",
+          "supports": "Describes the Genentech-to-Lilly scale-up and subsequent changes to the bacterial expression system."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "New, scoped proposal for independent historical review."
+  }
+}

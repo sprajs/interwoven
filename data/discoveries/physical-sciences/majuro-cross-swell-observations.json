@@ -1,0 +1,195 @@
+{
+  "id": "majuro-cross-swell-observations",
+  "name": "Majuro cross-swell observations",
+  "summary": "Off Majuro, wave buoy measurements were broadly consistent with the boat rocking that Marshallese navigators read as swells bent around islands, though overlapping swells limited proof.",
+  "description": "Navigator-identified vessel rocking and directional wave measurements were consistent with bent incident swells; multiple wave trains limited field validation.",
+  "kind": "science",
+  "domain": "physical-sciences.earth",
+  "fields": [
+    "transport.navigation"
+  ],
+  "tier": 3,
+  "tier_reason": "An explicitly inconclusive specialist wave-field result fits fine detail; do not turn inconclusive into false. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "observation",
+    "measurement"
+  ],
+  "scale": "extends",
+  "setting": [
+    "expedition"
+  ],
+  "places": [
+    {
+      "place": "majuro",
+      "note": "Waters west of Majuro and between Majuro and Arno"
+    },
+    {
+      "place": "arno-atoll"
+    },
+    {
+      "place": "marshall-islands"
+    }
+  ],
+  "people": [
+    {
+      "person": "korent-joel",
+      "role": "contributor"
+    },
+    {
+      "person": "joseph-genz",
+      "role": "author"
+    },
+    {
+      "person": "jerome-aucan",
+      "role": "author"
+    },
+    {
+      "person": "mark-merrifield",
+      "role": "author"
+    },
+    {
+      "person": "ben-finney",
+      "role": "author"
+    },
+    {
+      "person": "alson-kelen",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "marshall-islands"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "observation-2006",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 2005
+        },
+        "latest": {
+          "year": 2006
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "2005–2006",
+        "basis": "WAM’s participant interview places buoy deployments during the field year beginning in 2005 and culminating in the 2006 voyage; the research paper also states a June 2005–September 2006 fieldwork interval. Exact deployment days are not given."
+      },
+      "statement": "Navigator-identified vessel rocking and directional wave measurements were consistent with bent incident swells; multiple wave trains limited field validation.",
+      "places": [
+        "majuro",
+        "arno-atoll",
+        "marshall-islands"
+      ],
+      "place_note": "Waters west of Majuro and between Majuro and Arno",
+      "caveats": "The buoy did not resolve claimed reflected signals or dilep. Model agreement at another island is not direct verification of all local cues.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "genz-2009-wave-navigation-marshall",
+          "locator": "pp. 239, 241–242, in situ comparisons",
+          "supports": "Experienced rocking, directional components and inconclusive lee-wave validation."
+        },
+        {
+          "source": "earnshaw-2014-reviving-ancient-skill",
+          "locator": "2005 field year and wave-buoy paragraph",
+          "supports": "Dates the reported deployments to 2005–2006."
+        }
+      ]
+    },
+    {
+      "id": "publication-2009",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2009,
+          "month": 6
+        },
+        "latest": {
+          "year": 2009,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "June 2009",
+        "basis": "The Genz et al. article appeared in the June 2009 issue of Oceanography."
+      },
+      "statement": "The Oceanography article publicly described the field comparison of navigator-identified vessel rocking and directional swell observations in 2009.",
+      "place_note": "Oceanography journal readership, international",
+      "applications": [
+        "publication of field research"
+      ],
+      "population": "Readers of Oceanography, including the marine-science specialist community",
+      "caveats": "The field study is not proof of community-wide adoption, global priority or conclusive validation; the publication identifies one specialist audience.",
+      "evidence": [
+        {
+          "source": "genz-2009-wave-navigation-marshall",
+          "locator": "pp. 234, 239, 241–242",
+          "supports": "June 2009 Oceanography article describes the field comparison of navigator-identified vessel rocking and directional swell observations; its comparison remains limited by multiple wave trains."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "observation-2006",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. WAM’s participant interview places buoy deployments during the field year beginning in 2005 and culminating in the 2006 voyage; the research paper also states a June 2005–September 2006 fieldwork interval. Exact deployment days are not given. The buoy did not resolve claimed reflected signals or dilep. Model agreement at another island is not direct verification of all local cues. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-2009",
+    "community": "Readers of Oceanography, including the marine-science specialist community",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "The Oceanography article publicly described the field comparison of navigator-identified vessel rocking and directional swell observations in 2009.",
+    "proxy_reason": "The 2005–2006 observations were a research test; the later publication gives a documented specialist audience without claiming unverified uptake or acceptance.",
+    "caveats": "The field study is not proof of community-wide adoption, global priority or conclusive validation; the publication identifies one specialist audience."
+  },
+  "caveats": "The buoy did not resolve claimed reflected signals or dilep. Model agreement at another island is not direct verification of all local cues.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "navigator-guided-buoy-survey",
+      "from_event": "practical-deployment-2006",
+      "to_event": "observation-2006",
+      "status": "established",
+      "statement": "Directional buoy spectra supplied measured wave components for comparison with the navigator-identified sea state.",
+      "scope": "Majuro–Arno survey, within 2005–2006.",
+      "confidence": "high",
+      "alternatives": "Human sensing, satellite imagery and numerical modeling are distinct evidence routes.",
+      "caveats": "Multiple incident swells prevented conclusive lee-pattern validation; absent signals are not asserted to prove impossible human perception.",
+      "timing": "Instrument deployments and resulting observations belong to the same bounded campaign.",
+      "evidence": [
+        {
+          "source": "genz-2009-wave-navigation-marshall",
+          "locator": "p. 237, instrument method; pp. 241–242, results",
+          "supports": "Specified sensor and spectra used in the bounded interpretation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

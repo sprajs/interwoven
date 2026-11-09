@@ -1,0 +1,150 @@
+{
+  "id": "royal-institution-glass-furnace",
+  "name": "Royal Institution glass furnace",
+  "summary": "In 1827 a dedicated room and furnaces were set up at the Royal Institution so Faraday could run the Royal Society's experiments on better optical glass.",
+  "description": "A dedicated experimental room and furnaces brought Faraday’s optical-glass experiments onto the Royal Institution premises, with Sergeant Anderson assisting.",
+  "kind": "technology",
+  "domain": "materials.glass",
+  "fields": [
+    "measurement.optical-instruments"
+  ],
+  "tier": 3,
+  "tier_reason": "An installation serving a particular research programme is fine detail, separate from general furnace technology. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "infrastructure"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "British optical glass for telescopes was poor, and a Royal Society committee was formed to improve it by experiment.",
+  "setting": [
+    "learned_society"
+  ],
+  "places": [
+    {
+      "place": "royal-institution-london"
+    }
+  ],
+  "people": [
+    {
+      "person": "michael-faraday",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-institution",
+      "role": "host"
+    },
+    {
+      "organization": "royal-society",
+      "role": "customer"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "administrative_record",
+    "image"
+  ],
+  "events": [
+    {
+      "id": "dated-assertion-1827",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1827
+        },
+        "latest": {
+          "year": 1827
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1827",
+        "basis": "Faraday reports the room and furnaces built in September 1827; the surviving notebook is headed October 1827."
+      },
+      "statement": "A dedicated experimental room and furnaces brought Faraday’s optical-glass experiments onto the Royal Institution premises, with Sergeant Anderson assisting.",
+      "places": [
+        "royal-institution-london"
+      ],
+      "caveats": "This is a particular research installation, not the invention of a glass furnace. The entire manuscript was not inspected.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "faraday-1830-bakerian-lecture-manufacture",
+          "locator": "1859 reprint pp. 233–234, Introduction; OCR lines 12454–12484",
+          "supports": "Move from the Falcon Glassworks and construction at the Royal Institution."
+        },
+        {
+          "source": "michael-faraday-royal-1827-plans-sections-glass",
+          "locator": "MS/365 catalogue: description and notebook heading",
+          "supports": "Surviving 1827 furnace notebook and drawing identity."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1829",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1829,
+          "month": 11,
+          "day": 19
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 19 November 1829",
+        "basis": "Faraday’s Bakerian Lecture begun 19 November 1829 reports experimental furnace operation after the 1827 build; use was earlier than the report, not necessarily on the lecture date."
+      },
+      "statement": "By Faraday’s 1829 lecture, the Royal Institution furnaces had been used continuously for the committee’s optical-glass experimental work.",
+      "places": [
+        "royal-institution-london"
+      ],
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "Royal Society glass committee workers at the Royal Institution",
+      "caveats": "The upper bound avoids claiming an exact first firing day; the use was for specialist research and does not imply a market or general industrial adoption.",
+      "evidence": [
+        {
+          "source": "faraday-1830-bakerian-lecture-manufacture",
+          "locator": "reprint pp. 231, 233–234, heading and introduction",
+          "supports": "Dates the lecture and describes the room and furnaces built in September 1827 and continuing glass-making work."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1827",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Faraday reports the room and furnaces built in September 1827; the surviving notebook is headed October 1827. This is a particular research installation, not the invention of a glass furnace. The entire manuscript was not inspected. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1829",
+    "community": "Royal Society glass committee workers at the Royal Institution",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The furnace was used as research infrastructure for recurring glass work, rather than merely constructed or privately demonstrated.",
+    "caveats": "The upper bound avoids claiming an exact first firing day; the use was for specialist research and does not imply a market or general industrial adoption."
+  },
+  "caveats": "This is a particular research installation, not the invention of a glass furnace. The entire manuscript was not inspected.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "prompted_by": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    }
+  }
+}

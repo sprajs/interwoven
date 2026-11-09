@@ -1,0 +1,225 @@
+{
+  "id": "durable-transatlantic-telegraph-service",
+  "name": "Durable transatlantic telegraph service",
+  "summary": "From 1866 a lasting transatlantic telegraph cable carried diplomatic and paid commercial messages between Europe and North America, making routine fast communication across the ocean possible.",
+  "description": "A durable transatlantic submarine telegraph service established in 1866, later used for diplomatic communication.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "infrastructure",
+    "performance_improvement"
+  ],
+  "scale": "incremental",
+  "origin": "derived",
+  "concept": "transatlantic-telegraph-cable",
+  "prompted_by": [
+    "market_or_competition",
+    "anomaly_or_failure"
+  ],
+  "why": "After the 1858 cable failed, its promoters raised money for a better-built cable, laid by the large steamship Great Eastern.",
+  "limit_removed": [
+    "reliability",
+    "speed"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "investors"
+  ],
+  "places": [
+    {
+      "place": "north-atlantic"
+    }
+  ],
+  "people": [
+    {
+      "person": "cyrus-field",
+      "role": "user"
+    },
+    {
+      "person": "john-bigelow",
+      "role": "user"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "anglo-american-telegraph-company",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "administrative_record"
+  ],
+  "reception": "immediate",
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "commercial",
+    "note": "A dated 1866 account reports a charged customer message and a published tariff; first commercial availability and settlement are distinct unknowns.",
+    "evidence": [
+      {
+        "source": "american-2020-cost-message-london",
+        "locator": "Republished paragraph attributed to August 1866, 20-word message and charge",
+        "supports": "The publisher recounts being charged £24 for an Atlantic cable message under a published schedule."
+      },
+      {
+        "source": "experience-nd-great-transatlantic-cable",
+        "locator": "1866 timeline, July 27 and September 2",
+        "supports": "A working cable was completed in July 1866; a second cable followed in September."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "practical-use-1866",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1866,
+          "month": 7,
+          "day": 28
+        },
+        "latest": {
+          "year": 1866,
+          "month": 7,
+          "day": 28
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1866-07-28",
+        "basis": "Date of receipt reported by the contemporary legation, a known-by bound for actual use."
+      },
+      "statement": "The U.S. legation in Paris received a transatlantic cable message from Cyrus Field in Newfoundland.",
+      "places": [
+        "north-atlantic"
+      ],
+      "applications": [
+        "Transatlantic communication"
+      ],
+      "caveats": "This receipt does not establish the first customer message or general public tariffs.",
+      "evidence": [
+        {
+          "source": "bigelow-1866-mr-bigelow-mr",
+          "locator": "Opening dispatch and date of receipt",
+          "supports": "The U.S. legation in Paris received Field’s transatlantic cable message on 28 July 1866."
+        },
+        {
+          "source": "u-s-department-nd-u-s-diplomacy",
+          "locator": "1866 transatlantic telegraph and State Department telegraph office",
+          "supports": "The State Department account identifies a durable 1866 transatlantic service and its own telegraph office a few months later; it does not imply uninterrupted or present-day operation."
+        }
+      ]
+    },
+    {
+      "id": "commercial-availability-1866",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1866,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by August 1866",
+        "basis": "A publisher republication identifies the charged-message account as originally appearing in August 1866; the message itself occurred by that issue, with no earliest date asserted."
+      },
+      "statement": "By August 1866, Scientific American reported that its London correspondent’s transatlantic message had incurred a cable charge under a published schedule.",
+      "places": [
+        "north-atlantic"
+      ],
+      "applications": [
+        "Commercial transatlantic telegraphy"
+      ],
+      "market": "Atlantic cable customers charged under a published schedule",
+      "caveats": "The cited 2020 publisher republication attributes the account to August 1866, but the original issue was not independently inspected and the exact message date, payment settlement, first sale and global tariffs are not established.",
+      "evidence": [
+        {
+          "source": "american-2020-cost-message-london",
+          "locator": "Republished paragraph attributed to August 1866, 20-word message and charge",
+          "supports": "The publisher recounts being charged £24 for an Atlantic cable message under a published schedule."
+        },
+        {
+          "source": "experience-nd-great-transatlantic-cable",
+          "locator": "1866 timeline, July 27 and September 2",
+          "supports": "A working cable was completed in July 1866; a second cable followed in September."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1866",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of receipt reported by the contemporary legation, a known-by bound for actual use. This receipt does not establish the first customer message or general public tariffs. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-availability-1866",
+    "community": "Customers sending charged Atlantic cable messages to correspondents",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "The publisher’s dated account reports a charged customer message and published tariff; this directly establishes commercial availability by August, in addition to the earlier diplomatic receipt.",
+    "caveats": "The cited 2020 publisher republication attributes the account to August 1866, but the original issue was not independently inspected and the exact message date, payment settlement, first sale and global tariffs are not established."
+  },
+  "caveats": "The cited 2020 publisher republication attributes the account to August 1866, but the original issue was not independently inspected and the exact message date, payment settlement, first sale and global tariffs are not established. The prior 28 July diplomatic receipt is preserved separately.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "first-atlantic-cable-brief-official-operation",
+      "status": "established",
+      "statement": "After the 1858 Atlantic cable failed, the same transatlantic enterprise studied its problems, improved later cable construction and organized the 1866 replacement project.",
+      "scope": "Field’s account of the programme and distinct 1858 and 1866 submarine cables.",
+      "confidence": "medium",
+      "alternatives": "Other submarine cable projects and independent investigations contributed to improvements.",
+      "caveats": "The 1898 source is a retrospective by Cyrus Field’s brother; it does not prove every construction change resulted solely from the 1858 failure.",
+      "timing": "1858 failure preceded the 1859 investigation and the separate 1866 cable.",
+      "evidence": [
+        {
+          "source": "field-1898-story-atlantic-telegraph",
+          "locator": "Printed pp. 229–234 and pp. 299–303",
+          "supports": "Describes the failure, investigation, new company and new cable, and connects lessons to subsequent preparations."
+        },
+        {
+          "source": "library-congress-nd-first-transatlantic-telegraph",
+          "locator": "Failure and 1866 successor paragraphs",
+          "supports": "Dates the first cable’s short service and later reliable transatlantic service."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Proposed distinct configuration and community entry; requires independent review."
+  }
+}

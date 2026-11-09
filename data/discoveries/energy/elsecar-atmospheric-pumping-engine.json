@@ -1,0 +1,121 @@
+{
+  "id": "elsecar-atmospheric-pumping-engine",
+  "name": "Elsecar atmospheric pumping engine",
+  "summary": "An atmospheric beam engine of Newcomen's design installed around 1795 to 1796 to pump water out of the Elsecar colliery in South Yorkshire.",
+  "description": "Newcomen-type atmospheric beam engine installed at the Elsecar engine pit to pump mine water.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "materials.mining"
+  ],
+  "tier": 2,
+  "tier_reason": "Retain the Elsecar installation as a witness, not the origin of atmospheric pumping. Its1795 installation and1796 ledger must not become a1712 invention claim. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "origin": "derived",
+  "concept": "atmospheric-steam-engine",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Water flooding the coal workings at the new Elsecar pit had to be pumped out for mining to continue.",
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "elsecar-new-colliery"
+    }
+  ],
+  "people": [
+    {
+      "person": "william-fitzwilliam-4th-earl-fitzwilliam",
+      "role": "patron"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "administrative_record",
+    "surviving_artifact",
+    "later_text"
+  ],
+  "fate": "niche",
+  "events": [
+    {
+      "id": "practical-use-1796",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1796,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by June 1796",
+        "basis": "Historic England lists construction/installation as 1795, while another Historic England research record gives 1796; a 1796 colliery ledger has an engine account with March and June fuel, interpreted by Barnsley Museums as probably for this Newcomen pump."
+      },
+      "statement": "The Newcomen mine pump was installed for dewatering, and a 1796 colliery fuel ledger is interpreted as evidence of its operation by June 1796.",
+      "places": [
+        "elsecar-new-colliery"
+      ],
+      "applications": [
+        "mine dewatering"
+      ],
+      "caveats": "Installation is described as 1795 or 1796 by different Historic England records. The 1796 ledger does not identify the engine by type; Barnsley Museums treats the attribution as an assumption. A first pumping day is not established.",
+      "evidence": [
+        {
+          "source": "england-2020-former-elsecar-colliery",
+          "locator": "Summary and History: engine pit and pumping",
+          "supports": "Documents colliery date, Newcomen engine and its function."
+        },
+        {
+          "source": "england-nd-elsecar-colliery-research",
+          "locator": "Summary: 1796 installation",
+          "supports": "Shows an alternative date to the 1795 listed-building account."
+        },
+        {
+          "source": "stevenson-2022-being-accountable-elsecar",
+          "locator": "1796 ledger discussion, engine account and March/June fuel",
+          "supports": "Museum interprets a dated engine fuel account as probably relating to the surviving Newcomen pump."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1796",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Historic England lists construction/installation as 1795, while another Historic England research record gives 1796; a 1796 colliery ledger has an engine account with March and June fuel, interpreted by Barnsley Museums as probably for this Newcomen pump. Installation is described as 1795 or 1796 by different Historic England records. The 1796 ledger does not identify the engine by type; Barnsley Museums treats the attribution as an assumption. A first pumping day is not established. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1796",
+    "community": "Elsecar colliery workers and estate mine operators",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The colliery fuel account supports a scoped 1796 use inference beyond mere construction; two official sources disagree on installation year.",
+    "proxy_reason": "The ledger identifies “the Engine” and its fuel, while attribution to this particular pump is a museum inference rather than an explicit engine identification.",
+    "caveats": "Installation is described as 1795 or 1796 by different Historic England records. The 1796 ledger does not identify the engine by type; Barnsley Museums treats the attribution as an assumption. A first pumping day is not established."
+  },
+  "caveats": "Installation is described as 1795 or 1796 by different Historic England records. The 1796 ledger does not identify the engine by type; Barnsley Museums treats the attribution as an assumption. A first pumping day is not established.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

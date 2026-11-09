@@ -1,0 +1,180 @@
+{
+  "id": "portable-nanopore-ebola-surveillance",
+  "name": "Portable nanopore Ebola surveillance",
+  "summary": "In 2015 teams in Guinea used suitcase-sized MinION nanopore sequencers to read Ebola virus genomes within days, tracking the outbreak's spread in near real time.",
+  "description": "Oxford Nanopore MinION sequencing and analysis workflow used with collaborating diagnostic laboratories during Ebola surveillance.",
+  "kind": "technology",
+  "domain": "health.public-health",
+  "fields": [
+    "life-sciences.genetics",
+    "health.diagnostics"
+  ],
+  "tier": 2,
+  "tier_reason": "Prefer2 for a particular field-deployed sequencing study, preserving its real instrumental and clinical roles without making it the whole nanopore platform. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "new_application",
+    "field_or_clinical_trial"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The 2013–16 West African Ebola epidemic needed fast genetic tracking where large sequencing labs and reliable infrastructure were unavailable.",
+  "limit_removed": [
+    "access",
+    "speed"
+  ],
+  "setting": [
+    "expedition",
+    "hospital"
+  ],
+  "places": [
+    {
+      "place": "united-kingdom"
+    }
+  ],
+  "people": [
+    {
+      "person": "joshua-quick",
+      "role": "originator"
+    },
+    {
+      "person": "nicholas-loman",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "oxford-nanopore-technologies",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "guinea",
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "practical-use-2015",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2015,
+          "month": 4
+        },
+        "latest": {
+          "year": 2015,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2015-4",
+        "basis": "Date of the sourced local use, recognition, or sale."
+      },
+      "statement": "Collaborating teams used portable nanopore sequencing for outbreak surveillance in Guinea.",
+      "places": [
+        "guinea-coast"
+      ],
+      "place_note": "Ambiguous: may mean the historical Guinea coast of West Africa or the present-day Republic of Guinea; mapped to the coast region",
+      "caveats": "This is a specific 2015 deployment; it does not establish that all outbreaks used it or prove earliest nanopore commercialization.",
+      "evidence": [
+        {
+          "source": "quick-2016-real-time-portable",
+          "locator": "Abstract and text, beginning In April 2015 and diagnostic laboratory collaboration",
+          "supports": "The team transported the system to Guinea and used it for real-time outbreak sequencing."
+        }
+      ]
+    },
+    {
+      "id": "publication-2016",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2016,
+          "month": 2,
+          "day": 3
+        },
+        "latest": {
+          "year": 2016,
+          "month": 2,
+          "day": 3
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2016-2-3",
+        "basis": "Date of the sourced local use, recognition, or sale."
+      },
+      "statement": "A publication described portable nanopore ebola surveillance.",
+      "caveats": "Publication of a report is not proof of first invention, deployment, community acceptance or sale.",
+      "evidence": [
+        {
+          "source": "quick-2016-real-time-portable",
+          "locator": "Nature article online publication date and abstract",
+          "supports": "This source is a dated published account of the specified configuration."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-2015",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of the sourced local use, recognition, or sale. This is a specific 2015 deployment; it does not establish that all outbreaks used it or prove earliest nanopore commercialization. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-2015",
+    "community": "Sequencing and diagnostic teams in Guinea",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Actual field use with local diagnostic partners is stronger than a commercial announcement or laboratory prototype.",
+    "caveats": "This is a specific 2015 deployment; it does not establish that all outbreaks used it or prove earliest nanopore commercialization."
+  },
+  "caveats": "This is a specific 2015 deployment; it does not establish that all outbreaks used it or prove earliest nanopore commercialization.",
+  "links": [
+    {
+      "type": "requires",
+      "from": "taq-based-polymerase-chain-reaction",
+      "status": "established",
+      "statement": "The Guinea sequencing study reported using a Taq-based amplification stage in its workflow.",
+      "scope": "The Ebola sequencing workflow reported by Quick and colleagues, including preparation of the specific 2015 field samples.",
+      "confidence": "high",
+      "alternatives": "The authors discuss direct RNA sequencing as a rejected alternative for this specific workflow.",
+      "caveats": "The 1989 event concerns an earlier immunology application; no direct transfer from that study or a particular kit is asserted.",
+      "timing": "The sources document the relevant concepts or later program; selected community-entry events are not asserted to be direct causal intermediates.",
+      "evidence": [
+        {
+          "source": "bell-1989-polymerase-chain-reaction",
+          "locator": "PMID 2679632 abstract",
+          "supports": "Describes repeated amplification with thermostable Taq polymerase and its immunological research applications by October 1989."
+        },
+        {
+          "source": "quick-2016-real-time-portable",
+          "locator": "Methods, RT-PCR reactions (paragraph P16); main text P5",
+          "supports": "States the targeted RT-PCR stage used SuperScript III one-step reagents with Platinum Taq before MinION sequencing."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "New, scoped proposal for independent historical review."
+  }
+}

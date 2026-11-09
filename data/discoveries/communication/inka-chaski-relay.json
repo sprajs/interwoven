@@ -1,0 +1,220 @@
+{
+  "id": "inka-chaski-relay",
+  "name": "Inka chaski relay",
+  "summary": "Inka chaski runners passed messages and small goods from runner to runner between roadside posts, letting the Inka state move news quickly along its roads.",
+  "description": "State messengers handing news and small goods from runner to runner along selected Inka roads and roadside relay points.",
+  "kind": "practice",
+  "domain": "communication.post",
+  "fields": [
+    "transport.logistics",
+    "economy.law-government"
+  ],
+  "tier": 2,
+  "tier_reason": "Practice fits the messenger institution. Keep the relay distinct from the road and station architecture. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "infrastructure"
+  ],
+  "origin": "independent",
+  "concept": "relay-postal-system",
+  "prompted_by": [
+    "state_or_military"
+  ],
+  "why": "The Inka ruled a long, mountainous empire without horses, so the state stationed trained runners along its roads to carry orders and news.",
+  "limit_removed": [
+    "speed"
+  ],
+  "setting": [
+    "state"
+  ],
+  "funding": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "andes",
+      "note": "Andean regions of Tawantinsuyu (Inka empire), not limited to Peru and Chile"
+    },
+    {
+      "place": "peru"
+    },
+    {
+      "place": "chile"
+    }
+  ],
+  "people": [
+    {
+      "person": "pedro-cieza-de-leon",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "inka-empire"
+  ],
+  "known_from": [
+    "later_text",
+    "archaeological_find"
+  ],
+  "fate": "abandoned",
+  "end_reason": [
+    "social_or_political"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1554",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1554
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1554 (retrospective manuscript account)",
+        "basis": "The attributed Second Part describes an earlier Inka system; Cieza died in 1554. The relay chapter was printed only in the nineteenth century, not in the 1553 First Part."
+      },
+      "statement": "Named state messengers operated a relay along Inka roads, as reconstructed from early colonial descriptions.",
+      "places": [
+        "andes",
+        "peru",
+        "chile"
+      ],
+      "place_note": "Andean regions of Tawantinsuyu (Inka empire), not limited to Peru and Chile",
+      "applications": [
+        "relay of state information and small goods"
+      ],
+      "population": "Chaski messengers and Inka state officials",
+      "caveats": "Cieza’s account is retrospective and mediated through a later translation; use is dated no later than the author’s 1554 death, not to its nineteenth-century publication. Exact first use, universal spacing and identification of any specific surviving site remain uncertain.",
+      "evidence": [
+        {
+          "source": "r-2009-chile-under-inka",
+          "locator": "Printed p. 117 / source PDF p. 119 / excerpt p. 6",
+          "supports": "Describes messengers and separate small chaskiwasis serving a roadside relay."
+        },
+        {
+          "source": "godoy-2022-consideraciones-arqueologicas-etnohistoricas",
+          "locator": "Printed pp. 15–16 / PDF pp. 15–16, Chaski wasi and Chuklla",
+          "supports": "Quotes the Second Part account and discusses varying and uncertain site identifications; its [1553] date does not date that Second Part publication."
+        },
+        {
+          "source": "smithsonian-national-museum-2015-road-administration",
+          "locator": "A Road for Administration; Chaskis—Messengers",
+          "supports": "Describes messengers passing goods and news at relay points on the road."
+        },
+        {
+          "source": "de-leon-1883-second-part-chronicle",
+          "locator": "Chapter XXI, printed pp. 64–66",
+          "supports": "Retrospectively describes roadside post houses, replacement messengers and transmission along the royal roads; the manuscript account was published only centuries later."
+        },
+        {
+          "source": "de-chile-nd-pedro-cieza-leon",
+          "locator": "Opening biography",
+          "supports": "Dates Cieza’s death to 1554, giving a terminus for the attributed historical account, while distinguishing the first and second parts."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1554",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The attributed Second Part describes an earlier Inka system; Cieza died in 1554. The relay chapter was printed only in the nineteenth century, not in the 1553 First Part. Cieza’s account is retrospective and mediated through a later translation; use is dated no later than the author’s 1554 death, not to its nineteenth-century publication. Exact first use, universal spacing and identification of any specific surviving site remain uncertain. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1554",
+    "community": "Chaski messengers and Inka state officials",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "Named state messengers operated a relay along Inka roads, as reconstructed from early colonial descriptions.",
+    "proxy_reason": "The author’s retrospective account describes an operating Inka state relay, with local oral testimony and manuscript transmission limits; the 1554 bound is not a first-use claim.",
+    "caveats": "Cieza’s account is retrospective and mediated through a later translation; use is dated no later than the author’s 1554 death, not to its nineteenth-century publication. Exact first use, universal spacing and identification of any specific surviving site remain uncertain."
+  },
+  "caveats": "Cieza’s account is retrospective and mediated through a later translation; use is dated no later than the author’s 1554 death, not to its nineteenth-century publication. Exact first use, universal spacing and identification of any specific surviving site remain uncertain.",
+  "links": [
+    {
+      "type": "requires",
+      "from": "qhapaq-nan-state-road-network",
+      "from_event": "practical-use-1500",
+      "to_event": "practical-use-1554",
+      "status": "established",
+      "statement": "Chaski messengers used sections of the Inka road network for state relays.",
+      "scope": "The named local system and period in the endpoint records.",
+      "confidence": "medium",
+      "alternatives": "Other paths or modes of carrying messages were possible.",
+      "caveats": "The link is about this state service, not transmission to later postal services.",
+      "timing": "The relation describes components or practices in the same documented system; it does not assert their relative invention dates or cross-regional diffusion.",
+      "evidence": [
+        {
+          "source": "r-2009-chile-under-inka",
+          "locator": "Printed p. 117 / source PDF p. 119 / excerpt p. 6",
+          "supports": "Describes messengers and separate small chaskiwasis serving a roadside relay."
+        },
+        {
+          "source": "godoy-2022-consideraciones-arqueologicas-etnohistoricas",
+          "locator": "Chaski wasi section, Cieza passage and interpretation",
+          "supports": "Reports early colonial testimony and cautions that spacing and archaeological identifications vary."
+        },
+        {
+          "source": "smithsonian-national-museum-2015-road-administration",
+          "locator": "A Road for Administration; Chaskis—Messengers",
+          "supports": "Describes messengers passing goods and news at relay points on the road."
+        },
+        {
+          "source": "unesco-world-heritage-2014-qhapaq-nan-andean",
+          "locator": "Brief synthesis, first two paragraphs",
+          "supports": "Dates the expansion horizon and identifies the imperial road network built partly on earlier Andean infrastructure."
+        }
+      ]
+    },
+    {
+      "type": "companion_of",
+      "from": "chaskiwasi-relay-station",
+      "from_event": "practical-use-1554",
+      "to_event": "practical-use-1554",
+      "status": "established",
+      "statement": "The described chaski relay passed between runners at roadside replacement posts.",
+      "scope": "The named local system and period in the endpoint records.",
+      "confidence": "medium",
+      "alternatives": "Individual couriers or other staging arrangements are possible.",
+      "caveats": "Texts differ on post spacing and no claim is made that every road had such a post.",
+      "timing": "The relation describes components or practices in the same documented system; it does not assert their relative invention dates or cross-regional diffusion.",
+      "evidence": [
+        {
+          "source": "r-2009-chile-under-inka",
+          "locator": "Printed p. 117 / source PDF p. 119 / excerpt p. 6",
+          "supports": "Describes messengers and separate small chaskiwasis serving a roadside relay."
+        },
+        {
+          "source": "godoy-2022-consideraciones-arqueologicas-etnohistoricas",
+          "locator": "Chaski wasi section, Cieza passage and interpretation",
+          "supports": "Reports early colonial testimony and cautions that spacing and archaeological identifications vary."
+        },
+        {
+          "source": "smithsonian-national-museum-2015-road-administration",
+          "locator": "A Road for Administration; Chaskis—Messengers",
+          "supports": "Describes messengers passing goods and news at relay points on the road."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "A candidate regional configuration, deliberately bounded to the cited setting."
+  }
+}

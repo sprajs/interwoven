@@ -1,0 +1,105 @@
+{
+  "id": "arelate-supply-aqueduct",
+  "name": "Arelate supply aqueduct",
+  "summary": "A spring-fed Roman aqueduct branch that carried water to the city of Arelate (Arles) before part of its flow was diverted to the Barbegal mills.",
+  "description": "Southern spring-fed aqueduct branch supplying Arelate before diversion to Barbegal.",
+  "kind": "technology",
+  "domain": "construction.water-works",
+  "tier": 3,
+  "tier_reason": "A particular supply branch is useful fine detail; its place in Barbegal does not establish a separate broad advance. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "infrastructure"
+  ],
+  "origin": "derived",
+  "concept": "aqueduct",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "setting": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "arles",
+      "note": "Roman Gaul (Arelate); Southern Alpilles"
+    },
+    {
+      "place": "alpilles"
+    }
+  ],
+  "societies": [
+    "roman-empire"
+  ],
+  "known_from": [
+    "archaeological_find",
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-120",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 50
+        },
+        "latest": {
+          "year": 120
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "50–120 CE",
+        "basis": "The 2018 site account states this interval of city-supply use; original construction is not independently dated."
+      },
+      "statement": "Southern spring-fed aqueduct branch supplying Arelate before diversion to Barbegal.",
+      "places": [
+        "arles",
+        "alpilles"
+      ],
+      "place_note": "Roman Gaul (Arelate); Southern Alpilles",
+      "caveats": "Chronology is inherited archaeological synthesis; the branch is not the whole Arelate water system.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "surmelihindi-2018-second-century-ce",
+          "locator": "Results, The Barbegal site, paragraph 1",
+          "supports": "City-supply interval and identity of the southern branch."
+        },
+        {
+          "source": "passchier-2024-operation-decline-barbegal",
+          "locator": "p. 595, §2 opening",
+          "supports": "First-century city-supply branches and later detachment of the southern branch."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-120",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The 2018 site account states this interval of city-supply use; original construction is not independently dated. Chronology is inherited archaeological synthesis; the branch is not the whole Arelate water system. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-120",
+    "community": "Users of the Arelate city water supply",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The cited interval records actual city supply before the subsequent diversion, not construction.",
+    "caveats": "The precise first day and distribution of access within the city are unknown."
+  },
+  "caveats": "Chronology is inherited archaeological synthesis; the branch is not the whole Arelate water system.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    }
+  }
+}

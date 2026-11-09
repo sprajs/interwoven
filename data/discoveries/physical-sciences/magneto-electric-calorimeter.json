@@ -1,0 +1,187 @@
+{
+  "id": "magneto-electric-calorimeter",
+  "name": "Magneto-electric calorimeter",
+  "summary": "Joule spun an electromagnet inside a water-filled vessel between magnet poles and measured the current and the water's warming, to study heat made by induced electricity.",
+  "description": "Joule rotated a compound electromagnet immersed in water between magnetic poles, measured circuit current with a galvanometer, and measured water-temperature change; the initial inducing magnets were reused from an electromagnetic engine.",
+  "kind": "technology",
+  "domain": "physical-sciences.heat",
+  "fields": [
+    "measurement.laboratory",
+    "physical-sciences.electromagnetism"
+  ],
+  "tier": 3,
+  "tier_reason": "The first apparatus configuration can be fine detail. Its changed stationary magnet and subsequent role rule out automatic duplication. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "experimental_method"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "prior_theory"
+  ],
+  "why": "Joule wanted to know whether heat produced by induced currents was newly generated or merely moved from elsewhere, as the caloric theory implied.",
+  "setting": [
+    "individual"
+  ],
+  "funding": [
+    "self"
+  ],
+  "places": [
+    {
+      "place": "broom-hill-pendlebury"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-prescott-joule",
+      "role": "originator"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "publication-1843",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1843
+        },
+        "latest": {
+          "year": 1843
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1843",
+        "basis": "Joule’s collected reprint identifies the detailed report with Philosophical Magazine volume 23, published in 1843; the original individual issues were not reopened."
+      },
+      "statement": "Joule published a specialist description of the apparatus and its results in 1843.",
+      "places": [
+        "united-kingdom"
+      ],
+      "scope": "Joule’s immersed rotating compound electromagnet and galvanometer, with the initial inducing magnets reused from an electromagnetic engine.",
+      "caveats": "The later collected heading also reports an August 1843 reading, but the completeness of that oral delivery relative to the printed serial was not established.",
+      "evidence": [
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "Collected pp. 123–129, Part I and apparatus; report heading",
+          "supports": "Detailed apparatus description in the article identified with the 1843 Philosophical Magazine."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1843",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1843
+        },
+        "latest": {
+          "year": 1843
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1843 report",
+        "basis": "The paper is signed July 1843 and was read at Cork on 21 August 1843; dates the reported apparatus, not an independently established construction day."
+      },
+      "statement": "Joule rotated a compound electromagnet immersed in water between magnetic poles, measured circuit current with a galvanometer, and measured water-temperature change; the initial inducing magnets were reused from an electromagnetic engine.",
+      "places": [
+        "broom-hill-pendlebury"
+      ],
+      "caveats": "Configurations changed across experiments. This node describes the initial calorimetric arrangement, not every later trial or a modern efficiency claim.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "Collected pp. 123–127, Part I apparatus and methods; original paper read-date heading",
+          "supports": "Water vessel, rotating electromagnet, galvanometer, thermometry, reused engine magnets and place/date."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1843",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The paper is signed July 1843 and was read at Cork on 21 August 1843; dates the reported apparatus, not an independently established construction day. Configurations changed across experiments. This node describes the initial calorimetric arrangement, not every later trial or a modern efficiency claim. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1843",
+    "community": "Readers of Joule’s 1843 Philosophical Magazine report",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "The detailed specialist paper provides defensible community publication beyond Joule’s private experiments.",
+    "proxy_reason": "No independently documented later use of this exact apparatus configuration was found. Publication gives awareness, not adoption or commercial availability.",
+    "caveats": "The later collected heading also reports an August 1843 reading, but the completeness of that oral delivery relative to the printed serial was not established."
+  },
+  "caveats": "Configurations changed across experiments. This node describes the initial calorimetric arrangement, not every later trial or a modern efficiency claim.",
+  "links": [
+    {
+      "type": "requires",
+      "from": "moving-magnet-induction-test",
+      "from_event": "observation-1831",
+      "to_event": "dated-assertion-1843",
+      "status": "established",
+      "statement": "The magneto-electric operation measured by Joule uses electromagnetic induction, the phenomenon demonstrated by Faraday’s moving-magnet experiment.",
+      "scope": "Only the identified configurations and source-described contribution.",
+      "confidence": "high",
+      "alternatives": "No unique historical route or universal necessity asserted.",
+      "caveats": "A bounded physical-function synthesis, not proof that Joule copied this particular apparatus or read a specific report.",
+      "timing": "The 1831 demonstration precedes the apparatus reported in 1843.",
+      "evidence": [
+        {
+          "source": "joule-1884-calorific-effects-magneto",
+          "locator": "1843 paper, printed pp. 124–126, apparatus introduction",
+          "supports": "Identifies induction of magneto-electricity in Joule’s arrangement."
+        },
+        {
+          "source": "faraday-1849-experimental-researches-electricity",
+          "locator": "First Series §§34–43, especially §39",
+          "supports": "Explains the confound being tested, permanent-magnet insertion/withdrawal and outside-coil control."
+        }
+      ]
+    },
+    {
+      "type": "uses_instrument",
+      "from": "moving-magnet-induction-test",
+      "status": "insufficient",
+      "statement": "Did Joule's magneto-electric calorimeter draw directly on Faraday's induction results? This would join the electromagnetism and thermodynamics threads.",
+      "caveats": "Evidence needed: Joule's 1843 paper or contemporary text naming Faraday's induction work as the basis of the apparatus.",
+      "finding": "Inspected Joule’s author-edited 1843 paper reprint (mech-s2-joule-1843, pp. 123–127 and the Faraday attribution just before Part II). The apparatus uses an immersed rotating electromagnet and reused engine magnets. The later Faraday attribution concerns currents in rotating nonmagnetic conductors; it does not identify the specific 1831 moving-magnet insertion test as the direct design source. Broader induction relevance is insufficient for this exact edge."
+    },
+    {
+      "type": "adapts",
+      "from": "rotating-copper-disc-generator",
+      "status": "insufficient",
+      "statement": "Does Joule's rotating magneto-electric apparatus descend from Faraday-type rotating generators, or from a later machine?",
+      "caveats": "Evidence needed: The specific machine design Joule cites or describes. An intermediate maker may need its own entry.",
+      "finding": "Joule’s apparatus description (mech-s2-joule-1843, pp. 124–127) specifies a rotating laminated-iron electromagnet, mercury commutator and inducing magnets formerly belonging to an engine. It does not identify adaptation of Faraday’s copper disc with rim/axle contacts. The same paper later credits Faraday for currents in rotating conductors, a different bounded proposition; no direct disc-to-calorimeter genealogy established."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

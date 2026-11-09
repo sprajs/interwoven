@@ -1,0 +1,220 @@
+{
+  "id": "reversing-regenerative-furnace",
+  "name": "Reversing regenerative furnace",
+  "summary": "The regenerative furnace stores exhaust heat in brick chambers and uses it to warm incoming air, switching the flow direction periodically.",
+  "description": "A furnace alternates the flow through heat-storing refractory chambers: exhaust heats one chamber while incoming combustion fluid is warmed by another, and the directions are periodically reversed.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "fields": [
+    "materials.glass",
+    "energy.fire"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "operating_principle",
+    "performance_improvement"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Furnaces wasted much of their heat in hot exhaust gases, so recovering it promised large fuel savings for steel and glass works.",
+  "limit_removed": [
+    "power_or_energy",
+    "cost"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "united-kingdom"
+    }
+  ],
+  "people": [
+    {
+      "person": "carl-wilhelm-siemens",
+      "role": "originator"
+    },
+    {
+      "person": "friedrich-siemens",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "marriott-and-atkinson",
+      "role": "operator"
+    },
+    {
+      "organization": "chance-brothers",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "fate": "in_use",
+  "market": {
+    "status": "commercial",
+    "note": "The process can be supplied or used in economic production, separately from the date of its first offer.",
+    "evidence": [
+      {
+        "source": "jephcott-1949-years-glassmaking",
+        "locator": "Printed p. 2 / PDF p. 3, visually inspected",
+        "supports": "Chance Brothers’ 1949 company history says it adopted the Siemens regenerative gas furnace in 1861."
+      },
+      {
+        "source": "manufacturer-1878-biography-charles-william",
+        "locator": "Description of the regenerative gas furnace",
+        "supports": "Describes paired refractory-brick chambers alternately heated by waste gas and used to warm incoming air and fuel gas."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "practical-deployment-1857",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1857,
+          "month": 7,
+          "day": 13
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 13 July 1857",
+        "basis": "The 1857 report describes a six-day comparison at the named works beginning 13 July; the date is an upper bound on actual use, not a first-start date."
+      },
+      "statement": "A regenerative furnace was in use to heat iron and steel at Marriott and Atkinson’s Sheffield works by the start of a reported comparison on 13 July 1857.",
+      "places": [
+        "sheffield"
+      ],
+      "scope": "A reversing regenerative heating furnace operating at Marriott and Atkinson’s steelworks; combustion air is preheated in refractory regenerators.",
+      "applications": [
+        "heating iron and steel for rolling"
+      ],
+      "population": "Marriott and Atkinson steelworks workers",
+      "caveats": "The contemporary report says the Sheffield furnace operated, and dates a six-day trial beginning 13 July 1857; its exact start and later duration are unknown. It describes alternating heated chambers and incoming air, without establishing the later gas-fired glass-furnace layout. The separately documented Chance adoption was in 1861; neither is asserted to be the world’s first use or first sale.",
+      "evidence": [
+        {
+          "source": "siemens-1857-neue-ofen-einrichtung",
+          "locator": "Article XLI, final paragraphs: Sheffield works and comparison beginning 13 July 1857",
+          "supports": "Reports a furnace using the described heat-regeneration arrangement in use at Marriott and Atkinson in Sheffield for heating iron and steel; the six-day comparison began 13 July 1857."
+        },
+        {
+          "source": "siemens-1857-neue-ofen-einrichtung",
+          "locator": "Article XLI, mechanism",
+          "supports": "Describes exhaust heating refractory bricks, reversing the draught at intervals, and warming incoming combustion air."
+        }
+      ]
+    },
+    {
+      "id": "practical-deployment-1861",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1861
+        },
+        "latest": {
+          "year": 1861
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1861",
+        "basis": "Chance Brothers’ 1949 company history states that the firm adopted the Siemens regenerative furnace in 1861."
+      },
+      "statement": "Chance Brothers adopted a Siemens regenerative gas furnace for glassmaking in 1861.",
+      "places": [
+        "spon-lane-smethwick"
+      ],
+      "scope": "A Siemens regenerative gas furnace adopted by Chance Brothers for glassmaking; the individual furnace’s exact valve layout is not stated.",
+      "applications": [
+        "glass production"
+      ],
+      "population": "Chance Brothers glassmaking workers",
+      "caveats": "The retrospective company account dates adoption to 1861 but does not describe every detail of the individual furnace. The Sheffield iron-and-steel heating use was already reported by July 1857.",
+      "evidence": [
+        {
+          "source": "jephcott-1949-years-glassmaking",
+          "locator": "Printed p. 2 / PDF p. 3, visually inspected",
+          "supports": "Chance Brothers’ 1949 company history says it adopted the Siemens regenerative gas furnace in 1861."
+        },
+        {
+          "source": "manufacturer-1878-biography-charles-william",
+          "locator": "Description of the regenerative gas furnace",
+          "supports": "Describes paired refractory-brick chambers alternately heated by waste gas and used to warm incoming air and fuel gas."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1857",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The 1857 report describes a six-day comparison at the named works beginning 13 July; the date is an upper bound on actual use, not a first-start date. The contemporary report says the Sheffield furnace operated, and dates a six-day trial beginning 13 July 1857; its exact start and later duration are unknown. It describes alternating heated chambers and incoming air, without establishing the later gas-fired glass-furnace layout. The separately documented Chance adoption was in 1861; neither is asserted to be the world’s first use or first sale. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1857",
+    "community": "Marriott and Atkinson steelworks workers",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A named steelworks operated the described furnace on iron and steel and compared it against a conventional furnace.",
+    "caveats": "The contemporary report says the Sheffield furnace operated, and dates a six-day trial beginning 13 July 1857; its exact start and later duration are unknown. It describes alternating heated chambers and incoming air, without establishing the later gas-fired glass-furnace layout. The separately documented Chance adoption was in 1861; neither is asserted to be the world’s first use or first sale."
+  },
+  "caveats": "The contemporary report says the Sheffield furnace operated, and dates a six-day trial beginning 13 July 1857; its exact start and later duration are unknown. It describes alternating heated chambers and incoming air, without establishing the later gas-fired glass-furnace layout. The separately documented Chance adoption was in 1861; neither is asserted to be the world’s first use or first sale.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "The sources do not establish the first worldwide commercial offer or sale of this configured process.",
+        "evidence": [
+          {
+            "source": "jephcott-1949-years-glassmaking",
+            "locator": "Printed p. 2 / PDF p. 3, visually inspected",
+            "supports": "Chance Brothers’ 1949 company history says it adopted the Siemens regenerative gas furnace in 1861."
+          },
+          {
+            "source": "manufacturer-1878-biography-charles-william",
+            "locator": "Description of the regenerative gas furnace",
+            "supports": "Describes paired refractory-brick chambers alternately heated by waste gas and used to warm incoming air and fuel gas."
+          },
+          {
+            "source": "siemens-1857-neue-ofen-einrichtung",
+            "locator": "Article XLI, final paragraphs: Sheffield works and comparison beginning 13 July 1857",
+            "supports": "Reports a furnace using the described heat-regeneration arrangement in use at Marriott and Atkinson in Sheffield for heating iron and steel; the six-day comparison began 13 July 1857."
+          },
+          {
+            "source": "siemens-1857-neue-ofen-einrichtung",
+            "locator": "Article XLI, mechanism",
+            "supports": "Describes exhaust heating refractory bricks, reversing the draught at intervals, and warming incoming combustion air."
+          }
+        ]
+      }
+    ],
+    "note": "Independent historical, lifecycle and global frontier review required."
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "id": "xerox-parc-ethernet-shared-cable-network",
+  "name": "Xerox PARC Ethernet shared cable network",
+  "summary": "At Xerox PARC by 1974, an experimental Ethernet linked Alto computers and a laser printer over one shared coaxial cable; by 1976 it had 100 nodes.",
+  "description": "Xerox PARC experimental Ethernet packet network connecting computers over shared coaxial cable.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "fields": [
+    "communication.telecommunication"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "device_or_configuration",
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "practical_need",
+    "transmission_from_other_place"
+  ],
+  "why": "PARC was building many Alto personal computers and a fast laser printer and needed a cheap way for them to share files and printing; ALOHAnet's shared-channel idea was an example.",
+  "limit_removed": [
+    "access"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "california"
+    }
+  ],
+  "people": [
+    {
+      "person": "robert-metcalfe",
+      "role": "originator"
+    },
+    {
+      "person": "david-boggs",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "xerox-parc",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "practical-use-1974",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1974
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1974",
+        "basis": "Latest documented event, not a claim to the earliest possible event."
+      },
+      "statement": "By 1974 Xerox PARC used an experimental Ethernet connecting Alto computers and a laser printer.",
+      "places": [
+        "california"
+      ],
+      "applications": [
+        "Local research-computer networking"
+      ],
+      "caveats": "Metcalfe dates the first experimental network to 1974; IEEE’s retrospective places printer use in 1973. Exact first use is not settled.",
+      "evidence": [
+        {
+          "source": "metcalfe-2002-what-is-thing",
+          "locator": "Opening paragraph",
+          "supports": "Metcalfe recalls building a network connecting dozens of Altos and a laser printer in 1974."
+        },
+        {
+          "source": "perry-1985-xerox-parcs-engineers",
+          "locator": "Networking and EARS sections",
+          "supports": "An IEEE oral-history account says the EARS printer received Alto documents over Ethernet in 1973."
+        },
+        {
+          "source": "metcalfe-1976-ethernet-distributed-packet",
+          "locator": "Section 1.3 and section 3",
+          "supports": "The authors distinguish the distributed DCS ring and central-switching local networks, and credit ALOHA collision/retransmission ideas."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1976",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1976,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 1976-07",
+        "basis": "Latest documented availability or use; no earliest entry date is asserted."
+      },
+      "statement": "The 1976 authors describe an operating Ethernet of 100 nodes along approximately one kilometre of coaxial cable.",
+      "places": [
+        "california"
+      ],
+      "applications": [
+        "Local research-computer networking"
+      ],
+      "caveats": "The paper does not establish a retail offer or complete adoption by Xerox offices.",
+      "evidence": [
+        {
+          "source": "metcalfe-1976-ethernet-distributed-packet",
+          "locator": "Abstract and sections 1–2",
+          "supports": "The authors report an operating 100-node system and describe the office and laboratory context."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1974",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest documented event, not a claim to the earliest possible event. Metcalfe dates the first experimental network to 1974; IEEE’s retrospective places printer use in 1973. Exact first use is not settled. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1974",
+    "community": "Xerox PARC Alto computer and shared-printer users",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The by-1974 bound covers both participant accounts of real research-computing and printing use.",
+    "caveats": "Metcalfe dates the first experimental network to 1974; IEEE’s retrospective places printer use in 1973. Exact first use is not settled."
+  },
+  "caveats": "The paper does not establish a retail offer or complete adoption by Xerox offices.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "university-of-hawaii-alohanet",
+      "status": "established",
+      "statement": "Ethernet’s developers describe starting its shared-channel design with packet collision and retransmission ideas developed in the ALOHA Network.",
+      "scope": "Specific random-access design ideas, not identity of radio and coaxial implementations.",
+      "confidence": "high",
+      "alternatives": "Other implementations and technological pathways existed.",
+      "caveats": "Ethernet added carrier sensing and collision detection; this does not say ALOHAnet equipment was installed in the Ethernet.",
+      "timing": "ALOHAnet operational use precedes the 1976 Ethernet paper.",
+      "evidence": [
+        {
+          "source": "metcalfe-1976-ethernet-distributed-packet",
+          "locator": "Section 3, Design Principles",
+          "supports": "Metcalfe and Boggs explicitly credit packet collision and retransmission ideas from the ALOHA Network."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Proposed community-entry claim; independent historical and lifecycle review pending."
+  }
+}

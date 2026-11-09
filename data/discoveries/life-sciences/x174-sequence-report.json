@@ -1,0 +1,165 @@
+{
+  "id": "x174-sequence-report",
+  "name": "φX174 sequence report",
+  "summary": "Sanger's team reported the roughly 5,375-letter DNA sequence of the virus φX174 in 1977, revealing that some of its genes overlap.",
+  "description": "A reported approximately 5,375-nucleotide φX174 sequence, obtained with plus/minus sequencing, revealed overlapping coding regions.",
+  "kind": "science",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "life-sciences.cells-microbes"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "dataset",
+    "observation"
+  ],
+  "scale": "revises",
+  "prompted_by": [
+    "new_capability"
+  ],
+  "setting": [
+    "state"
+  ],
+  "funding": [
+    "state"
+  ],
+  "places": [
+    {
+      "place": "cambridge-england",
+      "note": "Wider collaborating laboratories unresolved"
+    }
+  ],
+  "people": [
+    {
+      "person": "frederick-sanger",
+      "role": "originator"
+    },
+    {
+      "person": "alan-coulson",
+      "role": "contributor"
+    },
+    {
+      "person": "bart-barrell",
+      "role": "contributor"
+    },
+    {
+      "person": "clyde-hutchison",
+      "role": "contributor"
+    },
+    {
+      "person": "michael-smith",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "mrc-laboratory-of-molecular-biology",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "publication-1977",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1977,
+          "month": 2,
+          "day": 24
+        },
+        "latest": {
+          "year": 1977,
+          "month": 2,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1977-2-24",
+        "basis": "Date of the cited public report or documented event."
+      },
+      "statement": "A reported approximately 5,375-nucleotide φX174 sequence, obtained with plus/minus sequencing, revealed overlapping coding regions.",
+      "caveats": "This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "sanger-1977-nucleotide-sequence-bacteriophage",
+          "locator": "Abstract and bibliographic date",
+          "supports": "Reported sequence, method, overlapping frames."
+        },
+        {
+          "source": "sanger-1977-dna-sequencing-chain",
+          "locator": "p. 5463, opening paragraph",
+          "supports": "Contemporary attribution to the plus/minus method."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1977",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of the cited public report or documented event. This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1977",
+    "community": "Bacteriophage and DNA-sequence researchers reading Nature",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "This is the dissemination of the actual sequence report rather than an earlier partial sequencing experiment.",
+    "proxy_reason": "Specialist publication supplies a supported awareness route, with later independent use still unestablished.",
+    "caveats": "The sequence was subsequently revised; this date does not establish first independent reuse or consensus."
+  },
+  "caveats": "This is the original approximate-length report, not the later corrected reference sequence; no universal first-genome claim.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "plus-minus-dna-sequencing",
+      "from_event": "demonstration-1974",
+      "to_event": "publication-1977",
+      "status": "established",
+      "statement": "The original φX174 genome report explicitly used the plus/minus sequence-reading method.",
+      "scope": "Genome report published February 1977.",
+      "confidence": "high",
+      "alternatives": "Other methods could supply or later check sequence data.",
+      "caveats": "The inspected abstract does not allocate every segment or confirmation to an individual experiment.",
+      "timing": "The method demonstration was documented by December 1974, before the 1977 genome-sequence report.",
+      "evidence": [
+        {
+          "source": "sanger-1977-nucleotide-sequence-bacteriophage",
+          "locator": "Abstract",
+          "supports": "Direct statement of the employed method."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "liber-abaci-positional-arithmetic",
+  "name": "Liber abaci positional arithmetic",
+  "summary": "Fibonacci's revised Liber abaci taught Italian readers to write numbers with nine figures and 0 by place value, with worked examples of arithmetic.",
+  "description": "The revised Liber abaci teaches writing numbers with nine figures plus 0, decimal place values and explicit empty-place examples such as 209, alongside arithmetic procedures.",
+  "kind": "mathematics",
+  "domain": "mathematics.number",
+  "fields": [
+    "economy.trade"
+  ],
+  "tier": 1,
+  "tier_reason": "Retain the mathematical synthesis; the surviving Siena copy cannot automatically displace1202/1228 composition evidence. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "codification_or_teaching"
+  ],
+  "scale": "extends",
+  "origin": "derived",
+  "concept": "hindu-arabic-numeral-arithmetic",
+  "prompted_by": [
+    "transmission_from_other_place"
+  ],
+  "why": "Leonardo learned Arabic-Indian reckoning while with his merchant father in North Africa and wrote it up for Italian commercial use.",
+  "places": [
+    {
+      "place": "pisa",
+      "note": "Pisan author/work context"
+    }
+  ],
+  "people": [
+    {
+      "person": "fibonacci",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "republic-of-pisa"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "reception": "gradual",
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "documented-description-1228",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1228
+        },
+        "latest": {
+          "year": 1228
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1228 revision",
+        "basis": "Dates the surviving revised work, not the lost first redaction of 1202 or the date of its later manuscript copies."
+      },
+      "statement": "The revised Liber abaci teaches writing numbers with nine figures plus 0, decimal place values and explicit empty-place examples such as 209, alongside arithmetic procedures.",
+      "caveats": "The opening heading recalls 1202, but surviving content must not automatically be assigned to that lost first version. No broad merchant adoption is inferred from the text's existence.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "pisano-nd-liber-abaci-prologue",
+          "locator": "Prologue I.1–I.3; chapter I, I.5–I.7 and empty-tens example on Boncompagni p. 3",
+          "supports": "The revision preface, learning account and numeral-writing rules are explicit."
+        },
+        {
+          "source": "oconnor-1998-leonardo-pisano-fibonacci",
+          "locator": "Biography, paragraph beginning A second edition",
+          "supports": "Dates the revised edition to 1228."
+        }
+      ]
+    },
+    {
+      "id": "public-availability-1350",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1251
+        },
+        "latest": {
+          "year": 1350
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Late 13th to early 14th century (estimated)",
+        "basis": "Devlin estimates late 13th century; Germano identifies the manuscript as late 13th to early 14th century. The half-century endpoints encode a broad approximate reading, not proven limits."
+      },
+      "statement": "A Siena manuscript preserves the first page of the revised Liber abaci, including its numeral teaching.",
+      "applications": [
+        "manuscript copying"
+      ],
+      "caveats": "Devlin says late 13th century; Germano extends the estimate into the early 14th century. The half-century endpoints are conventional estimates, not secure dating limits. Current Siena custody does not establish where it was copied; copying does not prove arithmetic use.",
+      "evidence": [
+        {
+          "source": "devlin-2011-leonardo-steve-young",
+          "locator": "Slide beginning The first page of a copy of the 1228 edition of Liber abbaci kept in the Siena Public Library",
+          "supports": "Identifies the copy and estimates its late-13th-century date."
+        },
+        {
+          "source": "pisano-nd-liber-abaci-prologue",
+          "locator": "Chapter I, I.5–I.7 and empty-tens example, Boncompagni p. 3",
+          "supports": "Identifies the number-notation content of the work."
+        },
+        {
+          "source": "germano-2013-editorial-perspectives-fibonaccis",
+          "locator": "Printed p. 158 / PDF p. 4, list of manuscript witnesses",
+          "supports": "Classifies Siena L. IV. 20 as late 13th to early 14th century and identifies omissions."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-1228",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Dates the surviving revised work, not the lost first redaction of 1202 or the date of its later manuscript copies. The opening heading recalls 1202, but surviving content must not automatically be assigned to that lost first version. No broad merchant adoption is inferred from the text's existence. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "public-availability-1350",
+    "community": "The copyist of the Siena manuscript witness",
+    "basis": "public_availability",
+    "strength": "scoped_inference",
+    "rationale": "The surviving manuscript provides a named physical witness of textual transmission rather than assuming that a dedication proves the addressee received it.",
+    "proxy_reason": "A surviving copied text supports access by that particular copyist; this narrow availability does not establish broader distribution, comprehension or performance of the arithmetic methods.",
+    "caveats": "Devlin says late 13th century; Germano extends the estimate into the early 14th century. The half-century endpoints are conventional estimates, not secure dating limits. Current Siena custody does not establish where it was copied; copying does not prove arithmetic use."
+  },
+  "caveats": "The opening heading recalls 1202, but surviving content must not automatically be assigned to that lost first version. No broad merchant adoption is inferred from the text's existence.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "bugia-numeral-instruction",
+      "from_event": "dated-assertion-1202",
+      "to_event": "documented-description-1228",
+      "status": "established",
+      "statement": "Leonardo links his instruction at Bugia and later study of Indian calculation methods to his decision to compose Liber abaci; its revised text explicitly teaches positional numerals and zero.",
+      "scope": "Bugia and later Mediterranean study to the Latin Liber abaci; childhood instruction before the composition dated 1202, surviving revision 1228.",
+      "confidence": "high",
+      "alternatives": "Twelfth-century Latin algorisms provided other routes independent of this autobiographical episode.",
+      "caveats": "The relation relies on Leonardo's account. No al-Khwarizmi book, particular teacher or complete chain from India is identified.",
+      "timing": "Instruction precedes initial composition; content is shown at the surviving revision's date to avoid backdating details.",
+      "evidence": [
+        {
+          "source": "pisano-nd-liber-abaci-prologue",
+          "locator": "Prologue I.3 / G:I.7 and chapter I I.5–I.7",
+          "supports": "The author supplies the learning-to-composition account and demonstrates the resulting notation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

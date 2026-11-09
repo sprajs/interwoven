@@ -1,0 +1,180 @@
+{
+  "id": "system-r-costed-join-planning",
+  "name": "System R costed join planning",
+  "summary": "IBM's System R chose how to run a database query by comparing the estimated cost of possible join orders, using catalog statistics about the stored data.",
+  "description": "Relational SQL planning that enumerates multiway joins by subsets, retains plans for useful output orderings, and estimates access cost using catalog statistics and weighted CPU and input/output terms.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "mathematical_method",
+    "performance_improvement"
+  ],
+  "scale": "modular",
+  "concept": "relational-query-optimization",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "SQL let users say what data they wanted without saying how to fetch it, so the system itself had to choose an efficient way to run each query.",
+  "limit_removed": [
+    "speed"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "patricia-selinger",
+      "role": "originator"
+    },
+    {
+      "person": "morton-astrahan",
+      "role": "contributor"
+    },
+    {
+      "person": "donald-chamberlin",
+      "role": "contributor"
+    },
+    {
+      "person": "raymond-lorie",
+      "role": "contributor"
+    },
+    {
+      "person": "thomas-g-price",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "ibm",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "practical-deployment-1979",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1979
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1979",
+        "basis": "Latest supported use or availability; the first worldwide entry is not established."
+      },
+      "statement": "IBM and external joint-study teams evaluated the multiuser System R database in 1978–79.",
+      "scope": "Experimental multiuser System R at IBM and external joint-study sites in 1978–79.",
+      "applications": [
+        "Relational database queries and inventory or research records"
+      ],
+      "population": "System R joint-study researchers and external user teams",
+      "caveats": "INGRES authors had already formulated a minimum-cost recurrence and implemented a simpler relation-size choice. The 1981 history reports experimental sites, not a commercial product; the reunion does not date each partner’s individual query. The cost optimizer is part of the documented system configuration, not proof every user query used a particular plan.",
+      "evidence": [
+        {
+          "source": "chamberlin-1981-history-evaluation-system",
+          "locator": "Printed pp. 632–635 and 638–641",
+          "supports": "System R’s multiuser optimizer preceded experimental external-site evaluations in 1978–79."
+        },
+        {
+          "source": "selinger-1979-access-path-selection",
+          "locator": "Printed pp. 23–34",
+          "supports": "The optimizer combines catalog statistics, estimated CPU/I/O costs and join-order selection."
+        },
+        {
+          "source": "wong-1976-decomposition-strategy-query",
+          "locator": "Section 7, printed pp. 21–24 / PDF pp. 23–26",
+          "supports": "INGRES had an earlier cost recurrence and an implemented smallest-relation selection rule."
+        },
+        {
+          "source": "mcjones-1997-sql-reunion-people",
+          "locator": "Printed pp. 20–21",
+          "supports": "Participants recall Pratt & Whitney engine-parts and Upjohn clinical-research uses."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1979",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest supported use or availability; the first worldwide entry is not established. INGRES authors had already formulated a minimum-cost recurrence and implemented a simpler relation-size choice. The 1981 history reports experimental sites, not a commercial product; the reunion does not date each partner’s individual query. The cost optimizer is part of the documented system configuration, not proof every user query used a particular plan. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1979",
+    "community": "System R joint-study researchers and external user teams",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The system developers document actual external evaluations; later participants identify applications, while the contemporary system paper establishes the optimizer.",
+    "proxy_reason": "The 1981 history documents external teams using the multiuser system and its optimizer architecture, without specifying the internal plan selected for each user query.",
+    "caveats": "INGRES authors had already formulated a minimum-cost recurrence and implemented a simpler relation-size choice. The 1981 history reports experimental sites, not a commercial product; the reunion does not date each partner’s individual query. The cost optimizer is part of the documented system configuration, not proof every user query used a particular plan."
+  },
+  "caveats": "INGRES authors had already formulated a minimum-cost recurrence and implemented a simpler relation-size choice. The 1981 history reports experimental sites, not a commercial product; the reunion does not date each partner’s individual query. The cost optimizer is part of the documented system configuration, not proof every user query used a particular plan.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "A first commercial offer or sale is not established.",
+        "evidence": [
+          {
+            "source": "chamberlin-1981-history-evaluation-system",
+            "locator": "Printed pp. 632–635 and 638–641",
+            "supports": "System R’s multiuser optimizer preceded experimental external-site evaluations in 1978–79."
+          },
+          {
+            "source": "selinger-1979-access-path-selection",
+            "locator": "Printed pp. 23–34",
+            "supports": "The optimizer combines catalog statistics, estimated CPU/I/O costs and join-order selection."
+          },
+          {
+            "source": "wong-1976-decomposition-strategy-query",
+            "locator": "Section 7, printed pp. 21–24 / PDF pp. 23–26",
+            "supports": "INGRES had an earlier cost recurrence and an implemented smallest-relation selection rule."
+          },
+          {
+            "source": "mcjones-1997-sql-reunion-people",
+            "locator": "Printed pp. 20–21",
+            "supports": "Participants recall Pratt & Whitney engine-parts and Upjohn clinical-research uses."
+          }
+        ]
+      }
+    ],
+    "note": "Candidate historical and lifecycle assertions await independent review."
+  }
+}

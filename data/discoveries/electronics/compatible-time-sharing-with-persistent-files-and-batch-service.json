@@ -1,0 +1,183 @@
+{
+  "id": "compatible-time-sharing-with-persistent-files-and-batch-service",
+  "name": "Compatible time sharing with persistent files and batch service",
+  "summary": "By 1963 MIT's Compatible Time-Sharing System let many people use one IBM 7090 at once through terminals, keep named files on disk, and leave batch work running.",
+  "description": "A 1963 CTSS configuration combining interactive shared access, named persistent disk files, supervisor protection and compatibility with a batch-processing service on an IBM 7090.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "fields": [
+    "electronics.computers"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "concept": "time-sharing",
+  "limit_removed": [
+    "access"
+  ],
+  "setting": [
+    "school"
+  ],
+  "funding": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "fernando-corbato",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "massachusetts-institute-of-technology",
+      "role": "host"
+    },
+    {
+      "organization": "project-mac",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "scientific_publication",
+    "later_text"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-1963",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1963,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 1963-08",
+        "basis": "Latest supported use or availability; the first worldwide entry is not established."
+      },
+      "statement": "Visitors at the 1963 Project MAC Summer Study used CTSS through terminals by August 1963 while the host computer continued batch work.",
+      "places": [
+        "mit-cambridge"
+      ],
+      "scope": "1963 MIT CTSS service, accessed through terminals while the 7090 continued FMS batch service.",
+      "applications": [
+        "Interactive programming and shared computational research"
+      ],
+      "population": "Project MAC summer-study visitors from universities, industry and government",
+      "caveats": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service.",
+      "evidence": [
+        {
+          "source": "van-vleck-2026-project-mac",
+          "locator": "Summer Study section",
+          "supports": "A participant history describes visitors using CTSS via terminals while FMS batch work continued."
+        },
+        {
+          "source": "mit-computation-center-1963-compatible-time-sharing",
+          "locator": "Printed pp. v–vi, 5–6 and 23–24",
+          "supports": "The 1963 guide describes protected operation and named disk files."
+        },
+        {
+          "source": "walden-2011-compatible-time-sharing",
+          "locator": "Printed pp. 3–4 / PDF p. 12",
+          "supports": "A participant retrospective connects the upgraded disk-based hardware configuration to summer 1963."
+        },
+        {
+          "source": "bell-1978-computer-engineering-dec",
+          "locator": "Printed pp. 140–141",
+          "supports": "BBN had already operated a protected PDP-1 time-sharing system."
+        },
+        {
+          "source": "mccarthy-1963-time-sharing-debugging",
+          "locator": "Printed pp. 51–52 and 56",
+          "supports": "The 1963 authors report BBN service from September 1962 and identify the absence of a drum program library."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1963",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest supported use or availability; the first worldwide entry is not established. The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1963",
+    "community": "Project MAC summer-study visitors",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "Participant history documents actual use by an identifiable wider research community, while the 1963 manual describes the configuration.",
+    "proxy_reason": "The account identifies summer visitors using the same CTSS service; the 1963 guide documents available disk features. It does not prove each visitor used every individual feature.",
+    "caveats": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service."
+  },
+  "caveats": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "A first commercial offer or sale is not established.",
+        "evidence": [
+          {
+            "source": "van-vleck-2026-project-mac",
+            "locator": "Summer Study section",
+            "supports": "A participant history describes visitors using CTSS via terminals while FMS batch work continued."
+          },
+          {
+            "source": "mit-computation-center-1963-compatible-time-sharing",
+            "locator": "Printed pp. v–vi, 5–6 and 23–24",
+            "supports": "The 1963 guide describes protected operation and named disk files."
+          },
+          {
+            "source": "walden-2011-compatible-time-sharing",
+            "locator": "Printed pp. 3–4 / PDF p. 12",
+            "supports": "A participant retrospective connects the upgraded disk-based hardware configuration to summer 1963."
+          },
+          {
+            "source": "bell-1978-computer-engineering-dec",
+            "locator": "Printed pp. 140–141",
+            "supports": "BBN had already operated a protected PDP-1 time-sharing system."
+          },
+          {
+            "source": "mccarthy-1963-time-sharing-debugging",
+            "locator": "Printed pp. 51–52 and 56",
+            "supports": "The 1963 authors report BBN service from September 1962 and identify the absence of a drum program library."
+          }
+        ]
+      }
+    ],
+    "note": "Candidate historical and lifecycle assertions await independent review."
+  }
+}

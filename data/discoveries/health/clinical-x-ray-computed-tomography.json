@@ -1,0 +1,272 @@
+{
+  "id": "clinical-x-ray-computed-tomography",
+  "name": "Clinical X-ray computed tomography",
+  "summary": "EMI's scanner combined X-ray readings from many angles by computer into brain cross-sections, letting doctors see soft tissue inside the skull from 1971-72.",
+  "description": "Computer-reconstructed X-ray transmission measurements from multiple angles, configured for clinically useful brain soft-tissue cross-sectional imaging.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "fields": [
+    "electronics.computers"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "system_integration",
+    "operating_principle"
+  ],
+  "scale": "radical",
+  "limit_removed": [
+    "resolution"
+  ],
+  "setting": [
+    "firm",
+    "hospital"
+  ],
+  "funding": [
+    "commercial",
+    "state"
+  ],
+  "places": [
+    {
+      "place": "united-kingdom"
+    },
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "godfrey-hounsfield",
+      "role": "originator"
+    },
+    {
+      "person": "james-ambrose",
+      "role": "contributor"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "emi",
+      "role": "maker"
+    },
+    {
+      "organization": "atkinson-morley-hospital",
+      "role": "operator"
+    },
+    {
+      "organization": "mayo-clinic",
+      "role": "customer"
+    }
+  ],
+  "societies": [
+    "united-kingdom",
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "reception": "immediate",
+  "fate": "in_use",
+  "market": {
+    "status": "commercial",
+    "note": "The documented market event is separate from first availability.",
+    "evidence": [
+      {
+        "source": "clinic-2023-first-cat-scanner",
+        "locator": "Pages 1–2, purchase, installation and first scan",
+        "supports": "Mayo reports the order, installation and 19 June 1973 clinical use of the scanner."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "practical-deployment-1972",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1972
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1972",
+        "basis": "Latest supported availability or use; first possible entry is not established."
+      },
+      "statement": "An EMI prototype scanned a patient at Atkinson Morley by 1972.",
+      "places": [
+        "london"
+      ],
+      "scope": "First EMI clinical prototype brain scanner at Atkinson Morley Hospital.",
+      "applications": [
+        "Clinical brain imaging"
+      ],
+      "caveats": "The hospital gives 1 October 1971, while Hounsfield recalled 1972; this by-1972 bound preserves the discrepancy.",
+      "evidence": [
+        {
+          "source": "st-georges-university-2011-st-georges-celebrates",
+          "locator": "First patient passage",
+          "supports": "St George’s dates the first patient scan to 1 October 1971."
+        },
+        {
+          "source": "hounsfield-1979-computed-medical-imaging",
+          "locator": "Printed p. 572 / PDF p. 5",
+          "supports": "Hounsfield recalls the first patient scan as 1972."
+        }
+      ]
+    },
+    {
+      "id": "practical-deployment-1972-2",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1972,
+          "month": 4,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 1972-04-20",
+        "basis": "Latest supported use or availability; first entry is not established."
+      },
+      "statement": "By 20 April 1972 the early clinical X-ray CT scanner had been used to scan about 70 patients.",
+      "places": [
+        "london"
+      ],
+      "applications": [
+        "Diagnostic brain imaging"
+      ],
+      "caveats": "The hospital gives 1 October 1971 while Hounsfield recalls 1972 for the first patient. The 70-patient report supports an upper bound, not a proven first-scan date. Earlier Kuhl transmission tomography predates this clinical brain scanner.",
+      "evidence": [
+        {
+          "source": "schulz-2021-how-ct-happened",
+          "locator": "Early clinical data and 20 April 1972 presentation",
+          "supports": "The historical account reports about 70 patients scanned by the British Institute of Radiology presentation."
+        },
+        {
+          "source": "hounsfield-1979-computed-medical-imaging",
+          "locator": "Printed pp. 568–572 / PDF pp. 1–5",
+          "supports": "Hounsfield explains X-ray reconstruction and recalls the first patient as 1972."
+        },
+        {
+          "source": "st-georges-university-2011-st-georges-celebrates",
+          "locator": "First patient passage",
+          "supports": "The hospital dates its first patient scan to 1 October 1971."
+        },
+        {
+          "source": "friedland-1996-birth-ct",
+          "locator": "Printed p. 1366",
+          "supports": "The 1965 Kuhl patient image used a photon source and back-projection; the later X-ray system is distinct."
+        }
+      ]
+    },
+    {
+      "id": "commercial-availability-1973",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1973,
+          "month": 6,
+          "day": 19
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 1973-06-19",
+        "basis": "Latest supported availability or use; first possible entry is not established."
+      },
+      "statement": "Mayo ordered an EMI scanner, which was delivered and used on patients by 19 June 1973.",
+      "places": [
+        "minnesota"
+      ],
+      "scope": "Computed medical tomography using X-ray attenuation measurements at multiple angles and computer reconstruction of cross-sectional images.",
+      "applications": [
+        "Diagnostic brain imaging"
+      ],
+      "caveats": "Mayo states 19 June and the 2021 history states 18 June for its first patient scan; by 19 June is conservative. Precise order, payment and first commercial sale dates are unknown.",
+      "evidence": [
+        {
+          "source": "clinic-2023-first-cat-scanner",
+          "locator": "Pages 1–2, purchase, installation and first scan",
+          "supports": "Mayo reports the order, installation and 19 June 1973 clinical use of the scanner."
+        },
+        {
+          "source": "schulz-2021-how-ct-happened",
+          "locator": "Mayo early clinical deployment paragraph",
+          "supports": "The 2021 history says Mayo’s first patient was scanned on 18 June 1973."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1972-2",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest supported use or availability; first entry is not established. The hospital gives 1 October 1971 while Hounsfield recalls 1972 for the first patient. The 70-patient report supports an upper bound, not a proven first-scan date. Earlier Kuhl transmission tomography predates this clinical brain scanner. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1972-2",
+    "community": "Atkinson Morley Hospital clinicians and patients",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A named clinical community used the scanner with many patients; the later commercial customer is documented separately.",
+    "caveats": "The hospital gives 1 October 1971 while Hounsfield recalls 1972 for the first patient. The 70-patient report supports an upper bound, not a proven first-scan date. Earlier Kuhl transmission tomography predates this clinical brain scanner."
+  },
+  "caveats": "The hospital gives 1 October 1971 while Hounsfield recalls 1972 for the first patient. The 70-patient report supports an upper bound, not a proven first-scan date. Earlier Kuhl transmission tomography predates this clinical brain scanner.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "medical-x-ray-projection-imaging",
+      "status": "established",
+      "statement": "Hounsfield adapted X-ray attenuation measurement and computation to reconstruct cross-sections that address the overlap of structures in projection radiographs.",
+      "scope": "Method-level relationship between medical projection X-ray imaging and computed X-ray slices; not the particular 1896 patient apparatus.",
+      "confidence": "high",
+      "alternatives": "Other medical imaging methods and reconstruction designs existed or emerged.",
+      "caveats": "Other tomography and mathematical reconstruction methods existed earlier; no sole-cause or global invention claim.",
+      "timing": "The 1896 clinical application and CT’s early-1970s use are separate stages.",
+      "evidence": [
+        {
+          "source": "hounsfield-1979-computed-medical-imaging",
+          "locator": "Printed pp. 568–569 / PDF pp. 1–2",
+          "supports": "Hounsfield explicitly contrasts projection overlap with multi-angle computed reconstruction and describes the X-ray source."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "The documented offer or sale does not establish first commercial availability.",
+        "evidence": [
+          {
+            "source": "clinic-2023-first-cat-scanner",
+            "locator": "Pages 1–2, purchase, installation and first scan",
+            "supports": "Mayo reports the order, installation and 19 June 1973 clinical use of the scanner."
+          }
+        ]
+      }
+    ],
+    "note": "Candidate proposition with historical and lifecycle independent review pending."
+  }
+}

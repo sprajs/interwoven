@@ -1,0 +1,241 @@
+{
+  "id": "electronic-numerical-contour-milling-with-servo-feedback",
+  "name": "Electronic numerical contour milling with servo feedback",
+  "summary": "Milling machines steered by electronic number-crunching and feedback motors could cut complex curved shapes automatically, the basis of today's computer-controlled machining.",
+  "description": "A machine tool follows a numerically specified contour via electronic interpolation and position-feedback servos that coordinate more than one axis.",
+  "kind": "technology",
+  "domain": "machines.automation",
+  "fields": [
+    "machines.machine-tools"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "system_integration",
+    "device_or_configuration"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "state_or_military",
+    "practical_need"
+  ],
+  "why": "Aircraft makers needed complex contours machined accurately and repeatably, and the US Air Force paid for numerical-control development.",
+  "limit_removed": [
+    "precision",
+    "reliability"
+  ],
+  "setting": [
+    "school",
+    "firm"
+  ],
+  "funding": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "yu-chi-ho",
+      "role": "author"
+    },
+    {
+      "person": "e-c-johnson",
+      "role": "author"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "massachusetts-institute-of-technology",
+      "role": "host"
+    },
+    {
+      "organization": "bendix-corporation",
+      "role": "maker"
+    },
+    {
+      "organization": "united-states-air-force",
+      "role": "customer"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "contemporary_text",
+    "administrative_record",
+    "later_text"
+  ],
+  "reception": "gradual",
+  "fate": "in_use",
+  "market": {
+    "status": "commercial",
+    "note": "The capability can be used in economic production; this does not establish a first offer or sale.",
+    "evidence": [
+      {
+        "source": "ho-1958-design-numerical-milling",
+        "locator": "Printed pp. 21–24; field-use statement on p. 24",
+        "supports": "The authors describe electronic interpolation, command/feedback pulses, a three-axis hydraulic-servo contour mill and report actual field use of a controlled machine."
+      },
+      {
+        "source": "national-commission-technology-1966-technology-american-economy",
+        "locator": "Printed pp. II-89–II-90",
+        "supports": "Reports initial Air Force numerical-control machine orders in 1955 and use at contractor plants by 1957, without identifying the exact contouring architectures or the particular Bendix configuration."
+      },
+      {
+        "source": "zenzen-2001-automating-future-history",
+        "locator": "Printed p. 5 / PDF p. 13",
+        "supports": "Dates the MIT demonstration to industry and government representatives to September 1952."
+      },
+      {
+        "source": "mit-news-office-1952-numerically-controlled-milling",
+        "locator": "Original pp. 1–2",
+        "supports": "Contemporary MIT release describes paper-tape numerical instructions and electronic servo feedback; it does not establish industry adoption."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "presentation-1952",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1952,
+          "month": 9
+        },
+        "latest": {
+          "year": 1952,
+          "month": 9
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "September 1952",
+        "basis": "NIST’s retrospective institutional history dates the MIT demonstration to September 1952."
+      },
+      "statement": "MIT demonstrated its numerically controlled milling machine to industry and government representatives in September 1952.",
+      "places": [
+        "cambridge-massachusetts"
+      ],
+      "scope": "MIT’s paper-tape-controlled milling machine demonstrated to visiting industry and government representatives.",
+      "applications": [
+        "milling-machine control"
+      ],
+      "population": "Industry and government representatives at the MIT demonstration",
+      "caveats": "The demonstration is not treated as proof of customer adoption or sale, and the MIT press release prepared for 3 August newspapers is not assumed to have been published then.",
+      "evidence": [
+        {
+          "source": "zenzen-2001-automating-future-history",
+          "locator": "Printed p. 5 / PDF p. 13",
+          "supports": "Dates the MIT demonstration to industry and government representatives to September 1952."
+        },
+        {
+          "source": "mit-news-office-1952-numerically-controlled-milling",
+          "locator": "Original pp. 1–2",
+          "supports": "Contemporary MIT release describes paper-tape numerical instructions and electronic servo feedback; it does not establish industry adoption."
+        }
+      ]
+    },
+    {
+      "id": "practical-deployment-1958",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1958
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1958",
+        "basis": "The inspected proceedings are copyrighted 1958 and report actual field use; the installation and first-use date are not identified."
+      },
+      "statement": "The developers reported actual field use of a numerically controlled contour-milling system with electronic interpolation and servo feedback.",
+      "scope": "Numerically programmed contour milling with electronic interpolation and a position-feedback servo system, as described by the Bendix authors.",
+      "applications": [
+        "contour milling"
+      ],
+      "population": "Field operators of numerically controlled contour milling machinery described by the Bendix authors",
+      "caveats": "The developers report actual field use but do not name the installation, operator, or exact start date. The pictured aircraft fitting was made on a functionally similar machine, not necessarily the specific illustrated unit. Copyright 1958 supplies the conservative report horizon, not an observed publication day; the December 1957 conference date is not silently substituted. Prior pneumatic paper-controlled continuous motion and numeric positioning patents are distinct earlier precedents. The 1966 commission reports 1955 Air Force orders for numerical-control machines, but the cited passages do not identify their precise electronic interpolation and servo architectures.",
+      "evidence": [
+        {
+          "source": "ho-1958-design-numerical-milling",
+          "locator": "Printed pp. 21–24; field-use statement on p. 24",
+          "supports": "The authors describe electronic interpolation, command/feedback pulses, a three-axis hydraulic-servo contour mill and report actual field use of a controlled machine."
+        },
+        {
+          "source": "national-commission-technology-1966-technology-american-economy",
+          "locator": "Printed pp. II-89–II-90",
+          "supports": "Reports initial Air Force numerical-control machine orders in 1955 and use at contractor plants by 1957, without identifying the exact contouring architectures or the particular Bendix configuration."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "presentation-1952",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. NIST’s retrospective institutional history dates the MIT demonstration to September 1952. The demonstration is not treated as proof of customer adoption or sale, and the MIT press release prepared for 3 August newspapers is not assumed to have been published then. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1958",
+    "community": "Field operators of numerically controlled contour milling machinery described by the Bendix authors",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The contemporary developers explicitly report field use, rather than relying solely on the earlier laboratory demonstration.",
+    "proxy_reason": "The technical paper connects its report to the controlled machine but does not identify a user, site, exact first-use date, or a specific commercial transaction.",
+    "caveats": "The developers report actual field use but do not name the installation, operator, or exact start date. The pictured aircraft fitting was made on a functionally similar machine, not necessarily the specific illustrated unit. Copyright 1958 supplies the conservative report horizon, not an observed publication day; the December 1957 conference date is not silently substituted. Prior pneumatic paper-controlled continuous motion and numeric positioning patents are distinct earlier precedents. The 1966 commission reports 1955 Air Force orders for numerical-control machines, but the cited passages do not identify their precise electronic interpolation and servo architectures."
+  },
+  "caveats": "The developers report actual field use but do not name the installation, operator, or exact start date. The pictured aircraft fitting was made on a functionally similar machine, not necessarily the specific illustrated unit. Copyright 1958 supplies the conservative report horizon, not an observed publication day; the December 1957 conference date is not silently substituted. Prior pneumatic paper-controlled continuous motion and numeric positioning patents are distinct earlier precedents. The 1966 commission reports 1955 Air Force orders for numerical-control machines, but the cited passages do not identify their precise electronic interpolation and servo architectures.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "recalled",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "The earliest offer or sale for this configuration is unresolved; documented practical use does not establish a first commercial transaction.",
+        "evidence": [
+          {
+            "source": "ho-1958-design-numerical-milling",
+            "locator": "Printed pp. 21–24; field-use statement on p. 24",
+            "supports": "The authors describe electronic interpolation, command/feedback pulses, a three-axis hydraulic-servo contour mill and report actual field use of a controlled machine."
+          },
+          {
+            "source": "national-commission-technology-1966-technology-american-economy",
+            "locator": "Printed pp. II-89–II-90",
+            "supports": "Reports initial Air Force numerical-control machine orders in 1955 and use at contractor plants by 1957, without identifying the exact contouring architectures or the particular Bendix configuration."
+          },
+          {
+            "source": "zenzen-2001-automating-future-history",
+            "locator": "Printed p. 5 / PDF p. 13",
+            "supports": "Dates the MIT demonstration to industry and government representatives to September 1952."
+          },
+          {
+            "source": "mit-news-office-1952-numerically-controlled-milling",
+            "locator": "Original pp. 1–2",
+            "supports": "Contemporary MIT release describes paper-tape numerical instructions and electronic servo feedback; it does not establish industry adoption."
+          }
+        ]
+      }
+    ],
+    "note": "Independent historical, lifecycle, and global-frontier review required."
+  }
+}

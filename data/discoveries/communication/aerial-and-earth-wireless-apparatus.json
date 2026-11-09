@@ -1,0 +1,180 @@
+{
+  "id": "aerial-and-earth-wireless-apparatus",
+  "name": "Aerial-and-earth wireless apparatus",
+  "summary": "Marconi connected his transmitter and receiver each between a raised wire and the ground, greatly extending the range of wireless telegraph signals.",
+  "description": "One oscillator terminal connects to earth and the other to an elevated conductor; the receiver similarly connects its coherer between earth and an elevated conductor. Telegraph key, relay and tapping receiver apparatus support signs.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "fields": [
+    "physical-sciences.electromagnetism"
+  ],
+  "tier": 1,
+  "tier_reason": "The source verifies the aerial-earth configuration; no0 follows merely because radio otherwise has no0. A broader dependency case is needed for this precise scope. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "system_integration",
+    "performance_improvement"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Marconi was trying to send telegraph signs without wires over longer distances than laboratory spark apparatus allowed.",
+  "limit_removed": [
+    "scale",
+    "access"
+  ],
+  "setting": [
+    "individual"
+  ],
+  "funding": [
+    "self"
+  ],
+  "places": [
+    {
+      "place": "bologna",
+      "note": "Near Bologna; exact place not given"
+    }
+  ],
+  "people": [
+    {
+      "person": "guglielmo-marconi",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "general-post-office",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "italy",
+    "united-kingdom"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "reception": "immediate",
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "demonstration-1895",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1895
+        },
+        "latest": {
+          "year": 1895
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "Aug. 1895",
+        "basis": "Marconi retrospectively dates the new arrangement to August 1895."
+      },
+      "statement": "One oscillator terminal connects to earth and the other to an elevated conductor; the receiver similarly connects its coherer between earth and an elevated conductor. Telegraph key, relay and tapping receiver apparatus support signs.",
+      "places": [
+        "bologna"
+      ],
+      "place_note": "Near Bologna; exact place not given",
+      "caveats": "1895 configuration and date rely on a 1909 participant account. This node does not establish exclusive priority, universal obstacle penetration or the necessity of earth connection for all radio systems.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "marconi-1909-wireless-telegraphic-communication",
+          "locator": "Printed pp. 197–199, especially Figs. 2–3 and their describing paragraph",
+          "supports": "Dates August 1895 arrangement, describes both aerial/earth connections and related signalling apparatus."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1897",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1897,
+          "month": 5
+        },
+        "latest": {
+          "year": 1897,
+          "month": 5
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1897-05",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Post Office engineers tested aerial-and-earth wireless telegraphy across the Bristol Channel.",
+      "places": [
+        "bristol-channel"
+      ],
+      "caveats": "The 1897 apparatus was a later implementation, not necessarily the original physical 1895 specimen.",
+      "evidence": [
+        {
+          "source": "fahie-1901-history-wireless-telegraphy",
+          "locator": "Marconi–Preece May 1897 Bristol Channel tests",
+          "supports": "Post Office engineers tested aerial-and-earth wireless telegraphy across the Bristol Channel."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1895",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Marconi retrospectively dates the new arrangement to August 1895. 1895 configuration and date rely on a 1909 participant account. This node does not establish exclusive priority, universal obstacle penetration or the necessity of earth connection for all radio systems. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1897",
+    "community": "British Post Office wireless trial engineers",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Actual specialist field trials after the initial 1895 work provide a concrete nonmarket community use.",
+    "caveats": "The 1897 apparatus was a later implementation, not necessarily the original physical 1895 specimen."
+  },
+  "caveats": "1895 configuration and date rely on a 1909 participant account. This node does not establish exclusive priority, universal obstacle penetration or the necessity of earth connection for all radio systems.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "hertz-branly-signal-trials",
+      "from_event": "demonstration-1895",
+      "to_event": "demonstration-1895",
+      "status": "established",
+      "statement": "Marconi’s 1895 trials progressed through detector and reflector arrangements to the reported August configuration with elevated conductors and earth connections at both ends.",
+      "scope": "Near Bologna, early-to-August 1895.",
+      "confidence": "high",
+      "alternatives": "The preceding Righi-oscillator/reflector arrangement sent directionally but, in Marconi’s account, failed with intervening hills or large obstacles.",
+      "caveats": "This is his retrospective sequence. It does not imply that literal earth connections are required for all wireless systems.",
+      "timing": "Both endpoints anchor to 1895; the source explicitly distinguishes early trials from the August arrangement.",
+      "evidence": [
+        {
+          "source": "marconi-1909-wireless-telegraphic-communication",
+          "locator": "Printed pp. 197–198, further improvements and In August 1895 paragraphs; Figs. 2–3",
+          "supports": "Gives the engineering sequence and both-end aerial/earth configuration."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

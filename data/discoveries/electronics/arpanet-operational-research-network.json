@@ -1,0 +1,246 @@
+{
+  "id": "arpanet-operational-research-network",
+  "name": "ARPANET operational research network",
+  "summary": "ARPANET, in regular use by 1971, linked independent US research computers through a mesh of packet-switching interface computers, and ran until its shutdown in 1990.",
+  "description": "Geographically distributed ARPANET packet network, connecting independent research hosts through multiple interconnected interface message processors.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "fields": [
+    "communication.telecommunication"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "infrastructure",
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "state_or_military",
+    "practical_need"
+  ],
+  "why": "ARPA funded computing research at many sites and wanted its scattered, expensive computers to share resources over one network.",
+  "limit_removed": [
+    "access"
+  ],
+  "setting": [
+    "state",
+    "school",
+    "firm"
+  ],
+  "funding": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "larry-roberts",
+      "role": "originator"
+    },
+    {
+      "person": "jon-postel",
+      "role": "author"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "darpa",
+      "role": "funder"
+    },
+    {
+      "organization": "bolt-beranek-and-newman",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1971",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1971
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1971",
+        "basis": "Latest documented availability or use; no earliest entry date is asserted."
+      },
+      "statement": "RFC 801 states that regular operational ARPANET use was underway by 1971.",
+      "places": [
+        "united-states"
+      ],
+      "applications": [
+        "Research-computer networking"
+      ],
+      "caveats": "NPL had an earlier local packet network; this claim is the distributed host/IMP architecture and documented use, not invention of packet switching.",
+      "evidence": [
+        {
+          "source": "postel-1981-ncp-tcp-transition",
+          "locator": "Introduction",
+          "supports": "Postel states that ARPANET installation began in 1969 and regular operational use was underway by 1971."
+        },
+        {
+          "source": "pelkey-1988-interview-donald-davies",
+          "locator": "Printed p. 9",
+          "supports": "Davies distinguishes NPL’s local packet network from a nationwide distributed network."
+        }
+      ]
+    },
+    {
+      "id": "practical-deployment-1983",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1983,
+          "month": 1,
+          "day": 1
+        },
+        "latest": {
+          "year": 1983,
+          "month": 1,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1983-01-01",
+        "basis": "The cited account dates this scoped event to the stated interval."
+      },
+      "statement": "An NRC report dates the ARPANET NCP-to-TCP cutover to 1 January 1983 and reports continued network operation through the transition.",
+      "scope": "ARPANET research network during the NCP-to-TCP transition.",
+      "applications": [
+        "Research-computer networking"
+      ],
+      "population": "ARPANET participating network operators and host users",
+      "caveats": "This cutover date does not establish that every host completed conversion on that day. The network and protocols are distinct configurations, and the cutover was not the network’s shutdown.",
+      "evidence": [
+        {
+          "source": "national-research-council-1985-transport-protocols-department",
+          "locator": "Printed pp. 25–26",
+          "supports": "The NRC report identifies the 1 January 1983 ARPANET NCP-to-TCP cutover and continued network operation."
+        }
+      ]
+    },
+    {
+      "id": "end-of-use-1990",
+      "type": "end_of_use",
+      "date": {
+        "earliest": {
+          "year": 1990
+        },
+        "latest": {
+          "year": 1990
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1990",
+        "basis": "The cited account dates this scoped event to the stated interval."
+      },
+      "statement": "The Computer History Museum and DARPA prose report that the original ARPANET was formally shut down or decommissioned in 1990.",
+      "scope": "The original ARPANET research network, not the wider Internet or MILNET.",
+      "applications": [
+        "Research-computer networking"
+      ],
+      "population": "ARPANET network operators and participating research organizations",
+      "caveats": "These are retrospective institutional accounts; DARPA’s infographic gives 1989. No exact last-host date or cessation of TCP/IP, MILNET, Internet service, or all host activity is inferred.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-internet-history-1990s",
+          "locator": "1990 timeline",
+          "supports": "The Computer History Museum dates formal ARPANET shutdown to 1990."
+        },
+        {
+          "source": "defense-advanced-research-2020-arpanet",
+          "locator": "DARPA Solution section",
+          "supports": "DARPA prose dates formal decommissioning to 1990; its infographic gives an inconsistent 1989 endpoint."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1971",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest documented availability or use; no earliest entry date is asserted. NPL had an earlier local packet network; this claim is the distributed host/IMP architecture and documented use, not invention of packet switching. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1971",
+    "community": "ARPANET participating research organizations",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Regular use connected research computers beyond a one-off initial link.",
+    "caveats": "NPL had an earlier local packet network; this claim is the distributed host/IMP architecture and documented use, not invention of packet switching."
+  },
+  "caveats": "NPL had an earlier local packet network; this claim is the distributed host/IMP architecture and documented use, not invention of packet switching.",
+  "links": [
+    {
+      "type": "companion_of",
+      "from": "university-of-hawaii-alohanet",
+      "status": "established",
+      "statement": "The ALOHA Network and ARPANET were connected, giving Hawaiian terminals access to mainland computing resources.",
+      "scope": "Interconnection between ALOHA Menehune and an ARPANET IMP, as described in 1976.",
+      "confidence": "high",
+      "alternatives": "Other implementations and technological pathways existed.",
+      "caveats": "Kuo dates an ALOHA satellite node to December 1972; IEEE describes linking ALOHANET/PacNet to ARPANET in 1973. Circuit identity and the exact date of the Menehune–IMP connection require care; the 1976 paper confirms the connection existed by then.",
+      "timing": "The 1976 paper confirms the interconnection by 1976; sources describe related satellite connections in 1972 and 1973.",
+      "evidence": [
+        {
+          "source": "metcalfe-1976-ethernet-distributed-packet",
+          "locator": "Section 1.1",
+          "supports": "The authors describe the connection and remote mainland computer access."
+        },
+        {
+          "source": "zakon-1997-hobbes-internet-timeline",
+          "locator": "1970 ALOHAnet entry",
+          "supports": "The timeline dates its ARPANET connection to 1972."
+        },
+        {
+          "source": "kuo-1981-computer-networks-aloha",
+          "locator": "Section 5, December 1972",
+          "supports": "Kuo describes an operational ALOHA satellite node on ARPA’s network in December 1972."
+        },
+        {
+          "source": "ieee-engineering-technology-nd-demonstration-aloha-packet",
+          "locator": "Milestone description, 1973 satellite link",
+          "supports": "The IEEE milestone describes ALOHANET/PacNet to ARPANET links in 1973."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Proposed community-entry claim; independent historical and lifecycle review pending."
+  }
+}

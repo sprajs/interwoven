@@ -1,0 +1,168 @@
+{
+  "id": "al-uqlidisi-paper-algorithms",
+  "name": "Al-Uqlidisi paper algorithms",
+  "summary": "Al-Uqlidisi described doing Indian-numeral arithmetic with pen and paper instead of an erasable board, so working stayed visible on the page.",
+  "description": "Pen-and-paper calculation procedures avoiding the earlier erasure operation; one described multiplication combines Indian operand digits with abjad-written intermediate products.",
+  "kind": "mathematics",
+  "domain": "mathematics.number",
+  "tier": 2,
+  "tier_reason": "Prefer a bounded method tier over a platform-level one; the source expressly leaves later prevalence of the mixed-numeral procedure uncertain. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "mathematical_method",
+    "codification_or_teaching"
+  ],
+  "scale": "extends",
+  "origin": "derived",
+  "concept": "hindu-arabic-numeral-arithmetic",
+  "places": [
+    {
+      "place": "damascus"
+    }
+  ],
+  "people": [
+    {
+      "person": "al-uqlidisi",
+      "role": "originator"
+    }
+  ],
+  "known_from": [
+    "contemporary_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "documented-description-953",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 952
+        },
+        "latest": {
+          "year": 953
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "952–953",
+        "basis": "Book IV of the work composed in 341 AH; the date belongs to the description rather than demonstrated widespread adoption."
+      },
+      "statement": "Pen-and-paper calculation procedures avoiding the earlier erasure operation; one described multiplication combines Indian operand digits with abjad-written intermediate products.",
+      "places": [
+        "damascus"
+      ],
+      "caveats": "The passage describes a method, not universal displacement of dust boards or invention of paper. Abjad and Indian signs coexisted; the book is not a simple replacement story.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "thomann-2018-scientific-archaic-arabic",
+          "locator": "Printed pp. 174–175, translated multiplication example 324 × 273",
+          "supports": "Describes paper calculation and shows Indian and abjad signs within the same operation."
+        },
+        {
+          "source": "abdeljaouad-2021-introduction-al-hawaris",
+          "locator": "Section 1.3, paragraphs beginning The earliest extant Arabic book and Al-Uqlīdisī's innovations",
+          "supports": "Confirms no-erasure paper rules and cautions against assuming rapid uptake."
+        }
+      ]
+    },
+    {
+      "id": "public-availability-1157",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1157,
+          "month": 7
+        },
+        "latest": {
+          "year": 1157,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "July 1157 copy",
+        "basis": "Evidence dates the scoped event."
+      },
+      "statement": "The surviving manuscript of the treatise containing pen-and-paper methods was copied in July 1157.",
+      "applications": [
+        "manuscript copying"
+      ],
+      "caveats": "Copying is not proof that the method was widely adopted; the author states reasons for moving away from dust boards, and uptake appears slow. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established.",
+      "evidence": [
+        {
+          "source": "folkerts-1997-alteste-lateinische-schrift",
+          "locator": "Chapter 1, PDF pp. 14–15, Yeni Cami 802 manuscript and work structure",
+          "supports": "Dates the copy and identifies book IV as presenting paper methods."
+        },
+        {
+          "source": "thomann-2018-scientific-archaic-arabic",
+          "locator": "Printed pp. 174–175, translation of multiplication example",
+          "supports": "Identifies the distinctive written multiplication method."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-953",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Book IV of the work composed in 341 AH; the date belongs to the description rather than demonstrated widespread adoption. The passage describes a method, not universal displacement of dust boards or invention of paper. Abjad and Indian signs coexisted; the book is not a simple replacement story. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "public-availability-1157",
+    "community": "The copyist of the surviving al-Uqlīdisī manuscript",
+    "basis": "public_availability",
+    "strength": "scoped_inference",
+    "rationale": "A documented later copy provides evidence of specialist textual transmission without equating authorial formulation in 952–953 with practical spread.",
+    "proxy_reason": "A surviving copied text supports access by that particular copyist; this narrow availability does not establish broader distribution, comprehension or performance of the arithmetic methods.",
+    "caveats": "Copying is not proof that the method was widely adopted; the author states reasons for moving away from dust boards, and uptake appears slow. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established."
+  },
+  "witnesses": [
+    {
+      "event": "public-availability-1157",
+      "limitation": "Copying is not proof that the method was widely adopted; the author states reasons for moving away from dust boards, and uptake appears slow. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established."
+    }
+  ],
+  "caveats": "The passage describes a method, not universal displacement of dust boards or invention of paper. Abjad and Indian signs coexisted; the book is not a simple replacement story.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "al-uqlidisi-board-reckoning",
+      "from_event": "documented-description-953",
+      "to_event": "documented-description-953",
+      "status": "established",
+      "statement": "Al-Uqlidisi describes adapting board-style calculation to ink and paper without erasing, including a mixed-sign multiplication layout.",
+      "scope": "Damascus, 952–953; Book IV compared with the board procedures discussed earlier in the same work.",
+      "confidence": "high",
+      "alternatives": "Erasable boards, wax tablets and other forms of reckoning remained alternatives.",
+      "caveats": "This is an author-described technical adaptation, not an inferred personal sequence of experimental discoveries or a claim of broad deployment.",
+      "timing": "Both nodes use the date of textual attestation; direction follows the explicit adaptation, not an invented earlier date for the board practice.",
+      "evidence": [
+        {
+          "source": "thomann-2018-scientific-archaic-arabic",
+          "locator": "Printed pp. 174–175",
+          "supports": "Explicitly distinguishes the medium and gives the 324 × 273 example."
+        },
+        {
+          "source": "abdeljaouad-2021-introduction-al-hawaris",
+          "locator": "Section 1.3, paragraphs on al-Uqlidisi",
+          "supports": "States the no-erasure rule and continued later use of boards."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "sourced",
+      "concept": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

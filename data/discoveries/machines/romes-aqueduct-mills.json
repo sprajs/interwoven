@@ -1,0 +1,122 @@
+{
+  "id": "romes-aqueduct-mills",
+  "name": "Rome’s aqueduct mills",
+  "summary": "Watermills on Rome's Janiculum hill driven by aqueduct water, described by Procopius as long established when besiegers cut the supply in 537.",
+  "description": "Hill mills powered by descending aqueduct water, operating before the siege’s supply cut.",
+  "kind": "technology",
+  "domain": "machines.mills",
+  "fields": [
+    "energy.water-wind",
+    "food.processing"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "new_application"
+  ],
+  "origin": "derived",
+  "concept": "watermill",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The city needed large amounts of flour, and aqueduct water descending the hill offered a steady source of power.",
+  "places": [
+    {
+      "place": "janiculum-rome",
+      "note": "Eastern Roman (Byzantine) Italy"
+    },
+    {
+      "place": "italy"
+    }
+  ],
+  "people": [
+    {
+      "person": "procopius",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "byzantine-empire"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-537",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 537
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 537",
+        "basis": "Operational stage at the opening of the 537–538 siege; Procopius’s narrative sequence, with calendar placement checked in Bury."
+      },
+      "statement": "Hill mills powered by descending aqueduct water, operating before the siege’s supply cut.",
+      "places": [
+        "janiculum-rome",
+        "italy"
+      ],
+      "place_note": "Eastern Roman (Byzantine) Italy",
+      "caveats": "Procopius says the mills were old; their original construction dates and complete number are not supplied.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "procopius-1919-wars-v-gothic",
+          "locator": "I.19.8, 13, 19",
+          "supports": "Hill mills, aqueduct power and stoppage after the cuts."
+        },
+        {
+          "source": "bury-1923-history-later-roman",
+          "locator": "§5, pp. 183–185",
+          "supports": "Calendar placement of the initial siege emergency."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-537",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Operational stage at the opening of the 537–538 siege; Procopius’s narrative sequence, with calendar placement checked in Bury. Procopius says the mills were old; their original construction dates and complete number are not supplied. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-537",
+    "community": "Users of the Janiculum mills serving Rome",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Procopius describes operational milling in the bounded siege context.",
+    "caveats": "The account does not establish the original construction date, full access, or first such mill anywhere."
+  },
+  "caveats": "Procopius says the mills were old; their original construction dates and complete number are not supplied.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "barbegal-mill-complex",
+      "status": "insufficient",
+      "statement": "Are the Roman mill entries connected by documented practice, or only by era?",
+      "caveats": "Evidence needed: Archaeological or textual statements of continuity.",
+      "finding": "Barbegal’s aqueduct-mill complex and Rome’s pre-siege hill mills are distinct documented water-powered sites. The 2018 Barbegal study says its contribution to later spread is unknown; Procopius describes Rome’s customary mills but does not trace them to Barbegal. Neither direct transmission nor independent invention is established."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "recalled",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "unknown"
+    }
+  }
+}

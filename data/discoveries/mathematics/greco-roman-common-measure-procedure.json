@@ -1,0 +1,180 @@
+{
+  "id": "greco-roman-common-measure-procedure",
+  "name": "Greco-Roman common-measure procedure",
+  "summary": "Finding the largest number that divides two others by repeated subtraction, as in Euclid's Elements, the method now called the Euclidean algorithm.",
+  "description": "Greco-Roman numerical common-measure procedure using alternating subtraction, represented by Euclid Elements VII.2 and the later odd-number accounts of Nicomachus and Iamblichus.",
+  "kind": "mathematics",
+  "domain": "mathematics.number",
+  "tier": 1,
+  "tier_reason": "Shared1 for the general common-measure procedure; reject too narrow as a historical defect merely because the Elements also merits an entry. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "mathematical_method",
+    "codification_or_teaching"
+  ],
+  "places": [
+    {
+      "place": "eastern-mediterranean"
+    }
+  ],
+  "people": [
+    {
+      "person": "euclid",
+      "role": "author"
+    },
+    {
+      "person": "nicomachus",
+      "role": "author"
+    },
+    {
+      "person": "iamblichus",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "roman-empire",
+    "byzantine-empire"
+  ],
+  "known_from": [
+    "later_text",
+    "surviving_artifact"
+  ],
+  "fate": "in_use",
+  "market": {
+    "status": "not_applicable",
+    "note": "This node is scoped to mathematical knowledge and scholarly interpretation."
+  },
+  "events": [
+    {
+      "id": "documented-description-150",
+      "type": "documented_description",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 150
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "By approximately the first half of the second century CE",
+        "basis": "Nicomachus was probably active in the first half of the second century; the estimated upper bound is not a proved composition date, and the earlier bound is unknown."
+      },
+      "statement": "Nicomachus described the numerical common-measure method in his Introduction to Arithmetic.",
+      "scope": "Nicomachus’s Introduction to Arithmetic I.XIII.10–13 describes the numerical method for two odd numbers.",
+      "applications": [
+        "scholarly description"
+      ],
+      "caveats": "The textual witness and its composition date are transmitted through later editions. This occurrence is an earlier scholarly description, not proof of first use or dissemination of this passage to a specific audience.",
+      "evidence": [
+        {
+          "source": "bell-2023-euclidean-algorithm-finite",
+          "locator": "§12, Nicomachus, Introduction to Arithmetic I.XIII.10–13, quoted from D’Ooge 1926 pp. 206–207",
+          "supports": "Nicomachus presents the numerical reciprocal-subtraction method, illustrated for two odd numbers."
+        },
+        {
+          "source": "huffman-2024-pythagoreanism",
+          "locator": "§4.4, Nicomachus of Gerasa and Introduction to Arithmetic",
+          "supports": "Places Nicomachus’s activity in the first half of the second century CE; no exact composition date is established."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-325",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 325
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "By approximately 325 CE",
+        "basis": "The source dates Iamblichus’s death to approximately 325 CE; this estimated upper bound is not a precisely known death or writing date, and the earlier bound is unknown."
+      },
+      "statement": "Iamblichus explained the common-measure method in his scholarly treatment of Nicomachus, including an odd-number example.",
+      "scope": "Iamblichus’s commentary on Nicomachus describes the numerical common-measure procedure for two odd numbers.",
+      "applications": [
+        "scholarly exposition and a numerical example"
+      ],
+      "caveats": "The sources do not establish when or where this numerical procedure was first used, that Nicomachus or Iamblichus read Euclid VII.2 directly, or that either consulted the later 888 Bodleian manuscript. Iamblichus’s life dates and the chronology of his commentary are approximate; his explicit example concerns two odd numbers.",
+      "evidence": [
+        {
+          "source": "bell-2023-euclidean-algorithm-finite",
+          "locator": "§12, Iamblichus, Commentary on Nicomachus §§98–99, quoted from Vinel 2014 p. 97",
+          "supports": "Iamblichus describes alternating subtraction to determine the common measure for two odd numbers and gives a concrete example."
+        },
+        {
+          "source": "chiaradonna-2023-iamblichus",
+          "locator": "Opening paragraph and §1.2 Works",
+          "supports": "Places Iamblichus’s life at approximately 242–325 CE and identifies his mathematical introduction as based on Nicomachus."
+        }
+      ]
+    },
+    {
+      "id": "public-availability-888",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 888
+        },
+        "latest": {
+          "year": 888
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "888",
+        "basis": "The cited record dates this scoped historical event."
+      },
+      "statement": "Stephen copied a manuscript of the Elements containing the Book VII greatest-common-measure proposition.",
+      "places": [
+        "istanbul"
+      ],
+      "place_note": "Historical name Constantinople",
+      "scope": "Elements VII.2 presents a procedure for the greatest common measure of two non-coprime numbers, as transmitted in the Bodleian Euclid.",
+      "applications": [
+        "manuscript copying"
+      ],
+      "caveats": "The manuscript was written for Arethas, but his receipt or independent calculation is not established here; the event is not the invention date.",
+      "evidence": [
+        {
+          "source": "clay-mathematics-institute-2008-euclids-elements-bodleian",
+          "locator": "Opening description, MS D’Orville 301",
+          "supports": "The manuscript was copied by Stephen for Arethas in Constantinople in 888."
+        },
+        {
+          "source": "clay-mathematics-institute-2008-euclids-elements-book",
+          "locator": "Book VII proposition VII.2 and f. 128",
+          "supports": "Identifies the greatest-common-measure proposition in the same manuscript."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-150",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Nicomachus was probably active in the first half of the second century; the estimated upper bound is not a proved composition date, and the earlier bound is unknown. The textual witness and its composition date are transmitted through later editions. This occurrence is an earlier scholarly description, not proof of first use or dissemination of this passage to a specific audience. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-325",
+    "community": "Iamblichus, as a scholarly commentator on Nicomachus",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A named later scholar explained the same numerical procedure and gave an example, providing specific scholarly reception centuries before the 888 manuscript. The earlier Nicomachus description remains separately recorded.",
+    "caveats": "The sources do not establish when or where this numerical procedure was first used, that Nicomachus or Iamblichus read Euclid VII.2 directly, or that either consulted the later 888 Bodleian manuscript. Iamblichus’s life dates and the chronology of his commentary are approximate; his explicit example concerns two odd numbers."
+  },
+  "caveats": "The sources do not establish when or where this numerical procedure was first used, that Nicomachus or Iamblichus read Euclid VII.2 directly, or that either consulted the later 888 Bodleian manuscript. Iamblichus’s life dates and the chronology of his commentary are approximate; his explicit example concerns two odd numbers.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Preserves three distinct witnesses: an ancient numerical method in Euclid, the Nicomachus–Iamblichus scholarly tradition, and the 888 manuscript. No textual transmission from Euclid is inferred."
+  }
+}

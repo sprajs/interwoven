@@ -1,0 +1,141 @@
+{
+  "id": "orsteds-twenty-trough-battery",
+  "name": "Ørsted’s twenty-trough battery",
+  "summary": "Ørsted powered his 1820 compass-needle experiment with a battery of twenty copper troughs holding zinc plates in acid, strong enough to deflect the needle.",
+  "description": "Twenty copper troughs with copper connections supporting zinc plates in the next trough; water with sulfuric and nitric acids; sufficient current for the closed-wire needle experiment.",
+  "kind": "technology",
+  "domain": "energy.storage",
+  "fields": [
+    "physical-sciences.electromagnetism"
+  ],
+  "tier": 3,
+  "tier_reason": "Fine historical detail or an evidentiary witness; retention supports explanation without claiming broad later dependence.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "incremental",
+  "concept": "voltaic-battery",
+  "places": [
+    {
+      "place": "copenhagen"
+    }
+  ],
+  "people": [
+    {
+      "person": "hans-christian-orsted",
+      "role": "user"
+    }
+  ],
+  "societies": [
+    "denmark"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "publication-1820",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1820
+        },
+        "latest": {
+          "year": 1820
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1820",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Oersted described the twenty-trough battery in the published 1820 account of his needle experiments.",
+      "places": [
+        "europe"
+      ],
+      "caveats": "No independent reproduction of this exact twenty-trough battery was located.",
+      "evidence": [
+        {
+          "source": "orsted-1820-experiments-effect-current",
+          "locator": "pp. 273–274, twenty-trough apparatus description",
+          "supports": "Oersted described the twenty-trough battery in the published 1820 account of his needle experiments."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-1820",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1820
+        },
+        "latest": {
+          "year": 1820
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1820",
+        "basis": "Working apparatus specified in the report signed 21 July 1820."
+      },
+      "statement": "Twenty copper troughs with copper connections supporting zinc plates in the next trough; water with sulfuric and nitric acids; sufficient current for the closed-wire needle experiment.",
+      "places": [
+        "copenhagen"
+      ],
+      "caveats": "This is the 1820 experimental battery, not a claim to its invention or manufacture by Ørsted. A smaller sufficiently strong apparatus was also said to work.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "orsted-1820-experiments-effect-current",
+          "locator": "pp. 273–274, paragraphs beginning But as these experiments and The galvanic apparatus",
+          "supports": "Weaker trials motivated a stronger battery; exact trough, plate and electrolyte arrangement is given."
+        },
+        {
+          "source": "blondel-nd-une-decouverte-due",
+          "locator": "La découverte, image caption",
+          "supports": "Explicitly distinguishes the trough battery from Volta’s literal pile."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1820",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Working apparatus specified in the report signed 21 July 1820. This is the 1820 experimental battery, not a claim to its invention or manufacture by Ørsted. A smaller sufficiently strong apparatus was also said to work. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1820",
+    "community": "Scientific readership of Oersted 1820 experiment report",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "The exact apparatus reached a named scientific readership; the independent Geneva replication does not establish twenty troughs.",
+    "proxy_reason": "The report gives a documented scientific-awareness proxy for this precise configuration, not adoption or sale.",
+    "caveats": "No independent reproduction of this exact twenty-trough battery was located."
+  },
+  "caveats": "This is the 1820 experimental battery, not a claim to its invention or manufacture by Ørsted. A smaller sufficiently strong apparatus was also said to work.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "voltas-series-batteries",
+      "status": "insufficient",
+      "statement": "Did Ørsted's trough battery develop from Volta's series battery, and through which intermediate designs?",
+      "caveats": "Evidence needed: Ørsted's description of the apparatus and its stated origin.",
+      "finding": "Ørsted used powerful voltaic piles shortly after Volta’s announcement, but his 1820 paper identifies the twenty-trough copper–zinc construction without tracing that exact arrangement to Volta or naming intermediate trough designs. A direct development edge is not established by these passages."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "unknown"
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "id": "carnots-heat-engine-analysis",
+  "name": "Carnot’s heat-engine analysis",
+  "summary": "Sadi Carnot argued in 1824 that the most work a heat engine can produce depends on the temperatures it works between, not on the working substance.",
+  "description": "A reversible-cycle argument that, for a given quantity of caloric transferred, the maximum obtainable work depends on the reservoir temperatures rather than the working substance, developed while examining existing heat engines and their improvement.",
+  "kind": "science",
+  "domain": "physical-sciences.heat",
+  "fields": [
+    "energy.steam"
+  ],
+  "tier": 0,
+  "tier_reason": "Reversible-cycle reasoning is explicitly developed through Clapeyron, Thomson and Clausius and supports later thermodynamic disciplines.",
+  "advance": [
+    "explanation"
+  ],
+  "scale": "opens_field",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Carnot examined existing steam engines and asked what limited the work they could obtain from heat and how they could be improved.",
+  "limit_removed": [
+    "conceptual"
+  ],
+  "setting": [
+    "individual"
+  ],
+  "places": [
+    {
+      "place": "paris"
+    }
+  ],
+  "people": [
+    {
+      "person": "sadi-carnot",
+      "role": "originator"
+    },
+    {
+      "person": "emile-clapeyron",
+      "role": "contributor"
+    }
+  ],
+  "societies": [
+    "france"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "delayed",
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "publication-1824",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1824
+        },
+        "latest": {
+          "year": 1824
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1824",
+        "basis": "Publication of Réflexions sur la puissance motrice du feu, Paris, Bachelier."
+      },
+      "statement": "A reversible-cycle argument that, for a given quantity of caloric transferred, the maximum obtainable work depends on the reservoir temperatures rather than the working substance, developed while examining existing heat engines and their improvement.",
+      "places": [
+        "paris"
+      ],
+      "caveats": "Carnot's published argument uses conserved caloric. It is not the modern energy-conservation formulation or a claim that he supplied an already implemented engine design. Inspected passages, not the entire book.",
+      "evidence": [
+        {
+          "source": "carnot-1824-reflexions-sur-puissance",
+          "locator": "Opening discussion of incomplete engine theory; reversible air-cycle sequence; general proposition on working-substance independence; note 27",
+          "supports": "Problem framing, cycle reasoning, theorem and explicit discussion of Watt's expansive engine calculation."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1834",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1834
+        },
+        "latest": {
+          "year": 1834
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1834",
+        "basis": "Clapeyron’s memoir appeared in 1834."
+      },
+      "statement": "Clapeyron explicitly took Carnot’s earlier analysis as his starting point and developed it mathematically.",
+      "places": [
+        "france"
+      ],
+      "scope": "Carnot’s reversible-cycle argument relating maximum motive power to temperatures rather than working substance.",
+      "caveats": "Named scholarly engagement; not a claim of widespread acceptance or unanimity.",
+      "evidence": [
+        {
+          "source": "clapeyron-1834-memoire-sur-puissance",
+          "locator": "Printed pp. 154–157, opening and cycle analysis",
+          "supports": "Names Carnot and begins analytical development from his theory."
+        },
+        {
+          "source": "de-france-2006-bnf-notice-frbnf40936143",
+          "locator": "Bibliographic notice",
+          "supports": "Dates the memoir 1834."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1824",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Publication of Réflexions sur la puissance motrice du feu, Paris, Bachelier. Carnot's published argument uses conserved caloric. It is not the modern energy-conservation formulation or a claim that he supplied an already implemented engine design. Inspected passages, not the entire book. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1834",
+    "community": "Clapeyron and readers of his engineering memoir",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "A named later scientist’s actual use of the argument is stronger evidence of specialist entry than the initial 1824 publication.",
+    "caveats": "Named scholarly engagement; not a claim of widespread acceptance or unanimity."
+  },
+  "caveats": "Carnot's published argument uses conserved caloric. It is not the modern energy-conservation formulation or a claim that he supplied an already implemented engine design. Inspected passages, not the entire book.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "expansive-steam-specification",
+      "from_event": "documented-description-1782",
+      "to_event": "publication-1824",
+      "status": "established",
+      "statement": "Carnot incorporated Watt's published expansion calculation into his heat-engine analysis, reproduced its table, and criticized its steam-pressure assumptions.",
+      "scope": "Carnot's Paris 1824 book, note 27 on expansive working.",
+      "confidence": "high",
+      "alternatives": "Carnot also used other engine accounts, gas experiments and mathematical reasoning; note 29 identifies the Encyclopaedia Britannica among his data sources.",
+      "caveats": "This establishes the engineering example's use in the book, not that Watt's patent alone originated Carnot's theorem or that Carnot read a particular surviving patent copy.",
+      "timing": "The 1782 specification precedes explicit critical discussion in 1824; no backward theory-to-Watt arrow.",
+      "evidence": [
+        {
+          "source": "carnot-1824-reflexions-sur-puissance",
+          "locator": "Note 27: Watt's 1782 patent, quarter-stroke table, Mariotte-law and condensation objections",
+          "supports": "Explicit engagement with the specified engineering calculation."
+        },
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 26: First Improvement and quarter-stroke example",
+          "supports": "The earlier calculation and configuration that Carnot discusses."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

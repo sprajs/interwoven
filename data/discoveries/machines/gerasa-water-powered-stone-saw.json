@@ -1,0 +1,124 @@
+{
+  "id": "gerasa-water-powered-stone-saw",
+  "name": "Gerasa water-powered stone saw",
+  "summary": "At Gerasa (Jerash) a workshop's water channels, wear marks and cut stone suggest a waterwheel drove two sets of multiple saw blades to cut stone before 749 CE.",
+  "description": "An excavated Gerasa workshop arrangement interpreted as a waterwheel driving two sets of multiple stone-cutting blades, based on water channels, wear and cut stone.",
+  "kind": "technology",
+  "domain": "machines.mills",
+  "fields": [
+    "energy.water-wind",
+    "materials.stone"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "concept": "water-powered-stone-saw",
+  "setting": [
+    "workshop"
+  ],
+  "places": [
+    {
+      "place": "jerash",
+      "note": "Ancient Gerasa"
+    }
+  ],
+  "societies": [
+    "umayyad-caliphate"
+  ],
+  "known_from": [
+    "archaeological_find",
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "practical-use-749",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 749
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 749 CE, archaeological horizon",
+        "basis": "The archaeological interpretation places construction after the fifth-century abandonment of the temple and before the 749 earthquake."
+      },
+      "statement": "Multiple parallel cuts and a water-race installation indicate local productive stone sawing in the dated historical horizon.",
+      "places": [
+        "jerash"
+      ],
+      "place_note": "Ancient Gerasa",
+      "applications": [
+        "stone sawing"
+      ],
+      "caveats": "The mechanism and precise operating dates are reconstructed, and the 749 date is a broad upper limit rather than the start of use.",
+      "evidence": [
+        {
+          "source": "ritti-2007-relief-water-powered",
+          "locator": "pp.149–151, Gerasa archaeological remains and reconstruction",
+          "supports": "Wheel race, bearings, circular wear marks and two limestone drums with multiple parallel saw cuts; use before the 749 earthquake is inferred."
+        },
+        {
+          "source": "wootton-nd-stoneworking-tools-toolmarks",
+          "locator": "Saw section, water-powered stone saws",
+          "supports": "Describes the Jerash and Ephesos archaeological installations and multi-blade sawing."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-749",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The archaeological interpretation places construction after the fifth-century abandonment of the temple and before the 749 earthquake. The mechanism and precise operating dates are reconstructed, and the 749 date is a broad upper limit rather than the start of use. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-749",
+    "community": "The stoneworking community at the Gerasa workshop",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "Multiple parallel cuts and a water-race installation indicate local productive stone sawing in the dated historical horizon.",
+    "proxy_reason": "Historical use is inferred from the excavated water installation and unfinished cut stones; no surviving operating log was found.",
+    "caveats": "The mechanism and precise operating dates are reconstructed, and the 749 date is a broad upper limit rather than the start of use."
+  },
+  "caveats": "The mechanism and precise operating dates are reconstructed, and the 749 date is a broad upper limit rather than the start of use.",
+  "links": [
+    {
+      "type": "same_family",
+      "from": "hierapolis-geared-stone-saw",
+      "from_event": "public-disclosure-300",
+      "to_event": "practical-use-749",
+      "status": "established",
+      "statement": "The named sites provide related evidence for water-powered reciprocating stone-saw configurations.",
+      "scope": "Only the identified configurations and source-described contribution.",
+      "confidence": "high",
+      "alternatives": "No unique historical route or universal necessity asserted.",
+      "caveats": "Documented technical family, not established geographical diffusion or direct machine-to-machine ancestry.",
+      "timing": "The relation concerns the scoped events and functions; no transmission inferred from chart placement.",
+      "evidence": [
+        {
+          "source": "ritti-2007-relief-water-powered",
+          "locator": "Opening comparison and sections on Hierapolis, Ephesos and Gerasa",
+          "supports": "The named sites provide related evidence for water-powered reciprocating stone-saw configurations."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "concept": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "societies": "recalled",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "id": "fluorescent-terminator-sequencing",
+  "name": "Fluorescent terminator sequencing",
+  "summary": "DuPont researchers put four different fluorescent dyes on the chain-stopping nucleotides themselves, so one reaction mixture produced colour-coded fragments read automatically.",
+  "description": "Prober and colleagues combined four dye-labelled dideoxy terminators with reverse transcriptase, one reaction mixture, electrophoresis and automated sequence calls.",
+  "kind": "technology",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "measurement.laboratory",
+    "machines.automation"
+  ],
+  "tier": 1,
+  "tier_reason": "Retain my promotion: the genome production account credits dye terminators, so it should not sit below primer labelling without an impact reason. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "experimental_method",
+    "system_integration"
+  ],
+  "scale": "architectural",
+  "concept": "fluorescent-dna-sequencing",
+  "limit_removed": [
+    "speed",
+    "scale"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "wilmington-delaware",
+      "note": "DuPont; specific facility not stated"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-m-prober",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "dupont",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "patent"
+  ],
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "demonstration-1987",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1987
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by Oct 1987",
+        "basis": "Demonstrated M13 sequencing system described on 16 October 1987; earlier construction date not resolved in the abstract."
+      },
+      "statement": "Prober and colleagues combined four dye-labelled dideoxy terminators with reverse transcriptase, one reaction mixture, electrophoresis and automated sequence calls.",
+      "places": [
+        "wilmington-delaware"
+      ],
+      "place_note": "DuPont; specific facility not stated",
+      "caveats": "Abstract-level access; no claim that this exact reagent set or enzyme was used unchanged by all Human Genome Project centres.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "prober-1987-system-rapid-dna",
+          "locator": "Abstract and affiliation",
+          "supports": "Terminator labels, enzyme, detection and demonstration."
+        }
+      ]
+    },
+    {
+      "id": "publication-1987",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1987,
+          "month": 10,
+          "day": 16
+        },
+        "latest": {
+          "year": 1987,
+          "month": 10,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1987-10-16",
+        "basis": "Date of this published account, not the date of first invention or first use."
+      },
+      "statement": "A published research account described fluorescent terminator sequencing.",
+      "caveats": "This is a dated publication, not proof of first awareness, acceptance, external deployment or sale.",
+      "evidence": [
+        {
+          "source": "prober-1987-system-rapid-dna",
+          "locator": "PMID 2443975, Science 238 pp. 336–341, issue date 16 October 1987",
+          "supports": "The named publication reports this scientific result or technical method and is dated by its journal issue."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1991",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1991,
+          "month": 12,
+          "day": 27
+        },
+        "latest": {
+          "year": 1991,
+          "month": 12,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1991-12-27",
+        "basis": "Date of the cited public report or documented event."
+      },
+      "statement": "A separate patent application recognized the fluorescent-terminator sequencing system of Prober and colleagues.",
+      "caveats": "It does not establish that later commercial equipment retained Prober’s particular reverse transcriptase or that this was the first recognition.",
+      "evidence": [
+        {
+          "source": "beck-1991-sequencing-nucleic-acids",
+          "locator": "Description, Non-radioactive detection for DNA sequencing, Prober 1987 citation and four-dye-one-lane discussion",
+          "supports": "The independent authors identify the fluorescently tagged dideoxy terminators and their sequencing readout."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-1987",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of this published account, not the date of first invention or first use. This is a dated publication, not proof of first awareness, acceptance, external deployment or sale. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1991",
+    "community": "Molecular-sequencing researchers and patent authors at Millipore",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "This explicit independent technical recognition is stronger than the originators’ original demonstration.",
+    "caveats": "It does not establish that later commercial equipment retained Prober’s particular reverse transcriptase or that this was the first recognition."
+  },
+  "caveats": "Abstract-level access; no claim that this exact reagent set or enzyme was used unchanged by all Human Genome Project centres.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "chain-termination-dna-sequencing",
+      "from_event": "demonstration-1977",
+      "to_event": "demonstration-1987",
+      "status": "established",
+      "statement": "Prober’s system adapted dideoxy sequencing with four fluorescent terminators and a combined reaction/readout.",
+      "scope": "DuPont M13 sequencing demonstration reported in 1987.",
+      "confidence": "high",
+      "alternatives": "Four-colour primer labelling offered a different fluorescence arrangement.",
+      "caveats": "Primary abstract establishes the adaptation but not every development step or transfer between laboratories.",
+      "timing": "The 1977 termination publication preceded the 1987 modified-system report; these publication dates are not exact dates of the experiments.",
+      "evidence": [
+        {
+          "source": "prober-1987-system-rapid-dna",
+          "locator": "Abstract",
+          "supports": "Explicit modified dideoxy protocol."
+        },
+        {
+          "source": "sanger-1977-dna-sequencing-chain",
+          "locator": "p. 5463, Principle of the Method",
+          "supports": "Earlier dideoxy-termination operation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "concept": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

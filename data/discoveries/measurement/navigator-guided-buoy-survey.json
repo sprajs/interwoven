@@ -1,0 +1,165 @@
+{
+  "id": "navigator-guided-buoy-survey",
+  "name": "Navigator-guided buoy survey",
+  "summary": "Oceanographers placed a GPS wave buoy at sea spots chosen by Marshallese navigators, measuring swell directions to compare traditional wave knowledge with instrument data.",
+  "description": "Datawell Directional Waverider G-4 deployments at navigator-selected wave patterns; GPS motion sensing produced directional spectra.",
+  "kind": "technology",
+  "domain": "measurement.sensing",
+  "fields": [
+    "physical-sciences.earth",
+    "transport.navigation"
+  ],
+  "tier": 3,
+  "tier_reason": "A particular buoy deployment configuration is useful fine detail, distinct from the navigating knowledge it investigates. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "new_application",
+    "experimental_method"
+  ],
+  "setting": [
+    "expedition"
+  ],
+  "places": [
+    {
+      "place": "majuro"
+    },
+    {
+      "place": "arno-atoll"
+    }
+  ],
+  "people": [
+    {
+      "person": "joseph-genz",
+      "role": "author"
+    },
+    {
+      "person": "jerome-aucan",
+      "role": "author"
+    },
+    {
+      "person": "mark-merrifield",
+      "role": "author"
+    },
+    {
+      "person": "ben-finney",
+      "role": "author"
+    },
+    {
+      "person": "korent-joel",
+      "role": "author"
+    },
+    {
+      "person": "alson-kelen",
+      "role": "author"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "datawell",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "marshall-islands"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "practical-deployment-2006",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2005
+        },
+        "latest": {
+          "year": 2006
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "2005–2006",
+        "basis": "WAM’s participant interview places buoy deployments during the field year beginning in 2005 and culminating in the 2006 voyage; the research paper also states a June 2005–September 2006 fieldwork interval. Exact deployment days are not given."
+      },
+      "statement": "Datawell Directional Waverider G-4 deployments at navigator-selected wave patterns; GPS motion sensing produced directional spectra.",
+      "places": [
+        "majuro",
+        "arno-atoll"
+      ],
+      "caveats": "Exact campaign dates remain unresolved within the stated bounds; the survey is not a universal assessment of wavefinding.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "genz-2009-wave-navigation-marshall",
+          "locator": "p. 237, Oceanographic Methods",
+          "supports": "Instrument model, motion sensing, spectra and Korent-guided deployment."
+        },
+        {
+          "source": "earnshaw-2014-reviving-ancient-skill",
+          "locator": "2005 field year and following wave-buoy paragraph",
+          "supports": "Dates buoy work to the year preceding the 2006 voyage."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-2006",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. WAM’s participant interview places buoy deployments during the field year beginning in 2005 and culminating in the 2006 voyage; the research paper also states a June 2005–September 2006 fieldwork interval. Exact deployment days are not given. Exact campaign dates remain unresolved within the stated bounds; the survey is not a universal assessment of wavefinding. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-2006",
+    "community": "Marshallese navigators and the collaborating oceanographic field team",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The instrument was deployed for actual field measurement, rather than merely offered or proposed.",
+    "caveats": "The multi-year field period does not provide exact buoy deployment days or commercial placement."
+  },
+  "caveats": "Exact campaign dates remain unresolved within the stated bounds; the survey is not a universal assessment of wavefinding.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "korents-wavefinding-demonstration",
+      "from_event": "demonstration-2006",
+      "to_event": "practical-deployment-2006",
+      "status": "established",
+      "statement": "Korent’s identifications of salient wave patterns guided where the researchers deployed the directional buoy.",
+      "scope": "Majuro–Arno collaboration, within 2005–2006.",
+      "confidence": "high",
+      "alternatives": "A gridded survey without navigator guidance would be a different sampling strategy.",
+      "caveats": "Earlier demonstration and deployment dates overlap; the same practitioner and practice, not an invented cultural transfer, connect them.",
+      "timing": "Intervals overlap because demonstration and guided measurement occur within one collaboration.",
+      "evidence": [
+        {
+          "source": "genz-2009-wave-navigation-marshall",
+          "locator": "p. 237, deployment procedure",
+          "supports": "Explicit navigator-guided sites at near, offshore and beyond-detection distances."
+        }
+      ]
+    },
+    {
+      "type": "transmitted_from",
+      "from": "malindi-assisted-ocean-passage",
+      "status": "insufficient",
+      "statement": "The Malindi passage stands alone. Is it connected to any other wayfinding tradition here, or should it stay separate?",
+      "caveats": "Evidence needed: Likely a documented negative. Leaving it disconnected is valid if sources support that.",
+      "finding": "The first source describes a Malindi pilot assisting one 1498 crossing; the later sources report Marshallese navigators and an instrumented wave survey. The passages do not document transmission between these specific events. Geographic separation alone does not prove independent development."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

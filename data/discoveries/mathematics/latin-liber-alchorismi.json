@@ -1,0 +1,151 @@
+{
+  "id": "latin-liber-alchorismi",
+  "name": "Latin Liber Alchorismi",
+  "summary": "A separate twelfth-century Latin textbook that expanded al-Khwarizmi-derived methods, covering whole numbers, fractions and square roots.",
+  "description": "A separate Latin arithmetic exposition expanding and arranging al-Khwarizmi-derived calculation methods, including operations on integers and fractions and square-root extraction.",
+  "kind": "mathematics",
+  "domain": "mathematics.number",
+  "tier": 3,
+  "tier_reason": "Retain the distinct expanded Latin reworking at fine detail; qualify the comparator for reordered chapters. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "codification_or_teaching"
+  ],
+  "scale": "extends",
+  "origin": "derived",
+  "concept": "hindu-arabic-numeral-arithmetic",
+  "prompted_by": [
+    "transmission_from_other_place"
+  ],
+  "places": [
+    {
+      "place": "europe",
+      "note": "Latin Europe; Iberian influences identified"
+    }
+  ],
+  "people": [
+    {
+      "person": "al-khwarizmi",
+      "role": "originator"
+    }
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "dated-assertion-1199",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1100
+        },
+        "latest": {
+          "year": 1199
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "12th c.",
+        "basis": "Folkerts groups the work among twelfth-century Latin adaptations; no exact composition year is established."
+      },
+      "statement": "A separate Latin arithmetic exposition expanding and arranging al-Khwarizmi-derived calculation methods, including operations on integers and fractions and square-root extraction.",
+      "places": [
+        "europe"
+      ],
+      "place_note": "Latin Europe; Iberian influences identified",
+      "caveats": "The magister Iohannes named as author is not securely identified with John of Seville. The precise relation and order of Liber Alchorismi and Liber pulveris are not resolved here.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "folkerts-1997-alteste-lateinische-schrift",
+          "locator": "Chapter 2, PDF pp. 18–19, paragraphs on LA and LA/LP",
+          "supports": "Identifies this work as based on the arithmetic tradition and compares its operation sequence."
+        }
+      ]
+    },
+    {
+      "id": "public-availability-1300",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1201
+        },
+        "latest": {
+          "year": 1300
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "13th-century manuscript",
+        "basis": "Editors date the Oxford witness to the thirteenth century."
+      },
+      "statement": "The Oxford manuscript Selden supra 26 preserves an incomplete copy of the first part of Liber Alchorismi.",
+      "scope": "Incomplete surviving copy of the Latin Liber Alchorismi arithmetic exposition; the presence of every integer, fraction and square-root procedure in the wider work is not verified in this witness.",
+      "applications": [
+        "manuscript copying"
+      ],
+      "caveats": "The text’s adaptation is often dated to the twelfth century, but the surviving copy does not show the first actual readership; it is incomplete. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established. The Oxford witness is incomplete; the particular presence of every integer, fraction and square-root procedure was not verified.",
+      "evidence": [
+        {
+          "source": "burnett-2007-toledan-regule-liber",
+          "locator": "Printed pp. 142–143, witness E and fols. 106–121v",
+          "supports": "Dates the codex and distinguishes the Liber from its Toledan Regule appendices."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1199",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Folkerts groups the work among twelfth-century Latin adaptations; no exact composition year is established. The magister Iohannes named as author is not securely identified with John of Seville. The precise relation and order of Liber Alchorismi and Liber pulveris are not resolved here. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "public-availability-1300",
+    "community": "The copyist of the incomplete Oxford manuscript witness",
+    "basis": "public_availability",
+    "strength": "scoped_inference",
+    "rationale": "A surviving copy is evidence of transmission; a date assigned to the lost archetype alone would be weaker evidence of community entry.",
+    "proxy_reason": "A surviving copied text supports access by that particular copyist; this narrow availability does not establish broader distribution, comprehension or performance of the arithmetic methods.",
+    "caveats": "The text’s adaptation is often dated to the twelfth century, but the surviving copy does not show the first actual readership; it is incomplete. The surviving witness supports access by its copyist; the copyist’s location and practical execution are not established. The Oxford witness is incomplete; the particular presence of every integer, fraction and square-root procedure was not verified."
+  },
+  "caveats": "The magister Iohannes named as author is not securely identified with John of Seville. The precise relation and order of Liber Alchorismi and Liber pulveris are not resolved here.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "al-khwarizmi-numeral-algorithms",
+      "from_event": "documented-description-850",
+      "to_event": "dated-assertion-1199",
+      "status": "established",
+      "statement": "The Latin Liber Alchorismi expands the exposition of the al-Khwarizmi arithmetic tradition; Folkerts compares its chapter reordering with the Latin Liber Ysagogarum, not the lost Arabic original.",
+      "scope": "Arabic arithmetic source tradition to a twelfth-century Latin exposition.",
+      "confidence": "high",
+      "alternatives": "Dixit Algorizmi, Liber Ysagogarum and Liber pulveris preserve other related redactions.",
+      "caveats": "The lost Arabic original cannot establish a direct chapter-order comparison. Latin versions have distinct redaction and transmission histories.",
+      "timing": "Both surviving Latin traditions have broad twelfth-century dates; the edge comes from the earlier Arabic-source node and does not impose an unsupported order on the Latin branches.",
+      "evidence": [
+        {
+          "source": "folkerts-1997-alteste-lateinische-schrift",
+          "locator": "Chapter 2, PDF pp. 18–19",
+          "supports": "Classifies LA among reworkings and compares its arrangement with the source tradition."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "origin": "sourced",
+      "concept": "sourced",
+      "prompted_by": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

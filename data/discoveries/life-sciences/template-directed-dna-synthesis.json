@@ -1,0 +1,208 @@
+{
+  "id": "template-directed-dna-synthesis",
+  "name": "Template-directed DNA synthesis",
+  "summary": "Kornberg's team argued that an enzyme builds new DNA by copying an existing strand through base pairing, giving experimental support to how genes are duplicated.",
+  "description": "Kornberg’s team interpreted DNA-dependent enzymatic synthesis as copying through complementary base pairing and presented several experimental lines of support.",
+  "kind": "science",
+  "domain": "life-sciences.genetics",
+  "fields": [
+    "life-sciences.cells-microbes",
+    "physical-sciences.chemistry"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "explanation"
+  ],
+  "scale": "extends",
+  "prompted_by": [
+    "prior_theory"
+  ],
+  "why": "The 1953 double-helix model predicted copying by complementary base pairing, and Kornberg's isolated DNA-making enzyme offered a way to test it in a test tube.",
+  "setting": [
+    "school"
+  ],
+  "places": [
+    {
+      "place": "st-louis"
+    },
+    {
+      "place": "stanford-california"
+    }
+  ],
+  "people": [
+    {
+      "person": "arthur-kornberg",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "washington-university-in-st-louis",
+      "role": "host"
+    },
+    {
+      "organization": "stanford-university",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "reception": "immediate",
+  "fate": "incorporated",
+  "market": {
+    "status": "not_applicable",
+    "note": "Commercial availability is not a milestone of a scientific knowledge result."
+  },
+  "events": [
+    {
+      "id": "dated-assertion-1959",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1958
+        },
+        "latest": {
+          "year": 1959
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1958–59",
+        "basis": "The 1959 lecture synthesizes the 1958 cited enzyme studies and then-current template evidence; interval marks that evidence/interpretation stage."
+      },
+      "statement": "Kornberg’s team interpreted DNA-dependent enzymatic synthesis as copying through complementary base pairing and presented several experimental lines of support.",
+      "places": [
+        "st-louis",
+        "stanford-california"
+      ],
+      "caveats": "A contemporary participant’s synthesis. It does not establish that the isolated reaction reproduced every step of cellular chromosome replication.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "kornberg-1959-biologic-synthesis-deoxyribonucleic",
+          "locator": "pp. 670–673; pp. 678–680 and references",
+          "supports": "Template interpretation and supporting enzyme studies."
+        }
+      ]
+    },
+    {
+      "id": "presentation-1959",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1959,
+          "month": 12,
+          "day": 11
+        },
+        "latest": {
+          "year": 1959,
+          "month": 12,
+          "day": 11
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1959-12-11",
+        "basis": "Date of the cited public report or documented event."
+      },
+      "statement": "Kornberg presented the experimental interpretation of DNA-dependent synthesis in his Nobel lecture.",
+      "places": [
+        "stockholm"
+      ],
+      "caveats": "The public lecture does not itself prove consensus on every mechanistic detail or the first community recognition.",
+      "evidence": [
+        {
+          "source": "kornberg-1959-biologic-synthesis-deoxyribonucleic",
+          "locator": "Nobel lecture, 11 December 1959, discussion of template dependence and base composition",
+          "supports": "The named lecture publicly communicates evidence and the copying interpretation to a specialist audience."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "presentation-1959",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Date of the cited public report or documented event. The public lecture does not itself prove consensus on every mechanistic detail or the first community recognition. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "presentation-1959",
+    "community": "Nobel lecture attendees and readers in biochemical research",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "A dated specialist presentation communicates the scientific interpretation rather than substituting a raw enzyme preparation date.",
+    "proxy_reason": "The lecture is a verifiable route to awareness; a more precise independent acceptance event remains unestablished.",
+    "caveats": "The public lecture does not itself prove consensus on every mechanistic detail or the first community recognition."
+  },
+  "caveats": "A contemporary participant’s synthesis. It does not establish that the isolated reaction reproduced every step of cellular chromosome replication.",
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "dna-polymerase-preparation",
+      "from_event": "demonstration-1957",
+      "to_event": "dated-assertion-1959",
+      "status": "established",
+      "statement": "The purified enzyme reaction and assay made it possible to investigate DNA-dependent synthesis outside intact cells.",
+      "scope": "E. coli enzyme studies summarised in 1959.",
+      "confidence": "high",
+      "alternatives": "Cellular genetic and physical experiments could test different aspects of replication.",
+      "caveats": "Partial purification and template interpretation are distinct achievements.",
+      "timing": "Preparation documented by October 1957 precedes the later evidence synthesis.",
+      "evidence": [
+        {
+          "source": "lehman-1958-enzymatic-synthesis-deoxyribonucleic",
+          "locator": "p. 163",
+          "supports": "Purification and incorporation assay."
+        },
+        {
+          "source": "kornberg-1959-biologic-synthesis-deoxyribonucleic",
+          "locator": "pp. 670–673",
+          "supports": "Reaction requirements and template evidence."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "dna-double-helix-model",
+      "from_event": "formulation-1953",
+      "to_event": "dated-assertion-1959",
+      "status": "established",
+      "statement": "Kornberg used complementary pairing in the Watson–Crick model to interpret template-directed enzymatic synthesis.",
+      "scope": "Contemporary synthesis of biochemical evidence, 1959 lecture.",
+      "confidence": "high",
+      "alternatives": "The enzyme search was guided by nucleotide/coenzyme chemistry, as the authors separately state.",
+      "caveats": "The lecture is evidence of interpretation, not proof of the researchers’ entire discovery sequence.",
+      "timing": "1953 proposed model precedes the 1958–1959 biochemical account.",
+      "evidence": [
+        {
+          "source": "kornberg-1959-biologic-synthesis-deoxyribonucleic",
+          "locator": "pp. 666–668, 671–672, 678–679",
+          "supports": "Model and base-pairing interpretation of synthesis."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

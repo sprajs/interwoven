@@ -1,0 +1,145 @@
+{
+  "id": "new-haven-telephone-exchange",
+  "name": "New Haven telephone exchange",
+  "summary": "In January 1878 Coy's switchboard in New Haven began connecting paying telephone subscribers to one another, the first telephone exchange.",
+  "description": "Coy switchboard and New Haven District Telephone Company subscriber exchange in a Boardman Building storefront.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "tier": 1,
+  "tier_reason": "Retain1 for an exchange architecture/service; the missing telephone invention does not make the existing exchange a wrong historical object. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "infrastructure"
+  ],
+  "scale": "architectural",
+  "origin": "first_known",
+  "prompted_by": [
+    "market_or_competition"
+  ],
+  "limit_removed": [
+    "access",
+    "scale"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "new-haven"
+    }
+  ],
+  "people": [
+    {
+      "person": "george-w-coy",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "new-haven-district-telephone-company",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "reception": "immediate",
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "commercial",
+    "note": "The cited source documents a paid public service or commercial product release; it does not establish the first possible sale or offer.",
+    "evidence": [
+      {
+        "source": "u-s-national-nd-site-first-telephone",
+        "locator": "History section, 28 January 1878 and 21 subscribers",
+        "supports": "The NPS account dates commercial operation to 28 January and reports 21 initial subscribers."
+      },
+      {
+        "source": "de-land-1907-notes-development-telephone",
+        "locator": "Section VI, paragraph beginning Mr. Coy commenced installing",
+        "supports": "The 1907 account reports first service on 21 January to about 30 subscribers and formal opening on 28 January."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "commercial-availability-1878",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1878,
+          "month": 1,
+          "day": 28
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 1878-01-28",
+        "basis": "The 1907 account dates initial service to 21 January and formal opening to 28 January; the NPS describes service beginning on 28 January. Earliest availability is unresolved."
+      },
+      "statement": "Coy’s New Haven exchange was providing subscriber service by 28 January 1878; the 1907 account reports earlier service on 21 January.",
+      "places": [
+        "new-haven"
+      ],
+      "applications": [
+        "Telephone connections"
+      ],
+      "caveats": "Accounts differ on the first service date and subscriber count: NPS reports 21 subscribers with the 28 January start, while De Land reports approximately 30 for initial service on 21 January and a 28 January formal opening. The record establishes availability by 28 January, not an undisputed first day or headcount.",
+      "evidence": [
+        {
+          "source": "u-s-national-nd-site-first-telephone",
+          "locator": "History section, 28 January 1878 and 21 subscribers",
+          "supports": "The NPS account dates commercial operation to 28 January and reports 21 initial subscribers."
+        },
+        {
+          "source": "de-land-1907-notes-development-telephone",
+          "locator": "Section VI, paragraph beginning Mr. Coy commenced installing",
+          "supports": "The 1907 account reports first service on 21 January to about 30 subscribers and formal opening on 28 January."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "commercial-availability-1878",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The 1907 account dates initial service to 21 January and formal opening to 28 January; the NPS describes service beginning on 28 January. Earliest availability is unresolved. Accounts differ on the first service date and subscriber count: NPS reports 21 subscribers with the 28 January start, while De Land reports approximately 30 for initial service on 21 January and a 28 January formal opening. The record establishes availability by 28 January, not an undisputed first day or headcount. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-availability-1878",
+    "community": "Paying New Haven telephone exchange subscribers",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "The reports document customer service and a formal opening by 28 January; disagreement about first service and headcount is preserved.",
+    "caveats": "Accounts differ on the first service date and subscriber count: NPS reports 21 subscribers with the 28 January start, while De Land reports approximately 30 for initial service on 21 January and a 28 January formal opening. The record establishes availability by 28 January, not an undisputed first day or headcount."
+  },
+  "caveats": "Accounts differ on the first service date and subscriber count: NPS reports 21 subscribers with the 28 January start, while De Land reports approximately 30 for initial service on 21 January and a 28 January formal opening. The record establishes availability by 28 January, not an undisputed first day or headcount.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Proposed distinct configuration and community entry; requires independent review."
+  }
+}

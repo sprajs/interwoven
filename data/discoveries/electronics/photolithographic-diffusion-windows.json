@@ -1,0 +1,224 @@
+{
+  "id": "photolithographic-diffusion-windows",
+  "name": "Photolithographic diffusion windows",
+  "summary": "Andrus and Bond used light-sensitive resist to etch precise windows in silicon oxide before adding dopants, a patterning method Fairchild soon used in transistor production.",
+  "description": "Jules Andrus and Walter Bond adapted photoresist patterning to etch windows in silicon oxide before localized diffusion.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "fields": [
+    "electronics.integrated-circuits",
+    "machines.manufacturing"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "manufacturing_process",
+    "new_application"
+  ],
+  "scale": "radical",
+  "concept": "semiconductor-photolithography",
+  "prompted_by": [
+    "transfer_from_other_field"
+  ],
+  "why": "Photoresist patterning, already used in printing and photoengraving, was adapted to define small regions on silicon.",
+  "limit_removed": [
+    "resolution",
+    "precision",
+    "scale"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "bell-labs-murray-hill",
+      "note": "String names only New Jersey; Murray Hill assumed as Bell Labs' main site"
+    }
+  ],
+  "people": [
+    {
+      "person": "jules-andrus",
+      "role": "originator"
+    },
+    {
+      "person": "walter-bond",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    },
+    {
+      "organization": "fairchild-semiconductor",
+      "role": "operator"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "later_text",
+    "patent"
+  ],
+  "reception": "immediate",
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "dated-assertion-1955",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1955
+        },
+        "latest": {
+          "year": 1955
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1955",
+        "basis": "Museum dates Andrus and Bond’s adaptation to 1955; patent filing and later refinements are separate."
+      },
+      "statement": "Jules Andrus and Walter Bond adapted photoresist patterning to etch windows in silicon oxide before localized diffusion.",
+      "places": [
+        "bell-labs-murray-hill"
+      ],
+      "place_note": "String names only New Jersey; Murray Hill assumed as Bell Labs' main site",
+      "caveats": "This node is not Fairchild’s later step-and-repeat camera or DOFL’s separate diode-array work.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-photolithography-techniques-are",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "Named adaptation and resist-to-diffusion sequence."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1958",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1958
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1958",
+        "basis": "Latest documented community-use or recognition bound; no earliest date is established."
+      },
+      "statement": "Fairchild used photolithographic oxide-window fabrication in its mesa transistor work and shipped 100 2N696 transistors by 1958.",
+      "places": [
+        "california"
+      ],
+      "scope": "Fairchild’s photoresist-patterned silicon-oxide openings used to delimit diffusion in mesa transistor fabrication; individual masks need not be identical to the earlier Bell Labs masks.",
+      "applications": [
+        "transistor emitter diffusion"
+      ],
+      "caveats": "The Fairchild method is contextual evidence of use of the same general patterned oxide-window process; the source does not identify every original Bell mask or prove exact transfer of a physical tool.",
+      "evidence": [
+        {
+          "source": "moore-1998-role-fairchild-silicon",
+          "locator": "Printed pp. 54–58, photolithography, early mesa transistors and oxide-masked emitter diffusion",
+          "supports": "Moore describes photoresist and oxide openings, Fairchild’s mesa emitter diffusion, and 100 early 2N696 shipments in 1958."
+        }
+      ]
+    },
+    {
+      "id": "publication-1964",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1964,
+          "month": 3,
+          "day": 3
+        },
+        "latest": {
+          "year": 1964,
+          "month": 3,
+          "day": 3
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1964-03-03",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Andrus issued patent publicly described photoresist-patterned windows in silicon oxide for selective diffusion.",
+      "places": [
+        "united-states"
+      ],
+      "caveats": "A 1958 book chapter is cited by CHM but its text has not been inspected; patent is a later awareness bound.",
+      "evidence": [
+        {
+          "source": "andrus-1964-fabrication-semiconductor-devices",
+          "locator": "Patent issued 3 March 1964, description and figures 1–9",
+          "supports": "Andrus issued patent publicly described photoresist-patterned windows in silicon oxide for selective diffusion."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1955",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Museum dates Andrus and Bond’s adaptation to 1955; patent filing and later refinements are separate. This node is not Fairchild’s later step-and-repeat camera or DOFL’s separate diode-array work. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1958",
+    "community": "Fairchild mesa-transistor fabrication engineers",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "Moore’s contemporary-participant account connects Fairchild photolithography, oxide-masked mesa emitters and 1958 shipments, providing earlier real specialist use than the 1964 patent.",
+    "proxy_reason": "The dated use follows from linked passages on the Fairchild process and 1958 shipments; it does not assert identical Bell masks or an independently demonstrated first use.",
+    "caveats": "The Fairchild method is contextual evidence of use of the same general patterned oxide-window process; the source does not identify every original Bell mask or prove exact transfer of a physical tool."
+  },
+  "caveats": "This node is not Fairchild’s later step-and-repeat camera or DOFL’s separate diode-array work.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "silicon-oxide-diffusion-mask",
+      "from_event": "dated-assertion-1955",
+      "to_event": "dated-assertion-1955",
+      "status": "established",
+      "statement": "Andrus and Bond applied photoresist patterning to Frosch and Derick’s oxide-mask process.",
+      "scope": "Bell Labs, 1955; patterned diffusion windows.",
+      "confidence": "high",
+      "alternatives": "Photoengraving already served printed circuitry; DOFL pursued a separate diode-array route.",
+      "caveats": "Exact within-year dates are not supplied.",
+      "timing": "Both nodes are 1955; the source states the dependency, so year-level overlap is not a reversed chronology.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-photolithography-techniques-are",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "Named process adaptation and fabrication sequence."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

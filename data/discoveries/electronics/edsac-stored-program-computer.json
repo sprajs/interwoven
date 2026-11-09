@@ -1,0 +1,202 @@
+{
+  "id": "edsac-stored-program-computer",
+  "name": "EDSAC stored-program computer",
+  "summary": "EDSAC was an early stored-program computer at Cambridge that from 1950 ran researchers' programs as a regular service with operators.",
+  "description": "The Cambridge EDSAC electronic stored-program computer, including its early development and subsequent research program service.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "tier": 1,
+  "tier_reason": "Retain1 for EDSAC's scoped computer/service. The review's sole representative argument expressly violates the owner's rule; correct the1949 date separately. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "infrastructure"
+  ],
+  "scale": "architectural",
+  "origin": "derived",
+  "concept": "stored-program-computer",
+  "prompted_by": [
+    "transmission_from_other_place",
+    "practical_need"
+  ],
+  "why": "Maurice Wilkes read von Neumann's EDVAC report and attended the 1946 Moore School lectures, then built a machine to serve Cambridge scientists' calculations.",
+  "limit_removed": [
+    "speed",
+    "access"
+  ],
+  "setting": [
+    "school"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "cambridge-england"
+    }
+  ],
+  "people": [
+    {
+      "person": "maurice-wilkes",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "university-of-cambridge",
+      "role": "host"
+    },
+    {
+      "organization": "j-lyons-and-co",
+      "role": "funder"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "events": [
+    {
+      "id": "documented-description-1947",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1947
+        },
+        "latest": {
+          "year": 1947
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1947",
+        "basis": "Explicitly dated episode in the reopened cited account."
+      },
+      "statement": "Lyons agreed in July 1947 to contribute funds and a technician in exchange for EDSAC experience for its commercial computer project.",
+      "places": [
+        "cambridge-england"
+      ],
+      "scope": "Cambridge EDSAC stored-program computer operated as a formal service for researchers, with operators running submitted programs.",
+      "applications": [
+        "Scientific computing"
+      ],
+      "caveats": "The source supports this recorded episode; it does not authenticate every statement as part of an earlier oral presentation.",
+      "evidence": [
+        {
+          "source": "university-cambridge-computer-nd-events-early-history",
+          "locator": "LEO section: In July 47 Lyons made an agreement",
+          "supports": "Lyons agreed in July 1947 to contribute funds and a technician in exchange for EDSAC experience for its commercial computer project."
+        }
+      ]
+    },
+    {
+      "id": "demonstration-1949",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1949,
+          "month": 5,
+          "day": 6
+        },
+        "latest": {
+          "year": 1949,
+          "month": 5,
+          "day": 6
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "6 May 1949",
+        "basis": "Cambridge relics chronology, First logged program entry."
+      },
+      "statement": "EDSAC ran its first logged program on 6 May 1949.",
+      "places": [
+        "cambridge-england"
+      ],
+      "scope": "Cambridge EDSAC stored-program computer operated as a formal service for researchers, with operators running submitted programs.",
+      "applications": [
+        "Scientific computing"
+      ],
+      "caveats": "The first logged run is distinct from formal research service in 1950 and does not date the earlier design agreement.",
+      "evidence": [
+        {
+          "source": "university-cambridge-computer-nd-events-early-history",
+          "locator": "First logged program: May 6 49",
+          "supports": "Complete computer working, input from paper tape and output by teleprinter."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1950",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1950
+        },
+        "latest": {
+          "year": 1950
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1950",
+        "basis": "Evidence for this dated community entry; not necessarily the first possible use."
+      },
+      "statement": "The program service became formal in 1950, with operators to run programs.",
+      "places": [
+        "cambridge-england"
+      ],
+      "scope": "Cambridge EDSAC stored-program computer operated as a formal service for researchers, with operators running submitted programs.",
+      "applications": [
+        "Scientific computing"
+      ],
+      "caveats": "The precise start day and size of the service community are not specified. The date of the queueing system is not established by the cited chronology.",
+      "evidence": [
+        {
+          "source": "university-cambridge-computer-nd-events-early-history",
+          "locator": "Program Service paragraph",
+          "supports": "The program service became formal in 1950, with operators to run programs."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-1947",
+    "rationale": "The July 1947 exchange agreement records knowledge of the EDSAC project before its 1949 logged run; the 1950 service entry remains separate. The year of the source’s “July 47” episode is recorded without inventing a day; this is project knowledge, not a claim that EDSAC already ran in 1947."
+  },
+  "community_entry": {
+    "event": "practical-use-1950",
+    "community": "Cambridge researchers submitting EDSAC programs",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A service for other researchers is later than the first 1949 test program and better establishes community use.",
+    "caveats": "The precise start day and size of the service community are not specified. The date of the queueing system is not established by the cited chronology."
+  },
+  "caveats": "The 1950 program-service event remains a specific application of this computer; queueing start and the precise service-start day are unestablished. Its development collaboration with Lyons began earlier.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "origin": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "sourced",
+      "places": "sourced",
+      "people": "recalled",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Proposed distinct configuration and community entry; requires independent review."
+  }
+}

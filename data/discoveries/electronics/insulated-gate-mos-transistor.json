@@ -1,0 +1,185 @@
+{
+  "id": "insulated-gate-mos-transistor",
+  "name": "Insulated-gate MOS transistor",
+  "summary": "A silicon transistor whose current is switched by a metal gate separated from the silicon by a thin oxide layer, a design later taken up for integrated circuits.",
+  "description": "Atalla and Kahng demonstrated a silicon field-effect transistor with an oxide-insulated gate controlling conduction between source and drain.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "fields": [
+    "electronics.components"
+  ],
+  "tier": 0,
+  "tier_reason": "The insulated-gate transistor architecture underlies subsequent MOS integration and computing across device generations.",
+  "advance": [
+    "device_or_configuration",
+    "operating_principle"
+  ],
+  "scale": "radical",
+  "prompted_by": [
+    "new_capability"
+  ],
+  "why": "Atalla's thermally grown oxide had just been shown to stabilise silicon surfaces, making an insulated-gate field-effect device practical.",
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "bell-labs-murray-hill",
+      "note": "String names only New Jersey; Murray Hill assumed as Bell Labs' main site"
+    }
+  ],
+  "people": [
+    {
+      "person": "mohamed-atalla",
+      "role": "originator"
+    },
+    {
+      "person": "dawon-kahng",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication",
+    "patent",
+    "later_text"
+  ],
+  "reception": "delayed",
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "dated-assertion-1960",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1959
+        },
+        "latest": {
+          "year": 1960
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1959–60",
+        "basis": "Museum narrative dates successful fabrication to 1959; the 1960 meeting report is corroborated by Moore’s account."
+      },
+      "statement": "Atalla and Kahng demonstrated a silicon field-effect transistor with an oxide-insulated gate controlling conduction between source and drain.",
+      "places": [
+        "bell-labs-murray-hill"
+      ],
+      "place_note": "String names only New Jersey; Murray Hill assumed as Bell Labs' main site",
+      "caveats": "Interval distinguishes fabrication from reporting. Cached Kahng US3102230 describes a particular bias arrangement and is not used as interchangeable proof of every conventional MOSFET detail.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-metal-oxide-semiconductor",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "Fabrication period and oxide-insulated configuration."
+        },
+        {
+          "source": "moore-1998-role-fairchild-silicon",
+          "locator": "pp. 60–61 §IV",
+          "supports": "Device operation and meeting report."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1963",
+      "type": "recognition",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1963
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1963",
+        "basis": "Latest documented community-use or recognition bound; no earliest date is established."
+      },
+      "statement": "After the 1960 presentation Fairchild researchers investigated MOS devices, and Wanlass proposed CMOS, reported in 1963.",
+      "places": [
+        "united-states"
+      ],
+      "caveats": "Retrospective; the exact first day Fairchild began work and identity with the original specimen are not known.",
+      "evidence": [
+        {
+          "source": "moore-1998-role-fairchild-silicon",
+          "locator": "pp. 60–61, MOS transistor section and reference 12",
+          "supports": "After the 1960 presentation Fairchild researchers investigated MOS devices, and Wanlass proposed CMOS, reported in 1963."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1960",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Museum narrative dates successful fabrication to 1959; the 1960 meeting report is corroborated by Moore’s account. Interval distinguishes fabrication from reporting. Cached Kahng US3102230 describes a particular bias arrangement and is not used as interchangeable proof of every conventional MOSFET detail. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1963",
+    "community": "Fairchild semiconductor researchers",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "The documented later specialist research and 1963 report give an upper bound for recognition beyond the initial prototype.",
+    "caveats": "Retrospective; the exact first day Fairchild began work and identity with the original specimen are not known."
+  },
+  "caveats": "Interval distinguishes fabrication from reporting. Cached Kahng US3102230 describes a particular bias arrangement and is not used as interchangeable proof of every conventional MOSFET detail.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "oxide-stabilized-silicon-surfaces",
+      "from_event": "dated-assertion-1959",
+      "to_event": "dated-assertion-1960",
+      "status": "established",
+      "statement": "Thermally grown oxide’s improved silicon interface enabled Atalla and Kahng to realize the insulated-gate device.",
+      "scope": "Bell Labs, late 1950s; MOS device reported in 1960.",
+      "confidence": "high",
+      "alternatives": "Junction field-effect and bipolar devices use different control structures.",
+      "caveats": "The surface study found a new interface-state distribution, not universal zero surface-state density.",
+      "timing": "1958 report precedes the 1959–60 device; overlapping publication periods do not imply reverse use.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-metal-oxide-semiconductor",
+          "locator": "Main narrative paragraphs 1–2",
+          "supports": "Oxidation and reduced surface-state obstacle in the device."
+        },
+        {
+          "source": "moore-1998-role-fairchild-silicon",
+          "locator": "pp. 60–61 §IV",
+          "supports": "Surface states, thermal oxide and successful field control."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "reception": "recalled",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

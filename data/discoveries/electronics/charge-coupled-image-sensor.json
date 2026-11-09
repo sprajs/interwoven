@@ -1,0 +1,167 @@
+{
+  "id": "charge-coupled-image-sensor",
+  "name": "Charge-coupled image sensor",
+  "summary": "The charge-coupled image sensor captures light as electric charge and shifts it step by step to an output; Fairchild offered its 500-element CCD101 in 1973.",
+  "description": "A solid-state imaging sensor in which accumulated light-generated charge is shifted through coupled potential wells for sequential readout.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "fields": [
+    "measurement.optical-instruments",
+    "electronics.components"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "architectural",
+  "concept": "solid-state-image-sensor",
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "fairchild-semiconductor",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "scientific_publication"
+  ],
+  "fate": "niche",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "commercial",
+    "note": "Commercial applicability is established without establishing the worldwide first transaction.",
+    "evidence": [
+      {
+        "source": "semiconductor-1973-ccd101-linear-image",
+        "locator": "Printed pp. 43–45",
+        "supports": "Fairchild offered the 500-element CCD101 for prototyping at a stated price."
+      },
+      {
+        "source": "melen-1973-tradeoffs-monolithic-image",
+        "locator": "Printed pp. 106–111",
+        "supports": "The contemporary article compares CCD and established MOS imaging arrays."
+      },
+      {
+        "source": "sangster-nd-bucket-brigade-delay",
+        "locator": "Printed pp. 97–99, 109",
+        "supports": "The earlier switched-transistor charge register and proposed imaging application are described."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "commercial-availability-1973",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1973,
+          "month": 5,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 1973-05-24",
+        "basis": "Latest supported use or availability; the first worldwide entry is not established."
+      },
+      "statement": "Fairchild offered the 500-element CCD101 image sensor for prototyping at $1,200 in its 24 May 1973 advertisement.",
+      "scope": "Fairchild CCD101 buried-channel 500-element linear sensor offered for prototyping.",
+      "applications": [
+        "Linear image scanning and facsimile"
+      ],
+      "population": "Equipment developers offered the Fairchild CCD101",
+      "caveats": "MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown.",
+      "evidence": [
+        {
+          "source": "semiconductor-1973-ccd101-linear-image",
+          "locator": "Printed pp. 43–45",
+          "supports": "Fairchild offered the 500-element CCD101 for prototyping at a stated price."
+        },
+        {
+          "source": "melen-1973-tradeoffs-monolithic-image",
+          "locator": "Printed pp. 106–111",
+          "supports": "The contemporary article compares CCD and established MOS imaging arrays."
+        },
+        {
+          "source": "sangster-nd-bucket-brigade-delay",
+          "locator": "Printed pp. 97–99, 109",
+          "supports": "The earlier switched-transistor charge register and proposed imaging application are described."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "commercial-availability-1973",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest supported use or availability; the first worldwide entry is not established. MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-availability-1973",
+    "community": "Equipment developers offered the Fairchild CCD101",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "A dated manufacturer advertisement specifies current availability and a price.",
+    "caveats": "MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown."
+  },
+  "caveats": "MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "A first commercial offer or sale is not established.",
+        "evidence": [
+          {
+            "source": "semiconductor-1973-ccd101-linear-image",
+            "locator": "Printed pp. 43–45",
+            "supports": "Fairchild offered the 500-element CCD101 for prototyping at a stated price."
+          },
+          {
+            "source": "melen-1973-tradeoffs-monolithic-image",
+            "locator": "Printed pp. 106–111",
+            "supports": "The contemporary article compares CCD and established MOS imaging arrays."
+          },
+          {
+            "source": "sangster-nd-bucket-brigade-delay",
+            "locator": "Printed pp. 97–99, 109",
+            "supports": "The earlier switched-transistor charge register and proposed imaging application are described."
+          }
+        ]
+      }
+    ],
+    "note": "Candidate historical and lifecycle assertions await independent review."
+  }
+}

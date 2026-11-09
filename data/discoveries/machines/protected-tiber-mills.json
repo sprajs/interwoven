@@ -1,0 +1,185 @@
+{
+  "id": "protected-tiber-mills",
+  "name": "Protected Tiber mills",
+  "summary": "Rome's besieged defenders strung an iron chain across the Tiber upstream of their boat mills, with a crew clearing debris, protecting the mills from hostile objects floated downstream.",
+  "description": "Operating boat mills accompanied by an upstream iron-chain debris barrier and removal crew.",
+  "kind": "technology",
+  "domain": "machines.mills",
+  "fields": [
+    "energy.water-wind",
+    "warfare.fortification"
+  ],
+  "tier": 3,
+  "tier_reason": "Fine historical detail or an evidentiary witness; retention supports explanation without claiming broad later dependence.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "incremental",
+  "prompted_by": [
+    "state_or_military"
+  ],
+  "why": "Enemy forces could float logs and bodies down the Tiber to wreck the mills or send boats against the city, so the river needed guarding.",
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "tiber-river",
+      "note": "Eastern Roman (Byzantine) Italy"
+    },
+    {
+      "place": "italy"
+    }
+  ],
+  "people": [
+    {
+      "person": "belisarius",
+      "role": "originator"
+    },
+    {
+      "person": "procopius",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "byzantine-empire"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "events": [
+    {
+      "id": "practical-use-537",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 537
+        },
+        "latest": {
+          "year": 537
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "537 CE",
+        "basis": "The cited source places this specific public disclosure or use in the stated year."
+      },
+      "statement": "The boat mills continued to operate with an upstream iron-chain barrier and a crew clearing intercepted debris.",
+      "places": [
+        "tiber-river",
+        "italy"
+      ],
+      "place_note": "Eastern Roman (Byzantine) Italy",
+      "applications": [
+        "protected river-powered milling"
+      ],
+      "population": "Boat-mill operators and inhabitants of besieged Rome",
+      "caveats": "The primary narrative is a participant’s retrospective account; the chain also protected against hostile boats and is not claimed to have had only one purpose.",
+      "evidence": [
+        {
+          "source": "procopius-1919-wars-v-gothic",
+          "locator": "I.19.23–27, p. 193",
+          "supports": "Describes floating debris, a chain and clearing crew, and the continued use of the mills; chain defence against boats is also described."
+        },
+        {
+          "source": "bury-1923-history-later-roman",
+          "locator": "vol. II, ch. XVIII §5, pp. 184–185",
+          "supports": "Places the initial siege sequence in 537."
+        }
+      ]
+    },
+    {
+      "id": "dated-assertion-537",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 537
+        },
+        "latest": {
+          "year": 537
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "537",
+        "basis": "Operational stage at the opening of the 537–538 siege; Procopius’s narrative sequence, with calendar placement checked in Bury."
+      },
+      "statement": "Operating boat mills accompanied by an upstream iron-chain debris barrier and removal crew.",
+      "places": [
+        "tiber-river",
+        "italy"
+      ],
+      "place_note": "Eastern Roman (Byzantine) Italy",
+      "caveats": "Procopius says protection against hostile boats was the stronger motive; this is not a milling-only device.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "procopius-1919-wars-v-gothic",
+          "locator": "I.19.23–27",
+          "supports": "Damage by floating debris, chain interception, removal crew and continued mill use."
+        },
+        {
+          "source": "bury-1923-history-later-roman",
+          "locator": "§5, pp. 184–185",
+          "supports": "Same initial siege sequence."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-537",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Operational stage at the opening of the 537–538 siege; Procopius’s narrative sequence, with calendar placement checked in Bury. Procopius says protection against hostile boats was the stronger motive; this is not a milling-only device. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-537",
+    "community": "Boat-mill operators and inhabitants of besieged Rome",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The boat mills continued to operate with an upstream iron-chain barrier and a crew clearing intercepted debris.",
+    "caveats": "The primary narrative is a participant’s retrospective account; the chain also protected against hostile boats and is not claimed to have had only one purpose."
+  },
+  "caveats": "Procopius says protection against hostile boats was the stronger motive; this is not a milling-only device.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "tiber-boat-mills",
+      "from_event": "practical-deployment-537",
+      "to_event": "dated-assertion-537",
+      "status": "established",
+      "statement": "Following debris damage, an upstream chain barrier and removal crew were added; continued use of the river mills is reported.",
+      "scope": "Rome, later in the same initial siege episode, 537.",
+      "confidence": "high",
+      "alternatives": "Moving or differently protecting the installations is not assessed in the source.",
+      "caveats": "Barrier also addressed hostile boats; its motive is not reduced to mill protection.",
+      "timing": "Same-year nodes reflect an explicit before/after modification, not year-level precedence alone.",
+      "evidence": [
+        {
+          "source": "procopius-1919-wars-v-gothic",
+          "locator": "I.19.23–27",
+          "supports": "Damage, intervention and subsequent continued use occur in sequence."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "sourced",
+      "limit_removed": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

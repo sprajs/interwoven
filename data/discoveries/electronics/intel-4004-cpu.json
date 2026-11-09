@@ -1,0 +1,303 @@
+{
+  "id": "intel-4004-cpu",
+  "name": "Intel 4004 CPU",
+  "summary": "The Intel 4004 put a complete four-bit computer processor on one silicon chip, first designed for Busicom calculators and then sold to other equipment makers.",
+  "description": "The Intel 4004 four-bit silicon-gate CPU, including early development iterations and later merchant offers as separately scoped events; peripheral chips remained part of MCS-4. Intel museum history credits Hoff and Mazor with developing the architecture and Faggin with Shima with implementing the design.",
+  "kind": "technology",
+  "domain": "electronics.integrated-circuits",
+  "fields": [
+    "electronics.computers",
+    "electronics.semiconductors"
+  ],
+  "tier": 1,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "system_integration",
+    "device_or_configuration"
+  ],
+  "scale": "architectural",
+  "concept": "single-chip-microprocessor",
+  "prompted_by": [
+    "market_or_competition"
+  ],
+  "why": "The Japanese calculator maker Busicom commissioned a chip set from Intel, and Intel proposed a general programmable processor to reduce the number of custom chips.",
+  "limit_removed": [
+    "cost"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "funding": [
+    "commercial"
+  ],
+  "places": [
+    {
+      "place": "california",
+      "note": "Intel (California); Busicom collaboration (Japan)"
+    },
+    {
+      "place": "japan"
+    }
+  ],
+  "people": [
+    {
+      "person": "marcian-hoff",
+      "role": "originator"
+    },
+    {
+      "person": "stanley-mazor",
+      "role": "originator"
+    },
+    {
+      "person": "federico-faggin",
+      "role": "builder"
+    },
+    {
+      "person": "masatoshi-shima",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "intel",
+      "role": "maker"
+    },
+    {
+      "organization": "busicom",
+      "role": "customer"
+    }
+  ],
+  "societies": [
+    "united-states",
+    "japan"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "fate": "superseded",
+  "end_reason": [
+    "better_substitute"
+  ],
+  "market": {
+    "status": "commercial",
+    "note": "The documented product sale or offer establishes market applicability, without establishing first commercial availability of the complete configuration.",
+    "evidence": [
+      {
+        "source": "intel-corporation-1971-intel-mcs-announcement",
+        "locator": "15 November 1971 stock offer",
+        "supports": "The 4004 was offered as part of the in-stock MCS-4 family."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "prototype-1971",
+      "type": "prototype",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 1
+        },
+        "latest": {
+          "year": 1971,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "January 1971",
+        "basis": "Participant account describes working wafer run in January and subsequent correction of minor bugs."
+      },
+      "statement": "A 4004 silicon run worked in January 1971; subsequent tests found and corrected minor errors.",
+      "places": [
+        "united-states"
+      ],
+      "scope": "Early Intel 4004 working silicon with minor bugs, not the later corrected production mask",
+      "caveats": "The participants describe a working early iteration; this event is not a claim that it was the final mask sold in November.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "faggin-1996-history",
+          "locator": "IEEE Micro December 1996, printed pp. 16–17/PDF pp. 7–8, The 4004 comes to life",
+          "supports": "Project participants describe early 4004 chips that worked in January 1971, bug fixes and fully functional iteration in March."
+        }
+      ]
+    },
+    {
+      "id": "commercial-offer-1971",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 11,
+          "day": 15
+        },
+        "latest": {
+          "year": 1971,
+          "month": 11,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "15 November 1971",
+        "basis": "Intel advertisement reports the MCS-4 family in stock on this day."
+      },
+      "statement": "On 15 November 1971 Intel advertised the MCS-4 family, including the 4004, as in stock for its merchant market.",
+      "places": [
+        "united-states",
+        "belgium",
+        "japan"
+      ],
+      "scope": "Intel 4004 CPU offered as part of the MCS-4 family; the advertisement does not identify a mask or physical iteration.",
+      "applications": [
+        "Non-desktop-calculator commercial uses"
+      ],
+      "market": "Merchant component sales outside exclusive desktop-calculator applications",
+      "caveats": "The first day of merchant sales and possible earlier private merchant offers are unresolved. Earlier availability to Busicom under its contract is a different market scope.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "intel-corporation-1971-intel-mcs-announcement",
+          "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+          "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+        },
+        {
+          "source": "faggin-1996-history",
+          "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+          "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "prototype-1971",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Participant account describes working wafer run in January and subsequent correction of minor bugs. The participants describe a working early iteration; this event is not a claim that it was the final mask sold in November. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "commercial-offer-1971",
+    "community": "Prospective Intel merchant-market buyers outside desktop calculators",
+    "basis": "commercial_availability",
+    "strength": "direct",
+    "rationale": "The 15 November 1971 advertisement says the Intel MCS-4 family, including the 4004, was in stock at named offices.",
+    "caveats": "This is a dated offer and available-by evidence, not proof of the first possible sale or first Busicom delivery. Named offices do not prove equal stock or actual transactions in each country."
+  },
+  "caveats": "The early working iteration and merchant-offered devices are not asserted to have identical masks. First merchant or Busicom availability and first sale remain unknown.",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "silicon-gate-3708-multiplexer",
+      "from_event": "dated-assertion-1968",
+      "status": "established",
+      "statement": "Faggin carried silicon-gate expertise to Intel and added logic-process features used to implement the 4004.",
+      "scope": "Fairchild to Intel, 1968–71; process knowledge, with Faggin joining Intel in 1970.",
+      "confidence": "high",
+      "alternatives": "AL1 CPU slices and MP944 multi-chip processing were contemporary alternatives.",
+      "caveats": "The multiplexer circuit itself was not a CPU component; the transmitted contribution was process/design capability. Architecture had distinct contributors.",
+      "timing": "1968 deployment and 1970 transfer precede the 1971 CPU.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-silicon-gate-technology",
+          "locator": "Main narrative paragraph 3",
+          "supports": "Intel adoption, Faggin transfer and buried-contact enhancement."
+        },
+        {
+          "source": "computer-history-museum-nd-microprocessor-integrates-cpu",
+          "locator": "Main narrative paragraphs 2–3",
+          "supports": "CPU design and silicon-gate implementation."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "ultraviolet-erasable-floating-gate-semiconductor-memory",
+      "status": "established",
+      "statement": "Federico Faggin recalled using a 1702 EPROM program with a 4004-controlled production tester.",
+      "scope": "One Intel production-tester configuration; not a claim that EPROM was necessary for all 4004 systems.",
+      "confidence": "high",
+      "alternatives": "Other 4004 applications could use other memory devices and arrangements.",
+      "caveats": "The account is retrospective and does not establish a customer sale or all masks and versions of the tester.",
+      "timing": "The internal prototype context is separate from either component’s selected merchant-availability anchor.",
+      "evidence": [
+        {
+          "source": "faggin-2007-oral-history-panel",
+          "locator": "Printed p. 20 / PDF p. 20",
+          "supports": "Faggin recalls using 1702 EPROM program storage with a 4004-controlled production tester."
+        }
+      ]
+    },
+    {
+      "type": "requires",
+      "from": "insulated-gate-mos-transistor",
+      "from_event": "dated-assertion-1960",
+      "to_event": "prototype-1971",
+      "status": "established",
+      "statement": "The 4004 is a MOS integrated implementation; its transistor function belongs to the insulated-gate MOS architecture.",
+      "scope": "Only the identified configurations and source-described contribution.",
+      "confidence": "high",
+      "alternatives": "No unique historical route or universal necessity asserted.",
+      "caveats": "Device-class function, not use of Atalla and Kahng’s physical prototype or a demonstrated personal transmission route.",
+      "timing": "The relation concerns the scoped events and functions; no transmission inferred from chart placement.",
+      "evidence": [
+        {
+          "source": "computer-history-museum-nd-microprocessor-integrates-cpu",
+          "locator": "1971 milestone, MOS LSI and silicon-gate implementation narrative",
+          "supports": "The 4004 is a MOS integrated implementation; its transistor function belongs to the insulated-gate MOS architecture."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "invention",
+        "note": "Working early 4004 silicon is documented separately; no unique invention date is inferred from it.",
+        "evidence": [
+          {
+            "source": "faggin-1996-history",
+            "locator": "IEEE Micro December 1996, printed pp. 16–17/PDF pp. 7–8, The 4004 comes to life",
+            "supports": "Project participants describe early 4004 chips that worked in January 1971, bug fixes and fully functional iteration in March."
+          }
+        ]
+      },
+      {
+        "about": "first_commercial_availability",
+        "note": "The 15 November advertisement proves an in-stock offer by that date, but not the first day of merchant availability. Earlier contractual Busicom commerce is also unresolved.",
+        "evidence": [
+          {
+            "source": "intel-corporation-1971-intel-mcs-announcement",
+            "locator": "Reproduced 15 November 1971 Intel advertisement, final two paragraphs",
+            "supports": "Names the 4004 and says the MCS-4 family was in stock at Intel offices in the United States, Europe and Japan."
+          },
+          {
+            "source": "faggin-1996-history",
+            "locator": "Printed pp. 17–18/PDF pp. 8–9, Marketing the 4004",
+            "supports": "Busicom contract initially exclusive; by May 1971 Intel acquired rights to sell for uses except desktop calculators."
+          }
+        ]
+      }
+    ],
+    "note": "Four-bit CPU identity merges architecture and product contexts; exact development and market stages remain separate. Contributor attributions are preserved from the removed dated assertion and its elec-chm-4004-cpu and elec-chm-silicon-gate evidence."
+  }
+}

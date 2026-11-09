@@ -1,0 +1,188 @@
+{
+  "id": "hertz-branly-signal-trials",
+  "name": "Hertz–Branly signal trials",
+  "summary": "Marconi's first trials combining Hertz's spark transmitter with Branly's filings detector in an attempt to send telegraph signals without wires.",
+  "description": "An ordinary Hertz oscillator and Branly coherer are combined in preliminary tests aimed at transmitting telegraphic signs without connecting wires.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "fields": [
+    "physical-sciences.electromagnetism"
+  ],
+  "tier": 3,
+  "tier_reason": "Fine historical detail or an evidentiary witness; retention supports explanation without claiming broad later dependence.",
+  "advance": [
+    "system_integration",
+    "new_application"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "practical_need",
+    "transfer_from_other_field"
+  ],
+  "why": "Laboratory demonstrations of electrical waves suggested to Marconi that they could carry telegraph signals.",
+  "setting": [
+    "individual"
+  ],
+  "funding": [
+    "self"
+  ],
+  "places": [
+    {
+      "place": "bologna",
+      "note": "Near Bologna; exact place not given"
+    }
+  ],
+  "people": [
+    {
+      "person": "guglielmo-marconi",
+      "role": "originator"
+    }
+  ],
+  "societies": [
+    "italy"
+  ],
+  "known_from": [
+    "later_text"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "demonstration-1895",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1895
+        },
+        "latest": {
+          "year": 1895
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "early 1895",
+        "basis": "Marconi’s 1909 lecture dates the initial home experiments to early 1895."
+      },
+      "statement": "An ordinary Hertz oscillator and Branly coherer are combined in preliminary tests aimed at transmitting telegraphic signs without connecting wires.",
+      "places": [
+        "bologna"
+      ],
+      "place_note": "Near Bologna; exact place not given",
+      "caveats": "Retrospective participant testimony. The early Branly detector is described as unreliable; no generic 1895 radio-invention or performance claim is inferred.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "marconi-1909-wireless-telegraphic-communication",
+          "locator": "Printed pp. 196–197, opening historical account",
+          "supports": "Dates the first tests and explicitly names Hertz oscillator, Branly coherer and signalling objective."
+        }
+      ]
+    },
+    {
+      "id": "presentation-1909",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1909,
+          "month": 12,
+          "day": 11
+        },
+        "latest": {
+          "year": 1909,
+          "month": 12,
+          "day": 11
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1909-12-11",
+        "basis": "Date of this documented community-facing use, recognition, or communication; not a claim of first occurrence."
+      },
+      "statement": "Marconi described his initial oscillator and coherer tests in his Nobel lecture.",
+      "places": [
+        "stockholm"
+      ],
+      "caveats": "An earlier public description may exist; no commercial use of the original specimen is established.",
+      "evidence": [
+        {
+          "source": "marconi-1909-wireless-telegraphic-communication",
+          "locator": "pp. 196–199, preliminary Hertz oscillator and Branly coherer",
+          "supports": "Marconi described his initial oscillator and coherer tests in his Nobel lecture."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "demonstration-1895",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Marconi’s 1909 lecture dates the initial home experiments to early 1895. Retrospective participant testimony. The early Branly detector is described as unreliable; no generic 1895 radio-invention or performance claim is inferred. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "presentation-1909",
+    "community": "Nobel lecture audience and readers",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "His public account establishes awareness of the particular initial configuration; it does not conflate the later aerial-earth system.",
+    "proxy_reason": "A source-bound public account is used because external use of the original initial test setup was not found.",
+    "caveats": "An earlier public description may exist; no commercial use of the original specimen is established."
+  },
+  "caveats": "Retrospective participant testimony. The early Branly detector is described as unreliable; no generic 1895 radio-invention or performance claim is inferred.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "metal-filings-contact-detector",
+      "from_event": "demonstration-1891",
+      "to_event": "demonstration-1895",
+      "status": "established",
+      "statement": "Marconi reports using a Branly coherer alongside the Hertz oscillator, then changing the filings detector because the initial version was unreliable.",
+      "scope": "Near Bologna, 1895 initial receiver work.",
+      "confidence": "high",
+      "alternatives": "Hertz’s laboratory observations used a spark-gap detector; Marconi’s recorded trials use a conductive-contact detector instead.",
+      "caveats": "Marconi’s later account supports his component use; it does not by itself settle all coherer priority disputes.",
+      "timing": "The receiving development follows the source development.",
+      "evidence": [
+        {
+          "source": "marconi-1909-wireless-telegraphic-communication",
+          "locator": "Printed pp. 196–197, first tests and Fig. 1 paragraphs",
+          "supports": "Explicit initial Branly detector and subsequent nickel/silver-filings modification."
+        }
+      ]
+    },
+    {
+      "type": "adapts",
+      "from": "fast-spark-oscillator-and-receiver",
+      "from_event": "dated-assertion-1887",
+      "to_event": "demonstration-1895",
+      "status": "established",
+      "statement": "Marconi reports beginning his signalling trials with an ordinary Hertz oscillator, adapting a laboratory wave source to a communications objective.",
+      "scope": "Near Bologna, early 1895.",
+      "confidence": "high",
+      "alternatives": "Marconi subsequently tried a Righi oscillator with reflectors, as the same lecture records.",
+      "caveats": "The report identifies the oscillator design tradition, not the physical reuse of Hertz’s own instrument or an exact replication of every dimension.",
+      "timing": "The receiving development follows the source development.",
+      "evidence": [
+        {
+          "source": "marconi-1909-wireless-telegraphic-communication",
+          "locator": "Printed pp. 196–197, My first tests paragraph",
+          "supports": "Explicitly names an ordinary Hertz oscillator."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "sourced",
+      "setting": "recalled",
+      "funding": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

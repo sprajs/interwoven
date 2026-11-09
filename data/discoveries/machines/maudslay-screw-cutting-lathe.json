@@ -1,0 +1,109 @@
+{
+  "id": "maudslay-screw-cutting-lathe",
+  "name": "Maudslay screw-cutting lathe",
+  "summary": "Maudslay's lathe used change gears and a leadscrew to cut accurate screw threads, a key tool for precise, repeatable engineering work.",
+  "description": "Hand-driven lathe with change-geared spindle and leadscrew, slide rest and micrometer feed, Science Museum object 1900-20.",
+  "kind": "technology",
+  "domain": "machines.machine-tools",
+  "fields": [
+    "machines.mechanisms"
+  ],
+  "tier": 1,
+  "tier_reason": "Prefer promotion for the screw-cutting architecture and its machine-tool role; the circa1800 object date beats a by1831 death-bound for the same item. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "device_or_configuration",
+    "performance_improvement"
+  ],
+  "scale": "incremental",
+  "limit_removed": [
+    "precision"
+  ],
+  "setting": [
+    "workshop"
+  ],
+  "places": [
+    {
+      "place": "london"
+    }
+  ],
+  "people": [
+    {
+      "person": "henry-maudslay",
+      "role": "originator"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "surviving_artifact"
+  ],
+  "events": [
+    {
+      "id": "practical-use-1831",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1831
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1831",
+        "basis": "The museum says Maudslay used the surviving lathe; he died in 1831, so his own use must predate that year."
+      },
+      "statement": "The surviving lathe was used by Maudslay to make accurate screw threads; the museum dates the machine to around 1800.",
+      "places": [
+        "london"
+      ],
+      "applications": [
+        "screw-thread manufacture"
+      ],
+      "caveats": "Exact individual shop orders, first use and original change gears are not documented by this source; the death-year bound is inferential.",
+      "evidence": [
+        {
+          "source": "science-museum-group-nd-henry-maudslays-original",
+          "locator": "Object 1900-20, construction and use description",
+          "supports": "Identifies the machine, screw manufacturing use and construction."
+        },
+        {
+          "source": "science-museum-group-nd-henry-maudslay",
+          "locator": "Biographical heading",
+          "supports": "Dates Maudslay’s life to 1771–1831."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-use-1831",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. The museum says Maudslay used the surviving lathe; he died in 1831, so his own use must predate that year. Exact individual shop orders, first use and original change gears are not documented by this source; the death-year bound is inferential. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1831",
+    "community": "Henry Maudslay’s precision machine workshop",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The surviving lathe was used by Maudslay to make accurate screw threads; the museum dates the machine to around 1800.",
+    "proxy_reason": "The source explicitly attributes use of this particular machine to Maudslay; his death year supplies only a conservative upper bound.",
+    "caveats": "Exact individual shop orders, first use and original change gears are not documented by this source; the death-year bound is inferential."
+  },
+  "caveats": "Exact individual shop orders, first use and original change gears are not documented by this source; the death-year bound is inferential.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Candidate proposal; requires independent passage and causal review."
+  }
+}

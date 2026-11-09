@@ -1,0 +1,181 @@
+{
+  "id": "double-acting-steam-specification",
+  "name": "Double-acting steam specification",
+  "summary": "James Watt's 1782 patent description of a steam engine that pushes and pulls on both piston strokes, giving smoother, stronger power suited to driving machinery.",
+  "description": "Watt describes alternating steam admission and condensation above and below the piston, transmitting both push and pull through rack-and-sector or other connections.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "machines.mechanisms"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "device_or_configuration",
+    "performance_improvement"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "practical_need",
+    "market_or_competition"
+  ],
+  "why": "Mill owners wanted smoother, continuous power to drive machinery, and Boulton and Watt sought patent protection for engine arrangements that could serve that market.",
+  "limit_removed": [
+    "power_or_energy"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "great-britain"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-watt",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "boulton-and-watt",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "patent",
+    "contemporary_text",
+    "administrative_record"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "documented-description-1782",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1782
+        },
+        "latest": {
+          "year": 1782
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1782",
+        "basis": "Patent granted 12 March; specification enrolled 4 July 1782."
+      },
+      "statement": "Watt describes alternating steam admission and condensation above and below the piston, transmitting both push and pull through rack-and-sector or other connections.",
+      "places": [
+        "great-britain"
+      ],
+      "caveats": "A patent describes claimed arrangements; it does not alone establish operation or the stated doubling of actual output.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 26: Second Improvement, figures 12–13, and Fourth New Improvement",
+          "supports": "Alternating action, condenser passages, piston connection and rack-and-sector arrangement."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1783",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1783
+        },
+        "latest": {
+          "year": 1783
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1783",
+        "basis": "The repository catalogue identifies the first double-acting Soho engine at work in 1783, with March and June reported differently."
+      },
+      "statement": "A double-acting rack-and-sector engine worked a corn mill at Soho in 1783.",
+      "places": [
+        "soho-manufactory-birmingham"
+      ],
+      "scope": "Double-acting steam admission with a rack-and-sector connection, as described in Watt’s 1782 specification.",
+      "caveats": "The source dates actual operation to 1783 but disagrees on the month; this does not establish a public offer or use of every alternative in the specification.",
+      "evidence": [
+        {
+          "source": "birmingham-archives-collections-nd-double-reciprocating-engine",
+          "locator": "MS 3147/5/1340, technical description and final paragraph",
+          "supports": "Describes the 18-inch double-acting rack-and-sector engine with internal sun-and-planet gear driving a corn mill; records disagree on March/June 1783."
+        },
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "1782 specification: description of the double-acting engine",
+          "supports": "Provides the contemporary specification against which the identified configuration is compared."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-1782",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Patent granted 12 March; specification enrolled 4 July 1782. A patent describes claimed arrangements; it does not alone establish operation or the stated doubling of actual output. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1783",
+    "community": "Soho Manufactory corn-mill workers and engine builders",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "A documented application of the specified mechanism to milling follows the earlier patent description.",
+    "caveats": "The source dates actual operation to 1783 but disagrees on the month; this does not establish a public offer or use of every alternative in the specification."
+  },
+  "caveats": "A patent describes claimed arrangements; it does not alone establish operation or the stated doubling of actual output.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "separate-condenser-specification",
+      "from_event": "documented-description-1769",
+      "to_event": "documented-description-1782",
+      "status": "established",
+      "statement": "Watt added alternate driving strokes to his engine by routing spent steam from opposite cylinder ends to condensation passages.",
+      "scope": "Watt's 1782 Second Improvement, figures 12–13.",
+      "confidence": "high",
+      "alternatives": "Other engine arrangements could be double acting; the edge is bounded to this specified design.",
+      "caveats": "Does not treat a patent claim as a working demonstration.",
+      "timing": "Later mechanism extends the 1769 configuration; both patent stages precede the Soho operating evidence.",
+      "evidence": [
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 26: Second Improvement, paragraphs on valves E/N and condenser in figure 13",
+          "supports": "Application to his prior engine and alternate condensation/admission arrangement."
+        },
+        {
+          "source": "collection-nd-specification-james-watts",
+          "locator": "Physical Description, principles 1–3",
+          "supports": "Earlier separate-condensation system."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

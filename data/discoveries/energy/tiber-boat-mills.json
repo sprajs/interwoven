@@ -1,0 +1,250 @@
+{
+  "id": "tiber-boat-mills",
+  "name": "Tiber boat mills",
+  "summary": "During the Gothic siege of Rome in 537, mills were mounted on boats moored in the Tiber so the river current could grind flour when aqueduct-fed mills were cut off.",
+  "description": "Customary mill machinery suspended between moored boats, driven by river current below a bridge.",
+  "kind": "technology",
+  "domain": "energy.water-wind",
+  "fields": [
+    "machines.mills",
+    "food.processing"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "device_or_configuration",
+    "new_application"
+  ],
+  "scale": "architectural",
+  "concept": "boat-mill",
+  "prompted_by": [
+    "state_or_military",
+    "practical_need"
+  ],
+  "why": "The besiegers had cut Rome's aqueducts that powered its mills, so the defenders used the Tiber's current instead to keep the city fed.",
+  "limit_removed": [
+    "access"
+  ],
+  "setting": [
+    "military"
+  ],
+  "places": [
+    {
+      "place": "tiber-river",
+      "note": "Eastern Roman (Byzantine) Italy"
+    },
+    {
+      "place": "italy"
+    }
+  ],
+  "people": [
+    {
+      "person": "belisarius",
+      "role": "originator"
+    },
+    {
+      "person": "procopius",
+      "role": "author"
+    }
+  ],
+  "societies": [
+    "byzantine-empire"
+  ],
+  "known_from": [
+    "contemporary_text",
+    "later_text"
+  ],
+  "market": {
+    "status": "nonmarket",
+    "note": "This node is limited to Belisarius’s emergency installation serving besieged Rome. The primary narrative describes a commander directing city flour provision after loss of aqueduct power. Classifying this particular state-directed deployment as nonmarket is an inference from that mission, not proof that boats, labour, grain or other mills involved no trade.",
+    "evidence": [
+      {
+        "source": "procopius-1919-wars-v-gothic",
+        "locator": "I.19.8–22, pp. 187–191",
+        "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+      },
+      {
+        "source": "bury-1923-history-later-roman",
+        "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+        "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "practical-deployment-537",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 537
+        },
+        "latest": {
+          "year": 537
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "537 CE",
+        "basis": "Procopius narrates the response at the beginning of the siege; Bury places this episode in 537."
+      },
+      "statement": "Procopius reports that mill machinery on moored boats operated in the Tiber to grind flour during the siege.",
+      "places": [
+        "tiber-river"
+      ],
+      "applications": [
+        "emergency flour milling during siege"
+      ],
+      "population": "besieged Rome",
+      "caveats": "A literary report, not archaeological proof; exact day, number of mills, scale of flour supply and end of installation remain uncertain.",
+      "evidence": [
+        {
+          "source": "procopius-1919-wars-v-gothic",
+          "locator": "I.19.8–22, pp. 187–191",
+          "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+        },
+        {
+          "source": "bury-1923-history-later-roman",
+          "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+          "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-537",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Procopius narrates the response at the beginning of the siege; Bury places this episode in 537. A literary report, not archaeological proof; exact day, number of mills, scale of flour supply and end of installation remain uncertain. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-537",
+    "community": "Mill operators and inhabitants of besieged Rome",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Procopius describes operational milling in the bounded siege context.",
+    "caveats": "The account does not establish the original construction date, full access, or first such mill anywhere."
+  },
+  "caveats": "Literary account; the exact bridge and claims of sufficient flour are not independently verified. Nonmarket is a configuration-specific inference, not evidence of no transactions or a claim about all boat mills.",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "romes-aqueduct-mills",
+      "from_event": "practical-deployment-537",
+      "to_event": "practical-deployment-537",
+      "status": "established",
+      "statement": "After aqueduct cuts stopped the hill mills, Belisarius installed customary mill machinery between boats driven by the Tiber.",
+      "scope": "Rome, opening of the 537 siege.",
+      "confidence": "high",
+      "alternatives": "Animal power is explicitly discussed but limited by wartime fodder scarcity.",
+      "caveats": "No proof that particular millstones or gears were physically taken from the hill mills.",
+      "timing": "Both nodes are observed stages in 537; stoppage precedes installation within the account.",
+      "evidence": [
+        {
+          "source": "procopius-1919-wars-v-gothic",
+          "locator": "I.19.19–22",
+          "supports": "Narrator explicitly connects stoppage, substitution and customary mechanism."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "recalled",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "market": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "invention",
+        "note": "Procopius attributes this siege expedient to Belisarius; that narrative does not establish the worldwide first invention or earlier prototypes of boat milling.",
+        "evidence": [
+          {
+            "source": "procopius-1919-wars-v-gothic",
+            "locator": "I.19.8–22, pp. 187–191",
+            "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+          },
+          {
+            "source": "bury-1923-history-later-roman",
+            "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+            "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+          }
+        ]
+      },
+      {
+        "about": "first_commercial_availability",
+        "note": "The inspected accounts support the purpose and use but do not establish a date on which this specific configuration was offered for sale; this is not a claim that no transaction ever occurred.",
+        "evidence": [
+          {
+            "source": "procopius-1919-wars-v-gothic",
+            "locator": "I.19.8–22, pp. 187–191",
+            "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+          },
+          {
+            "source": "bury-1923-history-later-roman",
+            "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+            "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+          }
+        ]
+      },
+      {
+        "about": "adoption",
+        "note": "Independent uptake beyond this particular installation or vessel is not established by the inspected passage; operational use and a welcome are not an adoption measure.",
+        "evidence": [
+          {
+            "source": "procopius-1919-wars-v-gothic",
+            "locator": "I.19.8–22, pp. 187–191",
+            "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+          },
+          {
+            "source": "bury-1923-history-later-roman",
+            "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+            "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+          }
+        ]
+      },
+      {
+        "about": "acceptance",
+        "note": "No distinct evidence of acceptance under an explicitly defined population and criterion was established in these passages.",
+        "evidence": [
+          {
+            "source": "procopius-1919-wars-v-gothic",
+            "locator": "I.19.8–22, pp. 187–191",
+            "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+          },
+          {
+            "source": "bury-1923-history-later-roman",
+            "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+            "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+          }
+        ]
+      },
+      {
+        "about": "end_of_use",
+        "note": "The inspected siege account describes damage and continued operation after protection, but does not date the end of this installation.",
+        "evidence": [
+          {
+            "source": "procopius-1919-wars-v-gothic",
+            "locator": "I.19.8–22, pp. 187–191",
+            "supports": "Belisarius ordered mills mounted on boats during a siege supply emergency; Procopius describes the mills grinding flour."
+          },
+          {
+            "source": "bury-1923-history-later-roman",
+            "locator": "vol. II, ch. XVIII §5, pp. 183–185",
+            "supports": "Places the aqueduct cuts and boat-mill response in the opening of the 537–538 siege."
+          }
+        ]
+      }
+    ]
+  }
+}

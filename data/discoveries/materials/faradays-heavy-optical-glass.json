@@ -1,0 +1,172 @@
+{
+  "id": "faradays-heavy-optical-glass",
+  "name": "Faraday’s heavy optical glass",
+  "summary": "Faraday developed a very dense lead borosilicate glass, melted and annealed in platinum, that later served as the medium in his discovery of magnetism acting on light.",
+  "description": "Faraday’s silicated borate of lead: a heavy optical glass finished and annealed in platinum trays after purification, mixing and fusion of the constituents.",
+  "kind": "technology",
+  "domain": "materials.glass",
+  "fields": [
+    "measurement.optical-instruments",
+    "physical-sciences.electromagnetism"
+  ],
+  "tier": 2,
+  "tier_reason": "Prefer the narrower material tier: a named experimental glass has an important later use without representing all optical glass. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "material",
+    "manufacturing_process"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "British optical glass for telescopes was poor, and a Royal Society committee commissioned research to improve it.",
+  "setting": [
+    "learned_society"
+  ],
+  "places": [
+    {
+      "place": "royal-institution-london"
+    }
+  ],
+  "people": [
+    {
+      "person": "michael-faraday",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-institution",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-kingdom"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "production-1829",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 1828
+        },
+        "latest": {
+          "year": 1829
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1828–1829",
+        "basis": "Faraday dates the dedicated heavy-glass work from September 1828 and describes the established preparation in his lecture read in late 1829."
+      },
+      "statement": "Faraday’s silicated borate of lead: a heavy optical glass finished and annealed in platinum trays after purification, mixing and fusion of the constituents.",
+      "places": [
+        "royal-institution-london"
+      ],
+      "caveats": "The interval dates the reported development of this glass preparation; it does not establish the manufacture date of the particular specimen used in 1845, nor routine commercial optical performance.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "faraday-1830-bakerian-lecture-manufacture",
+          "locator": "1859 reprint p. 234 and pp. 240–241, §§10–13",
+          "supports": "Period, composition identity, vessel choice and preparation."
+        }
+      ]
+    },
+    {
+      "id": "practical-use-1845",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1845,
+          "month": 11,
+          "day": 6
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 6 November 1845",
+        "basis": "Faraday’s Royal Society paper was received 6 November 1845 and reports that his earlier heavy glass served in the magnetic-field optical experiment."
+      },
+      "statement": "By receipt of Faraday’s 1845 report, a piece of his heavy glass had been used as an optical medium in magnetic-rotation research.",
+      "places": [
+        "royal-institution-london"
+      ],
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "Michael Faraday’s Royal Institution magneto-optical research",
+      "caveats": "This is a specialist research use, not evidence of marketed optical glass; the exact experiment day and the sample manufacture date remain unresolved.",
+      "evidence": [
+        {
+          "source": "faraday-1846-experimental-researches-electricity",
+          "locator": "reprint p. 1 and p. 3, §§2150–2152",
+          "supports": "The receipt date and use of earlier heavy glass in the magnetic-field optical apparatus."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "production-1829",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Faraday dates the dedicated heavy-glass work from September 1828 and describes the established preparation in his lecture read in late 1829. The interval dates the reported development of this glass preparation; it does not establish the manufacture date of the particular specimen used in 1845, nor routine commercial optical performance. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-1845",
+    "community": "Michael Faraday’s Royal Institution magneto-optical research",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The same glass served an independent research objective years after its initial production and optical-material testing.",
+    "caveats": "This is a specialist research use, not evidence of marketed optical glass; the exact experiment day and the sample manufacture date remain unresolved."
+  },
+  "caveats": "The interval dates the reported development of this glass preparation; it does not establish the manufacture date of the particular specimen used in 1845, nor routine commercial optical performance.",
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "royal-institution-glass-furnace",
+      "from_event": "dated-assertion-1827",
+      "to_event": "production-1829",
+      "status": "established",
+      "statement": "Faraday used the Royal Institution installation for the continuing glass experiments that turned specifically to heavy fusible glasses in September 1828.",
+      "scope": "Royal Institution experimental glass production, 1827–1829.",
+      "confidence": "high",
+      "alternatives": "Earlier experiments were performed at the Falcon Glassworks; other glassmakers used other installations.",
+      "caveats": "The report does not assign every specimen to an individual furnace firing.",
+      "timing": "The installation precedes the specialized heavy-glass work by about a year.",
+      "evidence": [
+        {
+          "source": "faraday-1830-bakerian-lecture-manufacture",
+          "locator": "1859 reprint pp. 233–234, Introduction",
+          "supports": "Construction, continued experiments at that site and shift to heavy glass."
+        }
+      ]
+    },
+    {
+      "type": "uses_theory",
+      "from": "differential-refraction-experiments",
+      "status": "insufficient",
+      "statement": "Is there a documented line from dispersion theory to the optical-glass programme Faraday worked on?",
+      "caveats": "Evidence needed: Royal Society committee papers or Faraday's Bakerian lecture naming the problem and its origin.",
+      "finding": "Faraday explicitly relates optical-glass work to refraction, dispersion, achromatic telescopes and material homogeneity; Newton’s letter records his differential-refraction experiments. The inspected Faraday passage does not name Newton’s specific experiments or establish a direct theoretical lineage to this particular glass programme."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "prompted_by": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

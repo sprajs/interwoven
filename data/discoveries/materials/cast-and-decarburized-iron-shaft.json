@@ -1,0 +1,132 @@
+{
+  "id": "cast-and-decarburized-iron-shaft",
+  "name": "Cast-and-decarburized iron shaft",
+  "summary": "The iron shaft of an Eastern Zhou crossbow bolt was cast to shape and then had its carbon removed, turning brittle cast iron into tougher low-carbon iron.",
+  "description": "CB3 shaft: cast to rod shape, then decarburized to low-carbon iron.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "fields": [
+    "warfare.weapons"
+  ],
+  "tier": 2,
+  "tier_reason": "The treated shaft is a bounded process witness, not all cast-iron and malleabilisation technology. Keep its role separate from the head. This is a scoped consequence judgement, not a reward for documentation or representation.",
+  "advance": [
+    "manufacturing_process"
+  ],
+  "concept": "decarburized-cast-iron",
+  "setting": [
+    "workshop"
+  ],
+  "places": [
+    {
+      "place": "china",
+      "note": "Exact findspot unrecorded"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "british-museum",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "eastern-zhou"
+  ],
+  "known_from": [
+    "surviving_artifact",
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "practical-use-301bce",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": -301
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "by c. 301 BCE (museum attribution)",
+        "basis": "CB3 is museum-attributed to the fifth–fourth centuries BCE; the historical manufacture/use inference has no independently known earliest bound and the findspot is unrecorded."
+      },
+      "statement": "A composite bronze-headed crossbow bolt with an iron shaft existed within the museum-attributed Eastern Zhou horizon; the shaft microstructure is interpreted as cast then decarburized.",
+      "places": [
+        "china"
+      ],
+      "place_note": "Exact findspot unrecorded",
+      "applications": [
+        "documented scoped use or communication"
+      ],
+      "population": "The historical makers of the single CB3 composite object",
+      "caveats": "The exact findspot and archaeological context are unrecorded; historical use as a weapon or dates of manufacture cannot be observed directly. The 2006 study is not the ancient use date. The makers are inferred from the finished object, and actual firing is not documented.",
+      "evidence": [
+        {
+          "source": "wayman-2006-metallurgy-early-chinese",
+          "locator": "p. 98 Table 1 CB3; pp. 99–100 object and metallographic analysis",
+          "supports": "The same CB3 object, attributed 5th–4th century BCE, combines the head and the analyzed shaft."
+        }
+      ]
+    },
+    {
+      "id": "archaeological-evidence-301bce",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -500
+        },
+        "latest": {
+          "year": -301
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "500–301 BCE",
+        "basis": "CB3 museum attribution: fifth–fourth centuries BCE, Eastern Zhou; manufacture dated by the artifact attribution."
+      },
+      "statement": "CB3 shaft: cast to rod shape, then decarburized to low-carbon iron.",
+      "places": [
+        "china"
+      ],
+      "place_note": "Exact findspot unrecorded",
+      "caveats": "Museum attribution lacks a recorded excavation context; process is inferred from microstructure.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "wayman-2006-metallurgy-early-chinese",
+          "locator": "Table 1 p. 98 (CB3); pp. 99–100",
+          "supports": "Attribution and metallographic process inference."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "archaeological-evidence-301bce",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. CB3 museum attribution: fifth–fourth centuries BCE, Eastern Zhou; manufacture dated by the artifact attribution. Museum attribution lacks a recorded excavation context; process is inferred from microstructure. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-301bce",
+    "community": "The historical makers of the single CB3 composite object",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "A complete historical artifact provides scoped evidence of the material used as a bolt component, subject to attribution and context limits.",
+    "proxy_reason": "Material application is inferred from the finished form and attribution; one object does not demonstrate it was fired, sold, widely adopted or made at a known findspot.",
+    "caveats": "The exact findspot and archaeological context are unrecorded; historical use as a weapon or dates of manufacture cannot be observed directly. The 2006 study is not the ancient use date. The makers are inferred from the finished object, and actual firing is not documented."
+  },
+  "caveats": "Museum attribution lacks a recorded excavation context; process is inferred from microstructure.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "concept": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    }
+  }
+}

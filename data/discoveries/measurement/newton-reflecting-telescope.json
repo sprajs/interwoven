@@ -1,0 +1,184 @@
+{
+  "id": "newton-reflecting-telescope",
+  "name": "Newton reflecting telescope",
+  "summary": "Newton built a small telescope that used a polished metal mirror instead of a lens to gather light, avoiding the colour blurring of lenses.",
+  "description": "A telescope Newton built with a polished metal reflecting objective, avoiding refraction at the objective; distinct from the later Royal Society instrument.",
+  "kind": "technology",
+  "domain": "measurement.optical-instruments",
+  "fields": [
+    "physical-sciences.astronomy"
+  ],
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "scale": "architectural",
+  "prompted_by": [
+    "prior_theory"
+  ],
+  "why": "His prism experiments convinced Newton that lenses could never bring all colours to one focus, while a mirror reflects all colours alike.",
+  "limit_removed": [
+    "resolution"
+  ],
+  "setting": [
+    "individual"
+  ],
+  "places": [
+    {
+      "place": "cambridge-england"
+    }
+  ],
+  "people": [
+    {
+      "person": "isaac-newton",
+      "role": "originator"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "royal-society",
+      "role": "publisher"
+    }
+  ],
+  "societies": [
+    "kingdom-of-england"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "dated-assertion-1668",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1668
+        },
+        "latest": {
+          "year": 1668
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1668",
+        "basis": "Museo Galileo dates the first construction to 1668; Newton's 1672 account distinguishes it from the later instrument sent to London."
+      },
+      "statement": "A telescope Newton built with a polished metal reflecting objective, avoiding refraction at the objective; distinct from the later Royal Society instrument.",
+      "places": [
+        "cambridge-england"
+      ],
+      "caveats": "No unique invention claim; Gregory's 1663 reflecting design is a separate earlier proposal. The generic modern parabolic specification is not imposed on Newton's first mirror.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "galileo-nd-telescope-depth",
+          "locator": "Section Newtonian telescope, opening sentence",
+          "supports": "Dates Newton's construction to 1668 and distinguishes the later copy."
+        },
+        {
+          "source": "newton-1672-letter-mr-isaac",
+          "locator": "Philosophical Transactions p. 3080, paragraphs beginning Amidst these thoughts and But then",
+          "supports": "Describes subsequent polishing, construction, and trial viewing of Jupiter's companions."
+        }
+      ]
+    },
+    {
+      "id": "publication-1672",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1672,
+          "month": 2,
+          "day": 19
+        },
+        "latest": {
+          "year": 1672,
+          "month": 2,
+          "day": 19
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "19 February 1672 (Old Style)",
+        "basis": "Newton’s account was published in Philosophical Transactions no. 80 on 19 February 1671/72."
+      },
+      "statement": "Newton publicly described his first small reflecting instrument and differentiated it from the later instrument sent to the Society.",
+      "places": [
+        "london"
+      ],
+      "caveats": "Newton’s publication is a retrospective account; the first instrument and later Royal Society model are not asserted to be the same physical specimen. Earlier reception is possible.",
+      "evidence": [
+        {
+          "source": "newton-1672-letter-mr-isaac",
+          "locator": "Philosophical Transactions p. 3080, paragraph beginning But then; issue no. 80 metadata",
+          "supports": "The dated published letter describes the first instrument and distinguishes the later London instrument."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-assertion-1668",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Museo Galileo dates the first construction to 1668; Newton's 1672 account distinguishes it from the later instrument sent to London. No unique invention claim; Gregory's 1663 reflecting design is a separate earlier proposal. The generic modern parabolic specification is not imposed on Newton's first mirror. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "publication-1672",
+    "community": "Readers of the Royal Society’s Philosophical Transactions",
+    "basis": "public_awareness",
+    "strength": "awareness_proxy",
+    "rationale": "Newton’s published account makes the first instrument’s configuration available to natural philosophers, while retaining the distinction from the later Royal Society instrument.",
+    "proxy_reason": "The dated publication is an unavoidable documented public-awareness proxy for the first instrument; it does not prove others handled that exact specimen or establish earliest private awareness.",
+    "caveats": "Newton’s publication is a retrospective account; the first instrument and later Royal Society model are not asserted to be the same physical specimen. Earlier reception is possible."
+  },
+  "caveats": "No unique invention claim; Gregory's 1663 reflecting design is a separate earlier proposal. The generic modern parabolic specification is not imposed on Newton's first mirror.",
+  "links": [
+    {
+      "type": "uses_theory",
+      "from": "differential-refraction-experiments",
+      "from_event": "observation-1666",
+      "to_event": "dated-assertion-1668",
+      "status": "established",
+      "statement": "Newton says his diagnosis of unequal refraction led him to consider reflection and then build a metal-mirror telescope.",
+      "scope": "Cambridge, reported 1666 investigations to 1668 construction.",
+      "confidence": "high",
+      "alternatives": "Long-focus refractors remained viable; compound achromatic objectives later supplied a different approach; Gregory had proposed another reflecting design.",
+      "caveats": "A retrospective actor account supports his stated motivation; it does not establish the universal impossibility of achromatic refraction.",
+      "timing": "The earlier experiments are dated by the 1672 account; the 1668 device precedes publication of that account.",
+      "evidence": [
+        {
+          "source": "newton-1672-letter-mr-isaac",
+          "locator": "Philosophical Transactions pp. 3079–3080, paragraphs beginning When I understood this, This made me, and But then",
+          "supports": "Newton explicitly connects the optical diagnosis, consideration of reflection and construction."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "galileo-astronomical-telescopes",
+      "status": "insufficient",
+      "statement": "Is there a documented line from refractor practice to Newton's reflector, through the chromatic problem?",
+      "caveats": "Evidence needed: Newton's own account. The two telescope entries sit in separate fragments of the optics story.",
+      "finding": "Newton himself documents a refractive optical problem leading to his reflector, and existing math-edge-refraction-to-reflector records that precise link. The inspected passages do not establish that Galileo’s particular refractor or its use directly informed Newton. A broad similarity between refractors is insufficient for the proposed direct relationship."
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "sourced",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}

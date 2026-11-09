@@ -1,0 +1,136 @@
+{
+  "id": "dholavira-reservoirs",
+  "name": "Dholavira reservoirs",
+  "summary": "Reservoirs built around the citadel of the Harappan city of Dholavira during its urban expansion about 2800 to 2500 BCE to store water for residents.",
+  "description": "Reservoirs east, south and west of the Castle, constructed during the Stage III urban expansion.",
+  "kind": "technology",
+  "domain": "construction.water-works",
+  "fields": [
+    "construction.settlements"
+  ],
+  "tier": 2,
+  "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "advance": [
+    "infrastructure"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Dholavira lay in the arid Kachchh region with scarce, seasonal water, so runoff had to be captured and stored.",
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "community"
+  ],
+  "places": [
+    {
+      "place": "dholavira",
+      "note": "Harappan South Asia"
+    },
+    {
+      "place": "gujarat"
+    }
+  ],
+  "societies": [
+    "indus-valley-civilisation"
+  ],
+  "known_from": [
+    "archaeological_find"
+  ],
+  "events": [
+    {
+      "id": "practical-use-2500bce",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": -2500
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "by c. 2500 BCE (inferred)",
+        "basis": "ICOMOS assigns these reservoir constructions to Stage III, c. 2800–2500 BCE; operation during that phase is inferred from their integrated urban water-storage role."
+      },
+      "statement": "The reservoirs were constructed as components of Stage III Dholavira’s urban water-management system, suggesting community water storage during that phase.",
+      "places": [
+        "dholavira",
+        "gujarat"
+      ],
+      "place_note": "Harappan South Asia",
+      "applications": [
+        "urban water storage"
+      ],
+      "population": "Residents and water managers of Stage III Dholavira",
+      "caveats": "Use during the approximate construction phase is a contextual archaeological inference, not a directly dated operation. The upper bound is approximate, not a hard radiometric limit; access and exact commissioning are unknown.",
+      "evidence": [
+        {
+          "source": "icomos-2021-dholavira-harappan-city",
+          "locator": "pp. 14–15, Stage III description",
+          "supports": "Dates the reservoirs and describes them as part of the expanding settlement’s water-management system."
+        }
+      ]
+    },
+    {
+      "id": "archaeological-evidence-2500bce",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -2800
+        },
+        "latest": {
+          "year": -2500
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "2800–2500 BCE",
+        "basis": "ICOMOS assigns the reservoir expansion to archaeological Stage III; midpoint is display placement, not a dated year."
+      },
+      "statement": "Reservoirs east, south and west of the Castle, constructed during the Stage III urban expansion.",
+      "places": [
+        "dholavira",
+        "gujarat"
+      ],
+      "place_note": "Harappan South Asia",
+      "caveats": "The interval dates a construction phase; it does not establish the exact age of every drain or later repair.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "icomos-2021-dholavira-harappan-city",
+          "locator": "pp. 14–15, Stage III paragraph",
+          "supports": "Identity, spatial configuration and retrospective phase interval."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "archaeological-evidence-2500bce",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. ICOMOS assigns the reservoir expansion to archaeological Stage III; midpoint is display placement, not a dated year. The interval dates a construction phase; it does not establish the exact age of every drain or later repair. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-use-2500bce",
+    "community": "Residents and water managers of Stage III Dholavira",
+    "basis": "practical_use",
+    "strength": "scoped_inference",
+    "rationale": "The reservoirs were constructed as components of Stage III Dholavira’s urban water-management system, suggesting community water storage during that phase.",
+    "proxy_reason": "The inference is restricted to an integrated, purpose-built urban water system and is not direct evidence of each reservoir’s commissioning or of every inhabitant’s access.",
+    "caveats": "Use during the approximate construction phase is a contextual archaeological inference, not a directly dated operation. The upper bound is approximate, not a hard radiometric limit; access and exact commissioning are unknown."
+  },
+  "caveats": "The interval dates a construction phase; it does not establish the exact age of every drain or later repair.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "sourced",
+      "places": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "reviewed"
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "id": "aries-style-transaction-recovery",
+  "name": "ARIES-style transaction recovery",
+  "summary": "ARIES is a way for databases to recover after a crash by replaying history from a log, while keeping repeated rollbacks from piling up extra log records.",
+  "description": "Database crash recovery using repeat-history redo and redo-only compensation log records chained by UndoNxtLSN to bound repeated rollback logging, with write-ahead logging and page sequence numbers.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "tier": 1,
+  "tier_reason": "A major reusable result, process or system within its field; broader multi-field or multi-generation dependence on this exact referent is not established.",
+  "advance": [
+    "system_integration",
+    "performance_improvement"
+  ],
+  "scale": "architectural",
+  "limit_removed": [
+    "reliability"
+  ],
+  "setting": [
+    "school"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "c-mohan",
+      "role": "originator"
+    },
+    {
+      "person": "don-haderle",
+      "role": "originator"
+    },
+    {
+      "person": "bruce-lindsay",
+      "role": "originator"
+    },
+    {
+      "person": "hamid-pirahesh",
+      "role": "originator"
+    },
+    {
+      "person": "peter-schwarz",
+      "role": "originator"
+    },
+    {
+      "person": "michael-j-franklin",
+      "role": "builder"
+    },
+    {
+      "person": "michael-j-zwilling",
+      "role": "builder"
+    },
+    {
+      "person": "c-k-tan",
+      "role": "builder"
+    },
+    {
+      "person": "michael-j-carey",
+      "role": "builder"
+    },
+    {
+      "person": "david-dewitt",
+      "role": "builder"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "university-of-wisconsin-madison",
+      "role": "host"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "fate": "in_use",
+  "events": [
+    {
+      "id": "practical-deployment-1992",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1992,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 1992-06",
+        "basis": "Latest supported use or availability; the first worldwide entry is not established."
+      },
+      "statement": "Wisconsin researchers had implemented and measured an ARIES-based client-server EXODUS recovery system by the June 1992 conference.",
+      "places": [
+        "university-of-wisconsin-madison"
+      ],
+      "scope": "Client-server EXODUS recovery implementation adapted from ARIES for client buffers and server logs; data locks were page-level or coarser.",
+      "applications": [
+        "Recovery of database state after failures"
+      ],
+      "population": "Wisconsin database-systems researchers",
+      "caveats": "The EXODUS version made architectural modifications and used page-or-coarser data locking; its research implementation is not proof of a production customer or record-level locking. DB2 already supported write-ahead logging, compensation records and partial rollback. The ARIES authors report use to varying degrees in IBM program products by March 1992, but the precise released feature set and first customer use are unresolved.",
+      "evidence": [
+        {
+          "source": "mohan-1992-aries-transaction-recovery",
+          "locator": "Printed pp. 94–99, 109–110 and 136–140",
+          "supports": "The IBM paper describes redo-only compensation records linked by UndoNxtLSN and contrasts previous DB2 handling."
+        },
+        {
+          "source": "crus-1984-data-recovery-ibm",
+          "locator": "Printed pp. 182–183",
+          "supports": "DB2 already used write-ahead and compensation logging."
+        },
+        {
+          "source": "franklin-1992-crash-recovery-client",
+          "locator": "Printed pp. 165–168 and 171–174",
+          "supports": "Wisconsin researchers implemented and measured adapted ARIES-based client-server recovery; data locking was page-level or coarser."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "practical-deployment-1992",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest supported use or availability; the first worldwide entry is not established. The EXODUS version made architectural modifications and used page-or-coarser data locking; its research implementation is not proof of a production customer or record-level locking. DB2 already supported write-ahead logging, compensation records and partial rollback. The ARIES authors report use to varying degrees in IBM program products by March 1992, but the precise released feature set and first customer use are unresolved. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "practical-deployment-1992",
+    "community": "Wisconsin database-systems researchers",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "An independent research group reports both implementation and performance measurements.",
+    "caveats": "The EXODUS version made architectural modifications and used page-or-coarser data locking; its research implementation is not proof of a production customer or record-level locking. DB2 already supported write-ahead logging, compensation records and partial rollback. The ARIES authors report use to varying degrees in IBM program products by March 1992, but the precise released feature set and first customer use are unresolved."
+  },
+  "caveats": "The EXODUS version made architectural modifications and used page-or-coarser data locking; its research implementation is not proof of a production customer or record-level locking. DB2 already supported write-ahead logging, compensation records and partial rollback. The ARIES authors report use to varying degrees in IBM program products by March 1992, but the precise released feature set and first customer use are unresolved.",
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "limit_removed": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed"
+    },
+    "unresolved": [
+      {
+        "about": "first_commercial_availability",
+        "note": "A first commercial offer or sale is not established.",
+        "evidence": [
+          {
+            "source": "mohan-1992-aries-transaction-recovery",
+            "locator": "Printed pp. 94–99, 109–110 and 136–140",
+            "supports": "The IBM paper describes redo-only compensation records linked by UndoNxtLSN and contrasts previous DB2 handling."
+          },
+          {
+            "source": "crus-1984-data-recovery-ibm",
+            "locator": "Printed pp. 182–183",
+            "supports": "DB2 already used write-ahead and compensation logging."
+          },
+          {
+            "source": "franklin-1992-crash-recovery-client",
+            "locator": "Printed pp. 165–168 and 171–174",
+            "supports": "Wisconsin researchers implemented and measured adapted ARIES-based client-server recovery; data locking was page-level or coarser."
+          }
+        ]
+      }
+    ],
+    "note": "Candidate historical and lifecycle assertions await independent review."
+  }
+}

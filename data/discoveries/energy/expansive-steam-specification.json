@@ -1,0 +1,210 @@
+{
+  "id": "expansive-steam-specification",
+  "name": "Expansive steam specification",
+  "summary": "Watt's 1782 patent explained cutting off steam early in each stroke and letting it expand, saving fuel; Sadi Carnot discussed his example in his 1824 study of heat engines.",
+  "description": "Watt specifies cutting off admission during the stroke and using steam expansion for the remainder, with a quarter-stroke example and an approximate pressure/work calculation.",
+  "kind": "technology",
+  "domain": "energy.steam",
+  "fields": [
+    "physical-sciences.heat"
+  ],
+  "tier": 2,
+  "tier_reason": "A bounded technical contribution, transmission episode or documented configuration useful within a specific history; no broad dependence claim is established.",
+  "advance": [
+    "operating_principle",
+    "performance_improvement"
+  ],
+  "scale": "modular",
+  "concept": "expansive-steam-working",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Fuel was a major running cost for engine users, and Boulton and Watt's income depended on the fuel their engines saved.",
+  "limit_removed": [
+    "power_or_energy",
+    "cost"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "great-britain"
+    }
+  ],
+  "people": [
+    {
+      "person": "james-watt",
+      "role": "originator"
+    },
+    {
+      "person": "sadi-carnot",
+      "role": "observer"
+    }
+  ],
+  "societies": [
+    "kingdom-of-great-britain"
+  ],
+  "known_from": [
+    "patent",
+    "contemporary_text",
+    "scientific_publication"
+  ],
+  "fate": "incorporated",
+  "events": [
+    {
+      "id": "documented-description-1782",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1782
+        },
+        "latest": {
+          "year": 1782
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1782",
+        "basis": "Patent granted 12 March; specification enrolled 4 July 1782."
+      },
+      "statement": "Watt specifies cutting off admission during the stroke and using steam expansion for the remainder, with a quarter-stroke example and an approximate pressure/work calculation.",
+      "places": [
+        "great-britain"
+      ],
+      "caveats": "This node dates the specification, not first conception or first use. Its inverse-volume steam-pressure approximation is historical, not adopted as a generally correct steam model.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 26: introductory dates; First New Improvement; figure 1 and quarter-stroke calculation",
+          "supports": "Admission cutoff, expansive action, numerical example and 1782 specification date."
+        }
+      ]
+    },
+    {
+      "id": "recognition-1824",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 1824
+        },
+        "latest": {
+          "year": 1824
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1824",
+        "basis": "Carnot’s Réflexions was published in 1824."
+      },
+      "statement": "Carnot reproduced and critically discussed Watt’s quarter-stroke table from the 1782 patent.",
+      "places": [
+        "france"
+      ],
+      "scope": "Watt’s 1782 steam-admission cutoff and quarter-stroke pressure/work table.",
+      "caveats": "Practical expansive working before 1824 does not by itself establish use of this exact calculation; Carnot’s discussion is critical, not unqualified acceptance.",
+      "evidence": [
+        {
+          "source": "carnot-1824-reflexions-sur-puissance",
+          "locator": "Note 27, printed pp. 100–101 and surrounding discussion",
+          "supports": "Names the 1782 patent, reproduces its quarter-stroke table and critiques the approximation."
+        },
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "1782 specification, expansion section and quarter-stroke example",
+          "supports": "Identifies the configuration and numerical example."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-description-1782",
+    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Patent granted 12 March; specification enrolled 4 July 1782. This node dates the specification, not first conception or first use. Its inverse-volume steam-pressure approximation is historical, not adopted as a generally correct steam model. This is the earliest supported record currently established here, not certification of absolute priority."
+  },
+  "community_entry": {
+    "event": "recognition-1824",
+    "community": "Carnot and readers of his French engineering analysis",
+    "basis": "recognition",
+    "strength": "direct",
+    "rationale": "A named 1824 author examined the actual distinctive numerical example, which is stronger evidence of its reception than the initial specification date.",
+    "caveats": "Practical expansive working before 1824 does not by itself establish use of this exact calculation; Carnot’s discussion is critical, not unqualified acceptance."
+  },
+  "caveats": "This node dates the specification, not first conception or first use. Its inverse-volume steam-pressure approximation is historical, not adopted as a generally correct steam model.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "separate-condenser-specification",
+      "from_event": "documented-description-1769",
+      "to_event": "documented-description-1782",
+      "status": "established",
+      "statement": "Watt's expansive-engine specification explicitly reuses his condenser system and hot-cylinder arrangement while adding admission cutoff and expansion.",
+      "scope": "Watt's 1782 specification, definitions and First Improvement.",
+      "confidence": "high",
+      "alternatives": "Expansion was also possible in other engine configurations; this edge concerns Watt's specified arrangement.",
+      "caveats": "Continuation of a design system, not a claim that separate condensation is universally required for expansion.",
+      "timing": "The 1769 specified components are explicitly incorporated into the later 1782 specification.",
+      "evidence": [
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "Section 26: definitions Third/Fourth; First Improvement, figures 1–2",
+          "supports": "Identifies condensers as Watt's invention and keeps the cylinder hot while specifying expansion."
+        },
+        {
+          "source": "collection-nd-specification-james-watts",
+          "locator": "Physical Description, principles 1–3",
+          "supports": "Earlier separately cooled condenser/hot-cylinder configuration."
+        }
+      ]
+    },
+    {
+      "type": "same_principle",
+      "from": "shadwell-expansive-working-pump",
+      "from_event": "practical-use-1781",
+      "to_event": "documented-description-1782",
+      "status": "established",
+      "statement": "The principle of cutting off steam admission and using expansion applied at Shadwell was also specified by Watt in 1782.",
+      "scope": "The Shadwell engine and Watt’s own 1782 specification.",
+      "confidence": "medium",
+      "alternatives": "Other mechanisms, makers or applications could serve similar purposes.",
+      "caveats": "This comparison establishes continuity of a named principle, not that the particular Shadwell engine was the sole cause of the specification.",
+      "timing": "Dates attach to the scoped event or source described, not automatic global primacy.",
+      "evidence": [
+        {
+          "source": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter XV, expansion principle and Shadwell 1778",
+          "supports": "Says the expansive principle was applied to the Shadwell engine erected in 1778."
+        },
+        {
+          "source": "birmingham-archives-collections-1781-boulton-watt-august",
+          "locator": "MS 3147/3/5/29, dated 7 August 1781, catalogue summary",
+          "supports": "Records a Shadwell piston-rod break, contextual evidence of a working installation."
+        },
+        {
+          "source": "watt-1969-specifications-james-watt",
+          "locator": "1782 expansion section and quarter-stroke example",
+          "supports": "The later specification describes the cutoff and expansion principle."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "reviewed",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "tier": "reviewed",
+      "advance": "sourced",
+      "scale": "recalled",
+      "concept": "recalled",
+      "prompted_by": "recalled",
+      "limit_removed": "recalled",
+      "setting": "recalled",
+      "places": "sourced",
+      "people": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "fate": "recalled",
+      "events": "reviewed",
+      "links": "reviewed"
+    }
+  }
+}
