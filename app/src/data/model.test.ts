@@ -101,3 +101,25 @@ describe('sharedWith', () => {
     expect(shared.some((s) => s.id === 'scotland')).toBe(false)
   })
 })
+
+describe('directed graph traversal', () => {
+  it('indexes directions without treating candidate links as established', async () => {
+    const {walk} = await import('./model.ts')
+    const cycle = {...link, from:'engine', to:'pump'}
+    const candidate = {...link, from:'kettle', to:'engine', status:'candidate' as const}
+    const model = buildModel({...bundle, links:[link,cycle,candidate]})
+    expect(model.incoming.get('engine')).toEqual([link,candidate])
+    expect(walk(model,'engine').map(r=>[r.entry.id,r.depth])).toEqual([['pump',1]])
+    expect(walk(model,'engine',{status:'candidate'}).map(r=>r.entry.id)).toEqual(['kettle'])
+    expect(walk(model,'engine',{depth:0})).toEqual([])
+    expect(walk(model,'engine',{layers:new Set(['affinity'])})).toEqual([])
+    expect(() => walk(model,'missing')).toThrow('Unknown')
+    expect(() => walk(model,'engine',{depth:-1})).toThrow('Depth')
+  })
+  it('visits a shared ancestor only once and reports shortest depth', async () => {
+    const {walk} = await import('./model.ts')
+    const m = buildModel({...bundle, discoveries:[...bundle.discoveries,discovery('fourth',1900)], links:[link,{...link,from:'pump',to:'kettle'},{...link,from:'engine',to:'fourth'},{...link,from:'kettle',to:'fourth'}]})
+    expect(walk(m,'fourth').map(r=>[r.entry.id,r.depth])).toEqual([['engine',1],['kettle',1],['pump',2]])
+    expect(walk(m,'pump',{direction:'outgoing'}).map(r=>r.entry.id)).toEqual(['engine','kettle','fourth'])
+  })
+})

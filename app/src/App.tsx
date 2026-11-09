@@ -1,25 +1,17 @@
-import { useEffect } from 'react'
-import { loadModel } from './data/model.ts'
+import { Component, useEffect, type ReactNode } from 'react'
+import { AsyncDetail, AsyncView } from './ui/Async.tsx'
 import { useApp } from './store.ts'
 import { KeyLine } from './ui/KeyLine.tsx'
-import { Detail } from './ui/Detail.tsx'
 import { TimeBar } from './ui/TimeBar.tsx'
 import { Tooltip } from './ui/Tooltip.tsx'
 import { TopBar } from './ui/TopBar.tsx'
-import { IndexView } from './views/IndexView.tsx'
-import { MapView } from './views/MapView.tsx'
 import { Timeline } from './views/Timeline.tsx'
-import { Trends } from './views/Trends.tsx'
 
 export function App() {
   const model = useApp((s) => s.model)
   const error = useApp((s) => s.error)
   const view = useApp((s) => s.view)
   const selected = useApp((s) => s.selected)
-
-  useEffect(() => {
-    loadModel().then(useApp.getState().setModel, (e: Error) => useApp.getState().setError(e.message))
-  }, [])
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -36,7 +28,7 @@ export function App() {
           <h1 className="brand">Interwoven</h1>
         </header>
         <main className="main">
-          <p className="notice">{error ?? 'Reading the research…'}</p>
+          <p className="notice">{error ?? 'Reading the research…'}{error && <button onClick={() => location.reload()}>Reload</button>}</p>
         </main>
       </div>
     )
@@ -47,14 +39,21 @@ export function App() {
       <TopBar />
       <KeyLine />
       <main className="main">
-        {view === 'timeline' && <Timeline />}
-        {view === 'map' && <MapView />}
-        {view === 'trends' && <Trends />}
-        {view === 'index' && <IndexView />}
+        <LoadBoundary key={view}>
+          {view === 'timeline' ? <Timeline /> : <AsyncView model={model} view={view} />}
+        </LoadBoundary>
       </main>
-      {selected && model.byId.has(selected) && <Detail key={selected} entry={model.byId.get(selected)!} />}
+      {selected && model.byId.has(selected) && <LoadBoundary key={selected}><AsyncDetail model={model} entry={model.byId.get(selected)!} close={() => useApp.getState().select(null)} /></LoadBoundary>}
       <TimeBar />
       <Tooltip />
     </div>
   )
+}
+
+class LoadBoundary extends Component<{children: ReactNode}, {error: Error | null}> {
+  state: {error: Error | null} = {error: null}
+  static getDerivedStateFromError(error: Error) { return {error} }
+  render() {
+    return this.state.error ? <div role="alert" className="notice">{this.state.error.message} <button onClick={() => location.reload()}>Reload</button></div> : this.props.children
+  }
 }

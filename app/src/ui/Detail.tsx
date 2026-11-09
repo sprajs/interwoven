@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { create } from 'zustand'
 import { sharedWith, type Entry } from '../data/model.ts'
-import type { Basis, Evidence, Link } from '../data/types.ts'
+import type { Basis, DetailData, Discovery, Link } from '../data/types.ts'
 import { dateLabel, tierName, words } from '../lib/text.ts'
 import { useApp, useModel } from '../store.ts'
 import { yearLabel } from '../time.ts'
@@ -77,23 +77,20 @@ function Dot({ basis }: { basis?: Basis }) {
   return <i className="basis" data-basis={basis === 'reviewed' ? 'sourced' : basis} title={title} />
 }
 
-export function Detail({ entry }: { entry: Entry }) {
+export function Detail({ entry, data }: { entry: Entry; data: DetailData }) {
+  return <DetailBody entry={{...data.entry, index: entry.index, domainId: entry.domainId, group: entry.group, haystack: entry.haystack}} data={data} />
+}
+
+function DetailBody({ entry, data }: { entry: Discovery & Pick<Entry, 'index' | 'domainId' | 'group' | 'haystack'>; data: DetailData }) {
   const model = useModel()
-  const { bundle } = model
+  const bundle = { ...model.bundle, ...data }
   const basis = entry.research.basis
   const list = (ids: string[] | undefined) => (ids?.length ? ids.map(words).join(', ') : null)
-  const links = model.linksOf.get(entry.id) ?? []
+  const links = data.links
   const stated = links.filter((l) => l.status === 'established')
   const open = links.filter((l) => l.status !== 'established')
   const shared = useMemo(() => sharedWith(model, entry), [model, entry])
-  const sources = useMemo(() => {
-    const ids = new Set<string>()
-    const add = (items?: Evidence[]) => items?.forEach((e) => ids.add(e.source))
-    entry.events.forEach((e) => add(e.evidence))
-    links.forEach((l) => add(l.evidence))
-    entry.research.unresolved?.forEach((u) => add(u.evidence))
-    return [...ids].map((id) => ({ id, ...bundle.sources[id]! })).filter((s) => s.title)
-  }, [entry, links, bundle])
+  const sources = Object.entries(data.sources).map(([id, source]) => ({id, ...source}))
   // A link is held by the later discovery, so an earlier one can have links and no basis for them.
   const missing = bundle.facets.filter((f) => FACET_NAMES[f] && !basis[f] && !(f === 'links' && stated.length > 0))
   const place = entry.at ? bundle.places[entry.at.place] : undefined
@@ -283,7 +280,7 @@ function Lineage({ entry, links }: { entry: Entry; links: Link[] }) {
   const pick = (ids: string[]) => [...new Set(ids)].map((id) => model.byId.get(id)).filter((e): e is Entry => !!e).sort(byDate)
   const before = pick(causal.filter((l) => l.to === entry.id).map((l) => l.from))
   const after = pick(causal.filter((l) => l.from === entry.id).map((l) => l.to))
-  const elsewhere = entry.concept ? model.entries.filter((e) => e.concept === entry.concept && e.id !== entry.id).sort(byDate) : []
+  const elsewhere = entry.concept ? (model.shared.get(`concept:${entry.concept}`) ?? []).filter(e => e.id !== entry.id) : []
   if (!before.length && !after.length && !elsewhere.length) return null
   const row = (e: Entry, self = false) =>
     self ? (

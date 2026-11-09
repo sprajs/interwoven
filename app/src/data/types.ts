@@ -1,4 +1,4 @@
-/** The shape of `public/data/atlas.json`, which `tools/build.py` compiles from `data/`. */
+/** Full offline records and the versioned browser projection compiled from `data/`. */
 
 export type Basis = 'sourced' | 'recalled' | 'reviewed' | 'unknown' | 'not_applicable'
 export type Kind = 'science' | 'mathematics' | 'technology' | 'practice'
@@ -169,4 +169,34 @@ export interface Bundle {
     /** Person-years lived since the first estimate, as [year, total] pairs. */
     person_years: Record<string, [number, number][]>
   } | null
+}
+
+/** Fields needed for navigation, filtering and rendering; evidence stays in DetailData. */
+export type Summary = Pick<Discovery, 'id' | 'name' | 'summary' | 'aliases' | 'kind' | 'domain' | 'fields' | 'tier' | 'origin' | 'concept' | 'societies' | 't' | 'date' | 'at' | 'filled'> & {
+  research: Pick<Discovery['research'], 'status' | 'basis'>
+  people?: { person: string }[]
+  places?: { place: string }[]
+  organizations?: { organization: string }[]
+}
+export type Edge = Pick<Link, 'from' | 'to' | 'type' | 'layer' | 'status'>
+export interface CoreBundle extends Pick<Bundle, 'counts' | 'facets' | 'vocab' | 'link_layers' | 'taxonomy' | 'places'> {
+  format: number
+  discoveries: Summary[]
+  links: Edge[]
+  people: Record<string, Named>
+  organizations: Record<string, Named>
+  societies: Record<string, Named>
+  concepts: Record<string, Named>
+  world_person_years: [number, number][] | null
+  details: Record<string, string>
+  population_file: string
+}
+export interface Manifest { format: number; version: string; core: string }
+export interface DetailData {
+  entry: Discovery
+  links: Link[]
+  sources: Bundle['sources']
+  people: Bundle['people']
+  places: Bundle['places']
+  organizations: Bundle['organizations']
 }

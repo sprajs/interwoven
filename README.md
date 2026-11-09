@@ -55,3 +55,11 @@ Binary evidence was once committed, so a fresh clone is much smaller with `git c
 World and regional population comes from Our World in Data (HYDE 3.3, Gapminder and the UN, CC BY 4.0) back to 10,000 BCE, and from Kremer (1993) before that. `data/reference/population.json` lists the sources and the method.
 
 Many facets were first entered from general knowledge and are marked `recalled` until someone checks them against a source. That includes every coordinate in the gazetteer. The app marks these values, and `python3 tools/coverage.py --basis recalled` lists them.
+
+## Loading and research queries
+
+The app preloads a compact, versioned overview and fetches full records and view code on demand.
+Agents keep editing the JSON files; `python3 tools/research.py search 'steam engine'` searches a
+generated SQLite index and returns source-file paths. The index refreshes when source files change.
+See [performance and caching](docs/performance.md) for graph queries, deployment headers, measured
+loading budgets and reproducible browser/research benchmarks.

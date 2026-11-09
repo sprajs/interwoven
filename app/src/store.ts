@@ -173,7 +173,7 @@ export function useScale(): TimeScale {
   const id = useApp((s) => s.scale)
   return useMemo(() => {
     if (id === 'log') return log
-    const personYears = model.bundle.population?.person_years.world
+    const personYears = model.bundle.world_person_years
     if (id === 'people' && personYears) return peopleScale(personYears)
     return calendar
   }, [id, model])

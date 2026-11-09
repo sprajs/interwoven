@@ -5,7 +5,7 @@ import type { Bundle } from '../data/types.ts'
 import type { Category } from '../dims.ts'
 import { useCanvas, useSize } from '../lib/canvas.ts'
 import { plural } from '../lib/text.ts'
-import { useApp, useDimension, useFiltered, useLimits, useMatches, useModel, useScale } from '../store.ts'
+import { useApp, useDimension, useFiltered, useLimits, useMatches, useScale } from '../store.ts'
 import { alpha, font, INK, INK_2, INK_3, RULE, RULE_SOFT } from '../theme.ts'
 import { formatSpan, formatYear, makeAxis, panWindow, PRESENT, ticks, zoomWindow, type Axis } from '../time.ts'
 import './Trends.css'
@@ -328,8 +328,7 @@ function breakdown(plan: Plan, index: number): { category: Category; text: strin
   })
 }
 
-export function Trends() {
-  const model = useModel()
+export function Trends({population = null}: {population?: Bundle['population']}) {
   const scale = useScale()
   const limits = useLimits()
   const dimension = useDimension()
@@ -337,7 +336,6 @@ export function Trends() {
   const matches = useMatches()
   const span = useApp((s) => s.window)
   const hidden = useApp((s) => s.hidden)
-  const population = model.bundle.population
   const [chosen, setMeasure] = useState<Measure>(population ? 'person' : 'count')
   const measure: Measure = chosen === 'person' && !population ? 'count' : chosen
   const [tip, setTip] = useState<{ bin: number; frame: Box } | null>(null)

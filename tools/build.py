@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Compile ``data/`` into the one file the app reads.
+"""Compile ``data/`` into independently cached browser artifacts and a research index.
 
-    python tools/build.py              # writes app/public/data/atlas.json
+    python tools/build.py              # publishes app/public/data/manifest.json
     python tools/build.py --check      # validate first and refuse to build bad data
+
+Use --out FILE to export the full legacy JSON bundle.
 
 The output is derived and is not committed. It is the same for the same input, so it can be
 compared between machines. Everything the app shows about the research comes from here: the app
@@ -11,6 +13,7 @@ does no research logic of its own.
 
 from __future__ import annotations
 
+from contextlib import closing
 import argparse
 import json
 import math
@@ -18,6 +21,7 @@ import sys
 from pathlib import Path
 
 from dataset import FACETS, ROOT, Dataset, year_value
+from publish import evidence_ids
 
 OUT = ROOT / "app" / "public" / "data" / "atlas.json"
 
@@ -125,6 +129,8 @@ def build(data: Dataset) -> dict:
         for item in research.get("unresolved", []):
             evidence(item.get("evidence"))
         out["filled"] = sum(1 for facet in FACETS if research["basis"].get(facet) in ("sourced", "recalled", "reviewed"))
+        out['source_ids'] = sorted(evidence_ids(record))
+        used_sources.update(out['source_ids'])
         discoveries.append(out)
 
         for link in record.get("links", []):
@@ -179,9 +185,33 @@ def build(data: Dataset) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--check", action="store_true", help="validate first and stop on any problem")
-    parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--out", type=Path, help="export the legacy full JSON bundle to this file")
+    parser.add_argument("--output-dir", type=Path, default=OUT.parent)
+    parser.add_argument("--no-research-db", action="store_true", help="browser artifacts only")
     args = parser.parse_args()
 
+    from research import signature, connect
+    from publish import digest, encoded, atomic_write
+    before = signature()
+    build_inputs = {**before, **{
+        str(path.relative_to(ROOT)): [path.stat().st_size, path.stat().st_mtime_ns]
+        for path in (Path(__file__), ROOT / 'tools/publish.py')
+    }}
+    stamp = ROOT / '.cache' / ('browser-build-' + digest(str(args.output_dir.resolve()).encode())[:16] + '.json')
+    if not args.check and not args.out:
+        try:
+            saved = json.loads(stamp.read_text())
+            manifest = json.loads((args.output_dir / 'manifest.json').read_text())
+            core = json.loads((args.output_dir / manifest['core']).read_text())
+            assets = [manifest['core'], core['population_file'], *core['details'].values()]
+            if saved['inputs'] == build_inputs and all((args.output_dir / name).is_file() for name in assets):
+                if not args.no_research_db:
+                    with closing(connect()):
+                        pass
+                print(f"Dataset unchanged: {manifest['version']}")
+                return 0
+        except (OSError, KeyError, ValueError):
+            pass
     data = Dataset.load()
     if args.check:
         errors = data.validate(check_files=False)
@@ -190,10 +220,22 @@ def main() -> int:
             print(f"{len(errors)} problems. Not built.", file=sys.stderr)
             return 1
     bundle = build(data)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(bundle, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    shown = args.out.relative_to(ROOT) if args.out.is_relative_to(ROOT) else args.out
-    print(f"Wrote {shown}: {bundle['counts']}")
+    if before != signature():
+        print('Dataset changed during compilation; retry the build.', file=sys.stderr)
+        return 1
+    from publish import atomic_write, encoded, publish
+    if args.out:
+        atomic_write(args.out, encoded(bundle))
+        print(f"Wrote {args.out}: {bundle['counts']}")
+    else:
+        manifest = publish(bundle, args.output_dir)
+        # The previous monolithic artifact is derived, and no longer a browser dependency.
+        (args.output_dir / 'atlas.json').unlink(missing_ok=True)
+        if not args.no_research_db:
+            with closing(connect()):
+                pass
+        atomic_write(stamp, encoded({'inputs': build_inputs}))
+        print(f"Published {manifest['version']}: {bundle['counts']}")
     return 0
 
 
