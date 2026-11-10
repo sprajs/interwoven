@@ -53,18 +53,26 @@ const REGION_ZOOM = 2.6
 /** Past this zoom every ring is named, not only those holding three or more. */
 const ALL_RINGS_ZOOM = 4
 
+/** The side of a mark its name goes on first. */
+type Side = 'left' | 'right' | 'below'
+
 /**
  * The world regions' rings, each anchored in open water beside its continent so that it is never
- * mistaken for a place on land. The Americas are named on the left, towards the open Pacific.
+ * mistaken for a place on land, and named on the side away from the land.
  */
-const REGIONS: { id: Region; name: string; at: [number, number]; left: boolean }[] = [
-  { id: 'europe', name: 'Europe', at: [-18, 56], left: false },
-  { id: 'africa', name: 'Africa', at: [-8, -8], left: false },
-  { id: 'asia', name: 'Asia', at: [88, 2], left: false },
-  { id: 'north_america', name: 'North America', at: [-128, 30], left: true },
-  { id: 'south_america', name: 'South America', at: [-88, -22], left: true },
-  { id: 'oceania', name: 'Oceania', at: [158, -32], left: false },
+const REGIONS: { id: Region; name: string; at: [number, number]; side: Side }[] = [
+  { id: 'europe', name: 'Europe', at: [-22, 50], side: 'left' },
+  { id: 'africa', name: 'Africa', at: [-12, -12], side: 'left' },
+  { id: 'asia', name: 'Asia', at: [78, -8], side: 'below' },
+  { id: 'north_america', name: 'North America', at: [-135, 28], side: 'left' },
+  { id: 'south_america', name: 'South America', at: [-95, -25], side: 'left' },
+  { id: 'oceania', name: 'Oceania', at: [162, -38], side: 'right' },
 ]
+
+/** Far out, precise places closer than this on the screen are gathered into one cluster. */
+const CLUSTER_PX = 14
+/** A cluster holding at least this many discoveries in the window is drawn as one numbered circle. */
+const CLUSTER_MIN = 8
 
 /** Strength of a dot in the window by level, where level = missed by search * 2 + minor. */
 const STRENGTH = [1, 0.62, 0.12, 0.12]
@@ -163,6 +171,8 @@ interface Group {
   ts: Float64Array
   /** Every place this one lies within, so that a region and a country inside it are not both named. */
   ancestors: ReadonlySet<string>
+  /** The country the place lies in, which names a cluster far out. */
+  country: string | null
 }
 
 /**
@@ -192,7 +202,7 @@ interface Placed {
 /** All the vaguely placed discoveries of one world region, gathered for the world view. */
 interface RegionRing {
   name: string
-  left: boolean
+  side: Side
   /** The ring's anchor in open water, in projected pixels. */
   x: number
   y: number
@@ -218,6 +228,22 @@ interface Layout {
   reach: Float32Array
   /** The same for each world region's ring. */
   regions: { drawn: Int32Array; live: Int32Array; cx: Float32Array; cy: Float32Array; reach: Float32Array }
+  /** Far out, the cluster a precise place is drawn in, or -1 where it keeps its own dots. */
+  clusterOf: Int32Array
+  clusters: Cluster[]
+}
+
+/** Far out, neighbouring precise places drawn as one numbered circle, so that a dense knot of dots stays countable. */
+interface Cluster {
+  /** The centre, weighted by what each place holds in the window, in screen pixels. */
+  x: number
+  y: number
+  /** Discoveries in the window. */
+  n: number
+  reach: number
+  /** Indices into `Placed.groups`. */
+  groups: number[]
+  name: string
 }
 
 /** A link as a great circle between two places, in projected pixels. */
@@ -299,6 +325,7 @@ function placeEntries(filtered: Entry[], projection: GeoProjection, places: Reco
     const ancestors = new Set<string>()
     // The bound guards against a loop in the gazetteer.
     for (let up = places[id]?.within; up && ancestors.size < 16 && !ancestors.has(up); up = places[up]?.within) ancestors.add(up)
+    const country = [id, ...ancestors].find((p) => places[p]?.kind === 'country')
     placed.groups.push({
       id,
       name: places[id]?.name ?? id,
@@ -309,6 +336,7 @@ function placeEntries(filtered: Entry[], projection: GeoProjection, places: Reco
       members: Int32Array.from(list),
       ts: Float64Array.from(list, (i) => placed.ts[i]!),
       ancestors,
+      country: country ? (places[country]?.name ?? null) : null,
     })
   }
   REGIONS.forEach((region, r) => {
@@ -322,7 +350,7 @@ function placeEntries(filtered: Entry[], projection: GeoProjection, places: Reco
     const [x, y] = projection(region.at)!
     placed.regions.push({
       name: region.name,
-      left: region.left,
+      side: region.side,
       x,
       y,
       landX: places.length ? places.reduce((sum, g) => sum + g.x, 0) / places.length : x,
@@ -397,6 +425,8 @@ function layoutFrame(placed: Placed, [t0, t1]: [number, number], { k, tx, ty }: 
     cy: new Float32Array(n),
     reach: new Float32Array(n),
     regions: { drawn: new Int32Array(m), live: new Int32Array(m), cx: new Float32Array(m), cy: new Float32Array(m), reach: new Float32Array(m) },
+    clusterOf: new Int32Array(n).fill(-1),
+    clusters: [],
   }
   placed.regions.forEach((region, i) => {
     const drawn = after(region.ts, t1)
@@ -439,7 +469,73 @@ function layoutFrame(placed: Placed, [t0, t1]: [number, number], { k, tx, ty }: 
       out.cy[j] = out.cy[i]! + uy * need
     }
   })
+  if (out.world) clusterSites(placed, out)
   return out
+}
+
+/**
+ * Gather precise places that crowd together on the screen. The busiest unclaimed place seeds a
+ * cluster, which takes in every place within CLUSTER_PX of its weighted centre until none is left;
+ * then the next busiest seeds another. Only clusters holding CLUSTER_MIN or more are kept.
+ */
+function clusterSites(placed: Placed, out: Layout): void {
+  const { groups } = placed
+  const cell = (v: number) => Math.floor(v / CLUSTER_PX)
+  // Rows are offset so that negative cells still give distinct keys.
+  const key = (i: number, j: number) => (i + 32768) * 65536 + (j + 32768)
+  const grid = new Map<number, number[]>()
+  const sites: number[] = []
+  groups.forEach((g, i) => {
+    if (g.vague || !out.drawn[i]) return
+    sites.push(i)
+    const k = key(cell(out.cx[i]!), cell(out.cy[i]!))
+    const list = grid.get(k)
+    if (list) list.push(i)
+    else grid.set(k, [i])
+  })
+  sites.sort((a, b) => out.live[b]! - out.live[a]! || out.drawn[b]! - out.drawn[a]! || a - b)
+  const claimed = new Uint8Array(groups.length)
+  // A place with nothing in the window still has a little weight, so that a cluster of only grey dots has a centre.
+  const weight = (i: number) => out.live[i]! + 1e-3
+  for (const seed of sites) {
+    if (claimed[seed]) continue
+    claimed[seed] = 1
+    const members = [seed]
+    let sum = weight(seed)
+    let sumX = out.cx[seed]! * sum
+    let sumY = out.cy[seed]! * sum
+    for (let grew = true; grew; ) {
+      grew = false
+      const x = sumX / sum
+      const y = sumY / sum
+      for (let di = -1; di <= 1; di++) {
+        for (let dj = -1; dj <= 1; dj++) {
+          for (const i of grid.get(key(cell(x) + di, cell(y) + dj)) ?? []) {
+            if (claimed[i] || Math.hypot(out.cx[i]! - x, out.cy[i]! - y) > CLUSTER_PX) continue
+            claimed[i] = 1
+            members.push(i)
+            const w = weight(i)
+            sum += w
+            sumX += out.cx[i]! * w
+            sumY += out.cy[i]! * w
+            grew = true
+          }
+        }
+      }
+    }
+    const n = members.reduce((total, i) => total + out.live[i]!, 0)
+    if (n < CLUSTER_MIN) continue
+    // Named for the country most of its discoveries are in, or else for its busiest place.
+    const byCountry = new Map<string, number>()
+    for (const i of members) {
+      const country = groups[i]!.country
+      if (country) byCountry.set(country, (byCountry.get(country) ?? 0) + out.live[i]!)
+    }
+    const top = [...byCountry].sort((a, b) => b[1] - a[1])[0]
+    const c = out.clusters.length
+    for (const i of members) out.clusterOf[i] = c
+    out.clusters.push({ x: sumX / sum, y: sumY / sum, n, reach: Math.min(20, 5 + 1.5 * Math.sqrt(n)), groups: members, name: top?.[0] ?? groups[seed]!.name })
+  }
 }
 
 /** Where the view puts the projected map on the screen. */
@@ -535,15 +631,17 @@ export function MapView() {
       const { cx, cy, reach, drawn, live } = layout
       const vague = placed.vague
       const gOf = placed.group
-      const { world, regions } = layout
+      const { world, regions, clusters, clusterOf } = layout
       // A discovery at a vague place sits at its ring's centre: its world region's far out, or its own,
-      // which may have been nudged off the place, close up.
+      // which may have been nudged off the place, close up. Far out, one in a cluster sits at the cluster's centre.
       const inRegion = (i: number) => world && placed.regionOf[i]! >= 0
       const ringX = (i: number) => (inRegion(i) ? regions.cx[placed.regionOf[i]!]! : cx[gOf[i]!]!)
       const ringY = (i: number) => (inRegion(i) ? regions.cy[placed.regionOf[i]!]! : cy[gOf[i]!]!)
       const ringR = (i: number) => (inRegion(i) ? regions.reach[placed.regionOf[i]!]! : reach[gOf[i]!]!)
-      const sx = (i: number) => (vague[i] ? ringX(i) : tx + k * x[i]! + spacing * ox[i]!)
-      const sy = (i: number) => (vague[i] ? ringY(i) : ty + k * y[i]! + spacing * oy[i]!)
+      const clusterOfEntry = (i: number) => (vague[i] ? undefined : clusters[clusterOf[gOf[i]!]!])
+      const sx = (i: number) => (vague[i] ? ringX(i) : (clusterOfEntry(i)?.x ?? tx + k * x[i]! + spacing * ox[i]!))
+      const sy = (i: number) => (vague[i] ? ringY(i) : (clusterOfEntry(i)?.y ?? ty + k * y[i]! + spacing * oy[i]!))
+      const markR = (i: number) => (vague[i] ? ringR(i) : (clusterOfEntry(i)?.reach ?? (placed.ts[i]! < t0 ? GHOST_DOT : r)))
       const missed = (i: number) => matches !== null && !matches.has(placed.entries[i]!.id)
       const focus = hoverId ?? selected
       const close = k >= CLOSE_ZOOM
@@ -595,9 +693,9 @@ export function MapView() {
         for (let i = end - 1; i >= 0 && us[i]! >= u1 - recent; i--) {
           if (missed(i)) continue
           const age = recent > 0 ? (u1 - us[i]!) / recent : 1
-          const markR = vague[i] ? ringR(i) : r
+          const haloR = vague[i] ? ringR(i) : (clusterOfEntry(i)?.reach ?? r)
           ctx.beginPath()
-          ctx.arc(sx(i), sy(i), markR + 2 + age * 9, 0, TAU)
+          ctx.arc(sx(i), sy(i), haloR + 2 + age * 9, 0, TAU)
           ctx.fillStyle = alpha(colors.palette[colors.of[i]!]!, 0.22 * (1 - age))
           ctx.fill()
         }
@@ -607,7 +705,7 @@ export function MapView() {
       const ghosts = new Path2D()
       const buckets: (Path2D | undefined)[] = new Array(colors.palette.length * LEVELS)
       for (let i = 0; i < end; i++) {
-        if (vague[i]) continue
+        if (vague[i] || clusterOf[gOf[i]!]! >= 0) continue
         const px = sx(i)
         const py = sy(i)
         if (px < -r || py < -r || px > width + r || py > height + r) continue
@@ -632,15 +730,17 @@ export function MapView() {
         })
       }
 
-      // One ring per vaguely known place, or far out per world region: a small donut of its
-      // categories with its count inside. A sea's ring is dashed.
+      // Counted circles, each a donut of its categories with its count inside: one ring per vaguely known
+      // place (far out, per world region, dashed), and far out one solid circle per cluster of sites.
+      // A sea's own ring is dashed finer.
       const tally = new Int32Array(colors.palette.length)
-      ctx.font = font(10.5, 600)
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
-      const ring = (gx: number, gy: number, radius: number, members: Int32Array, ts: Float64Array, n: number, dashed: boolean) => {
+      /** Draw a counted circle for the discoveries in the window among `spans`, each a place's members in date order. */
+      const counted = (gx: number, gy: number, radius: number, spans: { members: Int32Array; ts: Float64Array; n: number }[], dash: number[], cluster: boolean) => {
         if (gx < -radius || gy < -radius || gx > width + radius || gy > height + radius) return
-        ctx.setLineDash(dashed ? [2, 2] : [])
+        const n = spans.reduce((total, span) => total + span.n, 0)
+        ctx.setLineDash(dash)
         if (!n) {
           ctx.beginPath()
           ctx.arc(gx, gy, radius, 0, TAU)
@@ -649,17 +749,19 @@ export function MapView() {
           ctx.stroke()
           return
         }
-        const first = from(ts, t0)
         let hit = matches === null
         tally.fill(0)
-        for (let m = first; m < first + n; m++) {
-          const i = members[m]!
-          tally[colors.of[i]!]! += 1
-          hit ||= !missed(i)
+        for (const span of spans) {
+          const first = from(span.ts, t0)
+          for (let m = first; m < first + span.n; m++) {
+            const i = span.members[m]!
+            tally[colors.of[i]!]! += 1
+            hit ||= !missed(i)
+          }
         }
         ctx.beginPath()
         ctx.arc(gx, gy, radius, 0, TAU)
-        ctx.fillStyle = alpha(PAPER, 0.85)
+        ctx.fillStyle = alpha(PAPER, cluster ? 0.9 : 0.85)
         ctx.fill()
         ctx.lineWidth = 2
         let angle = -Math.PI / 2
@@ -673,17 +775,24 @@ export function MapView() {
           angle += sweep
         })
         if (n >= 2) {
+          ctx.font = cluster ? font(11, 600) : font(10.5, 600)
           ctx.fillStyle = alpha(INK, hit ? 1 : 0.3)
           ctx.fillText(String(n), gx, gy + 0.5)
         }
       }
       if (world) {
         placed.regions.forEach((region, i) => {
-          if (regions.drawn[i]) ring(regions.cx[i]!, regions.cy[i]!, regions.reach[i]!, region.members, region.ts, regions.live[i]!, false)
+          if (!regions.drawn[i]) return
+          counted(regions.cx[i]!, regions.cy[i]!, regions.reach[i]!, [{ members: region.members, ts: region.ts, n: regions.live[i]! }], [3, 2], false)
         })
+        for (const cluster of clusters) {
+          const spans = cluster.groups.map((g) => ({ members: groups[g]!.members, ts: groups[g]!.ts, n: live[g]! }))
+          counted(cluster.x, cluster.y, cluster.reach, spans, [], true)
+        }
       } else {
         groups.forEach((group, g) => {
-          if (group.vague && drawn[g]) ring(cx[g]!, cy[g]!, reach[g]!, group.members, group.ts, live[g]!, group.kind === 'water')
+          if (!group.vague || !drawn[g]) return
+          counted(cx[g]!, cy[g]!, reach[g]!, [{ members: group.members, ts: group.ts, n: live[g]! }], group.kind === 'water' ? [2, 2] : [], false)
         })
       }
       ctx.setLineDash([])
@@ -693,14 +802,13 @@ export function MapView() {
         const i = id ? placed.indexOf.get(id) : undefined
         if (i === undefined || i >= end) continue
         ctx.beginPath()
-        const radius = vague[i] ? ringR(i) : placed.ts[i]! < t0 ? GHOST_DOT : r
-        ctx.arc(sx(i), sy(i), radius + 2.5, 0, TAU)
+        ctx.arc(sx(i), sy(i), markR(i) + 2.5, 0, TAU)
         ctx.strokeStyle = INK
         ctx.lineWidth = id === selected ? 2 : 1.25
         ctx.stroke()
       }
 
-      // Place names, each beside its own mark. Far out only the world regions' rings are named. Closer,
+      // Place names, each beside its own mark. Far out only the world regions' rings and the site clusters are named. Closer,
       // rings holding three or more are named first (every ring past ALL_RINGS_ZOOM), then, close up,
       // sites and towns while there is room. Only places with something in the window are named, and
       // ranking by everything drawn, grey dots included, keeps the names steady while time sweeps.
@@ -708,7 +816,7 @@ export function MapView() {
       const circles: { x: number; y: number; r: number }[] = []
       const onScreen = (px: number, py: number, pr: number) => px + pr > 0 && py + pr > TOP && px - pr < width && py - pr < height
       groups.forEach((group, g) => {
-        if (!drawn[g] || (world && group.vague) || !onScreen(cx[g]!, cy[g]!, reach[g]!)) return
+        if (!drawn[g] || (world && (group.vague || clusterOf[g]! >= 0)) || !onScreen(cx[g]!, cy[g]!, reach[g]!)) return
         marks.push(g)
         circles.push({ x: cx[g]!, y: cy[g]!, r: reach[g]! })
       })
@@ -716,6 +824,7 @@ export function MapView() {
         regions.drawn.forEach((n, i) => {
           if (n) circles.push({ x: regions.cx[i]!, y: regions.cy[i]!, r: regions.reach[i]! })
         })
+        for (const cluster of clusters) circles.push({ x: cluster.x, y: cluster.y, r: cluster.reach })
       }
       const taken: Box[] = []
       ctx.font = font(12.5)
@@ -725,12 +834,16 @@ export function MapView() {
       ctx.strokeStyle = PAPER
       ctx.fillStyle = INK_2
       /** Name a mark on the first free side, never touching another name; with `strict` off, other marks may be overlapped. */
-      const label = (text: string, gx: number, gy: number, edge: number, leftFirst: boolean, strict: boolean): boolean => {
+      const label = (text: string, gx: number, gy: number, edge: number, side: Side, strict: boolean): boolean => {
         const w = ctx.measureText(text).width
-        const right: [number, number] = [gx + edge + LABEL_GAP, gy]
-        const left: [number, number] = [gx - edge - LABEL_GAP - w, gy]
-        const spots = [leftFirst ? left : right, leftFirst ? right : left, [gx - w / 2, gy - edge - LABEL_GAP - 9] as [number, number]]
-        for (const [x0, middle] of spots) {
+        const at: Record<Side | 'above', [number, number]> = {
+          right: [gx + edge + LABEL_GAP, gy],
+          left: [gx - edge - LABEL_GAP - w, gy],
+          below: [gx - w / 2, gy + edge + LABEL_GAP + 9],
+          above: [gx - w / 2, gy - edge - LABEL_GAP - 9],
+        }
+        const order: (Side | 'above')[] = side === 'left' ? ['left', 'right', 'above'] : side === 'right' ? ['right', 'left', 'above'] : ['below', 'right', 'left']
+        for (const [x0, middle] of order.map((s) => at[s])) {
           const box: Box = [x0 - 3, middle - 9, x0 + w + 3, middle + 9]
           if (box[0] < 4 || box[2] > width - 4 || box[1] < TOP || box[3] > height - 4) continue
           if (taken.some((o) => box[0] < o[2] && box[2] > o[0] && box[1] < o[3] && box[3] > o[1])) continue
@@ -746,9 +859,10 @@ export function MapView() {
         placed.regions.forEach((region, i) => {
           const n = regions.live[i]!
           if (!n) return
-          const args = [`${region.name} · ${n.toLocaleString('en-GB')} known only by country`, regions.cx[i]!, regions.cy[i]!, regions.reach[i]!, region.left] as const
+          const args = [`${region.name} ${n.toLocaleString('en-GB')}`, regions.cx[i]!, regions.cy[i]!, regions.reach[i]!, region.side] as const
           if (!label(...args, true)) label(...args, false)
         })
+        for (const cluster of [...clusters].sort((a, b) => b.n - a.n)) label(cluster.name, cluster.x, cluster.y, cluster.reach, 'right', true)
       } else {
         const byWeight = (a: number, b: number) => drawn[b]! - drawn[a]! || a - b
         const named = marks.filter((g) => live[g])
@@ -757,13 +871,13 @@ export function MapView() {
         for (const g of named.filter((g) => groups[g]!.vague && ringNamed(g)).sort(byWeight)) {
           const group = groups[g]!
           if (namedRings.some((o) => o.ancestors.has(group.id) || group.ancestors.has(o.id))) continue
-          if (label(group.name, cx[g]!, cy[g]!, reach[g]!, false, true) || label(group.name, cx[g]!, cy[g]!, reach[g]!, false, false)) namedRings.push(group)
+          if (label(group.name, cx[g]!, cy[g]!, reach[g]!, 'right', true) || label(group.name, cx[g]!, cy[g]!, reach[g]!, 'right', false)) namedRings.push(group)
         }
         if (close) {
           let room = Math.round(10 * Math.sqrt(k))
           for (const g of named.filter((g) => NAMED_CLOSE.has(groups[g]!.kind)).sort(byWeight)) {
             if (room <= 0) break
-            if (label(groups[g]!.name, cx[g]!, cy[g]!, reach[g]!, false, true)) room -= 1
+            if (label(groups[g]!.name, cx[g]!, cy[g]!, reach[g]!, 'right', true)) room -= 1
           }
         }
       }
@@ -783,7 +897,8 @@ export function MapView() {
     const end = after(placed.ts, span[1])
     let best: Picked | null = null
     for (let i = 0; i < end; i++) {
-      if (placed.vague[i]) continue
+      // Far out, a clustered dot is not drawn, so it cannot be picked: its circle is clicked instead.
+      if (placed.vague[i] || layout.clusterOf[placed.group[i]!]! >= 0) continue
       const cx = tx + k * placed.x[i]! + spacing * placed.ox[i]!
       const cy = ty + k * placed.y[i]! + spacing * placed.oy[i]!
       const d = Math.hypot(cx - px, cy - py)
@@ -803,14 +918,15 @@ export function MapView() {
 
   /**
    * Where to fly for a crowd under the pointer: a world region's ring flies to its continent, and a
-   * counted ring or a bloom of six or more dots to a close view centred on it.
+   * cluster of sites, a counted ring or a bloom of six or more dots to a close view centred on it.
    */
   const crowdAt = (clientX: number, clientY: number): View | null => {
-    if (!placed || !layout || !base || !frame.current) return null
+    if (!placed || !layout || !base || !transform || !frame.current) return null
     const box = frame.current.getBoundingClientRect()
     const px = clientX - box.left
     const py = clientY - box.top
     const [x0, y0, x1, y1] = base.box
+    const { k, tx, ty } = transform
     const toward = (k: number, x: number, y: number): View => ({ k, fx: (x - x0) / (x1 - x0), fy: (y - y0) / (y1 - y0) })
     let best: View | null = null
     let bestDistance = Infinity
@@ -824,9 +940,10 @@ export function MapView() {
       placed.regions.forEach((region, i) => {
         if (layout.regions.drawn[i]) consider(layout.regions.cx[i]!, layout.regions.cy[i]!, layout.regions.reach[i]!, () => toward(REGION_ZOOM, region.landX, region.landY))
       })
+      for (const cluster of layout.clusters) consider(cluster.x, cluster.y, cluster.reach, () => toward(CLUSTER_ZOOM, (cluster.x - tx) / k, (cluster.y - ty) / k))
     }
     placed.groups.forEach((group, g) => {
-      if (group.vague ? layout.world || layout.live[g]! < 2 : layout.drawn[g]! < 6) return
+      if (layout.clusterOf[g]! >= 0 || (group.vague ? layout.world || layout.live[g]! < 2 : layout.drawn[g]! < 6)) return
       consider(layout.cx[g]!, layout.cy[g]!, layout.reach[g]!, () => toward(CLUSTER_ZOOM, group.x, group.y))
     })
     return best
@@ -935,7 +1052,8 @@ export function MapView() {
       <p className="caption">
         {plural(inWindow, 'discovery', 'discoveries')} on the map
         {before > 0 && ` · ${plural(before, 'grey dot', 'grey dots')} came before this stretch`}
-        {unplaced > 0 && ` · ${unplaced} with no place or date yet`}. A ring is a place known only as a country or region.
+        {unplaced > 0 && ` · ${unplaced} with no place or date yet`}. A numbered circle gathers discoveries; a dashed one holds those
+        placed only by country.
         <span className="caption-key">
           <i />
           <i />
