@@ -4,7 +4,7 @@ import type { Category } from '../dims.ts'
 import { roundRect, useCanvas, useSize } from '../lib/canvas.ts'
 import { plural } from '../lib/text.ts'
 import { useApp, useDimension, useFiltered, useLimits, useMatches, useModel, useScale } from '../store.ts'
-import { alpha, font, INK, INK_2, INK_3, PAPER, RULE, RULE_SOFT, TINT } from '../theme.ts'
+import { alpha, font, INK, INK_2, INK_3, NEUTRAL, PAPER, RULE, RULE_SOFT, TINT } from '../theme.ts'
 import { makeAxis, panWindow, ticks, zoomWindow, type Axis } from '../time.ts'
 
 const RULER = 30
@@ -15,6 +15,8 @@ const LANE_FOOT = 10
 const FOOT = 30
 /** The longest leader a name may hang on. */
 const LEADER = 30
+/** How strongly a minor discovery is drawn, against 1 for a major one. */
+const MINOR = 0.6
 
 interface Mark {
   entry: Entry
@@ -91,13 +93,13 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
     y += h
   })
 
-  // Within a column the major discoveries sit lowest and the minor ones above them, so every pile
-  // reads as a dark base with a pale top. With all categories in one pile, each of those two parts
-  // is grouped by category.
+  // Within a column the major discoveries sit lowest and the minor ones above them, so a pile
+  // reads as a dark base with a pale top. With all categories in one pile, each column is grouped
+  // by category first, so it reads as a stacked bar.
   const rank = new Map([...colorOf.keys()].map((id, i) => [id, i]))
   const band = (e: Entry) => (categories ? 0 : (rank.get(of(e)) ?? 0))
   const minor = (e: Entry) => (e.tier > 1 ? 1 : 0)
-  const ordered = [...inView].sort((a, b) => minor(a) - minor(b) || band(a) - band(b) || a.tier - b.tier || a.t! - b.t!)
+  const ordered = [...inView].sort((a, b) => band(a) - band(b) || minor(a) - minor(b) || a.tier - b.tier || a.t! - b.t!)
   const heights = rows.map(() => new Map<number, number>())
   const marks: Mark[] = []
   for (const e of ordered) {
@@ -177,6 +179,7 @@ export function Timeline() {
       if (!plan) return
       const { axis, marks, lanes, labels } = plan
       const side = plan.size
+      const laneAt = (y: number) => lanes.findIndex((lane) => y >= lane.top && y < lane.bottom)
 
       // The ruler, with its bands carried down the page so a date can be read anywhere.
       const marksOnRuler = ticks(axis, 84)
@@ -260,9 +263,9 @@ export function Timeline() {
         const unmatched = matches !== null && !matches.has(entry.id)
         // With links drawn and something in focus, what it is not linked to steps back a little.
         const aside = layers.size > 0 && focus !== null && !linked.has(entry.id) && entry.id !== focus
-        const strength = unmatched ? 0.13 : (entry.tier <= 1 ? 1 : 0.5) * (aside ? 0.4 : 1)
         roundRect(ctx, mark.x, mark.y, side, side, radius)
-        ctx.fillStyle = alpha(mark.color, strength)
+        // Paleness means minor and nothing else: what stands aside from a lineage turns grey.
+        ctx.fillStyle = unmatched ? alpha(mark.color, 0.13) : aside ? alpha(NEUTRAL, 0.42) : alpha(mark.color, entry.tier <= 1 ? 1 : MINOR)
         ctx.fill()
       }
       for (const id of [selected, hoverId]) {
@@ -295,14 +298,26 @@ export function Timeline() {
         ctx.lineWidth = 4
         ctx.lineJoin = 'round'
         ctx.strokeText(label.mark.entry.name, label.x, label.y + 12.5)
-        ctx.fillStyle = INK
+        const setAside = layers.size > 0 && focus !== null && !linked.has(label.mark.entry.id)
+        ctx.fillStyle = setAside ? alpha(INK, 0.4) : INK
         ctx.fillText(label.mark.entry.name, label.x, label.y + 12.5)
       }
       if (chosen) {
         ctx.font = font(13.5, 600)
         const w = ctx.measureText(chosen.entry.name).width
         const x = Math.max(PAD_X, Math.min(width - PAD_X - w, chosen.x + side / 2 - w / 2))
-        const y = Math.max(RULER + 16, chosen.y - 10)
+        // It rides above every mark it would cross in its own row, on a leader down to its square.
+        let top = chosen.y
+        for (const mark of marks) if (mark.x + side > x - 4 && mark.x < x + w + 4 && mark.y < top && Math.abs(mark.y - chosen.y) < 400 && laneAt(mark.y) === laneAt(chosen.y)) top = mark.y
+        const y = Math.max(RULER + 16, top - 10)
+        if (top < chosen.y - 2) {
+          ctx.strokeStyle = alpha(INK, 0.45)
+          ctx.lineWidth = 1
+          ctx.beginPath()
+          ctx.moveTo(Math.round(chosen.x + side / 2) + 0.5, y + 4)
+          ctx.lineTo(Math.round(chosen.x + side / 2) + 0.5, chosen.y - 3)
+          ctx.stroke()
+        }
         ctx.strokeStyle = PAPER
         ctx.lineWidth = 5
         ctx.lineJoin = 'round'

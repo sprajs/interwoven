@@ -58,15 +58,15 @@ const BAR_ALPHA = 0.86
  * stretch or over a small population makes the tallest bar on the chart from the least evidence.
  */
 const MIN_FOR_RATE = 3
-/** Spacing between names at the ends of lines. */
-const NAME_GAP = 15
-/** Names further than this from their line's end are dropped rather than left to float. */
-const NAME_DRIFT = 10
 /** Room above the plot for the unit label. */
 const TOP = 34
 /** Between the rows of the small multiples, and the room each gives its name. */
 const ROW_GAP = 8
 const ROW_HEAD = 20
+/** The least height a row with a scale can be read at. */
+const ROW_MIN = 56
+/** A row without a scale: one line of text. */
+const ROW_LINE = 22
 const RULER = 30
 const GAP = 16
 /** The population chart, title included. */
@@ -92,14 +92,16 @@ interface Bin {
   livedIn: (number | null)[]
 }
 
-/** One region's own small bar chart, on its own scale. */
+/** One region's own small bar chart, on its own scale, or a line of text where it cannot have one. */
 interface Row {
   category: Category
   top: number
   plotTop: number
   bottom: number
-  /** The value at the top of the row's scale, where its one gridline sits. */
-  peak: number
+  /** The round value at the top of the row's scale, where its one gridline sits; null for a one-line row. */
+  peak: number | null
+  /** What a one-line row says instead of a chart. */
+  note: string | null
 }
 
 interface PopulationLine {
@@ -211,7 +213,6 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
 
   const guarded = measure !== 'count'
   const weak = (count: number) => guarded && count > 0 && count < MIN_FOR_RATE
-  const outlined = bins.some((bin, i) => (multiples ? bin.counts.some((c, k) => weak(c) && values[i]![k] !== null) : weak(bin.total) && headline[i] !== null))
   // Outlined bars do not set the scale; plain counts are all equally sure.
   const peak = multiples ? 0 : guarded ? sturdyPeak(bins.map((bin, i) => ({ count: bin.total, value: headline[i] ?? null }))) : Math.max(0, ...headline.map((v) => v ?? 0))
   const grid = niceTicks(peak, measure === 'count')
@@ -219,21 +220,10 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
   const popTop = population ? popBottom - POPULATION : popBottom
   const baseline = popTop - RULER - (population ? GAP : 0)
 
-  let rows: Row[] | null = null
-  if (multiples) {
-    // The rows share the height of the main chart equally.
-    const h = (baseline - TOP - (categories.length - 1) * ROW_GAP) / Math.max(1, categories.length)
-    rows = categories.map((category, k) => {
-      const top = TOP + k * (h + ROW_GAP)
-      return {
-        category,
-        top,
-        plotTop: top + ROW_HEAD,
-        bottom: top + h,
-        peak: sturdyPeak(bins.map((bin, i) => ({ count: bin.counts[k]!, value: values[i]![k] ?? null }))),
-      }
-    })
-  }
+  const rows = multiples ? stackRows(categories, bins, values, TOP, baseline) : null
+  const outlined = rows
+    ? rows.some((row, k) => row.peak !== null && bins.some((bin, i) => weak(bin.counts[k]!) && values[i]![k] !== null))
+    : bins.some((bin, i) => weak(bin.total) && headline[i] !== null)
 
   return {
     axis,
@@ -254,6 +244,38 @@ function layout(entries: Entry[], axis: Axis, all: Category[], of: (e: Entry) =>
     counted,
     unplaced,
   }
+}
+
+/**
+ * Share the main chart's height among the regions. A region with no bin of three or more discoveries
+ * has no rate to scale by, so it gets one line saying so. The others share the rest, at least
+ * ROW_MIN each; where they cannot all have that, those with the fewest discoveries give way to one line.
+ */
+function stackRows(categories: Category[], bins: Bin[], values: (number | null)[][], top: number, bottom: number): Row[] {
+  const plans = categories.map((category, k) => {
+    const sturdy = bins.flatMap((bin, i) => {
+      const value = values[i]![k]
+      return bin.counts[k]! >= MIN_FOR_RATE && value !== null && value !== undefined ? [value] : []
+    })
+    const count = bins.reduce((sum, bin) => sum + bin.counts[k]!, 0)
+    const note = sturdy.length ? null : count ? 'too few discoveries to give a rate' : 'no discoveries in view'
+    return { category, count, peak: sturdy.length ? niceCeiling(Math.max(...sturdy)) : null, note }
+  })
+  const scaled = () => plans.filter((p) => p.peak !== null)
+  const free = () => bottom - top - (plans.length - 1) * ROW_GAP - (plans.length - scaled().length) * ROW_LINE
+  while (scaled().length && free() / scaled().length < ROW_MIN) {
+    const fewest = scaled().reduce((a, b) => (b.count < a.count ? b : a))
+    fewest.peak = null
+    fewest.note = plural(fewest.count, 'discovery', 'discoveries')
+  }
+  const height = scaled().length ? free() / scaled().length : 0
+  let y = top
+  return plans.map((p) => {
+    const h = p.peak === null ? ROW_LINE : height
+    const row = { category: p.category, top: y, plotTop: y + ROW_HEAD, bottom: y + h, peak: p.peak, note: p.note }
+    y += h + ROW_GAP
+    return row
+  })
 }
 
 /** World population as one line, or each region's as its own, on a logarithmic axis. */
@@ -568,38 +590,49 @@ function drawStacks(ctx: CanvasRenderingContext2D, plan: Plan, lit: number | nul
 function drawRows(ctx: CanvasRenderingContext2D, plan: Plan, rows: Row[], lit: number | null): void {
   const { axis } = plan
   rows.forEach((row, k) => {
-    const yOf = (v: number) => row.bottom - (v / row.peak) * (row.bottom - row.plotTop)
     // Each row's baseline is a soft rule that also parts it from the row below; the last is the chart's own baseline.
     if (k < rows.length - 1) {
       ctx.fillStyle = RULE_SOFT
       ctx.fillRect(axis.x0, Math.round(row.bottom), axis.x1 - axis.x0, 1)
     }
+    // A one-line row centres its name in its line; a charted row keeps it above the plot.
+    const nameY = row.peak === null ? row.top + ROW_LINE / 2 : row.top + 7.5
     ctx.fillStyle = row.category.color
-    ctx.fillRect(axis.x0, row.top + 3, 8, 8)
+    ctx.fillRect(axis.x0, Math.round(nameY - 4), 8, 8)
     ctx.font = font(12.5, 600)
     ctx.fillStyle = INK_2
     ctx.textBaseline = 'middle'
     ctx.textAlign = 'left'
-    ctx.fillText(row.category.name, axis.x0 + 14, row.top + 7.5)
-    if (row.peak > 0) {
-      const y = Math.round(row.plotTop)
-      ctx.fillStyle = RULE_SOFT
-      ctx.fillRect(axis.x0, y, axis.x1 - axis.x0, 1)
-      ctx.font = font(12)
-      ctx.fillStyle = INK_3
-      ctx.textAlign = 'right'
-      ctx.fillText(formatValue(row.peak), axis.x0 - 10, y)
-      ctx.textAlign = 'left'
+    ctx.fillText(row.category.name, axis.x0 + 14, nameY)
+    const peak = row.peak
+    if (peak === null) {
+      if (row.note) {
+        const w = ctx.measureText(row.category.name).width
+        ctx.font = font(12.5)
+        ctx.fillStyle = INK_3
+        ctx.fillText(row.note, axis.x0 + 14 + w + 10, nameY)
+      }
+      return
     }
+    const yOf = (v: number) => row.bottom - (v / peak) * (row.bottom - row.plotTop)
+    const y = Math.round(row.plotTop)
+    ctx.fillStyle = RULE_SOFT
+    ctx.fillRect(axis.x0, y, axis.x1 - axis.x0, 1)
+    ctx.font = font(12)
+    ctx.fillStyle = INK_3
+    ctx.textAlign = 'right'
+    // The peak is a round 1, 2 or 5, so it is labelled exactly.
+    ctx.fillText(peak >= 100 ? group(peak) : String(peak), axis.x0 - 10, y)
+    ctx.textAlign = 'left'
 
     plan.bins.forEach((bin, i) => {
       const value = plan.values[i]![k]
       const count = bin.counts[k]!
-      if (!count || value === null || value === undefined || row.peak <= 0) return
+      if (!count || value === null || value === undefined) return
       const x = bin.x0 + BAR_GAP / 2
       const w = bin.x1 - bin.x0 - BAR_GAP
       if (count < MIN_FOR_RATE) {
-        outlineBar(ctx, x, w, yOf(Math.min(value, row.peak)), row.bottom, value > row.peak)
+        outlineBar(ctx, x, w, yOf(Math.min(value, peak)), row.bottom, value > peak)
         return
       }
       ctx.fillStyle = alpha(row.category.color, i === lit ? 1 : BAR_ALPHA)
@@ -610,7 +643,10 @@ function drawRows(ctx: CanvasRenderingContext2D, plan: Plan, rows: Row[], lit: n
   })
 }
 
-/** A bar on one or two discoveries: an outline only, left open at the top where it runs off the scale. */
+/**
+ * A bar on one or two discoveries: an outline only. Where it runs off the scale it stops at the top
+ * of the plot, left open, with a small break across each side to say it goes on.
+ */
 function outlineBar(ctx: CanvasRenderingContext2D, x: number, w: number, top: number, bottom: number, clamped: boolean): void {
   const left = Math.round(x) + 0.5
   const right = Math.round(x + w) - 0.5
@@ -624,6 +660,12 @@ function outlineBar(ctx: CanvasRenderingContext2D, x: number, w: number, top: nu
   if (clamped) ctx.moveTo(right, ceiling)
   else ctx.lineTo(right, ceiling)
   ctx.lineTo(right, floor)
+  if (clamped) {
+    for (const side of [left, right]) {
+      ctx.moveTo(side - 2, ceiling + 3)
+      ctx.lineTo(side + 2, ceiling + 3)
+    }
+  }
   ctx.stroke()
 }
 
@@ -663,25 +705,19 @@ function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, a
     ctx.stroke()
   }
 
-  // The regional lines are named at their right ends; one world line needs no name beside its title.
+  // The regional lines are named in the right margin, spread evenly in the order the lines end,
+  // highest first: the order says which is which without leaders. One world line needs no name.
   if (chart.lines.length < 2) return
   const ends = chart.lines.flatMap((line) => {
     const end = line.points[line.points.length - 1]
     return end ? [{ name: line.name, color: line.color, y: end.y }] : []
   })
   ends.sort((a, b) => a.y - b.y)
-  const ys = spread(
-    ends.map((end) => end.y),
-    NAME_GAP,
-    chart.plotTop,
-    chart.bottom,
-  )
+  const step = ends.length > 1 ? (chart.bottom - chart.plotTop) / (ends.length - 1) : 0
   ctx.font = font(12.5)
   ctx.textBaseline = 'middle'
   ends.forEach((end, i) => {
-    const y = ys[i]!
-    // A name pushed far from its line would read as belonging to another; the rows above name the regions anyway.
-    if (Math.abs(y - end.y) > NAME_DRIFT) return
+    const y = chart.plotTop + i * step
     ctx.fillStyle = end.color
     ctx.beginPath()
     ctx.arc(axis.x1 + 11, y, 3, 0, Math.PI * 2)
@@ -709,19 +745,21 @@ function BinCard({ plan, index, frame, measure, population }: { plan: Plan; inde
   useLayoutEffect(() => {
     const bin = plan.bins[index]
     if (!ref.current || !bin) return
-    const box = ref.current.getBoundingClientRect()
-    const centre = frame.left + (bin.x0 + bin.x1) / 2
-    const left = Math.max(frame.left + 4, Math.min(frame.right - 4 - box.width, centre - box.width / 2))
-    setPosition({ left, top: frame.top + plan.top - 6 - box.height })
+    const width = ref.current.getBoundingClientRect().width
+    const right = frame.left + bin.x1 + 14
+    const left = frame.left + bin.x0 - 14 - width
+    const fitsRight = right + width <= frame.right - 4
+    setPosition({ left: fitsRight || left < frame.left + 4 ? right : left, top: frame.top })
   }, [frame, index, plan, measure])
 
   const bin = plan.bins[index]!
   const value = plan.headline[index] ?? null
   const world = population?.series.world ? populationAt(population.series.world, bin.mid) : null
-  const people = world === null ? null : `world population about ${formatPeople(world)}`
+  const people = world === null ? null : `world ${formatPeople(world)}`
   const footing = measure === 'count' ? (people && people[0]!.toUpperCase() + people.slice(1)) : [plural(bin.total, 'discovery', 'discoveries'), people].filter(Boolean).join(' · ')
 
   return (
+    // At the top of the frame, beside the lit bin: clear of the bars and of the breakdown under the title.
     <div ref={ref} className="tooltip trends-card" role="tooltip" style={position ?? { left: 0, top: 0, visibility: 'hidden' }}>
       <h4>{formatPeriod(bin.t0, bin.t1)}</h4>
       <p className="trends-value">
@@ -737,7 +775,7 @@ function BinCard({ plan, index, frame, measure, population }: { plan: Plan; inde
           </>
         )}
       </p>
-      {footing && <p className="meta">{footing}</p>}
+      {footing && <p className="meta trends-footing">{footing}</p>}
     </div>
   )
 }
@@ -846,12 +884,15 @@ function logTicks(lo: number, hi: number): number[] {
   return found
 }
 
-/** Push sorted positions apart to at least `gap`, keeping them within [lo, hi] where they fit. */
-function spread(ys: number[], gap: number, lo: number, hi: number): number[] {
-  const out = [...ys]
-  for (let i = 0; i < out.length; i++) out[i] = Math.max(out[i]!, i > 0 ? out[i - 1]! + gap : lo)
-  for (let i = out.length - 1; i >= 0; i--) out[i] = Math.min(out[i]!, i < out.length - 1 ? out[i + 1]! - gap : hi)
-  return out
+/** The smallest of 1, 2 or 5 times a power of ten that is at least `v`. */
+function niceCeiling(v: number): number {
+  if (!(v > 0) || !Number.isFinite(v)) return 1
+  const power = 10 ** Math.floor(Math.log10(v))
+  for (const m of [1, 2, 5, 10]) {
+    const nice = Number((m * power).toPrecision(12))
+    if (nice >= v * (1 - 1e-9)) return nice
+  }
+  return 10 * power
 }
 
 /** Whole numbers with the same narrow-space grouping as the years: 1850, 12 400. */

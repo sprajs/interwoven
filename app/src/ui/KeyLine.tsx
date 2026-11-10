@@ -25,13 +25,6 @@ export function KeyLine() {
             </button>
           )
         })}
-      {view !== 'trends' && view !== 'index' && (
-        <span className="key-note">
-          <i className="strong" />
-          <i className="pale" />
-          paler marks are minor discoveries
-        </span>
-      )}
     </div>
   )
 }

@@ -149,41 +149,38 @@ export interface Tick {
   level: number
 }
 
-const STEPS = [100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+const STEPS = [100000, 50000, 25000, 10000, 5000, 2500, 1000, 500, 250, 100, 50, 25, 10, 5, 1]
+
+/** The moment a calendar year stands for. There is no year 0: the tick between the eras sits at 1 CE. */
+const momentOf = (year: number) => (year < 0 ? year + 1 : year === 0 ? 1 : year)
 
 /**
  * Round years across an axis, as many as fit. Coarse years are placed first and finer ones fill
- * whatever room is left, so a stretched part of a curved scale gets finer ticks than a squeezed one.
+ * the room that is left, so a stretched part of a curved scale gets finer ticks than a squeezed
+ * one. Every tick is a round value of its own step, no long stretch is left without a date, and
+ * the start of the axis is always labelled.
  */
 export function ticks(axis: Axis, minGap = 72): Tick[] {
   const out: Tick[] = []
-  const taken = new Map<number, number[]>()
-  const free = (x: number) => {
-    const cell = Math.floor(x / minGap)
-    for (const c of [cell - 1, cell, cell + 1]) for (const other of taken.get(c) ?? []) if (Math.abs(other - x) < minGap) return false
-    return true
-  }
+  const free = (x: number) => out.every((other) => Math.abs(other.x - x) >= minGap)
   const y0 = yearOf(axis.t0)
   const y1 = yearOf(axis.t1)
+  const inside = (x: number) => x >= axis.x0 - 0.5 && x <= axis.x1 + 0.5
   let level = 0
   let coarser = 0
   for (const step of STEPS) {
     if ((y1 - y0) / step > 3000) break
-    // Each finer step must divide the one before it, so ticks never fall at uneven intervals
-    // such as 1700, 1720, 1750.
+    // Each finer step must divide the one before it, so steps nest: 100, 50, 25, never 100, 40.
     if (coarser && coarser % step !== 0) continue
     let placed = false
     for (let year = Math.ceil(y0 / step) * step; year <= y1; year += step) {
-      // There is no year 0: the tick between the eras sits at 1 CE.
-      const t = year < 0 ? year + 1 : year === 0 ? 1 : year
+      const t = momentOf(year)
       const x = axis.x(t)
-      if (x < axis.x0 - 0.5 || x > axis.x1 + 0.5 || !free(x)) continue
-      // Ticks of one step come all together or not at all: where its neighbours would not fit,
-      // a lone tick reads as an accident, like 1720 between 1700 and 1750.
-      const spacing = Math.min(Math.abs(axis.x(t + step) - x), Math.abs(x - axis.x(t - step)))
-      if (out.length && spacing < minGap * 0.8) continue
-      const cell = Math.floor(x / minGap)
-      taken.set(cell, [...(taken.get(cell) ?? []), x])
+      if (!inside(x) || !free(x)) continue
+      // A tick needs room for a neighbour of its own step on at least one side. Without that it
+      // stands alone among coarser ticks and reads as an accident: 1720 between 1700 and 1750.
+      const room = Math.max(Math.abs(axis.x(t + step) - x), Math.abs(x - axis.x(t - step)))
+      if (out.length && room < minGap * 0.8) continue
       out.push({ t, x, label: formatYear(t), level })
       placed = true
     }
@@ -191,6 +188,32 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
       level += 1
       coarser = step
     }
+  }
+  // The start of the axis always carries its date.
+  if (free(axis.x0)) out.push({ t: axis.t0, x: axis.x0, label: formatYear(axis.t0, y1 - y0 > 2000 ? 10 : 1), level })
+  // No long stretch goes undated: put the roundest year that fits into any wide gap.
+  for (let pass = 0; pass < 12; pass++) {
+    out.sort((a, b) => a.x - b.x)
+    const edges = [...out.map((tick) => tick.x), axis.x1]
+    let widest = -1
+    for (let i = 0; i + 1 < edges.length; i++) if (edges[i + 1]! - edges[i]! > minGap * 2.2 && (widest < 0 || edges[i + 1]! - edges[i]! > edges[widest + 1]! - edges[widest]!)) widest = i
+    if (widest < 0) break
+    const [left, right] = [edges[widest]!, edges[widest + 1]!]
+    let best: Tick | null = null
+    for (const step of STEPS) {
+      const from = yearOf(axis.t(left))
+      const to = yearOf(axis.t(right))
+      if ((to - from) / step > 400) break
+      for (let year = Math.ceil(from / step) * step; year <= to; year += step) {
+        const t = momentOf(year)
+        const x = axis.x(t)
+        if (x - left < minGap || right - x < minGap || !free(x)) continue
+        if (!best || Math.abs(x - (left + right) / 2) < Math.abs(best.x - (left + right) / 2)) best = { t, x, label: formatYear(t), level }
+      }
+      if (best) break
+    }
+    if (!best) break
+    out.push(best)
   }
   return out.sort((a, b) => a.x - b.x)
 }

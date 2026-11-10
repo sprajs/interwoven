@@ -6,7 +6,7 @@ import { formatSpan, formatYear, log, makeAxis, PRESENT, ticks } from '../time.t
 import { Menu, MenuHeading, Option } from './Menu.tsx'
 
 const STARTS: { name: string; t: number | null; hint: string }[] = [
-  { name: 'All', t: null, hint: 'The first tools, about 200\u202f000 years ago' },
+  { name: 'All', t: null, hint: 'Everything recorded, from the earliest discovery' },
   { name: '10 000 BCE', t: -9999, hint: 'The first farming' },
   { name: '4000 BCE', t: -3999, hint: 'The first cities and writing' },
   { name: '1 CE', t: 1, hint: 'The last two thousand years' },

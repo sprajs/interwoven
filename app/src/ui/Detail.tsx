@@ -104,8 +104,12 @@ function DetailBody({ entry, data }: { entry: Discovery & Pick<Entry, 'index' | 
       'Origin',
       entry.origin || entry.concept ? (
         <>
-          {entry.origin ? words(entry.origin) : 'Not yet assessed'}
-          {entry.concept && <span className="relation"> · one of several reaching “{bundle.concepts[entry.concept]?.name ?? entry.concept}”</span>}
+          {entry.origin ? words(entry.origin) : ''}
+          {entry.concept && (
+            <span className="relation">
+              {entry.origin ? ' · ' : ''}one of the places that reached “{bundle.concepts[entry.concept]?.name ?? entry.concept}”
+            </span>
+          )}
         </>
       ) : null,
       basis.origin ?? basis.concept,
@@ -164,8 +168,8 @@ function DetailBody({ entry, data }: { entry: Discovery & Pick<Entry, 'index' | 
         </button>
       </div>
       <p className="dateline">
-        <strong>{entry.date ? dateLabel(entry.date.label) : 'No date established'}</strong>
-        {place && ` · ${place.name}${country && country.id !== place.id ? `, ${country.name}` : ''}`}
+        <strong title={entry.date?.label}>{entry.date ? yearLabel(entry.date) : 'No date established'}</strong>
+        {place && ` · ${place.name}${country && country.id !== place.id && ['site', 'settlement'].includes(place.kind) ? `, ${country.name}` : ''}`}
       </p>
       <p className="summary">{entry.summary ?? entry.description}</p>
       <p className="glance">
@@ -281,7 +285,11 @@ function Lineage({ entry, links }: { entry: Entry; links: Link[] }) {
   const before = pick(causal.filter((l) => l.to === entry.id).map((l) => l.from))
   const after = pick(causal.filter((l) => l.from === entry.id).map((l) => l.to))
   const elsewhere = entry.concept ? (model.shared.get(`concept:${entry.concept}`) ?? []).filter(e => e.id !== entry.id) : []
-  if (!before.length && !after.length && !elsewhere.length) return null
+  // A record that is another place's version of the same thing is listed once, under that heading.
+  const parallel = new Set(elsewhere.map((e) => e.id))
+  const earlier = before.filter((e) => !parallel.has(e.id))
+  const later = after.filter((e) => !parallel.has(e.id))
+  if (!earlier.length && !later.length && !elsewhere.length) return null
   const row = (e: Entry, self = false) =>
     self ? (
       <div className="lineage-row" data-self="true" key={e.id}>
@@ -296,16 +304,17 @@ function Lineage({ entry, links }: { entry: Entry; links: Link[] }) {
         <span>{e.name}</span>
       </button>
     )
-  const hidden = Math.max(0, before.length - RAIL) + Math.max(0, after.length - RAIL)
+  const hidden = Math.max(0, earlier.length - RAIL) + Math.max(0, later.length - RAIL)
   return (
     <>
-      {(before.length > 0 || after.length > 0) && (
+      {(earlier.length > 0 || later.length > 0) && (
         <div className="lineage">
-          <h3>What it built on, and what followed</h3>
-          {before.slice(-RAIL).map((e) => row(e))}
+          <h3>{earlier.length ? (later.length ? 'What it built on, and what followed' : 'What it built on') : 'What followed from it'}</h3>
+          {earlier.slice(-RAIL).map((e) => row(e))}
           {row(entry, true)}
-          {after.slice(0, RAIL).map((e) => row(e))}
+          {later.slice(0, RAIL).map((e) => row(e))}
           {hidden > 0 && <p className="lineage-more">and {hidden} more under Connections</p>}
+          {!earlier.length && <p className="lineage-more">Nothing it built on has been recorded yet.</p>}
         </div>
       )}
       {elsewhere.length > 0 && (
