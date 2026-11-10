@@ -44,7 +44,7 @@ Only approved worker changes were cherry-picked onto `codex/tech-tree-round-1-or
 - `npm run build`: passed — TypeScript and Vite. The build reports a nonblocking large-chunk warning.
 - Review hash binding, protected-path overlap and preservation: passed; all 92 original unfinished files still match the supplied preservation manifest. `setup-verification.json`, shared registers and app UI were untouched.
 
-See [integration-verification.json](integration-verification.json) for exact check and preservation bindings. The orchestrator did not switch, clean or stage the original checkout, and did not push or merge `main`. Final remote synchronization, integration and publication belong to the coordinating chat; this report does not claim those later steps are complete. The coordinating chat reported an interactive results view rendered in Chrome, verified lane switching and question expansion, and visually checked a screenshot. The local view is outside the repository and will be embedded by that chat.
+The exact 30 changed paths are listed in [changed-paths.json](changed-paths.json). See [integration-verification.json](integration-verification.json) for exact check and preservation bindings. The orchestrator did not switch, clean or stage the original checkout, and did not push or merge `main`. Final remote synchronization, integration and publication belong to the coordinating chat; this report does not claim those later steps are complete. The coordinating chat reported an interactive results view rendered in Chrome, verified lane switching and question expansion, and visually checked a screenshot. The local view is outside the repository and will be embedded by that chat.
 
 ## Time, usage and inspectable results
 
