@@ -599,6 +599,21 @@ class Dataset:
                     errors.append(f"{at}: no event '{link['from_event']}' on {other}")
                 if link.get("status") == "established" and not link.get("evidence"):
                     errors.append(f"{at}: an established link needs evidence")
+        # A capability has one earliest known achievement, and it is the earliest dated record of it.
+        by_concept: dict[str, list[dict]] = {}
+        for record in self.discoveries.values():
+            if record.get("concept"):
+                by_concept.setdefault(record["concept"], []).append(record)
+        for concept, records in by_concept.items():
+            firsts = [r for r in records if r.get("origin") == "first_known"]
+            if len(firsts) > 1:
+                errors.append(f"concepts/{concept}: {len(firsts)} records claim to be the first known ({', '.join(sorted(r['id'] for r in firsts))})")
+            for first in firsts:
+                anchor = self.earliest_record(first)
+                for other in records:
+                    rival = self.earliest_record(other)
+                    if anchor and rival and other is not first and point_key(rival["date"]["latest"]) < point_key(anchor["date"]["latest"]):
+                        errors.append(f"discoveries/{first['id']}: marked first known, but {other['id']} of the same concept is dated earlier")
         return errors
 
 
