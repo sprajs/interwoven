@@ -1,0 +1,82 @@
+{
+  "id": "universal-serial-bus-peripheral-interface",
+  "name": "Universal Serial Bus peripheral interface",
+  "description": "Standardized serial interface for connecting computer peripherals, with common connectors and host-device protocols.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "usb1-spec-1996",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1996,
+          "month": 1,
+          "day": 15
+        },
+        "latest": {
+          "year": 1996,
+          "month": 1,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1996-01-15",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Seven companies issued the USB 1.0 specification.",
+      "evidence": [
+        {
+          "source": "usb-1996-rev1-wave9",
+          "locator": "Title page and revision history",
+          "supports": "USB 1.0 specification carries the date 15 January 1996."
+        }
+      ],
+      "caveats": "Specification alone does not establish consumer deployment."
+    },
+    {
+      "id": "imac-usb-1998",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1998,
+          "month": 8,
+          "day": 15
+        },
+        "latest": {
+          "year": 1998,
+          "month": 8,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1998-08-15",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The iMac was released with USB connectors for peripherals including keyboard and mouse.",
+      "evidence": [
+        {
+          "source": "ieee-usb-milestone-proposal-wave9",
+          "locator": "USB timeline and 1998 iMac paragraphs",
+          "supports": "Proposal describes the August 1998 iMac with USB keyboard and mouse connections."
+        }
+      ],
+      "caveats": "Product release is evidence of availability, not number of users or units sold."
+    }
+  ],
+  "earliest_record": {
+    "event": "usb1-spec-1996",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Independent reader: Checked the USB 1.0 revision date and IEEE iMac release account. The cited IEEE timeline dates final USB 1.1 later than iMac release, so no final 1.1 compliance is assumed."
+  },
+  "caveats": "The iMac preceded final publication of USB 1.1; no dependence on that later final revision is asserted."
+}

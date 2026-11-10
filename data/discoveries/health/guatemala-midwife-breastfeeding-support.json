@@ -1,0 +1,79 @@
+{
+  "id": "guatemala-midwife-breastfeeding-support",
+  "name": "Guatemalan midwife breastfeeding support",
+  "description": "A 2015 UNICEF report describes Guatemala’s breastfeeding-support initiative for traditional midwives, with health-service staff in 25 municipalities trained for subsequent knowledge exchange.",
+  "kind": "practice",
+  "domain": "health.childbirth",
+  "grain": "instance",
+  "concept": "community-breastfeeding-support",
+  "places": [
+    {
+      "place": "guatemala"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2015
+        },
+        "latest": {
+          "year": 2015
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2015 report",
+        "basis": "Publication date of the report documenting the initiative and training milestone."
+      },
+      "statement": "A 2015 UNICEF report describes Guatemala’s breastfeeding-support initiative for traditional midwives, with health-service staff in 25 municipalities trained for subsequent knowledge exchange.",
+      "places": [
+        "guatemala"
+      ],
+      "evidence": [
+        {
+          "source": "w9-unicef-2015-guatemala-breastfeeding",
+          "locator": "Guatemala, midwife breastfeeding support, pp. 77–81",
+          "supports": "The 2015 report describes Guatemala’s midwife breastfeeding initiative in 25 municipalities and four departments. Health-service personnel had completed training and were prepared to exchange knowledge with midwives; certification was projected, not established."
+        }
+      ],
+      "caveats": "The report states health-service personnel had completed training and were prepared to exchange knowledge with midwives; it does not establish that midwife training or certification was completed, or report infant health outcomes. The report also describes implementation in 15 municipalities elsewhere, whereas its summary and training milestone refer to 25; the discrepancy is unresolved."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "2015 publication date documents the initiative; the source does not provide a firm date for the training milestone."
+  },
+  "caveats": "The report states health-service personnel had completed training and were prepared to exchange knowledge with midwives; it does not establish that midwife training or certification was completed, or report infant health outcomes. The report also describes implementation in 15 municipalities elsewhere, whereas its summary and training milestone refer to 25; the discrepancy is unresolved.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Event, place and any marked measure or person facets independently checked against the cited passages; remaining facets retain their prior basis."
+  },
+  "measures": [
+    {
+      "quantity": "initial municipalities",
+      "value": 25,
+      "unit": "municipalities",
+      "event": "documented-case",
+      "subject": "Guatemala midwife breastfeeding initiative",
+      "status": "claimed",
+      "conditions": "The summary and staff-training milestone refer to 25 municipalities, while another passage says implementation in 15. This discrepancy is unresolved; the figure is not a count of midwives, families served or measured coverage.",
+      "evidence": [
+        {
+          "source": "w9-unicef-2015-guatemala-breastfeeding",
+          "locator": "Guatemala, midwife breastfeeding support, pp. 77–81",
+          "supports": "The 2015 report describes Guatemala’s midwife breastfeeding initiative in 25 municipalities and four departments. Health-service personnel had completed training and were prepared to exchange knowledge with midwives; certification was projected, not established."
+        }
+      ]
+    }
+  ]
+}

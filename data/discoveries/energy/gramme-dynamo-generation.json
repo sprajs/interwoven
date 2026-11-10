@@ -1,0 +1,95 @@
+{
+  "id": "gramme-dynamo-generation",
+  "name": "Gramme-type dynamo generation",
+  "description": "Gramme-type electromagnetic machines generated electrical power and were demonstrated as reversible.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "grain": "capability",
+  "concept": "gramme-dynamo-generation",
+  "places": [
+    {
+      "place": "france",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "improvement-1871",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1871
+        },
+        "latest": {
+          "year": 1871
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1871",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The Musée des arts et métiers attributes improvements to existing electromagnetic generators to Gramme in 1871.",
+      "evidence": [
+        {
+          "source": "arts-metiers-nd-gramme-dynamo-wave9",
+          "locator": "Object description",
+          "supports": "Museum describes Gramme’s improvement of electromagnetic generators in 1871 and Fontaine’s demonstration of reversibility in 1873; the catalogued object dates circa 1880 and is not identified as the demonstrated machine."
+        }
+      ],
+      "caveats": "A museum attribution, not a claim that all generators originated then."
+    },
+    {
+      "id": "reversibility-demonstration-1873",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1873
+        },
+        "latest": {
+          "year": 1873
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1873",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "According to the museum, Hippolyte Fontaine demonstrated dynamo reversibility in 1873.",
+      "evidence": [
+        {
+          "source": "arts-metiers-nd-gramme-dynamo-wave9",
+          "locator": "Object description",
+          "supports": "Museum describes Gramme’s improvement of electromagnetic generators in 1871 and Fontaine’s demonstration of reversibility in 1873; the catalogued object dates circa 1880 and is not identified as the demonstrated machine."
+        }
+      ],
+      "caveats": "The museum’s example dates around 1880 and is not identified as the demonstrated machine."
+    }
+  ],
+  "earliest_record": {
+    "event": "improvement-1871",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The museum describes Pacinotti’s ring as an antecedent, but the inspected source does not identify an existing record for that specific design or a particular industrial customer.",
+        "evidence": [
+          {
+            "source": "arts-metiers-nd-gramme-dynamo-wave9",
+            "locator": "Object description",
+            "supports": "Museum describes Gramme’s improvement of electromagnetic generators in 1871 and Fontaine’s demonstration of reversibility in 1873; the catalogued object dates circa 1880 and is not identified as the demonstrated machine."
+          }
+        ]
+      }
+    ]
+  }
+}

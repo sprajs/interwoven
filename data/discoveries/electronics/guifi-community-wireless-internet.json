@@ -1,0 +1,120 @@
+{
+  "id": "guifi-community-wireless-internet",
+  "name": "Guifi.net community Internet network",
+  "description": "Community-organized communications network connecting homes and other sites initially by radio in rural Catalonia.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "community-network-2004",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2004
+        },
+        "latest": {
+          "year": 2004
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2004",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Residents in Osona began connecting homes and other sites by radio to obtain Internet access.",
+      "evidence": [
+        {
+          "source": "guifi-community-history-wave9",
+          "locator": "2004",
+          "supports": "Community network describes residents organizing radio connections in rural Osona."
+        }
+      ],
+      "caveats": "Community retrospective does not establish a specific device, user count or first subscriber.",
+      "places": [
+        "spain"
+      ],
+      "contributions": [
+        {
+          "group": "Participating residents in Osona",
+          "role": "contributor",
+          "resource": "Organized and connected participating places.",
+          "evidence": [
+            {
+              "source": "guifi-community-history-wave9",
+              "locator": "2004",
+              "supports": "Community network describes residents organizing radio connections in rural Osona."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "working-nodes-2017",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2017,
+          "month": 1
+        },
+        "latest": {
+          "year": 2017,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2017-01",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The Internet Society reported over 30,000 working nodes in the community network.",
+      "evidence": [
+        {
+          "source": "isoc-2017-guifi-nodes-wave9",
+          "locator": "Spain Catalonia chapter paragraph",
+          "supports": "Internet Society reports over 30,000 working nodes in January 2017."
+        }
+      ],
+      "caveats": "Nodes are not unique users or households.",
+      "places": [
+        "spain"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "community-network-2004",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader: Checked the community history and Internet Society 2017 count; working nodes are not people."
+  },
+  "places": [
+    {
+      "place": "spain"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "reported working network nodes",
+      "value": ">30000",
+      "unit": "nodes",
+      "event": "working-nodes-2017",
+      "subject": "Guifi.net",
+      "conditions": "Internet Society report in January 2017; not users or active subscriptions.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "isoc-2017-guifi-nodes-wave9",
+          "locator": "Spain Catalonia chapter paragraph",
+          "supports": "Internet Society reports over 30,000 working nodes in January 2017."
+        }
+      ]
+    }
+  ]
+}

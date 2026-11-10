@@ -1,0 +1,87 @@
+{
+  "id": "lowell-francis-water-turbine",
+  "name": "Francis turbine at Suffolk Mills",
+  "description": "Francis turbines supplied mechanical power at the Suffolk Mills in Lowell.",
+  "kind": "technology",
+  "domain": "energy.water-wind",
+  "grain": "instance",
+  "concept": "hydraulic-water-turbine",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "installed-1897",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1897
+        },
+        "latest": {
+          "year": 1897
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1897",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Victor-Standard Francis turbines replaced older Boyden turbines at Suffolk Mills.",
+      "evidence": [
+        {
+          "source": "nps-2026-lowell-francis-turbines-wave9",
+          "locator": "Turbines and New Power Sources",
+          "supports": "NPS reports Francis refined Howd’s inward-flow design; Victor-Standard Francis turbines replaced Boyden turbines at Suffolk Mills in 1897."
+        }
+      ],
+      "caveats": "This installation is not the invention date of the Francis turbine.",
+      "contributions": [
+        {
+          "organization": "victor-standard-company",
+          "role": "manufacturer",
+          "resource": "Built the replacement turbines",
+          "evidence": [
+            {
+              "source": "nps-2026-lowell-francis-turbines-wave9",
+              "locator": "Turbines and New Power Sources",
+              "supports": "NPS reports Francis refined Howd’s inward-flow design; Victor-Standard Francis turbines replaced Boyden turbines at Suffolk Mills in 1897."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "installed-1897",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "NPS describes refinement of Samuel Howd’s inward-flow turbine, but the particular Howd design is not represented and an exact dated transmission path remains unestablished.",
+        "evidence": [
+          {
+            "source": "nps-2026-lowell-francis-turbines-wave9",
+            "locator": "Turbines and New Power Sources",
+            "supports": "NPS reports Francis refined Howd’s inward-flow design; Victor-Standard Francis turbines replaced Boyden turbines at Suffolk Mills in 1897."
+          }
+        ]
+      }
+    ],
+    "missing_prerequisites": [
+      "Samuel Howd’s inward-flow water turbine design, which the NPS identifies as an antecedent of Francis turbine development."
+    ]
+  }
+}

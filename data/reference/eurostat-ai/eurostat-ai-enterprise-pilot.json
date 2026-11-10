@@ -1,0 +1,778 @@
+{
+  "id": "eurostat-ai-enterprise-pilot",
+  "dataset": "isoc_eb_ai",
+  "release": {
+    "source": "eurostat-isoc-eb-ai-selected-20261109",
+    "query_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_ai?lang=en&freq=A&size_emp=GE10&size_emp=10-49&size_emp=50-249&size_emp=GE250&nace_r2=C10-S951_X_K&indic_is=E_AI_TANY&unit=PC_ENT&geo=EU27_2020&geo=DK&geo=FI&geo=RO&time=2023&time=2024&time=2025",
+    "retrieved": "2026-11-09",
+    "updated": "2026-06-15T11:00:00+0200",
+    "structure_version": "45.0",
+    "sha256": "87db9ca1d40640a4c3b17c6a3723410aeff2d52029d170acdcebe0a5677a5ed8",
+    "raw_path": "evidence/e/eurostat-isoc-eb-ai-selected-20261109.json"
+  },
+  "selection": {
+    "freq": [
+      "A"
+    ],
+    "size_emp": [
+      "10-49",
+      "GE10",
+      "50-249",
+      "GE250"
+    ],
+    "nace_r2": [
+      "C10-S951_X_K"
+    ],
+    "indic_is": [
+      "E_AI_TANY"
+    ],
+    "unit": [
+      "PC_ENT"
+    ],
+    "geo": [
+      "EU27_2020",
+      "DK",
+      "RO",
+      "FI"
+    ],
+    "time": [
+      "2023",
+      "2024",
+      "2025"
+    ]
+  },
+  "definition": "Enterprises using at least one of the specified AI technologies.",
+  "denominator": "Estimated percentage of enterprises in the specified activity and employment-size class; GE10 includes enterprises with at least ten persons employed, including employees and self-employed persons.",
+  "reference_window": "Current situation at the survey, not an annual total.",
+  "caveats": [
+    "The 2025 survey adds a generative images/video/audio category and explicitly includes programming code in language generation; comparisons across years need care.",
+    "The activity aggregate covers NACE Rev. 2 sections C–J and L–N plus group 95.1 (computer and communication-equipment repair). It does not represent the entire economy or government adoption.",
+    "Percentage concerns use, not in-house development or individual adoption."
+  ],
+  "observations": [
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2023"
+      },
+      "value": 6.41,
+      "status": "reported",
+      "flag": null,
+      "index": 0
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2024"
+      },
+      "value": 11.21,
+      "status": "reported",
+      "flag": null,
+      "index": 1
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2025"
+      },
+      "value": 17.0,
+      "status": "reported",
+      "flag": null,
+      "index": 2
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2023"
+      },
+      "value": 12.37,
+      "status": "reported",
+      "flag": null,
+      "index": 3
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2024"
+      },
+      "value": 23.52,
+      "status": "reported",
+      "flag": null,
+      "index": 4
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2025"
+      },
+      "value": 37.45,
+      "status": "reported",
+      "flag": null,
+      "index": 5
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2023"
+      },
+      "value": 1.07,
+      "status": "reported",
+      "flag": null,
+      "index": 6
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2024"
+      },
+      "value": 2.57,
+      "status": "reported",
+      "flag": null,
+      "index": 7
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2025"
+      },
+      "value": 4.13,
+      "status": "reported",
+      "flag": null,
+      "index": 8
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2023"
+      },
+      "value": 11.48,
+      "status": "reported",
+      "flag": null,
+      "index": 9
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2024"
+      },
+      "value": 20.02,
+      "status": "reported",
+      "flag": null,
+      "index": 10
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "10-49",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2025"
+      },
+      "value": 33.51,
+      "status": "reported",
+      "flag": null,
+      "index": 11
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2023"
+      },
+      "value": 8.06,
+      "status": "reported",
+      "flag": null,
+      "index": 12
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2024"
+      },
+      "value": 13.48,
+      "status": "reported",
+      "flag": null,
+      "index": 13
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2025"
+      },
+      "value": 19.95,
+      "status": "reported",
+      "flag": null,
+      "index": 14
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2023"
+      },
+      "value": 15.17,
+      "status": "reported",
+      "flag": null,
+      "index": 15
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2024"
+      },
+      "value": 27.58,
+      "status": "reported",
+      "flag": null,
+      "index": 16
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2025"
+      },
+      "value": 42.03,
+      "status": "reported",
+      "flag": null,
+      "index": 17
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2023"
+      },
+      "value": 1.51,
+      "status": "reported",
+      "flag": null,
+      "index": 18
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2024"
+      },
+      "value": 3.07,
+      "status": "reported",
+      "flag": null,
+      "index": 19
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2025"
+      },
+      "value": 5.21,
+      "status": "reported",
+      "flag": null,
+      "index": 20
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2023"
+      },
+      "value": 15.1,
+      "status": "reported",
+      "flag": null,
+      "index": 21
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2024"
+      },
+      "value": 24.37,
+      "status": "reported",
+      "flag": null,
+      "index": 22
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE10",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2025"
+      },
+      "value": 37.82,
+      "status": "reported",
+      "flag": null,
+      "index": 23
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2023"
+      },
+      "value": 13.07,
+      "status": "reported",
+      "flag": null,
+      "index": 24
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2024"
+      },
+      "value": 20.97,
+      "status": "reported",
+      "flag": null,
+      "index": 25
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2025"
+      },
+      "value": 30.36,
+      "status": "reported",
+      "flag": null,
+      "index": 26
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2023"
+      },
+      "value": 22.56,
+      "status": "reported",
+      "flag": null,
+      "index": 27
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2024"
+      },
+      "value": 40.92,
+      "status": "reported",
+      "flag": null,
+      "index": 28
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2025"
+      },
+      "value": 58.27,
+      "status": "reported",
+      "flag": null,
+      "index": 29
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2023"
+      },
+      "value": 2.38,
+      "status": "reported",
+      "flag": null,
+      "index": 30
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2024"
+      },
+      "value": 3.88,
+      "status": "reported",
+      "flag": null,
+      "index": 31
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2025"
+      },
+      "value": 7.79,
+      "status": "reported",
+      "flag": null,
+      "index": 32
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2023"
+      },
+      "value": 26.4,
+      "status": "reported",
+      "flag": null,
+      "index": 33
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2024"
+      },
+      "value": 37.67,
+      "status": "reported",
+      "flag": null,
+      "index": 34
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "50-249",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2025"
+      },
+      "value": 51.35,
+      "status": "reported",
+      "flag": null,
+      "index": 35
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2023"
+      },
+      "value": 30.48,
+      "status": "reported",
+      "flag": null,
+      "index": 36
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2024"
+      },
+      "value": 41.17,
+      "status": "reported",
+      "flag": null,
+      "index": 37
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "EU27_2020",
+        "time": "2025"
+      },
+      "value": 55.03,
+      "status": "reported",
+      "flag": null,
+      "index": 38
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2023"
+      },
+      "value": 51.43,
+      "status": "reported",
+      "flag": null,
+      "index": 39
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2024"
+      },
+      "value": 63.39,
+      "status": "reported",
+      "flag": null,
+      "index": 40
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "DK",
+        "time": "2025"
+      },
+      "value": 74.52,
+      "status": "reported",
+      "flag": null,
+      "index": 41
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2023"
+      },
+      "value": 8.08,
+      "status": "reported",
+      "flag": null,
+      "index": 42
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2024"
+      },
+      "value": 11.26,
+      "status": "reported",
+      "flag": null,
+      "index": 43
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "RO",
+        "time": "2025"
+      },
+      "value": 20.75,
+      "status": "reported",
+      "flag": null,
+      "index": 44
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2023"
+      },
+      "value": 53.33,
+      "status": "reported",
+      "flag": null,
+      "index": 45
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2024"
+      },
+      "value": 70.4,
+      "status": "reported",
+      "flag": null,
+      "index": 46
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "size_emp": "GE250",
+        "nace_r2": "C10-S951_X_K",
+        "indic_is": "E_AI_TANY",
+        "unit": "PC_ENT",
+        "geo": "FI",
+        "time": "2025"
+      },
+      "value": 79.4,
+      "status": "reported",
+      "flag": null,
+      "index": 47
+    }
+  ],
+  "method_sources": [
+    "eurostat-ict-enterprise-methodology",
+    "eurostat-2026-ai-technologies-report"
+  ]
+}

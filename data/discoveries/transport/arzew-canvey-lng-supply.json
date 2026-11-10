@@ -1,0 +1,120 @@
+{
+  "id": "arzew-canvey-lng-supply",
+  "name": "Arzew–Canvey liquefied natural gas supply",
+  "description": "Liquefied natural gas shipments connected Algeria to a British receiving terminal and distribution network.",
+  "kind": "technology",
+  "domain": "transport.logistics",
+  "grain": "instance",
+  "concept": "liquefied-natural-gas-import-chain",
+  "places": [
+    {
+      "place": "united-kingdom",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "commercial-arrival-1964",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1964,
+          "month": 10
+        },
+        "latest": {
+          "year": 1964,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1964-10",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A commercial LNG cargo arrived at Canvey Island in October 1964.",
+      "evidence": [
+        {
+          "source": "national-gas-nd-canvey-lng-wave9",
+          "locator": "Introducing Liquefied Natural Gas",
+          "supports": "National Gas reports a 1959 trial, commercial LNG arrival at Canvey in October 1964 and regular imports; a 200 km pipeline linked the terminal to eight area boards."
+        }
+      ],
+      "caveats": "The earlier 1959 trial is distinct; arrival does not by itself establish retail access to unconverted natural gas."
+    },
+    {
+      "id": "cargo-date-account",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1964,
+          "month": 10,
+          "day": 12
+        },
+        "latest": {
+          "year": 1964,
+          "month": 10,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1964-10-12",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A local account dates an Arzew–Canvey cargo to 12 October and reports its size as 12,000 tonnes.",
+      "evidence": [
+        {
+          "source": "canvey-history-nd-lng-wave9",
+          "locator": "Permanent terminal and commercial cargo",
+          "supports": "A local historical account reports a 12 October 1964 cargo of 12,000 tonnes from Arzew and describes the terminal and pipeline; it does not name the ship carrying that cargo."
+        }
+      ],
+      "caveats": "The retrospective account does not name the ship carrying this cargo."
+    }
+  ],
+  "earliest_record": {
+    "event": "commercial-arrival-1964",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The 1959 American-to-Canvey trial preceded the commercial service, but no exact trial shipment is represented separately.",
+        "evidence": [
+          {
+            "source": "national-gas-nd-canvey-lng-wave9",
+            "locator": "Introducing Liquefied Natural Gas",
+            "supports": "National Gas reports a 1959 trial, commercial LNG arrival at Canvey in October 1964 and regular imports; a 200 km pipeline linked the terminal to eight area boards."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "reported cargo mass",
+      "value": 12000,
+      "unit": "tonnes",
+      "event": "cargo-date-account",
+      "subject": "Arzew–Canvey cargo",
+      "conditions": "Local historical account; one reported cargo, not annual throughput.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "canvey-history-nd-lng-wave9",
+          "locator": "Permanent terminal and commercial cargo",
+          "supports": "A local historical account reports a 12 October 1964 cargo of 12,000 tonnes from Arzew and describes the terminal and pipeline; it does not name the ship carrying that cargo."
+        }
+      ]
+    }
+  ]
+}

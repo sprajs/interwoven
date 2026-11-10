@@ -1,0 +1,80 @@
+{
+  "id": "1710-statute-anne-authors-copyright",
+  "name": "Statute of Anne book-printing rights",
+  "description": "A British statute defined time-limited printing rights for authors and their assignees in books.",
+  "kind": "practice",
+  "domain": "economy.law-government",
+  "grain": "capability",
+  "concept": "statutory-author-printing-rights",
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1710,
+          "month": 4,
+          "day": 10
+        },
+        "latest": {
+          "year": 1710,
+          "month": 4,
+          "day": 10
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1710-04-10",
+        "basis": "Date of the specified episode, not a global origin claim."
+      },
+      "statement": "From 10 April 1710, the statute specified printing rights for new books and separate terms for books already printed.",
+      "scope": "This documented community and episode; not a global first.",
+      "evidence": [
+        {
+          "source": "w9-yale-statute-anne-text",
+          "locator": "Sections I, II and XI",
+          "supports": "The statute specifies terms, registration and penalties."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest scoped episode established in these sources, not universal priority."
+  },
+  "caveats": "The law is not proof of effective enforcement or equal bargaining power. Authors could assign rights and existing booksellers’ rights mattered.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass; independent review remains open. Independent review checked statutory sections II and XI: April 1710 commencement, separate terms for earlier books, and the new-book fourteen-year term with conditional renewal."
+  },
+  "measures": [
+    {
+      "quantity": "initial right in newly published books",
+      "value": 14,
+      "unit": "years",
+      "event": "dated-episode",
+      "subject": "Statutory first term for a newly published book",
+      "conditions": "Starts at first publication; extension is conditional on the author living, and existing books have a separate rule.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w9-yale-statute-anne-text",
+          "locator": "Sections I and XI",
+          "supports": "Specifies the fourteen-year term and conditional extension."
+        }
+      ]
+    }
+  ]
+}

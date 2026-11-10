@@ -13,11 +13,14 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
+from datetime import date as calendar_date, datetime
 from dataclasses import dataclass, field
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Iterator
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -140,6 +143,7 @@ class Dataset:
     registers: dict[str, dict[str, dict]] = field(default_factory=dict)
     population: dict | None = None
     adoption_panels: dict[str, dict] = field(default_factory=dict)
+    eurostat_ai_panels: dict[str, dict] = field(default_factory=dict)
     #: Where each discovery and source file was read from, for error messages and layout checks.
     paths: dict[str, Path] = field(default_factory=dict)
 
@@ -165,6 +169,8 @@ class Dataset:
             self.population = read_json(population)
         for path in sorted((data / "reference" / "adoption").glob("*.json")):
             self.adoption_panels[path.stem] = read_json(path)
+        for path in sorted((data / "reference" / "eurostat-ai").glob("*.json")):
+            self.eurostat_ai_panels[path.stem] = read_json(path)
         return self
 
     # -- lookups ---------------------------------------------------------------------------
@@ -292,6 +298,100 @@ class Dataset:
                             errors.append(f"{at}: value and status must match the raw token")
                     except ValueError:
                         errors.append(f"{at}: invalid raw telephone value")
+
+        # These two narrowly defined survey extracts have different units and populations.
+        from import_eurostat_ai import DIMENSIONS, extract as extract_eurostat
+        for key, panel in self.eurostat_ai_panels.items():
+            at = f"reference/eurostat-ai/{key}"
+            if not isinstance(panel, dict):
+                errors.append(f"{at}: expected object")
+                continue
+            dataset = panel.get("dataset")
+            definition = {"isoc_eb_ai": "eurostatEnterpriseAiPanel", "isoc_ai_iaiu": "eurostatIndividualAiPanel"}.get(dataset) if isinstance(dataset, str) else None
+            if not definition:
+                errors.append(f"{at}: unknown Eurostat dataset")
+                continue
+            check(panel, defs[definition], at)
+            if panel.get("id") != key:
+                errors.append(f"{at}: id must match filename")
+            release = panel.get("release")
+            if not isinstance(release, dict):
+                continue
+            try:
+                retrieved = release.get("retrieved")
+                if not isinstance(retrieved, str) or calendar_date.fromisoformat(retrieved).isoformat() != retrieved:
+                    raise ValueError
+            except ValueError:
+                errors.append(f"{at}: invalid retrieval date")
+            try:
+                updated = datetime.fromisoformat(release.get("updated", ""))
+                if updated.tzinfo is None or updated.utcoffset() is None:
+                    raise ValueError
+            except (ValueError, TypeError):
+                errors.append(f"{at}: invalid update timestamp")
+            source_id = release.get("source")
+            source = self.sources.get(source_id, {}) if isinstance(source_id, str) else {}
+            source_file = source.get("file", {}) if isinstance(source, dict) else {}
+            if source_file.get("path") != release.get("raw_path") or source_file.get("sha256") != release.get("sha256") or source.get("url") != release.get("query_url"):
+                errors.append(f"{at}: release query, path and hash must match source")
+            rows = panel.get("observations")
+            selection = panel.get("selection")
+            if not isinstance(rows, list) or not isinstance(selection, dict):
+                continue
+            query_url = release.get("query_url")
+            if isinstance(query_url, str):
+                try:
+                    url = urlsplit(query_url)
+                    params = parse_qs(url.query, keep_blank_values=True, strict_parsing=True)
+                    expected_path = "/eurostat/api/dissemination/statistics/1.0/data/" + dataset
+                    if (url.scheme != "https" or url.netloc != "ec.europa.eu" or url.path != expected_path
+                            or url.fragment or set(params) != set(DIMENSIONS[dataset]) | {"lang"}
+                            or params.get("lang") != ["en"]
+                            or any(not isinstance(selection.get(k), list) or sorted(params.get(k, [])) != sorted(selection[k]) for k in DIMENSIONS[dataset])):
+                        raise ValueError
+                except (ValueError, TypeError):
+                    errors.append(f"{at}: query dimensions do not match selected dataset")
+            seen = set()
+            indices = set()
+            for n, row in enumerate(rows):
+                if not isinstance(row, dict):
+                    continue
+                dims = row.get("dimensions")
+                if not isinstance(dims, dict) or any(not isinstance(dims.get(k), str) for k in DIMENSIONS[dataset]):
+                    continue
+                ident = tuple(dims[k] for k in DIMENSIONS[dataset])
+                if ident in seen:
+                    errors.append(f"{at}.observations[{n}]: duplicate dimension key")
+                seen.add(ident)
+                index = row.get("index")
+                if isinstance(index, int) and not isinstance(index, bool):
+                    if index in indices:
+                        errors.append(f"{at}.observations[{n}]: duplicate source index")
+                    indices.add(index)
+                for name, value in dims.items():
+                    if not isinstance(selection.get(name), list) or value not in selection[name]:
+                        errors.append(f"{at}.observations[{n}]: dimension outside selection")
+                value = row.get("value")
+                if row.get("status") != ("missing" if value is None else "reported"):
+                    errors.append(f"{at}.observations[{n}]: value and missing status disagree")
+                if isinstance(value, float) and not math.isfinite(value):
+                    errors.append(f"{at}.observations[{n}]: nonfinite percentage")
+                if row.get("flag") == "":
+                    errors.append(f"{at}.observations[{n}]: empty flag is not a status code")
+            if any(not isinstance(selection.get(k), list) or not selection[k] or len(set(x for x in selection[k] if isinstance(x, str))) != len(selection[k]) for k in DIMENSIONS[dataset]):
+                errors.append(f"{at}: selection must contain unique nonempty dimension codes")
+            if check_files and isinstance(release.get("raw_path"), str) and isinstance(release.get("sha256"), str):
+                try:
+                    raw_path = ROOT / release["raw_path"]
+                    expected = extract_eurostat(raw_path, dataset, release["sha256"])
+                    raw = read_json(raw_path)
+                    expected_selection = {name: [code for code, _ in sorted(raw["dimension"][name]["category"]["index"].items(), key=lambda item: item[1])] for name in DIMENSIONS[dataset]}
+                    if expected_selection != selection or expected != rows:
+                        errors.append(f"{at}: observations or selection differ from source response")
+                    if raw.get("updated") != release.get("updated") or raw.get("extension", {}).get("datastructure", {}).get("version") != release.get("structure_version"):
+                        errors.append(f"{at}: release metadata differs from source response")
+                except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as exc:
+                    errors.append(f"{at}: cannot verify source response: {exc}")
 
         for name, definition in REGISTER_DEFS.items():
             for key, row in self.registers[name].items():

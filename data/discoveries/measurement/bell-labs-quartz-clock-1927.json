@@ -1,0 +1,110 @@
+{
+  "id": "bell-labs-quartz-clock-1927",
+  "name": "Bell Laboratories quartz clock report",
+  "description": "A Bell Laboratories quartz-referenced clock was described by J. W. Horton and W. A. Marrison.",
+  "kind": "technology",
+  "domain": "measurement.time",
+  "grain": "capability",
+  "concept": "quartz-regulated-clock",
+  "origin": "unknown",
+  "events": [
+    {
+      "id": "quartz-clock-report-1927",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1927,
+          "month": 10
+        },
+        "latest": {
+          "year": 1927,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1927-10",
+        "basis": "Source-reported date for this scoped event."
+      },
+      "statement": "Horton and Marrison presented a report describing a clock referenced to a quartz crystal.",
+      "evidence": [
+        {
+          "source": "w9-lombardi-2011-quartz-clocks",
+          "locator": "pp. 43–44, quartz clock",
+          "supports": "Reports the October 1927 presentation and the quartz-clock frequency."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "joseph-w-horton",
+          "role": "developer",
+          "resource": "Co-presented the quartz clock report.",
+          "evidence": [
+            {
+              "source": "w9-lombardi-2011-quartz-clocks",
+              "locator": "pp. 43–44",
+              "supports": "Attributes the presentation to Horton and Marrison."
+            }
+          ]
+        },
+        {
+          "person": "warren-marrison",
+          "role": "developer",
+          "resource": "Co-presented the quartz clock report.",
+          "evidence": [
+            {
+              "source": "w9-lombardi-2011-quartz-clocks",
+              "locator": "pp. 43–44",
+              "supports": "Attributes the presentation to Horton and Marrison."
+            },
+            {
+              "source": "w9-nihf-warren-marrison",
+              "locator": "Inductee name and biography",
+              "supports": "Identifies the Bell Laboratories quartz-clock engineer as Warren Marrison."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "quartz-clock-report-1927",
+    "rationale": "Earliest documented event for this scoped record, not a claim of worldwide priority."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "grain": "recalled",
+      "concept": "reviewed",
+      "origin": "unknown",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent parent inspected the cited publisher, museum, BIPM or NIST/PTB passages. Dates retain their event scope; no global priority is inferred."
+  },
+  "places": [
+    {
+      "place": "new-york-city",
+      "note": "Bell Telephone Laboratories; city is the laboratory location rather than an asserted presentation venue."
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "Quartz oscillator nominal frequency in the reported clock",
+      "value": 50,
+      "unit": "kHz",
+      "status": "claimed",
+      "event": "quartz-clock-report-1927",
+      "subject": "Horton and Marrison quartz clock described in the 1927 report",
+      "evidence": [
+        {
+          "source": "w9-lombardi-2011-quartz-clocks",
+          "locator": "p. 44, quartz-clock description",
+          "supports": "Reports the quartz clock referenced to a 50 kHz crystal."
+        }
+      ]
+    }
+  ],
+  "caveats": "The 1927 report is cited through a later NIST history; later performance figures must not be attributed to the 1927 device."
+}

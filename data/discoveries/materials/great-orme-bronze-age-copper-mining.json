@@ -1,0 +1,76 @@
+{
+  "id": "great-orme-bronze-age-copper-mining",
+  "name": "Great Orme prehistoric copper mining",
+  "description": "Archaeological remains at Great Orme record prehistoric copper-ore workings, including a passage with associated dated charcoal.",
+  "kind": "technology",
+  "domain": "materials.mining",
+  "grain": "instance",
+  "concept": "copper-ore-extraction",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "wales"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -1410
+        },
+        "latest": {
+          "year": -1070
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "1410–1070 BCE",
+        "basis": "The dated event or object is the scoped witness, not a global invention date."
+      },
+      "statement": "Archaeological remains at Great Orme record prehistoric copper-ore workings, including a passage with associated dated charcoal.",
+      "places": [
+        "wales"
+      ],
+      "evidence": [
+        {
+          "source": "w9-heneb-great-orme-copper",
+          "locator": "1991 underground passage and archaeological evidence",
+          "supports": "The historic environment record associates passage charcoal with the reported calibrated range 1410–1070 BCE and describes nearby tools and copper-ore workings."
+        }
+      ],
+      "caveats": "The 1410–1070 BCE charcoal sample was found in a passage wall crevice; it dates that deposit, not the mine origin or full operating span. Part of the passage was reworked in the 18th or 19th century; the date does not measure production.",
+      "contributions": [
+        {
+          "group": "Great Orme prehistoric miners",
+          "role": "operator",
+          "resource": "Copper ore extraction",
+          "evidence": [
+            {
+              "source": "w9-heneb-great-orme-copper",
+              "locator": "1991 underground passage and archaeological evidence",
+              "supports": "Archaeological workings and tools support an interpretation of human mining, though individual operators are unidentified."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this sourced case, not an assertion of global priority."
+  },
+  "caveats": "The 1410–1070 BCE charcoal sample was found in a passage wall crevice; it dates that deposit, not the mine origin or full operating span. Part of the passage was reworked in the 18th or 19th century; the date does not measure production.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked the event evidence. Other facets retain their existing basis and source limitations."
+  }
+}

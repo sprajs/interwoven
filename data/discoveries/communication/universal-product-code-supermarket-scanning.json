@@ -1,0 +1,106 @@
+{
+  "id": "universal-product-code-supermarket-scanning",
+  "name": "Universal Product Code supermarket scanning",
+  "description": "Machine-readable product code read at a supermarket checkout as part of a sale.",
+  "kind": "technology",
+  "domain": "communication.records",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "marsh-checkout-1974",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1974,
+          "month": 6,
+          "day": 26
+        },
+        "latest": {
+          "year": 1974,
+          "month": 6,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1974-06-26",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "At a Marsh supermarket in Troy, Ohio, a cashier scanned a UPC-coded package purchased for 67 cents.",
+      "evidence": [
+        {
+          "source": "gs1-2014-first-scan-wave9",
+          "locator": "Opening, first scan",
+          "supports": "GS1 names cashier and buyer, dates the scan and reports the gum price."
+        }
+      ],
+      "caveats": "A retrospective report of one sale, not proof all barcode use began then.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "sharon-buchanan",
+          "role": "operator",
+          "resource": "Scanned the product at checkout.",
+          "evidence": [
+            {
+              "source": "gs1-2014-first-scan-wave9",
+              "locator": "Opening, first scan",
+              "supports": "GS1 names cashier and buyer, dates the scan and reports the gum price."
+            }
+          ]
+        },
+        {
+          "organization": "marsh-supermarkets",
+          "role": "operator",
+          "resource": "Hosted supermarket checkout.",
+          "evidence": [
+            {
+              "source": "gs1-2014-first-scan-wave9",
+              "locator": "Opening, first scan",
+              "supports": "GS1 names cashier and buyer, dates the scan and reports the gum price."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "marsh-checkout-1974",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "places": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Independent reader could not access the GS1 PDF, so product price and named checkout participants remain unreviewed."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "reported product price",
+      "value": 0.67,
+      "unit": "US dollars per gum package",
+      "event": "marsh-checkout-1974",
+      "subject": "Scanned ten-pack of chewing gum",
+      "conditions": "Reported 1974 nominal retail product price, not scanner cost.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "gs1-2014-first-scan-wave9",
+          "locator": "Opening, first scan",
+          "supports": "GS1 names cashier and buyer, dates the scan and reports the gum price."
+        }
+      ]
+    }
+  ]
+}

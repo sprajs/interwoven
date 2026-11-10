@@ -1,0 +1,74 @@
+{
+  "id": "geel-family-mental-health-care",
+  "name": "Geel family mental health care",
+  "description": "An 1885 account describes family boarding arrangements for people with mental illness in Geel, Belgium.",
+  "kind": "practice",
+  "domain": "health.mind",
+  "grain": "instance",
+  "concept": "family-mental-health-care",
+  "places": [
+    {
+      "place": "belgium"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1885
+        },
+        "latest": {
+          "year": 1885
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1885",
+        "basis": "Date applies to the scoped observation or event; it is not a claim of global origin."
+      },
+      "statement": "An 1885 account describes family boarding arrangements for people with mental illness in Geel, Belgium.",
+      "places": [
+        "belgium"
+      ],
+      "evidence": [
+        {
+          "source": "w9-varigny-1885-geel",
+          "locator": "Description of Gheel family boarding",
+          "supports": "An 1885 visitor described a Belgian system of family boarding for people with mental illness. This outsider account documents practice at the time, not its origin, and also reports restrictions and work arrangements that warrant scrutiny for coercion."
+        }
+      ],
+      "caveats": "The date is an outsider’s description, not the origin of the practice. The account describes restrictions and work; patient perspectives, consent and possible coercion require further study.",
+      "contributions": [
+        {
+          "group": "Geel host families",
+          "role": "operator",
+          "resource": "Geel family mental health care",
+          "evidence": [
+            {
+              "source": "w9-varigny-1885-geel",
+              "locator": "Description of Gheel family boarding",
+              "supports": "An 1885 visitor described a Belgian system of family boarding for people with mental illness. This outsider account documents practice at the time, not its origin, and also reports restrictions and work arrangements that warrant scrutiny for coercion."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this specific documented case, not a claim of global priority."
+  },
+  "caveats": "The date is an outsider’s description, not the origin of the practice. The account describes restrictions and work; patient perspectives, consent and possible coercion require further study.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed"
+    },
+    "note": "Event, place and any marked measure or person facets independently checked against the cited passages; remaining facets retain their prior basis."
+  }
+}

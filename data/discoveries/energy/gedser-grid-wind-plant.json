@@ -1,0 +1,209 @@
+{
+  "id": "gedser-grid-wind-plant",
+  "name": "Gedser grid-connected wind plant",
+  "description": "An experimental wind plant supplied electricity to a Danish alternating-current network.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "instance",
+  "concept": "grid-connected-wind-generation",
+  "places": [
+    {
+      "place": "denmark",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "completed-1957",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 1957
+        },
+        "latest": {
+          "year": 1957
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1957",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The Gedser experimental wind plant was completed in summer 1957.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, summary and Gedser mill",
+          "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        },
+        {
+          "source": "energimuseet-nd-gedser-designer-wave9",
+          "locator": "Gedsermøllen",
+          "supports": "Museum credits Johannes Juul with the design of the Gedser wind turbine."
+        }
+      ],
+      "caveats": "Completion is distinct from its later entry into service. The museum describes operation in 1957; Juul says formal service began June 1958 after adjustments and measurements.",
+      "contributions": [
+        {
+          "person": "johannes-juul",
+          "role": "developer",
+          "resource": "Designed the Gedser wind turbine",
+          "evidence": [
+            {
+              "source": "energimuseet-nd-gedser-designer-wave9",
+              "locator": "Gedsermøllen",
+              "supports": "Museum credits Johannes Juul with the design of the Gedser wind turbine."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "service-1958",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1958,
+          "month": 6
+        },
+        "latest": {
+          "year": 1958,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1958-06",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "After adjustments and measurements, the 200 kW plant entered service in June 1958.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, summary and Gedser mill",
+          "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        }
+      ],
+      "caveats": "Rated output is not total generated energy or number of customers."
+    },
+    {
+      "id": "funding-reported-1961",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1961
+        },
+        "latest": {
+          "year": 1961
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1961",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Juul reported Danish government grants for the Gedser plant and three measuring stations.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, summary and Gedser mill",
+          "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        }
+      ],
+      "caveats": "The report does not date each grant disbursement.",
+      "contributions": [
+        {
+          "organization": "denmark-government",
+          "role": "funder",
+          "resource": "Funded the pilot and three wind-measuring stations",
+          "evidence": [
+            {
+              "source": "juul-1961-gedser-wind-wave9",
+              "locator": "UN proceedings W/17, summary and Gedser mill",
+              "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "completed-1957",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "Juul describes earlier Vester Egesborg and Bogø trials as inputs to the design; neither specific trial is represented.",
+        "evidence": [
+          {
+            "source": "juul-1961-gedser-wind-wave9",
+            "locator": "UN proceedings W/17, summary and Gedser mill",
+            "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+          }
+        ]
+      }
+    ],
+    "missing_prerequisites": [
+      "Vester Egesborg and Bogø wind-power experimental plants, which Juul identifies as the basis for the Gedser design."
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "rated power",
+      "value": 200,
+      "unit": "kW",
+      "event": "service-1958",
+      "subject": "Gedser pilot wind plant",
+      "conditions": "Rated output, not actual average output.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, summary and Gedser mill",
+          "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        }
+      ]
+    },
+    {
+      "quantity": "construction cost",
+      "value": 272000,
+      "unit": "Danish kroner",
+      "event": "completed-1957",
+      "subject": "Gedser plant construction",
+      "conditions": "Nominal historical construction cost, excluding 55,000 kroner of measuring equipment and 48,000 kroner of design work.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, summary and Gedser mill",
+          "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        }
+      ]
+    },
+    {
+      "quantity": "government grants",
+      "value": 525000,
+      "unit": "Danish kroner",
+      "event": "funding-reported-1961",
+      "subject": "Wind Power Committee",
+      "conditions": "Combined grant for the pilot plant and three measuring stations, not solely the turbine; nominal historical amount.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, summary and Gedser mill",
+          "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        }
+      ]
+    }
+  ]
+}

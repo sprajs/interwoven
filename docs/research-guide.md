@@ -93,3 +93,13 @@ python3 tools/import_chat_telephone.py --input /path/to/FinalCHAT_72909.csv --se
 ```
 
 The importer checks the release hash, never fetches data, and emits a JSON array. A blank is missing, not zero. The count is lines, not users or adoption percentage; a ratio would require a separately researched, scoped denominator and is not part of this pilot.
+
+## Eurostat AI survey extracts
+
+The Eurostat AI pilots preserve selected raw responses in `evidence/e/` with source attribution and SHA-256. Eurostat permits reuse of statistical data with acknowledgement, subject to any source-specific conditions. To reproduce the enterprise observations offline, use the release hash recorded in its panel:
+
+```sh
+python3 tools/import_eurostat_ai.py --input evidence/e/eurostat-isoc-eb-ai-selected-20261109.json --dataset isoc_eb_ai --sha256 <release-sha256>
+```
+
+Use dataset `isoc_ai_iaiu` and its separate raw file and hash for individuals. The importer accepts the two documented dimension orders for these saved responses and rejects a different order rather than assuming a mapping. Selection, units, survey windows, source flags and missingness must remain attached; a blank cell is not zero. Do not equate enterprise AI use with individual generative-AI use or infer invention from use.

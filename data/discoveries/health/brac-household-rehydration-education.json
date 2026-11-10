@@ -1,0 +1,105 @@
+{
+  "id": "brac-household-rehydration-education",
+  "name": "BRAC household rehydration education",
+  "description": "BRAC fieldworkers taught household rehydration knowledge to mothers across Bangladesh between 1980 and 1990.",
+  "kind": "practice",
+  "domain": "health.public-health",
+  "grain": "capability",
+  "concept": "community-health-education",
+  "places": [
+    {
+      "place": "bangladesh"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1980
+        },
+        "latest": {
+          "year": 1990
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1980–1990",
+        "basis": "Date applies to the scoped observation or event; it is not a claim of global origin."
+      },
+      "statement": "BRAC fieldworkers taught household rehydration knowledge to mothers across Bangladesh between 1980 and 1990.",
+      "places": [
+        "bangladesh"
+      ],
+      "evidence": [
+        {
+          "source": "w9-moynihan-2004-brac-education",
+          "locator": "Bangladesh: Narrowing the Gap, pp. 5–6",
+          "supports": "The report describes BRAC fieldworkers providing household rehydration education to more than 12 million mothers between 1980 and 1990. This reported reach is not a count of treatments, a denominator-based coverage rate, or proof of a mortality effect."
+        }
+      ],
+      "caveats": "The reported cumulative teaching reach does not measure use, equitable coverage or mortality reduction.",
+      "contributions": [
+        {
+          "group": "BRAC fieldworkers",
+          "role": "operator",
+          "resource": "BRAC household rehydration education",
+          "evidence": [
+            {
+              "source": "w9-moynihan-2004-brac-education",
+              "locator": "Bangladesh: Narrowing the Gap, pp. 5–6",
+              "supports": "The report describes BRAC fieldworkers providing household rehydration education to more than 12 million mothers between 1980 and 1990. This reported reach is not a count of treatments, a denominator-based coverage rate, or proof of a mortality effect."
+            }
+          ]
+        },
+        {
+          "organization": "bangladesh-rural-advancement-committee",
+          "role": "operator",
+          "resource": "Household education programme",
+          "evidence": [
+            {
+              "source": "w9-moynihan-2004-brac-education",
+              "locator": "Bangladesh: Narrowing the Gap, pp. 5–6",
+              "supports": "The report describes BRAC fieldworkers providing household rehydration education to more than 12 million mothers between 1980 and 1990. This reported reach is not a count of treatments, a denominator-based coverage rate, or proof of a mortality effect."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this specific documented case, not a claim of global priority."
+  },
+  "caveats": "The reported cumulative teaching reach does not measure use, equitable coverage or mortality reduction.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Event, place and any marked measure or person facets independently checked against the cited passages; remaining facets retain their prior basis."
+  },
+  "measures": [
+    {
+      "quantity": "mothers taught",
+      "value": 12000000,
+      "unit": "people",
+      "event": "documented-case",
+      "subject": "BRAC household education 1980–1990",
+      "status": "claimed",
+      "conditions": "More than 12 million reported; this lower bound is not a rate, treatment count, or measured health outcome.",
+      "evidence": [
+        {
+          "source": "w9-moynihan-2004-brac-education",
+          "locator": "Bangladesh: Narrowing the Gap, pp. 5–6",
+          "supports": "The report describes BRAC fieldworkers providing household rehydration education to more than 12 million mothers between 1980 and 1990. This reported reach is not a count of treatments, a denominator-based coverage rate, or proof of a mortality effect."
+        }
+      ]
+    }
+  ]
+}

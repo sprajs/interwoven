@@ -1,0 +1,83 @@
+{
+  "id": "1552-jerusalem-hurrem-endowed-food-service",
+  "name": "Hürrem’s endowed Jerusalem food service",
+  "description": "An Ottoman endowment financed a Jerusalem kitchen and related services from dedicated revenues.",
+  "kind": "practice",
+  "domain": "economy.organisation",
+  "grain": "capability",
+  "concept": "endowed-communal-food-service",
+  "places": [
+    {
+      "place": "jerusalem"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1552
+        },
+        "latest": {
+          "year": 1552
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1552",
+        "basis": "Date of the specified episode, not a global origin claim."
+      },
+      "statement": "Hürrem Sultan founded a charitable foundation in Jerusalem whose endowment supported food provision.",
+      "scope": "This documented community and episode; not a global first.",
+      "evidence": [
+        {
+          "source": "w9-marom-jerusalem-waqf",
+          "locator": "Jindās under Ottoman rule",
+          "supports": "The historian dates the foundation to 1552 and describes revenues."
+        },
+        {
+          "source": "w9-singer-ottoman-imarets",
+          "locator": "pp. 13–14",
+          "supports": "Singer describes recipients and distribution order."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "hurrem-sultan",
+          "role": "funder",
+          "resource": "Founded and endowed the Jerusalem charity.",
+          "evidence": [
+            {
+              "source": "w9-marom-jerusalem-waqf",
+              "locator": "Jindās under Ottoman rule",
+              "supports": "The historian dates the foundation to 1552 and describes revenues."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest scoped episode established in these sources, not universal priority."
+  },
+  "caveats": "Earlier endowments existed; the foundation date does not establish the first day of service or access for every resident.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Initial source pass; independent review remains open. Independent review checked Marom’s founding, location and endowment account. Singer’s distribution passage was inaccessible; its detail was not independently reviewed."
+  },
+  "people": [
+    {
+      "person": "hurrem-sultan",
+      "role": "contributor"
+    }
+  ]
+}

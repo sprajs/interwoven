@@ -1511,6 +1511,575 @@
       ],
       "additionalProperties": false,
       "description": "A narrowly scoped extract of CHAT telephone line counts, not a general adoption-panel schema."
+    },
+    "eurostatEnterpriseAiPanel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset": {
+          "type": "string",
+          "enum": [
+            "isoc_eb_ai"
+          ]
+        },
+        "release": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "ref": "sources"
+            },
+            "query_url": {
+              "type": "string",
+              "minLength": 1
+            },
+            "retrieved": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "updated": {
+              "type": "string",
+              "minLength": 1
+            },
+            "structure_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "raw_path": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "source",
+            "query_url",
+            "retrieved",
+            "updated",
+            "structure_version",
+            "sha256",
+            "raw_path"
+          ],
+          "additionalProperties": false
+        },
+        "selection": {
+          "type": "object",
+          "properties": {
+            "freq": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "A"
+                ]
+              }
+            },
+            "size_emp": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "10-49",
+                  "50-249",
+                  "GE250",
+                  "GE10"
+                ]
+              }
+            },
+            "nace_r2": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "C10-S951_X_K"
+                ]
+              }
+            },
+            "indic_is": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "E_AI_TANY"
+                ]
+              }
+            },
+            "unit": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PC_ENT"
+                ]
+              }
+            },
+            "geo": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "EU27_2020",
+                  "DK",
+                  "FI",
+                  "RO"
+                ]
+              }
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "2023",
+                  "2024",
+                  "2025"
+                ]
+              }
+            }
+          },
+          "required": [
+            "freq",
+            "size_emp",
+            "nace_r2",
+            "indic_is",
+            "unit",
+            "geo",
+            "time"
+          ],
+          "additionalProperties": false
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "Enterprises using at least one of the specified AI technologies."
+          ]
+        },
+        "denominator": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "Estimated percentage of enterprises in the specified activity and employment-size class; GE10 includes enterprises with at least ten persons employed, including employees and self-employed persons."
+          ]
+        },
+        "reference_window": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "Current situation at the survey, not an annual total."
+          ]
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dimensions": {
+                "type": "object",
+                "properties": {
+                  "freq": {
+                    "type": "string",
+                    "enum": [
+                      "A"
+                    ]
+                  },
+                  "size_emp": {
+                    "type": "string",
+                    "enum": [
+                      "10-49",
+                      "50-249",
+                      "GE250",
+                      "GE10"
+                    ]
+                  },
+                  "nace_r2": {
+                    "type": "string",
+                    "enum": [
+                      "C10-S951_X_K"
+                    ]
+                  },
+                  "indic_is": {
+                    "type": "string",
+                    "enum": [
+                      "E_AI_TANY"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": [
+                      "PC_ENT"
+                    ]
+                  },
+                  "geo": {
+                    "type": "string",
+                    "enum": [
+                      "EU27_2020",
+                      "DK",
+                      "FI",
+                      "RO"
+                    ]
+                  },
+                  "time": {
+                    "type": "string",
+                    "enum": [
+                      "2023",
+                      "2024",
+                      "2025"
+                    ]
+                  }
+                },
+                "required": [
+                  "freq",
+                  "size_emp",
+                  "nace_r2",
+                  "indic_is",
+                  "unit",
+                  "geo",
+                  "time"
+                ],
+                "additionalProperties": false
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "reported",
+                  "missing"
+                ]
+              },
+              "flag": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "dimensions",
+              "value",
+              "status",
+              "flag",
+              "index"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "method_sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "sources"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "dataset",
+        "release",
+        "selection",
+        "definition",
+        "denominator",
+        "reference_window",
+        "caveats",
+        "observations",
+        "method_sources"
+      ],
+      "additionalProperties": false
+    },
+    "eurostatIndividualAiPanel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset": {
+          "type": "string",
+          "enum": [
+            "isoc_ai_iaiu"
+          ]
+        },
+        "release": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "ref": "sources"
+            },
+            "query_url": {
+              "type": "string",
+              "minLength": 1
+            },
+            "retrieved": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "updated": {
+              "type": "string",
+              "minLength": 1
+            },
+            "structure_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "raw_path": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "source",
+            "query_url",
+            "retrieved",
+            "updated",
+            "structure_version",
+            "sha256",
+            "raw_path"
+          ],
+          "additionalProperties": false
+        },
+        "selection": {
+          "type": "object",
+          "properties": {
+            "freq": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "A"
+                ]
+              }
+            },
+            "ind_type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "IND_TOTAL"
+                ]
+              }
+            },
+            "indic_is": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "I_IUAI"
+                ]
+              }
+            },
+            "unit": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "PC_IND"
+                ]
+              }
+            },
+            "geo": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "EU27_2020",
+                  "DK",
+                  "FI",
+                  "RO"
+                ]
+              }
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "2025"
+                ]
+              }
+            }
+          },
+          "required": [
+            "freq",
+            "ind_type",
+            "indic_is",
+            "unit",
+            "geo",
+            "time"
+          ],
+          "additionalProperties": false
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "Use of generative AI tools in the last three months."
+          ]
+        },
+        "denominator": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "Estimated percentage of individuals aged 16–74 in the private-household survey population."
+          ]
+        },
+        "reference_window": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "Three months before interview; the survey year is not the date of every use."
+          ]
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dimensions": {
+                "type": "object",
+                "properties": {
+                  "freq": {
+                    "type": "string",
+                    "enum": [
+                      "A"
+                    ]
+                  },
+                  "ind_type": {
+                    "type": "string",
+                    "enum": [
+                      "IND_TOTAL"
+                    ]
+                  },
+                  "indic_is": {
+                    "type": "string",
+                    "enum": [
+                      "I_IUAI"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": [
+                      "PC_IND"
+                    ]
+                  },
+                  "geo": {
+                    "type": "string",
+                    "enum": [
+                      "EU27_2020",
+                      "DK",
+                      "FI",
+                      "RO"
+                    ]
+                  },
+                  "time": {
+                    "type": "string",
+                    "enum": [
+                      "2025"
+                    ]
+                  }
+                },
+                "required": [
+                  "freq",
+                  "ind_type",
+                  "indic_is",
+                  "unit",
+                  "geo",
+                  "time"
+                ],
+                "additionalProperties": false
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "reported",
+                  "missing"
+                ]
+              },
+              "flag": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "dimensions",
+              "value",
+              "status",
+              "flag",
+              "index"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "method_sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "sources"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "dataset",
+        "release",
+        "selection",
+        "definition",
+        "denominator",
+        "reference_window",
+        "caveats",
+        "observations",
+        "method_sources"
+      ],
+      "additionalProperties": false
     }
   }
 }

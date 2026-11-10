@@ -1,0 +1,107 @@
+{
+  "id": "eurostat-ai-individual-pilot",
+  "dataset": "isoc_ai_iaiu",
+  "release": {
+    "source": "eurostat-isoc-ai-iaiu-selected-20261109",
+    "query_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ai_iaiu?lang=en&freq=A&ind_type=IND_TOTAL&indic_is=I_IUAI&unit=PC_IND&geo=EU27_2020&geo=DK&geo=FI&geo=RO&time=2025",
+    "retrieved": "2026-11-09",
+    "updated": "2026-06-05T11:00:00+0200",
+    "structure_version": "5.0",
+    "sha256": "9bb6c0e75db95811cc41f14f551b73f8b619e2981696b31139f194f1fc890090",
+    "raw_path": "evidence/e/eurostat-isoc-ai-iaiu-selected-20261109.json"
+  },
+  "selection": {
+    "freq": [
+      "A"
+    ],
+    "ind_type": [
+      "IND_TOTAL"
+    ],
+    "indic_is": [
+      "I_IUAI"
+    ],
+    "unit": [
+      "PC_IND"
+    ],
+    "geo": [
+      "EU27_2020",
+      "DK",
+      "RO",
+      "FI"
+    ],
+    "time": [
+      "2025"
+    ]
+  },
+  "definition": "Use of generative AI tools in the last three months.",
+  "denominator": "Estimated percentage of individuals aged 16–74 in the private-household survey population.",
+  "reference_window": "Three months before interview; the survey year is not the date of every use.",
+  "caveats": [
+    "This generative-AI measure differs in scope and population from the enterprise any-AI indicator.",
+    "Only 2025 was available for this indicator in the inspected release.",
+    "Reported use does not establish ownership, development, or independent innovation.",
+    "Self-reported conscious use of generative tools; AI embedded in other products may be unrecognized or outside the question."
+  ],
+  "observations": [
+    {
+      "dimensions": {
+        "freq": "A",
+        "ind_type": "IND_TOTAL",
+        "indic_is": "I_IUAI",
+        "unit": "PC_IND",
+        "geo": "EU27_2020",
+        "time": "2025"
+      },
+      "value": 32.66,
+      "status": "reported",
+      "flag": null,
+      "index": 0
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "ind_type": "IND_TOTAL",
+        "indic_is": "I_IUAI",
+        "unit": "PC_IND",
+        "geo": "DK",
+        "time": "2025"
+      },
+      "value": 48.44,
+      "status": "reported",
+      "flag": null,
+      "index": 1
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "ind_type": "IND_TOTAL",
+        "indic_is": "I_IUAI",
+        "unit": "PC_IND",
+        "geo": "RO",
+        "time": "2025"
+      },
+      "value": 17.76,
+      "status": "reported",
+      "flag": null,
+      "index": 2
+    },
+    {
+      "dimensions": {
+        "freq": "A",
+        "ind_type": "IND_TOTAL",
+        "indic_is": "I_IUAI",
+        "unit": "PC_IND",
+        "geo": "FI",
+        "time": "2025"
+      },
+      "value": 46.27,
+      "status": "reported",
+      "flag": null,
+      "index": 3
+    }
+  ],
+  "method_sources": [
+    "eurostat-ict-individual-methodology",
+    "eurostat-2026-ai-technologies-report"
+  ]
+}

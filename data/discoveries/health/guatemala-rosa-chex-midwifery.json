@@ -1,0 +1,100 @@
+{
+  "id": "guatemala-rosa-chex-midwifery",
+  "name": "Rosa María Chex community midwifery",
+  "description": "UNFPA profiled Guatemalan community midwife Rosa María Chex and her birth-related care in 2016.",
+  "kind": "practice",
+  "domain": "health.childbirth",
+  "grain": "instance",
+  "concept": "community-midwifery",
+  "places": [
+    {
+      "place": "guatemala"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 2016
+        },
+        "latest": {
+          "year": 2016
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2016",
+        "basis": "Date applies to the scoped observation or event; it is not a claim of global origin."
+      },
+      "statement": "UNFPA profiled Guatemalan community midwife Rosa María Chex and her birth-related care in 2016.",
+      "places": [
+        "guatemala"
+      ],
+      "evidence": [
+        {
+          "source": "w9-unfpa-2016-guatemala-midwife",
+          "locator": "Rosa María Chex profile",
+          "supports": "UNFPA profiles Rosa María Chex, a Guatemalan community midwife, who reported 23 years of practice and more than 1,000 births attended. These are reported cumulative experience, not a measured causal effect or national coverage."
+        }
+      ],
+      "caveats": "Her reported experience predates the report; the publication date is not the origin of community midwifery. The profile does not establish her ethnicity or a population-wide effect.",
+      "contributions": [
+        {
+          "person": "rosa-maria-chex",
+          "role": "operator",
+          "resource": "Community midwifery",
+          "evidence": [
+            {
+              "source": "w9-unfpa-2016-guatemala-midwife",
+              "locator": "Rosa María Chex profile",
+              "supports": "UNFPA profiles Rosa María Chex, a Guatemalan community midwife, who reported 23 years of practice and more than 1,000 births attended. These are reported cumulative experience, not a measured causal effect or national coverage."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this specific documented case, not a claim of global priority."
+  },
+  "caveats": "Her reported experience predates the report; the publication date is not the origin of community midwifery. The profile does not establish her ethnicity or a population-wide effect.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Event, place and any marked measure or person facets independently checked against the cited passages; remaining facets retain their prior basis."
+  },
+  "people": [
+    {
+      "person": "rosa-maria-chex",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "births attended",
+      "value": 1000,
+      "unit": "births",
+      "event": "documented-case",
+      "subject": "Rosa María Chex",
+      "status": "claimed",
+      "conditions": "More than 1,000 reported cumulatively by the 2016 profile; 1,000 is a lower bound, not an exact total or outcome measure.",
+      "evidence": [
+        {
+          "source": "w9-unfpa-2016-guatemala-midwife",
+          "locator": "Rosa María Chex profile",
+          "supports": "UNFPA profiles Rosa María Chex, a Guatemalan community midwife, who reported 23 years of practice and more than 1,000 births attended. These are reported cumulative experience, not a measured causal effect or national coverage."
+        }
+      ]
+    }
+  ]
+}

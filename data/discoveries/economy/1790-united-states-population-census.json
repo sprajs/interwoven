@@ -1,0 +1,91 @@
+{
+  "id": "1790-united-states-population-census",
+  "name": "United States decennial population census",
+  "description": "The United States organized a national household enumeration using named heads and aggregate categories.",
+  "kind": "practice",
+  "domain": "economy.law-government",
+  "grain": "capability",
+  "concept": "decennial-population-enumeration",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1790
+        },
+        "latest": {
+          "year": 1790
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1790",
+        "basis": "Date of the specified episode, not a global origin claim."
+      },
+      "statement": "Federal marshals and assistants enumerated households in the 1790 census, distinguishing free and enslaved people.",
+      "scope": "This documented community and episode; not a global first.",
+      "evidence": [
+        {
+          "source": "w9-national-archives-1790-census",
+          "locator": "What information was collected?",
+          "supports": "The Archives describes the names and categories on the schedules."
+        },
+        {
+          "source": "w9-census-bureau-1790-history",
+          "locator": "First Census introduction",
+          "supports": "The 1900 report describes exclusions and returned total."
+        },
+        {
+          "source": "w9-census-native-exclusion",
+          "locator": "1790 census paragraph",
+          "supports": "The Census Bureau states that Indians not taxed were excluded from the 1790 census, which excluded most Indigenous people."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest scoped episode established in these sources, not universal priority."
+  },
+  "caveats": "Indigenous people not taxed were excluded; most household members and enslaved people were not named individually. Some schedules are lost and coverage differed from modern U.S. borders.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass; independent review remains open. Independent review checked National Archives’ enumeration categories, the Census Bureau’s Indigenous exclusion statement, and the later published historical total."
+  },
+  "measures": [
+    {
+      "quantity": "persons returned in the census",
+      "value": 3929214,
+      "unit": "persons",
+      "event": "dated-episode",
+      "subject": "1790 returned population under census definitions",
+      "conditions": "Historical return excluded Indians not taxed; scope differs from current U.S. borders.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w9-census-bureau-1790-history",
+          "locator": "First Census introduction",
+          "supports": "Reports 3,929,214 persons returned."
+        },
+        {
+          "source": "w9-census-1910-historical-totals",
+          "locator": "Table 2, 1790 row",
+          "supports": "The later historical table reports 3,929,214 persons in 1790."
+        }
+      ]
+    }
+  ]
+}

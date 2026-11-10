@@ -65,25 +65,10 @@
       "concept": "sourced",
       "events": "sourced",
       "places": "sourced",
-      "people": "sourced"
+      "people": "sourced",
+      "links": "reviewed"
     },
-    "note": "Initial source pass; independent review is outstanding. Independent review verified the book and French 1826–1831 court records in the MacTutor excerpt; the contemporary review PDF was inaccessible, so wider comparisons remain sourced.",
-    "missing_prerequisites": [
-      "French criminal court statistical reporting, 1826–1831"
-    ],
-    "unresolved": [
-      {
-        "about": "French court statistics production",
-        "note": "Identify and date the system that compiled these court data and its limits before treating statistics as recorded crime.",
-        "evidence": [
-          {
-            "source": "w8-mactutor-quetelet-crime",
-            "locator": "1835 book and French court statistics",
-            "supports": "The source states that Quételet used statistics gathered from French criminal courts in 1826–1831."
-          }
-        ]
-      }
-    ]
+    "note": "Initial source pass; independent review is outstanding. Independent review verified the book and French 1826–1831 court records in the MacTutor excerpt; the contemporary review PDF was inaccessible, so wider comparisons remain sourced. Independent review checked Aubusson de Cavarlay p. 156 on Quételet’s early use of the 1826–1829 Compte volumes; this supports the connection to the series, not personal use of the 1825 volume."
   },
   "places": [
     {
@@ -95,6 +80,21 @@
     {
       "person": "adolphe-quetelet",
       "role": "contributor"
+    }
+  ],
+  "links": [
+    {
+      "from": "1827-france-compte-general-criminal-statistics",
+      "type": "builds_on",
+      "status": "established",
+      "statement": "Quételet’s early crime-statistics work used volumes of the French Compte général, according to historian Aubusson de Cavarlay.",
+      "evidence": [
+        {
+          "source": "w9-french-compte-quetelet",
+          "locator": "Opening paragraphs",
+          "supports": "Identifies the 1826–1829 Compte volumes used by Quételet."
+        }
+      ]
     }
   ]
 }

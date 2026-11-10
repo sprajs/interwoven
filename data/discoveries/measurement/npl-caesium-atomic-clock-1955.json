@@ -15,6 +15,46 @@
   ],
   "events": [
     {
+      "id": "essen-travel-support-1953",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1953,
+          "month": 1
+        },
+        "latest": {
+          "year": 1953,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "January 1953",
+        "basis": "Whibberley dates Essen’s receipt of travel funding to January 1953; this is not a date of a working NPL clock."
+      },
+      "statement": "Essen received funding from a US State Department-administered aid programme to visit US atomic-clock laboratories. After returning he was authorized to begin the NPL clock project.",
+      "evidence": [
+        {
+          "source": "w9-whibberley-2017-npl-caesium",
+          "locator": "p. 34, origins of the NPL project",
+          "supports": "Dates the travel funding and distinguishes subsequent approval from the earlier shortage of skilled staff."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "us-state-department",
+          "role": "contributor",
+          "resource": "Administration of the aid programme funding Essen’s research visits; not an assertion that the department financed the complete clock.",
+          "evidence": [
+            {
+              "source": "w9-whibberley-2017-npl-caesium",
+              "locator": "p. 34, January 1953 research tour",
+              "supports": "Identifies the State Department as administrator of the aid programme."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "unveiling-may-1955",
       "type": "public_disclosure",
       "date": {
@@ -72,13 +112,25 @@
               "supports": "Attributes the device to J. V. L. Parry."
             }
           ]
+        },
+        {
+          "organization": "marconi-company",
+          "role": "supplier",
+          "resource": "5 MHz quartz oscillator used in the microwave synthesis chain of the completed 1955 apparatus; delivery date and terms not stated.",
+          "evidence": [
+            {
+              "source": "w9-whibberley-2017-npl-caesium",
+              "locator": "p. 35, microwave synthesis chain",
+              "supports": "Identifies a low-phase-noise 5 MHz oscillator obtained from the Marconi company."
+            }
+          ]
         }
       ]
     }
   ],
   "earliest_record": {
     "event": "unveiling-may-1955",
-    "rationale": "The inspected evidence establishes the May 1955 unveiling, not the first conception or universal first atomic clock."
+    "rationale": "The inspected evidence establishes the May 1955 unveiling, not the first conception or universal first atomic clock. The earlier travel-support event concerns enabling research, not an extant clock."
   },
   "measures": [
     {
@@ -98,7 +150,7 @@
       ]
     }
   ],
-  "caveats": "NIST describes an earlier ammonia-based atomic clock; the present record is the specific NPL caesium apparatus, not a global first claim. Later SI definition did not require adoption of this one device.",
+  "caveats": "NIST describes an earlier ammonia-based atomic clock; the present record is the specific NPL caesium apparatus, not a global first claim. Later SI definition did not require adoption of this one device. The 1953 aid programme funded research travel; no total project budget or supplier payment terms are inferred.",
   "research": {
     "status": "draft",
     "basis": {
@@ -110,25 +162,10 @@
       "events": "reviewed",
       "measures": "reviewed",
       "people": "reviewed",
-      "organizations": "reviewed"
+      "organizations": "reviewed",
+      "links": "reviewed"
     },
-    "missing_prerequisites": [
-      "Ramsey’s 1949 separated-oscillatory-field measurement design used in the caesium clock."
-    ],
-    "unresolved": [
-      {
-        "about": "Ramsey measurement-design prerequisite",
-        "note": "NIST identifies the 1949 design in this clock, but a separate record and the original design publication remain to be examined before a directed link is added.",
-        "evidence": [
-          {
-            "source": "w8-nist-atomic-time-history",
-            "locator": "A Special Atom",
-            "supports": "States that Essen used a design invented by Norman Ramsey in 1949."
-          }
-        ]
-      }
-    ],
-    "note": "Independent parent checked SMG object1962-59 and NIST historical sections. Performance remains a catalogue claim; NPL is host rather than an inferred separate developer or funder."
+    "note": "Independent parent checked SMG object1962-59 and NIST historical sections. Performance remains a catalogue claim; NPL is host rather than an inferred separate developer or funder. Parent also checked Whibberley 2017 pp. 34–35 for the Ramsey-method link; added travel support and oscillator supply as separately scoped sourced contributions. Independent review reopened Whibberley pp. 34–35 and the SMG and NIST descriptions; January 1953 is the travel-funding receipt, while NIST dates the unveiling to May 1955. Marconi supplied the quartz oscillator; payment terms remain unknown."
   },
   "organizations": [
     {
@@ -145,6 +182,24 @@
     {
       "person": "jack-parry",
       "role": "builder"
+    }
+  ],
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "ramsey-separated-oscillatory-fields-1949",
+      "from_event": "method-1949",
+      "to_event": "unveiling-may-1955",
+      "status": "established",
+      "statement": "The 1955 NPL apparatus used the separated-oscillatory-field method developed by Ramsey.",
+      "scope": "The caesium-beam apparatus unveiled in 1955; link is to the method, not proof that a particular publication was consulted.",
+      "evidence": [
+        {
+          "source": "w9-whibberley-2017-npl-caesium",
+          "locator": "pp. 34–35, NPL caesium apparatus",
+          "supports": "Identifies the separated interactions in this apparatus with Ramsey’s 1949 method."
+        }
+      ]
     }
   ]
 }

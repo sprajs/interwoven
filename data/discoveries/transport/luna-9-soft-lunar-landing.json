@@ -1,0 +1,109 @@
+{
+  "id": "luna-9-soft-lunar-landing",
+  "name": "Luna 9 survivable lunar landing",
+  "description": "Luna 9 survived a lunar landing and transmitted images from the surface.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "lunar-touchdown-1966",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1966,
+          "month": 2,
+          "day": 3
+        },
+        "latest": {
+          "year": 1966,
+          "month": 2,
+          "day": 3
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1966-02-03",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The Soviet Luna 9 spacecraft landed on the Moon and remained operational.",
+      "evidence": [
+        {
+          "source": "nasa-2018-luna-nine-wave9",
+          "locator": "Luna 9, printed pp. 65–66",
+          "supports": "NASA history dates Luna 9 lunar touchdown to 3 February 1966 UTC and the first lunar-surface images to 4 February UTC. It lists Lavochkin as mission design and management."
+        }
+      ],
+      "caveats": "UTC; the later crewed Apollo program is a different capability.",
+      "contributions": [
+        {
+          "organization": "lavochkin-design-bureau",
+          "role": "developer",
+          "resource": "Mission design and management",
+          "evidence": [
+            {
+              "source": "nasa-2018-luna-nine-wave9",
+              "locator": "Luna 9, printed pp. 65–66",
+              "supports": "NASA history dates Luna 9 lunar touchdown to 3 February 1966 UTC and the first lunar-surface images to 4 February UTC. It lists Lavochkin as mission design and management."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first-images-1966",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1966,
+          "month": 2,
+          "day": 4
+        },
+        "latest": {
+          "year": 1966,
+          "month": 2,
+          "day": 4
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1966-02-04",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Luna 9 began transmitting lunar surface images on 4 February UTC.",
+      "evidence": [
+        {
+          "source": "nasa-2018-luna-nine-wave9",
+          "locator": "Luna 9, printed pp. 65–66",
+          "supports": "NASA history dates Luna 9 lunar touchdown to 3 February 1966 UTC and the first lunar-surface images to 4 February UTC. It lists Lavochkin as mission design and management."
+        }
+      ],
+      "caveats": "This account specifies 01:50 UTC on 4 February."
+    }
+  ],
+  "earliest_record": {
+    "event": "lunar-touchdown-1966",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The inspected mission history does not establish a direct component-level relationship to the represented Sputnik or Apollo spacecraft.",
+        "evidence": [
+          {
+            "source": "nasa-2018-luna-nine-wave9",
+            "locator": "Luna 9, printed pp. 65–66",
+            "supports": "NASA history dates Luna 9 lunar touchdown to 3 February 1966 UTC and the first lunar-surface images to 4 February UTC. It lists Lavochkin as mission design and management."
+          }
+        ]
+      }
+    ]
+  },
+  "caveats": "NASA’s chronology distinguishes Luna 9’s survivable landing from the first soft landing, which it assigns to Surveyor I; definitions differ."
+}

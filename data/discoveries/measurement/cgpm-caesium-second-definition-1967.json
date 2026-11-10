@@ -1,0 +1,85 @@
+{
+  "id": "cgpm-caesium-second-definition-1967",
+  "name": "1967 CGPM caesium definition of the second",
+  "description": "The 13th General Conference on Weights and Measures defined the SI second using a transition of caesium-133.",
+  "kind": "practice",
+  "domain": "measurement.time",
+  "grain": "capability",
+  "concept": "caesium-si-second-definition",
+  "origin": "unknown",
+  "events": [
+    {
+      "id": "resolution-1967",
+      "type": "acceptance",
+      "date": {
+        "earliest": {
+          "year": 1967
+        },
+        "latest": {
+          "year": 1967
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1967",
+        "basis": "Source-reported date for this scoped event."
+      },
+      "statement": "The 13th CGPM adopted Resolution 1 defining the SI second by a specified number of periods of caesium-133 radiation.",
+      "evidence": [
+        {
+          "source": "w9-bipm-1967-second-resolution",
+          "locator": "Resolution 1, decisions 1–2",
+          "supports": "Records the 1967 decision and replacement of earlier definitions."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "general-conference-on-weights-and-measures",
+          "role": "regulator",
+          "resource": "Resolution defining the SI second.",
+          "evidence": [
+            {
+              "source": "w9-bipm-1967-second-resolution",
+              "locator": "Resolution 1",
+              "supports": "Identifies the CGPM as the deciding body."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "resolution-1967",
+    "rationale": "Earliest documented event for this scoped record, not a claim of worldwide priority."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "reviewed",
+      "grain": "recalled",
+      "concept": "reviewed",
+      "origin": "unknown",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent parent inspected the cited publisher, museum, BIPM or NIST/PTB passages. Dates retain their event scope; no global priority is inferred."
+  },
+  "measures": [
+    {
+      "quantity": "Periods defining the SI second in 1967",
+      "value": 9192631770,
+      "unit": "radiation periods per second",
+      "status": "claimed",
+      "event": "resolution-1967",
+      "subject": "1967 caesium-133 SI second definition",
+      "conditions": "Exact defining number in the 1967 resolution; not a measured performance of a particular clock.",
+      "evidence": [
+        {
+          "source": "w9-bipm-1967-second-resolution",
+          "locator": "Resolution 1, decision 1",
+          "supports": "States the number of radiation periods in the definition."
+        }
+      ]
+    }
+  ],
+  "caveats": "This event defines a unit, not the adoption of a particular 1955 NPL clock. The resolution cites an earlier temporary caesium frequency standard; implementation varied by laboratory."
+}

@@ -1,0 +1,88 @@
+{
+  "id": "shannon-mathematical-theory-of-communication",
+  "name": "Shannon mathematical theory of communication",
+  "description": "A mathematical theory treating source information, channel capacity and transmission under noise.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "publication-part-one-1948",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1948,
+          "month": 7
+        },
+        "latest": {
+          "year": 1948,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1948-07",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Claude Shannon published the first part of A Mathematical Theory of Communication.",
+      "evidence": [
+        {
+          "source": "shannon-1948-communication-wave9",
+          "locator": "Introduction and references 1–2",
+          "supports": "Shannon identifies Nyquist and Hartley papers and extends the communication theory."
+        }
+      ],
+      "caveats": "The second part appeared in October 1948; the publication does not prove implementation of later systems.",
+      "contributions": [
+        {
+          "person": "claude-shannon",
+          "role": "contributor",
+          "resource": "Authored the 1948 paper.",
+          "evidence": [
+            {
+              "source": "shannon-1948-communication-wave9",
+              "locator": "Introduction and references 1–2",
+              "supports": "Shannon identifies Nyquist and Hartley papers and extends the communication theory."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "publication-part-one-1948",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "people": "sourced"
+    },
+    "missing_prerequisites": [
+      "Nyquist’s 1924 and 1928 telegraph transmission theory papers",
+      "Hartley’s 1928 Transmission of Information paper"
+    ],
+    "unresolved": [
+      {
+        "about": "Nyquist and Hartley transmission theories",
+        "note": "Shannon explicitly treats these papers as a theoretical basis; model each original capability and contribution before creating direct links.",
+        "evidence": [
+          {
+            "source": "shannon-1948-communication-wave9",
+            "locator": "Introduction and references 1–2",
+            "supports": "Shannon identifies Nyquist and Hartley papers and extends the communication theory."
+          }
+        ]
+      }
+    ],
+    "note": "Independent reader: Checked Shannon’s 1948 opening and footnotes naming both Nyquist papers and the Hartley paper as his theoretical basis."
+  },
+  "people": [
+    {
+      "person": "claude-shannon",
+      "role": "author"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "brazil-flex-fuel-market",
+  "name": "Brazilian flex-fuel vehicle market",
+  "description": "Brazilian motorists gained access to vehicles accepting ethanol and gasoline blends.",
+  "kind": "technology",
+  "domain": "transport.land",
+  "grain": "capability",
+  "concept": "flex-fuel-road-vehicles",
+  "places": [
+    {
+      "place": "brazil",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "market-launch-2003",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2003,
+          "month": 3
+        },
+        "latest": {
+          "year": 2003,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2003-03",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A Brazilian government report dates commercial launch of flex-fuel vehicles to March 2003.",
+      "evidence": [
+        {
+          "source": "brazil-2008-flex-vehicles-wave9",
+          "locator": "pp. 28–29, section 3.1.1.3",
+          "supports": "Brazilian report gives a March 2003 flex-fuel launch and 48,200 flex-vehicle sales in 2003, attributing industrial statistics to ANFAVEA; sales cover the market, not a single model."
+        }
+      ],
+      "caveats": "Market launch does not establish affordability to all households."
+    },
+    {
+      "id": "sales-2003",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2003
+        },
+        "latest": {
+          "year": 2003
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2003",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The report gives approximately 48,200 flex-fuel vehicles sold in Brazil during 2003.",
+      "evidence": [
+        {
+          "source": "brazil-2008-flex-vehicles-wave9",
+          "locator": "pp. 28–29, section 3.1.1.3",
+          "supports": "Brazilian report gives a March 2003 flex-fuel launch and 48,200 flex-vehicle sales in 2003, attributing industrial statistics to ANFAVEA; sales cover the market, not a single model."
+        }
+      ],
+      "caveats": "Annual sales across the market, not one manufacturer or the number of users."
+    }
+  ],
+  "earliest_record": {
+    "event": "market-launch-2003",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Source-backed admission; independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The report does not identify a specific represented engine as a direct ancestor.",
+        "evidence": [
+          {
+            "source": "brazil-2008-flex-vehicles-wave9",
+            "locator": "pp. 28–29, section 3.1.1.3",
+            "supports": "Brazilian report gives a March 2003 flex-fuel launch and 48,200 flex-vehicle sales in 2003, attributing industrial statistics to ANFAVEA; sales cover the market, not a single model."
+          }
+        ]
+      }
+    ]
+  },
+  "measures": [
+    {
+      "quantity": "annual sales",
+      "value": 48200,
+      "unit": "vehicles",
+      "event": "sales-2003",
+      "subject": "Brazilian flex-fuel vehicle sales",
+      "conditions": "2003 annual sales reported by the Brazilian government report using industry data.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "brazil-2008-flex-vehicles-wave9",
+          "locator": "pp. 28–29, section 3.1.1.3",
+          "supports": "Brazilian report gives a March 2003 flex-fuel launch and 48,200 flex-vehicle sales in 2003, attributing industrial statistics to ANFAVEA; sales cover the market, not a single model."
+        }
+      ]
+    }
+  ]
+}

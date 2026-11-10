@@ -1,0 +1,94 @@
+{
+  "id": "1952-nsf-open-research-grant-awards",
+  "name": "National Science Foundation research grants",
+  "description": "The U.S. National Science Foundation supported research through grants to investigators and institutions.",
+  "kind": "practice",
+  "domain": "economy.organisation",
+  "grain": "capability",
+  "concept": "public-research-grants",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1952,
+          "month": 2,
+          "day": 1
+        },
+        "latest": {
+          "year": 1952,
+          "month": 2,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1952-02-01",
+        "basis": "Date of the specified episode, not a global origin claim."
+      },
+      "statement": "The National Science Board approved 28 research grants on 1 February 1952.",
+      "scope": "This documented community and episode; not a global first.",
+      "evidence": [
+        {
+          "source": "w9-nsf-history-1952-awards",
+          "locator": "1952 February 1",
+          "supports": "The NSF timeline reports the initial grant approvals."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "national-science-foundation",
+          "role": "funder",
+          "resource": "Grants were approved for NSF award.",
+          "evidence": [
+            {
+              "source": "w9-nsf-history-1952-awards",
+              "locator": "1952 February 1",
+              "supports": "The Board approved grants for NSF award."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest scoped episode established in these sources, not universal priority."
+  },
+  "caveats": "Prior public and private research funding existed. Approval does not prove payment or establish eligibility or success rates.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass; independent review remains open. Independent review checked NSF’s 1 February 1952 approval and its count of 28; approvals are not treated as disbursements."
+  },
+  "measures": [
+    {
+      "quantity": "research grants approved",
+      "value": 28,
+      "unit": "grants",
+      "event": "dated-episode",
+      "subject": "National Science Board initial grant approvals",
+      "conditions": "Approved on 1 February 1952; not applications, grants disbursed or annual total.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w9-nsf-history-1952-awards",
+          "locator": "1952 February 1",
+          "supports": "Reports 28 approvals."
+        }
+      ]
+    }
+  ]
+}

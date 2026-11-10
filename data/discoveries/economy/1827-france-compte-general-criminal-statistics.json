@@ -1,0 +1,67 @@
+{
+  "id": "1827-france-compte-general-criminal-statistics",
+  "name": "French Compte général judicial statistics",
+  "description": "France collected and published administrative statistics about criminal-court proceedings and persons.",
+  "kind": "practice",
+  "domain": "economy.social-science",
+  "grain": "capability",
+  "concept": "official-criminal-justice-statistics",
+  "places": [
+    {
+      "place": "france"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1827
+        },
+        "latest": {
+          "year": 1827
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1827",
+        "basis": "Date of the specified episode, not a global origin claim."
+      },
+      "statement": "The first Compte général presented judicial statistics for 1825 after a January 1826 collection circular.",
+      "scope": "This documented community and episode; not a global first.",
+      "evidence": [
+        {
+          "source": "w9-french-compte-quetelet",
+          "locator": "Opening paragraphs",
+          "supports": "The historian dates publication of the Compte général to 1827."
+        },
+        {
+          "source": "w9-french-justice-crime-data",
+          "locator": "Section 1, standardized forms",
+          "supports": "The 1825 data followed a circular of 5 January 1826."
+        },
+        {
+          "source": "w9-cesdip-1989-judicial-data",
+          "locator": "pp. 14–15 and footnote 1",
+          "supports": "The report cites the 5 January 1826 circular and explains the statistical returns for 1825 and later years."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest scoped episode established in these sources, not universal priority."
+  },
+  "caveats": "Court activity does not measure all crimes. Data year 1825, 1826 instructions and 1827 publication are distinct; later volumes differed. The first volume lacked individual accused-person information and omitted Seine in the correctional tables, according to the cited 1998 study.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Initial source pass; independent review remains open. Independent review checked the 1827 publication, 1825 reference year and the 5 January 1826 circular in the accessible 1989 CESDIP report."
+  }
+}

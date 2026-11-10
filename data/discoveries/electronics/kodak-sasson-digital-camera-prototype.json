@@ -1,0 +1,144 @@
+{
+  "id": "kodak-sasson-digital-camera-prototype",
+  "name": "Kodak Sasson digital camera prototype",
+  "description": "Experimental camera combining electronic image sensing, digitization and magnetic recording of a still image.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "camera-image-1975",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1975,
+          "month": 12
+        },
+        "latest": {
+          "year": 1975,
+          "month": 12
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1975-12",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Sasson recorded a black-and-white image with a Kodak prototype in December 1975.",
+      "evidence": [
+        {
+          "source": "camera-museum-1975-digital-wave9",
+          "locator": "Opening paragraphs",
+          "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+        }
+      ],
+      "caveats": "Internal prototype, not proof of a consumer product or global first.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "person": "steven-sasson",
+          "role": "developer",
+          "resource": "Built the Kodak camera system.",
+          "evidence": [
+            {
+              "source": "camera-museum-1975-digital-wave9",
+              "locator": "Opening paragraphs",
+              "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+            }
+          ]
+        },
+        {
+          "organization": "kodak",
+          "role": "contributor",
+          "resource": "Kodak laboratory hosted the work.",
+          "evidence": [
+            {
+              "source": "camera-museum-1975-digital-wave9",
+              "locator": "Opening paragraphs",
+              "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "camera-image-1975",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "people": "sourced",
+      "measures": "reviewed"
+    },
+    "missing_prerequisites": [
+      "Fairchild CCD sensor used in the Kodak prototype",
+      "Motorola analog-to-digital converter used in the prototype"
+    ],
+    "unresolved": [
+      {
+        "about": "Exact camera component references",
+        "note": "The museum identifies a Fairchild CCD and Motorola converter; establish exact configurations and relation to the existing sensor record before adding exact-referent links.",
+        "evidence": [
+          {
+            "source": "camera-museum-1975-digital-wave9",
+            "locator": "Opening paragraphs",
+            "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+          }
+        ]
+      }
+    ],
+    "note": "Independent reader: Checked the Camera Museum account: the Fairchild sensor is not identified as the represented CCD101, and 23 seconds is recording time, not exposure."
+  },
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "people": [
+    {
+      "person": "steven-sasson",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "reported image pixel count",
+      "value": 10000,
+      "unit": "pixels per image",
+      "event": "camera-image-1975",
+      "subject": "Prototype black-and-white image",
+      "conditions": "100 by 100 pixels per museum, not later camera resolution.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "camera-museum-1975-digital-wave9",
+          "locator": "Opening paragraphs",
+          "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+        }
+      ]
+    },
+    {
+      "quantity": "reported recording time",
+      "value": 23,
+      "unit": "seconds per image",
+      "event": "camera-image-1975",
+      "subject": "Prototype cassette recording",
+      "conditions": "Time to record to tape, not exposure duration.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "camera-museum-1975-digital-wave9",
+          "locator": "Opening paragraphs",
+          "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+        }
+      ]
+    }
+  ]
+}

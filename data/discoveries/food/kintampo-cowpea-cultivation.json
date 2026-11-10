@@ -1,0 +1,65 @@
+{
+  "id": "kintampo-cowpea-cultivation",
+  "name": "Kintampo cowpea evidence",
+  "description": "Charred cowpeas found in central Ghanaian Kintampo rock shelters are interpreted as evidence of early domesticated cowpea.",
+  "kind": "practice",
+  "domain": "food.crops",
+  "grain": "instance",
+  "concept": "cowpea-cultivation",
+  "places": [
+    {
+      "place": "ghana"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -1830
+        },
+        "latest": {
+          "year": -1595
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1830–1595 calibrated BCE (95.5% interval, one cowpea specimen)",
+        "basis": "AMS date on a cowpea cotyledon from B6B horizon 4; the interval is not a date for every specimen or the origin of cultivation."
+      },
+      "statement": "Charred cowpeas found in central Ghanaian Kintampo rock shelters are interpreted as evidence of early domesticated cowpea.",
+      "places": [
+        "ghana"
+      ],
+      "evidence": [
+        {
+          "source": "w9-dandrea-2007-kintampo-cowpea",
+          "locator": "Extract",
+          "supports": "Charred cowpeas from Kintampo rock shelters in central Ghana date to the second millennium BCE. The authors interpret them as early domesticated cowpea. Only the accessible extract was read; the specific dating and trait methodology requires full-text review."
+        },
+        {
+          "source": "w9-dandrea-kintampo-fulltext-review",
+          "locator": "pp. 688–689, table 2 and B-sites cowpea remains",
+          "supports": "D’Andrea et al. (2007), pp. 688–689, table 2: one cowpea cotyledon from B6B horizon 4 was dated by AMS to 1830–1595 calibrated BCE at 95.5% confidence. The authors identify 16 fragmentary specimens as domesticated cowpea; only three were complete enough for limited measurement, and morphology is compared with domesticated and wild forms. This is evidence from one site, not a demonstrated origin. Selected passages inspected."
+        }
+      ],
+      "caveats": "One cowpea cotyledon was dated directly; 16 fragmentary specimens were identified by the authors as domesticated, with only three complete enough for limited measurement. The interpretation is not a demonstrated origin."
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date of this specific documented case, not a claim of global priority."
+  },
+  "caveats": "One cowpea cotyledon was dated directly; 16 fragmentary specimens were identified by the authors as domesticated, with only three complete enough for limited measurement. The interpretation is not a demonstrated origin.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed"
+    },
+    "note": "Event, place and any marked measure or person facets independently checked against the cited passages; remaining facets retain their prior basis."
+  }
+}

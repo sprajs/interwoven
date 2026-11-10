@@ -1,0 +1,104 @@
+{
+  "id": "1821-pontypool-friendly-society-sick-benefit",
+  "name": "Pontypool mutual sickness benefits",
+  "description": "A members’ friendly society provided financial assistance to a sick or injured member.",
+  "kind": "practice",
+  "domain": "economy.money",
+  "grain": "capability",
+  "concept": "mutual-sickness-benefit",
+  "places": [
+    {
+      "place": "wales"
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-episode",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1821
+        },
+        "latest": {
+          "year": 1821
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1821",
+        "basis": "Date of the specified episode, not a global origin claim."
+      },
+      "statement": "Isaac Williams, a member of the Sons of the Globe Society in Pontypool, received sick pay and a separate payment for broken bones.",
+      "scope": "This documented community and episode; not a global first.",
+      "evidence": [
+        {
+          "source": "w9-turner-blackie-miners-welfare",
+          "locator": "pp. 112–113 and note 124",
+          "supports": "The authors report the 1821 payments from society accounts."
+        },
+        {
+          "source": "w9-harris-friendly-societies",
+          "locator": "Self-help and mutual aid",
+          "supports": "The study explains voluntary-contribution mutual aid."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "isaac-williams-pontypool",
+          "role": "user",
+          "resource": "Received society payments for sickness and injury.",
+          "evidence": [
+            {
+              "source": "w9-turner-blackie-miners-welfare",
+              "locator": "pp. 112–113 and note 124",
+              "supports": "The authors report the 1821 payments from society accounts."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-episode",
+    "rationale": "Earliest scoped episode established in these sources, not universal priority."
+  },
+  "caveats": "One beneficiary does not establish all workers could join or all claims were paid; benefits and solvency varied.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass; independent review remains open. Independent review checked Turner and Blackie pp. 112–113 and note 124: one recipient, four shillings weekly in 1821, plus a separate injury payment."
+  },
+  "people": [
+    {
+      "person": "isaac-williams-pontypool",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "weekly sick pay",
+      "value": 4,
+      "unit": "shillings per week",
+      "currency": "GBP",
+      "money_context": "Nominal 1821 British shillings; 20 shillings to one pound.",
+      "event": "dated-episode",
+      "subject": "Isaac Williams’s reported sick pay",
+      "conditions": "One member case in 1821, not an average or standard payment.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w9-turner-blackie-miners-welfare",
+          "locator": "pp. 112–113",
+          "supports": "Reports four shillings weekly sick pay."
+        }
+      ]
+    }
+  ]
+}
