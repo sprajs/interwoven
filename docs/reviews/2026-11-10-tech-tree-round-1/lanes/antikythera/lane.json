@@ -1,0 +1,97 @@
+{
+  "prompt_version": "tech-tree-event-scope-v1",
+  "workflow": "Direct dataset patch proposal; tools/cards admission gates not run. Independent semantic review required before integration.",
+  "base": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/antikythera",
+  "branch": "codex/tech-tree-round-1-antikythera",
+  "researcher": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution_id": "/root/astra_orchestrator/antikythera",
+    "response_id": null
+  },
+  "timing": {
+    "finished_utc": "2026-11-10T22:53:40.570219+00:00",
+    "elapsed_seconds": null,
+    "note": "Start timestamp and token metering unavailable in this execution."
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "billing_usd": null
+  },
+  "duplicate_screen": {
+    "method": "Searched discovery and source files and leads for Antikythera, gears, Saros, Metonic, Hipparchus and Babylonian astronomy; inspected matching records and all events.",
+    "result": "Existing gearing record has one dated archaeological event, already documenting construction but not the detailed surviving eclipse scale. Existing Babylonian astronomy record covers broad observation, predictive schemes and a general Greek transmission event. The open geared-astronomy lead was not modified; extension avoids a duplicate discovery."
+  },
+  "source_indices": [
+    {
+      "index": 0,
+      "id": "iversen-jones-2019-antikythera-eclipse-round1",
+      "provenance": "Corrected 2019 open access article, section 1, https://doi.org/10.1007/s00407-019-00229-9; text inspected online; excerpt saved."
+    },
+    {
+      "index": 1,
+      "id": "brack-bernsen-steele-2005-saros-round1",
+      "provenance": "2005 paper, abstract and pp. 181–182 inspected at https://epub.uni-regensburg.de/57952/1/27.cnt_1Ecl.PredL.B-BSteele.pdf; short abstract excerpt saved."
+    },
+    {
+      "index": 2,
+      "id": "freeth-2006-decoding-ancient-greek",
+      "provenance": "Existing source and saved abstract, dating of mechanism; historical age refers to construction, not first gear invention."
+    }
+  ],
+  "claims": [
+    {
+      "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json#/events/0/statement",
+      "claim": "Extend existing archaeological event to describe 223-month eclipse-possibility dial and about one third of the scale extant.",
+      "source_indices": [
+        0,
+        2
+      ],
+      "decision": "proposed, not reviewed"
+    },
+    {
+      "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json#/links/0",
+      "claim": "Candidate only: whether Babylonian 223-month methods contributed to the mechanism; common period is not proof of route.",
+      "source_indices": [
+        0,
+        1
+      ],
+      "decision": "proposed question, not established relation"
+    },
+    {
+      "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json#/research/unresolved/5",
+      "claim": "Require independent evidence on connection and intervening route.",
+      "source_indices": [
+        0,
+        1
+      ],
+      "decision": "proposed research question"
+    }
+  ],
+  "additions": {
+    "nodes": [],
+    "events": [],
+    "event_extensions": [
+      "archaeological-evidence-100bce: 223-month eclipse dial and survival scope"
+    ],
+    "edges": [
+      "candidate uses_theory to observational-and-mathematical-astronomy-in-babylonia; not drawn as established"
+    ],
+    "circumstances": []
+  },
+  "next_questions": [
+    "Find independent informative evidence of any specific transmission of Saros/eclipse theory into the mechanism, and distinguish shared cycle from direct influence.",
+    "Date earlier geared devices from original ancient witnesses and archaeology; construction date of this artefact is not the first gears.",
+    "Investigate subsequent uptake or disappearance independently; no loss or abandonment is inferred from catalogue gaps."
+  ],
+  "validation": "python3 tools/validate.py: No problems found (886 discoveries, 1469 events, 233 links, 1588 sources).",
+  "file_sha256": {
+    "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json": "f26ff0ef9c7ce0b152cc1761285561c76cf6e26538cd9c3e91385f5a04506e8a",
+    "data/sources/i/iversen-jones-2019-antikythera-eclipse-round1.json": "bffdf40b9410d80ccb3fcd5368b91e6b35e57e1a5ba19c2aacbe68cdde389494",
+    "evidence/i/iversen-jones-2019-antikythera-eclipse-round1.txt": "e8418a9f27956774e16df3b44f306cdd33ff784ccd61ed6675909516474bb3f1",
+    "data/sources/b/brack-bernsen-steele-2005-saros-round1.json": "5b2d0d2091cf437efb1c96ed5936642f6df8a6fc65dccd374a8803d04404ab66",
+    "evidence/b/brack-bernsen-steele-2005-saros-round1.txt": "5101a45aad8cd9f920e8b95a29707c713afff0dee6e1367c9187c20cc6856da7"
+  }
+}

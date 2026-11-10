@@ -46,7 +46,7 @@
         "label": "around the end of the 2nd century BC",
         "basis": "As the cited source gives it."
       },
-      "statement": "The Antikythera Mechanism, a Greek geared device, was constructed around the end of the second century BC; it is evidence that gear trains existed by then, not a date for the first gears.",
+      "statement": "The Antikythera Mechanism, a Greek geared device, was constructed around the end of the second century BC; it is evidence that gear trains existed by then, not a date for the first gears. Its eclipse dial represented a 223-lunar-month cycle and marked possible solar or lunar eclipses; about one third of the scale survives.",
       "places": [
         "antikythera-wreck"
       ],
@@ -55,6 +55,11 @@
           "source": "freeth-2006-decoding-ancient-greek",
           "supports": "constructed around the end of the second century bc",
           "locator": "Abstract"
+        },
+        {
+          "source": "iversen-jones-2019-antikythera-eclipse-round1",
+          "supports": "The spiral scale represents 223 lunar months, includes eclipse-possibility glyphs, and is about one third extant.",
+          "locator": "Section 1, The Mechanism’s eclipse function"
         }
       ]
     }
@@ -77,7 +82,8 @@
       "concept": "recalled",
       "places": "sourced",
       "societies": "recalled",
-      "known_from": "sourced"
+      "known_from": "sourced",
+      "links": "sourced"
     },
     "unresolved": [
       {
@@ -99,8 +105,33 @@
       {
         "about": "open question",
         "note": "Only the abstract of the Nature report was read; the full paper should give a closer date range."
+      },
+      {
+        "about": "open question",
+        "note": "The Babylonian-to-mechanism connection and any intervening transmission route need independent historical evidence; matching 223-month cycles alone do not establish a specific historical route."
       }
     ],
     "note": "The sources read date the Antikythera gearing but do not settle whether Greek gearing was independent of earlier gears elsewhere."
-  }
+  },
+  "links": [
+    {
+      "type": "uses_theory",
+      "from": "observational-and-mathematical-astronomy-in-babylonia",
+      "status": "candidate",
+      "statement": "Did the eclipse scheme represented on the Antikythera Mechanism draw on Babylonian astronomical methods involving the 223-month Saros?",
+      "scope": "The eclipse dial only; a shared cycle does not itself establish how or from whom knowledge reached the makers.",
+      "evidence": [
+        {
+          "source": "iversen-jones-2019-antikythera-eclipse-round1",
+          "locator": "Section 1",
+          "supports": "The dial represents a 223-month cycle with eclipse-possibility glyphs."
+        },
+        {
+          "source": "brack-bernsen-steele-2005-saros-round1",
+          "locator": "Abstract",
+          "supports": "Late Babylonian astronomy used the 223-synodic-month Saros for eclipse possibilities."
+        }
+      ]
+    }
+  ]
 }
