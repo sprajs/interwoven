@@ -656,8 +656,8 @@ function outlineBar(ctx: CanvasRenderingContext2D, x: number, w: number, top: nu
     ctx.fillStyle = alpha(INK, 0.05)
     ctx.fillRect(left, ceiling, right - left, floor - ceiling)
   }
-  ctx.strokeStyle = alpha(INK, 0.4)
-  ctx.lineWidth = 1
+  ctx.strokeStyle = alpha(INK, 0.3)
+  ctx.lineWidth = 0.75
   ctx.beginPath()
   ctx.moveTo(left, floor)
   ctx.lineTo(left, ceiling)

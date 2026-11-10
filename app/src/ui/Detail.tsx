@@ -310,11 +310,11 @@ function Lineage({ entry, links }: { entry: Entry; links: Link[] }) {
       {(earlier.length > 0 || later.length > 0) && (
         <div className="lineage">
           <h3>{earlier.length ? (later.length ? 'What it built on, and what followed' : 'What it built on') : 'What followed from it'}</h3>
+          {!earlier.length && <p className="lineage-more">Nothing it built on has been recorded yet.</p>}
           {earlier.slice(-RAIL).map((e) => row(e))}
           {row(entry, true)}
           {later.slice(0, RAIL).map((e) => row(e))}
           {hidden > 0 && <p className="lineage-more">and {hidden} more under Connections</p>}
-          {!earlier.length && <p className="lineage-more">Nothing it built on has been recorded yet.</p>}
         </div>
       )}
       {elsewhere.length > 0 && (

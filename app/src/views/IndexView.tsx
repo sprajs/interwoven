@@ -156,7 +156,7 @@ export function IndexView() {
                   {e.date ? yearLabel(e.date) : <span className="muted">No date yet</span>}
                 </td>
                 <td>{model.fieldNames.get(e.domain)}</td>
-                <td>{e.at ? model.bundle.places[e.at.place]?.name : <span className="muted">—</span>}</td>
+                <td>{e.at ? <PlaceCell id={e.at.place} /> : <span className="muted">—</span>}</td>
                 <td className="wide">{e.origin && e.origin !== 'unknown' ? words(e.origin) : <span className="muted">{e.origin ? 'Unsettled' : '—'}</span>}</td>
                 <td className="wide">{tierName(e.tier)}</td>
                 <td className="wide" title={`${e.filled} of ${facets} facets have a value`}>
@@ -173,6 +173,22 @@ export function IndexView() {
         </button>
       )}
     </div>
+  )
+}
+
+/** The most precise place, with its country in grey when the place is a site or a town. */
+function PlaceCell({ id }: { id: string }) {
+  const { places } = useModel().bundle
+  const place = places[id]
+  if (!place) return null
+  let country = place.within ? places[place.within] : undefined
+  while (country && country.kind !== 'country' && country.within) country = places[country.within]
+  const show = country && country.kind === 'country' && country.id !== place.id && ['site', 'settlement', 'area'].includes(place.kind)
+  return (
+    <>
+      {place.name}
+      {show && <span className="muted">, {country!.name}</span>}
+    </>
   )
 }
 

@@ -447,6 +447,9 @@ a:hover {
   left: var(--gutter);
   bottom: 8px;
   max-width: calc(100% - 2 * var(--gutter));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   z-index: 2;
   margin: 0;
   font-size: 13px;

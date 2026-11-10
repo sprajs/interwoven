@@ -4,7 +4,7 @@ import type { Category } from '../dims.ts'
 import { roundRect, useCanvas, useSize } from '../lib/canvas.ts'
 import { plural } from '../lib/text.ts'
 import { useApp, useDimension, useFiltered, useLimits, useMatches, useModel, useScale } from '../store.ts'
-import { alpha, font, INK, INK_2, INK_3, NEUTRAL, PAPER, RULE, RULE_SOFT, TINT } from '../theme.ts'
+import { alpha, font, INK, INK_2, INK_3, PAPER, RULE, RULE_SOFT, TINT } from '../theme.ts'
 import { makeAxis, panWindow, ticks, zoomWindow, type Axis } from '../time.ts'
 
 const RULER = 30
@@ -55,7 +55,7 @@ interface Layout {
  * Pile every discovery at its date. A pile is a count that can be checked by eye: each square is
  * one discovery, and squares that would overlap stack upward.
  */
-function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of: (e: Entry) => string, colorOf: Map<string, string>, width: number, height: number, measure: (text: string, bold: boolean) => number): Layout {
+function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of: (e: Entry) => string, colorOf: Map<string, string>, width: number, height: number, measure: (text: string, bold: boolean) => number, weight: (e: Entry) => number): Layout {
   const rows = categories ?? [null]
   const inView = entries.filter((e) => e.t! >= axis.t0 && e.t! <= axis.t1)
   const laneOf = (e: Entry) => (categories ? categories.findIndex((c) => c.id === of(e)) : 0)
@@ -117,7 +117,9 @@ function layout(entries: Entry[], axis: Axis, categories: Category[] | null, of:
   const labels: Label[] = []
   const lineHeight = 17
   const placed: { x0: number; x1: number; y0: number; y1: number }[] = []
-  const candidates = marks.filter((m) => m.entry.tier === 0).sort((a, b) => a.entry.t! - b.entry.t!)
+  // The landmarks that most later work rests on get first call on the room. A record with no place is never singled
+  // out in a row that exists to say it has none.
+  const candidates = marks.filter((m) => m.entry.tier === 0 && of(m.entry) !== 'none').sort((a, b) => weight(b.entry) - weight(a.entry) || a.entry.t! - b.entry.t!)
   for (const mark of candidates) {
     const lane = laneOf(mark.entry)
     const floor = lanes[lane]!.bottom - LANE_FOOT
@@ -155,6 +157,10 @@ export function Timeline() {
   const selected = useApp((s) => s.selected)
   const hoverId = useApp((s) => s.hover?.id ?? null)
   const [frame, size] = useSize<HTMLDivElement>()
+  const parallels = useMemo(() => {
+    const concept = selected ? model.byId.get(selected)?.concept : undefined
+    return new Set(concept ? model.entries.filter((e) => e.concept === concept && e.id !== selected).map((e) => e.id) : [])
+  }, [model, selected])
   const measurer = useRef<CanvasRenderingContext2D | null>(null)
 
   const plan = useMemo(() => {
@@ -169,9 +175,9 @@ export function Timeline() {
     const categories = dimension.categories.filter((c) => !hidden.has(`${dimension.id}:${c.id}`) && filtered.some((e) => dimension.of(e) === c.id))
     const colors = new Map(dimension.categories.map((c) => [c.id, c.color]))
     const dated = filtered.filter((e) => e.t !== undefined)
-    return layout(dated, axis, lanesOn ? categories : null, dimension.of, colors, size.width, size.height, measure)
+    return layout(dated, axis, lanesOn ? categories : null, dimension.of, colors, size.width, size.height, measure, (e) => model.outgoing.get(e.id)?.length ?? 0)
     // The fonts load once; measuring before then only shifts labels slightly.
-  }, [size, scale, span, dimension, filtered, lanesOn, hidden])
+  }, [size, scale, span, dimension, filtered, lanesOn, hidden, model])
 
   const canvas = useCanvas(
     size,
@@ -256,17 +262,29 @@ export function Timeline() {
 
       // Marks.
       const linked = new Set<string>()
-      if (focus) for (const link of model.linksOf.get(focus) ?? []) if (link.status === 'established') linked.add(link.from).add(link.to)
+      if (focus && layers.size > 0) for (const link of model.linksOf.get(focus) ?? []) if (link.status === 'established') linked.add(link.from).add(link.to)
+      // A selected record brings forward its kin: what it is linked to, and the other places
+      // that reached the same thing. Everything else steps back.
+      const kin = (id: string) => id === focus || id === selected || linked.has(id) || parallels.has(id)
+      const focused = (layers.size > 0 && focus !== null) || parallels.size > 0
       const radius = side >= 8 ? 2 : 1
       for (const mark of marks) {
         const { entry } = mark
         const unmatched = matches !== null && !matches.has(entry.id)
         // With links drawn and something in focus, what it is not linked to steps back a little.
-        const aside = layers.size > 0 && focus !== null && !linked.has(entry.id) && entry.id !== focus
+        const aside = focused && !kin(entry.id)
         roundRect(ctx, mark.x, mark.y, side, side, radius)
         // Paleness means minor and nothing else: what stands aside from a lineage turns grey.
-        ctx.fillStyle = unmatched ? alpha(mark.color, 0.13) : aside ? alpha(NEUTRAL, 0.42) : alpha(mark.color, entry.tier <= 1 ? 1 : MINOR)
+        ctx.fillStyle = unmatched ? alpha(mark.color, 0.13) : aside ? alpha(INK, 0.1) : alpha(mark.color, entry.tier <= 1 ? 1 : MINOR)
         ctx.fill()
+      }
+      // The other places that reached the same thing as the selected record are ringed.
+      for (const mark of marks) {
+        if (!parallels.has(mark.entry.id)) continue
+        roundRect(ctx, mark.x - 1.5, mark.y - 1.5, side + 3, side + 3, radius + 1)
+        ctx.strokeStyle = INK
+        ctx.lineWidth = 1.25
+        ctx.stroke()
       }
       for (const id of [selected, hoverId]) {
         const mark = id ? plan.byId.get(id) : undefined
@@ -298,7 +316,7 @@ export function Timeline() {
         ctx.lineWidth = 4
         ctx.lineJoin = 'round'
         ctx.strokeText(label.mark.entry.name, label.x, label.y + 12.5)
-        const setAside = layers.size > 0 && focus !== null && !linked.has(label.mark.entry.id)
+        const setAside = focused && !kin(label.mark.entry.id)
         ctx.fillStyle = setAside ? alpha(INK, 0.4) : INK
         ctx.fillText(label.mark.entry.name, label.x, label.y + 12.5)
       }
@@ -330,9 +348,28 @@ export function Timeline() {
         ctx.strokeText(chosen.entry.name, x, y)
         ctx.fillStyle = INK
         ctx.fillText(chosen.entry.name, x, y)
+        // A few of its parallels are named too, wherever a name fits beside its square.
+        const named = [{ x0: x, x1: x + w, y }, ...labels.map((l) => ({ x0: l.x, x1: l.x + l.width, y: l.y + 12.5 }))]
+        const already = new Set(labels.map((l) => l.mark.entry.id))
+        ctx.font = font(12.5, 500)
+        let count = 0
+        for (const mark of marks) {
+          if (!parallels.has(mark.entry.id) || already.has(mark.entry.id) || count >= 5) continue
+          const nw = ctx.measureText(mark.entry.name).width
+          const nx = mark.x + side + 6 + nw > width - PAD_X ? mark.x - 6 - nw : mark.x + side + 6
+          const ny = mark.y + side - 1
+          if (named.some((n) => Math.abs(n.y - ny) < 15 && nx < n.x1 + 8 && nx + nw > n.x0 - 8)) continue
+          named.push({ x0: nx, x1: nx + nw, y: ny })
+          count += 1
+          ctx.strokeStyle = PAPER
+          ctx.lineWidth = 4
+          ctx.strokeText(mark.entry.name, nx, ny)
+          ctx.fillStyle = INK_2
+          ctx.fillText(mark.entry.name, nx, ny)
+        }
       }
     },
-    [plan, matches, selected, hoverId, layers, model],
+    [plan, matches, selected, hoverId, layers, model, parallels],
   )
 
   const drag = useRef<{ x: number; moved: boolean; span: [number, number] } | null>(null)
@@ -403,11 +440,11 @@ export function Timeline() {
     >
       <canvas ref={canvas} style={{ width: size.width, height: size.height }} />
       <p className="caption">
-        {plural(plan?.marks.length ?? 0, 'discovery', 'discoveries')} in view, one square each, at its earliest record. {scale.hint}.
+        {plural(plan?.marks.length ?? 0, 'discovery', 'discoveries')} in view, one square each. {scale.hint}.
         <span className="caption-key">
           <i />
           <i />
-          paler squares are minor
+          {parallels.size > 0 ? 'grey: not one of these parallel discoveries' : selected && layers.size > 0 ? 'grey: outside this lineage' : 'paler squares are minor'}
         </span>
       </p>
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { roundRect, useCanvas, useSize } from '../lib/canvas.ts'
 import { useApp, useFiltered, useLimits, useScale } from '../store.ts'
 import { alpha, font, INK, INK_2, INK_3, PAPER } from '../theme.ts'
-import { formatSpan, formatYear, log, makeAxis, PRESENT, ticks } from '../time.ts'
+import { formatSpan, formatYear, log, makeAxis, PRESENT, squeezePast, ticks } from '../time.ts'
 import { Menu, MenuHeading, Option } from './Menu.tsx'
 
 const STARTS: { name: string; t: number | null; hint: string }[] = [
@@ -26,8 +26,9 @@ export function TimeBar() {
   const chosen = useScale()
   // On a calendar almost all of the data sits in the last sliver of the strip, where it cannot be
   // picked out. The strip is for finding one's way, so it falls back to the logarithm there.
-  const scale = chosen.id === 'calendar' ? log : chosen
   const limits = useLimits()
+  // Deep time holds a handful of records, so it gets a fixed, small share of the strip.
+  const scale = useMemo(() => squeezePast(chosen.id === 'calendar' ? log : chosen, -200000, limits, 0.07), [chosen, limits])
   const span = useApp((s) => s.window)
   const playing = useApp((s) => s.playing)
   const filtered = useFiltered()

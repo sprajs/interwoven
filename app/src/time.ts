@@ -116,6 +116,24 @@ export function panWindow(scale: TimeScale, [t0, t1]: [number, number], share: n
   return [scale.t(u0 + shift), scale.t(u1 + shift)]
 }
 
+/**
+ * The same scale with everything before `from` squeezed into a fixed share of its length. A strip
+ * that must reach back millions of years for a handful of records would otherwise spend much of
+ * its width on them.
+ */
+export function squeezePast(scale: TimeScale, from: number, [start, end]: [number, number], share: number): TimeScale {
+  if (start >= from) return scale
+  const uFrom = scale.u(from)
+  const head = ((scale.u(end) - uFrom) * share) / (1 - share)
+  const near = Math.log10(end - from)
+  const far = Math.log10(end - start)
+  return {
+    ...scale,
+    u: (t) => (t >= from ? scale.u(t) : uFrom - head * ((Math.log10(end - t) - near) / (far - near))),
+    t: (u) => (u >= uFrom ? scale.t(u) : end - 10 ** (near + ((uFrom - u) / head) * (far - near))),
+  }
+}
+
 /** The calendar year a moment falls in, with no year 0. */
 export function yearOf(t: number): number {
   const whole = Math.floor(t)
@@ -190,6 +208,7 @@ export function ticks(axis: Axis, minGap = 72): Tick[] {
     }
   }
   // The start of the axis always carries its date.
+  for (let i = out.length - 1; i >= 0; i--) if (out[i]!.x - axis.x0 < minGap && out[i]!.x - axis.x0 > 0.5) out.splice(i, 1)
   if (free(axis.x0)) out.push({ t: axis.t0, x: axis.x0, label: formatYear(axis.t0, y1 - y0 > 2000 ? 10 : 1), level })
   // No long stretch goes undated: put the roundest year that fits into any wide gap.
   for (let pass = 0; pass < 12; pass++) {
