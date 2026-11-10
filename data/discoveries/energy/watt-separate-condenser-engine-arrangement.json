@@ -23,7 +23,7 @@
     "data_or_measurements",
     "practical_need"
   ],
-  "why": "While repairing a model Newcomen engine Watt saw how much steam was wasted reheating the cylinder after each stroke.",
+  "why": "According to Watt’s later recollections and historical accounts, investigation of a troublesome Newcomen model led him to consider the heat lost in repeatedly cooling and reheating the working cylinder.",
   "limit_removed": [
     "power_or_energy",
     "cost"
@@ -166,7 +166,36 @@
       "fate": "recalled",
       "events": "reviewed",
       "impact": "recalled",
-      "grain": "recalled"
+      "grain": "recalled",
+      "links": "sourced"
     }
-  }
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "newcomen-atmospheric-pumping-engine",
+      "status": "candidate",
+      "statement": "Did Watt’s investigation of a Newcomen model lead to his development of separate condensation?",
+      "scope": "Historical development of the separate-condenser arrangement, rather than attachment of a condenser to the Glasgow Newcomen model.",
+      "caveats": "The Glasgow account also draws on Watt’s recollection; the University states there is no evidence a separate condenser was attached to its Newcomen model. The historical development link awaits independently informative corroboration.",
+      "evidence": [
+        {
+          "source": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter VII, printed pp. 119–124 and 127–129",
+          "supports": "Retrospective account of Watt’s work on the Newcomen model, heat loss and development of separate condensation; includes recollections attributed to Watt."
+        },
+        {
+          "source": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the University of Glasgow, paragraphs on model repair and separate condenser",
+          "supports": "University account connects work on its model with investigation of heat loss and the separate condenser; notes no evidence that the condenser was attached to that model."
+        },
+        {
+          "source": "russell-2019-james-watt-separate",
+          "locator": "Paragraphs beginning “The separate condenser resolved” and “By condensing the steam”",
+          "supports": "Independent museum explanation of the technical problem of cylinder cooling and separate condensation."
+        }
+      ],
+      "finding": "Watt’s retrospective recollection and later accounts associate the Newcomen model with the development; the independent museum source explains the technical mechanism but does not independently corroborate that historical sequence."
+    }
+  ]
 }

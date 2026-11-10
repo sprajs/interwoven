@@ -1,0 +1,108 @@
+{
+  "version": "tech-tree-components-context-v2",
+  "workflow": "Direct patch proposal; independent semantic review required before integration.",
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "execution": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "id": "/root/round2_steam",
+    "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/steam",
+    "started_utc": null,
+    "finished_utc": "2026-11-10T23:33:47.012063+00:00",
+    "elapsed_seconds": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "billing": null,
+    "revision_utc": "2026-11-10T23:37:23.428148+00:00"
+  },
+  "source_indices": [
+    {
+      "index": 0,
+      "id": "smiles-1865-lives-boulton-watt",
+      "source_path": "data/sources/s/smiles-1865-lives-boulton-watt.json",
+      "evidence_path": "evidence/s/smiles-1865-lives-boulton-watt.html",
+      "sha256": "d0b6485b4722360ae4f6c71c4d9d2a94d691eaed87a531daee32388a12f8bce7",
+      "locator": "Chapter VII, printed pp. 119–124, 127–129",
+      "provenance": "1865 historical account, reporting Watt’s later reminiscence; original manuscripts not inspected."
+    },
+    {
+      "index": 1,
+      "id": "glasgow-university-james-watt-university",
+      "source_path": "data/sources/g/glasgow-university-james-watt-university.json",
+      "evidence_path": "evidence/g/glasgow-university-james-watt-university.html",
+      "sha256": "960c6c625ba7c8558fdd99850d6dbb7d0cbf09735b522077d52f86f04ae38d50",
+      "locator": "Paragraphs beginning “Watt was asked by Anderson” and “The Newcomen engine that Watt worked on”",
+      "provenance": "Institutional account of surviving model; uses retrospective Watt recollection, not an independent eyewitness."
+    },
+    {
+      "index": 2,
+      "id": "russell-2019-james-watt-separate",
+      "source_path": "data/sources/r/russell-2019-james-watt-separate.json",
+      "evidence_path": "evidence/r/russell-2019-james-watt-separate.html",
+      "sha256": "4dd84ef5c55a280a7f8fd2213f7a158d4af43ee97727e111f0ea0be1c396a78c",
+      "locator": "Paragraphs beginning “The separate condenser resolved” and “By condensing the steam”",
+      "provenance": "Independent museum technical explanation; corroborates mechanism rather than the historical sequence."
+    }
+  ],
+  "duplicate_screen": {
+    "snapshot": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+    "queries": [
+      "Newcomen",
+      "Watt separate condenser",
+      "Bersham cylinder boring",
+      "Bloomfield"
+    ],
+    "findings": "Watt and Newcomen records already exist without a direct link. Bloomfield already has an established uses_process link to Bersham with configuration uncertainty; no duplicate is proposed. Glasgow source URL was absent from source records."
+  },
+  "claims": [
+    {
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json::$.links[0]",
+      "sources": [
+        0,
+        1,
+        2
+      ],
+      "claim": "Candidate question: Watt’s retrospective account associates Newcomen-model investigation with separate condensation; independent historical corroboration remains unresolved."
+    },
+    {
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json::$.why",
+      "sources": [
+        0,
+        1,
+        2
+      ],
+      "claim": "Explicitly attributed retrospective account of troublesome model and heat loss; independent historical corroboration remains unresolved."
+    },
+    {
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json::$.research.basis.prompted_by",
+      "sources": [],
+      "claim": "prompted_by remains recalled; existing categories are not separately sourced by this proposal."
+    }
+  ],
+  "additions": {
+    "nodes": [],
+    "edges": [],
+    "events": [],
+    "circumstances": [
+      "Watt: Newcomen model and heat loss"
+    ],
+    "candidate_edges": [
+      "newcomen-atmospheric-pumping-engine → watt-separate-condenser-engine-arrangement: builds_on"
+    ]
+  },
+  "next_questions": [
+    "Can an independent original source corroborate Watt’s retrospective recollection of the model’s role in developing separate condensation?",
+    "Did the exact through-bar configuration bore the Bloomfield cylinder? No individual machining log was found in this bounded screen.",
+    "What specific contemporary evidence links Newcomen development to earlier steam devices?"
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 888 discoveries, 1473 events, 234 links, 1594 sources; no problems",
+    "independent_semantic_review": "Initial review found source dependence; revised to candidate and attributed context, revision review pending."
+  },
+  "files_sha256": {
+    "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json": "0c46cd8b618b719436cac7705712289eadb68120711e524b6d953c473da046b3",
+    "data/sources/g/glasgow-university-james-watt-university.json": "7527792d058639ece9a1bf42043cfc6075b603dab1c2493f9106ef8042010480",
+    "evidence/g/glasgow-university-james-watt-university.html": "960c6c625ba7c8558fdd99850d6dbb7d0cbf09735b522077d52f86f04ae38d50"
+  }
+}
