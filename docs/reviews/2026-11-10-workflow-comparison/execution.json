@@ -1,0 +1,171 @@
+{
+  "recorded_utc": "2026-11-10T10:54:33.853971+00:00",
+  "execution": "Existing Codex CLI ChatGPT login; no API credential read or new credential provisioned.",
+  "official_sources": [
+    "https://developers.openai.com/api/docs/models",
+    "https://developers.openai.com/api/docs/guides/reasoning",
+    "https://developers.openai.com/api/docs/pricing",
+    "https://learn.chatgpt.com/docs/config-file/config-reference"
+  ],
+  "capability_checks": [
+    {
+      "artifact_sha256": "59f9f371cc1bfe7b4c5230f7b96d033b1fa5134735c8a2fe9b2d778236c0f0a6",
+      "artifact": "gpt-6.1-terra-low-events.jsonl",
+      "thread_id": "01a1c510-0580-7770-9eb5-2886a825a5c7",
+      "completed": true,
+      "usage": {
+        "input_tokens": 16477,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "artifact_sha256": "1ebd802d26ab10b7c1e19787c2cd6e69fe12868e4008167ee6506acd1b811e21",
+      "artifact": "gpt-6.1-terra-medium-events.jsonl",
+      "thread_id": "01a1c510-0580-74f0-9070-87bd02fa808d",
+      "completed": true,
+      "usage": {
+        "input_tokens": 16477,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "artifact_sha256": "eaf02321fb359277045e6443f84aca927552f0631b0838cbd83435b1e926f0c6",
+      "artifact": "luna-events.jsonl",
+      "thread_id": "01a1c50e-93e5-79f1-93a8-7e315560b7bf",
+      "completed": true,
+      "usage": {
+        "input_tokens": 15080,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "artifact_sha256": "20a3b4f833f2b567d350ec0a8fab2225d5d0e2ee26a3d7fe6bf464c72a1b97b2",
+      "artifact": "gpt-6-astra-medium-events.jsonl",
+      "thread_id": "01a1c510-235a-7952-b3e8-834ac9aa1899",
+      "completed": true,
+      "usage": {
+        "input_tokens": 11681,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "artifact_sha256": "d1fc85cdd34235a27255c2e5d9e1dc44f6d504c10df85021265b3cc533771adb",
+      "artifact": "compact-events.jsonl",
+      "thread_id": "01a1c510-f380-7a71-a4ed-94be76b44563",
+      "completed": true,
+      "usage": {
+        "input_tokens": 6469,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "artifact_sha256": "abe35091721e627e91549b9b05086339da3a99eea87b0f3a9286a4c27cbba4be",
+      "artifact": "gpt-6.1-sol-medium-events.jsonl",
+      "thread_id": "01a1c510-151b-7fd0-a99c-e3ffbfa6880b",
+      "completed": true,
+      "usage": {
+        "input_tokens": 11745,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "artifact_sha256": "fb14cfff4f56ca8dbf9e20503ed4e5c2eb5310e3b8ea773cad734d17f282d236",
+      "artifact": "gpt-6-astra-low-events.jsonl",
+      "thread_id": "01a1c510-160b-72e1-82a4-e3c0219b6e5c",
+      "completed": true,
+      "usage": {
+        "input_tokens": 11681,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "standard_short_context_rates_per_million": {
+    "gpt-6-luna": {
+      "input": 0.1,
+      "cached": 0.01,
+      "output": 0.5,
+      "write_30m": 0.125,
+      "write_12h": 0.25
+    },
+    "gpt-6.1-terra": {
+      "input": 1,
+      "cached": 0.05,
+      "output": 5,
+      "write_30m": 1.25,
+      "write_12h": 2.5
+    },
+    "gpt-6.1-sol": {
+      "input": 2,
+      "cached": 0.1,
+      "output": 10,
+      "write_30m": 2.5,
+      "write_12h": 5
+    },
+    "gpt-6-astra": {
+      "input": 10,
+      "cached": 1,
+      "output": 50,
+      "write_30m": 12.5,
+      "write_12h": 25
+    }
+  },
+  "pricing_scope": "Standard API-equivalent scenario, not observed subscription billing. Cache-write TTL unavailable; report separate counts and 30m/12h sensitivity. Reasoning already included in output.",
+  "provider_output_cap": "No documented Codex CLI max_output_tokens control; do not pass speculative/ignored keys. 1800 visible-token prompt target, 150-second timeout and aggregate guards, with at most four in-flight requests of overshoot.",
+  "reference_limit": "Independent source readings from Astra medium, blind to arms, then anonymous final-claim assessment. Same model family and model-only adjudication can correlate errors; source text, not agreement, supports claims. No independent historian/human reference is claimed.",
+  "quality_protocol": "At most three minimal source-backed claims. Claims are independently checked for source entailment, date scope, uncertainty, community/duplicate grain, origin and link support. Unresolved source access is defer, never historical rejection.",
+  "preservation": {
+    "working_files": 92,
+    "original_live_validation_errors": 33,
+    "private_state": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/workflow-20261110",
+    "resume_manifest_sha256": "6b7e354792a223a9f185bd29d4417d7683dfd16709841ab836fa55827d1b4202",
+    "note": "Archive+hash manifests outside tracked source. No unfinished record is implementation.",
+    "queue_candidates": 213,
+    "retained_acquisition_extraction_pairs": 181
+  },
+  "local_configuration_failures": {
+    "count": 4,
+    "provider_responses": 0,
+    "reason": "Built-in provider retry overrides rejected locally; removed before actual comparison responses",
+    "private_artifacts": "local-config-failure-before-provider"
+  },
+  "provider_retry_control": "Application retries zero; CLI built-in transport retry defaults unavailable/not disabled.150s process-group timeout.",
+  "reproduction": "Frozen source hashes can be relocated with BIG_IDEA_EVIDENCE_ROOT pointing to content-hash .txt files. No fixture rewrite required.",
+  "runtime": {
+    "python": "3.14.6",
+    "os": "Darwin 27.0.0",
+    "architecture": "arm64",
+    "logical_cpus": 11,
+    "codex_cli": "codex-cli 0.166.0",
+    "performance_scope": "Local elapsed request durations include provider/network/CLI overhead; no hardware throughput or end-to-end research campaign speedup inferred."
+  },
+  "public_source_url_scan": {
+    "flagged_access_bearing_urls": 0
+  },
+  "runtime_model_effort_check": {
+    "verified_calls": 607,
+    "mismatches": [],
+    "method": "Compare recorded runtime turn_context model/effort with each exact requested preset; no hidden reasoning read.",
+    "backend_weights_snapshot": "Not exposed; requested model aliases and response IDs retained."
+  }
+}

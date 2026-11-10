@@ -1,19 +1,20 @@
-"""Turn supervised research cards into records, sources, places and people.
+"""Compile independently reviewed cards, then optionally apply the staged records.
 
-    python3 tools/cards/admit.py verified.json [...]            # report what would be admitted
-    python3 tools/cards/admit.py verified.json [...] --apply    # write it
-    python3 tools/cards/admit.py verified.json --concepts curated.json --concept-map map.json --apply
-
-Only cards with the verdict "accept" or "accept_with_changes" are admitted. Run
-tools/cards/check_quotes.py on the same files first: an event whose quotation was found on its page
-is admitted as checked, with the passage saved under evidence/, and any other event carries a
-caveat. A record whose every quotation was found is marked sourced; otherwise it is a draft.
-
---concepts names a JSON object of concept records (id, name, summary, field) that cards may use
-before they exist in the register. --concept-map names a JSON object that renames a card's concept
-to one already in the register. docs/research-agents/ describes the cards.
+Usage: python3 tools/cards/admit.py cards.json [...] [--apply]
+The envelope must contain semantic_reviews keyed by gates.digest_card(card).
+Old supervisor verdicts and quotation-match flags alone never authorize writes.
+Explicit ``extends`` cards append reviewed events to an existing ID and require
+review of the target. Existing facts and research status remain intact.
+Optional --concepts/--concept-map retain the existing curated-concept interface.
 """
-import collections, datetime, json, re, sys, unicodedata
+import argparse
+import collections
+import copy
+import datetime
+import json
+import re
+import sys
+import unicodedata
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -21,243 +22,395 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 sys.path.insert(0, str(HERE))
 import dataset as ds
-from fetch_page import norm
+from fetch_page import norm, source_snapshot
+from gates import (claim_supported, dataset_snapshot, digest_card, exact_quote,
+                   link_supported, locate_span, valid_source, validate_review)
 
-def option(name):
-    return json.loads(Path(sys.argv[sys.argv.index(name) + 1]).read_text()) if name in sys.argv else {}
 
-APPLY = '--apply' in sys.argv
-OPTIONS = {sys.argv[i + 1] for i, a in enumerate(sys.argv[:-1]) if a in ('--concepts', '--concept-map')}
-FILES = [a for a in sys.argv[1:] if not a.startswith('--') and a not in OPTIONS]
-TODAY = datetime.date.today().isoformat()
-data = ds.Dataset.load()
-V = {k: set(v['values']) for k, v in data.vocab.items()}
-FIELDS = set(data.fields)
-CHECKS = ROOT / '.cache' / 'quote-checks.json'
-checks = json.loads(CHECKS.read_text()) if CHECKS.exists() else {}
-curated_concepts = option('--concepts')
-CONCEPT_MAP = option('--concept-map')
-report = collections.Counter()
-problems = []
-
-def slug(s, maxwords=None):
-    s = s.replace('Ø', 'O').replace('ø', 'o').replace('ʻ', '').replace('’', '').replace("'", '').replace('æ', 'ae').replace('ß', 'ss').replace('ł', 'l').replace('đ', 'd')
-    s = unicodedata.normalize('NFKD', s)
-    s = ''.join(c for c in s if not unicodedata.combining(c)).lower()
-    words = re.sub(r'[^a-z0-9]+', ' ', s).split()
+def slug(value, maxwords=None):
+    value = value.replace('Ø', 'O').replace('ø', 'o').replace('ʻ', '').replace('’', '').replace("'", '').replace('æ', 'ae').replace('ß', 'ss').replace('ł', 'l').replace('đ', 'd')
+    value = ''.join(c for c in unicodedata.normalize('NFKD', value) if not unicodedata.combining(c)).lower()
+    words = re.sub(r'[^a-z0-9]+', ' ', value).split()
     return '-'.join(words[:maxwords] if maxwords else words)
 
-STOP = set('a an the of on in and for to with by from at as its their this that into de la le des du der die das und el los las von van di da del e y et en new'.split())
-def source_id(src):
-    author = (src.get('authors') or [src.get('publisher') or 'anon'])[0] or 'anon'
-    words = re.sub(r'\(.*?\)', '', author).split()
-    key = slug(words[-1]) if 1 <= len(words) <= 3 and not re.search(r'(?i)museum|university|society|institut|press|editor|staff|britannica|unesco|smithsonian|library|nasa|national|department|magazine|news', author) else slug(' '.join(w for w in words if w.lower() not in STOP), 3)
-    year = src.get('year')
-    title = [w for w in slug(src['title']).split('-') if w not in STOP and not w.isdigit()][:3]
-    base = '-'.join(x for x in [key or 'anon', str(year) if isinstance(year, int) else 'nd', *title] if x)
-    return base
+
+def source_id(source):
+    from gates import digest
+    return slug(source['title'], 5) + '-' + digest(source.get('url'))[:16]
+
 
 def locate(text, quote):
-    """Where a quotation starts in a page's text. Accents and punctuation may differ, so a run of
-    four of its words is looked for, as written and then with accents dropped."""
-    for words in (quote.split(), norm(quote).split()):
-        for start in range(0, max(1, len(words) - 3)):
-            probe = re.compile(r'\W+'.join(re.escape(w.strip('.,;:()[]"“”‘’')) for w in words[start:start + 4]), re.I)
-            m = probe.search(text)
-            if m: return m.start()
-    return None
+    span = locate_span(text, quote)
+    return span[0] if span else None
 
-place_by_name = {}
-for p in data.registers['places'].values():
-    place_by_name[slug(p['name'])] = p['id']
-    for a in p.get('aliases', []): place_by_name.setdefault(slug(a), p['id'])
-new_places, new_people, new_societies, new_concepts, new_sources, new_records = {}, {}, {}, {}, {}, {}
-existing_names = {slug(r['name']): r['id'] for r in data.discoveries.values()}
 
-def place_id(p, card_places):
-    key = slug(p['name'])
-    if key in place_by_name: return place_by_name[key]
-    pid = key
-    if pid in data.registers['places'] or pid in new_places: pid = f"{key}-{slug(p.get('within') or p.get('country') or 'place')}"
-    kind = p.get('kind') if p.get('kind') in V['place_kind'] else 'area'
-    region = p.get('region') if p.get('region') in V['world_region'] else None
-    if region is None or not isinstance(p.get('lat'), (int, float)) or not isinstance(p.get('lon'), (int, float)):
-        return None
-    rec = {'id': pid, 'name': p['name'], 'kind': kind, 'lat': round(float(p['lat']), 2), 'lon': round(float(p['lon']), 2),
-           'country': p.get('country') if isinstance(p.get('country'), str) and re.fullmatch('[A-Z]{2}', p.get('country') or '') else None,
-           'region': region, 'within': None, 'basis': 'recalled'}
-    w = p.get('within')
-    if w and slug(w) in place_by_name and place_by_name[slug(w)] != pid: rec['within'] = place_by_name[slug(w)]
-    new_places[pid] = rec; place_by_name[key] = pid
-    return pid
+def event_signature(event):
+    """Repeated historical event excludes IDs, citation formatting and review prose."""
+    date = event.get('date') or {}
+    return json.dumps({'type': event.get('type'), 'statement': norm(event.get('statement', '')),
+                       'date': {key: date.get(key) for key in ('earliest', 'latest', 'status', 'precision')}},
+                      sort_keys=True, separators=(',', ':'))
 
-def point(year):
-    return {'year': int(year)}
 
-for path in FILES:
-    for card in json.load(open(path)).get('cards', []):
-        if card.get('verdict') not in ('accept', 'accept_with_changes'):
-            report['rejected'] += 1; continue
-        try:
-            name = card['name'].strip()
-            rid = slug(name)
-            if rid in data.discoveries or rid in new_records or slug(name) in existing_names:
-                report['duplicate'] += 1; problems.append(f'duplicate: {name}'); continue
-            field = card['field']
-            assert field in FIELDS, f'field {field}'
-            assert card['kind'] in V['kind']
-            srcs = card.get('sources') or []
-            sids = []
-            for s in srcs:
-                base = source_id(s); sid = base; i = 2
-                while (sid in data.sources or sid in new_sources) and (new_sources.get(sid, data.sources.get(sid, {})).get('url') != s.get('url')):
-                    sid = f'{base}-{i}'; i += 1
-                if sid not in data.sources and sid not in new_sources:
-                    rec = {'id': sid, 'title': s['title'], 'authors': [a for a in (s.get('authors') or []) if a] or [s.get('publisher') or 'Unknown'],
-                           'year': s.get('year') if isinstance(s.get('year'), int) else None, 'url': s.get('url')}
-                    if s.get('publisher'): rec['version'] = s['publisher']
-                    rec['access'] = s.get('access') if s.get('access') in V['access'] else 'partial-text'
-                    rec['accessed'] = TODAY
-                    rec['passages'] = []
-                    new_sources[sid] = rec
-                sids.append(sid)
-            cplaces = card.get('places') or []
-            pids = {}
-            for p in cplaces:
-                pid = place_id(p, cplaces)
-                if pid: pids[p['name']] = pid
-            events = []; used = set(); all_verified = True
-            for e in card.get('events') or []:
-                if e.get('type') not in V['event'] or not isinstance(e.get('source'), int) or e['source'] >= len(sids) or not e.get('quote'): continue
-                ly = e.get('latest_year'); ey = e.get('earliest_year')
-                if not isinstance(ly, int) or ly == 0: continue
-                if isinstance(ey, int) and (ey == 0 or ey > ly): ey = None
-                status = e.get('status') if e.get('status') in V['date_status'] else 'approximate'
-                precision = e.get('precision') if e.get('precision') in V['date_precision'] else 'year'
-                base = f"{e['type'].replace('_', '-')}-{abs(ly)}{'bce' if ly < 0 else ''}"; eid = base; i = 2
-                while eid in used: eid = f'{base}-{i}'; i += 1
-                used.add(eid)
-                check = checks.get(srcs[e['source']]['url'] + ' || ' + e['quote'], 'unchecked')
-                if e.get('checked') == 'tool' and check not in ('exact', 'near'): check = 'tool'
-                report[f'quote {check}'] += 1
-                if check not in ('exact', 'near'): all_verified = False
-                ev = {'id': eid, 'type': e['type'],
-                      'date': {'earliest': point(ey) if isinstance(ey, int) else None, 'latest': point(ly), 'precision': precision, 'status': status,
-                               'label': e.get('label') or str(ly), 'basis': 'As the cited source gives it.'},
-                      'statement': e['statement']}
-                if e.get('place') in pids: ev['places'] = [pids[e['place']]]
-                evid = {'source': sids[e['source']], 'supports': e['quote']}
-                if e.get('locator'): evid['locator'] = e['locator']
-                ev['evidence'] = [evid]
-                if check in ('exact', 'near'):
-                    new_sources.get(sids[e['source']], {}).get('passages', []).append({k: v for k, v in (('locator', e.get('locator')), ('quote', e['quote'])) if v})
-                else:
-                    ev['caveats'] = 'The quotation was read by the researcher and the supervisor in their own tools. It has not been re-checked against the page by machine.' if check in ('unreachable', 'unchecked', 'tool') else 'The quotation was not found on the cited page when re-checked. Verify before relying on this event.'
-                events.append((e, ev))
-            if not events:
-                report['no usable event'] += 1; problems.append(f'no event: {name}'); continue
-            events.sort(key=lambda x: x[1]['date']['latest']['year'])
-            er = card.get('earliest_record')
-            orig = card.get('events') or []
-            anchor = next((ev for e, ev in events if isinstance(er, int) and er < len(orig) and e is orig[er]), events[0][1])
-            anchor = min((ev for _, ev in events), key=lambda ev: ev['date']['latest']['year']) if anchor['date']['latest']['year'] > min(ev['date']['latest']['year'] for _, ev in events) else anchor
-            imp = card.get('impact') or {}
-            impact = {k: int(imp[k]) for k in ('reach', 'depth', 'generativity')}
-            assert all(0 <= v <= 3 for v in impact.values())
-            if imp.get('note'): impact['note'] = imp['note']
-            basis = {'summary': 'sourced', 'domain': 'sourced', 'tier': 'recalled', 'impact': 'recalled', 'grain': 'recalled', 'events': 'sourced'}
-            rec = {'id': rid, 'name': name, 'summary': card['summary'], 'description': card['description'], 'kind': card['kind'], 'domain': field,
-                   'tier': ds.tier_from(impact), 'impact': impact, 'grain': 'capability'}
-            adv = [a for a in card.get('advance') or [] if a in V['advance']]
-            if adv: rec['advance'] = adv; basis['advance'] = 'recalled'
-            if card.get('origin') in V['origin']:
-                rec['origin'] = card['origin']; basis['origin'] = 'sourced' if card.get('origin_note') else 'recalled'
-            concept = CONCEPT_MAP.get(card.get('concept'), card.get('concept'))
-            if concept and (concept in data.registers['concepts'] or concept in curated_concepts):
-                rec['concept'] = concept; basis['concept'] = 'recalled'
-                if concept not in data.registers['concepts']:
-                    c = curated_concepts[concept]
-                    new_concepts[concept] = {k: c[k] for k in ('id', 'name', 'summary', 'field') if c.get(k) and (k != 'field' or c[k] in FIELDS)}
-            pb = [a for a in card.get('prompted_by') or [] if a in V['prompted_by']]
-            if pb:
-                rec['prompted_by'] = pb; basis['prompted_by'] = 'sourced'
-                if card.get('why'): rec['why'] = card['why']
-            if pids: rec['places'] = [{'place': p} for p in dict.fromkeys(pids.values())]; basis['places'] = 'sourced'
-            ppl = []
-            for p in card.get('people') or []:
-                if not p.get('name') or p.get('role') not in V['person_role']: continue
-                pid = slug(p['name'])
-                if pid not in data.registers['people'] and pid not in new_people:
-                    row = {'id': pid, 'name': p['name'], 'basis': 'sourced'}
-                    for k in ('born', 'died'):
-                        if isinstance(p.get(k), int): row[k] = p[k]
-                    new_people[pid] = row
-                ppl.append({'person': pid, 'role': p['role']})
-            if ppl: rec['people'] = ppl; basis['people'] = 'sourced'
-            soc = card.get('society')
-            if isinstance(soc, dict) and soc.get('name'):
-                sid_ = slug(soc['name'])
-                if sid_ not in data.registers['societies'] and sid_ not in new_societies:
-                    new_societies[sid_] = {'id': sid_, 'name': soc['name'], 'kind': soc.get('kind') if soc.get('kind') in V['society_kind'] else 'people', 'basis': 'recalled'}
-                rec['societies'] = [sid_]; basis['societies'] = 'recalled'
-            kf = [a for a in card.get('known_from') or [] if a in V['known_from']]
-            if kf: rec['known_from'] = kf; basis['known_from'] = 'sourced'
-            if card.get('fate') in V['fate']: rec['fate'] = card['fate']; basis['fate'] = 'recalled'
-            rec['events'] = [ev for _, ev in events]
-            rec['earliest_record'] = {'event': anchor['id'], 'rationale': 'The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists.'}
-            research = {'status': 'sourced' if all_verified else 'draft', 'basis': basis}
-            oq = [q for q in card.get('open_questions') or [] if isinstance(q, str) and q.strip()]
-            if oq: research['unresolved'] = [{'about': 'open question', 'note': q} for q in oq]
-            if card.get('origin_note'): research['note'] = card['origin_note']
-            rec['_links'] = card.get('links') or []
-            rec['_sids'] = sids; rec['_srcs'] = srcs
-            rec['research'] = research
-            new_records[rid] = rec
-            report['accepted'] += 1
-        except Exception as e:
-            report['error'] += 1; problems.append(f"error {card.get('name')}: {type(e).__name__} {e}")
-
-# links between records, by name
-names = {slug(r['name']): r['id'] for r in list(data.discoveries.values()) + list(new_records.values())}
-for rec in new_records.values():
-    links = []
-    for l in rec.pop('_links'):
-        to = names.get(slug(l.get('to') or ''))
-        sids = rec['_sids']; srcs = rec['_srcs']
-        if not to or to == rec['id'] or l.get('type') not in V['link'] or not isinstance(l.get('source'), int) or l['source'] >= len(sids) or not l.get('quote'):
-            if l.get('to') and l.get('statement'):
-                rec['research'].setdefault('missing_prerequisites', []).append(f"{l['to']}: {l['statement']}")
+def merge_extension(original, addition):
+    """Append reviewed information without changing preexisting facts or status."""
+    merged = copy.deepcopy(original)
+    merged.setdefault('events', []).extend(addition['events'])
+    research = merged.setdefault('research', {'status': 'draft', 'basis': {}})
+    basis = research.setdefault('basis', {})
+    if not original.get('events'):
+        basis['events'] = 'reviewed'
+    for facet in ('summary', 'why', 'origin', 'advance', 'prompted_by', 'known_from', 'fate', 'concept', 'places', 'people'):
+        if facet not in addition:
             continue
-        check = checks.get(srcs[l['source']]['url'] + ' || ' + l['quote'], 'unchecked')
-        link = {'type': l['type'], 'from': to, 'status': 'established' if check in ('exact', 'near') else 'candidate', 'statement': l['statement']}
-        if link['status'] == 'established': link['evidence'] = [{'source': sids[l['source']], 'supports': l['quote']}]
-        links.append(link); report['links'] += 1
-    rec.pop('_sids'); rec.pop('_srcs')
-    if links:
-        r = rec.pop('research'); rec['links'] = links; r['basis']['links'] = 'sourced'; rec['research'] = r
+        if facet not in merged or merged[facet] in (None, [], {}):
+            merged[facet] = copy.deepcopy(addition[facet])
+            if facet in addition['research']['basis']:
+                basis[facet] = addition['research']['basis'][facet]
+        elif isinstance(merged[facet], list) and isinstance(addition[facet], list):
+            merged[facet].extend(copy.deepcopy(value) for value in addition[facet] if value not in merged[facet])
+    old_note = research.get('note')
+    research['note'] = (old_note + '\n' if old_note else '') + addition['research']['note']
+    for question in addition['research'].get('unresolved', []):
+        if question not in research.get('unresolved', []):
+            research.setdefault('unresolved', []).append(copy.deepcopy(question))
+    # Move the bounded event anchor only when a newly reviewed event is earlier.
+    old_anchor = next((event for event in original.get('events', [])
+                       if event['id'] == (original.get('earliest_record') or {}).get('event')), None)
+    candidate = min(addition['events'], key=lambda event: event['date']['latest']['year'])
+    if old_anchor is None or candidate['date']['latest']['year'] < old_anchor['date']['latest']['year']:
+        merged['earliest_record'] = {'event': candidate['id'], 'rationale':
+            'New reviewed evidence gives an earlier supported event for this community record; no claim of global priority.'}
+    return merged
 
-print(dict(report)); print('new places', len(new_places), 'people', len(new_people), 'societies', len(new_societies), 'concepts', len(new_concepts), 'sources', len(new_sources))
-for p in problems[:40]: print('  ', p)
-if APPLY:
-    for rec in new_records.values(): ds.write_json(ds.discovery_path(rec), rec)
-    used_sources = {e['source'] for r in new_records.values() for ev in r['events'] for e in ev['evidence']} | {e['source'] for r in new_records.values() for l in r.get('links', []) for e in l.get('evidence', [])}
-    from fetch_page import page_text
-    for sid, s in new_sources.items():
-        if sid not in used_sources: continue
-        # Keep the words around each checked quotation as evidence, so the check can be repeated.
-        text = page_text(s['url']) if s.get('url') else ''
+
+class SourceRows(dict):
+    def __init__(self):
+        super().__init__()
+        self.expected_content = {}
+        self.reviewed_quotes = {}
+
+
+def compile_cards(envelopes, data, snapshot, concepts=None, concept_map=None):
+    """Build records in memory; no requests or filesystem mutations occur here."""
+    concepts, concept_map = concepts or {}, concept_map or {}
+    vocab = {key: set(value['values']) for key, value in data.vocab.items()}
+    records, sources, new_concepts = {}, SourceRows(), {}
+    report, problems = collections.Counter(), []
+    existing = {slug(row['name']): row['id'] for row in data.discoveries.values()}
+    pending_links = {}
+    today = datetime.date.today().isoformat()
+    for envelope in envelopes:
+        for card in envelope.get('cards', []):
+            if card.get('verdict') not in ('accept', 'accept_with_changes'):
+                report['rejected'] += 1
+                continue
+            review = (envelope.get('semantic_reviews') or {}).get(digest_card(card))
+            errors = validate_review(card, review, snapshot)
+            if errors:
+                report['semantic gate blocked'] += 1
+                problems.append(f"{card.get('name', '?')}: {'; '.join(errors)}")
+                continue
+            supported = lambda path: claim_supported(card, review, path)
+            try:
+                extension = card.get('extends')
+                original = None
+                if extension:
+                    if extension not in data.discoveries:
+                        raise ValueError('extension target is not an existing discovery ID')
+                    if extension in records:
+                        raise ValueError('one extension per target per staged batch; combine reviewed cards first')
+                    original = data.discoveries[extension]
+                name = original['name'] if original else card['name'].strip()
+                rid = extension if original else slug(name)
+                if not original and (rid in data.discoveries or rid in records or slug(name) in existing):
+                    report['duplicate'] += 1
+                    continue
+                field = original['domain'] if original else card['field']
+                kind = original['kind'] if original else card['kind']
+                if field not in data.fields or kind not in vocab['kind']:
+                    raise ValueError('invalid field or kind')
+                srcs = card.get('sources') or []
+                sids = []
+                staged_sources = {}
+                for source in srcs:
+                    sid = next((key for key, row in data.sources.items()
+                                if row.get('url') == source.get('url')), source_id(source))
+                    sids.append(sid)
+                    if sid in sources:
+                        staged_sources[sid] = copy.deepcopy(sources[sid])
+                    elif sid in data.sources:
+                        staged_sources[sid] = copy.deepcopy(data.sources[sid])
+                        staged_sources[sid].setdefault('passages', [])
+                    else:
+                        staged_sources[sid] = {
+                            'id': sid, 'title': source['title'],
+                            'authors': [a for a in source.get('authors', []) if a] or [source.get('publisher') or 'Unknown'],
+                            'year': source.get('year') if type(source.get('year')) is int else None,
+                            'url': source.get('url'), 'access': 'full-text', 'accessed': today,
+                            'passages': []}
+                events, event_ids = [], {}
+                occupied = {event['id'] for event in original.get('events', [])} if original else set()
+                previous_events = {event_signature(event) for event in original.get('events', [])} if original else set()
+                repeated_events = 0
+                reviewed_quotes = {}
+                for i, event in enumerate(card.get('events') or []):
+                    index = event.get('source')
+                    if (not valid_source(index, srcs) or not supported(f'events.{i}.statement')
+                            or not supported(f'events.{i}.date')
+                            or event.get('type') not in vocab['event']):
+                        continue
+                    # Statement/date review must refer to the source cited by this event.
+                    claims = review['claims']
+                    if any(index not in claims[f'events.{i}.{part}']['sources'] for part in ('statement', 'date')):
+                        continue
+                    page = source_snapshot(srcs[index]['url'])
+                    if not exact_quote(page.get('text', ''), event.get('quote', '')):
+                        continue
+                    latest, earliest = event.get('latest_year'), event.get('earliest_year')
+                    if type(latest) is not int or latest == 0:
+                        continue
+                    if earliest is not None and (type(earliest) is not int or earliest == 0 or earliest > latest):
+                        raise ValueError('invalid reviewed event date range')
+                    if event.get('status') not in vocab['date_status'] or event.get('precision') not in vocab['date_precision']:
+                        raise ValueError('reviewed date must retain explicit status and precision')
+                    base = f"{event['type'].replace('_', '-')}-{i + 1}"
+                    eid = base
+                    suffix = 2
+                    while eid in occupied:
+                        eid = f'{base}-{suffix}'
+                        suffix += 1
+                    record = {'id': eid, 'type': event['type'],
+                              'date': {'earliest': {'year': earliest} if earliest is not None else None,
+                                       'latest': {'year': latest}, 'status': event['status'],
+                                       'precision': event['precision'], 'label': event.get('label') or str(latest),
+                                       'basis': claims[f'events.{i}.date']['rationale']},
+                              'statement': event['statement'],
+                              'evidence': [{'source': sids[index], 'supports': event['quote']}]}
+                    if event.get('locator'):
+                        record['evidence'][0]['locator'] = event['locator']
+                    signature = event_signature(record)
+                    if signature in previous_events:
+                        repeated_events += 1
+                        continue
+                    previous_events.add(signature)
+                    occupied.add(eid)
+                    event_ids[i] = eid
+                    events.append(record)
+                    reviewed_quotes.setdefault(sids[index], set()).add(event['quote'])
+                    if sids[index] in staged_sources:
+                        staged_sources[sids[index]]['passages'].append({'quote': event['quote'], **({'locator': event['locator']} if event.get('locator') else {})})
+                if not events:
+                    if original and repeated_events:
+                        report['extension unchanged'] += 1
+                        continue
+                    raise ValueError('no usable reviewed event')
+                anchor = min(events, key=lambda event: event['date']['latest']['year'])
+                record = {'id': rid, 'name': name, 'description': original['description'] if original else card['description'],
+                          'kind': kind, 'domain': field, 'events': events,
+                          'earliest_record': {'event': anchor['id'], 'rationale':
+                              'Earliest supported event in this reviewed card; no claim of global priority.'}}
+                basis = {'domain': 'reviewed', 'events': 'reviewed'}
+                # Optional facets appear only after their own semantic acceptance.
+                for facet in ('summary', 'why', 'origin'):
+                    if card.get(facet) and supported(facet):
+                        if facet == 'origin' and card[facet] not in vocab['origin']:
+                            continue
+                        record[facet] = card[facet]
+                        if facet != 'why':
+                            basis[facet] = 'reviewed'
+                for facet in ('advance', 'prompted_by', 'known_from'):
+                    if card.get(facet) and supported(facet):
+                        values = [value for value in card[facet] if value in vocab[facet]]
+                        if values:
+                            record[facet], basis[facet] = values, 'reviewed'
+                if record.get('why') and 'prompted_by' not in record:
+                    record.pop('why')
+                if card.get('fate') in vocab['fate'] and supported('fate'):
+                    record['fate'], basis['fate'] = card['fate'], 'reviewed'
+                concept = concept_map.get(card.get('concept'), card.get('concept'))
+                if concept and supported('concept') and (concept in data.registers['concepts'] or concept in concepts):
+                    record['concept'], basis['concept'] = concept, 'reviewed'
+                    if concept not in data.registers['concepts']:
+                        candidate = concepts[concept]
+                        # Curated definitions need their own review; the card's concept assignment cannot attest them.
+                        if supported('concept_definition'):
+                            new_concepts[concept] = {key: candidate[key] for key in ('id', 'name', 'summary', 'field') if candidate.get(key)}
+                        else:
+                            record.pop('concept'); basis.pop('concept')
+                # Reuse registered places/people only. New register facts need a separate reviewed import.
+                for facet, register, target in (('places', 'places', 'place'), ('people', 'people', 'person')):
+                    rows = []
+                    for i, item in enumerate(card.get(facet) or []):
+                        match = next((key for key, value in data.registers[register].items()
+                                      if slug(value['name']) == slug(item.get('name', ''))), None)
+                        if not match or not supported(f'{facet}.{i}'):
+                            continue
+                        row = {target: match}
+                        if facet == 'people':
+                            if item.get('role') not in vocab['person_role']:
+                                continue
+                            row['role'] = item['role']
+                        rows.append(row)
+                    if rows:
+                        record[facet], basis[facet] = rows, 'reviewed'
+                # The status covers only retained, independently reviewed claims.
+                record['research'] = {'status': 'sourced', 'basis': basis,
+                                      'note': 'Independent semantic review ' + str(review['reviewer']['id']) +
+                                              '; card ' + digest_card(card) + '; evidence ' + review['evidence_digest'] +
+                                              '; dataset ' + snapshot + '.'}
+                questions = [value for value in card.get('open_questions', []) if isinstance(value, str) and value.strip()]
+                if questions:
+                    record['research']['unresolved'] = [{'about': 'open question', 'note': value} for value in questions]
+                if original:
+                    record = merge_extension(original, record)
+                records[rid] = record
+                for sid, quotes in reviewed_quotes.items():
+                    sources.reviewed_quotes.setdefault(sid, set()).update(quotes)
+                for sid, row in staged_sources.items():
+                    sources.expected_content[sid] = source_snapshot(row['url']).get('content_sha256')
+                sources.update(staged_sources)
+                pending_links[rid] = (card, review, sids)
+                report['extended' if original else 'accepted'] += 1
+            except (KeyError, TypeError, ValueError) as error:
+                report['error'] += 1
+                problems.append(f"{card.get('name', '?')}: {error}")
+    names = dict(existing, **{slug(row['name']): rid for rid, row in records.items()})
+    for rid, (card, review, sids) in pending_links.items():
+        old_links = copy.deepcopy(records[rid].get('links', []))
+        links = []
+        for i, link in enumerate(card.get('links') or []):
+            target = names.get(slug(link.get('to', '')))
+            if (not target or target == rid or link.get('type') not in vocab['link']
+                    or not link_supported(card, review, i)):
+                report['unsupported link omitted'] += 1
+                continue
+            if any(old.get('type') == link['type'] and old.get('from') == target for old in old_links + links):
+                report['existing link preserved'] += 1
+                continue
+            links.append({'type': link['type'], 'from': target, 'status': 'established',
+                          'statement': link['statement'], 'evidence': [
+                              {'source': sids[link['source']], 'supports': link['quote']}]})
+            sources.reviewed_quotes.setdefault(sids[link['source']], set()).add(link['quote'])
+            if sids[link['source']] in sources:
+                sources[sids[link['source']]]['passages'].append({'quote': link['quote']})
+        if links:
+            records[rid]['links'] = old_links + links
+            if not old_links:
+                records[rid]['research']['basis']['links'] = 'reviewed'
+    return records, sources, new_concepts, report, problems
+
+
+def apply_records(records, sources, concepts, data, root=ROOT, *, queue=None, lease=None):
+    """Preflight every saved excerpt before the first dataset write. No fetching here."""
+    if queue is None or lease is None:
+        raise ValueError('apply requires the global workflow integrator lease')
+    queue.check_integrator(lease)
+    staged_data = copy.deepcopy(data)
+    staged_data.discoveries.update(records)
+    staged_data.sources.update(sources)
+    staged_data.registers['concepts'].update(concepts)
+    staged_data.paths.update({'discoveries/' + key: ds.discovery_path(row) for key, row in records.items()})
+    staged_data.paths.update({'sources/' + key: ds.source_path(key) for key in sources})
+    validation = staged_data.validate(check_files=False)
+    if validation:
+        raise ValueError('staged dataset invalid: ' + '; '.join(validation[:10]))
+    used = {evidence['source'] for record in records.values()
+            for item in record['events'] + record.get('links', []) for evidence in item.get('evidence', [])}
+    staged = []
+    for sid, source in sources.items():
+        if sid not in used or not sources.reviewed_quotes.get(sid):
+            continue
+        saved = source_snapshot(source['url'])
+        if saved.get('content_sha256') != getattr(sources, 'expected_content', {}).get(sid):
+            raise ValueError('saved source version changed since review: ' + sid)
+        text = saved.get('text', '')
         excerpts = []
-        for p in s['passages']:
-            at = locate(text, p['quote'])
-            if at is not None: excerpts.append(text[max(0, at - 500):at + len(p['quote']) + 500].strip())
-        if excerpts:
-            body = f"Excerpts from: {s['title']}\nAddress: {s['url']}\nSaved: {TODAY}\nThese are the passages around each quotation cited in the dataset, copied from the page as fetched.\n\n" + '\n\n----\n\n'.join(excerpts) + '\n'
-            rel = f'evidence/{sid[0]}/{sid}.txt'
-            (ROOT / rel).parent.mkdir(parents=True, exist_ok=True)
-            (ROOT / rel).write_text(body, encoding='utf-8')
-            s['file'] = {'path': rel, 'sha256': ds.sha256(ROOT / rel), 'representation': 'excerpt', 'method': 'Passages of about 500 characters either side of each cited quotation, cut from the fetched page text.'}
-        if not s['passages']: del s['passages']
-        ds.write_json(ds.source_path(sid), s)
-    for name, rows in (('places', new_places), ('people', new_people), ('societies', new_societies), ('concepts', new_concepts)):
-        if rows: ds.write_jsonl(ds.DATA / f'{name}.jsonl', list(data.registers[name].values()) + list(rows.values()))
-    print('written', len(new_records))
+        cited_quotes = sources.reviewed_quotes[sid]
+        for quote in cited_quotes:
+            span = locate_span(text, quote)
+            if span is None:
+                raise ValueError('saved source changed or complete quotation missing: ' + sid)
+            excerpts.append(text[max(0, span[0] - 500):span[1] + 500].strip())
+        if not excerpts:
+            raise ValueError('no saved source context: ' + sid)
+        body = (f"Excerpts from: {source['title']}\nAddress: {source['url']}\n"
+                f"Saved: {datetime.date.today().isoformat()}\n\n" + '\n\n----\n\n'.join(excerpts) + '\n')
+        relative = f'evidence/{sid[0]}/{sid}.txt'
+        previous = source.get('file') or {}
+        if previous:
+            old_path = (Path(root) / previous.get('path', '')).resolve()
+            if not old_path.is_relative_to(Path(root).resolve()) or not old_path.is_file():
+                raise ValueError('existing saved evidence unavailable: ' + sid)
+            if ds.sha256(old_path) != previous.get('sha256'):
+                raise ValueError('existing saved evidence hash changed: ' + sid)
+            if old_path.suffix != '.txt' or previous.get('representation') != 'excerpt':
+                raise ValueError('preserve existing full/binary source through a separate reviewed source version: ' + sid)
+            body = old_path.read_text(encoding='utf-8') + '\n\nAdditional reviewed passages:\n\n' + body
+        staged.append((sid, source, relative, body))
+    for sid, source, relative, body in staged:
+        queue.check_integrator(lease)
+        path = Path(root) / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(body, encoding='utf-8')
+        source['file'] = {'path': relative, 'sha256': ds.sha256(path),
+                          'representation': 'excerpt', 'method': 'Complete normalized quotation with surrounding source context.'}
+        ds.write_json(ds.source_path(sid), source)
+    for record in records.values():
+        queue.check_integrator(lease)
+        ds.write_json(ds.discovery_path(record), record)
+    if concepts:
+        queue.check_integrator(lease)
+        ds.write_jsonl(ds.DATA / 'concepts.jsonl', list(data.registers['concepts'].values()) + list(concepts.values()))
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('files', nargs='+')
+    parser.add_argument('--apply', action='store_true')
+    parser.add_argument('--concepts')
+    parser.add_argument('--concept-map')
+    parser.add_argument('--queue', help='private workflow SQLite database for the single integrator')
+    parser.add_argument('--owner', help='explicit integration lease owner')
+    args = parser.parse_args(argv)
+    if args.apply and (not args.queue or not args.owner):
+        parser.error('--apply requires --queue and --owner for the single integrator')
+    load = lambda path: json.loads(Path(path).read_text()) if path else {}
+    data = ds.Dataset.load()
+    snapshot = dataset_snapshot(ROOT)
+    envelopes = [load(path) for path in args.files]
+    records, sources, concepts, report, problems = compile_cards(
+        envelopes, data, snapshot, load(args.concepts), load(args.concept_map))
+    print(dict(report))
+    for problem in problems[:40]:
+        print('  ' + problem)
+    if args.apply:
+        from workflow import Queue
+        queue = Queue(args.queue)
+        lease = queue.claim_integrator(args.owner)
+        if lease is None:
+            raise SystemExit('apply blocked: another integrator owns the workflow lease')
+        try:
+            queue.check_integrator(lease)
+            if dataset_snapshot(ROOT) != snapshot:
+                raise SystemExit('dataset advanced; reviews require a fresh snapshot')
+            for envelope in envelopes:
+                for card in envelope.get('cards', []):
+                    if card.get('verdict') in ('accept', 'accept_with_changes'):
+                        errors = validate_review(card, (envelope.get('semantic_reviews') or {}).get(digest_card(card)), snapshot)
+                        if errors:
+                            raise SystemExit('apply blocked: evidence/review changed: ' + '; '.join(errors))
+            if problems:
+                raise SystemExit('apply blocked: resolve all semantic/compilation errors first')
+            apply_records(records, sources, concepts, data, queue=queue, lease=lease)
+            print('written', len(records))
+        finally:
+            try:
+                queue.release_integrator(lease)
+            except ValueError:
+                pass  # Expired/replaced owners must never release a newer integrator's lock.
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

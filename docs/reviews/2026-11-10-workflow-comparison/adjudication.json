@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "method": "100 original-source Astra medium readings before arm runs; 100 fresh Astra low source assessments of anonymous variants; five targeted blinded Sol medium secondary readings. All model-only and same family. No majority vote becomes ground truth.",
+  "primary_reference_standard": "model_only",
+  "primary_full_set_preserved": true,
+  "independent_historian_or_human_reference": false,
+  "source_dispute_selection": "Two calibration and three already-observed held-out source-scope/date/citation disputes; targeted, not random.",
+  "initial_vs_adjudication_decision_disagreements": [
+    "candidate-21aef7cfc838fe83"
+  ],
+  "secondary_targeted_rows": [
+    {
+      "case_id": "candidate-ce11c0179df1c2c8",
+      "name": "Crystallised cane sugar in northern India",
+      "split": "calibration",
+      "arm": "B",
+      "primary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": true,
+        "useful_reviewed_record": false
+      },
+      "claim_verdict_disagreements": 0,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-ce11c0179df1c2c8",
+      "name": "Crystallised cane sugar in northern India",
+      "split": "calibration",
+      "arm": "A",
+      "primary_flags": {
+        "false_admission": true,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 0,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-968b10c583db8c55",
+      "name": "Wet-rice paddy fields in the lower Yangtze",
+      "split": "calibration",
+      "arm": "A",
+      "primary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "claim_verdict_disagreements": 0,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-968b10c583db8c55",
+      "name": "Wet-rice paddy fields in the lower Yangtze",
+      "split": "calibration",
+      "arm": "B",
+      "primary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "claim_verdict_disagreements": 1,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "unsupported",
+          "error_types": [
+            "uncertainty"
+          ]
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-7e65426d0bcb3860",
+      "name": "Mosquito transmission of yellow fever in Havana",
+      "split": "held_out",
+      "arm": "A",
+      "primary_flags": {
+        "false_admission": true,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 2,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "unsupported",
+          "error_types": [
+            "quotation"
+          ]
+        },
+        {
+          "index": 1,
+          "verdict": "unsupported",
+          "error_types": [
+            "quotation"
+          ]
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-7e65426d0bcb3860",
+      "name": "Mosquito transmission of yellow fever in Havana",
+      "split": "held_out",
+      "arm": "B",
+      "primary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 0,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-a6dd38800455b97d",
+      "name": "Ondol underfloor heating in Korea",
+      "split": "held_out",
+      "arm": "B",
+      "primary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 0,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-a6dd38800455b97d",
+      "name": "Ondol underfloor heating in Korea",
+      "split": "held_out",
+      "arm": "A",
+      "primary_flags": {
+        "false_admission": true,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 1,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "unsupported",
+          "error_types": [
+            "uncertainty"
+          ]
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-cb0fff55ea145159",
+      "name": "Maritime quarantine in the Adriatic",
+      "split": "held_out",
+      "arm": "A",
+      "primary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 0,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-cb0fff55ea145159",
+      "name": "Maritime quarantine in the Adriatic",
+      "split": "held_out",
+      "arm": "B",
+      "primary_flags": {
+        "false_admission": true,
+        "false_reject": false,
+        "useful_reviewed_record": false
+      },
+      "secondary_flags": {
+        "false_admission": false,
+        "false_reject": false,
+        "useful_reviewed_record": true
+      },
+      "claim_verdict_disagreements": 1,
+      "primary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "unsupported",
+          "error_types": [
+            "link",
+            "uncertainty"
+          ]
+        }
+      ],
+      "secondary_claim_verdicts": [
+        {
+          "index": 0,
+          "verdict": "supported",
+          "error_types": []
+        },
+        {
+          "index": 1,
+          "verdict": "supported",
+          "error_types": []
+        }
+      ]
+    }
+  ],
+  "source_packet_sha256": "7ceadd5b6e4130a52ae0e2803a7ef06fc9a1fd4c4720c68bb3e99d6fca40796e",
+  "secondary_output_sha256": "9d87ceb63c6a95b54e70d99c2723e53053d1f9de66f5e7612cfcb45ec9be85c6",
+  "primary_judgments_sha256": "b8dc00cd990ffdd88a0903b06214b4d23855610fcec604945e6044cfe4bbaf2d",
+  "root_source_reading_notes": [
+    "The yellow-fever quotations are present in the supplied passage, but Arm A cites a nonexistent source identifier; source-support disagreement cannot override the deterministic reference gate.",
+    "The Ondol source uses tentative clay dating. The primary assessment treats loss of that qualifier as an uncertainty error; the secondary reader accepts attributed dates. Preserve this interpretive disagreement.",
+    "The Venetian lazaretto source explicitly says it became a model. The primary assessment applies the preregistered corroboration rule for transmission assertions; the secondary reader accepts direct passage entailment. This is not a finding that the institutional history is false.",
+    "The Nanchoc abstract locates coca leaves in house floors but does not explicitly assign the accompanying calcite that exact find context. The reviewed combined location claim remains broader than the supplied statement.",
+    "The sugar textual-extension and paddy-reservoir interpretations remain sensitive to grain/qualification. Calibration does not select held-out prompts; no canonical quality label was changed merely because another model disagreed."
+  ],
+  "schema_repairs": 1,
+  "schema_repair_policy": "One versioned Astra-low repair of wrong output schema, same case/evidence/variants; original response retained and included in accounting."
+}

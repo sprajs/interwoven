@@ -1,0 +1,61 @@
+{
+  "baseline_snapshot": {
+    "commit": "f5a5c352cf07475397726a635ddb04d69807bcd6",
+    "data_hash": "d7b894e96ec4ebda9da14d8d8c20f06173553eeee69d94e01e89a30382924931"
+  },
+  "task_manifest_hash": "208a6bcf51292856a81514286b66fa0342faaacdfdc67615bda5cff53ef531d8",
+  "exact_changed_files_validated": 41,
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "tools/validate.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--prefix",
+        "app"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "returncode": 0
+    }
+  ],
+  "python_tests_passed": 157,
+  "app_tests_passed": 53,
+  "original_working_files": 92,
+  "original_hash_mismatches": [],
+  "live_tree_known_errors": 33,
+  "validation_scope": "Committed baseline plus exact task-owned changes in an isolated disposable snapshot; original research remains uncommitted.",
+  "rendered_report": {
+    "url": "http://127.0.0.1:63657/?view=1",
+    "delivery": "Session-only loopback preview; automatic user-service startup failed and was cleaned up.",
+    "desktop_width": 1291,
+    "narrow_width": 360,
+    "document_horizontal_overflow_at_narrow_width": false,
+    "case_filter_counts": {
+      "all": 200,
+      "calibration": 40,
+      "held_out": 160
+    },
+    "case_drilldown_verified": true,
+    "cost_split_updates_verified": true,
+    "both_cost_charts_visible": true,
+    "proposal_and_quality_values_checked": true,
+    "raw_pipe_tables_removed": true,
+    "application_console_errors_observed": 0,
+    "title_editor_verified": true,
+    "build_status": "complete",
+    "screenshot_sha256": "253a15ef3d4ec4401079cc0ab52ca0eb97523ba450dabe4fffcb967faac5483a"
+  }
+}
