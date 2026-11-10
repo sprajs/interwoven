@@ -4,10 +4,10 @@ These are research cards from a second research wave that was stopped before any
 
 | Folder | What it holds |
 | --- | --- |
-| `leads/` | The curated leads each batch was given: 19 batches, about six leads each |
+| `leads/` | The curated leads each batch was given: 20 batches, about six leads each |
 | `cards/` | What a researcher with web search wrote for each lead: 111 cards |
 
-Of the 111 cards, the researcher marked 18 as confirmed, 79 as revised (the sources disagreed with the lead's date, place or claim) and 14 as unverified. Batch 208 has leads and no cards.
+Of the 111 cards, the researcher marked 18 as confirmed, 79 as revised (the sources disagreed with the lead's date, place or claim) and 14 as unverified. Batch 215 has leads and no cards: its researcher had not finished.
 
 ## What has and has not been done
 
