@@ -77,9 +77,9 @@ IMPACT = ("reach", "depth", "generativity")
 def tier_from(impact: dict) -> int:
     """The tier that a set of impact scores gives. docs/importance.md states the rule."""
     total = sum(impact[key] for key in IMPACT)
-    if impact["generativity"] == 3 and total >= 7:
+    if impact["generativity"] == 3 and total >= 6:
         return 0
-    return 1 if total >= 5 else 2 if total >= 3 else 3
+    return 1 if total >= 4 else 2 if total >= 2 else 3
 
 
 def read_json(path: Path) -> Any:

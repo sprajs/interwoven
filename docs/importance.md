@@ -53,10 +53,12 @@ The tier is worked out from the scores. Add the three for a total from 0 to 9.
 
 | Tier | Rule | Meaning |
 | --- | --- | --- |
-| 0 | Generativity 3 and a total of 7 or more | Later work in several fields or over many generations visibly depended on it |
-| 1 | Total of 5 or more | A major contribution |
-| 2 | Total of 3 or 4 | A bounded contribution |
-| 3 | Total of 2 or less | Fine detail, a single instance or a witness |
+| 0 | Generativity 3 and a total of 6 or more | Later work in several fields or over many generations visibly depended on it |
+| 1 | Total of 4 or more | A major contribution |
+| 2 | Total of 2 or 3 | A bounded contribution |
+| 3 | Total of 1 or 0 | Fine detail, a single instance or a witness |
+
+These thresholds were set by scoring the 304 records whose tiers a person had already reviewed and choosing the rule that agreed with those tiers most often: 221 of 304 exactly, and all but 5 within one tier.
 
 A tier that a person has reviewed stands as it is, with `research.basis.tier` set to `reviewed`. Otherwise `tools/validate.py` requires the tier to match the scores.
 

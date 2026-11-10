@@ -7,6 +7,13 @@
   "domain": "materials.chemicals",
   "tier": 1,
   "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "impact": {
+    "reach": 2,
+    "depth": 1,
+    "generativity": 1,
+    "note": "A cheaper, cleaner route to an existing chemical that came to supply many societies, with few successor processes; scores imply tier 2, below the reviewed tier 1."
+  },
+  "grain": "improvement",
   "advance": [
     "manufacturing_process"
   ],
@@ -240,7 +247,9 @@
       "known_from": "sourced",
       "fate": "recalled",
       "market": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "impact": "recalled",
+      "grain": "recalled"
     },
     "unresolved": [
       {

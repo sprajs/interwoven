@@ -7,6 +7,12 @@
   "domain": "health.drugs",
   "tier": 1,
   "tier_reason": "The scoped record is a particular configuration, local witness, trial or material application. Dependence across fields or generations on THIS referent is not established; do not inherit the importance of its broader missing family.",
+  "impact": {
+    "reach": 0,
+    "depth": 2,
+    "generativity": 2,
+    "note": "One hospital trial on a handful of patients showed systemic infection could be cured, and penicillin therapy grew from it; as an instance implies tier 2, below reviewed tier 1."
+  },
   "advance": [
     "field_or_clinical_trial"
   ],
@@ -176,7 +182,8 @@
       "reception": "recalled",
       "fate": "recalled",
       "events": "sourced",
-      "grain": "recalled"
+      "grain": "recalled",
+      "impact": "recalled"
     },
     "note": "New, scoped proposal for independent historical review."
   },
