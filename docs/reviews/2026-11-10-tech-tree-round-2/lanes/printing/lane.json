@@ -1,0 +1,70 @@
+{
+  "prompt_version": "tech-tree-components-context-v2",
+  "workflow": "Direct patch proposal revised after independent review; final semantic rereview required before integration.",
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "model": "gpt-6.1-terra",
+  "effort": "high",
+  "execution_id": "/root/round2_printing",
+  "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/printing",
+  "created_utc": "2026-11-10T23:32:25.500708+00:00",
+  "elapsed_seconds": null,
+  "usage": {
+    "tokens": null,
+    "billing": null
+  },
+  "source_indices": [
+    {
+      "index": 0,
+      "source": "republic-korea-unesco-2001-buljo-jikji-simche",
+      "locator": "PDF p. 4, Method of typecasting and publishing of Jikji",
+      "independence": "2001 retrospective nomination; source of reported lay funding, no independent contemporary receipt inspected",
+      "sha256": "1006552eab0d4ad8add28b4d02e559e364ad9d62577d5713a9c55adeb1bf18fc"
+    }
+  ],
+  "claims": {
+    "/funding/0": {
+      "sources": [
+        0
+      ],
+      "qualification": "community represents lay donations, not a quantified budget or specific institutional payer"
+    },
+    "/research/unresolved/0": {
+      "sources": [
+        0
+      ],
+      "qualification": "open question; nomination explanation not admitted as established cause or adaptation"
+    },
+    "/research/status": {
+      "qualification": "downgraded for new unreviewed addition"
+    },
+    "/research/basis/funding": {
+      "sources": [
+        0
+      ]
+    }
+  },
+  "duplicate_screen": "Screened both existing Jikji editions, earlier Sangjeong edition, communication printing records and existing source catalogue. Funding by lay donors was mentioned in the woodblock availability evidence but absent from its funding facet and event contributions. No additional nodes or edges admitted.",
+  "additions": {
+    "nodes": 0,
+    "events": 0,
+    "established_edges": 0,
+    "circumstances": 1
+  },
+  "next_questions": [
+    "Inspect contemporary edition records and independently informative scholarship on whether limited output motivated the 1378 edition and whether the 1377 edition served as exemplar.",
+    "Investigate casting method without treating mutually incompatible modern reconstruction arguments as proof of the original."
+  ],
+  "limitations": [
+    "No contemporary transaction record or identities of lay donors inspected.",
+    "Independent corroboration of causal link absent; the nomination reports an explanation but it is not admitted as causation.",
+    "The nomination and modern publications disagree on casting details; no exact process is inferred."
+  ],
+  "files_sha256": {
+    "data/discoveries/communication/jikji-woodblock-edition.json": "4873b93507b48d0a8ecc4e07081703d0ee0610dcdd33ea577baf23effca77e4b"
+  },
+  "original_evidence_sha256": {
+    "evidence/r/republic-korea-unesco-2001-buljo-jikji-simche.pdf": "1006552eab0d4ad8add28b4d02e559e364ad9d62577d5713a9c55adeb1bf18fc"
+  },
+  "validation": "python3 tools/validate.py: No problems found (rerun after final patch)",
+  "review_revision": "Removed the funder contribution from the archaeological evidence event because it describes a production role, not the surviving-artifact evidence stage. Restored events basis reviewed; existing availability event evidence cites the donation source."
+}
