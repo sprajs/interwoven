@@ -1,0 +1,227 @@
+{
+  "verdict": "accept",
+  "workflow": "Direct dataset patch review, not cards. Independent semantic review only, not integration authorization.",
+  "prompt_version": "tech-tree-components-context-v2",
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "worker_commit": "e1c875f59f30f18e9e3cfe68d441d88fa8a46d35",
+  "researcher": {
+    "execution_id": "/root/round2_ceramics",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "reviewer": {
+    "execution_id": "/root/round2_review_ceramics",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "file_sha256": {
+    "data/discoveries/materials/proto-porcelain-in-shang-china.json": "a1d9e0b5d6372576d867f1a84231a886121056ad4ebad39a72a637dd0a047b58",
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json": "965c899df1452703e870907bec2934767fedffc3cf90e21f14279d4dc7acb02e",
+    "data/sources/m/m-2012-earliest-high-fired.json": "ffb0a01996d501b1acc3be47b4cae1ba68c1dbc131f0aff331e6e4e761eabed9",
+    "docs/reviews/2026-11-10-tech-tree-round-2/lanes/ceramics/lane.json": "e758d6a73ffa412208dde0710c1ed62c765361438e2956745993646441c2548f",
+    "evidence/m/m-2012-earliest-high-fired-thesis.pdf.cache.json": "641f13183a8f3cdfb6f167bf502f016887a5d75a887bbde186e70473557b4572"
+  },
+  "source_sha256": {
+    "evidence/m/m-2012-earliest-high-fired-thesis.pdf": "d1ee6235191dc3d01bb35816979334965353187d77fddaecc7062899e45f5d00",
+    "/Users/szymon/Documents/ChatGPT/big_idea-research-state/workflow-20261110/tech-tree-round-2/ceramics/yin-2012-thesis.pdf": "d1ee6235191dc3d01bb35816979334965353187d77fddaecc7062899e45f5d00"
+  },
+  "source_read": {
+    "source_id": "m-2012-earliest-high-fired",
+    "locator": "pp. 3, 72–75, 132–143, 147–149, Appendix 3 Table A 3.1 p. 271",
+    "finding": "Abstract reports 61 proto-porcelain sherds from eight Deqing sites. Table 3.1 lists 12 excavated Nanshan sherds and a kiln wall in Shang; Appendix 3 tabulates glaze chemistry for four Nanshan sherds. The author reconstructs deliberate application and wood ash as most likely from composition, not direct observation. Pages 142–143 explicitly do not resolve washed versus potash-depleted firebox ash."
+  },
+  "claims": {
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/id": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–135, 138–143",
+      "rationale": "A ceramic glazing manufacturing process interpreted for Deqing production samples; descriptive identity makes no priority or transmission claim."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/name": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–135, 138–143",
+      "rationale": "A ceramic glazing manufacturing process interpreted for Deqing production samples; descriptive identity makes no priority or transmission claim."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/kind": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–135, 138–143",
+      "rationale": "A ceramic glazing manufacturing process interpreted for Deqing production samples; descriptive identity makes no priority or transmission claim."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/domain": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–135, 138–143",
+      "rationale": "A ceramic glazing manufacturing process interpreted for Deqing production samples; descriptive identity makes no priority or transmission claim."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/advance": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–135, 138–143",
+      "rationale": "A ceramic glazing manufacturing process interpreted for Deqing production samples; descriptive identity makes no priority or transmission claim."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/places/0": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "p. 73, Table 3.1",
+      "rationale": "Nanshan is one of the eight Deqing, Zhejiang kiln sites; Zhejiang is an appropriately broad registered location."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/events/0/places/0": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "p. 73, Table 3.1",
+      "rationale": "Nanshan is one of the eight Deqing, Zhejiang kiln sites; Zhejiang is an appropriately broad registered location."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/known_from/0": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 73–75, Table 3.1",
+      "rationale": "Nanshan sherds were excavated and table attributes the kiln to Shang; archaeological evidence is an appropriate event role, not an invention date."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/events/0/type": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 73–75, Table 3.1",
+      "rationale": "Nanshan sherds were excavated and table attributes the kiln to Shang; archaeological evidence is an appropriate event role, not an invention date."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/events/0/id": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 73–75, Table 3.1",
+      "rationale": "Nanshan sherds were excavated and table attributes the kiln to Shang; archaeological evidence is an appropriate event role, not an invention date."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/events/0/date": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "p. 3 abstract; p. 73 Table 3.1",
+      "rationale": "Source dates Shang broadly c. 1700–1027 BCE and assigns Nanshan samples to Shang; bounded range dates evidence only and does not claim first use."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/earliest_record": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "p. 3 abstract; p. 73 Table 3.1",
+      "rationale": "Source dates Shang broadly c. 1700–1027 BCE and assigns Nanshan samples to Shang; bounded range dates evidence only and does not claim first use."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/research/unresolved/0": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 73–75, 141–143",
+      "rationale": "Yin identifies wood ash as most likely and expressly cannot decide washed versus firebox ash from these analyses; extent and origin remain open."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/research/unresolved/1": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 73–75, 141–143",
+      "rationale": "Yin identifies wood ash as most likely and expressly cannot decide washed versus firebox ash from these analyses; extent and origin remain open."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/research/status": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–143, 271",
+      "rationale": "Sourced preserves analytical inference rather than presenting it as independently corroborated reviewed fact; basis accurately indicates provenance."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/research/basis": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73–75, 132–143, 271",
+      "rationale": "Sourced preserves analytical inference rather than presenting it as independently corroborated reviewed fact; basis accurately indicates provenance."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/summary": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73, 132–135, 138–143, Appendix 3 Table A 3.1 p. 271",
+      "rationale": "Corrected text attributes reconstruction to Yin, distinguishes 12 excavated sherds from four glaze analyses, and cites the body-reaction, ash-preparation and sample-table passages precisely."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/description": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73, 132–135, 138–143, Appendix 3 Table A 3.1 p. 271",
+      "rationale": "Corrected text attributes reconstruction to Yin, distinguishes 12 excavated sherds from four glaze analyses, and cites the body-reaction, ash-preparation and sample-table passages precisely."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/events/0/statement": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73, 132–135, 138–143, Appendix 3 Table A 3.1 p. 271",
+      "rationale": "Corrected text attributes reconstruction to Yin, distinguishes 12 excavated sherds from four glaze analyses, and cites the body-reaction, ash-preparation and sample-table passages precisely."
+    },
+    "data/discoveries/materials/wood-ash-glazing-at-deqing.json/events/0/evidence/0": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73, 132–135, 138–143, Appendix 3 Table A 3.1 p. 271",
+      "rationale": "Corrected text attributes reconstruction to Yin, distinguishes 12 excavated sherds from four glaze analyses, and cites the body-reaction, ash-preparation and sample-table passages precisely."
+    },
+    "data/discoveries/materials/proto-porcelain-in-shang-china.json/research/basis/links": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73, 138–143, 271",
+      "rationale": "Sourced reflects this single-study analytical interpretation, not independent corroboration."
+    },
+    "data/discoveries/materials/proto-porcelain-in-shang-china.json/links/0": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 3, 73, 132–135, 138–143, Appendix 3 Table A 3.1 p. 271",
+      "rationale": "Yin interprets deliberate wood-ash treatment in sampled Deqing proto-porcelain, including four Shang Nanshan glazes. The corrected edge describes a functional process relationship on those samples, preserves inference and ash-preparation uncertainty, and claims neither transmission nor universal necessity."
+    },
+    "data/sources/m/m-2012-earliest-high-fired.json/access": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "Original thesis PDF",
+      "rationale": "Partial-text is conservative; local original PDF byte hash verified. This does not imply that every page was reviewed."
+    },
+    "data/sources/m/m-2012-earliest-high-fired.json/file": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "Original thesis PDF",
+      "rationale": "Partial-text is conservative; local original PDF byte hash verified. This does not imply that every page was reviewed."
+    },
+    "data/sources/m/m-2012-earliest-high-fired.json/passages/1": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "p. 3 abstract; pp. 73–75 Table 3.1",
+      "rationale": "Source notes accurately describe the author’s interpretation and twelve excavated sherds; distinguish collected sherds from glaze analyses."
+    },
+    "data/sources/m/m-2012-earliest-high-fired.json/passages/2": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "p. 3 abstract; pp. 73–75 Table 3.1",
+      "rationale": "Source notes accurately describe the author’s interpretation and twelve excavated sherds; distinguish collected sherds from glaze analyses."
+    },
+    "data/sources/m/m-2012-earliest-high-fired.json/passages/3": {
+      "decision": "accept",
+      "source_id": "m-2012-earliest-high-fired",
+      "locator": "pp. 132–135, 138–143, Appendix 3 Table A 3.1 p. 271",
+      "rationale": "Corrected source note identifies the reaction argument, ash-preparation uncertainty and Nanshan glaze analysis table at the pages cited."
+    }
+  },
+  "duplicate_extension": {
+    "decision": "accept",
+    "target": "proto-porcelain-in-shang-china",
+    "rationale": "Base record describes Deqing ash glazing but records broad Shang China proto-porcelain archaeological evidence and Zhou prevalence, not a separate process event; a narrowly scoped manufacturing process is distinct in grain. It is not a claim of separate independent invention or mere regional adoption."
+  },
+  "relation": {
+    "decision": "accept",
+    "direction": "uses_process from proposed process to proto-porcelain achievement",
+    "context": "Functional process for analysed Deqing wares; same-study interpretive inference, not historical transmission or strict universal prerequisite. Cross-event dates refer to related samples and a broad Shang archaeological event, not proof of manufacture at other locations."
+  },
+  "independence": "The thesis and Yin/Rehren/Zheng article represent overlapping research and do not constitute independent corroboration. No consequential transmission or priority claim approved.",
+  "protected_paths": {
+    "manifest": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/workflow-20261110/tech-tree-round-2/preserved-manifest.json",
+    "manifest_sha256": "fa6a131ba09a27ac2e1158e823985d6f5be7180f9153ec527d98b4370403c491",
+    "manifest_entries": 92,
+    "comparison": "All five paths in base-to-final commit diff plus review artifact path were compared against the manifest; intersection empty. This is a path nonoverlap check, not a verification of protected files current contents.",
+    "overlap": []
+  },
+  "limitations": [
+    "Only single study examined; chemical reconstruction is interpretive.",
+    "Date bounds reflect dynasty assignment, not a narrowly dated invention.",
+    "Does not establish ash preparation, wider distribution, origin, causation, or transmission.",
+    "Acceptance binds only the final worker commit and exact source bytes; the integrator must validate the combined dataset and integration."
+  ],
+  "prior_revision": {
+    "worker_commit": "07f875f9bb8f8a04914107559a0aa79e794525e3",
+    "verdict": "revise",
+    "reason": "Locators omitted the body-interaction and ash-preparation passages, and the text did not distinguish 12 collected Nanshan sherds from four tabulated glaze analyses."
+  },
+  "final_reread": "Independently reread full base-to-final diff, verified committed bytes against working copies, and checked the thesis passages previously read. Corrected descriptions attribute inference, distinguish the four analysed glazes, cite pp. 132–135, 142–143 and Table A 3.1 p. 271, and preserve uncertainty. No modified path intersects the 92-entry preserved manifest."
+}

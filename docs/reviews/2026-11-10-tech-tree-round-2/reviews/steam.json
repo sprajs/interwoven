@@ -1,0 +1,103 @@
+{
+  "prompt_version": "tech-tree-components-context-v2",
+  "review_type": "independent direct dataset patch semantic review; not card gate",
+  "reviewer": {
+    "execution_id": "/root/round2_review_steam",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "researcher": {
+    "execution_id": "/root/round2_steam",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "reviewed_commit": "557bebbb703a885244333e9108a9364417d8694c",
+  "verdict": "accept",
+  "file_sha256": {
+    "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json": "0c46cd8b618b719436cac7705712289eadb68120711e524b6d953c473da046b3",
+    "data/discoveries/energy/newcomen-atmospheric-pumping-engine.json": "f5e12cfa375279da080e89716226c1f0d09d8a38f93177f501dd8c07df4bcf36",
+    "data/sources/g/glasgow-university-james-watt-university.json": "7527792d058639ece9a1bf42043cfc6075b603dab1c2493f9106ef8042010480",
+    "data/sources/s/smiles-1865-lives-boulton-watt.json": "0b15a52a77cfb6990fe9e233b55b3cdb8dfba10774bff0375ee71c1eab6f546d",
+    "data/sources/r/russell-2019-james-watt-separate.json": "810e6da2960b6ed3318a2642e4096ae7578d1e2e1feba4c288e4a566246e2b36",
+    "evidence/g/glasgow-university-james-watt-university.html": "960c6c625ba7c8558fdd99850d6dbb7d0cbf09735b522077d52f86f04ae38d50",
+    "evidence/s/smiles-1865-lives-boulton-watt.html": "d0b6485b4722360ae4f6c71c4d9d2a94d691eaed87a531daee32388a12f8bce7",
+    "evidence/r/russell-2019-james-watt-separate.html": "4dd84ef5c55a280a7f8fd2213f7a158d4af43ee97727e111f0ea0be1c396a78c",
+    "docs/reviews/2026-11-10-tech-tree-round-2/lanes/steam/lane.json": "2b14a1021038603dc7dc618ea34b2e602dd17b49ca4ed6ba82e8b49026955725"
+  },
+  "claims": [
+    {
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json::$.why",
+      "decision": "accept",
+      "sources": [
+        {
+          "id": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the Newcomen Engine, paragraph beginning Watt was asked by Anderson"
+        },
+        {
+          "id": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter VII, printed pp. 119–124 and 127–129"
+        }
+      ],
+      "rationale": "Glasgow describes the troublesome model and repeated cooling and heating, explicitly referring to Watt looking back in 1814; Smiles recounts the investigation and quotes later recollections. The revised statement is attributed to those accounts, rather than presented as independently corroborated fact. It does not claim the condenser was fitted to that model."
+    },
+    {
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json::$.links[0]",
+      "decision": "accept",
+      "sources": [
+        {
+          "id": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter VII, printed pp. 119–124 and 127–129"
+        },
+        {
+          "id": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the Newcomen Engine, paragraph beginning Watt was asked by Anderson"
+        },
+        {
+          "id": "russell-2019-james-watt-separate",
+          "locator": "paragraphs beginning The separate condenser resolved and By condensing the steam"
+        }
+      ],
+      "rationale": "Candidate question appropriately points from Watt to Newcomen and asks about the specific development path. Smiles reports later recollections and Glasgow expressly cites Watt looking back; independent support for the historical sequence is unresolved. Russell explains the thermal mechanism, not the historical connection. The finding and caveat preserve these distinctions and the absence of evidence for attachment to the Glasgow model. This acceptance is for a question, not an established edge."
+    },
+    {
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json::$.research.basis.links",
+      "decision": "accept",
+      "sources": [
+        {
+          "id": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the Newcomen Engine, paragraph beginning Watt was asked by Anderson"
+        },
+        {
+          "id": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter VII, printed pp. 119–124 and 127–129"
+        }
+      ],
+      "rationale": "Sourced describes the cited candidate and its account-based finding; it does not upgrade it to an established relationship."
+    },
+    {
+      "path": "data/sources/g/glasgow-university-james-watt-university.json",
+      "decision": "accept",
+      "sources": [
+        {
+          "id": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the Newcomen Engine, paragraphs beginning Watt was asked by Anderson and The Newcomen engine that Watt worked on"
+        }
+      ],
+      "rationale": "Saved HTML identifies the university page and contains the described account, retrospective recollection, custody claim and qualification that there is no evidence a condenser was attached to that model. Its lineage does not represent it as an independent eyewitness."
+    }
+  ],
+  "checks": {
+    "original_evidence": "Read cited passages and surrounding discussion in all three saved HTML sources; checked SHA-256 against lane manifest and source file hashes. Glasgow bytes are original saved HTML, including whitespace.",
+    "scope": "Existing Watt and Newcomen nodes have a candidate from later to earlier, not an established edge. No new event or duplicate node is proposed. Existing prompted_by, limit_removed and setting remain recalled; none is upgraded.",
+    "protected_paths": "Diff contains only the named Watt discovery, Glasgow source, lane manifest and Glasgow HTML; no other data paths changed.",
+    "limitations": "The historical development path remains a retrospective account without demonstrated independent informative corroboration; review does not decide that it is false. Other pre-existing facets and events were not independently re-reviewed. No validation run is asserted.",
+    "circumstance_facets": "University source places Watt and the model within the university setting, while Russell discusses fuel economy. These support narrow institutional and technical context but do not by themselves establish each existing categorical value (school, power_or_energy, cost) as separately sourced, or quantify monetary savings. Preserve their recalled bases; no facet upgrade is approved."
+  },
+  "required_corrections": [],
+  "previous_review": {
+    "reviewed_commit": "48be2f31a623e329181c679fde8e34ff21058a10",
+    "verdict": "revise",
+    "finding": "Established historical development link lacked independent informative corroboration; why required attribution; prompted_by upgrade lacked scoped support."
+  }
+}

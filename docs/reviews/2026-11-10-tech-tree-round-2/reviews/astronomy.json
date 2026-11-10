@@ -1,0 +1,210 @@
+{
+  "review_type": "independent direct patch semantic review; not a card gate",
+  "prompt_version": "tech-tree-components-context-v2",
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "reviewed_commit": "30e094631ab5f0323070248908736c232ae141f1",
+  "researcher": {
+    "execution_id": "/root/round2_astronomy",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "reviewer": {
+    "execution_id": "/root/round2_review_astronomy",
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "response_id": null
+  },
+  "verdict": "accept",
+  "integration_authorization": "Accept only the two source records, their cache descriptors and lane manifest at the exact reviewed commit. No discovery, event, context or relationship addition is accepted or present. This is a deferred research lane with zero admitted graph additions.",
+  "sources": [
+    {
+      "index": 0,
+      "id": "jones-2016-miletos-calendrical-cycles",
+      "locators_read": "pp. 119–124, including qualifications on p. 124",
+      "raw_sha256": "f3e89f3a8764ffc392744b8d9fa18402839ba70fd4f268f2707da816dd6f02f5"
+    },
+    {
+      "index": 1,
+      "id": "jones-2020-antikythera-epoch",
+      "locators_read": "Introduction pp. 1–2 and section 2 pp. 3–4",
+      "raw_sha256": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12"
+    }
+  ],
+  "accepted_claims": [
+    {
+      "path": "data/sources/j/jones-2016-miletos-calendrical-cycles.json",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "locator": "paper pp. 113, 119–122",
+      "rationale": "Title, author, article subject, recorded page discussion and excerpt match the saved paper. 109–90 BCE is Jones’s dating of the inscription, not the cycle’s origin. The quotation is present on p. 121."
+    },
+    {
+      "path": "data/sources/j/jones-2020-antikythera-epoch.json",
+      "decision": "accept",
+      "source_indices": [
+        1
+      ],
+      "locator": "title page, introduction pp. 1–2, section 2 pp. 3–4",
+      "rationale": "Title, author, date, recorded topics and quotation match the saved paper. The epoch and archaeological bounds are not construction-date proof."
+    },
+    {
+      "path": "evidence/j/jones-2016-miletos-calendrical-cycles.pdf.cache.json",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "locator": "complete saved PDF",
+      "rationale": "PDF SHA-256 and 414475 bytes match descriptor and source record."
+    },
+    {
+      "path": "evidence/j/jones-2020-antikythera-epoch.pdf.cache.json",
+      "decision": "accept",
+      "source_indices": [
+        1
+      ],
+      "locator": "complete saved PDF",
+      "rationale": "PDF SHA-256 and 3369196 bytes match descriptor and source record."
+    },
+    {
+      "path": "docs/reviews/2026-11-10-tech-tree-round-2/lanes/astronomy/lane.json#/review_revisions",
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "locator": "2016 pp. 119–124; 2020 section 2 pp. 3–4",
+      "rationale": "The deferral correctly distinguishes the generic combined node and a physical dial within the mechanism from the existing broad gearing capability. Two papers share Jones as author, and shared numbers do not establish a transmission route."
+    }
+  ],
+  "duplicate_and_overlap": "Compared exact base-to-head diff: five files only, comprising two source records, two descriptors and lane manifest. No discovery files changed; Babylonian candidate is unchanged. At prior check, current round-2 ceramics, printing and steam branch heads had no changed-path overlap; recheck before integration.",
+  "file_sha256": {
+    "data/sources/j/jones-2016-miletos-calendrical-cycles.json": "f1f3d58412b66a03055af121dd616fb0025c871c74ffbc79865f4b976f8aafaf",
+    "data/sources/j/jones-2020-antikythera-epoch.json": "e89bbf5ee771d61451405136e5119987fd1f527a01cfa10cf070af7f94ada81d",
+    "docs/reviews/2026-11-10-tech-tree-round-2/lanes/astronomy/lane.json": "1b11115c2d0ee0def9bac9820279c81cd7f0fbf1e97f57d6fa120de2fd98dab1",
+    "evidence/j/jones-2016-miletos-calendrical-cycles.pdf.cache.json": "7268d38dc093bbccb1a0a99cdac1bf865dc207d65b01af3752ce2882c6441699",
+    "evidence/j/jones-2020-antikythera-epoch.pdf.cache.json": "74096fbb08e7d096e79a183c1c886d70cd76b3eb2d3cead4e17c3fba06f7cbcc",
+    "evidence/j/jones-2016-miletos-calendrical-cycles.pdf": "f3e89f3a8764ffc392744b8d9fa18402839ba70fd4f268f2707da816dd6f02f5",
+    "evidence/j/jones-2020-antikythera-epoch.pdf": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12"
+  },
+  "revision_history": [
+    {
+      "review_type": "independent direct patch semantic review; not a card gate",
+      "prompt_version": "tech-tree-components-context-v2",
+      "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+      "reviewed_commit": "2f67b07a4024c45559d19117f927a941dafc2767",
+      "researcher": {
+        "execution_id": "/root/round2_astronomy",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/round2_review_astronomy",
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "response_id": null
+      },
+      "verdict": "revise",
+      "integration_authorization": "No changed dataset file is accepted as a whole. Defer the proposed node and established edge; a revised patch requires independent review of its exact bytes.",
+      "sources": [
+        {
+          "index": 0,
+          "id": "jones-2016-miletos-calendrical-cycles",
+          "locators_read": "pp. 119–124, including qualifications on p. 124",
+          "raw_sha256": "f3e89f3a8764ffc392744b8d9fa18402839ba70fd4f268f2707da816dd6f02f5"
+        },
+        {
+          "index": 1,
+          "id": "jones-2020-antikythera-epoch",
+          "locators_read": "Introduction pp. 1–2 and section 2 pp. 3–4",
+          "raw_sha256": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12"
+        }
+      ],
+      "accepted_claims": [
+        {
+          "path": "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json#/events/0/date",
+          "decision": "accept_as_source_observation_only",
+          "source_indices": [
+            0
+          ],
+          "locator": "pp. 119–120",
+          "rationale": "Jones dates erection of the inscription to 109–90 BCE, not the inception of the cycle; this observation does not establish the proposed generic node's grain or earliest record."
+        },
+        {
+          "path": "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json#/description",
+          "decision": "accept_as_source_observation_only",
+          "source_indices": [
+            0
+          ],
+          "locator": "pp. 119–122",
+          "rationale": "Jones describes the inscription's association of Meton with a 19-year cycle and Geminos's later account of 19 years, 235 months and 6,940 days, whose skipped-day pattern differs from the mechanism. This does not equate their detailed schemes or authorize the combined node."
+        },
+        {
+          "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json#/links/1/statement",
+          "decision": "accept_as_source_observation_only",
+          "source_indices": [
+            0,
+            1
+          ],
+          "locator": "2016 p. 121; 2020 section 2 pp. 3–4",
+          "rationale": "Jones reads the upper back spiral as a 19-year calendar of 235 lunar months with skipped days. This supports a device description; it does not validate the link to the proposed node."
+        },
+        {
+          "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json#/research/unresolved/6",
+          "decision": "accept_as_source_observation_only",
+          "source_indices": [
+            0,
+            1
+          ],
+          "locator": "2016 pp. 119–120; 2020 Introduction pp. 1–2",
+          "rationale": "Jones regards letter-form dating as inconclusive and permits a date near the wreck; the inscription range overlaps inherited estimates and neither witness demonstrates transmission. The dated inscription and device are distinct witnesses, not independent authorial corroboration of transmission."
+        }
+      ],
+      "deferred_and_corrections": [
+        {
+          "paths": [
+            "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json",
+            "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json#/links/1"
+          ],
+          "decision": "defer",
+          "reason": "The new node combines a generic Greek cycle, a Miletos inscription attributing a cycle to Meton, and the distinct later Geminos formulation. It does not identify one community achieving one thing. A device's functional representation of the same numerical period does not show use of the specific achievement witnessed at Miletos; disclaiming transmission does not repair the edge referent or direction. The inscription's 109–90 BCE date can overlap the mechanism's construction. The two papers have the same author and do not independently corroborate a consequential historical relation."
+        },
+        {
+          "path": "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json#/events/0/statement",
+          "decision": "revise_if_reused",
+          "source_indices": [
+            0
+          ],
+          "locator": "p. 124, inv. 1604 col. ii",
+          "reason": "The poorly preserved column's remains suggest discussion of seven intercalary months; present this as Jones's qualified interpretation rather than an unqualified reading."
+        },
+        {
+          "path": "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json#/earliest_record",
+          "decision": "defer",
+          "reason": "The rationale calls this an independent inspected witness while denying it is the earliest witness. It cannot establish the earliest defensible dated record of the broad generic referent; a newly scoped achievement needs an independently checked event and date."
+        },
+        {
+          "path": "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json#/known_from",
+          "decision": "defer",
+          "reason": "The inscription is a material inscription and a later witness to the attributed achievement; confirm controlled vocabulary against a correctly scoped new record rather than silently equating the inscription with a later literary account."
+        }
+      ],
+      "meaningful_alternative": "A separately reviewed narrow extension of the existing Antikythera archaeological event could state that the upper spiral represented 19 years as 235 lunar months with skipped days, citing Jones 2020 section 2 pp. 3–4. Its dating must retain the inherited estimate with the explicit Jones chronology qualification, rather than treating epoch or inscription date as construction date. This is a suggestion, not approval of unseen bytes. A Meton-specific achievement may be researched separately using the qualified ancient testimony; no edge is implied.",
+      "duplicate_and_overlap": "Inspected current fixed snapshot's mechanism record: its existing event describes the 223-month eclipse dial, not the upper 235-month calendar dial. The added device detail would extend that event; no new event or duplicate discovery is necessary. The Babylonian candidate remains unchanged. Compared changed paths on the named round-2 ceramics, printing and steam branch heads against the common base: no overlap with this astronomy patch; repeat before integration as branches may advance.",
+      "file_sha256": {
+        "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json": "d4250709e8d744a1edadeb03da31a6182da75be1ad700440e9e3f5afb820c6b5",
+        "data/discoveries/physical-sciences/greek-nineteen-year-lunisolar-calendar.json": "7082ec12f14437da889f404603755b0ca7442d3c66143db9bf88b3733805f52c",
+        "data/sources/j/jones-2016-miletos-calendrical-cycles.json": "f1f3d58412b66a03055af121dd616fb0025c871c74ffbc79865f4b976f8aafaf",
+        "data/sources/j/jones-2020-antikythera-epoch.json": "e89bbf5ee771d61451405136e5119987fd1f527a01cfa10cf070af7f94ada81d",
+        "docs/reviews/2026-11-10-tech-tree-round-2/lanes/astronomy/lane.json": "35497e591e499bf43086f98e4324e49556207168996b5d0c37b879397121c8de",
+        "evidence/j/jones-2016-miletos-calendrical-cycles.pdf.cache.json": "7268d38dc093bbccb1a0a99cdac1bf865dc207d65b01af3752ce2882c6441699",
+        "evidence/j/jones-2020-antikythera-epoch.pdf.cache.json": "74096fbb08e7d096e79a183c1c886d70cd76b3eb2d3cead4e17c3fba06f7cbcc",
+        "evidence/j/jones-2016-miletos-calendrical-cycles.pdf": "f3e89f3a8764ffc392744b8d9fa18402839ba70fd4f268f2707da816dd6f02f5",
+        "evidence/j/jones-2020-antikythera-epoch.pdf": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12"
+      },
+      "limitations": "Jones's 2016 and 2020 interpretations are a single author group. This is a direct patch review, not a card-gate approval or an independent physical examination of the ancient artifacts. Usage and elapsed-time telemetry were unavailable."
+    }
+  ],
+  "limitations": "Ignored source PDFs were read and hashed in researcher worktree; descriptors permit retrieval but do not commit source bytes. Two studies share an author. No original ancient object was physically examined. Usage and elapsed-time telemetry unavailable."
+}

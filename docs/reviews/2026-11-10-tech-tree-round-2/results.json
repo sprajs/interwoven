@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "title": "Round 2: connections and context",
+  "prompt_version": "tech-tree-components-context-v2",
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "assembled_data_commit": "e0fbb126f822d02bce4e82a3992efa5a40e2ec3d",
+  "generated_utc": "2026-11-10T23:42:06.411321+00:00",
+  "orchestrator": {
+    "execution_id": "/root",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "basis": "Runtime verified by coordinating chat before round-2 dispatch; direct orchestration, no Astra relay."
+  },
+  "counts": {
+    "new_records": 1,
+    "new_events": 1,
+    "new_events_on_existing_records": 0,
+    "accepted_established_edges": 1,
+    "new_candidate_edges": 1,
+    "new_funding_facets": 1,
+    "attributed_why_refinements": 1,
+    "other_circumstance_upgrades": 0,
+    "new_source_records": 3,
+    "extended_source_records": 1
+  },
+  "lanes": {
+    "ceramics": {
+      "title": "Chinese high-fired ceramics",
+      "researcher": {
+        "execution_id": "/root/round2_ceramics",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/round2_review_ceramics",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "worker_commit": "e1c875f59f30f18e9e3cfe68d441d88fa8a46d35",
+      "review_decision": "accept",
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/ceramics",
+      "branch": "codex/tech-tree-round-2-ceramics",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/ceramics.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-2/lanes/ceramics/lane.json",
+      "next_questions": [
+        "Whether ash was washed, obtained as potash-depleted kiln firebox ash, or otherwise prepared.",
+        "Distribution beyond analysed Deqing wares and origin of the glazing process.",
+        "Kiln design and historical lineage to later wares require independent primary evidence."
+      ]
+    },
+    "printing": {
+      "title": "Korean printing",
+      "researcher": {
+        "execution_id": "/root/round2_printing",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/round2_review_printing",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "worker_commit": "91569f78e1d1ec252bbaba5a77a8d1954b2f915f",
+      "review_decision": "accept",
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/printing",
+      "branch": "codex/tech-tree-round-2-printing",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/printing.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-2/lanes/printing/lane.json",
+      "next_questions": [
+        "Inspect contemporary edition records and independently informative scholarship on whether limited output motivated the 1378 edition and whether the 1377 edition served as exemplar.",
+        "Investigate casting method without treating mutually incompatible modern reconstruction arguments as proof of the original."
+      ]
+    },
+    "steam": {
+      "title": "Steam-engine development",
+      "researcher": {
+        "execution_id": "/root/round2_steam",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/round2_review_steam",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "worker_commit": "557bebbb703a885244333e9108a9364417d8694c",
+      "review_decision": "accept",
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/steam",
+      "branch": "codex/tech-tree-round-2-steam",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/steam.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-2/lanes/steam/lane.json",
+      "next_questions": [
+        "Can an independent original source corroborate Watt’s retrospective recollection of the model’s role in developing separate condensation?",
+        "Did the exact through-bar configuration bore the Bloomfield cylinder? No individual machining log was found in this bounded screen.",
+        "What specific contemporary evidence links Newcomen development to earlier steam devices?"
+      ]
+    },
+    "astronomy": {
+      "title": "Hellenistic geared astronomy",
+      "researcher": {
+        "execution_id": "/root/round2_astronomy",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/round2_review_astronomy",
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "response_id": null
+      },
+      "worker_commit": "30e094631ab5f0323070248908736c232ae141f1",
+      "review_decision": "accept",
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/astronomy",
+      "branch": "codex/tech-tree-round-2-astronomy",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/astronomy.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-2/lanes/astronomy/lane.json",
+      "next_questions": [
+        "Babylonian candidate: Iversen and Jones 2019 section 4 identifies compatibility with an accurate Babylonian period relation, but does not establish a specific route to the instrument. Shared cycles are not transmission.",
+        "Do not infer maker funding, workshop setting, motivation, or disappearance from available passages.",
+        "What correctly scoped whole-device and component records would represent the Antikythera calendar mechanism without implying use of the Miletos community achievement?"
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "id": "wood-ash-glazing-at-deqing",
+      "name": "Wood-ash glazing of proto-porcelain at Deqing",
+      "lane": "ceramics",
+      "path": "data/discoveries/materials/wood-ash-glazing-at-deqing.json",
+      "description": "Yin interprets chemical analysis of proto-porcelain sherds from Deqing kiln sites as evidence that potters deliberately applied lime-rich wood ash to vessels, which reacted with the ceramic body during firing to form a glaze. The study lists 12 excavated Shang-period Nanshan sherds and presents glaze analyses for four (NS-1, NS-4, NS-8 and NS-11). The exact preparation of the ash is unresolved; this reconstruction does not establish that every proto-porcelain producer used this method.",
+      "date": {
+        "earliest": {
+          "year": -1700
+        },
+        "latest": {
+          "year": -1027
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "Shang dynasty, c. 1700–1027 BCE",
+        "basis": "Yin identifies the Nanshan samples as Shang in Table 3.1 and gives these broad dynasty bounds in the abstract."
+      },
+      "purpose": "Minimal process record needed for the accepted functional uses_process relation."
+    }
+  ],
+  "events": [
+    {
+      "record_id": "wood-ash-glazing-at-deqing",
+      "lane": "ceramics",
+      "event": {
+        "id": "nanshan-shang-sherds",
+        "type": "archaeological_evidence",
+        "date": {
+          "earliest": {
+            "year": -1700
+          },
+          "latest": {
+            "year": -1027
+          },
+          "precision": "range",
+          "status": "bounded",
+          "label": "Shang dynasty, c. 1700–1027 BCE",
+          "basis": "Yin identifies the Nanshan samples as Shang in Table 3.1 and gives these broad dynasty bounds in the abstract."
+        },
+        "statement": "Yin interprets glaze chemistry of sampled Deqing proto-porcelain, including four analysed Shang-period Nanshan glazes, as evidence of deliberate application of lime-rich wood ash before firing.",
+        "places": [
+          "zhejiang"
+        ],
+        "evidence": [
+          {
+            "source": "m-2012-earliest-high-fired",
+            "locator": "p. 3; pp. 73–75, Table 3.1; pp. 132–135 and 138–143; Appendix 3, Table A 3.1, p. 271",
+            "supports": "Yin reconstructs deliberate application of lime-rich wood ash and its reaction with the body from the analysed Deqing sherds. Table 3.1 lists 12 excavated Nanshan sherds, while Table A 3.1 presents glaze analyses for NS-1, NS-4, NS-8 and NS-11; ash preparation remains unresolved."
+          }
+        ]
+      }
+    }
+  ],
+  "accepted_established_edges": [
+    {
+      "type": "uses_process",
+      "from": "wood-ash-glazing-at-deqing",
+      "from_event": "nanshan-shang-sherds",
+      "to_event": "archaeological-evidence-1027bce",
+      "status": "established",
+      "statement": "Yin interprets the glaze chemistry of sampled Deqing proto-porcelain, including four Shang-period Nanshan glazes, as evidence of deliberate application of lime-rich wood ash.",
+      "scope": "The analysed Deqing wares, including four Nanshan glaze samples; functional process relationship, not a claim of transmission or universal use across all proto-porcelain.",
+      "caveats": "The process is reconstructed from archaeological chemical analysis; how the ash was prepared remains uncertain.",
+      "evidence": [
+        {
+          "source": "m-2012-earliest-high-fired",
+          "locator": "p. 3; pp. 73–75, Table 3.1; pp. 132–135 and 138–143; Appendix 3, Table A 3.1, p. 271",
+          "supports": "Yin reconstructs deliberate application of lime-rich wood ash and its reaction with the body from the analysed Deqing sherds. Table 3.1 lists 12 excavated Nanshan sherds, while Table A 3.1 presents glaze analyses for NS-1, NS-4, NS-8 and NS-11; ash preparation remains unresolved."
+        }
+      ],
+      "lane": "ceramics",
+      "to": "proto-porcelain-in-shang-china",
+      "from_name": "Wood-ash glazing of proto-porcelain at Deqing",
+      "to_name": "Proto-porcelain in Shang China",
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/ceramics.json"
+    }
+  ],
+  "unresolved_edges": [
+    {
+      "type": "builds_on",
+      "from": "newcomen-atmospheric-pumping-engine",
+      "status": "candidate",
+      "statement": "Did Watt’s investigation of a Newcomen model lead to his development of separate condensation?",
+      "scope": "Historical development of the separate-condenser arrangement, rather than attachment of a condenser to the Glasgow Newcomen model.",
+      "caveats": "The Glasgow account also draws on Watt’s recollection; the University states there is no evidence a separate condenser was attached to its Newcomen model. The historical development link awaits independently informative corroboration.",
+      "evidence": [
+        {
+          "source": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter VII, printed pp. 119–124 and 127–129",
+          "supports": "Retrospective account of Watt’s work on the Newcomen model, heat loss and development of separate condensation; includes recollections attributed to Watt."
+        },
+        {
+          "source": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the University of Glasgow, paragraphs on model repair and separate condenser",
+          "supports": "University account connects work on its model with investigation of heat loss and the separate condenser; notes no evidence that the condenser was attached to that model."
+        },
+        {
+          "source": "russell-2019-james-watt-separate",
+          "locator": "Paragraphs beginning “The separate condenser resolved” and “By condensing the steam”",
+          "supports": "Independent museum explanation of the technical problem of cylinder cooling and separate condensation."
+        }
+      ],
+      "finding": "Watt’s retrospective recollection and later accounts associate the Newcomen model with the development; the independent museum source explains the technical mechanism but does not independently corroborate that historical sequence.",
+      "lane": "steam",
+      "to": "watt-separate-condenser-engine-arrangement",
+      "from_name": "Newcomen atmospheric pumping engine",
+      "to_name": "Watt separate-condenser engine arrangement",
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/steam.json"
+    }
+  ],
+  "supported_circumstances": [
+    {
+      "lane": "printing",
+      "record_id": "jikji-woodblock-edition",
+      "record_name": "Jikji woodblock edition",
+      "facet": "funding",
+      "value": [
+        "community"
+      ],
+      "basis": "sourced",
+      "statement": "The 2001 UNESCO nomination reports that lay donations paid for the 1378 woodblock printing.",
+      "qualification": "Reported circumstance; donor identities and amounts are unknown here. No causal account of the edition or link from the metal-type printing is established.",
+      "evidence": [
+        {
+          "source": "republic-korea-unesco-2001-buljo-jikji-simche",
+          "locator": "PDF pp. 3–4, Background and Method of typecasting and publishing",
+          "supports": "Describes edition printing for transmission of Buddhist teaching; it reports the 1377 copy number as limited and the 1378 woodblock issue as funded by lay donors."
+        }
+      ],
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/printing.json"
+    },
+    {
+      "lane": "steam",
+      "record_id": "watt-separate-condenser-engine-arrangement",
+      "record_name": "Watt separate-condenser engine arrangement",
+      "facet": "why",
+      "value": "According to Watt’s later recollections and historical accounts, investigation of a troublesome Newcomen model led him to consider the heat lost in repeatedly cooling and reheating the working cylinder.",
+      "basis": "recalled (inherits prompted_by under existing FACET_FOLLOWS)",
+      "statement": "According to Watt’s later recollections and historical accounts, investigation of a troublesome Newcomen model led him to consider the heat lost in repeatedly cooling and reheating the working cylinder.",
+      "qualification": "Accepted as an attributed account, not independent confirmation of the historical path. Existing prompted_by, setting and limit_removed categories remain recalled.",
+      "evidence": [
+        {
+          "source": "smiles-1865-lives-boulton-watt",
+          "locator": "Chapter VII, printed pp. 119–124 and 127–129",
+          "supports": "Retrospective account of Watt’s work on the Newcomen model, heat loss and development of separate condensation; includes recollections attributed to Watt."
+        },
+        {
+          "source": "glasgow-university-james-watt-university",
+          "locator": "James Watt and the University of Glasgow, paragraphs on model repair and separate condenser",
+          "supports": "University account connects work on its model with investigation of heat loss and the separate condenser; notes no evidence that the condenser was attached to that model."
+        }
+      ],
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-2/reviews/steam.json"
+    }
+  ],
+  "sources": {
+    "glasgow-university-james-watt-university": {
+      "id": "glasgow-university-james-watt-university",
+      "title": "James Watt and the University of Glasgow",
+      "authors": [
+        "University of Glasgow"
+      ],
+      "year": null,
+      "url": "https://www.gla.ac.uk/events/jameswatt/jwanduofg/",
+      "version": "University of Glasgow James Watt 2019 event website; page date unspecified",
+      "access": "full-text",
+      "accessed": "2026-11-10",
+      "lineage": "University historical account of the surviving Newcomen model, drawing on Watt’s retrospective account; not an independent eyewitness to the development. Its account of the model’s custody and absence of evidence of a condenser fitted to it is distinct from the retrospective biographical source.",
+      "passages": [
+        {
+          "note": "Paragraphs beginning “Watt was asked by Anderson” and “The Newcomen engine that Watt worked on”"
+        }
+      ],
+      "file": {
+        "path": "evidence/g/glasgow-university-james-watt-university.html",
+        "sha256": "960c6c625ba7c8558fdd99850d6dbb7d0cbf09735b522077d52f86f04ae38d50",
+        "representation": "full_source"
+      }
+    },
+    "jones-2016-miletos-calendrical-cycles": {
+      "id": "jones-2016-miletos-calendrical-cycles",
+      "title": "The Miletos Inscription on Calendrical Cycles: IMilet inv. 84 + inv. 1604",
+      "authors": [
+        "Alexander Jones"
+      ],
+      "year": 2016,
+      "url": "https://archive.nyu.edu/bitstream/2451/48025/2/Jones%202016%20Miletos%20Inscription%20ZPE.pdf",
+      "version": "Zeitschrift für Papyrologie und Epigraphik 199, 113–127",
+      "access": "full-text",
+      "accessed": "2026-11-10",
+      "passages": [
+        {
+          "locator": "pp. 119–121: Miletos inscription, cycle attribution, proposed date 109–90 BCE; pp. 121–122: Greek 19-year cycle and mechanism",
+          "quote": "The Miletos inscription discussed at least two calendrical cycles, the 19-year cycle"
+        }
+      ],
+      "file": {
+        "path": "evidence/j/jones-2016-miletos-calendrical-cycles.pdf",
+        "sha256": "f3e89f3a8764ffc392744b8d9fa18402839ba70fd4f268f2707da816dd6f02f5"
+      }
+    },
+    "jones-2020-antikythera-epoch": {
+      "id": "jones-2020-antikythera-epoch",
+      "title": "The Epoch Dates of the Antikythera Mechanism (With an Appendix on its Authenticity)",
+      "authors": [
+        "Alexander Jones"
+      ],
+      "year": 2020,
+      "url": "https://archive.nyu.edu/jspui/bitstream/2451/61000/2/Jones%202020%20Epoch%20dates%20of%20the%20Antikythera%20Mechanism%20ISAW%20Papers%2017.pdf",
+      "version": "ISAW Papers 17",
+      "access": "full-text",
+      "accessed": "2026-11-10",
+      "passages": [
+        {
+          "locator": "Section 2, pp. 3–4: back-cover inscription and 235-cell calendar spiral; Introduction, pp. 1–2: dating limits",
+          "quote": "235 cells, corresponding to the 235 lunar months of a 19-year \"Metonic\" period."
+        }
+      ],
+      "file": {
+        "path": "evidence/j/jones-2020-antikythera-epoch.pdf",
+        "sha256": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12"
+      }
+    },
+    "m-2012-earliest-high-fired": {
+      "id": "m-2012-earliest-high-fired",
+      "title": "The earliest high-fired glazed ceramics in China: Scientific studies of the proto-porcelain from Zhejiang during the Shang and Zhou periods (c. 1700 – 221 BC)",
+      "authors": [
+        "Yin, M"
+      ],
+      "year": 2012,
+      "url": "https://discovery.ucl.ac.uk/id/eprint/1380281/",
+      "version": "University College London (doctoral thesis)",
+      "access": "partial-text",
+      "accessed": "2026-11-10",
+      "passages": [
+        {
+          "locator": "Abstract",
+          "quote": "began to appear in China during the Shang dynasty (c. 1700 to 1027 BC)"
+        },
+        {
+          "locator": "p. 3, abstract",
+          "note": "Reports analytical interpretation of deliberately applied lime-rich wood ash on sampled Deqing proto-porcelain, and local porcelain stone for bodies."
+        },
+        {
+          "locator": "pp. 73–75, Table 3.1 and sampling strategy",
+          "note": "Lists 12 excavated Nanshan sherds and one kiln wall as Shang, and distinguishes other Deqing sites and periods."
+        },
+        {
+          "locator": "pp. 132–135 and 138–143; Appendix 3, Table A 3.1, p. 271",
+          "note": "Interprets vessel glaze as lime-rich surface material interacting with body during firing, contrasts kiln wall vitrification, and cannot decide between washed ash and potash-depleted firebox ash. Glaze analyses are tabulated for four Nanshan sherds NS-1, NS-4, NS-8 and NS-11."
+        }
+      ],
+      "file": {
+        "path": "evidence/m/m-2012-earliest-high-fired-thesis.pdf",
+        "sha256": "d1ee6235191dc3d01bb35816979334965353187d77fddaecc7062899e45f5d00",
+        "representation": "original",
+        "method": "UCL-hosted thesis PDF, downloaded and SHA-256 checked; the earlier abstract excerpt remains at evidence/m/m-2012-earliest-high-fired.txt."
+      }
+    },
+    "republic-korea-unesco-2001-buljo-jikji-simche": {
+      "id": "republic-korea-unesco-2001-buljo-jikji-simche",
+      "title": "Buljo jikji simche yojeol: Memory of the World nomination",
+      "authors": [
+        "Republic of Korea, UNESCO Memory of the World nomination"
+      ],
+      "year": 2001,
+      "url": "https://media.unesco.org/sites/default/files/webform/mow001/korea_buljo_jikj_simch_yo_jeol.pdf",
+      "version": "UNESCO-hosted nomination dossier; PDF p. 4",
+      "access": "full-text",
+      "accessed": "2026-11-06",
+      "lineage": "Institutional retrospective nomination, not surviving distribution lists; claims of global priority or technological transfer are excluded.",
+      "passages": [
+        {
+          "locator": "PDF pp. 3–4, Background and Method of typecasting and publishing",
+          "quote": "when there was a great demand for learning the Zen way",
+          "note": "1377 metal edition and 1378 woodblock edition were printed for propagation in the Buddhist teaching community; the dossier reports limited metal-edition copies."
+        }
+      ],
+      "file": {
+        "path": "evidence/r/republic-korea-unesco-2001-buljo-jikji-simche.pdf",
+        "sha256": "1006552eab0d4ad8add28b4d02e559e364ad9d62577d5713a9c55adeb1bf18fc"
+      }
+    },
+    "russell-2019-james-watt-separate": {
+      "id": "russell-2019-james-watt-separate",
+      "title": "James Watt and the separate condenser",
+      "authors": [
+        "Ben Russell"
+      ],
+      "year": 2019,
+      "url": "https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/",
+      "version": "Science Museum curator article, 5 January 2019",
+      "access": "full-text",
+      "accessed": "2026-11-06",
+      "lineage": "Museum curator synthesis using the museum collection. Shared institutional lineage with the condenser catalogue, not independent corroboration. Broad superlatives and numerical efficiency claims are excluded.",
+      "passages": [
+        {
+          "note": "Patent date; separated chambers; model-development and identification paragraphs"
+        }
+      ],
+      "file": {
+        "path": "evidence/r/russell-2019-james-watt-separate.html",
+        "sha256": "4dd84ef5c55a280a7f8fd2213f7a158d4af43ee97727e111f0ea0be1c396a78c",
+        "representation": "full_source"
+      }
+    },
+    "smiles-1865-lives-boulton-watt": {
+      "id": "smiles-1865-lives-boulton-watt",
+      "title": "Lives of Boulton and Watt",
+      "authors": [
+        "Samuel Smiles"
+      ],
+      "year": 1865,
+      "url": "https://www.gutenberg.org/files/52069/52069-h/52069-h.htm",
+      "version": "1865 book, Project Gutenberg digital edition",
+      "access": "partial-text",
+      "accessed": "2026-11-06",
+      "lineage": "Retrospective historian quoting Watt and correspondence; original manuscripts not independently inspected. Date of Old Bess replacement conflicts with Science Museum record. Also consulted for 1865 printed discussion of the double-expansion design and equalising beam; historical operational use is undated by this passage.",
+      "passages": [
+        {
+          "note": "Chapter XV: 1778 Soho and Shadwell expansive working; chapter XVI note 254: Old Bess replacement, Watt memoir and continued work; Shadwell discussions"
+        },
+        {
+          "note": "Chapter XVI, printed pp. 306–307 and note 228: Watt’s equalising beam and double expansion engine; Boulton’s 10 September 1781 letter"
+        }
+      ],
+      "file": {
+        "path": "evidence/s/smiles-1865-lives-boulton-watt.html",
+        "sha256": "d0b6485b4722360ae4f6c71c4d9d2a94d691eaed87a531daee32388a12f8bce7",
+        "representation": "full_source"
+      }
+    }
+  },
+  "changed_discoveries": [
+    {
+      "id": "jikji-woodblock-edition",
+      "name": "Jikji woodblock edition",
+      "lane": "printing",
+      "path": "data/discoveries/communication/jikji-woodblock-edition.json",
+      "sha256": "4873b93507b48d0a8ecc4e07081703d0ee0610dcdd33ea577baf23effca77e4b"
+    },
+    {
+      "id": "watt-separate-condenser-engine-arrangement",
+      "name": "Watt separate-condenser engine arrangement",
+      "lane": "steam",
+      "path": "data/discoveries/energy/watt-separate-condenser-engine-arrangement.json",
+      "sha256": "0c46cd8b618b719436cac7705712289eadb68120711e524b6d953c473da046b3"
+    },
+    {
+      "id": "proto-porcelain-in-shang-china",
+      "name": "Proto-porcelain in Shang China",
+      "lane": "ceramics",
+      "path": "data/discoveries/materials/proto-porcelain-in-shang-china.json",
+      "sha256": "a1d9e0b5d6372576d867f1a84231a886121056ad4ebad39a72a637dd0a047b58"
+    },
+    {
+      "id": "wood-ash-glazing-at-deqing",
+      "name": "Wood-ash glazing of proto-porcelain at Deqing",
+      "lane": "ceramics",
+      "path": "data/discoveries/materials/wood-ash-glazing-at-deqing.json",
+      "sha256": "965c899df1452703e870907bec2934767fedffc3cf90e21f14279d4dc7acb02e"
+    }
+  ],
+  "usage": {
+    "started_utc": "2026-11-10T23:29:46.192893+00:00",
+    "elapsed_seconds_to_results": 740.2,
+    "researcher_executions": 4,
+    "independent_reviewer_executions": 4,
+    "max_concurrent_research_lanes": 4,
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_equivalent_cost_usd": null,
+    "billing_usd": null,
+    "note": "Worker follow-ups reused separate researcher/reviewer executions; no per-agent metering exposed."
+  },
+  "boundaries": [
+    "Established ceramics edge is a sample-scoped archaeometric reconstruction, not a transmission claim or universal prerequisite.",
+    "New steam candidate is accepted only as an unresolved question, never drawn as an established edge.",
+    "Astronomy yielded reviewed sources and an explicit record-grain deferral, no discovery or event additions.",
+    "Printing funding is retrospective reported context; Watt why remains attributed and its inherited categorical basis remains recalled.",
+    "Direct dataset patch reviews; tools/cards admission pipeline not run."
+  ]
+}
