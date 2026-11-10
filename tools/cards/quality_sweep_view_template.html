@@ -1,0 +1,247 @@
+<div id="quality-sweep-view">
+  <h1>Source review: quality and cost</h1>
+  <div class="viz-controls">
+    <label class="form-label">Cases
+      <select class="form-select" id="sweep-group">
+        <option value="primary">All primary cases</option>
+        <option value="fresh">New benchmark cases</option>
+        <option value="regression">Earlier benchmark cases</option>
+        <option value="repeat">Repeat runs</option>
+      </select>
+    </label>
+    <label class="form-label">Source reading
+      <select class="form-select" id="sweep-judge">
+        <option value="both">Both readers, conservative</option>
+        <option value="astra_medium">Astra medium</option>
+        <option value="sol_high">Sol high</option>
+      </select>
+    </label>
+  </div>
+  <div id="sweep-summary" aria-live="polite"></div>
+  <div class="table-responsive">
+    <table class="table table-sm" aria-label="Review settings ranked by observed quality">
+      <thead><tr><th>Review setting</th><th>Evaluated / run</th><th>Invalid</th><th>Source flags</th><th>False rejects</th><th>Useful</th><th>Supported claims</th><th>Reader disagreement</th><th>Mean review cost</th><th>Median time</th></tr></thead>
+      <tbody id="sweep-aggregate"></tbody>
+    </table>
+  </div>
+  <div id="sweep-selection" class="viz-row" aria-live="polite"></div>
+  <div class="table-responsive">
+    <table class="table table-sm" aria-label="Case details">
+      <thead><tr><th>Case</th><th>Setting</th><th>Decision</th><th>Source flag</th><th>Useful</th><th>Supported claims</th><th>Cost</th><th>Time</th></tr></thead>
+      <tbody id="sweep-cases"></tbody>
+    </table>
+  </div>
+  <div class="viz-row">
+    <button class="btn btn-ghost" type="button" id="sweep-prev">Previous</button>
+    <span id="sweep-page" aria-live="polite"></span>
+    <button class="btn btn-ghost" type="button" id="sweep-next">Next</button>
+  </div>
+  <div id="sweep-detail" class="card" hidden aria-live="polite"></div>
+  <p id="sweep-limits" class="text-small text-muted"></p>
+</div>
+<style>
+  #quality-sweep-view { color: var(--foreground); display: grid; gap: calc(var(--font-size-base) * 1); }
+  #quality-sweep-view h1 { margin: 0; }
+  #quality-sweep-view #sweep-summary { display: flex; flex-wrap: wrap; gap: calc(var(--font-size-base) * 1); }
+  #quality-sweep-view #sweep-detail { display: grid; gap: calc(var(--font-size-base) * .5); }
+  #quality-sweep-view #sweep-detail[hidden] { display: none; }
+  #quality-sweep-view #sweep-detail p, #quality-sweep-view #sweep-limits { margin: 0; }
+</style>
+<script id="sweep-data" type="application/json">__SWEEP_DATA__</script>
+<script>
+(() => {
+  const root = document.getElementById('quality-sweep-view');
+  const data = JSON.parse(document.getElementById('sweep-data').textContent);
+  const rows = data.cases;
+  const group = root.querySelector('#sweep-group');
+  const judge = root.querySelector('#sweep-judge');
+  const summary = root.querySelector('#sweep-summary');
+  const aggregate = root.querySelector('#sweep-aggregate');
+  const cases = root.querySelector('#sweep-cases');
+  const selection = root.querySelector('#sweep-selection');
+  const detail = root.querySelector('#sweep-detail');
+  const pageText = root.querySelector('#sweep-page');
+  const prev = root.querySelector('#sweep-prev');
+  const next = root.querySelector('#sweep-next');
+  const limits = root.querySelector('#sweep-limits');
+  const groupLabels = {primary:'All primary cases',fresh:'New benchmark cases',regression:'Earlier benchmark cases',repeat:'Repeat runs'};
+  const settingLabel = value => value.split('_').map((part,index) => index===0 ? part[0].toUpperCase()+part.slice(1) : part).join(' ');
+  let active = null;
+  let page = 0;
+  const perPage = 8;
+  const known = x => x !== undefined && x !== null;
+  const show = x => known(x) ? String(x) : '—';
+  const money = x => known(x) ? '$' + Number(x).toFixed(4) : '—';
+  const seconds = x => known(x) ? Number(x).toFixed(1) + ' s' : '—';
+  const flag = x => x === true ? 'Yes' : x === false ? 'No' : '—';
+  const cell = (tr, value, numeric=false) => {
+    const td = document.createElement('td'); td.textContent = value;
+    if (numeric) td.className = 'text-end tabular-nums';
+    tr.append(td); return td;
+  };
+  function outcome(row, key) {
+    if (judge.value !== 'both') return row.judges[judge.value]?.[key] ?? null;
+    const a = row.judges.astra_medium?.[key], b = row.judges.sol_high?.[key];
+    if (key === 'useful_record') return a === false || b === false ? false : a === true && b === true ? true : null;
+    return a === true || b === true ? true : a === false && b === false ? false : null;
+  }
+  function supported(row) {
+    if (judge.value !== 'both') {
+      const values = row.judges[judge.value]?.claim_verdicts;
+      return Array.isArray(values) ? values.filter(x => x === 'supported').length : null;
+    }
+    const a = row.judges.astra_medium?.claim_verdicts;
+    const b = row.judges.sol_high?.claim_verdicts;
+    if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return null;
+    return a.reduce((n, verdict, index) => n + (verdict === 'supported' && b[index] === 'supported' ? 1 : 0), 0);
+  }
+  function disagreement(row) {
+    const a = row.judges.astra_medium, b = row.judges.sol_high;
+    if (!a || !b) return null;
+    const keys = ['source_flagged_admission','false_reject','useful_record'];
+    if (keys.some(key => typeof a[key] !== 'boolean' || typeof b[key] !== 'boolean')) return null;
+    if (!a.reference_decision || !b.reference_decision) return null;
+    if (!Array.isArray(a.claim_verdicts) || !Array.isArray(b.claim_verdicts) || a.claim_verdicts.length !== b.claim_verdicts.length) return null;
+    return a.reference_decision !== b.reference_decision || keys.some(key => a[key] !== b[key]) || a.claim_verdicts.some((v,i) => v !== b.claim_verdicts[i]);
+  }
+  function metric(rows, calculate) {
+    const knownValues = rows.map(calculate).filter(known);
+    if (!knownValues.length) return `— (0/${rows.length} read)`;
+    return `${knownValues.filter(v => v === true).length}/${rows.length}` + (knownValues.length < rows.length ? ` (${knownValues.length} read)` : '');
+  }
+  function claimMetric(rows) {
+    const values = rows.map(supported).filter(known);
+    return values.length ? `${values.reduce((a,b) => a+b, 0)} (${values.length}/${rows.length} read)` : `— (0/${rows.length} read)`;
+  }
+  function costMetric(rows) {
+    const values = rows.map(r => r.review_api_usd).filter(known);
+    if (!values.length) return `— (0/${rows.length})`;
+    const coverage = values.length < rows.length ? ` (${values.length}/${rows.length})` : '';
+    return `${money(values.reduce((a,b) => a+b, 0)/values.length)}${coverage}`;
+  }
+  function timeMetric(rows) {
+    const values = rows.map(r => r.review_seconds).filter(known).sort((a,b) => a-b);
+    if (!values.length) return '—';
+    const n = values.length, middle = (values[Math.floor((n-1)/2)] + values[Math.floor(n/2)])/2;
+    return `${seconds(middle)}${n < rows.length ? ` (${n}/${rows.length})` : ''}`;
+  }
+  function rank(grouped) {
+    const n = grouped.rows.length;
+    const qualityRows = grouped.rows.filter(r => !r.grade_excluded);
+    const read = qualityRows.filter(qualityReady);
+    return [n-read.length,
+      qualityRows.filter(r => outcome(r,'source_flagged_admission') === true).length,
+      qualityRows.filter(r => r.mechanical_pass === false).length,
+      qualityRows.filter(r => outcome(r,'false_reject') === true).length,
+      -qualityRows.filter(r => outcome(r,'useful_record') === true && r.mechanical_pass === true).length,
+      -qualityRows.reduce((n,r) => n+(supported(r) ?? 0),0),
+      grouped.rows.reduce((n,r) => n+(r.review_api_usd ?? 0),0)];
+  }
+  function qualityReady(row) {
+    return !row.grade_excluded && known(row.mechanical_pass) && known(outcome(row,'source_flagged_admission'))
+      && known(outcome(row,'false_reject')) && known(outcome(row,'useful_record')) && known(supported(row));
+  }
+  function compareRanks(a,b) {
+    const x=rank(a), y=rank(b);
+    for (let i=0;i<x.length;i++) if (x[i]!==y[i]) return x[i]-y[i];
+    return a.setting.localeCompare(b.setting);
+  }
+  function showCase(row) {
+    detail.replaceChildren();
+    const heading = document.createElement('h2'); heading.textContent = row.title;
+    const line = document.createElement('p');
+    line.textContent = `${settingLabel(row.variant)} · ${row.decision} · mechanical: ${flag(row.mechanical_pass)}`
+      + (row.grade_excluded ? ' · unresolved reference grading; excluded from quality comparison' : '');
+    detail.append(heading,line);
+    for (const [key,label] of [['astra_medium','Astra medium'],['sol_high','Sol high']]) {
+      const j = row.judges[key];
+      const p = document.createElement('p');
+      p.textContent = `${label}: source decision ${show(j?.reference_decision)}, source flag ${flag(j?.source_flagged_admission)}, false reject ${flag(j?.false_reject)}, useful ${flag(j?.useful_record)}, claim verdicts ${Array.isArray(j?.claim_verdicts) ? j.claim_verdicts.join(', ') || 'none' : 'unavailable'}.`;
+      detail.append(p);
+    }
+    detail.hidden = false;
+  }
+  function render() {
+    const filtered = rows.filter(r => group.value === 'primary' ? r.group === 'fresh' || r.group === 'regression' : r.group === group.value);
+    const groups = new Map();
+    for (const r of filtered) {
+      if (!groups.has(r.variant)) groups.set(r.variant,{setting:r.variant,rows:[]});
+      groups.get(r.variant).rows.push(r);
+    }
+    const ranked = [...groups.values()].sort(compareRanks);
+    aggregate.replaceChildren();
+    for (const entry of ranked) {
+      const tr = document.createElement('tr');
+      const td = cell(tr,'');
+      const button = document.createElement('button');
+      button.className = 'btn btn-ghost'; button.type = 'button'; button.textContent = settingLabel(entry.setting);
+      button.setAttribute('aria-label', `Show cases for ${settingLabel(entry.setting)}`);
+      button.addEventListener('click', () => {active = entry.setting; page=0; render();});
+      td.append(button);
+      const qualityRows = entry.rows.filter(r => !r.grade_excluded);
+      cell(tr,`${qualityRows.filter(qualityReady).length}/${entry.rows.length}`,true);
+      cell(tr,metric(qualityRows,r=>r.mechanical_pass===null?null:!r.mechanical_pass),true);
+      cell(tr,metric(qualityRows,r=>outcome(r,'source_flagged_admission')),true);
+      cell(tr,metric(qualityRows,r=>outcome(r,'false_reject')),true);
+      cell(tr,metric(qualityRows,r=>outcome(r,'useful_record')),true);
+      cell(tr,claimMetric(qualityRows),true);
+      cell(tr,metric(qualityRows,disagreement),true);
+      cell(tr,costMetric(entry.rows),true);
+      cell(tr,timeMetric(entry.rows),true);
+      aggregate.append(tr);
+    }
+    const selected = active ? filtered.filter(r=>r.variant===active) : filtered;
+    const pages = Math.max(1,Math.ceil(selected.length/perPage));
+    page = Math.min(page,pages-1);
+    cases.replaceChildren(); detail.hidden=true;
+    for (const row of selected.slice(page*perPage,(page+1)*perPage)) {
+      const tr=document.createElement('tr'), td=cell(tr,'');
+      const button=document.createElement('button');
+      button.className='btn btn-ghost'; button.type='button'; button.textContent=row.title + (row.grade_excluded ? ' · unresolved grade' : '');
+      button.setAttribute('aria-label',`Show source readings for ${row.title}, ${settingLabel(row.variant)}`);
+      button.addEventListener('click',()=>showCase(row));td.append(button);
+      cell(tr,settingLabel(row.variant)); cell(tr,row.decision);
+      cell(tr,flag(outcome(row,'source_flagged_admission')),true);
+      cell(tr,flag(outcome(row,'useful_record')),true);
+      cell(tr,show(supported(row)),true);
+      cell(tr,money(row.review_api_usd),true);
+      cell(tr,seconds(row.review_seconds),true);
+      cases.append(tr);
+    }
+    prev.disabled = page===0; next.disabled = page>=pages-1;
+    pageText.textContent = `Page ${page+1} of ${pages}`;
+    const reset = document.createElement('button');
+    reset.className='btn btn-ghost';reset.type='button'; reset.textContent='All settings';
+    reset.addEventListener('click',()=>{active=null;page=0;render();});
+    selection.replaceChildren();
+    selection.append(document.createTextNode(`${groupLabels[group.value]}: ${filtered.length} case-setting results. `));
+    if (active) {selection.append(document.createTextNode(`Showing ${settingLabel(active)}. `),reset);}
+    summary.replaceChildren();
+    const distinctCases = new Set(filtered.map(r=>r.id)).size;
+    const judgedBoth = filtered.filter(r=>!r.grade_excluded && known(disagreement(r))).length;
+    const gradeable = filtered.filter(r=>!r.grade_excluded);
+    const unresolvedCases = new Set(filtered.filter(r=>r.grade_excluded).map(r=>r.id)).size;
+    const note = document.createElement('span');
+    note.textContent=`${distinctCases} cases · ${distinctCases-unresolvedCases} gradeable · ${unresolvedCases} unresolved · ${ranked.length} settings · ${judgedBoth}/${gradeable.length} eligible rows read by both`;
+    summary.append(note);
+  }
+  prev.addEventListener('click',()=>{page=Math.max(0,page-1);render();});
+  next.addEventListener('click',()=>{page+=1;render();});
+  function remember() {
+    if (window.openai?.setWidgetState) {
+      Promise.resolve(window.openai.setWidgetState({modelContent:{group:group.value,judge:judge.value},privateContent:null})).catch(()=>{});
+    }
+  }
+  group.addEventListener('change',()=>{active=null;page=0;render();remember();});
+  judge.addEventListener('change',()=>{page=0;render();remember();});
+  limits.textContent=['Review cost is a standard API equivalent; acquisition, extraction and evaluation are excluded from each setting',...data.limitations].map(text => /[.!?]$/.test(text) ? text : text + '.').join(' ');
+  const available = new Set(rows.map(r=>r.group));
+  if (available.has('fresh') || available.has('regression')) available.add('primary');
+  for (const option of group.options) option.disabled=!available.has(option.value);
+  const saved = window.openai?.widgetState?.modelContent;
+  if (saved && available.has(saved.group)) group.value=saved.group;
+  if (saved && ['both','astra_medium','sol_high'].includes(saved.judge)) judge.value=saved.judge;
+  if (!available.has(group.value)) group.value=rows[0].group;
+  render();
+})();
+</script>

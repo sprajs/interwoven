@@ -216,11 +216,13 @@ def mechanical(result, case, review=False):
 
 class Runner:
     """Durable reservations; immutable successful artifacts; no automatic retry."""
-    def __init__(self, state, workers=4, sessions=None, limits=None, instructions=None, instruction_name='source-analyst.txt'):
+    def __init__(self, state, workers=4, sessions=None, limits=None, instructions=None, instruction_name='source-analyst.txt', concurrency_limit=4):
         self.state = Path(state)
         self.state.mkdir(parents=True, exist_ok=True)
-        if not 1 <= workers <= 4:
-            raise ValueError('Workers must be 1-4')
+        if type(concurrency_limit) is not int or not 1 <= concurrency_limit <= 16:
+            raise ValueError('Explicit concurrency limit must be 1-16')
+        if type(workers) is not int or not 1 <= workers <= concurrency_limit:
+            raise ValueError(f'Workers must be 1-{concurrency_limit}')
         self.workers = workers
         self.sessions = Path(sessions or Path.home() / '.codex/sessions')
         self.limits = dict(requests=650, seconds=7200, input=12_000_000, output=1_500_000, cost=60)

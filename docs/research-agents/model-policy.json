@@ -1,11 +1,11 @@
 {
   "automatic_admission": false,
-  "comparison_snapshot": "38dfdb604336a9a9539219e12275f0516fcf2268",
-  "decision": "Select tightened Terra-medium claim review as the interim candidate after the small parallel pilot.",
+  "comparison_snapshot": "42d6e8829d1ed4d320468613137771cd67c2818f",
+  "decision": "Use Astra-medium review as the quality-first provisional choice from the six-setting sweep.",
   "disputes": {
     "effort": "medium",
     "model": "gpt-6-astra",
-    "route": "Targeted original-source reading; human/historian review where consequential ambiguity remains"
+    "route": "Targeted fresh original-source reading; unresolved source/grain questions remain deferred for editorial or historian review."
   },
   "extract": {
     "effort": "low",
@@ -17,7 +17,7 @@
     "model": "gpt-6.1-sol",
     "status": "Lowest observed proposal cost at equal text-only yield; historical proposal accuracy unmeasured"
   },
-  "quality_reference": "Blinded same-family model source readings; no independent historian reference",
+  "quality_reference": "Two blinded model source readers, with one inconsistent case excluded uniformly from decisive comparisons; raw labels preserved.",
   "required_before_integration": [
     "Current snapshot duplicate/extension screen",
     "Exact source/version and mechanical checks",
@@ -28,14 +28,14 @@
   "review": {
     "effort": "medium",
     "mandatory_for_every_admission": true,
-    "model": "gpt-6.1-terra",
+    "model": "gpt-6-astra",
     "prompt_source": "tools/cards/pilot_workflow.py:REVIEW",
     "prompt_sha256": "30f37a92fcee6a803ea37a8a5976627b164d9e65a79273cf01ab721a2ec18739",
-    "independence": "Separate execution reading original evidence; same-family correlation remains."
+    "independence": "Separate extraction and review executions; blinded assessment remains within one model family."
   },
-  "schema_version": 2,
-  "selected_interim_route": "Terra-low extraction plus tightened Terra-medium review",
-  "selection_status": "Cleared the observed eight diagnostic and twelve reused confirmation cases; not an untouched population evaluation.",
+  "schema_version": 3,
+  "selected_interim_route": "Terra-low extraction plus tightened Astra-medium review",
+  "selection_status": "Exploratory recommendation from 39 consistently graded cases plus one unresolved case; eight repeated cases support short-run stability. No full-40 historical certification.",
   "previous_comparison_gate_failures": {
     "A": {
       "mechanical_failures": 5,
@@ -62,5 +62,53 @@
     },
     "evaluation_scope": "Review-stage change with cached upstream artifacts; acquisition/extraction were not rerun.",
     "comparison_interpretation": "Confirmation compares combined prompt and reviewer-model change against the cached old-prompt baseline; it does not isolate a pure model effect."
-  }
+  },
+  "quality_sweep": {
+    "report": "docs/reviews/2026-11-10-quality-sweep/report.md",
+    "dataset_snapshot": "42d6e8829d1ed4d320468613137771cd67c2818f",
+    "settings_tested": [
+      "astra_low",
+      "astra_medium",
+      "sol_high",
+      "sol_medium",
+      "terra_high",
+      "terra_medium"
+    ],
+    "primary_cases": 40,
+    "new_benchmark_candidates": 24,
+    "regression_cases": 16,
+    "decisive_cases": 39,
+    "case_level_unresolved": 1,
+    "excluded_case_id": "candidate-0481515a5cf4b868",
+    "exclusion_reason": "Reference duplicate decisions contradicted source-supported extension judgments. The existing event policy supports dated spread, but model readers applied it inconsistently. Excluded for every setting; raw judgments preserved.",
+    "selection_priority": [
+      "source support",
+      "retaining useful records",
+      "supported claim coverage",
+      "repeat stability",
+      "cost and latency"
+    ],
+    "selected_useful_records": 26,
+    "selected_false_rejects": 0,
+    "selected_source_flags": 0,
+    "repeat_cases_per_finalist": 8,
+    "repeat_useful_records": 6,
+    "repeat_source_flags": 0,
+    "repeat_false_rejects": 0,
+    "alternatives": {
+      "astra_low": "Same useful-record count and clean repeats; slightly less supported claim coverage in initial sample.",
+      "terra_high": "25 useful records, one missed supported admission; lower measured cost.",
+      "sol_medium": "25 useful records, one missed supported admission; no measured quality advantage over Terra-high in this sample."
+    },
+    "actual_model_calls": 480,
+    "api_equivalent_usd": 21.11785780000001,
+    "observed_billing": null,
+    "limitations": [
+      "Selection uses a post hoc 39-case subset after a grader-consistency defect; not an untouched confirmation.",
+      "Two same-family model readers are not independent historical truth.",
+      "One phase handoff reached 13 concurrent calls; timings reflect actual load.",
+      "Eight extra Terra-medium repeat outputs were unjudged and enter cost accounting only."
+    ]
+  },
+  "previous_comparison_snapshot": "38dfdb604336a9a9539219e12275f0516fcf2268"
 }

@@ -1,5 +1,6 @@
 """Mocked provider: meaningful accounting, immutable resume and guard contracts."""
 import copy
+import concurrent.futures
 import json
 import sys
 import tempfile
@@ -89,6 +90,28 @@ class CompareTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'stopped'):
                 self.runner.call(self.case, 'other', 'gpt-6-luna', 'low')
             self.assertEqual(proc.call_count, 1)
+
+    def test_expanded_parallelism_preserves_shared_request_ceiling(self):
+        runner = Runner(self.root / 'parallel', workers=12, concurrency_limit=12,
+                        sessions=self.sessions, limits={'requests': 5})
+
+        def dispatch(index):
+            try:
+                runner.call(self.case, f'review-{index}', 'gpt-6.1-terra', 'high')
+                return True
+            except RuntimeError as error:
+                self.assertIn('budget exhausted', str(error))
+                return False
+
+        with patch('compare.subprocess.Popen', side_effect=lambda *a, **k: self.process()) as proc:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
+                completed = list(pool.map(dispatch, range(20)))
+        self.assertEqual(sum(completed), 5)
+        self.assertEqual(proc.call_count, 5)
+        with runner.ledger() as ledger:
+            self.assertEqual(ledger['requests'], 5)
+            self.assertEqual(len(ledger['calls']), 5)
+        self.assertEqual(len(list((runner.state / 'calls').glob('*.json'))), 5)
 
     def test_inflight_crash_not_replayed(self):
         with patch('compare.subprocess.Popen', side_effect=KeyboardInterrupt):

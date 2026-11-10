@@ -1,0 +1,64 @@
+{
+  "checked_at_utc": "2026-11-10T19:33:50.833624+00:00",
+  "validation_base_commit": "5eb9f39cd8149cf9f88c345fae3dc88833f4c933",
+  "experiment_dataset_commit": "42d6e8829d1ed4d320468613137771cd67c2818f",
+  "scope": "Committed dataset plus task-owned changes in an isolated git-archive snapshot; excludes preserved unfinished research in the live checkout.",
+  "checks": {
+    "dataset_validation": {
+      "passed": true,
+      "discoveries": 886,
+      "events": 1469,
+      "sources": 1586
+    },
+    "npm_test": {
+      "passed": true,
+      "python_tests": 165,
+      "app_tests": 53
+    },
+    "frozen_source_hashes": {
+      "passed": true,
+      "unique_sources": 49,
+      "cases": 40
+    },
+    "preserved_research_sha256": {
+      "passed": true,
+      "files": 92
+    },
+    "interactive_view": {
+      "rendered": true,
+      "verified_interactions": [
+        "new-candidate filter",
+        "unresolved-case drilldown",
+        "model drilldown",
+        "source-reader selector",
+        "separate repeat filter"
+      ],
+      "primary_rows": 240,
+      "repeat_rows": 16,
+      "excluded_primary_rows": 6
+    },
+    "staged_diff_whitespace": {
+      "passed": true
+    }
+  },
+  "interpretation": {
+    "quality_cases": 39,
+    "post_hoc_excluded_cases": 1,
+    "new_benchmark_cases_after_exclusion": 23,
+    "regression_cases_after_exclusion": 16,
+    "observed_calls": 480,
+    "observed_peak_parallel_calls": 13,
+    "unjudged_extra_review_calls_costed_only": 8,
+    "repeat_plan_reconstructed_after_dispatch": true,
+    "judges_are_models": true,
+    "actual_billing_observed": false
+  },
+  "artifacts": {
+    "cases.json": "1d0ade2fd2324c290b5aa1213dbfb3f94d7963bb33128f337124a4e4f22f140a",
+    "sweep-protocol.json": "fe5d5aa3df4c92cb44dea88961f0e339327a0705dfc5cbcb64ee493ddbbe28ae",
+    "result.json": "67f21c00a5ebe18cce813886f24bfa8e26e3ef5bb0ebc517a29508cab4fba349",
+    "view.json": "769d63f85aeea0ea180e969d50d639670550084904adf42b0389b30b134c29ba",
+    "report.md": "e7cba58b5fead7e0b3532019d72b5e1c131273925d00e85167041818cb37af33"
+  },
+  "post_test_edits": "Whitespace cleanup and explanatory wording only; no numerical or execution behavior changed."
+}
