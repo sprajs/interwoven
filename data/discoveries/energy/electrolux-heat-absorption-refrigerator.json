@@ -1,0 +1,84 @@
+{
+  "id": "electrolux-heat-absorption-refrigerator",
+  "name": "Electrolux household absorption refrigerator",
+  "description": "A heat-driven absorption refrigerator was launched for household use by Electrolux.",
+  "kind": "technology",
+  "domain": "energy.cooling",
+  "grain": "instance",
+  "concept": "domestic-absorption-refrigeration",
+  "places": [
+    {
+      "place": "sweden",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "launch-1925",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1925
+        },
+        "latest": {
+          "year": 1925
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1925",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Electrolux launched a refrigerator based on the von Platen–Munters absorption system.",
+      "evidence": [
+        {
+          "source": "electrolux-history-1925-absorption-wave11",
+          "locator": "1922 and 1925 refrigerator entries",
+          "supports": "Company history identifies a 1922 absorption refrigerator presented by von Platen and Munters and Electrolux’s 1925 launch following acquisition of Arctic; it describes electricity, gas or kerosene as possible heat sources."
+        }
+      ],
+      "caveats": "The company history does not establish a first sale in a particular country.",
+      "contributions": [
+        {
+          "organization": "electrolux",
+          "role": "contributor",
+          "resource": "Commercial launch",
+          "evidence": [
+            {
+              "source": "electrolux-history-1925-absorption-wave11",
+              "locator": "1922 and 1925 refrigerator entries",
+              "supports": "Company history identifies a 1922 absorption refrigerator presented by von Platen and Munters and Electrolux’s 1925 launch following acquisition of Arctic; it describes electricity, gas or kerosene as possible heat sources."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "launch-1925",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked cited dated events and measures against accessible sources; retrospective scope and inferences are retained.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The source does not establish a direct link to any exact existing refrigerator record.",
+        "evidence": [
+          {
+            "source": "electrolux-history-1925-absorption-wave11",
+            "locator": "1922 and 1925 refrigerator entries",
+            "supports": "Company history identifies a 1922 absorption refrigerator presented by von Platen and Munters and Electrolux’s 1925 launch following acquisition of Arctic; it describes electricity, gas or kerosene as possible heat sources."
+          }
+        ]
+      }
+    ]
+  }
+}

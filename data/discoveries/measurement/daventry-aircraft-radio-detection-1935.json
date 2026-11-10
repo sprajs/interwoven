@@ -1,0 +1,179 @@
+{
+  "id": "daventry-aircraft-radio-detection-1935",
+  "name": "Daventry aircraft radio-detection demonstration",
+  "description": "A 1935 British field demonstration detected an aircraft through its effect on radio signals.",
+  "kind": "technology",
+  "domain": "measurement.sensing",
+  "grain": "instance",
+  "concept": "daventry-aircraft-radio-detection",
+  "places": [
+    {
+      "place": "england",
+      "note": "Trial near Daventry, Northamptonshire."
+    }
+  ],
+  "people": [
+    {
+      "person": "robert-watson-watt",
+      "role": "contributor"
+    },
+    {
+      "person": "arnold-wilkins",
+      "role": "contributor"
+    }
+  ],
+  "events": [
+    {
+      "id": "february-report",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1935,
+          "month": 2
+        },
+        "latest": {
+          "year": 1935,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "February 1935",
+        "basis": "NPL dates the report to February, without an exact day in the cited passage."
+      },
+      "statement": "After an Air Ministry approach, Watson-Watt and Wilkins prepared a report on detecting aircraft by radio.",
+      "evidence": [
+        {
+          "source": "w11-radar-npl-watson",
+          "locator": "1933–1936 paragraph",
+          "supports": "Reports the Air Ministry approach, authorship and February 1935 report."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "robert-watson-watt",
+          "role": "developer",
+          "resource": "Prepared the detection report.",
+          "evidence": [
+            {
+              "source": "w11-radar-npl-watson",
+              "locator": "1933–1936 paragraph",
+              "supports": "Reports the Air Ministry approach, authorship and February 1935 report."
+            }
+          ]
+        },
+        {
+          "person": "arnold-wilkins",
+          "role": "developer",
+          "resource": "Assisted with the detection report.",
+          "evidence": [
+            {
+              "source": "w11-radar-npl-watson",
+              "locator": "1933–1936 paragraph",
+              "supports": "Reports the Air Ministry approach, authorship and February 1935 report."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daventry-demonstration",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1935,
+          "month": 2,
+          "day": 26
+        },
+        "latest": {
+          "year": 1935,
+          "month": 2,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "26 February 1935",
+        "basis": "The National Physical Laboratory and Science Museum date the demonstration to this day."
+      },
+      "statement": "At a demonstration near Daventry, a receiver registered an effect associated with an aircraft using an existing BBC broadcast signal.",
+      "evidence": [
+        {
+          "source": "w11-radar-smg-object",
+          "locator": "Object 1957-90/1, description",
+          "supports": "Dates the demonstration and identifies the reused NPL receiver and BBC transmission resource."
+        },
+        {
+          "source": "w11-radar-raf-history",
+          "locator": "Chapter 1, pp. 2–4, First Practical Demonstration",
+          "supports": "Reports 26 February demonstration, Wilkins’s preparation, prior Treasury-approval status and limits of the demonstration."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "robert-watson-watt",
+          "role": "developer",
+          "resource": "Participated in the aircraft-detection demonstration.",
+          "evidence": [
+            {
+              "source": "w11-radar-smg-object",
+              "locator": "Object 1957-90/1, description",
+              "supports": "Dates the demonstration and identifies the reused NPL receiver and BBC transmission resource."
+            }
+          ]
+        },
+        {
+          "person": "arnold-wilkins",
+          "role": "contributor",
+          "resource": "Prepared the receiving apparatus for the demonstration.",
+          "evidence": [
+            {
+              "source": "w11-radar-raf-history",
+              "locator": "Chapter 1, pp. 2–4, First Practical Demonstration",
+              "supports": "Reports 26 February demonstration, Wilkins’s preparation, prior Treasury-approval status and limits of the demonstration."
+            }
+          ]
+        },
+        {
+          "organization": "uk-national-physical-laboratory",
+          "role": "infrastructure_provider",
+          "resource": "The demonstration reused a receiver previously used for laboratory research.",
+          "evidence": [
+            {
+              "source": "w11-radar-smg-object",
+              "locator": "Object 1957-90/1, description",
+              "supports": "Dates the demonstration and identifies the reused NPL receiver and BBC transmission resource."
+            }
+          ]
+        },
+        {
+          "organization": "british-broadcasting-corporation",
+          "role": "infrastructure_provider",
+          "resource": "The demonstration used an existing BBC transmitter.",
+          "evidence": [
+            {
+              "source": "w11-radar-smg-object",
+              "locator": "Object 1957-90/1, description",
+              "supports": "Dates the demonstration and identifies the reused NPL receiver and BBC transmission resource."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "february-report",
+    "rationale": "The report is a dated witness preceding or accompanying the demonstrated instance; the sources do not establish a global first."
+  },
+  "caveats": "This event demonstrated a detectable aircraft-related signal, not a measurement of aircraft range or a complete operational warning system. The RAF history says the trial preceded a request for Treasury approval of NPL research; no funding or payment for this trial is inferred.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "people": "sourced",
+      "events": "reviewed"
+    },
+    "note": "The Science Museum’s distance figure is contextual and is not recorded as a measurement of ranging. Only broad historical descriptions of the test are retained. Independent review checked the NPL history, Science Museum object description and RAF retrospective, including their stated participant roles and the trial’s inability to locate the aircraft."
+  }
+}

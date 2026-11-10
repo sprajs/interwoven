@@ -41,11 +41,45 @@
         }
       ],
       "caveats": "The inaugural trip does not establish the ticket conditions, class composition or ordinary daily traffic."
+    },
+    {
+      "id": "public-timetable-offer-1853",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1853,
+          "month": 4,
+          "day": 8
+        },
+        "latest": {
+          "year": 1853,
+          "month": 4,
+          "day": 8
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1853-04-08",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "An advertisement offered passenger journeys and class fares for a planned daily service beginning 18 April.",
+      "evidence": [
+        {
+          "source": "yojana-1976-first-rail-timetable-wave11",
+          "locator": "15 February 1976, p. 5, reproduced Bombay–Thanah timetable",
+          "supports": "The government magazine reproduces the passenger notice and class-based fares in rupees, annas and pies. It reproduces an offer, not proof of individual tickets sold."
+        },
+        {
+          "source": "times-india-2013-rail-advert-wave11",
+          "locator": "Archives and 8 April 1853 notice",
+          "supports": "The newspaper dates the reproduced public passenger advertisement to 8 April 1853 and quotes planned service beginning Monday the 18th; it does not establish actual service on that day."
+        }
+      ],
+      "caveats": "The announcement is evidence of an offer, not actual transactions or proof of service on that day."
     }
   ],
   "earliest_record": {
-    "event": "inaugural-run-1853",
-    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+    "event": "public-timetable-offer-1853",
+    "rationale": "The 8 April prospective offer is the earliest dated public documentation here; it does not establish actual passenger service before the 16 April inaugural trip."
   },
   "research": {
     "status": "draft",
@@ -57,7 +91,7 @@
       "events": "reviewed",
       "measures": "reviewed"
     },
-    "note": "Source-backed admission; independent review pending.",
+    "note": "Source-backed admission; independent review pending. Independent reader checked cited dated events and measures against accessible sources; retrospective scope and inferences are retained.",
     "unresolved": [
       {
         "about": "transmission",
@@ -86,6 +120,38 @@
           "source": "indian-railways-nd-rpf-history-wave8",
           "locator": "Evolution of Railways in India",
           "supports": "Indian Railways describes the 16 April 1853 Bombay–Thane inaugural run with fourteen carriages and about 400 guests and passengers, and the 1854 Howrah–Hooghly public line."
+        }
+      ]
+    },
+    {
+      "quantity": "offered first-class fare",
+      "value": "2-10-0",
+      "unit": "rupees-annas-pies",
+      "event": "public-timetable-offer-1853",
+      "subject": "Bombay–Thanah passenger journey",
+      "conditions": "One-way class fare in the reproduced notice; nominal 1853 terms",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "yojana-1976-first-rail-timetable-wave11",
+          "locator": "15 February 1976, p. 5, reproduced Bombay–Thanah timetable",
+          "supports": "The government magazine reproduces the passenger notice and class-based fares in rupees, annas and pies. It reproduces an offer, not proof of individual tickets sold."
+        }
+      ]
+    },
+    {
+      "quantity": "offered third-class fare",
+      "value": "0-5-3",
+      "unit": "rupees-annas-pies",
+      "event": "public-timetable-offer-1853",
+      "subject": "Bombay–Thanah passenger journey",
+      "conditions": "One-way class fare in the reproduced notice; nominal 1853 terms",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "yojana-1976-first-rail-timetable-wave11",
+          "locator": "15 February 1976, p. 5, reproduced Bombay–Thanah timetable",
+          "supports": "The government magazine reproduces the passenger notice and class-based fares in rupees, annas and pies. It reproduces an offer, not proof of individual tickets sold."
         }
       ]
     }

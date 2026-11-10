@@ -1,0 +1,180 @@
+{
+  "id": "cooley-tukey-fast-fourier-transform-1965",
+  "name": "Cooley–Tukey fast Fourier transformation",
+  "description": "A factoring-based algorithm for efficient calculation of discrete Fourier sums.",
+  "kind": "mathematics",
+  "domain": "electronics.software",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "manuscript-received-1964",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1964,
+          "month": 8,
+          "day": 17
+        },
+        "latest": {
+          "year": 1964,
+          "month": 8,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1964-08-17",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The journal received Cooley and Tukey’s manuscript on 17 August 1964.",
+      "evidence": [
+        {
+          "source": "cooley-tukey-1965-fourier-wave11",
+          "locator": "p. 297, received-date footnote",
+          "supports": "States receipt on 17 August 1964."
+        }
+      ],
+      "caveats": "Receipt is not public availability."
+    },
+    {
+      "id": "paper-1965",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1965
+        },
+        "latest": {
+          "year": 1965
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1965",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Cooley and Tukey published their algorithm and reported an IBM 7094 program.",
+      "evidence": [
+        {
+          "source": "cooley-tukey-1965-fourier-wave11",
+          "locator": "pp. 297–301",
+          "supports": "Paper records manuscript receipt, Good prior work, Army Research Office sponsorship and IBM 7094 timings."
+        },
+        {
+          "source": "crossref-1965-cooley-fourier-wave11",
+          "locator": "Publication metadata",
+          "supports": "Crossref identifies the publication year 1965."
+        }
+      ],
+      "caveats": "The authors explicitly cite Good’s earlier work; no exclusive priority or precise benchmark date is asserted.",
+      "contributions": [
+        {
+          "person": "james-w-cooley",
+          "role": "contributor",
+          "resource": "Coauthored the paper.",
+          "evidence": [
+            {
+              "source": "cooley-tukey-1965-fourier-wave11",
+              "locator": "pp. 297–301",
+              "supports": "Paper records manuscript receipt, Good prior work, Army Research Office sponsorship and IBM 7094 timings."
+            }
+          ]
+        },
+        {
+          "person": "john-w-tukey",
+          "role": "contributor",
+          "resource": "Coauthored the paper.",
+          "evidence": [
+            {
+              "source": "cooley-tukey-1965-fourier-wave11",
+              "locator": "pp. 297–301",
+              "supports": "Paper records manuscript receipt, Good prior work, Army Research Office sponsorship and IBM 7094 timings."
+            }
+          ]
+        },
+        {
+          "organization": "army-research-office-durham",
+          "role": "funder",
+          "resource": "The published paper acknowledges partial Army Research Office (Durham) support for research carried out at Princeton; the award date and amount are not stated.",
+          "evidence": [
+            {
+              "source": "cooley-tukey-1965-fourier-wave11",
+              "locator": "p. 297, research-support footnote",
+              "supports": "Acknowledges partial sponsorship of the research at Princeton."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "manuscript-received-1964",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "sourced",
+      "measures": "reviewed",
+      "origin": "unknown",
+      "funding": "reviewed"
+    },
+    "missing_prerequisites": [
+      "I. J. Good’s interaction algorithm and practical Fourier-series work, explicitly discussed in the paper."
+    ],
+    "unresolved": [
+      {
+        "about": "transmission and uptake",
+        "note": "The paper thanks Richard Garwin for communication and encouragement. The dates and details of that exchange, early external users, and access costs still require evidence."
+      }
+    ]
+  },
+  "concept": "fast-discrete-fourier-transformation",
+  "measures": [
+    {
+      "quantity": "reported computing time",
+      "value": 0.04,
+      "unit": "minutes",
+      "event": "paper-1965",
+      "subject": "IBM 7094 Fourier program: 16 × 16 × 16 array",
+      "conditions": "Authors’ reported time for this 4,096-point array shape, not a modern benchmark or dated execution.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "cooley-tukey-1965-fourier-wave11",
+          "locator": "p. 301, timing table; p. 300, program description",
+          "supports": "Reports the IBM 7094 implementation and timings in minutes for the listed array shapes."
+        }
+      ]
+    },
+    {
+      "quantity": "reported computing time",
+      "value": 0.07,
+      "unit": "minutes",
+      "event": "paper-1965",
+      "subject": "IBM 7094 Fourier program: 4096 × 1 × 1 array",
+      "conditions": "Authors’ reported time for this 4,096-point array shape, not a modern benchmark or dated execution.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "cooley-tukey-1965-fourier-wave11",
+          "locator": "p. 301, timing table; p. 300, program description",
+          "supports": "Reports the IBM 7094 implementation and timings in minutes for the listed array shapes."
+        }
+      ]
+    }
+  ],
+  "origin": "unknown",
+  "funding": [
+    "military"
+  ],
+  "community_entry": {
+    "event": "paper-1965",
+    "community": "Readers of Mathematics of Computation",
+    "basis": "public_availability",
+    "strength": "direct",
+    "rationale": "The published paper describes the algorithm.",
+    "caveats": "This is public description, not measured adoption or affordable access to the computer."
+  },
+  "caveats": "The efficiency argument assumes suitable factorization and the authors’ operation-count convention. The paper acknowledges earlier methods; no global priority or direct dependence on Fourier’s 1822 heat treatise is asserted."
+}

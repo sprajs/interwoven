@@ -1,0 +1,60 @@
+{
+  "id": "al-kindi-letter-frequency-cryptanalysis",
+  "name": "Al-Kindī’s letter-frequency cryptanalysis",
+  "description": "A treatise attributed to al-Kindī describes using regularities of letter frequency to study concealed writing.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "ayasofya-copy-eleventh-century",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1001
+        },
+        "latest": {
+          "year": 1100
+        },
+        "precision": "century",
+        "status": "approximate",
+        "label": "11th century CE",
+        "basis": "The scholarly catalog dates the main hand of Ayasofya 4832 to the 11th century; this dates the surviving witness, not composition."
+      },
+      "statement": "A manuscript collection dated by cataloguers to the 11th century preserves a treatise attributed to al-Kindī describing letter-frequency analysis.",
+      "evidence": [
+        {
+          "source": "mrayati-2003-kindi-edition-wave11",
+          "locator": "Chapter 3, manuscript description and translated treatise",
+          "supports": "Translation describes letter-frequency analysis and identifies the work as al-Kindi’s treatise in Ayasofya 4832 folios 211–216."
+        },
+        {
+          "source": "pal-nd-ayasofya4832-catalog-wave11",
+          "locator": "Codicological description and dating",
+          "supports": "The codex main hand is dated to the 11th century, with identified later additions on other folios."
+        }
+      ],
+      "caveats": "The dating concerns the surviving copy’s main hand, not the author’s ninth-century lifetime, an exact invention year, or an 1173 ownership note. No direct path to later European practice is asserted. The catalog does not separately date folios 211–216 or explicitly identify their hand, so their assignment to the main hand remains a scholarly inference pending folio-level verification."
+    }
+  ],
+  "earliest_record": {
+    "event": "ayasofya-copy-eleventh-century",
+    "rationale": "The surviving witness has a scholarly century-scale catalog date; the author’s earlier lifetime does not by itself date this physical copy."
+  },
+  "people": [
+    {
+      "person": "al-kindi",
+      "role": "author"
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "people": "reviewed"
+    },
+    "note": "The edition identifies the relevant folios; codicological dating of the codex is approximate. Copying and composition are distinct."
+  }
+}

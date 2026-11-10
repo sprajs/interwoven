@@ -1,0 +1,127 @@
+{
+  "id": "hamming-systematic-error-correcting-codes",
+  "name": "Hamming systematic error-correcting codes",
+  "description": "Systematic binary codes that add check information to detect errors and correct a single error, with an extended form also detecting double errors.",
+  "kind": "mathematics",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "shannon-example-1948",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1948,
+          "month": 7
+        },
+        "latest": {
+          "year": 1948,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1948-07",
+        "basis": "The original issue header states July 1948; section 17 appears on printed page 418."
+      },
+      "statement": "Shannon’s communication paper describes a seven-symbol example and credits its method to Hamming.",
+      "evidence": [
+        {
+          "source": "shannon-1948-original-hamming-example-wave11",
+          "locator": "Original July 1948 issue, printed p. 418, section 17",
+          "supports": "The original issue explicitly credits Hamming for the seven-symbol correcting example."
+        }
+      ],
+      "caveats": "The example establishes a public description by July 1948, not the date of private development or every construction in the 1950 treatment.",
+      "contributions": [
+        {
+          "person": "richard-w-hamming",
+          "role": "contributor",
+          "resource": "Credited for the method underlying the example.",
+          "evidence": [
+            {
+              "source": "shannon-1948-original-hamming-example-wave11",
+              "locator": "Original July 1948 issue, printed p. 418, section 17",
+              "supports": "The original issue explicitly credits Hamming for the seven-symbol correcting example."
+            }
+          ]
+        }
+      ],
+      "scope": "The seven-symbol example, rather than every construction in Hamming’s later systematic treatment."
+    },
+    {
+      "id": "hamming-paper-1950",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1950,
+          "month": 4
+        },
+        "latest": {
+          "year": 1950,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1950-04",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Hamming published a systematic treatment of error-detecting and correcting codes.",
+      "evidence": [
+        {
+          "source": "hamming-1950-error-correction-wave11",
+          "locator": "pp. 147–160",
+          "supports": "Hamming published a systematic account in the April 1950 Bell System Technical Journal."
+        }
+      ],
+      "caveats": "Relay-computer failures motivated the work; the paper does not establish deployment of these codes on those machines.",
+      "contributions": [
+        {
+          "person": "richard-w-hamming",
+          "role": "contributor",
+          "resource": "Authored the paper.",
+          "evidence": [
+            {
+              "source": "hamming-1950-error-correction-wave11",
+              "locator": "pp. 147–160",
+              "supports": "Hamming published a systematic account in the April 1950 Bell System Technical Journal."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "shannon-example-1948",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "concept": "sourced",
+      "origin": "unknown"
+    },
+    "unresolved": [
+      {
+        "about": "prior work and transmission",
+        "note": "Hamming cites Golay’s June 1949 Notes on Digital Coding as earlier printed work. Inspect that relation before claiming dependence. Shannon’s 1948 credit establishes awareness of Hamming’s example but does not justify a Shannon-to-Hamming causal direction."
+      },
+      {
+        "about": "early implementation",
+        "note": "Trace actual engineering use, cost and reliability improvements separately from the mathematical publications."
+      }
+    ]
+  },
+  "concept": "systematic-error-correcting-codes",
+  "origin": "unknown",
+  "community_entry": {
+    "event": "shannon-example-1948",
+    "community": "Readers of Shannon’s communication paper",
+    "basis": "public_awareness",
+    "strength": "direct",
+    "rationale": "The published example identifies Hamming’s method.",
+    "caveats": "The original issue establishes public description, not engineering deployment or the date of earlier private development."
+  }
+}

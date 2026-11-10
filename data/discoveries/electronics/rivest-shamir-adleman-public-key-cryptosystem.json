@@ -1,0 +1,161 @@
+{
+  "id": "rivest-shamir-adleman-public-key-cryptosystem",
+  "name": "Rivest–Shamir–Adleman public-key cryptosystem",
+  "description": "A published public-key method for encryption and digital signatures.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "mit-memo-1977",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1977,
+          "month": 4
+        },
+        "latest": {
+          "year": 1977,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1977-04",
+        "basis": "Institutional repository catalog identifies the memorandum issue month."
+      },
+      "statement": "An MIT technical memorandum describing the RSA public-key method is dated April 1977 in MIT’s repository.",
+      "evidence": [
+        {
+          "source": "mit-1977-rsa-memo-wave11",
+          "locator": "Date issued and abstract",
+          "supports": "MIT DSpace catalog identifies memo MIT-LCS-TM-082 by Rivest, Shamir and Adleman, issued April 1977; its abstract describes the public-key encryption and signature method. The underlying scanned file was inaccessible during inspection."
+        }
+      ],
+      "caveats": "The institutional catalog and abstract were inspected; the underlying scan returned a rate-limit response. The catalog date is not evidence of an exact day of public dissemination."
+    },
+    {
+      "id": "paper-1978",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1978,
+          "month": 2
+        },
+        "latest": {
+          "year": 1978,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1978-02",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Rivest, Shamir and Adleman published their public-key cryptosystem and digital-signature method.",
+      "evidence": [
+        {
+          "source": "rsa-1978-public-key-paper-wave11",
+          "locator": "Abstract and introduction",
+          "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+        },
+        {
+          "source": "crossref-rsa-1978-publication-wave11",
+          "locator": "Publication history",
+          "supports": "Crossref Crossmark metadata identifies the RSA paper and records print and online publication in February 1978."
+        }
+      ],
+      "caveats": "Research paper, not proof of a deployed secure service; contemporary security assumptions and implementation details vary.",
+      "contributions": [
+        {
+          "person": "ronald-l-rivest",
+          "role": "contributor",
+          "resource": "Coauthored the paper.",
+          "evidence": [
+            {
+              "source": "rsa-1978-public-key-paper-wave11",
+              "locator": "Abstract and introduction",
+              "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+            }
+          ]
+        },
+        {
+          "person": "adi-shamir",
+          "role": "contributor",
+          "resource": "Coauthored the paper.",
+          "evidence": [
+            {
+              "source": "rsa-1978-public-key-paper-wave11",
+              "locator": "Abstract and introduction",
+              "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+            }
+          ]
+        },
+        {
+          "person": "leonard-m-adleman",
+          "role": "contributor",
+          "resource": "Coauthored the paper.",
+          "evidence": [
+            {
+              "source": "rsa-1978-public-key-paper-wave11",
+              "locator": "Abstract and introduction",
+              "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+            }
+          ]
+        },
+        {
+          "organization": "national-science-foundation",
+          "role": "funder",
+          "resource": "Supported the research through a grant acknowledged in the paper.",
+          "evidence": [
+            {
+              "source": "rsa-1978-public-key-paper-wave11",
+              "locator": "Abstract and introduction",
+              "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+            }
+          ]
+        },
+        {
+          "organization": "office-of-naval-research",
+          "role": "funder",
+          "resource": "Supported the research through a grant acknowledged in the paper.",
+          "evidence": [
+            {
+              "source": "rsa-1978-public-key-paper-wave11",
+              "locator": "Abstract and introduction",
+              "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "mit-memo-1977",
+    "rationale": "The MIT repository dates the technical memorandum to April 1977, before the journal publication."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "links": "reviewed"
+    }
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "diffie-hellman-public-key-distribution",
+      "from_event": "publication-1976",
+      "to_event": "paper-1978",
+      "status": "established",
+      "statement": "The authors identify Diffie and Hellman’s public-key concept and paper as motivation for their work.",
+      "evidence": [
+        {
+          "source": "rsa-1978-public-key-paper-wave11",
+          "locator": "Abstract and introduction",
+          "supports": "Authors describe their method, cite Diffie and Hellman, and acknowledge NSF and ONR grants."
+        }
+      ]
+    }
+  ]
+}

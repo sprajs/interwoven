@@ -1,0 +1,119 @@
+{
+  "id": "toshiba-jw10-kana-kanji-word-processing",
+  "name": "Toshiba JW-10 kana–kanji word processing",
+  "description": "An office word processor using phonetic phrase entry and conversion to Japanese characters.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "announcement-1978",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1978,
+          "month": 9
+        },
+        "latest": {
+          "year": 1978,
+          "month": 9
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1978-09",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Toshiba announced the JW-10 Japanese word processor in September 1978.",
+      "evidence": [
+        {
+          "source": "ipsj-jw10-history-wave11",
+          "locator": "JW-10",
+          "supports": "IPSJ dates 1978 announcement, February 1979 shipment and reports a price of 6.3 million yen."
+        },
+        {
+          "source": "ipsj-jw10-heritage-wave11",
+          "locator": "Description",
+          "supports": "The machine supported phrase-based kana–kanji input."
+        }
+      ],
+      "caveats": "The announcement is distinct from shipping; earlier conversion research and prototypes existed.",
+      "contributions": [
+        {
+          "organization": "toshiba",
+          "role": "developer",
+          "resource": "Developed the JW-10 and incorporated phrase-based kana–kanji conversion.",
+          "evidence": [
+            {
+              "source": "ipsj-jw10-heritage-wave11",
+              "locator": "Description",
+              "supports": "The machine supported phrase-based kana–kanji input."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shipment-1979",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1979,
+          "month": 2
+        },
+        "latest": {
+          "year": 1979,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1979-02",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Toshiba began shipping the JW-10 in February 1979.",
+      "evidence": [
+        {
+          "source": "ipsj-jw10-history-wave11",
+          "locator": "JW-10",
+          "supports": "IPSJ dates 1978 announcement, February 1979 shipment and reports a price of 6.3 million yen."
+        },
+        {
+          "source": "ipsj-jw10-heritage-wave11",
+          "locator": "Description",
+          "supports": "The machine supported phrase-based kana–kanji input."
+        }
+      ],
+      "caveats": "Price is the historical model price, not an observed transaction or a claim of household affordability."
+    }
+  ],
+  "earliest_record": {
+    "event": "announcement-1978",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "measures": "reviewed"
+    }
+  },
+  "measures": [
+    {
+      "quantity": "listed word processor price",
+      "value": 6300000,
+      "unit": "Japanese yen per machine",
+      "status": "claimed",
+      "event": "shipment-1979",
+      "subject": "JW-10",
+      "conditions": "Historical model price reported by IPSJ; not an individual sale.",
+      "evidence": [
+        {
+          "source": "ipsj-jw10-history-wave11",
+          "locator": "JW-10",
+          "supports": "IPSJ dates 1978 announcement, February 1979 shipment and reports a price of 6.3 million yen."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "958-egypt-suftaja-land-tax-payment-order",
+  "name": "Egyptian suftaja payment order",
+  "description": "A written payment order could direct funds for a future payment without carrying the sum to the place of payment.",
+  "kind": "practice",
+  "domain": "economy.money",
+  "grain": "capability",
+  "concept": "egyptian-suftaja-payment-orders",
+  "events": [
+    {
+      "id": "witness",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 957
+        },
+        "latest": {
+          "year": 958
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "957–958",
+        "basis": "Source dates the document 346 AH/958; that Hijri year overlaps 957–958 CE."
+      },
+      "statement": "A tax officer issued a suftaja for 33 dinars toward future land tax, according to a scholarly account of an Egyptian document.",
+      "scope": "A single Egyptian document dated 346 AH; issuance is not proof of redemption.",
+      "evidence": [
+        {
+          "source": "w11-lydon-egypt-suftaja",
+          "locator": "p. 1104, Egyptian documentary examples",
+          "supports": "Reports the tax officer’s payment order, date and 33 dinars from an earlier documentary edition."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "witness",
+    "rationale": "The dated episode anchors this community-scoped capability; earlier practices are not excluded."
+  },
+  "caveats": "The modern scholar uses 958 as the CE equivalent of 346 AH, which overlaps two CE years. The original document was not examined; this does not establish transferable modern bills or a global first.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass.  Independent review checked Lydon p. 1104: 346 AH/958 is the source’s label, the broader 957–958 interval preserves the overlap, and 33 dinars are the order amount rather than a confirmed payment. The underlying Egyptian document was not inspected."
+  },
+  "places": [
+    {
+      "place": "egypt"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "payment-order amount",
+      "value": 33,
+      "unit": "dinars",
+      "event": "witness",
+      "subject": "Documented agreement",
+      "conditions": "Nominal amount in the specified Egyptian order; not evidence the amount was paid.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w11-lydon-egypt-suftaja",
+          "locator": "p. 1104, Egyptian documentary examples",
+          "supports": "Reports the tax officer’s payment order, date and 33 dinars from an earlier documentary edition."
+        }
+      ]
+    }
+  ]
+}

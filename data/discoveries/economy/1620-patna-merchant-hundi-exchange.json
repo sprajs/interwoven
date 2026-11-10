@@ -1,0 +1,126 @@
+{
+  "id": "1620-patna-merchant-hundi-exchange",
+  "name": "Patna merchant bills of exchange",
+  "description": "Merchants used hundis and related bills for payments, remittance and credit.",
+  "kind": "practice",
+  "domain": "economy.trade",
+  "grain": "capability",
+  "concept": "patna-merchant-hundi",
+  "events": [
+    {
+      "id": "witness",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1620
+        },
+        "latest": {
+          "year": 1620
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1620",
+        "basis": "Dated evidence, not a universal origin."
+      },
+      "statement": "A 1620 letter from Patna factors is described as reporting local merchants’ purchases using bills of exchange.",
+      "scope": "The letter is a reported contemporary witness to merchant payment in Patna.",
+      "evidence": [
+        {
+          "source": "w11-calicut-hundi-history",
+          "locator": "pp. 82–85, Bill of Exchange (Hundis)",
+          "supports": "Describes the 1620 letter’s report of Patna merchant payment using bills."
+        }
+      ]
+    },
+    {
+      "id": "hughes-reports-receipt",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1620,
+          "month": 9,
+          "day": 14
+        },
+        "latest": {
+          "year": 1620,
+          "month": 9,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "14 September 1620",
+        "basis": "Date of letter reporting receipts, not the precise date of payment."
+      },
+      "statement": "In a 14 September letter from Patna, Robert Hughes reported receiving about 2,000 rupees against prior exchanges; other bills were accepted but not all yet paid.",
+      "scope": "Reported receipt by an English factor, not an estimate of all local merchant transactions.",
+      "evidence": [
+        {
+          "source": "w11-patna-hughes-1620-correspondence",
+          "locator": "First commercial mission to Patna, letter V, pp. 76–77",
+          "supports": "Hughes reports receiving about 2,000 rupees from earlier exchanges."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "robert-hughes-patna-factor",
+          "role": "user",
+          "resource": "Reported receiving funds from prior bills.",
+          "evidence": [
+            {
+              "source": "w11-patna-hughes-1620-correspondence",
+              "locator": "First commercial mission to Patna, letter V, pp. 76–77",
+              "supports": "Hughes reports receiving about 2,000 rupees from earlier exchanges."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "witness",
+    "rationale": "The dated episode anchors this community-scoped capability; earlier practices are not excluded."
+  },
+  "caveats": "The local-merchant purchase claim comes from a modern teaching text. The digitized 1914 transcription of Hughes’s letters separately records his own receipts, not necessarily those merchants’ purchases. The underlying manuscript was not examined, and acceptance of other bills did not guarantee payment.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass.  Independent review checked the University of Calicut text pp. 82–85 and the 1914 transcription pp. 76–77. Hughes’s approximately 2,000 rupees had been received; other accepted bills remained prospective, and the 1620 local-merchant claim is separately reported by the later teaching text."
+  },
+  "places": [
+    {
+      "place": "india"
+    }
+  ],
+  "people": [
+    {
+      "person": "robert-hughes-patna-factor",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "amount reported received",
+      "value": 2000,
+      "unit": "rupees",
+      "event": "hughes-reports-receipt",
+      "subject": "Hughes’s prior exchanges",
+      "conditions": "Approximately 2,000 nominal rupees reported received by 14 September 1620; not all bills or a market average.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w11-patna-hughes-1620-correspondence",
+          "locator": "First commercial mission to Patna, letter V, pp. 76–77",
+          "supports": "Hughes reports receiving about 2,000 rupees from earlier exchanges."
+        }
+      ]
+    }
+  ]
+}

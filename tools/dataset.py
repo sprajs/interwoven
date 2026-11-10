@@ -144,6 +144,7 @@ class Dataset:
     population: dict | None = None
     adoption_panels: dict[str, dict] = field(default_factory=dict)
     eurostat_ai_panels: dict[str, dict] = field(default_factory=dict)
+    census_refrigeration_panels: dict[str, dict] = field(default_factory=dict)
     #: Where each discovery and source file was read from, for error messages and layout checks.
     paths: dict[str, Path] = field(default_factory=dict)
 
@@ -171,6 +172,8 @@ class Dataset:
             self.adoption_panels[path.stem] = read_json(path)
         for path in sorted((data / "reference" / "eurostat-ai").glob("*.json")):
             self.eurostat_ai_panels[path.stem] = read_json(path)
+        for path in sorted((data / "reference" / "census").glob("*.json")):
+            self.census_refrigeration_panels[path.stem] = read_json(path)
         return self
 
     # -- lookups ---------------------------------------------------------------------------
@@ -298,6 +301,62 @@ class Dataset:
                             errors.append(f"{at}: value and status must match the raw token")
                     except ValueError:
                         errors.append(f"{at}: invalid raw telephone value")
+
+        for key, panel in self.census_refrigeration_panels.items():
+            at = f"reference/census/{key}"
+            check(panel, defs["us1950RefrigerationPanel"], at)
+            if not isinstance(panel, dict):
+                continue
+            if panel.get("id") != key:
+                errors.append(f"{at}: id must match filename")
+            source = self.sources.get(panel.get("source")) if isinstance(panel.get("source"), str) else None
+            if isinstance(source, dict) and panel.get("source_url") != source.get("url"):
+                errors.append(f"{at}: source URL must match the source record")
+            try:
+                calendar_date.fromisoformat(panel.get("source_accessed"))
+            except (ValueError, TypeError):
+                errors.append(f"{at}: invalid access date")
+            rows = panel.get("observations")
+            if not isinstance(rows, list):
+                continue
+            seen: set[str] = set()
+            for i, row in enumerate(rows):
+                where = f"{at}.observations[{i}]"
+                if not isinstance(row, dict):
+                    continue
+                residence = row.get("residence")
+                if isinstance(residence, str):
+                    if residence in seen:
+                        errors.append(f"{where}: duplicate residence")
+                    seen.add(residence)
+                fields = ("numerator", "denominator", "percent")
+                tokens = [row.get(f + "_token") for f in fields]
+                values = [row.get(f) for f in fields]
+                if row.get("status") == "missing":
+                    if any(x is not None for x in tokens + values):
+                        errors.append(f"{where}: missing values and tokens must all be null")
+                    continue
+                if row.get("status") != "reported":
+                    continue
+                if not all(isinstance(t, str) for t in tokens):
+                    errors.append(f"{where}: reported values require source tokens")
+                    continue
+                n, d, p = tokens
+                if len(n) > 30 or len(d) > 30 or not re.fullmatch(r"(?:0|[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*)", n) or not re.fullmatch(r"(?:0|[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*)", d) or not re.fullmatch(r"(?:0|[1-9]\d{0,2})\.\d", p):
+                    errors.append(f"{where}: invalid count or percentage token")
+                    continue
+                numerator, denominator, percentage = int(n.replace(",", "")), int(d.replace(",", "")), Decimal(p)
+                if (type(values[0]) is not int or type(values[1]) is not int or
+                    not isinstance(values[2], (int, float)) or isinstance(values[2], bool) or
+                    not Decimal(str(values[2])).is_finite() or values[0] != numerator or values[1] != denominator or
+                    Decimal(str(values[2])) != percentage):
+                    errors.append(f"{where}: values must match source tokens")
+                if denominator <= 0 or numerator > denominator or percentage > 100:
+                    errors.append(f"{where}: invalid numerator, denominator or percentage bounds")
+                elif abs(percentage - Decimal(numerator) * 100 / Decimal(denominator)) > Decimal("0.05"):
+                    errors.append(f"{where}: published percentage is inconsistent with counts at one decimal")
+            if seen != {"total", "urban", "rural_nonfarm", "rural_farm"}:
+                errors.append(f"{at}: require exactly the four residence categories")
 
         # These two narrowly defined survey extracts have different units and populations.
         from import_eurostat_ai import DIMENSIONS, extract as extract_eurostat

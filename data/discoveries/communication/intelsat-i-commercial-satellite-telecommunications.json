@@ -1,0 +1,52 @@
+{
+  "id": "intelsat-i-commercial-satellite-telecommunications",
+  "name": "INTELSAT I commercial satellite telecommunications",
+  "description": "An operational commercial transatlantic telecommunications service using a communications satellite and terrestrial ground stations.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "commercial-service-1965",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1965,
+          "month": 6,
+          "day": 28
+        },
+        "latest": {
+          "year": 1965,
+          "month": 6,
+          "day": 28
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1965-06-28",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "INTELSAT I began commercial communications service between the United States and Europe on 28 June 1965.",
+      "evidence": [
+        {
+          "source": "nasa-1975-intelsat-compendium-wave11",
+          "locator": "Section 10.6",
+          "supports": "NASA compendium dates the first commercial operation 28 June 1965 after tests and demonstrations."
+        }
+      ],
+      "caveats": "Launch and test transmissions preceded service; this establishes service, not individual customer or subscriber counts."
+    }
+  ],
+  "earliest_record": {
+    "event": "commercial-service-1965",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced"
+    }
+  },
+  "caveats": "Earlier experimental communications satellites existed; no priority over them is implied."
+}

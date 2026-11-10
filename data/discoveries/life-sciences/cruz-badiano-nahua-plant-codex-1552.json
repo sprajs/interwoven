@@ -1,0 +1,82 @@
+{
+  "id": "cruz-badiano-nahua-plant-codex-1552",
+  "name": "Cruz–Badiano Nahua plant manuscript",
+  "description": "A 1552 illustrated manuscript documents plant knowledge authored by Nahua physician Martín de la Cruz and translated into Latin by Juan Badiano.",
+  "kind": "science",
+  "domain": "life-sciences.natural-history",
+  "grain": "instance",
+  "concept": "cruz-badiano-nahua-plant-manuscript",
+  "places": [
+    {
+      "place": "central-mexico"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-witness",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1552
+        },
+        "latest": {
+          "year": 1552
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1552",
+        "basis": "Date of the cited witness; not a claim of origin."
+      },
+      "statement": "The manuscript was prepared in 1552; de la Cruz authored the work and Badiano translated it into Latin.",
+      "evidence": [
+        {
+          "source": "w11-inah-cruz-badiano",
+          "locator": "Description and history",
+          "supports": "The manuscript dates from 1552. Nahua physician Martín de la Cruz authored the work, Juan Badiano translated it into Latin, and Francisco de Mendoza commissioned its preparation. Its illustrations and text document knowledge of plants."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "martin-de-la-cruz",
+          "role": "contributor",
+          "resource": "Authored the plant-knowledge manuscript",
+          "evidence": [
+            {
+              "source": "w11-inah-cruz-badiano",
+              "locator": "Description and history",
+              "supports": "The manuscript dates from 1552. Nahua physician Martín de la Cruz authored the work, Juan Badiano translated it into Latin, and Francisco de Mendoza commissioned its preparation. Its illustrations and text document knowledge of plants."
+            }
+          ]
+        },
+        {
+          "person": "juan-badiano",
+          "role": "contributor",
+          "resource": "Translated the work into Latin",
+          "evidence": [
+            {
+              "source": "w11-inah-cruz-badiano",
+              "locator": "Description and history",
+              "supports": "The manuscript dates from 1552. Nahua physician Martín de la Cruz authored the work, Juan Badiano translated it into Latin, and Francisco de Mendoza commissioned its preparation. Its illustrations and text document knowledge of plants."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-witness",
+    "rationale": "Earliest scoped witness checked here; not the origin of the wider knowledge."
+  },
+  "caveats": "The witness dates the manuscript, not the origin of Nahua plant knowledge. Francisco de Mendoza commissioned the manuscript; commissioning is not taken as evidence of funding.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked the INAH catalogue’s manuscript date, preparation, commissioning and Latin translation; the manuscript text itself was not independently examined."
+  }
+}

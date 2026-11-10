@@ -1,0 +1,64 @@
+{
+  "id": "us-1950-mechanical-refrigeration",
+  "source": "us-census-1950-mechanical-refrigeration-wave11",
+  "geography_source": "us-census-1950-housing-volume-catalog-wave11",
+  "source_url": "https://www2.census.gov/library/publications/decennial/1950/housing-volume-1/36965082v1p1ch1.pdf",
+  "source_sha256": "f5abbc3a9bbbcbfd81d408050d3f89690db7cf6f1256320bc4a26a502a0f4075",
+  "source_accessed": "2026-11-10",
+  "locator": "Table 13, refrigeration equipment, printed p. 1-9 (PDF p. 17)",
+  "publication_date": null,
+  "publication_note": "The Census catalogue (https://www.census.gov/library/publications/1953/dec/housing-vol-01.html) labels the volume 1953; its procedural history (https://www2.census.gov/library/publications/decennial/1950/procedural-studies/study-02/00322994ch07.pdf) says the first part was issued in January 1952. The precise publication date of this chapter/version remains unresolved.",
+  "reference_date": "1950-04-01",
+  "geography": "48 states and District of Columbia in 1950; excluding Alaska, Hawaii and territories",
+  "indicator": "occupied dwelling units with mechanical refrigeration",
+  "denominator": "occupied dwelling units reporting on refrigeration equipment",
+  "estimate_method": "1950 estimates based on 20-percent sample",
+  "cautions": [
+    "Sample-based estimates, not raw sample counts or exact complete enumerations.",
+    "Percentages are those printed to one decimal; the denominator is the estimated number reporting, excluding unknown/nonreporting responses.",
+    "Residence categories follow 1950 Census definitions. The measure does not establish ownership, individual access, a particular brand, or innovation.",
+    "The PDF hash identifies bytes inspected; the full PDF is not included in this extract."
+  ],
+  "observations": [
+    {
+      "residence": "total",
+      "status": "reported",
+      "numerator_token": "33,720,250",
+      "denominator_token": "42,059,850",
+      "percent_token": "80.2",
+      "numerator": 33720250,
+      "denominator": 42059850,
+      "percent": 80.2
+    },
+    {
+      "residence": "urban",
+      "status": "reported",
+      "numerator_token": "24,092,225",
+      "denominator_token": "27,996,420",
+      "percent_token": "86.1",
+      "numerator": 24092225,
+      "denominator": 27996420,
+      "percent": 86.1
+    },
+    {
+      "residence": "rural_nonfarm",
+      "status": "reported",
+      "numerator_token": "6,101,865",
+      "denominator_token": "8,441,780",
+      "percent_token": "72.3",
+      "numerator": 6101865,
+      "denominator": 8441780,
+      "percent": 72.3
+    },
+    {
+      "residence": "rural_farm",
+      "status": "reported",
+      "numerator_token": "3,526,160",
+      "denominator_token": "5,621,650",
+      "percent_token": "62.7",
+      "numerator": 3526160,
+      "denominator": 5621650,
+      "percent": 62.7
+    }
+  ]
+}

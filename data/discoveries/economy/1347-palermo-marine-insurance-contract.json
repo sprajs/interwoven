@@ -1,0 +1,133 @@
+{
+  "id": "1347-palermo-marine-insurance-contract",
+  "name": "Palermo–Pisa cargo insurance",
+  "description": "Merchants used premium-bearing agreements to transfer specified risks of a sea voyage.",
+  "kind": "practice",
+  "domain": "economy.trade",
+  "grain": "capability",
+  "concept": "palermo-voyage-insurance",
+  "events": [
+    {
+      "id": "witness",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1347,
+          "month": 2,
+          "day": 25
+        },
+        "latest": {
+          "year": 1347,
+          "month": 2,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1347-02-25",
+        "basis": "Dated evidence, not a universal origin."
+      },
+      "statement": "A Palermo contract insured Francesco di Canigliano’s Palermo–Pisa cargo with Genoese merchant Baldassarre Grillo for 100 gold florins at a 7.5% premium.",
+      "scope": "One contract summarized from the State Archives of Palermo; date is agreement date.",
+      "evidence": [
+        {
+          "source": "w11-botticini-medieval-insurance",
+          "locator": "slide 32, State Archives of Palermo contract",
+          "supports": "Reports named insurer and insured, amount, premium and 25 February 1347."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "francesco-di-canigliano",
+          "role": "customer",
+          "resource": "Insured the shipment.",
+          "evidence": [
+            {
+              "source": "w11-botticini-medieval-insurance",
+              "locator": "slide 32, State Archives of Palermo contract",
+              "supports": "Reports named insurer and insured, amount, premium and 25 February 1347."
+            }
+          ]
+        },
+        {
+          "person": "baldassarre-grillo",
+          "role": "supplier",
+          "resource": "Provided the insurance contract.",
+          "evidence": [
+            {
+              "source": "w11-botticini-medieval-insurance",
+              "locator": "slide 32, State Archives of Palermo contract",
+              "supports": "Reports named insurer and insured, amount, premium and 25 February 1347."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "witness",
+    "rationale": "The dated episode anchors this community-scoped capability; earlier practices are not excluded."
+  },
+  "caveats": "Contract terms do not prove the cargo sailed, a loss occurred, or claims were paid; the archival deed was not directly inspected. Earlier forms and contracts are not excluded.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass.  Independent review checked the research presentation’s slide 32, not the archive original: 25 February 1347, 100 insured gold florins, 7.5 percent premium, Palermo–Pisa and the named parties."
+  },
+  "places": [
+    {
+      "place": "italy"
+    }
+  ],
+  "people": [
+    {
+      "person": "francesco-di-canigliano",
+      "role": "contributor"
+    },
+    {
+      "person": "baldassarre-grillo",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "cargo value insured",
+      "value": 100,
+      "unit": "gold florins",
+      "event": "witness",
+      "subject": "Documented agreement",
+      "conditions": "Nominal insured value of this one contract, not a measure of aggregate trade.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w11-botticini-medieval-insurance",
+          "locator": "slide 32, State Archives of Palermo contract",
+          "supports": "Reports named insurer and insured, amount, premium and 25 February 1347."
+        }
+      ]
+    },
+    {
+      "quantity": "insurance premium rate",
+      "value": 7.5,
+      "unit": "percent",
+      "event": "witness",
+      "subject": "Documented agreement",
+      "conditions": "Premium percentage reported for this agreement, not an average.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w11-botticini-medieval-insurance",
+          "locator": "slide 32, State Archives of Palermo contract",
+          "supports": "Reports named insurer and insured, amount, premium and 25 February 1347."
+        }
+      ]
+    }
+  ]
+}

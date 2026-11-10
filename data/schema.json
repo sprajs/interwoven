@@ -2080,6 +2080,189 @@
         "method_sources"
       ],
       "additionalProperties": false
+    },
+    "us1950RefrigerationPanel": {
+      "type": "object",
+      "description": "A fixed four-cell 1950 US Census housing table extract, not a general panel contract.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "us-1950-mechanical-refrigeration"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "ref": "sources",
+          "enum": [
+            "us-census-1950-mechanical-refrigeration-wave11"
+          ]
+        },
+        "geography_source": {
+          "type": "string",
+          "ref": "sources",
+          "enum": [
+            "us-census-1950-housing-volume-catalog-wave11"
+          ]
+        },
+        "source_url": {
+          "type": "string",
+          "enum": [
+            "https://www2.census.gov/library/publications/decennial/1950/housing-volume-1/36965082v1p1ch1.pdf"
+          ]
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "enum": [
+            "f5abbc3a9bbbcbfd81d408050d3f89690db7cf6f1256320bc4a26a502a0f4075"
+          ]
+        },
+        "source_accessed": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "locator": {
+          "type": "string",
+          "enum": [
+            "Table 13, refrigeration equipment, printed p. 1-9 (PDF p. 17)"
+          ]
+        },
+        "publication_date": {
+          "type": "null"
+        },
+        "publication_note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_date": {
+          "type": "string",
+          "enum": [
+            "1950-04-01"
+          ]
+        },
+        "geography": {
+          "type": "string",
+          "enum": [
+            "48 states and District of Columbia in 1950; excluding Alaska, Hawaii and territories"
+          ]
+        },
+        "indicator": {
+          "type": "string",
+          "enum": [
+            "occupied dwelling units with mechanical refrigeration"
+          ]
+        },
+        "denominator": {
+          "type": "string",
+          "enum": [
+            "occupied dwelling units reporting on refrigeration equipment"
+          ]
+        },
+        "estimate_method": {
+          "type": "string",
+          "enum": [
+            "1950 estimates based on 20-percent sample"
+          ]
+        },
+        "cautions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "residence": {
+                "type": "string",
+                "enum": [
+                  "total",
+                  "urban",
+                  "rural_nonfarm",
+                  "rural_farm"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "reported",
+                  "missing"
+                ]
+              },
+              "numerator_token": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "denominator_token": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "percent_token": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "numerator": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "denominator": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "percent": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "residence",
+              "status",
+              "numerator_token",
+              "denominator_token",
+              "percent_token",
+              "numerator",
+              "denominator",
+              "percent"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "geography_source",
+        "source_url",
+        "source_sha256",
+        "source_accessed",
+        "locator",
+        "publication_date",
+        "publication_note",
+        "reference_date",
+        "geography",
+        "indicator",
+        "denominator",
+        "estimate_method",
+        "cautions",
+        "observations"
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -1,0 +1,108 @@
+{
+  "id": "pretty-good-privacy-public-encryption-software",
+  "name": "Pretty Good Privacy public encryption software",
+  "description": "A personal-computer program combining public-key cryptography with other methods to protect files and messages.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "guide-1991",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1991,
+          "month": 6,
+          "day": 5
+        },
+        "latest": {
+          "year": 1991,
+          "month": 6,
+          "day": 5
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1991-06-05",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "A PGP version 1.0 user guide dated 5 June 1991 describes an MS-DOS program using RSA.",
+      "evidence": [
+        {
+          "source": "zimmermann-1991-pgp-guide-wave11",
+          "locator": "Title page and overview",
+          "supports": "Guide dated 5 June 1991 describes PGP version 1.0 for MS-DOS and its use of RSA."
+        }
+      ],
+      "caveats": "The guide’s date establishes a documented version, not the exact date of first public download.",
+      "contributions": [
+        {
+          "person": "philip-zimmermann",
+          "role": "developer",
+          "resource": "Wrote the program and documentation, as stated by the guide.",
+          "evidence": [
+            {
+              "source": "zimmermann-1991-pgp-guide-wave11",
+              "locator": "Title page and overview",
+              "supports": "Guide dated 5 June 1991 describes PGP version 1.0 for MS-DOS and its use of RSA."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "public-distribution-1991",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 1991
+        },
+        "latest": {
+          "year": 1991
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1991",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The Computer History Museum reports that PGP was posted online as a free download during 1991.",
+      "evidence": [
+        {
+          "source": "chm-nd-pgp-history-wave11",
+          "locator": "1991 PGP is introduced",
+          "supports": "CHM reports PGP was posted online for free download in 1991."
+        }
+      ],
+      "caveats": "No exact posting date, user count, or unlimited commercial licence is established."
+    }
+  ],
+  "earliest_record": {
+    "event": "guide-1991",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  },
+  "links": [
+    {
+      "type": "requires",
+      "from": "rivest-shamir-adleman-public-key-cryptosystem",
+      "from_event": "paper-1978",
+      "to_event": "guide-1991",
+      "status": "established",
+      "statement": "The PGP 1.0 guide identifies RSA as its public-key cryptosystem.",
+      "evidence": [
+        {
+          "source": "zimmermann-1991-pgp-guide-wave11",
+          "locator": "Title page and overview",
+          "supports": "Guide dated 5 June 1991 describes PGP version 1.0 for MS-DOS and its use of RSA."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "ge-monitor-top-household-refrigerator",
+  "name": "GE Monitor-Top household refrigerator",
+  "description": "A commercially marketed household mechanical refrigerator.",
+  "kind": "technology",
+  "domain": "energy.cooling",
+  "grain": "instance",
+  "concept": "domestic-mechanical-refrigeration",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "marketed-1927",
+      "type": "commercial_offer",
+      "date": {
+        "earliest": {
+          "year": 1927
+        },
+        "latest": {
+          "year": 1927
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1927",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "General Electric marketed the Monitor-Top household refrigerator.",
+      "evidence": [
+        {
+          "source": "albany-institute-monitor-top-wave11",
+          "locator": "Monitor-Top history and price",
+          "supports": "Museum says General Electric marketed its Monitor-Top in 1927 at an approximately $525 initial price. The price is a historical offer, not an individual transaction."
+        }
+      ],
+      "caveats": "The approximate initial price is an offer, not a documented transaction.",
+      "contributions": [
+        {
+          "organization": "general-electric-company",
+          "role": "contributor",
+          "resource": "Marketing the refrigerator",
+          "evidence": [
+            {
+              "source": "albany-institute-monitor-top-wave11",
+              "locator": "Monitor-Top history and price",
+              "supports": "Museum says General Electric marketed its Monitor-Top in 1927 at an approximately $525 initial price. The price is a historical offer, not an individual transaction."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "marketed-1927",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked cited dated events and measures against accessible sources; retrospective scope and inferences are retained."
+  },
+  "measures": [
+    {
+      "quantity": "initial reported price",
+      "value": 525,
+      "unit": "USD",
+      "event": "marketed-1927",
+      "subject": "Monitor-Top refrigerator",
+      "conditions": "Approximate nominal initial price; no transaction established",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "albany-institute-monitor-top-wave11",
+          "locator": "Monitor-Top history and price",
+          "supports": "Museum says General Electric marketed its Monitor-Top in 1927 at an approximately $525 initial price. The price is a historical offer, not an individual transaction."
+        }
+      ]
+    }
+  ]
+}

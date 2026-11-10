@@ -1,0 +1,121 @@
+{
+  "id": "radio-sutatenza-rural-radio-schools",
+  "name": "Radio Sutatenza rural radio schools",
+  "description": "An educational radio-school system combining broadcasts with community support for rural learners in Colombia.",
+  "kind": "technology",
+  "domain": "communication.broadcasting",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "schools-start-1947",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1947
+        },
+        "latest": {
+          "year": 1947
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1947",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "José Joaquín Salcedo began a rural radio-school project from Sutatenza in Colombia.",
+      "evidence": [
+        {
+          "source": "unesco-2013-sutatenza-registration-wave11",
+          "locator": "Section 3.4",
+          "supports": "Nomination dates start of rural radio-school project to 1947 and identifies Salcedo."
+        }
+      ],
+      "caveats": "This dates the project, not a documented nationwide audience or later cumulative reach.",
+      "contributions": [
+        {
+          "person": "jose-joaquin-salcedo",
+          "role": "contributor",
+          "resource": "Initiated the radio-school project.",
+          "evidence": [
+            {
+              "source": "unesco-2013-sutatenza-registration-wave11",
+              "locator": "Section 3.4",
+              "supports": "Nomination dates start of rural radio-school project to 1947 and identifies Salcedo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reach-reported-2020",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2020
+        },
+        "latest": {
+          "year": 2020
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2020",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "UNESCO reported that the educational project reached 687 Colombian localities and trained 20,039 rural leaders.",
+      "evidence": [
+        {
+          "source": "unesco-sutatenza-collection-wave11",
+          "locator": "Collection description",
+          "supports": "UNESCO reports coverage of 687 localities and 20,039 trained rural leaders over the project."
+        }
+      ],
+      "caveats": "Retrospective cumulative figures across the educational project; no single-year listener count or inferred contemporaneous reach."
+    }
+  ],
+  "earliest_record": {
+    "event": "schools-start-1947",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "measures": "reviewed"
+    }
+  },
+  "measures": [
+    {
+      "quantity": "localities reached",
+      "value": 687,
+      "unit": "localities",
+      "status": "claimed",
+      "event": "reach-reported-2020",
+      "subject": "Radio Sutatenza educational project",
+      "conditions": "UNESCO retrospective figure across the program; not a count of listeners.",
+      "evidence": [
+        {
+          "source": "unesco-sutatenza-collection-wave11",
+          "locator": "Collection description",
+          "supports": "UNESCO reports coverage of 687 localities and 20,039 trained rural leaders over the project."
+        }
+      ]
+    },
+    {
+      "quantity": "rural leaders trained",
+      "value": 20039,
+      "unit": "people",
+      "status": "claimed",
+      "event": "reach-reported-2020",
+      "subject": "ACPO educational project",
+      "conditions": "UNESCO retrospective cumulative figure, not radio ownership.",
+      "evidence": [
+        {
+          "source": "unesco-sutatenza-collection-wave11",
+          "locator": "Collection description",
+          "supports": "UNESCO reports coverage of 687 localities and 20,039 trained rural leaders over the project."
+        }
+      ]
+    }
+  ]
+}

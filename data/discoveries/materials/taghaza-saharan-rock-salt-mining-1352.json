@@ -1,0 +1,95 @@
+{
+  "id": "taghaza-saharan-rock-salt-mining-1352",
+  "name": "Taghaza rock salt extraction and trade",
+  "description": "Ibn Battuta visited Taghaza in 1352 and later described salt dug in slabs there and transported across the Sahara.",
+  "kind": "practice",
+  "domain": "materials.mining",
+  "grain": "instance",
+  "concept": "rock-salt-mining",
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1352
+        },
+        "latest": {
+          "year": 1352
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1352 visit, later recorded",
+        "basis": "Date of the stated witness or contextual sample, not a claim of global origin."
+      },
+      "statement": "Ibn Battuta visited Taghaza in 1352 and later described salt dug in slabs there and transported across the Sahara.",
+      "evidence": [
+        {
+          "source": "w11-fordham-ibn-battuta-taghaza",
+          "locator": "Taghaza account, pp. 317–323",
+          "supports": "Ibn Battuta describes reaching Taghaza after a 1352 departure, rock salt extracted in slabs by enslaved workers under Massufa ownership, imported food, and prices of eight to ten mithqals per salt load at Iwalatan. The translated travel narrative is retrospective and its price is a reported local figure."
+        }
+      ],
+      "caveats": "The visitor’s retrospective translated account describes forced labor and reported prices; it does not establish a mine origin, total output or equal access to trade. Historical place is situated in present-day Mali.",
+      "places": [
+        "mali"
+      ],
+      "contributions": [
+        {
+          "group": "Enslaved salt workers at Taghaza",
+          "role": "operator",
+          "resource": "Rock-salt extraction",
+          "evidence": [
+            {
+              "source": "w11-fordham-ibn-battuta-taghaza",
+              "locator": "Taghaza account, pp. 317–323",
+              "supports": "Ibn Battuta describes reaching Taghaza after a 1352 departure, rock salt extracted in slabs by enslaved workers under Massufa ownership, imported food, and prices of eight to ten mithqals per salt load at Iwalatan. The translated travel narrative is retrospective and its price is a reported local figure."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "This dated witness represents the scoped case, not global priority."
+  },
+  "caveats": "The visitor’s retrospective translated account describes forced labor and reported prices; it does not establish a mine origin, total output or equal access to trade. Historical place is situated in present-day Mali.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "places": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the event facet against the stated source; other facets retain their previous basis and the documented evidence limits."
+  },
+  "places": [
+    {
+      "place": "mali"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "reported price per salt load",
+      "value": "8–10",
+      "lower": 8,
+      "upper": 10,
+      "unit": "mithqals",
+      "event": "documented-case",
+      "subject": "Salt at Iwalatan",
+      "status": "claimed",
+      "conditions": "Travel account reports a salt-load price range at Iwalatan, not Taghaza; its relationship to a camel load is not explicitly specified. The unit is preserved as in translation, without inferring metal, purchasing power or transaction frequency.",
+      "evidence": [
+        {
+          "source": "w11-fordham-ibn-battuta-taghaza",
+          "locator": "Taghaza account, pp. 317–323",
+          "supports": "Ibn Battuta describes reaching Taghaza after a 1352 departure, rock salt extracted in slabs by enslaved workers under Massufa ownership, imported food, and prices of eight to ten mithqals per salt load at Iwalatan. The translated travel narrative is retrospective and its price is a reported local figure."
+        }
+      ]
+    }
+  ]
+}
