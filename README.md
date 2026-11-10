@@ -8,7 +8,8 @@ It is a selective, growing record. It shows how far the research has reached, no
 
 | | |
 | --- | --- |
-| ![The map](docs/screenshots/map.png) | ![Trends per person](docs/screenshots/trends.png) |
+| ![The map](docs/screenshots/map.png) | ![Discoveries per person, region by region](docs/screenshots/trends.png) |
+| ![One record, with the other places that reached the same thing](docs/screenshots/detail.png) | ![All discoveries in one shape, on a logarithmic scale](docs/screenshots/timeline-together.png) |
 
 | Folder | What it holds |
 | --- | --- |

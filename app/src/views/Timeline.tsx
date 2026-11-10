@@ -305,12 +305,18 @@ export function Timeline() {
       if (chosen) {
         ctx.font = font(13.5, 600)
         const w = ctx.measureText(chosen.entry.name).width
-        const x = Math.max(PAD_X, Math.min(width - PAD_X - w, chosen.x + side / 2 - w / 2))
         // It rides above every mark it would cross in its own row, on a leader down to its square.
+        // Where that would run into the row's heading, it sits beside its square instead.
+        let x = Math.max(PAD_X, Math.min(width - PAD_X - w, chosen.x + side / 2 - w / 2))
+        const lane = lanes[laneAt(chosen.y)]
         let top = chosen.y
-        for (const mark of marks) if (mark.x + side > x - 4 && mark.x < x + w + 4 && mark.y < top && Math.abs(mark.y - chosen.y) < 400 && laneAt(mark.y) === laneAt(chosen.y)) top = mark.y
-        const y = Math.max(RULER + 16, top - 10)
-        if (top < chosen.y - 2) {
+        for (const mark of marks) if (mark.x + side > x - 4 && mark.x < x + w + 4 && mark.y < top && laneAt(mark.y) === laneAt(chosen.y)) top = mark.y
+        let y = top - 10
+        if (lane && y - 14 < lane.top + LANE_HEAD) {
+          const right = chosen.x + side + 7 + w <= width - PAD_X
+          x = right ? chosen.x + side + 7 : chosen.x - 7 - w
+          y = chosen.y + side - 1
+        } else if (top < chosen.y - 2) {
           ctx.strokeStyle = alpha(INK, 0.45)
           ctx.lineWidth = 1
           ctx.beginPath()
