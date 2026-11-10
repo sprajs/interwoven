@@ -37,7 +37,7 @@ python3 tools/coverage.py --grid             # gaps by domain, region and era
 npm test                                     # tests for the tools and the app
 ```
 
-Read `docs/data-model.md` for what a record holds, `docs/research-guide.md` for how to add to it, and `docs/importance.md` for how importance is judged and what to add next. `AGENTS.md` has the working rules for this repository.
+Read `docs/data-model.md` for what a record holds, `docs/research-guide.md` for how to add to it, and `docs/importance.md` for how importance is judged and what to add next. `docs/research-agents/` has the briefs and tools for researching in batches with agents: `data/leads.jsonl` holds the capabilities still to research, each with the place that reached it and why it matters. `AGENTS.md` has the working rules for this repository.
 
 ## Evidence
 
