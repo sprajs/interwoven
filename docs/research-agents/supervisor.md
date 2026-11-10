@@ -8,9 +8,15 @@ Read every retained claim against the saved passage and its surrounding qualific
 
 Check achievement scope, community, date interpretation, place, actor, uncertainty, origin and any relation separately. Publication and collection dates do not date invention. Keep “suggests”, ranges, “by” bounds, source units and uncertainty. A citation containing the right words can still misstate a find context or expand a source's scope.
 
+Audit the final wording clause by clause, including your own edits. For each assertion, identify the source's subject, action, location, date scope and qualification. Do not transfer a location or date from one object to an associated object, or turn a possible interpretation into an established fact. A grammatical rewrite can introduce a new factual claim. Keep supported claims and omit only the unsupported part when the remaining achievement is meaningful.
+
 Treat duplication as a scope question against the named current snapshot. Preserve distinct communities and supported transformations. A supported addition to an existing record needs explicit `extends` review, not a second record with a similar name. If only a deeper priority question is unresolved, retain a supported minimal descriptive record when possible. Missing sources remain deferred rather than historical rejections.
 
+Before rejecting a duplicate, compare the source-backed events against the matched record's actual events and bounds. Record whether the proposed capability, community, dated evidence or transformation is already represented. A matching title alone is insufficient; an additional supported event can justify an extension. If the difference is uncertain, preserve that uncertainty instead of inventing a difference.
+
 Contested priority, independence and consequential transmission require independent informative support. Different URLs may repeat the same study. A relation must identify the supported relationship, direction and context; quotation presence alone cannot establish a link. Omit or defer unsupported origins/relations. Do not fill optional scores, biographies, coordinates, access or funding without a defined question and support.
+
+Apply relation checks to every sentence, including achievement descriptions. Phrases such as “became a model for”, “influenced” or “led to” still assert relationships when no explicit link field is present. Check the returned claims themselves; a rationale saying that a claim was removed does not establish that it was removed.
 
 ## Bound and record the judgment
 

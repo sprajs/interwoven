@@ -1,1 +1,66 @@
-{"automatic_admission":false,"comparison_snapshot":"38dfdb604336a9a9539219e12275f0516fcf2268","decision":"No tested mix meets the declared quality gate; no confident winner.","disputes":{"effort":"medium","model":"gpt-6-astra","route":"Targeted original-source reading; human/historian review where consequential ambiguity remains"},"extract":{"effort":"low","model":"gpt-6.1-terra"},"gate_failures":{"A":{"mechanical_failures":5,"source_flagged_admissions":7},"B":{"mechanical_failures":0,"source_flagged_admissions":2}},"new_large_campaign_started":false,"proposal":{"effort":"medium","model":"gpt-6.1-sol","status":"Lowest observed proposal cost at equal text-only yield; historical proposal accuracy unmeasured"},"quality_reference":"Provisional same-family model source readings with preserved disagreements","required_before_integration":["Current snapshot duplicate/extension screen","Exact source/version and mechanical checks","Independent semantic acceptance of every retained facet/relation","Resolve or defer consequential source disputes","Single integrator; isolated validation and affected tests"],"review":{"effort":"medium","mandatory_for_every_admission":true,"model":"gpt-6.1-sol"},"schema_version":1,"selected_interim_route":"B","selection_status":"Conservative operational default, not a passing or certified winner"}
+{
+  "automatic_admission": false,
+  "comparison_snapshot": "38dfdb604336a9a9539219e12275f0516fcf2268",
+  "decision": "Select tightened Terra-medium claim review as the interim candidate after the small parallel pilot.",
+  "disputes": {
+    "effort": "medium",
+    "model": "gpt-6-astra",
+    "route": "Targeted original-source reading; human/historian review where consequential ambiguity remains"
+  },
+  "extract": {
+    "effort": "low",
+    "model": "gpt-6.1-terra"
+  },
+  "new_large_campaign_started": false,
+  "proposal": {
+    "effort": "medium",
+    "model": "gpt-6.1-sol",
+    "status": "Lowest observed proposal cost at equal text-only yield; historical proposal accuracy unmeasured"
+  },
+  "quality_reference": "Blinded same-family model source readings; no independent historian reference",
+  "required_before_integration": [
+    "Current snapshot duplicate/extension screen",
+    "Exact source/version and mechanical checks",
+    "Independent semantic acceptance of every retained facet/relation",
+    "Resolve or defer consequential source disputes",
+    "Single integrator; isolated validation and affected tests"
+  ],
+  "review": {
+    "effort": "medium",
+    "mandatory_for_every_admission": true,
+    "model": "gpt-6.1-terra",
+    "prompt_source": "tools/cards/pilot_workflow.py:REVIEW",
+    "prompt_sha256": "30f37a92fcee6a803ea37a8a5976627b164d9e65a79273cf01ab721a2ec18739",
+    "independence": "Separate execution reading original evidence; same-family correlation remains."
+  },
+  "schema_version": 2,
+  "selected_interim_route": "Terra-low extraction plus tightened Terra-medium review",
+  "selection_status": "Cleared the observed eight diagnostic and twelve reused confirmation cases; not an untouched population evaluation.",
+  "previous_comparison_gate_failures": {
+    "A": {
+      "mechanical_failures": 5,
+      "source_flagged_admissions": 7
+    },
+    "B": {
+      "mechanical_failures": 0,
+      "source_flagged_admissions": 2
+    }
+  },
+  "pilot": {
+    "report": "docs/reviews/2026-11-10-workflow-pilot/report.md",
+    "diagnostic_cases": 8,
+    "confirmation_cases": 12,
+    "confirmation_source": "Disjoint subset of previous benchmark, selected before calls",
+    "new_calls": 56,
+    "selection": "Three review settings on identical saved Terra-low extractions; cheapest qualifying diagnostic candidate compared against saved B review.",
+    "observed_source_flags": 0,
+    "observed_mechanical_failures": 0,
+    "observed_false_rejects": 0,
+    "useful_records": {
+      "diagnostic": 7,
+      "confirmation": 8
+    },
+    "evaluation_scope": "Review-stage change with cached upstream artifacts; acquisition/extraction were not rerun.",
+    "comparison_interpretation": "Confirmation compares combined prompt and reviewer-model change against the cached old-prompt baseline; it does not isolate a pure model effect."
+  }
+}

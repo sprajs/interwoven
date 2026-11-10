@@ -78,7 +78,7 @@ def finalize(state, out):
         'gate_failures': {a: {'source_flagged_admissions': q['false_admissions'], 'mechanical_failures': q['mechanical_failure_count']} for a, q in analysis['quality']['arms'].items()},
         'required_before_integration': ['Current snapshot duplicate/extension screen', 'Exact source/version and mechanical checks', 'Independent semantic acceptance of every retained facet/relation', 'Resolve or defer consequential source disputes', 'Single integrator; isolated validation and affected tests']}
     compare.write_json(out / 'decision.json', policy)
-    compare.write_json(compare.ROOT / 'docs/research-agents/model-policy.json', policy)
+    # A historical report rebuild must not replace a later operational policy.
 
     costs = {a: sum(g['api_equivalent_usd'] for k, g in analysis['accounting']['groups'].items() if k.startswith(a + '|')) for a in ('A', 'B')}
     q = analysis['quality']['arms']

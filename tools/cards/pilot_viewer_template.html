@@ -1,0 +1,172 @@
+<div id="workflow-pilot-view">
+  <h1>Small workflow pilot</h1>
+  <div class="viz-controls">
+    <label class="form-label">Stage
+      <select id="pilot-stage" class="form-select">
+        <option value="all">All stages</option>
+      </select>
+    </label>
+    <label class="form-label">Workflow
+      <select id="pilot-variant" class="form-select">
+        <option value="all">All workflows</option>
+      </select>
+    </label>
+  </div>
+  <div id="pilot-summary" aria-live="polite"></div>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead><tr><th>Stage</th><th>Workflow</th><th>Cases</th><th>Mechanical failures</th><th>Source-flagged</th><th>Useful records</th><th>False rejects</th><th>Supported claims</th><th>API cost estimate</th></tr></thead>
+      <tbody id="pilot-aggregate"></tbody>
+    </table>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead><tr><th>Case</th><th>Stage</th><th>Workflow</th><th>Decision</th><th>Source flags</th><th>Supported claims</th><th>Cost estimate</th><th>Time</th></tr></thead>
+      <tbody id="pilot-rows"></tbody>
+    </table>
+  </div>
+  <div class="viz-row">
+    <button id="pilot-prev" class="btn btn-ghost" type="button">Previous</button>
+    <span id="pilot-page" aria-live="polite"></span>
+    <button id="pilot-next" class="btn btn-ghost" type="button">Next</button>
+  </div>
+  <div id="pilot-detail" class="card" aria-live="polite" hidden></div>
+  <p id="pilot-limitations" class="text-small text-muted"></p>
+</div>
+<style>
+  #workflow-pilot-view { color: var(--foreground); display: grid; gap: calc(var(--font-size-base) * 1); }
+  #workflow-pilot-view h1 { margin: 0; }
+  #workflow-pilot-view #pilot-summary { display: flex; flex-wrap: wrap; gap: calc(var(--font-size-base) * 1); }
+  #workflow-pilot-view #pilot-summary span { white-space: nowrap; }
+  #workflow-pilot-view #pilot-detail { display: grid; gap: calc(var(--font-size-base) * .5); }
+  #workflow-pilot-view #pilot-detail[hidden] { display: none; }
+  #workflow-pilot-view #pilot-detail p { margin: 0; }
+  #workflow-pilot-view #pilot-limitations { margin: 0; }
+</style>
+<script id="pilot-data" type="application/json">__PILOT_DATA__</script>
+<script>
+(() => {
+  const root = document.getElementById('workflow-pilot-view');
+  const source = document.getElementById('pilot-data');
+  const data = JSON.parse(source.textContent);
+  const rows = Array.isArray(data.cases) ? data.cases : [];
+  const stage = root.querySelector('#pilot-stage');
+  const variant = root.querySelector('#pilot-variant');
+  const tbody = root.querySelector('#pilot-rows');
+  const detail = root.querySelector('#pilot-detail');
+  const summary = root.querySelector('#pilot-summary');
+  const aggregate = root.querySelector('#pilot-aggregate');
+  const prev = root.querySelector('#pilot-prev');
+  const next = root.querySelector('#pilot-next');
+  const pageLabel = root.querySelector('#pilot-page');
+  const limits = root.querySelector('#pilot-limitations');
+  let page = 0;
+  const pageSize = 8;
+  const text = (x, fallback='—') => x === undefined || x === null || x === '' ? fallback : String(x);
+  const usd = x => x === undefined || x === null ? '—' : '$' + Number(x).toFixed(4);
+  const seconds = x => x === undefined || x === null ? '—' : Number(x).toFixed(1) + ' s';
+  const stages = [...new Set(rows.map(r => r.stage).filter(Boolean))];
+  const variants = [...new Set(rows.map(r => r.variant).filter(Boolean))];
+  for (const [select, values] of [[stage, stages], [variant, variants]]) {
+    for (const value of values) {
+      const option = document.createElement('option');
+      option.value = value; option.textContent = value; select.append(option);
+    }
+  }
+  if (stages.includes('diagnostic')) stage.value = 'diagnostic';
+  const limitations = Array.isArray(data.limitations) ? data.limitations : [];
+  limits.textContent = limitations.join(' ');
+  function addCell(tr, value, numeric=false) {
+    const td = document.createElement('td');
+    td.textContent = value;
+    if (numeric) td.className = 'text-end tabular-nums';
+    tr.append(td);
+    return td;
+  }
+  function showDetail(row) {
+    detail.replaceChildren();
+    const heading = document.createElement('h2');
+    heading.textContent = text(row.name, row.id) + ' · ' + text(row.variant);
+    const line = document.createElement('p');
+    line.textContent = 'Decision: ' + text(row.decision) + ' · mechanical check: ' +
+      (row.mechanical_pass === true ? 'passed' : row.mechanical_pass === false ? 'failed' : 'unavailable') +
+      ' · source flags: ' + (Array.isArray(row.source_flags) ? row.source_flags.join(', ') || '0' : 'unavailable');
+    const note = document.createElement('p');
+    note.textContent = text(row.notes, 'No case note recorded.');
+    const outcome = document.createElement('p');
+    const status = x => x === true ? 'yes' : x === false ? 'no' : 'unavailable';
+    outcome.textContent = 'Useful reviewed record: ' + status(row.useful_record) +
+      ' · false reject: ' + status(row.false_reject) +
+      ' · supported claims: ' + text(row.supported_claims) +
+      ' · API cost estimate: ' + usd(row.api_equivalent_usd) +
+      ' · time: ' + seconds(row.latency_seconds);
+    detail.append(heading, line, outcome, note);
+    detail.hidden = false;
+  }
+  function render() {
+    const filtered = rows.filter(r => (stage.value === 'all' || r.stage === stage.value) &&
+      (variant.value === 'all' || r.variant === variant.value));
+    tbody.replaceChildren();
+    aggregate.replaceChildren();
+    detail.hidden = true;
+    const groups = new Map();
+    for (const row of filtered) {
+      const key = row.stage + '\u0000' + row.variant;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(row);
+    }
+    for (const group of groups.values()) {
+      const tr = document.createElement('tr');
+      const count = (field, predicate) => {
+        const observed = group.filter(r => r[field] !== undefined && r[field] !== null);
+        return observed.length ? observed.filter(r => predicate(r[field])).length + '/' + observed.length : '—';
+      };
+      const supported = group.filter(r => Number.isInteger(r.supported_claims));
+      const costed = group.filter(r => Number.isFinite(r.api_equivalent_usd));
+      addCell(tr, group[0].stage); addCell(tr, group[0].variant); addCell(tr, String(group.length), true);
+      addCell(tr, count('mechanical_pass', x => x === false), true);
+      addCell(tr, count('source_flags', x => Array.isArray(x) && x.length > 0), true);
+      addCell(tr, count('useful_record', x => x === true), true);
+      addCell(tr, count('false_reject', x => x === true), true);
+      addCell(tr, supported.length ? supported.reduce((n,r) => n+r.supported_claims, 0) + ' (' + supported.length + '/' + group.length + ')' : '—', true);
+      addCell(tr, costed.length ? usd(costed.reduce((n,r) => n+r.api_equivalent_usd, 0)) + ' (' + costed.length + '/' + group.length + ')' : '—', true);
+      aggregate.append(tr);
+    }
+    const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+    page = Math.min(page, pageCount - 1);
+    for (const row of filtered.slice(page*pageSize, (page+1)*pageSize)) {
+      const tr = document.createElement('tr');
+      const first = addCell(tr, '');
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'btn btn-ghost';
+      button.textContent = text(row.name, row.id);
+      button.setAttribute('aria-label', 'Show details for ' + text(row.name, row.id) + ', ' + text(row.variant));
+      button.addEventListener('click', () => showDetail(row)); first.append(button);
+      addCell(tr, text(row.stage)); addCell(tr, text(row.variant));
+      addCell(tr, text(row.decision));
+      addCell(tr, Array.isArray(row.source_flags) ? row.source_flags.join(', ') || '0' : '—', true);
+      addCell(tr, text(row.supported_claims), true);
+      addCell(tr, usd(row.api_equivalent_usd), true);
+      addCell(tr, seconds(row.latency_seconds), true);
+      tbody.append(tr);
+    }
+    pageLabel.textContent = 'Page ' + (page+1) + ' of ' + pageCount;
+    prev.disabled = page === 0;
+    next.disabled = page >= pageCount-1;
+    const totalCost = filtered.reduce((n, r) => n + (Number.isFinite(r.api_equivalent_usd) ? r.api_equivalent_usd : 0), 0);
+    const costCoverage = filtered.filter(r => Number.isFinite(r.api_equivalent_usd)).length;
+    const sourceKnown = filtered.filter(r => Array.isArray(r.source_flags));
+    const flagged = sourceKnown.filter(r => r.source_flags.length > 0).length;
+    summary.replaceChildren();
+    for (const value of [filtered.length + ' case-workflow results', flagged + '/' + sourceKnown.length + ' source-flagged',
+      costCoverage ? usd(totalCost) + ' API cost estimate (' + costCoverage + ' results; baseline reused)' : 'Cost estimate unavailable']) {
+      const span = document.createElement('span'); span.textContent = value; summary.append(span);
+    }
+  }
+  stage.addEventListener('change', () => { page=0; render(); });
+  variant.addEventListener('change', () => { page=0; render(); });
+  prev.addEventListener('click', () => { page--; render(); });
+  next.addEventListener('click', () => { page++; render(); });
+  render();
+})();
+</script>

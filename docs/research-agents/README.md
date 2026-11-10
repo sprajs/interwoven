@@ -2,7 +2,7 @@
 
 Research runs keep source acquisition, claim extraction, semantic review and dataset integration separate. A quotation appearing on a saved page establishes passage presence. A reviewer must still decide whether that passage supports the date, community, origin and proposed relationship.
 
-The [measured interim model policy](model-policy.json) retains Terra low extraction and Sol medium admission review, with Sol medium proposals and selective dispute escalation. Neither tested arm passed the declared gate. Automatic admission is disabled; no new large campaign was started. See the [100-case report](../reviews/2026-11-10-workflow-comparison/report.md).
+The [measured interim model policy](model-policy.json) uses Terra low extraction and tightened Terra medium admission review, with Sol medium proposals and selective dispute escalation. The revised review cleared eight diagnostic and twelve reused confirmation cases in the [small pilot](../reviews/2026-11-10-workflow-pilot/report.md). Those model-based results support an interim choice, not a population error guarantee. Automatic admission remains disabled. The earlier [100-case comparison](../reviews/2026-11-10-workflow-comparison/report.md) remains unchanged.
 
 Read [the data model](../data-model.md), [the research guide](../research-guide.md) and [importance guidance](../importance.md) before preparing records. Regional achievements and independent reinventions belong. Similar names and shared concepts trigger scope review; they do not establish duplication.
 
@@ -88,6 +88,16 @@ Old supervisor verdicts, an `accept` label or quotation matches alone cannot aut
 An extension uses `extends: <exact existing discovery ID>` with an accepted `extends` claim. It appends reviewed nonduplicate events or missing optional facets, preserves existing facts/evidence/status, and does not infer a target from a similar name. Unsupported new fields cannot overwrite old ones. Apply requires `--queue` and `--owner` to acquire the shared integrator lease, in addition to isolated staging and all admission checks.
 
 Use the queue's single integrator lease and `stage_integration(repo, snapshot, changes, queue, lease)` to validate exact task-owned bytes in an isolated copy of the committed snapshot. It runs dataset validation and code tests when applicable, and returns a manifest with hashes; it does not stage Git files or publish changes. Recheck the snapshot at the final write boundary, publish only the reviewed manifest, then follow the repository's fetch/rebase/check/direct-push rules. The low-level `admit.py --apply` interface exists, but it is not a substitute for isolated staging or integrator coordination.
+
+## Small experiments before broad comparisons
+
+Use small staged experiments when changing the workflow. Start with a few known failures plus ordinary, duplicate and missing-source controls. Reuse unchanged acquisition and extraction artifacts so each experiment isolates the changed stage. Run independent cases concurrently within a shared call, cost and wall-time budget.
+
+Freeze the cases, source hashes, prompts, model settings and selection rule before dispatch. Compare final claim support and useful admission coverage together: blanket deferral must not win. Verify exact quotations, source references and dates mechanically, then assess the final assertions against original source context with model identities and previous judgments hidden. Retain schema failures and disagreements rather than silently retrying until a pass.
+
+Select a candidate on the diagnostic cases, freeze it, and compare it with the unchanged baseline on disjoint cases chosen without looking at their outcomes. Cases drawn from an earlier benchmark are reused confirmation, not an untouched test set. Expand only when the smaller comparison supports doing so. Report acquisition/extraction reuse, new call cost, evaluation overhead, elapsed time and unresolved judgments separately. A small clean sample does not certify a low population error rate or authorize automatic admission.
+
+See the [small workflow pilot](../reviews/2026-11-10-workflow-pilot/report.md) for the measured iteration after the initial 100-case comparison. The older comparison below remains a frozen historical experiment.
 
 ## Frozen workflow comparison
 
