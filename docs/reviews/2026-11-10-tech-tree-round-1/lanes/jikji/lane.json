@@ -1,0 +1,134 @@
+{
+  "prompt_version": "tech-tree-event-scope-v1",
+  "workflow": "direct dataset patch proposal; no tools/cards gate invoked; independent semantic review required before integration",
+  "base_commit": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "model": "gpt-6.1-terra",
+  "effort": "high",
+  "execution_id": "/root/astra_orchestrator/jikji",
+  "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/jikji",
+  "created_utc": "2026-11-10T22:54:42.025310+00:00",
+  "elapsed_seconds": null,
+  "usage": {
+    "tokens": null,
+    "billing": null
+  },
+  "source_indices": [
+    {
+      "index": 0,
+      "source": "cheongju-early-printing-museum-sangjeong-round1",
+      "independence": "museum interpretation of historical postface, original not inspected"
+    },
+    {
+      "index": 1,
+      "source": "yoo-yun-2024-sangjeong-round1",
+      "independence": "secondary synthesis citing historical literature, not independent physical witness of edition"
+    }
+  ],
+  "claims": {
+    "/id": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/name": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/description": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/kind": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/domain": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/societies/0": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/events/0/type": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/events/0/date": {
+      "sources": [
+        1
+      ],
+      "qualification": "estimated period, not fixed historical boundaries"
+    },
+    "/events/0/statement": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/events/0/caveats": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/earliest_record": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/caveats": {
+      "sources": [
+        0,
+        1
+      ]
+    },
+    "/research/unresolved": {
+      "sources": [
+        0,
+        1
+      ],
+      "qualification": "open questions, no historical claim"
+    }
+  },
+  "duplicate_screen": "Searched all discoveries and leads for Jikji, Sangjeong, 1234, Goryeo printing and movable or metal type. Existing Jikji metal and woodblock records concern editions of a different text in 1377 and 1378. Fired-clay type is a separate earlier Chinese technique and its preserved worktree path is untouched. No Sangjeong edition record or lead matched.",
+  "additions": {
+    "nodes": 1,
+    "events": 1,
+    "established_edges": 0,
+    "circumstances": 0
+  },
+  "next_questions": [
+    "Inspect and translate the original postface and establish early manuscript witnesses and dating.",
+    "Find independently informative evidence, if it exists, identifying a technical or organizational lineage to the 1377 Jikji edition."
+  ],
+  "limitations": [
+    "The original Korean historical witness was not directly inspected. Both secondary accounts rely on historical literature; they are not independent evidence of transmission. No date or invention priority is claimed outside the explicitly estimated range.",
+    "Yoo and Yun dispute conventional interpretation of a separate Song of Enlightenment edition; those claims were not evaluated or adopted."
+  ],
+  "files_sha256": {
+    "data/discoveries/communication/sangjeong-gogeum-yemun-metal-type-edition.json": "7afa0c3875ab6d0c12892d846465770d866e19522cb157f8cfa525a708e73f4e",
+    "data/sources/c/cheongju-early-printing-museum-sangjeong-round1.json": "31f28193efdc67b48dfdb5590840459321864bbdf2a6dca428955d37bd05f1df",
+    "data/sources/y/yoo-yun-2024-sangjeong-round1.json": "0be98cfb8da0326b6aa17b036d478bd2b884a80fcabfc9da8b6ab78ba17b81f4",
+    "evidence/c/cheongju-early-printing-museum-sangjeong-round1-notes.txt": "c5585d1464058737ec79b8a781981668bac7fd9dfcc82bb67900a34d04a19877",
+    "evidence/y/yoo-yun-2024-sangjeong-round1.pdf.cache.json": "a8fccb7f4360caa749aa5ce87c57b7cdd857c4d23bd51dfbb0176b151d92d245"
+  },
+  "original_evidence_sha256": {
+    "evidence/y/yoo-yun-2024-sangjeong-round1.pdf": "9da3c8992d2db6fa21c5164f67c1ee1d6943917640315b31ee74ccafebefd5d9"
+  },
+  "validation": "python3 tools/validate.py: No problems found"
+}
