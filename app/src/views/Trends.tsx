@@ -645,13 +645,17 @@ function drawRows(ctx: CanvasRenderingContext2D, plan: Plan, rows: Row[], lit: n
 
 /**
  * A bar on one or two discoveries: an outline only. Where it runs off the scale it stops at the top
- * of the plot, left open, with a small break across each side to say it goes on.
+ * of the plot with a dashed cap and a faint wash, so that it still reads as one bar that goes on.
  */
 function outlineBar(ctx: CanvasRenderingContext2D, x: number, w: number, top: number, bottom: number, clamped: boolean): void {
   const left = Math.round(x) + 0.5
   const right = Math.round(x + w) - 0.5
   const floor = Math.round(bottom)
   const ceiling = Math.round(Math.min(top, bottom - 3)) + 0.5
+  if (clamped) {
+    ctx.fillStyle = alpha(INK, 0.05)
+    ctx.fillRect(left, ceiling, right - left, floor - ceiling)
+  }
   ctx.strokeStyle = alpha(INK, 0.4)
   ctx.lineWidth = 1
   ctx.beginPath()
@@ -660,13 +664,15 @@ function outlineBar(ctx: CanvasRenderingContext2D, x: number, w: number, top: nu
   if (clamped) ctx.moveTo(right, ceiling)
   else ctx.lineTo(right, ceiling)
   ctx.lineTo(right, floor)
-  if (clamped) {
-    for (const side of [left, right]) {
-      ctx.moveTo(side - 2, ceiling + 3)
-      ctx.lineTo(side + 2, ceiling + 3)
-    }
-  }
   ctx.stroke()
+  if (clamped) {
+    ctx.setLineDash([3, 3])
+    ctx.beginPath()
+    ctx.moveTo(left, ceiling)
+    ctx.lineTo(right, ceiling)
+    ctx.stroke()
+    ctx.setLineDash([])
+  }
 }
 
 function drawPopulation(ctx: CanvasRenderingContext2D, chart: PopulationChart, axis: Axis): void {

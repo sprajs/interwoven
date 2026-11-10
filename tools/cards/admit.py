@@ -21,6 +21,7 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 sys.path.insert(0, str(HERE))
 import dataset as ds
+from fetch_page import norm
 
 def option(name):
     return json.loads(Path(sys.argv[sys.argv.index(name) + 1]).read_text()) if name in sys.argv else {}
@@ -55,6 +56,16 @@ def source_id(src):
     title = [w for w in slug(src['title']).split('-') if w not in STOP and not w.isdigit()][:3]
     base = '-'.join(x for x in [key or 'anon', str(year) if isinstance(year, int) else 'nd', *title] if x)
     return base
+
+def locate(text, quote):
+    """Where a quotation starts in a page's text. Accents and punctuation may differ, so a run of
+    four of its words is looked for, as written and then with accents dropped."""
+    for words in (quote.split(), norm(quote).split()):
+        for start in range(0, max(1, len(words) - 3)):
+            probe = re.compile(r'\W+'.join(re.escape(w.strip('.,;:()[]"“”‘’')) for w in words[start:start + 4]), re.I)
+            m = probe.search(text)
+            if m: return m.start()
+    return None
 
 place_by_name = {}
 for p in data.registers['places'].values():
@@ -230,17 +241,15 @@ for p in problems[:40]: print('  ', p)
 if APPLY:
     for rec in new_records.values(): ds.write_json(ds.discovery_path(rec), rec)
     used_sources = {e['source'] for r in new_records.values() for ev in r['events'] for e in ev['evidence']} | {e['source'] for r in new_records.values() for l in r.get('links', []) for e in l.get('evidence', [])}
-    from fetch_page import page_text, norm
+    from fetch_page import page_text
     for sid, s in new_sources.items():
         if sid not in used_sources: continue
         # Keep the words around each checked quotation as evidence, so the check can be repeated.
         text = page_text(s['url']) if s.get('url') else ''
         excerpts = []
         for p in s['passages']:
-            words = norm(p['quote']).split()
-            probe = re.compile(r'\W+'.join(re.escape(w) for w in words[:6]), re.I)
-            m = probe.search(text)
-            if m: excerpts.append(text[max(0, m.start() - 500):m.start() + len(p['quote']) + 500].strip())
+            at = locate(text, p['quote'])
+            if at is not None: excerpts.append(text[max(0, at - 500):at + len(p['quote']) + 500].strip())
         if excerpts:
             body = f"Excerpts from: {s['title']}\nAddress: {s['url']}\nSaved: {TODAY}\nThese are the passages around each quotation cited in the dataset, copied from the page as fetched.\n\n" + '\n\n----\n\n'.join(excerpts) + '\n'
             rel = f'evidence/{sid[0]}/{sid}.txt'
