@@ -1,0 +1,71 @@
+{
+  "prompt_version": "tech-tree-components-context-v2",
+  "base_commit": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "execution": {
+    "role": "researcher / proposer, not reviewer",
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/ceramics",
+    "branch": "codex/tech-tree-round-2-ceramics",
+    "elapsed_seconds": null,
+    "usage": null
+  },
+  "catalogue_screen": {
+    "anchor": "data/discoveries/materials/proto-porcelain-in-shang-china.json",
+    "existing_events": "Shang archaeological evidence and Zhou wider prevalence already present; no further adoption event proposed.",
+    "matched_records": [
+      "xianrendong-early-pottery",
+      "potters-wheel-in-mesopotamia",
+      "xing-white-glazed-stoneware",
+      "tang-blue-painted-white-stoneware"
+    ],
+    "decision": "None establishes the specific wood-ash process used in sampled Deqing wares. New narrowly scoped process record reserved by coordinator; no implied origin or transmission."
+  },
+  "source": {
+    "record": "data/sources/m/m-2012-earliest-high-fired.json",
+    "original": "Min Yin, UCL doctoral thesis, 2012",
+    "pdf": "evidence/m/m-2012-earliest-high-fired-thesis.pdf",
+    "sha256": "d1ee6235191dc3d01bb35816979334965353187d77fddaecc7062899e45f5d00",
+    "cache_descriptor": "evidence/m/m-2012-earliest-high-fired-thesis.pdf.cache.json",
+    "prior_excerpt": "evidence/m/m-2012-earliest-high-fired.txt",
+    "locators": [
+      "p. 3, abstract",
+      "pp. 73–75, Table 3.1 and sampling strategy",
+      "pp. 132–135 and 138–143, body interaction, glazing and ash preparation",
+      "Appendix 3, Table A 3.1, p. 271, four Nanshan glaze analyses"
+    ],
+    "independence": "Yin, Rehren and Zheng 2011 paper and Yin 2012 thesis share research; they are not independent corroboration. No transmission or general causal history is asserted."
+  },
+  "proposals": [
+    {
+      "path": "data/discoveries/materials/wood-ash-glazing-at-deqing.json",
+      "claim_pointers": [
+        "/summary",
+        "/description",
+        "/events/0",
+        "/earliest_record"
+      ],
+      "evidence_locator": "p. 3; pp. 73–75, Table 3.1; pp. 132–135 and 138–143; Appendix 3, Table A 3.1, p. 271",
+      "scope": "Twelve excavated Nanshan sherds are listed; four have glaze analyses tabulated. Chemical reconstruction of Deqing samples, with broad Shang dynasty interval; no priority or universal technique claim."
+    },
+    {
+      "path": "data/discoveries/materials/proto-porcelain-in-shang-china.json",
+      "claim_pointers": [
+        "/links/0"
+      ],
+      "edge_type": "uses_process",
+      "from": "wood-ash-glazing-at-deqing",
+      "from_event": "nanshan-shang-sherds",
+      "to_event": "archaeological-evidence-1027bce",
+      "evidence_locator": "p. 3; pp. 73–75, Table 3.1; pp. 132–135 and 138–143; Appendix 3, Table A 3.1, p. 271",
+      "scope": "Functional relationship interpreted for analysed Deqing wares including four Nanshan glazes, not transmission and not all proto-porcelain."
+    }
+  ],
+  "unresolved": [
+    "Whether ash was washed, obtained as potash-depleted kiln firebox ash, or otherwise prepared.",
+    "Distribution beyond analysed Deqing wares and origin of the glazing process.",
+    "Kiln design and historical lineage to later wares require independent primary evidence."
+  ],
+  "validation": "python3 tools/validate.py: no problems before handoff",
+  "review": "Independent reviewer requested source-locator and sample-scope corrections to 07f875f; corrected proposal requires separate reread."
+}
