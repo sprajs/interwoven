@@ -1,0 +1,70 @@
+<section id="discovery-trend-audit" data-viz-composition>
+  <h3>Discoveries recorded in our collection</h3>
+  <div class="viz-controls">
+    <label class="form-label">Records
+      <select class="form-select" id="dt-scope" disabled>
+        <option value="all">All records</option>
+        <option value="electronics">Electronics and computing</option>
+        <option value="other_domains">Other fields</option>
+        <option value="known_date">Known dates only</option>
+      </select>
+    </label>
+    <label class="form-label">Measure
+      <select class="form-select" id="dt-measure" disabled>
+        <option value="rate">Per billion person-years</option>
+        <option value="count">Record count</option>
+      </select>
+    </label>
+    <label class="form-label">Period length
+      <select class="form-select" id="dt-width" disabled>
+        <option value="20">20 years</option>
+        <option value="10">10 years</option>
+      </select>
+    </label>
+  </div>
+  <div data-viz-container></div>
+  <div id="dt-result" class="text-small tabular-nums" aria-live="polite"></div>
+  <div class="text-small text-muted">Selective catalogue · world population denominator · no researcher counts</div>
+  <div class="text-small text-muted">Later: __CURRENT_SNAPSHOT__ · Earlier: __EARLIER_SNAPSHOT__</div>
+  <!--CHART_CONFIGS-->
+  <script type="application/json" id="dt-comparisons">__COMPARISONS__</script>
+</section>
+<script type="module">
+  import { mountChart } from "https://persistent.oaistatic.com/plugins/visualize/charts/1.2.3/element.js";
+  const root = document.getElementById("discovery-trend-audit");
+  const scope = root.querySelector("#dt-scope");
+  const measure = root.querySelector("#dt-measure");
+  const width = root.querySelector("#dt-width");
+  const result = root.querySelector("#dt-result");
+  const configs = new Map([...root.querySelectorAll("[data-viz-chart]")].map(el => [el.dataset.key, JSON.parse(el.textContent)]));
+  const comparisons = JSON.parse(root.querySelector("#dt-comparisons").textContent);
+  let selection = {scope: "all", measure: "rate", width: "20"};
+  function restored(state) {
+    const saved = state?.modelContent;
+    if (saved?.version !== 1) return;
+    const candidate = {scope: saved.scope, measure: saved.measure, width: saved.width};
+    if (configs.has(`${candidate.scope}-${candidate.measure}-${candidate.width}`)) selection = candidate;
+  }
+  restored(window.openai?.widgetState);
+  scope.value = selection.scope; measure.value = selection.measure; width.value = selection.width;
+  const chart = mountChart(root.querySelector("[data-viz-container]"), configs.get(`${selection.scope}-${selection.measure}-${selection.width}`));
+  function draw(save) {
+    scope.value = selection.scope; measure.value = selection.measure; width.value = selection.width;
+    chart.config = configs.get(`${selection.scope}-${selection.measure}-${selection.width}`);
+    const c = comparisons[selection.scope];
+    const f = value => new Intl.NumberFormat("en-GB", {maximumFractionDigits: 3}).format(value);
+    result.textContent = selection.measure === "rate"
+      ? `Later snapshot · 1960–79: ${f(c.pre.rate)} · 1980–99: ${f(c.post.rate)} per billion person-years · ${(100 * (1-c.rate_ratio)).toFixed(1)}% lower`
+      : `Later snapshot · 1960–79: ${c.pre.count} records · 1980–99: ${c.post.count} records`;
+    if (save && window.openai?.setWidgetState) window.openai.setWidgetState({modelContent: {version: 1, ...selection}, privateContent: null}).catch(() => {});
+  }
+  for (const input of [scope, measure, width]) input.addEventListener("change", () => {
+    selection = {scope: scope.value, measure: measure.value, width: width.value}; draw(true);
+  });
+  window.addEventListener("openai:set_globals", e => {
+    const state = e.detail?.globals?.widgetState;
+    if (state) { restored(state); draw(false); }
+  });
+  draw(false);
+  for (const input of [scope, measure, width]) input.disabled = false;
+</script>

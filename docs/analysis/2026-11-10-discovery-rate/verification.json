@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "constant_clipped_integral": true,
+    "doubling_integral": true,
+    "piecewise_integral": true,
+    "app_exposure_relative_error_below_1e-9": true,
+    "bin_counts_reconcile": true,
+    "subdomains_partition": true,
+    "ratio_decomposition": true,
+    "selected_milestone_names_absent": true
+  },
+  "max_app_exposure_relative_error": 1.560302256547775e-14,
+  "repository_tests": {
+    "command": "npm test",
+    "scope": "Clean archive of 42d6e8829d1ed4d320468613137771cd67c2818f plus the final audit script and template, excluding unrelated unfinished work",
+    "python_tests": 159,
+    "app_tests": 53,
+    "result": "passed"
+  },
+  "shared_working_directory": {
+    "npm_test_result": "failed",
+    "failure": "test_real_dataset_validates",
+    "data_validation_problems": 33,
+    "scope": "Unfinished discovery records and missing register references that predate this audit; no such records were included in this task commit"
+  },
+  "chart_static_validation": {
+    "chart_payloads": 16,
+    "result": "passed"
+  }
+}
