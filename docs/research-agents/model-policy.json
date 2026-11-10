@@ -113,5 +113,16 @@
     "selected_effort_at_time": "medium"
   },
   "previous_comparison_snapshot": "38dfdb604336a9a9539219e12275f0516fcf2268",
-  "project_brief": "docs/project-brief.md"
+  "project_brief": "docs/project-brief.md",
+  "orchestrator": {
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "scope": "Delegate bounded work to Terra High workers and independent reviewers in isolated worktrees; coordinate reviewed handoff to main integrator."
+  },
+  "workers": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "isolation": "Separate codex/ worktree per concurrent writing lane; read-only independent review in assigned snapshot.",
+    "integration": "One coordinating chat integrates reviewed commits to main."
+  }
 }

@@ -7,6 +7,10 @@ These instructions apply to the whole repository.
 Every agent, including agents from other providers, must read [docs/project-brief.md](docs/project-brief.md) before work. We are building an evidence-backed tech tree of human civilisation, tracing prerequisites and supported reasons for where and when achievements emerged, including lost and abandoned branches. Use the current routing in [docs/research-agents/model-policy.json](docs/research-agents/model-policy.json): routine admission review is Terra High (`gpt-6.1-terra`, effort `high`). Keep original evidence, independent review and explicit uncertainty; never substitute a model silently.
 
 
+## Authorised parallel research worktrees
+
+The user has authorised an Astra Medium orchestrator (`gpt-6-astra`, effort `medium`) with Terra High workers (`gpt-6.1-terra`, effort `high`). Give concurrent writing lanes separate Git worktrees on `codex/` branches, created from a named current committed snapshot. This is the explicit exception to main-only work below. Each worker reads this file and the project brief, owns named paths, records its actual model, and hands a reviewed commit to the orchestrator; workers do not push or merge. Use a separate reviewer execution, and do not let researchers approve their own changes. The coordinating chat owns final integration on `main`, required checks and direct push. Do not switch or clean another agent's worktree, and preserve uncommitted work in the main checkout.
+
 ## Keep main current and push directly
 
 This project is used from multiple machines. Other machines and agents may push

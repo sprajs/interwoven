@@ -24,6 +24,10 @@ For each anchor, ask:
 
 Begin one evidence-backed step backwards for several anchors in parallel. Expand the most informative unresolved frontier next. Stop a branch at an explicit evidence gap, access failure, unresolved direction, or batch limit; retain the question for later. Use forward checks and underrepresented/abandoned branches to counter selection and survival bias.
 
+## Orchestration and isolation
+
+Astra Medium (`gpt-6-astra`, effort `medium`) coordinates the research wave. It delegates bounded research and independent review to Terra High (`gpt-6.1-terra`, effort `high`) workers. Parallel writing lanes use separate worktrees on `codex/` branches from the same named committed snapshot, with disjoint ownership. The orchestrator consolidates reviewed work; the coordinating chat is the only integrator to `main`. Worker branches are authorised for this workflow; no worker force-pushes, merges itself, or changes another lane's worktree. Provider identity, effort, inputs and outputs must remain inspectable.
+
 ## Terra High and independent review
 
 The selected routine admission reviewer is **Terra High: `gpt-6.1-terra`, reasoning effort `high`**. Use bounded Terra-low extraction when useful, then a separate Terra-high execution reading the original evidence and current matched records. A proposing/researching agent cannot approve its own additions. Astra-medium is a targeted escalation for consequential unresolved disputes, not a mandatory second pass on every easy fact.

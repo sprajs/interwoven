@@ -135,6 +135,38 @@ a:hover {
   margin: 0;
 }
 
+.project-button {
+  align-self: center;
+  margin: 0 -15px 8px -20px;
+  padding: 3px 8px;
+  color: var(--ink-3);
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.project-button:hover { color: var(--ink); background: var(--tint); }
+
+.project-dialog {
+  width: min(620px, calc(100% - 32px));
+  max-height: min(760px, calc(100% - 32px));
+  padding: 30px 34px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--sheet);
+  color: var(--ink);
+  box-shadow: 0 18px 60px rgb(31 27 22 / 0.22);
+}
+
+.project-dialog::backdrop { background: rgb(31 27 22 / 0.42); }
+.project-dialog-header { display: flex; justify-content: space-between; gap: 20px; }
+.project-dialog h2 { margin: 2px 0 12px; font-size: 25px; line-height: 1.2; }
+.project-dialog h3 { margin: 22px 0 4px; font-size: 17px; }
+.project-dialog p { margin: 8px 0; color: var(--ink-2); }
+.project-dialog a { display: inline-block; margin-top: 16px; }
+.project-eyebrow { color: var(--ink-3); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.project-close { align-self: flex-start; padding: 0 4px; font-size: 27px; line-height: 1; color: var(--ink-3); }
+.project-close:hover { color: var(--ink); }
+
 .tabs {
   display: flex;
   align-self: flex-end;

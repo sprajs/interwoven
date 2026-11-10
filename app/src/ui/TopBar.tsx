@@ -4,6 +4,7 @@ import { DIM_ORDER } from '../dims.ts'
 import { useApp, useDimension, useDimensions, useFiltered, useModel, VIEWS } from '../store.ts'
 import { yearLabel, type ScaleId } from '../time.ts'
 import { Menu, MenuHeading, Option } from './Menu.tsx'
+import { ProjectBrief } from './ProjectBrief.tsx'
 
 const SCALES: { id: ScaleId; name: string; hint: string }[] = [
   { id: 'people', name: 'Population', hint: 'Every stretch of the axis holds the same number of human lifetimes' },
@@ -27,6 +28,7 @@ export function TopBar() {
   return (
     <header className="topbar">
       <h1 className="brand">Interwoven</h1>
+      <ProjectBrief />
       <nav className="tabs" role="tablist" aria-label="Views">
         {VIEWS.map((v) => (
           <button key={v.id} role="tab" className="tab" aria-selected={view === v.id} title={v.hint} onClick={() => app.setView(v.id)}>
