@@ -4,6 +4,13 @@
   "description": "A former direct-current wind plant was converted to supply alternating current to the SEAS grid.",
   "kind": "technology",
   "domain": "energy.renewables",
+  "tier": 2,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 1,
+    "note": "One converted plant showing wind could feed an alternating-current grid; its direct successor was the Gedser plant."
+  },
   "grain": "instance",
   "concept": "grid-connected-wind-generation",
   "places": [
@@ -64,7 +71,9 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Source-backed admission; independent review pending. Independent reader checked Juul’s paper, pp. 229 and 240, on conversion and operation in autumn 1952."
   }

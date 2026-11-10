@@ -4,6 +4,13 @@
   "description": "Systematic binary codes that add check information to detect errors and correct a single error, with an extended form also detecting double errors.",
   "kind": "mathematics",
   "domain": "electronics.software",
+  "tier": 1,
+  "impact": {
+    "reach": 1,
+    "depth": 2,
+    "generativity": 2,
+    "note": "Applied by computer and communication engineers; machines could correct their own errors for the first time, and coding theory grew from it."
+  },
   "grain": "capability",
   "events": [
     {
@@ -101,7 +108,9 @@
       "grain": "recalled",
       "events": "reviewed",
       "concept": "sourced",
-      "origin": "unknown"
+      "origin": "unknown",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "unresolved": [
       {

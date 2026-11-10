@@ -4,6 +4,13 @@
   "description": "Luna 9 survived a lunar landing and transmitted images from the surface.",
   "kind": "technology",
   "domain": "transport.space",
+  "tier": 2,
+  "impact": {
+    "reach": 0,
+    "depth": 2,
+    "generativity": 1,
+    "note": "One probe showing a craft could land and operate on the Moon; used by one programme, with a few later landers following."
+  },
   "grain": "instance",
   "events": [
     {
@@ -88,7 +95,9 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
     "unresolved": [

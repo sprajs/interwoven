@@ -4,6 +4,13 @@
   "description": "A pump and reservoir stored energy for later release through a turbine.",
   "kind": "technology",
   "domain": "energy.storage",
+  "tier": 2,
+  "impact": {
+    "reach": 0,
+    "depth": 2,
+    "generativity": 1,
+    "note": "An early city scheme storing energy by pumping water for later turbine use; new ability, one city, a few later schemes followed."
+  },
   "grain": "capability",
   "concept": "pumped-water-energy-storage",
   "places": [
@@ -51,7 +58,9 @@
       "grain": "recalled",
       "concept": "recalled",
       "places": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked event dates, attribution and statements against cited passages; measures only where marked. Event classifications and other facets retain their prior status."
   }

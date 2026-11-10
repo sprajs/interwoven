@@ -4,6 +4,13 @@
   "description": "Standardized serial interface for connecting computer peripherals, with common connectors and host-device protocols.",
   "kind": "technology",
   "domain": "electronics.computers",
+  "tier": 1,
+  "impact": {
+    "reach": 3,
+    "depth": 1,
+    "generativity": 1,
+    "note": "One connector replaced several older ports and now charges and links devices most people own; a convenience, with later versions and device classes as successors."
+  },
   "grain": "capability",
   "events": [
     {
@@ -74,7 +81,9 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent reader: Checked the USB 1.0 revision date and IEEE iMac release account. The cited IEEE timeline dates final USB 1.1 later than iMac release, so no final 1.1 compliance is assumed."
   },

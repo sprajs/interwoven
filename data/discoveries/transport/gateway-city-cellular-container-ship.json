@@ -4,6 +4,13 @@
   "description": "A converted ship carried containers in cellular cargo holds and on deck.",
   "kind": "technology",
   "domain": "transport.logistics",
+  "tier": 2,
+  "impact": {
+    "reach": 1,
+    "depth": 1,
+    "generativity": 1,
+    "note": "Cellular holds made container loading faster for one carrier's trade; later container ships are refined versions of the arrangement."
+  },
   "grain": "improvement",
   "concept": "cellular-container-ship",
   "places": [
@@ -90,7 +97,9 @@
       "places": "sourced",
       "events": "reviewed",
       "measures": "reviewed",
-      "links": "reviewed"
+      "links": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Initial evidence-backed admission; historical interpretations await independent review. Independent reader checked dated events against cited sources, and links and measures where marked."
   }

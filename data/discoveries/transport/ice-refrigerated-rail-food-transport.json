@@ -4,6 +4,13 @@
   "description": "Rail cars carrying ice enabled perishable food to travel under refrigeration.",
   "kind": "practice",
   "domain": "transport.logistics",
+  "tier": 1,
+  "impact": {
+    "reach": 1,
+    "depth": 2,
+    "generativity": 1,
+    "note": "Let perishable meat and produce travel long distances, reorganising food supply in one region; mechanical refrigerated cars succeeded it."
+  },
   "grain": "capability",
   "concept": "ice-refrigerated-rail-transport",
   "places": [
@@ -51,7 +58,9 @@
       "grain": "recalled",
       "concept": "recalled",
       "places": "sourced",
-      "events": "sourced"
+      "events": "sourced",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Initial sourced admission; classification and interpretations await independent review."
   }

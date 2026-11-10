@@ -4,6 +4,13 @@
   "description": "Machine-readable product code read at a supermarket checkout as part of a sale.",
   "kind": "technology",
   "domain": "communication.records",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 1,
+    "generativity": 2,
+    "note": "Scanned product codes became normal in shops across many countries; faster checkout and stock control for shoppers, and automatic identification systems grew from it."
+  },
   "grain": "capability",
   "events": [
     {
@@ -76,7 +83,9 @@
       "grain": "recalled",
       "events": "sourced",
       "places": "sourced",
-      "measures": "sourced"
+      "measures": "sourced",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent reader could not access the GS1 PDF, so product price and named checkout participants remain unreviewed."
   },

@@ -4,6 +4,13 @@
   "description": "The Seattle Artificial Kidney Center opened in 1962 to provide repeated dialysis outside hospital admission.",
   "kind": "practice",
   "domain": "health.healing",
+  "tier": 1,
+  "impact": {
+    "reach": 1,
+    "depth": 2,
+    "generativity": 1,
+    "note": "Repeated dialysis outside hospital turned an acute rescue into long-term life support for kidney patients, the model later centres followed."
+  },
   "grain": "capability",
   "concept": "outpatient-chronic-dialysis",
   "places": [
@@ -139,7 +146,9 @@
       "events": "reviewed",
       "people": "reviewed",
       "measures": "reviewed",
-      "links": "reviewed"
+      "links": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent review checked facets marked reviewed. Other facets retain their prior basis; historical and source limits remain in the record."
   },

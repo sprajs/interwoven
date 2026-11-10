@@ -4,6 +4,13 @@
   "description": "Machine-readable two-dimensional code designed to hold and retrieve information from a compact printed symbol.",
   "kind": "technology",
   "domain": "communication.records",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 1,
+    "generativity": 1,
+    "note": "A faster two-dimensional code among existing ones, now scanned by phone users across many countries; convenience rather than a new ability, with payment and ticketing uses following."
+  },
   "grain": "capability",
   "events": [
     {
@@ -79,7 +86,9 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "sourced"
+      "events": "sourced",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent reader opened both Denso pages, but individual development and 2002 chronology passages could not be retrieved reliably in this review."
   },

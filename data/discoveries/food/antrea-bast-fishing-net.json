@@ -4,6 +4,13 @@
   "description": "A knotted fishing net made of willow bast provides archaeological evidence of mesh fishing.",
   "kind": "practice",
   "domain": "food.fishing",
+  "tier": 3,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 0,
+    "note": "One preserved net witnessing mesh fishing, which was already older; nothing is known to rest on this object."
+  },
   "grain": "instance",
   "events": [
     {
@@ -52,7 +59,9 @@
       "grain": "recalled",
       "events": "reviewed",
       "places": "reviewed",
-      "concept": "reviewed"
+      "concept": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent review checked the reported materials, location and date against a separate archaeological synthesis; the boat-loss context remains interpretive."
   },

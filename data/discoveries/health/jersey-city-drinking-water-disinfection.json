@@ -4,6 +4,13 @@
   "description": "A municipal water system routinely disinfected community drinking water.",
   "kind": "practice",
   "domain": "health.public-health",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 2,
+    "generativity": 1,
+    "note": "Routine chlorination spread quickly through North American cities from this case and cut waterborne deaths sharply; Europe reached it separately, so reach stays at 2."
+  },
   "grain": "capability",
   "events": [
     {
@@ -47,7 +54,9 @@
       "grain": "recalled",
       "events": "reviewed",
       "places": "reviewed",
-      "concept": "reviewed"
+      "concept": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
   },

@@ -4,6 +4,13 @@
   "description": "The oral contraceptive Enovid became available for purchase for contraception in the United States in June 1960.",
   "kind": "practice",
   "domain": "health.public-health",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 2,
+    "generativity": 1,
+    "note": "The first marketed contraceptive pill gave women reliable control of fertility across many societies, and scored here for market availability, not the underlying research."
+  },
   "grain": "capability",
   "concept": "oral-hormonal-contraception",
   "events": [
@@ -69,7 +76,9 @@
       "grain": "recalled",
       "concept": "reviewed",
       "events": "reviewed",
-      "places": "reviewed"
+      "places": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent source review checked the facets marked reviewed; other facets retain their prior basis."
   }

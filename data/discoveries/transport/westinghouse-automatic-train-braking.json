@@ -4,6 +4,13 @@
   "description": "An automatic air brake system applied brakes in response to loss of train-line pressure.",
   "kind": "technology",
   "domain": "transport.rail",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 1,
+    "generativity": 1,
+    "note": "Fail-safe braking made existing railways safer and allowed longer trains in many countries; later air-brake designs refine it."
+  },
   "grain": "capability",
   "concept": "automatic-train-air-brake",
   "places": [
@@ -93,7 +100,9 @@
       "concept": "sourced",
       "places": "sourced",
       "events": "reviewed",
-      "measures": "reviewed"
+      "measures": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Source-backed admission; independent review pending. Independent reader checked FRA printed p. 8 on the 1872 introduction, ASME on development, and Linda Hall on the 1880 US installed vehicle counts."
   },

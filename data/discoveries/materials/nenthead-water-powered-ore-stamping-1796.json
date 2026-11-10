@@ -4,6 +4,13 @@
   "description": "At Nenthead a water-powered stamp mill used cam-operated stamps to break ore into finer particles.",
   "kind": "practice",
   "domain": "materials.mining",
+  "tier": 3,
+  "impact": {
+    "reach": 0,
+    "depth": 0,
+    "generativity": 0,
+    "note": "A late single installation of the centuries-old water-powered stamp mill, changing nothing beyond its own works."
+  },
   "grain": "instance",
   "concept": "water-powered-ore-stamping",
   "places": [
@@ -53,7 +60,9 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent review checked the event facet against the cited source; other facets retain their existing basis and the stated source limits."
   }

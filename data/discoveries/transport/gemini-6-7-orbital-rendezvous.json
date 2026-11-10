@@ -4,6 +4,13 @@
   "description": "Two independently crewed spacecraft met and remained in proximity in Earth orbit.",
   "kind": "technology",
   "domain": "transport.space",
+  "tier": 1,
+  "impact": {
+    "reach": 0,
+    "depth": 2,
+    "generativity": 2,
+    "note": "A new ability within one space programme; docking, lunar-orbit rendezvous and station assembly in that programme all built on it."
+  },
   "grain": "capability",
   "concept": "orbital-rendezvous",
   "places": [
@@ -93,7 +100,9 @@
       "concept": "recalled",
       "places": "sourced",
       "events": "reviewed",
-      "measures": "reviewed"
+      "measures": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Initial sourced admission; interpretation awaits independent review. Independent review checked event source passages and, where marked, measures and relationship scope; other facets retain prior status."
   }

@@ -4,6 +4,13 @@
   "description": "A published public-key method for encryption and digital signatures.",
   "kind": "technology",
   "domain": "electronics.software",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 2,
+    "generativity": 2,
+    "note": "Runs unseen in certificates and signatures for a large share of connected people; it made public-key encryption and signing practical, and a field followed."
+  },
   "grain": "capability",
   "events": [
     {
@@ -138,7 +145,9 @@
       "domain": "sourced",
       "grain": "recalled",
       "events": "sourced",
-      "links": "reviewed"
+      "links": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     }
   },
   "links": [

@@ -4,6 +4,13 @@
   "description": "An 1885 account describes family boarding arrangements for people with mental illness in Geel, Belgium.",
   "kind": "practice",
   "domain": "health.mind",
+  "tier": 2,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 1,
+    "note": "One account of one town's family boarding system, a humane local arrangement that a few later family-care schemes elsewhere copied."
+  },
   "grain": "instance",
   "concept": "family-mental-health-care",
   "places": [
@@ -67,7 +74,9 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "reviewed",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Event, place and any marked measure or person facets independently checked against the cited passages; remaining facets retain their prior basis."
   }

@@ -4,6 +4,13 @@
   "description": "At Baleni, archaeological ceramics and production deposits near a mineral spring provide evidence for salt production by early farming communities.",
   "kind": "practice",
   "domain": "materials.mining",
+  "tier": 3,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 0,
+    "note": "One spring where early farmers made salt, a useful local supply using known methods, with nothing later shown to depend on it."
+  },
   "grain": "instance",
   "concept": "spring-brine-salt-production",
   "events": [
@@ -62,7 +69,9 @@
       "grain": "recalled",
       "concept": "sourced",
       "events": "reviewed",
-      "places": "sourced"
+      "places": "sourced",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent review checked the event facet against the stated source; other facets retain their previous basis and the documented evidence limits."
   },

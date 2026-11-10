@@ -4,6 +4,13 @@
   "description": "An operational commercial transatlantic telecommunications service using a communications satellite and terrestrial ground stations.",
   "kind": "technology",
   "domain": "communication.telecommunication",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 1,
+    "generativity": 2,
+    "note": "First operational commercial satellite link added transatlantic circuits and live television to existing cables; the global satellite system and industry followed from it."
+  },
   "grain": "capability",
   "events": [
     {
@@ -45,7 +52,9 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "sourced"
+      "events": "sourced",
+      "tier": "recalled",
+      "impact": "recalled"
     }
   },
   "caveats": "Earlier experimental communications satellites existed; no priority over them is implied."

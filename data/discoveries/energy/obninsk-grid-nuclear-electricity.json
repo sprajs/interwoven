@@ -4,6 +4,13 @@
   "description": "The Soviet Obninsk power station used a nuclear reactor to generate electricity for a public grid.",
   "kind": "technology",
   "domain": "energy.nuclear",
+  "tier": 1,
+  "impact": {
+    "reach": 1,
+    "depth": 2,
+    "generativity": 1,
+    "note": "First reactor feeding a public grid; a new energy source, but its direct descendants are the Soviet channel-reactor line, not nuclear power everywhere."
+  },
   "grain": "capability",
   "concept": "grid-connected-nuclear-power",
   "events": [
@@ -88,7 +95,9 @@
       "concept": "sourced",
       "events": "reviewed",
       "measures": "reviewed",
-      "places": "reviewed"
+      "places": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent reader checked the named reviewed facets against the cited documents; no global priority or unreported funding inferred."
   }

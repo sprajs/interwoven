@@ -4,6 +4,13 @@
   "description": "A published method and framework for establishing shared keying information over a public communication channel.",
   "kind": "technology",
   "domain": "electronics.software",
+  "tier": 1,
+  "impact": {
+    "reach": 2,
+    "depth": 2,
+    "generativity": 2,
+    "note": "Key agreement runs unseen in a large share of secure connections; it gave strangers a way to share secrets openly, and public-key cryptography grew from it."
+  },
   "grain": "capability",
   "events": [
     {
@@ -81,7 +88,9 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent reader checked the cited publication and the event-scoped claims."
   },

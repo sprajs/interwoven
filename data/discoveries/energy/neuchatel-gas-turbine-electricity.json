@@ -4,6 +4,13 @@
   "description": "A stationary gas turbine drove an electricity generator at the Neuchâtel municipal power station.",
   "kind": "technology",
   "domain": "energy.electric-power",
+  "tier": 2,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 1,
+    "note": "One power station's standby unit; it added a quick-starting alternative to existing generating plant, with the maker's later units as direct successors."
+  },
   "grain": "instance",
   "concept": "grid-gas-turbine-generation",
   "places": [
@@ -65,7 +72,9 @@
       "concept": "sourced",
       "places": "sourced",
       "events": "reviewed",
-      "measures": "reviewed"
+      "measures": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Source-backed admission; independent review pending. Independent reader checked the ASME account for 1939 installation and the stated output and efficiency."
   },

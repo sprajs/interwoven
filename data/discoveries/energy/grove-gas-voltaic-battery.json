@@ -4,6 +4,13 @@
   "description": "Grove described a gas voltaic battery that produced electricity from hydrogen and oxygen.",
   "kind": "technology",
   "domain": "energy.storage",
+  "tier": 2,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 2,
+    "note": "One laboratory demonstration with no practical use at the time, yet the whole later line of fuel-cell work traces back to it."
+  },
   "grain": "instance",
   "concept": "gas-voltaic-battery",
   "places": [
@@ -52,7 +59,9 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Source-backed admission; independent review pending.",
     "unresolved": [

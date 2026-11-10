@@ -4,6 +4,13 @@
   "description": "A government paper manufactory called Jojiso was established in Joseon in 1415, according to a modern study of the office.",
   "kind": "practice",
   "domain": "materials.paper",
+  "tier": 3,
+  "impact": {
+    "reach": 0,
+    "depth": 1,
+    "generativity": 0,
+    "note": "One government manufactory that improved supply and control of paper for a state, without known successors resting on it."
+  },
   "grain": "instance",
   "concept": "state-paper-manufactory",
   "events": [
@@ -44,7 +51,9 @@
       "domain": "sourced",
       "grain": "recalled",
       "concept": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent review checked the event facet against the stated source; other facets retain their previous basis and the documented evidence limits."
   }

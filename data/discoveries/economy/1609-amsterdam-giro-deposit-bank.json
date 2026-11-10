@@ -4,6 +4,13 @@
   "description": "The municipality established a bank intended to accept coin deposits and transfer balances between customers’ accounts by book entry.",
   "kind": "practice",
   "domain": "economy.money",
+  "tier": 1,
+  "impact": {
+    "reach": 1,
+    "depth": 1,
+    "generativity": 2,
+    "note": "One city bank modelled on Venice; merchants across Europe settled bills more safely in its book money, and public and central banking drew on it."
+  },
   "grain": "capability",
   "concept": "giro-deposit-transfer",
   "places": [
@@ -69,7 +76,9 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed"
+      "events": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
   }

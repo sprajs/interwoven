@@ -4,6 +4,13 @@
   "description": "A hierarchical distributed naming system in which domain names map to resource information via name servers and resolvers.",
   "kind": "technology",
   "domain": "electronics.networks",
+  "tier": 1,
+  "impact": {
+    "reach": 3,
+    "depth": 1,
+    "generativity": 2,
+    "note": "Every Internet user's device resolves names through it; it replaced host tables rather than creating naming, and mail routing, web addresses and content delivery rest on it."
+  },
   "grain": "capability",
   "events": [
     {
@@ -97,7 +104,9 @@
       "domain": "sourced",
       "grain": "recalled",
       "events": "reviewed",
-      "people": "reviewed"
+      "people": "reviewed",
+      "tier": "recalled",
+      "impact": "recalled"
     },
     "note": "Second reader checked RFC 882 and RFC 1296: a dated specification and a later approximate introduction claim are distinct from a dated first operational installation. Independent review checked RFC 882, RFC 1296, and the authors’ 1988 Berkeley deployment account; the latter describes campus transition rather than global adoption."
   },
