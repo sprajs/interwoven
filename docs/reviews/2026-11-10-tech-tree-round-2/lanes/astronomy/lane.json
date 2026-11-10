@@ -1,0 +1,61 @@
+{
+  "prompt_version": "tech-tree-components-context-v2",
+  "workflow": "Proposal 2f67b07 rejected after independent review. No discovery data changes retained; source metadata retained for independent review and future research.",
+  "base": "c902638823f0eea5d3e7b97a34d4a7880bf2acb8",
+  "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-2/astronomy",
+  "branch": "codex/tech-tree-round-2-astronomy",
+  "researcher": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution_id": "/root/round2_astronomy",
+    "response_id": null
+  },
+  "timing": {
+    "started_utc": null,
+    "finished_utc": "2026-11-10T23:34:17Z",
+    "elapsed_seconds": null
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "billing_usd": null
+  },
+  "duplicate_screen": {
+    "method": "Searched discoveries, sources and leads for Metonic, Meton, 19-year, calendar, Hipparchus, Babylonian, and Antikythera; inspected gearing and Babylonian events and round 1 review.",
+    "result": "No Greek Metonic calendar discovery or these two sources matched. Existing gearing event describes eclipse dial; existing Babylonian candidate cannot be promoted from shared 223-month period."
+  },
+  "sources": [
+    {
+      "id": "jones-2016-miletos-calendrical-cycles",
+      "locator": "pp. 119–122; inscription fragments inv. 84 and 1604; detailed Greek period and comparison with mechanism",
+      "raw_sha256": "f3e89f3a8764ffc392744b8d9fa18402839ba70fd4f268f2707da816dd6f02f5",
+      "independence": "An independently attested inscription; author Jones also wrote the 2020 source. Do not count publications as independent authors for consequential transmission.",
+      "retention": "Raw PDF remains ignored at evidence/j/jones-2016-miletos-calendrical-cycles.pdf in researcher worktree, described by committed checksum descriptor."
+    },
+    {
+      "id": "jones-2020-antikythera-epoch",
+      "locator": "section 2, pp. 3–4, back-cover inscription and reconstructed calendar scale; introduction pp. 1–2 for chronology",
+      "raw_sha256": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12",
+      "retention": "Raw PDF remains ignored at evidence/j/jones-2020-antikythera-epoch.pdf in researcher worktree, described by committed checksum descriptor."
+    }
+  ],
+  "claims": [],
+  "deferred": [
+    "Babylonian candidate: Iversen and Jones 2019 section 4 identifies compatibility with an accurate Babylonian period relation, but does not establish a specific route to the instrument. Shared cycles are not transmission.",
+    "Do not infer maker funding, workshop setting, motivation, or disappearance from available passages."
+  ],
+  "validation": "python3 tools/validate.py after removal: No problems found (888 discoveries, 1473 events, 233 links, 1595 sources).",
+  "file_sha256": {
+    "data/sources/j/jones-2016-miletos-calendrical-cycles.json": "f1f3d58412b66a03055af121dd616fb0025c871c74ffbc79865f4b976f8aafaf",
+    "data/sources/j/jones-2020-antikythera-epoch.json": "e89bbf5ee771d61451405136e5119987fd1f527a01cfa10cf070af7f94ada81d",
+    "evidence/j/jones-2016-miletos-calendrical-cycles.pdf.cache.json": "7268d38dc093bbccb1a0a99cdac1bf865dc207d65b01af3752ce2882c6441699",
+    "evidence/j/jones-2020-antikythera-epoch.pdf.cache.json": "74096fbb08e7d096e79a183c1c886d70cd76b3eb2d3cead4e17c3fba06f7cbcc"
+  },
+  "review_revisions": {
+    "reviewer": "/root/round2_review_astronomy",
+    "first_proposal": "2f67b07",
+    "decision": "Defer generic cycle node and uses_theory edge: shared calendrical period and later inscription do not demonstrate that the mechanism makers used the specific achievement represented by the node. The proposed node combined an inscriptional witness and a later textual description too broadly.",
+    "component_reevaluation": "Jones describes the calendar dial as part of the particular mechanism. The existing target is the wider Hellenistic gearing capability, not the mechanism as an individual device. A component part_of that capability would conflate a component and a capability. A correctly scoped whole-device record and reason for a component split would be needed; neither is justified by this bounded task. A coeval component is not an earlier prerequisite.",
+    "retained": "No discovery, event, relationship, or context change; prior proposal remains in Git history. No separate event extension was made because this round prioritizes constituent links and context rather than event detail."
+  }
+}
