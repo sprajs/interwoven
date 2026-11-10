@@ -57,5 +57,45 @@
     "title_editor_verified": true,
     "build_status": "complete",
     "screenshot_sha256": "253a15ef3d4ec4401079cc0ab52ca0eb97523ba450dabe4fffcb967faac5483a"
+  },
+  "final_csv_newline_check": {
+    "description": "Normalize CSV output to LF; accounting values unchanged.",
+    "snapshot_commit": "3646c1c5f5d22909fde64044450f01f3e7f38903",
+    "files": [
+      {
+        "path": "tools/cards/analyze_comparison.py",
+        "sha256": "00ae9418478e1f0eaa031f82ac5da323ed5a2bf22d57cb84f13fbe6492198530"
+      },
+      {
+        "path": "docs/reviews/2026-11-10-workflow-comparison/calls.csv",
+        "sha256": "7ba79bd3dff2dd3a258cf4d9086147e40f50beb378ad468820f3a7fa584e710a"
+      }
+    ],
+    "checks": [
+      {
+        "command": [
+          "python3",
+          "tools/validate.py"
+        ],
+        "returncode": 0
+      },
+      {
+        "command": [
+          "npm",
+          "ci",
+          "--ignore-scripts",
+          "--prefix",
+          "app"
+        ],
+        "returncode": 0
+      },
+      {
+        "command": [
+          "npm",
+          "test"
+        ],
+        "returncode": 0
+      }
+    ]
   }
 }

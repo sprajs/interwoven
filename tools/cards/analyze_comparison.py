@@ -267,7 +267,7 @@ def write_report(analysis,rows,sanitized,out=DEFAULT_OUT):
     (out/'analysis.json').write_text(json.dumps(analysis,ensure_ascii=False,indent=2)+'\n')
     (out/'sanitized-results.json').write_text(json.dumps(sanitized,ensure_ascii=False,indent=2)+'\n')
     with (out/'calls.csv').open('w',newline='') as stream:
-        writer=csv.DictWriter(stream,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(stream,fieldnames=list(rows[0]),lineterminator="\n");writer.writeheader();writer.writerows(rows)
     (out/'comparison.svg').write_text(svg(analysis));(out/'report.md').write_text(report(analysis))
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
