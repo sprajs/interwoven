@@ -1,0 +1,200 @@
+{
+  "prompt_version": "tech-tree-event-scope-v1",
+  "review_mode": "direct dataset patch; cards gate not invoked",
+  "decision": "accept",
+  "base_commit": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "proposal_commit": "ea86c30cd7108a82b0ac0b2edb76f27f2dc6f196",
+  "reviewer": {
+    "execution_id": "/root/astra_orchestrator/review_jikji",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "researcher": {
+    "execution_id": "/root/astra_orchestrator/jikji",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "completed_utc": "2026-11-10T22:56:25.702479+00:00",
+  "elapsed_seconds": null,
+  "elapsed_note": "Elapsed timing was not captured; unavailable rather than estimated.",
+  "usage": {
+    "tokens": null,
+    "billing": null
+  },
+  "source_indices": [
+    {
+      "index": 0,
+      "id": "cheongju-early-printing-museum-sangjeong-round1",
+      "inspected": "Museum description hosted by Google Arts & Culture, lines 46–48."
+    },
+    {
+      "index": 1,
+      "id": "yoo-yun-2024-sangjeong-round1",
+      "inspected": "Actual locally cached PDF, page 5 section 2.1 and surrounding context."
+    }
+  ],
+  "files_sha256": {
+    "data/discoveries/communication/sangjeong-gogeum-yemun-metal-type-edition.json": "7afa0c3875ab6d0c12892d846465770d866e19522cb157f8cfa525a708e73f4e",
+    "data/sources/c/cheongju-early-printing-museum-sangjeong-round1.json": "31f28193efdc67b48dfdb5590840459321864bbdf2a6dca428955d37bd05f1df",
+    "data/sources/y/yoo-yun-2024-sangjeong-round1.json": "0be98cfb8da0326b6aa17b036d478bd2b884a80fcabfc9da8b6ab78ba17b81f4",
+    "docs/reviews/2026-11-10-tech-tree-round-1/lanes/jikji/lane.json": "dfb82e4875aeee3c102203a30752fbd8c886f0e4b65a72ae3c1dfc7b2d0fea03",
+    "evidence/c/cheongju-early-printing-museum-sangjeong-round1-notes.txt": "c5585d1464058737ec79b8a781981668bac7fd9dfcc82bb67900a34d04a19877",
+    "evidence/y/yoo-yun-2024-sangjeong-round1.pdf.cache.json": "a8fccb7f4360caa749aa5ce87c57b7cdd857c4d23bd51dfbb0176b151d92d245",
+    "evidence/y/yoo-yun-2024-sangjeong-round1.pdf": "9da3c8992d2db6fa21c5164f67c1ee1d6943917640315b31ee74ccafebefd5d9"
+  },
+  "claims": {
+    "/id": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Identifies the edition, separate from the Jikji text."
+    },
+    "/name": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Both accounts name the metal-type Sangjeong edition."
+    },
+    "/description": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Museum attributes 28 copies to a postface and Goryeo; paper reports the same edition from historical literature."
+    },
+    "/kind": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Classification of the reported metal-type printed edition as technology."
+    },
+    "/domain": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Metal-type book printing belongs to communication.printing."
+    },
+    "/societies/0": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Museum attributes movable metal-type book printing to Goryeo; paper identifies Goryeo Korea."
+    },
+    "/events/0/id": {
+      "decision": "accept",
+      "source_indices": [
+        1
+      ],
+      "rationale": "Identifier describes the reported and estimated event, without asserting a fixed year."
+    },
+    "/events/0/type": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Publication refers to reported printing of the edition, not to first invention or survival."
+    },
+    "/events/0/date": {
+      "decision": "accept",
+      "source_indices": [
+        1,
+        0
+      ],
+      "rationale": "Paper p. 5 estimates 1234–1241 for the printing; museum places the postface around 1234, an approximate independent attribution whose precision and chronology remain unresolved. The bounds represent a scholarly estimate, not demonstrably exact limits or the date of the surviving witness."
+    },
+    "/events/0/statement": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Museum reports a postface describing 28 copies printed using movable metal type; paper supplies the estimated period."
+    },
+    "/events/0/caveats": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Paper says no copies found; original postface not inspected in this review or research lane; neither source establishes direct transmission to Jikji."
+    },
+    "/events/0/evidence/0": {
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "Museum description directly supports attribution and metal-type printing of 28 copies."
+    },
+    "/events/0/evidence/1": {
+      "decision": "accept",
+      "source_indices": [
+        1
+      ],
+      "rationale": "Paper p. 5 directly supplies the estimated period and no-copy-found statement."
+    },
+    "/earliest_record": {
+      "decision": "accept",
+      "source_indices": [
+        1,
+        0
+      ],
+      "rationale": "Points to the estimated reported printing event, not a surviving edition or invention of type; basis and uncertainty remain explicit."
+    },
+    "/caveats": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "No invention priority or specific lineage to Jikji is claimed; sources do not support a direct link."
+    },
+    "/research/status": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Sourced status accurately reflects two inspected secondary accounts; this review does not relabel the record reviewed."
+    },
+    "/research/basis": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Domain, society and event values are linked to cited accounts; machine-readable basis remains sourced."
+    },
+    "/research/unresolved": {
+      "decision": "accept",
+      "source_indices": [
+        0,
+        1
+      ],
+      "rationale": "Original text, early witnesses, exact dating, and technological lineage remain open research questions."
+    }
+  },
+  "duplicate_screen": {
+    "decision": "distinct_new_record",
+    "base_search": "Sangjeong / Sangjong / Sangjŏng across discoveries and leads returned no match at named base.",
+    "comparison": "Jikji metal-type record concerns the surviving 1377 Buddhist text, with archaeological evidence and availability and donation events; Jikji woodblock concerns the different 1378 edition. The proposed earlier Sangjeong ritual-text edition is a distinct subject and reported publication, not either existing event. No continuity is inferred."
+  },
+  "evidence_limitations": [
+    "Accounts are not independent physical witnesses, and both rely on historical literature; no original postface or surviving Sangjeong printing was examined.",
+    "The museum dates the postface around 1234, while the article estimates printing 1234–1241. These are approximate attributions with potentially different dating assumptions; do not present either as a precise proven bound or claim that the postface necessarily postdates every possible date in the estimate. Original witness and chronology require research.",
+    "The article also makes a disputed claim about another book; this review accepts none of that claim.",
+    "No origin, priority, causal relation, transmission, funder or place coordinates are accepted. Existing records and claims are outside this review."
+  ],
+  "mechanical_notes": "File and evidence hashes independently computed from local bytes, including the cached PDF. Integration should rerun dataset validation on exact approved bytes; any changed proposal requires review of changed paths."
+}

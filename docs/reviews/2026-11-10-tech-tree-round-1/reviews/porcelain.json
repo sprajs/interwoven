@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "workflow": "Direct dataset patch review; not a cards gate",
+  "prompt_version": "tech-tree-event-scope-v1",
+  "decision": "accept",
+  "reviewer": {
+    "execution_id": "/root/astra_orchestrator/review_porcelain",
+    "model": "gpt-6.1-terra",
+    "effort": "high"
+  },
+  "researcher": {
+    "execution_id": "/root/astra_orchestrator/porcelain (lane identity; provider execution ID unavailable)",
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "independence": "Separate execution as assigned; lane.json records provider execution ID as unavailable."
+  },
+  "dataset_base": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "reviewed_commit": "eaa501952f791c024e121820c91b5c1e8723c980",
+  "files": [
+    {
+      "path": "data/discoveries/materials/proto-porcelain-in-shang-china.json",
+      "sha256": "6eceefab61dfcbd6e3799ff87a29f4cbb921b2b0fff7f230904c2d3f1388d0ca"
+    },
+    {
+      "path": "data/sources/y/yin-2012-zhou-spread-round1.json",
+      "sha256": "6f6cbbd54462d76c817004fa215b71274caef5efb128167580276e1433196691"
+    },
+    {
+      "path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/porcelain/lane.json",
+      "sha256": "b6d0d38f9c8c3c83f2a17fd27280b4b6ee426adc28af98d9ce77a2aa7df4a30f"
+    }
+  ],
+  "sources": [
+    {
+      "index": 0,
+      "source_id": "yin-2012-zhou-spread-round1",
+      "source_record": "data/sources/y/yin-2012-zhou-spread-round1.json",
+      "locator": "Abstract, first paragraph",
+      "original_url": "https://discovery.ucl.ac.uk/id/eprint/1380281/",
+      "original_reading": "Independently opened UCL repository page and read the entire abstract, including context and qualifiers, on 2026-11-10; thesis body not evaluated.",
+      "evidence": "evidence/m/m-2012-earliest-high-fired.txt",
+      "evidence_sha256": "738e13ceb4d3b0e17a08a268ea81777b1a4043352f58ad19dadb87e7445ffe96",
+      "independence_note": "Same thesis and abstract as existing m-2012-earliest-high-fired source; duplicate source records are not independent corroboration."
+    }
+  ],
+  "claims": [
+    {
+      "path": "extends",
+      "target": "proto-porcelain-in-shang-china",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "The same subject has a distinct source-supported subsequent Zhou period of wider prevalence. Base /events/0 is Shang appearance, not Zhou prevalence. Existing description mentions Zhou but is not a dated event. Extend the existing capability rather than create a discovery for spread."
+    },
+    {
+      "path": "/events/1/id",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "Identifier describes the sourced broader Zhou prevalence and does not imply a route."
+    },
+    {
+      "path": "/events/1/type",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "dated_assertion expresses a broad prevalence change; the abstract names no recipient community or route and does not substantiate a specific transmission event."
+    },
+    {
+      "path": "/events/1/date",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "The abstract explicitly uses Zhou 1027 to 221 BC for the increased prevalence. Bounds retain the whole source period; they are neither the onset nor a finding that spread was continuous throughout."
+    },
+    {
+      "path": "/events/1/statement",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "Subject proto-porcelain, action became more widespread, and Zhou time scope match the first abstract sentence. It asserts no mechanism, recipient, numerical uptake, or inferred causal relation."
+    },
+    {
+      "path": "/events/1/places/0",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "China is the broad context of the first abstract sentence; it does not locate the change at any particular site or extend the scope beyond China."
+    },
+    {
+      "path": "/events/1/evidence/0",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "The source and Abstract locator resolve to the original first sentence and the support statement preserves its wording and bounds."
+    },
+    {
+      "path": "data/sources/y/yin-2012-zhou-spread-round1.json",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "UCL page confirms thesis title, Yin M, 2012, PhD and exact passage; saved excerpt matches the declared SHA-256 and contains the quotation in context. Source is abstract-level and duplicates an existing bibliographic source, not an independent source."
+    },
+    {
+      "path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/porcelain/lane.json",
+      "decision": "accept",
+      "source_indices": [
+        0
+      ],
+      "rationale": "Proposal metadata, four claim paths, evidence and discovery hashes, direct-patch scope and duplicate-control descriptions agree with inspected patch and source. Execution ID and usage remain unavailable as disclosed."
+    }
+  ],
+  "negative_control": {
+    "decision": "reject_duplicate",
+    "source_indices": [
+      0
+    ],
+    "target": "/events/0",
+    "rationale": "Base already records the same China Shang appearance as archaeological_evidence with c. 1700–1027 BCE bounds; do not add another matching Shang event."
+  },
+  "causal_and_transmission_claims": {
+    "new_claims": false,
+    "requirement": "Any future consequential causal or transmission link requires independent informative corroboration establishing direction, relationship and context; two source records of this same thesis are not independent evidence."
+  },
+  "limitations": [
+    "Abstract-level support, not site-by-site verification; locations, timeline within Zhou and routes remain unresolved.",
+    "Review covers changed claims and extension only. Unchanged historical claims, scores and research basis were not independently approved or upgraded.",
+    "Historical benchmark labels remain unchanged."
+  ],
+  "usage": {
+    "elapsed_seconds": null,
+    "elapsed_note": "Exact elapsed time not recorded by this execution.",
+    "tokens": null,
+    "billing": null
+  },
+  "reviewed_utc": "2026-11-10T22:54:26.435055+00:00"
+}

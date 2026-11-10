@@ -1,0 +1,42 @@
+{
+  "prompt_version": "tech-tree-event-scope-v1",
+  "workflow": "Independent direct patch review; not a cards gate review.",
+  "decision": "accept",
+  "base_commit": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "reviewed_commit": "12008b663cdfb8892d73b5127ebdc1d8de4fbfa1",
+  "reviewer": {"model": "gpt-6.1-terra", "effort": "high", "execution_id": "/root/astra_orchestrator/review_antikythera", "response_id": null},
+  "researcher": {"model": "gpt-6.1-terra", "effort": "high", "execution_id": "/root/astra_orchestrator/antikythera", "response_id": null},
+  "timing": {"elapsed_seconds": null, "note": "Not independently metered."},
+  "usage": {"input_tokens": null, "output_tokens": null, "billing_usd": null},
+  "source_indices": [
+    {"index": 0, "id": "iversen-jones-2019-antikythera-eclipse-round1", "original_read": "https://archive.nyu.edu/bitstream/2451/48012/2/Iversen%20and%20Jones%202019%20BPI%20AHES.pdf", "locator": "Section 1, p. 470; p. 488 note 23; section 4.1", "finding": "223 cells represent lunar months; glyphs mark possible eclipses, and about a third of the scale survives. Missing portions involve reconstruction. Letter forms under discussion occur from late third to mid-first century BCE and do not narrow construction within that range."},
+    {"index": 1, "id": "brack-bernsen-steele-2005-saros-round1", "original_read": "https://epub.uni-regensburg.de/57952/1/27.cnt_1Ecl.PredL.B-BSteele.pdf", "locator": "Abstract and pp. 181–182", "finding": "The 223-synodic-month cycle was used in Late Babylonian eclipse prediction; the authors distinguish inferred date of adoption from dates of observations compiled retrospectively."},
+    {"index": 2, "id": "freeth-2006-decoding-ancient-greek", "original_read": "https://obswww.unige.ch/lastro/misc/HistoireCosmo/2017/Annexe-06-Anticythere-Nature-2006.pdf", "locator": "Abstract and p. 587", "finding": "The abstract gives approximately the end of the second century BCE; the body infers 150–100 BCE from lettering, distinct from the later wreck date."}
+  ],
+  "file_sha256": {
+    "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json": "f26ff0ef9c7ce0b152cc1761285561c76cf6e26538cd9c3e91385f5a04506e8a",
+    "data/sources/i/iversen-jones-2019-antikythera-eclipse-round1.json": "bffdf40b9410d80ccb3fcd5368b91e6b35e57e1a5ba19c2aacbe68cdde389494",
+    "evidence/i/iversen-jones-2019-antikythera-eclipse-round1.txt": "e8418a9f27956774e16df3b44f306cdd33ff784ccd61ed6675909516474bb3f1",
+    "data/sources/b/brack-bernsen-steele-2005-saros-round1.json": "5b2d0d2091cf437efb1c96ed5936642f6df8a6fc65dccd374a8803d04404ab66",
+    "evidence/b/brack-bernsen-steele-2005-saros-round1.txt": "5101a45aad8cd9f920e8b95a29707c713afff0dee6e1367c9187c20cc6856da7",
+    "data/sources/f/freeth-2006-decoding-ancient-greek.json": "d3374b86fc97a3be5abbdd6567d74e47b1a771836907416e3838b1f69963cee2",
+    "evidence/f/freeth-2006-decoding-ancient-greek.txt": "e03f19dd1a2e63f840ddc4eb2c89ed1dd1007b152e2e2b11438d3c56a8ba5250",
+    "docs/reviews/2026-11-10-tech-tree-round-1/lanes/antikythera/lane.json": "0d08af311248ca3a65d1099067e8fcc2f9d44eb6275bdc71ea4b1193581b0bbe"
+  },
+  "claims": [
+    {"path": "extends", "decision": "accept", "target_id": "toothed-gearing-in-the-hellenistic-greek-world", "source_indices": [0, 2], "rationale": "Base has an archaeological-evidence event for this artefact without eclipse-scale detail. Extend it rather than creating a duplicate event or discovery."},
+    {"path": "/events/0/statement", "decision": "accept", "source_indices": [0, 2], "rationale": "The newly appended sentence matches the 223-month scale, possible eclipses, and approximately one-third survival in section 1. This does not adopt the old construction date as a settled fact; it remains attributed to Freeth by the existing citation."},
+    {"path": "/events/0/evidence/1", "decision": "accept", "source_indices": [0], "rationale": "Section 1 supports the new content and preservation qualification."},
+    {"path": "/research/basis/links", "decision": "accept", "source_indices": [0, 1], "rationale": "Sourced applies to the bounded question and its two cited observations, not to established transmission."},
+    {"path": "/research/unresolved/5", "decision": "accept", "source_indices": [0, 1], "rationale": "Shared cycles alone do not specify a historical route. Freeth makes a stronger interpretation that warrants comparison, not automatic admission."},
+    {"path": "/links/0", "decision": "accept", "source_indices": [0, 1], "rationale": "A candidate question: each source supports its respective cycle and eclipse context; the status excludes an established edge. The later artefact points to earlier Babylonian astronomy, and the proposed type is a hypothesis.", "relation_attestation": "candidate only; no established relation asserted", "direction_attestation": "possible later mechanism use of earlier Babylonian astronomical knowledge", "context_attestation": "223-month eclipse scheme, not general gearing or proof of direct transmission"},
+    {"path": "data/sources/i/iversen-jones-2019-antikythera-eclipse-round1.json", "decision": "accept", "source_indices": [0], "rationale": "Bibliographic source and passage match the paper and cited section."},
+    {"path": "evidence/i/iversen-jones-2019-antikythera-eclipse-round1.txt", "decision": "accept", "source_indices": [0], "rationale": "Excerpt matches the source passage apart from omitted footnote marker and formatting."},
+    {"path": "data/sources/b/brack-bernsen-steele-2005-saros-round1.json", "decision": "accept", "source_indices": [1], "rationale": "Bibliographic source and abstract match the original PDF."},
+    {"path": "evidence/b/brack-bernsen-steele-2005-saros-round1.txt", "decision": "accept", "source_indices": [1], "rationale": "Excerpt matches the original abstract passage."},
+    {"path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/antikythera/lane.json", "decision": "accept", "source_indices": [0, 1, 2], "rationale": "Provenance and patch scope match inspected files. Reported validation was independently repeated; unavailable usage and elapsed time remain null."}
+  ],
+  "blocking_corrections": [],
+  "next_questions": ["Nonblocking inherited issue: assess competing palaeographic evidence for construction date. Freeth infers 150–100 BCE from lettering, while Iversen and Jones discuss forms occurring across a wider late-third to mid-first century BCE interval. Reconsider the old date and source attribution without treating publication date, wreck date, or an observed astronomical epoch as a direct age. Neither its basis nor its old claim is upgraded by this review.", "Investigate transmission and later uptake separately: matching cycles and absent descendants prove neither a specific route nor loss."],
+  "checks": {"git_diff_check": "passed", "dataset_validation": "passed: 886 discoveries, 1469 events, 233 links, 1588 sources", "hashes": "verified", "qualification": "Changing reviewed bytes requires fresh binding and appropriate review."}
+}

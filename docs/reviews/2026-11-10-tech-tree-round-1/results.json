@@ -1,0 +1,487 @@
+{
+  "schema_version": 1,
+  "round": "tech-tree-round-1",
+  "prompt_version": "tech-tree-event-scope-v1",
+  "base_commit": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "assembled_data_commit": "5ebb00da2dddb2aa66b44548291fb03fe7a4be96",
+  "generated_utc": "2026-11-10T22:58:46.702828+00:00",
+  "orchestrator": {
+    "execution_id": "/root/astra_orchestrator",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "routing": "Root coordinating chat explicitly spawned this Astra Medium orchestrator; root model not inferred."
+  },
+  "counts": {
+    "new_records": 2,
+    "new_events_total": 4,
+    "new_events_on_existing_records": 2,
+    "existing_events_extended": 1,
+    "new_established_edges": 0,
+    "new_candidate_edges": 1,
+    "new_circumstances": 0,
+    "new_source_records": 7
+  },
+  "lanes": {
+    "porcelain": {
+      "anchor": "proto-porcelain-in-shang-china",
+      "worker_commit": "eaa501952f791c024e121820c91b5c1e8723c980",
+      "integrated_commits": [
+        "5cbb5ad"
+      ],
+      "summary": "Missing dated Zhou prevalence event accepted; duplicate Shang event rejected.",
+      "researcher": {
+        "execution_id": "/root/astra_orchestrator/porcelain",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/astra_orchestrator/review_porcelain",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-1/reviews/porcelain.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/porcelain/lane.json",
+      "questions": [
+        "Can original archaeological site reports independently clarify locations, chronology and meaning of wider prevalence?",
+        "Would a later schema explicitly representing spread better capture a general change in prevalence without implying a named receiving community?"
+      ],
+      "limitations": [
+        "An abstract-level assertion; not a site-by-site demonstration or a new independent corroborating source.",
+        "This is a proposal, not an independent review; existing research basis is not upgraded.",
+        "A separate source record preserves the existing shared source file while citing the same author and abstract; it is not independent evidence."
+      ],
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/porcelain",
+      "branch": "codex/tech-tree-round-1-porcelain",
+      "anchor_name": "Proto-porcelain in Shang China"
+    },
+    "jikji": {
+      "anchor": "jikji-metal-type-edition",
+      "worker_commit": "ea86c30cd7108a82b0ac0b2edb76f27f2dc6f196",
+      "integrated_commits": [
+        "caa277d"
+      ],
+      "summary": "Earlier reported Goryeo metal-type edition accepted; direct lineage to Jikji remains unestablished.",
+      "researcher": {
+        "execution_id": "/root/astra_orchestrator/jikji",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/astra_orchestrator/review_jikji",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-1/reviews/jikji.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/jikji/lane.json",
+      "questions": [
+        "Inspect and translate the original postface and establish early manuscript witnesses and dating.",
+        "Find independently informative evidence, if it exists, identifying a technical or organizational lineage to the 1377 Jikji edition."
+      ],
+      "limitations": [
+        "The original Korean historical witness was not directly inspected. Both secondary accounts rely on historical literature; they are not independent evidence of transmission. No date or invention priority is claimed outside the explicitly estimated range.",
+        "Yoo and Yun dispute conventional interpretation of a separate Song of Enlightenment edition; those claims were not evaluated or adopted."
+      ],
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/jikji",
+      "branch": "codex/tech-tree-round-1-jikji",
+      "anchor_name": "Jikji metal-type edition"
+    },
+    "newcomen": {
+      "anchor": "newcomen-atmospheric-pumping-engine",
+      "worker_commit": "50ab56d6eca3016c33a78f11f310a1ca8b77482c",
+      "integrated_commits": [
+        "a3222cc",
+        "5ebb00d"
+      ],
+      "summary": "Savery published description and Newcomen adoption bound accepted; influence and successful Savery mine installation remain unresolved.",
+      "researcher": {
+        "execution_id": "/root/astra_orchestrator/newcomen",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/astra_orchestrator/review_newcomen",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-1/reviews/newcomen.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/newcomen/lane.json",
+      "questions": [
+        "Did Savery’s engine or its technical ideas directly influence Newcomen’s development? Need independently informative sources and precise relation; chronological similarity alone is insufficient.",
+        "Where and when were early Savery engines actually installed and operated?",
+        "What is the underlying evidence and geographic distribution for the museum’s count of at least 100 engines by 1729?"
+      ],
+      "limitations": [],
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/newcomen",
+      "branch": "codex/tech-tree-round-1-newcomen",
+      "anchor_name": "Newcomen atmospheric pumping engine"
+    },
+    "antikythera": {
+      "anchor": "toothed-gearing-in-the-hellenistic-greek-world",
+      "worker_commit": "12008b663cdfb8892d73b5127ebdc1d8de4fbfa1",
+      "integrated_commits": [
+        "0c1033f"
+      ],
+      "summary": "Existing event extended with eclipse-dial details; Babylonian relationship remains a candidate question.",
+      "researcher": {
+        "execution_id": "/root/astra_orchestrator/antikythera",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "reviewer": {
+        "execution_id": "/root/astra_orchestrator/review_antikythera",
+        "model": "gpt-6.1-terra",
+        "effort": "high"
+      },
+      "review_decision": "accept",
+      "review_path": "docs/reviews/2026-11-10-tech-tree-round-1/reviews/antikythera.json",
+      "lane_path": "docs/reviews/2026-11-10-tech-tree-round-1/lanes/antikythera/lane.json",
+      "questions": [
+        "Find independent informative evidence of any specific transmission of Saros/eclipse theory into the mechanism, and distinguish shared cycle from direct influence.",
+        "Date earlier geared devices from original ancient witnesses and archaeology; construction date of this artefact is not the first gears.",
+        "Investigate subsequent uptake or disappearance independently; no loss or abandonment is inferred from catalogue gaps.",
+        "Nonblocking inherited issue: assess competing palaeographic evidence for construction date. Freeth infers 150–100 BCE from lettering, while Iversen and Jones discuss forms occurring across a wider late-third to mid-first century BCE interval. Reconsider the old date and source attribution without treating publication date, wreck date, or an observed astronomical epoch as a direct age. Neither its basis nor its old claim is upgraded by this review.",
+        "Investigate transmission and later uptake separately: matching cycles and absent descendants prove neither a specific route nor loss."
+      ],
+      "limitations": [],
+      "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/antikythera",
+      "branch": "codex/tech-tree-round-1-antikythera",
+      "anchor_name": "Toothed gearing in the Hellenistic Greek world"
+    }
+  },
+  "nodes": [
+    {
+      "id": "sangjeong-gogeum-yemun-metal-type-edition",
+      "name": "Sangjeong Gogeum Yemun metal-type edition",
+      "lane": "jikji",
+      "description": "A Goryeo metal-type printing of Sangjeong Gogeum Yemun is recorded in a postface; the museum account reports 28 copies.",
+      "date": {
+        "earliest": {
+          "year": 1234
+        },
+        "latest": {
+          "year": 1241
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "estimated 1234–1241",
+        "basis": "Yoo and Yun estimate 1234–1241 from historical literature. The museum dates the postface around 1234; neither provides an inspected dated edition in this lane."
+      },
+      "path": "data/discoveries/communication/sangjeong-gogeum-yemun-metal-type-edition.json",
+      "review": "reviews/jikji.json",
+      "caveats": "The record is a reported edition, not the origin of metal type or evidence that its particular types or methods passed to the Jikji printers."
+    },
+    {
+      "id": "savery-fire-engine-1702",
+      "name": "Savery’s fire engine for raising water",
+      "lane": "newcomen",
+      "description": "Savery described a water-raising engine using steam condensation to draw water into a vessel and steam pressure to force it out.",
+      "date": {
+        "earliest": {
+          "year": 1702
+        },
+        "latest": {
+          "year": 1702
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1702",
+        "basis": "Publication year on the title page of the source transcription."
+      },
+      "path": "data/discoveries/energy/savery-fire-engine-1702.json",
+      "review": "reviews/newcomen.json",
+      "caveats": "The account is the inventor’s own promotional description; this record does not establish influence on Newcomen or an actual mine installation."
+    }
+  ],
+  "events": [
+    {
+      "record_id": "sangjeong-gogeum-yemun-metal-type-edition",
+      "record_name": "Sangjeong Gogeum Yemun metal-type edition",
+      "lane": "jikji",
+      "event": {
+        "id": "reported-printing-1234-1241",
+        "type": "publication",
+        "date": {
+          "earliest": {
+            "year": 1234
+          },
+          "latest": {
+            "year": 1241
+          },
+          "precision": "range",
+          "status": "approximate",
+          "label": "estimated 1234–1241",
+          "basis": "Yoo and Yun estimate 1234–1241 from historical literature. The museum dates the postface around 1234; neither provides an inspected dated edition in this lane."
+        },
+        "statement": "A postface records printing 28 copies using movable metal type; a secondary synthesis estimates the printing at 1234–1241.",
+        "caveats": "The printed copies have not been found according to Yoo and Yun. The postface itself was not inspected in the original language; date is an estimate. No direction of technological transmission to the Jikji edition is established.",
+        "evidence": [
+          {
+            "source": "cheongju-early-printing-museum-sangjeong-round1",
+            "locator": "Description paragraph",
+            "supports": "Museum describes a postface recording 28 copies printed with movable metal type in Goryeo."
+          },
+          {
+            "source": "yoo-yun-2024-sangjeong-round1",
+            "locator": "p. 5, section 2.1",
+            "supports": "A secondary synthesis estimates printing between 1234 and 1241 and notes no copies found."
+          }
+        ]
+      },
+      "review": "reviews/jikji.json"
+    },
+    {
+      "record_id": "newcomen-atmospheric-pumping-engine",
+      "record_name": "Newcomen atmospheric pumping engine",
+      "lane": "newcomen",
+      "event": {
+        "id": "european-use-by-1729",
+        "type": "adoption",
+        "date": {
+          "earliest": null,
+          "latest": {
+            "year": 1729
+          },
+          "precision": "year",
+          "status": "bounded",
+          "label": "by 1729",
+          "basis": "The museum dates the reported minimum count to the time of Newcomen’s death in 1729."
+        },
+        "statement": "By 1729, at least 100 Newcomen engines were in use across Europe, according to National Museums Scotland.",
+        "scope": "Use of the engine type across Europe; the museum does not enumerate sites or dates of individual installations.",
+        "caveats": "The count is a museum synthesis, not a directly inspected contemporary register; this is not an invention date.",
+        "evidence": [
+          {
+            "source": "nms-newcomen-engines-europe-round1",
+            "locator": "Opening section, paragraph 2",
+            "supports": "Museum reports at least 100 engines of the type in use across Europe by Newcomen’s death in 1729."
+          }
+        ]
+      },
+      "review": "reviews/newcomen.json"
+    },
+    {
+      "record_id": "savery-fire-engine-1702",
+      "record_name": "Savery’s fire engine for raising water",
+      "lane": "newcomen",
+      "event": {
+        "id": "description-1702",
+        "type": "documented_description",
+        "date": {
+          "earliest": {
+            "year": 1702
+          },
+          "latest": {
+            "year": 1702
+          },
+          "precision": "year",
+          "status": "known",
+          "label": "1702",
+          "basis": "Publication year on the title page of the source transcription."
+        },
+        "statement": "In The Miner’s Friend, Savery described a fire-driven water-raising engine using condensation and steam pressure.",
+        "caveats": "This is the date of the published description, not the date of invention or proof of a successful mine installation.",
+        "evidence": [
+          {
+            "source": "savery-1702-miners-friend-round1",
+            "locator": "Title page; Chapter First, Manner of Working the Engine",
+            "supports": "Publication year and operating description: steam condenses, water rises into a vessel, and steam pressure forces it out."
+          }
+        ]
+      },
+      "review": "reviews/newcomen.json"
+    },
+    {
+      "record_id": "proto-porcelain-in-shang-china",
+      "record_name": "Proto-porcelain in Shang China",
+      "lane": "porcelain",
+      "event": {
+        "id": "zhou-wider-prevalence",
+        "type": "dated_assertion",
+        "date": {
+          "earliest": {
+            "year": -1027
+          },
+          "latest": {
+            "year": -221
+          },
+          "precision": "range",
+          "status": "bounded",
+          "label": "Zhou dynasty, 1027–221 BCE",
+          "basis": "As the cited source gives it; the period bounds do not date the onset of wider prevalence more precisely."
+        },
+        "statement": "Proto-porcelain became more widespread during the Zhou dynasty, 1027 to 221 BCE.",
+        "places": [
+          "china"
+        ],
+        "evidence": [
+          {
+            "source": "yin-2012-zhou-spread-round1",
+            "locator": "Abstract",
+            "supports": "Proto-porcelain became more widespread during the subsequent Zhou dynasty (1027 to 221 BC)."
+          }
+        ]
+      },
+      "review": "reviews/porcelain.json"
+    }
+  ],
+  "event_extensions": [
+    {
+      "record_id": "toothed-gearing-in-the-hellenistic-greek-world",
+      "record_name": "Toothed gearing in the Hellenistic Greek world",
+      "lane": "antikythera",
+      "event": {
+        "id": "archaeological-evidence-100bce",
+        "type": "archaeological_evidence",
+        "date": {
+          "earliest": {
+            "year": -200
+          },
+          "latest": {
+            "year": -100
+          },
+          "precision": "century",
+          "status": "approximate",
+          "label": "around the end of the 2nd century BC",
+          "basis": "As the cited source gives it."
+        },
+        "statement": "The Antikythera Mechanism, a Greek geared device, was constructed around the end of the second century BC; it is evidence that gear trains existed by then, not a date for the first gears. Its eclipse dial represented a 223-lunar-month cycle and marked possible solar or lunar eclipses; about one third of the scale survives.",
+        "places": [
+          "antikythera-wreck"
+        ],
+        "evidence": [
+          {
+            "source": "freeth-2006-decoding-ancient-greek",
+            "supports": "constructed around the end of the second century bc",
+            "locator": "Abstract"
+          },
+          {
+            "source": "iversen-jones-2019-antikythera-eclipse-round1",
+            "supports": "The spiral scale represents 223 lunar months, includes eclipse-possibility glyphs, and is about one third extant.",
+            "locator": "Section 1, The Mechanism’s eclipse function"
+          }
+        ]
+      },
+      "review": "reviews/antikythera.json",
+      "before": {
+        "id": "archaeological-evidence-100bce",
+        "type": "archaeological_evidence",
+        "date": {
+          "earliest": {
+            "year": -200
+          },
+          "latest": {
+            "year": -100
+          },
+          "precision": "century",
+          "status": "approximate",
+          "label": "around the end of the 2nd century BC",
+          "basis": "As the cited source gives it."
+        },
+        "statement": "The Antikythera Mechanism, a Greek geared device, was constructed around the end of the second century BC; it is evidence that gear trains existed by then, not a date for the first gears.",
+        "places": [
+          "antikythera-wreck"
+        ],
+        "evidence": [
+          {
+            "source": "freeth-2006-decoding-ancient-greek",
+            "supports": "constructed around the end of the second century bc",
+            "locator": "Abstract"
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "record_id": "toothed-gearing-in-the-hellenistic-greek-world",
+      "lane": "antikythera",
+      "edge": {
+        "type": "uses_theory",
+        "from": "observational-and-mathematical-astronomy-in-babylonia",
+        "status": "candidate",
+        "statement": "Did the eclipse scheme represented on the Antikythera Mechanism draw on Babylonian astronomical methods involving the 223-month Saros?",
+        "scope": "The eclipse dial only; a shared cycle does not itself establish how or from whom knowledge reached the makers.",
+        "evidence": [
+          {
+            "source": "iversen-jones-2019-antikythera-eclipse-round1",
+            "locator": "Section 1",
+            "supports": "The dial represents a 223-month cycle with eclipse-possibility glyphs."
+          },
+          {
+            "source": "brack-bernsen-steele-2005-saros-round1",
+            "locator": "Abstract",
+            "supports": "Late Babylonian astronomy used the 223-synodic-month Saros for eclipse possibilities."
+          }
+        ]
+      },
+      "established": false,
+      "review": "reviews/antikythera.json"
+    }
+  ],
+  "circumstances": [],
+  "changed_discoveries": [
+    {
+      "id": "sangjeong-gogeum-yemun-metal-type-edition",
+      "path": "data/discoveries/communication/sangjeong-gogeum-yemun-metal-type-edition.json",
+      "name": "Sangjeong Gogeum Yemun metal-type edition",
+      "lane": "jikji",
+      "new_record": true,
+      "sha256": "7afa0c3875ab6d0c12892d846465770d866e19522cb157f8cfa525a708e73f4e"
+    },
+    {
+      "id": "newcomen-atmospheric-pumping-engine",
+      "path": "data/discoveries/energy/newcomen-atmospheric-pumping-engine.json",
+      "name": "Newcomen atmospheric pumping engine",
+      "lane": "newcomen",
+      "new_record": false,
+      "sha256": "f5e12cfa375279da080e89716226c1f0d09d8a38f93177f501dd8c07df4bcf36"
+    },
+    {
+      "id": "savery-fire-engine-1702",
+      "path": "data/discoveries/energy/savery-fire-engine-1702.json",
+      "name": "Savery’s fire engine for raising water",
+      "lane": "newcomen",
+      "new_record": true,
+      "sha256": "7abaf666fe24d301d57bc22c852b9c51131fff001f7c6fcf38732ce461391b3e"
+    },
+    {
+      "id": "toothed-gearing-in-the-hellenistic-greek-world",
+      "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json",
+      "name": "Toothed gearing in the Hellenistic Greek world",
+      "lane": "antikythera",
+      "new_record": false,
+      "sha256": "f26ff0ef9c7ce0b152cc1761285561c76cf6e26538cd9c3e91385f5a04506e8a"
+    },
+    {
+      "id": "proto-porcelain-in-shang-china",
+      "path": "data/discoveries/materials/proto-porcelain-in-shang-china.json",
+      "name": "Proto-porcelain in Shang China",
+      "lane": "porcelain",
+      "new_record": false,
+      "sha256": "6eceefab61dfcbd6e3799ff87a29f4cbb921b2b0fff7f230904c2d3f1388d0ca"
+    }
+  ],
+  "usage": {
+    "researcher_executions": 4,
+    "reviewer_executions": 4,
+    "maximum_concurrent_research_lanes": 4,
+    "start_utc": "2026-11-10T22:51:08+00:00",
+    "elapsed_seconds_to_results": 458.7,
+    "elapsed_basis": "Orchestration branch creation reflog to results generation; excludes preceding setup/root work.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "api_equivalent_cost_usd": null,
+    "billing_usd": null,
+    "note": "Tool execution does not expose exact per-agent metering; no billing or token counts estimated."
+  },
+  "scope_notes": [
+    "Direct dataset patch reviews, not tools/cards admission pipeline; no claim of card-gate passing.",
+    "New source records may duplicate bibliographic works. Yin thesis and NMS account are reused; they are not independent corroboration.",
+    "No causal or transmission edge admitted; candidate edge must remain visually distinct and is not an established connection.",
+    "Proposal lane manifests are immutable historical submissions; review manifests supply subsequent independent acceptance.",
+    "No loss or abandonment inferred from missing catalogue descendants."
+  ]
+}
