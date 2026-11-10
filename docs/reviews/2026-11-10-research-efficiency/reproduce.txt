@@ -1,0 +1,24 @@
+From the repository root, with the original local logs present:
+
+python3 tools/research_efficiency_audit.py \
+  --codex-dir /Users/szymon/.codex/sessions/2026/11/09 \
+  --root-thread 01a1c22c-8838-7cf1-aa46-90b17270fab5 \
+  --claude-dir /Users/szymon/.claude/projects/-Users-szymon-Documents-ChatGPT-big-idea \
+  --scratch /private/tmp/claude-501/-Users-szymon--claude-spares-spare-7TgbUN/9bd7b2e6-a815-47f4-9f2e-d86af7ba03dc/scratchpad \
+  --runtime-db /Users/szymon/.codex/logs_2.sqlite \
+  --out docs/reviews/2026-11-10-research-efficiency
+
+python3 tools/research_efficiency_report.py docs/reviews/2026-11-10-research-efficiency
+
+The dates are fixed UTC bounds; the upper bound is exclusive. Log paths are
+machine-local prerequisites. Raw conversations are not copied into the report.
+audit.json records hashes, the inspected source commit, and generated metrics.
+The working-tree checkpoint includes preserved unfinished research and can drift
+on a later rerun. The named Git checkpoints are immutable.
+
+Viewer: create a report with Data's prepare-data-app.mjs, using viewer/snapshot.json;
+copy viewer/ReportContent.jsx and viewer/sections.json into src/content/report/;
+build with Data's data-app.mjs build --project-dir <viewer> --separate-data.
+The installed runtime's report.css remains unchanged.
+
+The exact local preview identity and runtime are recorded in verification.json.

@@ -1,0 +1,769 @@
+{
+  "title": "Research more efficiently without weakening the evidence",
+  "surface": "report",
+  "description": "Evidence from the 9\u201310 November 2026 research runs",
+  "status": "reviewed",
+  "buildStatus": "creating",
+  "report": {
+    "asOf": "2026-11-10"
+  },
+  "generatedAt": "2026-11-10T09:40:00Z",
+  "filters": [],
+  "exportPreferences": {
+    "selected": null,
+    "destinations": []
+  },
+  "queries": {
+    "campaign_roles": {
+      "rows": [
+        {
+          "role": "Astra coordinator",
+          "inputMillions": 142.819153,
+          "outputMillions": 0.357055,
+          "cachedMillions": 141.274496,
+          "standardApiUsd": 174.573816,
+          "responses": 937
+        },
+        {
+          "role": "Six Terra research lanes",
+          "inputMillions": 966.389668,
+          "outputMillions": 1.317095,
+          "cachedMillions": 952.4197119999999,
+          "standardApiUsd": 68.1764166,
+          "responses": 4072
+        },
+        {
+          "role": "Terra schema / panels",
+          "inputMillions": 100.77178,
+          "outputMillions": 0.182073,
+          "cachedMillions": 99.504896,
+          "standardApiUsd": 7.1524938,
+          "responses": 480
+        },
+        {
+          "role": "Initial Astra reviews",
+          "inputMillions": 3.09152,
+          "outputMillions": 0.027129,
+          "cachedMillions": 2.815232,
+          "standardApiUsd": 6.934562,
+          "responses": 65
+        },
+        {
+          "role": "Luna inventories",
+          "inputMillions": 47.338986,
+          "outputMillions": 0.400653,
+          "cachedMillions": 46.155263999999995,
+          "standardApiUsd": 0.7802513400000001,
+          "responses": 373
+        }
+      ],
+      "source": {
+        "label": "Logged Codex campaign usage; modeled standard API token cost",
+        "files": [
+          "audit.json",
+          "calls.csv",
+          "review.md"
+        ],
+        "links": [
+          {
+            "label": "Official OpenAI pricing",
+            "url": "https://developers.openai.com/api/docs/pricing"
+          }
+        ],
+        "caveats": [
+          "API-equivalent comparison, not an invoice. Excludes search/tools, long-context adjustments, plan-specific pricing and any missing usage.",
+          "Token presentations include cached history. Output includes reasoning. Initial design/review work and schema/panels remain included."
+        ],
+        "metricDefinitions": [
+          {
+            "label": "Standard API equivalent (USD)",
+            "definition": "Sum over responses of (input minus cached input) \u00d7 standard input price + cached input \u00d7 cached price + output \u00d7 standard output price, divided by one million. No reasoning double count."
+          },
+          {
+            "label": "Input token presentations (millions)",
+            "definition": "Per-response input, including cached history, summed once per unique response ID and divided by one million."
+          }
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Scope",
+            "detail": "Root research chat 01a1c22c-8838-7cf1-aa46-90b17270fab5 and recorded descendant sessions, 9 November 19:00 to 10 November 09:40 UTC."
+          },
+          {
+            "title": "Reproduce",
+            "detail": "Run tools/research_efficiency_audit.py using reproduce.txt, then tools/research_efficiency_report.py. Source log hashes are in audit.json."
+          }
+        ]
+      }
+    },
+    "run_usage": {
+      "rows": [
+        {
+          "scope": "Codex research campaign",
+          "calls": 5927,
+          "input_tokens": 1260411107,
+          "cached_input_tokens": 1242169600,
+          "output_tokens": 2284005
+        },
+        {
+          "scope": "Other Codex project chats",
+          "calls": 225,
+          "input_tokens": 33653271,
+          "cached_input_tokens": 33038208,
+          "output_tokens": 213857
+        },
+        {
+          "scope": "Claude project activity",
+          "calls": 2315,
+          "input_tokens": 436521178,
+          "cached_input_tokens": 419233363,
+          "output_tokens": 5395160
+        }
+      ],
+      "source": {
+        "label": "Reviewed local research audit: run_usage",
+        "files": [
+          "audit.json",
+          "calls.csv",
+          "review.md"
+        ],
+        "caveats": [
+          "Fixed evidence window 9 November 19:00 to 10 November 09:40 UTC. Missing reviews are not failed reviews. No invoice data.",
+          "Workflow outcomes are not independently measured historical error rates. Diagnostic text matches can overlap."
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Reproduce",
+            "detail": "tools/research_efficiency_audit.py with arguments from reproduce.txt. Inspect source hashes in audit.json; raw messages remain local."
+          }
+        ]
+      }
+    },
+    "pipeline": {
+      "rows": [
+        {
+          "stage": "Pilot",
+          "leads": 6,
+          "researcherCards": 6,
+          "reviewedCards": 6,
+          "accepted": 2,
+          "rejected": 4
+        },
+        {
+          "stage": "First screened wave",
+          "leads": 96,
+          "researcherCards": 96,
+          "reviewedCards": 96,
+          "accepted": 81,
+          "rejected": 15
+        },
+        {
+          "stage": "Next wave",
+          "leads": 117,
+          "researcherCards": 111,
+          "reviewedCards": 0,
+          "accepted": null,
+          "rejected": null
+        }
+      ],
+      "source": {
+        "label": "Reviewed local research audit: pipeline",
+        "files": [
+          "audit.json",
+          "calls.csv",
+          "review.md"
+        ],
+        "caveats": [
+          "Fixed evidence window 9 November 19:00 to 10 November 09:40 UTC. Missing reviews are not failed reviews. No invoice data.",
+          "Workflow outcomes are not independently measured historical error rates. Diagnostic text matches can overlap."
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Reproduce",
+            "detail": "tools/research_efficiency_audit.py with arguments from reproduce.txt. Inspect source hashes in audit.json; raw messages remain local."
+          }
+        ]
+      }
+    },
+    "checkpoints": {
+      "rows": [
+        {
+          "revision": "eed7790",
+          "discoveries": 304,
+          "sources": 665,
+          "events": 590,
+          "measures": 0,
+          "contributions": 0,
+          "links": 176,
+          "exact_url_duplicate_groups": 6,
+          "exact_url_redundant_source_rows": 6,
+          "facets_present": {
+            "origin": 77,
+            "concept": 112,
+            "impact": 0,
+            "grain": 0,
+            "measures": 0,
+            "funding": 118,
+            "why": 160,
+            "links": 133
+          },
+          "origin_basis": {
+            "unassessed": 227,
+            "recalled": 31,
+            "sourced": 30,
+            "unknown": 16
+          },
+          "event_basis": {
+            "reviewed": 303,
+            "sourced": 1
+          }
+        },
+        {
+          "revision": "32cf878",
+          "discoveries": 803,
+          "sources": 1486,
+          "events": 1307,
+          "measures": 260,
+          "contributions": 652,
+          "links": 231,
+          "exact_url_duplicate_groups": 14,
+          "exact_url_redundant_source_rows": 14,
+          "facets_present": {
+            "origin": 167,
+            "concept": 571,
+            "impact": 15,
+            "grain": 747,
+            "measures": 187,
+            "funding": 121,
+            "why": 160,
+            "links": 182
+          },
+          "origin_basis": {
+            "unassessed": 636,
+            "unknown": 108,
+            "recalled": 31,
+            "sourced": 28
+          },
+          "event_basis": {
+            "reviewed": 727,
+            "sourced": 76
+          }
+        },
+        {
+          "revision": "a51b7e9",
+          "discoveries": 886,
+          "sources": 1586,
+          "events": 1469,
+          "measures": 260,
+          "contributions": 652,
+          "links": 232,
+          "exact_url_duplicate_groups": 14,
+          "exact_url_redundant_source_rows": 14,
+          "facets_present": {
+            "origin": 250,
+            "concept": 654,
+            "impact": 875,
+            "grain": 884,
+            "measures": 187,
+            "funding": 121,
+            "why": 170,
+            "links": 183
+          },
+          "origin_basis": {
+            "unassessed": 636,
+            "unknown": 108,
+            "recalled": 31,
+            "sourced": 111
+          },
+          "event_basis": {
+            "reviewed": 727,
+            "sourced": 159
+          }
+        },
+        {
+          "revision": "working_tree",
+          "discoveries": 899,
+          "sources": 1620,
+          "events": 1494,
+          "measures": 269,
+          "contributions": 669,
+          "links": 234,
+          "exact_url_duplicate_groups": 17,
+          "exact_url_redundant_source_rows": 17,
+          "facets_present": {
+            "origin": 250,
+            "concept": 666,
+            "impact": 877,
+            "grain": 899,
+            "measures": 192,
+            "funding": 121,
+            "why": 170,
+            "links": 185
+          },
+          "origin_basis": {
+            "unassessed": 649,
+            "recalled": 31,
+            "sourced": 111,
+            "unknown": 108
+          },
+          "event_basis": {
+            "reviewed": 726,
+            "sourced": 173
+          }
+        }
+      ],
+      "source": {
+        "label": "Reviewed local research audit: checkpoints",
+        "files": [
+          "audit.json",
+          "calls.csv",
+          "review.md"
+        ],
+        "caveats": [
+          "Fixed evidence window 9 November 19:00 to 10 November 09:40 UTC. Missing reviews are not failed reviews. No invoice data.",
+          "Workflow outcomes are not independently measured historical error rates. Diagnostic text matches can overlap."
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Reproduce",
+            "detail": "tools/research_efficiency_audit.py with arguments from reproduce.txt. Inspect source hashes in audit.json; raw messages remain local."
+          }
+        ]
+      }
+    },
+    "model_roles": {
+      "rows": [
+        {
+          "provider": "claude",
+          "role": "coordinator",
+          "model": "claude-fable-5-2",
+          "calls": 315,
+          "input_tokens": 191063883,
+          "cached_input_tokens": 188698062,
+          "cache_write_input_tokens": 2365167,
+          "output_tokens": 469319,
+          "reasoning_output_tokens": 141117,
+          "median_input": 620637.0,
+          "p95_input": 909087.6,
+          "max_input": 1757359
+        },
+        {
+          "provider": "claude",
+          "role": "curator",
+          "model": "claude-fable-5-2",
+          "calls": 53,
+          "input_tokens": 6304040,
+          "cached_input_tokens": 4883862,
+          "cache_write_input_tokens": 1420052,
+          "output_tokens": 805907,
+          "reasoning_output_tokens": 569873,
+          "median_input": 81353.0,
+          "p95_input": 224451.0,
+          "max_input": 442560
+        },
+        {
+          "provider": "claude",
+          "role": "dedupe",
+          "model": "claude-fable-5-2",
+          "calls": 12,
+          "input_tokens": 2443204,
+          "cached_input_tokens": 2196049,
+          "cache_write_input_tokens": 247127,
+          "output_tokens": 55699,
+          "reasoning_output_tokens": 40001,
+          "median_input": 195499.0,
+          "p95_input": 390009.69999999984,
+          "max_input": 490729
+        },
+        {
+          "provider": "claude",
+          "role": "other_agent",
+          "model": "claude-haiku-5-5",
+          "calls": 17,
+          "input_tokens": 1286629,
+          "cached_input_tokens": 1191280,
+          "cache_write_input_tokens": 95315,
+          "output_tokens": 20337,
+          "reasoning_output_tokens": 6523,
+          "median_input": 74415.0,
+          "p95_input": 95040.2,
+          "max_input": 95317
+        },
+        {
+          "provider": "claude",
+          "role": "other_agent",
+          "model": "claude-opus-5-5",
+          "calls": 216,
+          "input_tokens": 29337877,
+          "cached_input_tokens": 25946901,
+          "cache_write_input_tokens": 3390510,
+          "output_tokens": 676190,
+          "reasoning_output_tokens": 286434,
+          "median_input": 125851.5,
+          "p95_input": 245198.5,
+          "max_input": 333064
+        },
+        {
+          "provider": "claude",
+          "role": "researcher",
+          "model": "claude-haiku-5-5",
+          "calls": 1066,
+          "input_tokens": 120473624,
+          "cached_input_tokens": 115890639,
+          "cache_write_input_tokens": 4580833,
+          "output_tokens": 1751048,
+          "reasoning_output_tokens": 1077701,
+          "median_input": 109413.5,
+          "p95_input": 175044.5,
+          "max_input": 348135
+        },
+        {
+          "provider": "claude",
+          "role": "scorer",
+          "model": "claude-fable-5-2",
+          "calls": 92,
+          "input_tokens": 9644634,
+          "cached_input_tokens": 8203340,
+          "cache_write_input_tokens": 1441056,
+          "output_tokens": 499263,
+          "reasoning_output_tokens": 389651,
+          "median_input": 82731.5,
+          "p95_input": 202233.4,
+          "max_input": 246082
+        },
+        {
+          "provider": "claude",
+          "role": "supervisor",
+          "model": "claude-fable-5-2",
+          "calls": 544,
+          "input_tokens": 75967287,
+          "cached_input_tokens": 72223230,
+          "cache_write_input_tokens": 3742887,
+          "output_tokens": 1117397,
+          "reasoning_output_tokens": 624915,
+          "median_input": 131118.0,
+          "p95_input": 263898.60000000003,
+          "max_input": 453173
+        },
+        {
+          "provider": "codex",
+          "role": "ai_comparison",
+          "model": "gpt-6-astra",
+          "calls": 8,
+          "input_tokens": 409682,
+          "cached_input_tokens": 360064,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2563,
+          "reasoning_output_tokens": 232,
+          "median_input": 51186.0,
+          "p95_input": 73273.79999999999,
+          "max_input": 76148
+        },
+        {
+          "provider": "codex",
+          "role": "app_review",
+          "model": "gpt-6-astra",
+          "calls": 7,
+          "input_tokens": 309849,
+          "cached_input_tokens": 275968,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2628,
+          "reasoning_output_tokens": 164,
+          "median_input": 45582.0,
+          "p95_input": 58779.399999999994,
+          "max_input": 60259
+        },
+        {
+          "provider": "codex",
+          "role": "coordinator",
+          "model": "gpt-6-astra",
+          "calls": 937,
+          "input_tokens": 142819153,
+          "cached_input_tokens": 141274496,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 357055,
+          "reasoning_output_tokens": 98735,
+          "median_input": 161798.0,
+          "p95_input": 231935.59999999995,
+          "max_input": 245425
+        },
+        {
+          "provider": "codex",
+          "role": "coverage_inventory",
+          "model": "gpt-6-luna",
+          "calls": 358,
+          "input_tokens": 46497364,
+          "cached_input_tokens": 45376000,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 388285,
+          "reasoning_output_tokens": 193276,
+          "median_input": 122665.5,
+          "p95_input": 229913.2,
+          "max_input": 244243
+        },
+        {
+          "provider": "codex",
+          "role": "data_audit",
+          "model": "gpt-6-astra",
+          "calls": 11,
+          "input_tokens": 428359,
+          "cached_input_tokens": 382976,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4793,
+          "reasoning_output_tokens": 224,
+          "median_input": 41295.0,
+          "p95_input": 47847.0,
+          "max_input": 47991
+        },
+        {
+          "provider": "codex",
+          "role": "energy_transport_research",
+          "model": "gpt-6.1-terra",
+          "calls": 743,
+          "input_tokens": 167968418,
+          "cached_input_tokens": 165848832,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 220902,
+          "reasoning_output_tokens": 30789,
+          "median_input": 217758.0,
+          "p95_input": 423787.3,
+          "max_input": 456366
+        },
+        {
+          "provider": "codex",
+          "role": "grain_inventory",
+          "model": "gpt-6-luna",
+          "calls": 15,
+          "input_tokens": 841622,
+          "cached_input_tokens": 779264,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 12368,
+          "reasoning_output_tokens": 7513,
+          "median_input": 55404.0,
+          "p95_input": 86057.7,
+          "max_input": 86666
+        },
+        {
+          "provider": "codex",
+          "role": "historical_cases",
+          "model": "gpt-6-astra",
+          "calls": 9,
+          "input_tokens": 468897,
+          "cached_input_tokens": 419328,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2994,
+          "reasoning_output_tokens": 481,
+          "median_input": 51280.0,
+          "p95_input": 76041.0,
+          "max_input": 76145
+        },
+        {
+          "provider": "codex",
+          "role": "information_research",
+          "model": "gpt-6.1-terra",
+          "calls": 774,
+          "input_tokens": 180428991,
+          "cached_input_tokens": 178683776,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 232028,
+          "reasoning_output_tokens": 29101,
+          "median_input": 238102.0,
+          "p95_input": 429066.6499999999,
+          "max_input": 448558
+        },
+        {
+          "provider": "codex",
+          "role": "institutions_arts_research",
+          "model": "gpt-6.1-terra",
+          "calls": 623,
+          "input_tokens": 159143053,
+          "cached_input_tokens": 156698752,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 214286,
+          "reasoning_output_tokens": 29064,
+          "median_input": 264250.0,
+          "p95_input": 432667.5,
+          "max_input": 450493
+        },
+        {
+          "provider": "codex",
+          "role": "making_research",
+          "model": "gpt-6.1-terra",
+          "calls": 675,
+          "input_tokens": 155497624,
+          "cached_input_tokens": 152741376,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 229478,
+          "reasoning_output_tokens": 28846,
+          "median_input": 225131.0,
+          "p95_input": 422425.7,
+          "max_input": 450383
+        },
+        {
+          "provider": "codex",
+          "role": "model_design",
+          "model": "gpt-6-astra",
+          "calls": 7,
+          "input_tokens": 316054,
+          "cached_input_tokens": 286720,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3182,
+          "reasoning_output_tokens": 95,
+          "median_input": 45405.0,
+          "p95_input": 55839.1,
+          "max_input": 55903
+        },
+        {
+          "provider": "codex",
+          "role": "other_project_chat",
+          "model": "gpt-6-astra",
+          "calls": 144,
+          "input_tokens": 19123564,
+          "cached_input_tokens": 18705920,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 114259,
+          "reasoning_output_tokens": 40060,
+          "median_input": 138640.0,
+          "p95_input": 235385.44999999998,
+          "max_input": 243664
+        },
+        {
+          "provider": "codex",
+          "role": "other_project_chat",
+          "model": "gpt-6.1-sol",
+          "calls": 81,
+          "input_tokens": 14529707,
+          "cached_input_tokens": 14332288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 99598,
+          "reasoning_output_tokens": 59089,
+          "median_input": 185525.0,
+          "p95_input": 291238.0,
+          "max_input": 295610
+        },
+        {
+          "provider": "codex",
+          "role": "research_methods",
+          "model": "gpt-6-astra",
+          "calls": 6,
+          "input_tokens": 296048,
+          "cached_input_tokens": 258944,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3539,
+          "reasoning_output_tokens": 241,
+          "median_input": 52302.0,
+          "p95_input": 63580.75,
+          "max_input": 63621
+        },
+        {
+          "provider": "codex",
+          "role": "research_schema",
+          "model": "gpt-6.1-terra",
+          "calls": 480,
+          "input_tokens": 100771780,
+          "cached_input_tokens": 99504896,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 182073,
+          "reasoning_output_tokens": 25969,
+          "median_input": 191736.0,
+          "p95_input": 418500.35,
+          "max_input": 450353
+        },
+        {
+          "provider": "codex",
+          "role": "science_research",
+          "model": "gpt-6.1-terra",
+          "calls": 620,
+          "input_tokens": 147766883,
+          "cached_input_tokens": 145342080,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 206943,
+          "reasoning_output_tokens": 24500,
+          "median_input": 232530.0,
+          "p95_input": 426489.45,
+          "max_input": 452111
+        },
+        {
+          "provider": "codex",
+          "role": "sustenance_research",
+          "model": "gpt-6.1-terra",
+          "calls": 637,
+          "input_tokens": 155584699,
+          "cached_input_tokens": 153104896,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 213458,
+          "reasoning_output_tokens": 29965,
+          "median_input": 239198.0,
+          "p95_input": 424048.8,
+          "max_input": 451640
+        },
+        {
+          "provider": "codex",
+          "role": "technology_gaps",
+          "model": "gpt-6-astra",
+          "calls": 17,
+          "input_tokens": 862631,
+          "cached_input_tokens": 831232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 7430,
+          "reasoning_output_tokens": 299,
+          "median_input": 55323.0,
+          "p95_input": 61659.2,
+          "max_input": 61828
+        }
+      ],
+      "source": {
+        "label": "Reviewed local research audit: model_roles",
+        "files": [
+          "audit.json",
+          "calls.csv",
+          "review.md"
+        ],
+        "caveats": [
+          "Fixed evidence window 9 November 19:00 to 10 November 09:40 UTC. Missing reviews are not failed reviews. No invoice data.",
+          "Workflow outcomes are not independently measured historical error rates. Diagnostic text matches can overlap."
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Reproduce",
+            "detail": "tools/research_efficiency_audit.py with arguments from reproduce.txt. Inspect source hashes in audit.json; raw messages remain local."
+          }
+        ]
+      }
+    },
+    "diagnostics": {
+      "rows": [
+        {
+          "signal": "repeated_assistant_content_blocks",
+          "count": 3266
+        },
+        {
+          "signal": "search_limit_tool_results",
+          "count": 86
+        },
+        {
+          "signal": "blocked_page_tool_results",
+          "count": 56
+        }
+      ],
+      "source": {
+        "label": "Reviewed local research audit: diagnostics",
+        "files": [
+          "audit.json",
+          "calls.csv",
+          "review.md"
+        ],
+        "caveats": [
+          "Fixed evidence window 9 November 19:00 to 10 November 09:40 UTC. Missing reviews are not failed reviews. No invoice data.",
+          "Workflow outcomes are not independently measured historical error rates. Diagnostic text matches can overlap."
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Reproduce",
+            "detail": "tools/research_efficiency_audit.py with arguments from reproduce.txt. Inspect source hashes in audit.json; raw messages remain local."
+          }
+        ]
+      }
+    }
+  }
+}
