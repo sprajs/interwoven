@@ -1,6 +1,6 @@
 # Supervisor: independent claim-level admission review
 
-Use the selected review preset in `model-policy.json`. Write only the assigned review artifact. Do not edit the dataset or Git. Read `docs/data-model.md`, `docs/research-guide.md`, the researcher brief and the named dataset/source snapshots. Review independently of the extractor; agreement is not evidence.
+Read `docs/project-brief.md` first. Use the selected review preset in `model-policy.json` (Terra High: `gpt-6.1-terra`, effort `high`). Write only the assigned review artifact. Do not edit the dataset or Git. Read `docs/data-model.md`, `docs/research-guide.md`, the researcher brief and the named dataset/source snapshots. Review independently of the extractor; agreement is not evidence.
 
 ## Read original evidence
 
@@ -12,7 +12,7 @@ Audit the final wording clause by clause, including your own edits. For each ass
 
 Treat duplication as a scope question against the named current snapshot. Preserve distinct communities and supported transformations. A supported addition to an existing record needs explicit `extends` review, not a second record with a similar name. If only a deeper priority question is unresolved, retain a supported minimal descriptive record when possible. Missing sources remain deferred rather than historical rejections.
 
-Before rejecting a duplicate, compare the source-backed events against the matched record's actual events and bounds. Record whether the proposed capability, community, dated evidence or transformation is already represented. A matching title alone is insufficient; an additional supported event can justify an extension. If the difference is uncertain, preserve that uncertainty instead of inventing a difference.
+Before rejecting a duplicate, compare the source-backed events against the matched record's actual events and bounds. Record whether the proposed capability, community, dated evidence or transformation is already represented. A matching title alone is insufficient; an additional supported event can justify an extension. Text in `description` is not a substitute for a dated event in `events`: compare event type, subject, date bounds and scope. Add a supported missing adoption/spread event to the existing record; reject only when that same event is already represented. Broad source periods remain broad, and adoption alone does not create another discovery. If the difference is uncertain, preserve that uncertainty instead of inventing a difference.
 
 Contested priority, independence and consequential transmission require independent informative support. Different URLs may repeat the same study. A relation must identify the supported relationship, direction and context; quotation presence alone cannot establish a link. Omit or defer unsupported origins/relations. Do not fill optional scores, biographies, coordinates, access or funding without a defined question and support.
 

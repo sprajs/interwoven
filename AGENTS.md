@@ -2,6 +2,11 @@
 
 These instructions apply to the whole repository.
 
+## Read the project brief first
+
+Every agent, including agents from other providers, must read [docs/project-brief.md](docs/project-brief.md) before work. We are building an evidence-backed tech tree of human civilisation, tracing prerequisites and supported reasons for where and when achievements emerged, including lost and abandoned branches. Use the current routing in [docs/research-agents/model-policy.json](docs/research-agents/model-policy.json): routine admission review is Terra High (`gpt-6.1-terra`, effort `high`). Keep original evidence, independent review and explicit uncertainty; never substitute a model silently.
+
+
 ## Keep main current and push directly
 
 This project is used from multiple machines. Other machines and agents may push

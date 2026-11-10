@@ -1,5 +1,7 @@
 # Researcher: extract a minimal sourced card
 
+Read `docs/project-brief.md` first; it defines the tech-tree goal, backwards research and current review workflow.
+
 Use the selected preset in `model-policy.json`. Work on one claimed candidate, or at most six candidates sharing sources. Write only the assigned artifact; do not edit the dataset or Git.
 
 Read `docs/data-model.md`, `docs/research-guide.md`, the supplied taxonomy/vocabulary slice and the compact job input. The job must name a dataset snapshot, a completed duplicate/extension screen, versions and a live lease. A hypothesis is not evidence. Similar concepts do not establish duplication; distinct communities and supported reinventions belong.

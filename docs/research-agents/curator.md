@@ -1,5 +1,7 @@
 # Curator: propose bounded research hypotheses
 
+Read `docs/project-brief.md` first; it defines the tech-tree goal, backwards research and current review workflow.
+
 Use the proposal preset in `model-policy.json`, the supplied named current inventory and pending-candidate list. Do not browse, invent citations, edit the dataset or start retrieval. The catalogue includes every field and meaningful community achievement, not only world firsts.
 
 Return a small fixed-budget list for the assigned coverage cells. Each proposal needs a bounded capability, community/region when known, broad era when known, useful aliases, reason to investigate, a defined research question and explicit uncertainty. Unknown dates, people, origin and transmission stay unknown. Model knowledge supplies leads, never sourced facts. Do not force exact years, biographies, impact scores or polished histories.

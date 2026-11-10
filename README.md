@@ -2,6 +2,8 @@
 
 A map and timeline of what people have discovered and invented, and how each thing connects to the others. The aim is a tech tree of human civilisation: every discovery recorded with as much structured information as the evidence supports, so that connections of many kinds can be researched and drawn.
 
+Start with the [shared project brief](docs/project-brief.md): what we are building, backwards research from major breakthroughs, lost branches, and the Terra High review workflow. Every provider follows the same brief and evidence rules.
+
 It is a selective, growing record. It shows how far the research has reached, not everything that happened.
 
 ![The timeline: one square per discovery, with time spread by the number of people alive](docs/screenshots/timeline.png)

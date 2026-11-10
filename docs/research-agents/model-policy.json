@@ -1,7 +1,7 @@
 {
   "automatic_admission": false,
   "comparison_snapshot": "42d6e8829d1ed4d320468613137771cd67c2818f",
-  "decision": "Use Astra-medium review as the quality-first provisional choice from the six-setting sweep.",
+  "decision": "User-selected Terra High routine review after the quality/cost comparison; Astra medium for targeted escalation.",
   "disputes": {
     "effort": "medium",
     "model": "gpt-6-astra",
@@ -26,16 +26,16 @@
     "Single integrator; isolated validation and affected tests"
   ],
   "review": {
-    "effort": "medium",
+    "effort": "high",
     "mandatory_for_every_admission": true,
-    "model": "gpt-6-astra",
-    "prompt_source": "tools/cards/pilot_workflow.py:REVIEW",
-    "prompt_sha256": "30f37a92fcee6a803ea37a8a5976627b164d9e65a79273cf01ab721a2ec18739",
-    "independence": "Separate extraction and review executions; blinded assessment remains within one model family."
+    "model": "gpt-6.1-terra",
+    "prompt_source": "docs/research-agents/supervisor.md + docs/project-brief.md",
+    "independence": "Separate extraction and review executions; blinded assessment remains within one model family.",
+    "prompt_version": "tech-tree-event-scope-v1"
   },
-  "schema_version": 3,
-  "selected_interim_route": "Terra-low extraction plus tightened Astra-medium review",
-  "selection_status": "Exploratory recommendation from 39 consistently graded cases plus one unresolved case; eight repeated cases support short-run stability. No full-40 historical certification.",
+  "schema_version": 4,
+  "selected_interim_route": "Terra-low extraction plus separate Terra-high admission review; Astra-medium targeted disputes",
+  "selection_status": "User-selected operational route; historical sweep metrics remain unchanged and model judgments are provisional.",
   "previous_comparison_gate_failures": {
     "A": {
       "mechanical_failures": 5,
@@ -108,7 +108,10 @@
       "Two same-family model readers are not independent historical truth.",
       "One phase handoff reached 13 concurrent calls; timings reflect actual load.",
       "Eight extra Terra-medium repeat outputs were unjudged and enter cost accounting only."
-    ]
+    ],
+    "selected_model_at_time": "gpt-6-astra",
+    "selected_effort_at_time": "medium"
   },
-  "previous_comparison_snapshot": "38dfdb604336a9a9539219e12275f0516fcf2268"
+  "previous_comparison_snapshot": "38dfdb604336a9a9539219e12275f0516fcf2268",
+  "project_brief": "docs/project-brief.md"
 }
