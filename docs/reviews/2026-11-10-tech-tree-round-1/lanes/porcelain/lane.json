@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "lane": "porcelain",
+  "workflow": "Direct dataset patch; no cards gate claimed. Independent semantic review pending.",
+  "prompt_version": "tech-tree-event-scope-v1",
+  "dataset_snapshot": "07f1f1e085edf3c471c67a620f9a34ebc64fdf61",
+  "model": "gpt-6.1-terra",
+  "effort": "high",
+  "execution_id": null,
+  "execution_id_note": "Not exposed to this worker.",
+  "worktree": "/Users/szymon/.codex/worktrees/tech-tree-round-1/porcelain",
+  "branch": "codex/tech-tree-round-1-porcelain",
+  "claims": [
+    {
+      "path": "/events/1/statement",
+      "claim": "Proto-porcelain became more widespread during the Zhou dynasty.",
+      "source_index": 0
+    },
+    {
+      "path": "/events/1/date",
+      "claim": "Zhou dynasty 1027–221 BCE as bounded period of increased prevalence; not an onset date.",
+      "source_index": 0
+    },
+    {
+      "path": "/events/1/type",
+      "claim": "dated_assertion records broader prevalence without asserting a specific recipient or route.",
+      "source_index": 0
+    },
+    {
+      "path": "/events/1/places/0",
+      "claim": "China is broad scope of abstract, not a particular distribution site.",
+      "source_index": 0
+    }
+  ],
+  "sources": [
+    {
+      "index": 0,
+      "original": "Yin, M. (2012), UCL doctoral thesis abstract, https://discovery.ucl.ac.uk/id/eprint/1380281/",
+      "locator": "Abstract",
+      "reading": "Existing source record and saved abstract excerpt; rechecked live UCL repository abstract 2026-11-10. Full thesis was not evaluated.",
+      "source_record": "data/sources/y/yin-2012-zhou-spread-round1.json",
+      "source_sha256": "6f6cbbd54462d76c817004fa215b71274caef5efb128167580276e1433196691",
+      "existing_source_record": "data/sources/m/m-2012-earliest-high-fired.json",
+      "existing_source_sha256": "a9477e8dcb4c3314d60d9bb5e0401d5e4f0072584fb95cc0085cf42cc03a37d1",
+      "saved_evidence": "evidence/m/m-2012-earliest-high-fired.txt",
+      "saved_evidence_sha256": "738e13ceb4d3b0e17a08a268ea81777b1a4043352f58ad19dadb87e7445ffe96"
+    }
+  ],
+  "discovery_proposal": {
+    "path": "data/discoveries/materials/proto-porcelain-in-shang-china.json",
+    "sha256": "6eceefab61dfcbd6e3799ff87a29f4cbb921b2b0fff7f230904c2d3f1388d0ca"
+  },
+  "duplicate_screen": {
+    "search": "Case-insensitive proto-porcelain/proto porcelain across data/discoveries and data/leads.jsonl; only target discovery matched.",
+    "target": "proto-porcelain-in-shang-china",
+    "control": {
+      "type": "archaeological_evidence",
+      "subject": "initial appearance of proto-porcelain in China",
+      "date": "Shang c. 1700–1027 BCE",
+      "scope": "earliest appearance in China",
+      "decision": "Already represented by /events/0; do not add a second Shang event."
+    },
+    "proposed": {
+      "type": "dated_assertion",
+      "subject": "increased prevalence of proto-porcelain",
+      "date": "Zhou 1027–221 BCE",
+      "scope": "China, broad period; receiving sites and route unspecified",
+      "decision": "Distinct later development extends existing record; description already mentions it, but no corresponding event existed in snapshot."
+    }
+  },
+  "questions": [
+    "Can original archaeological site reports independently clarify locations, chronology and meaning of wider prevalence?",
+    "Would a later schema explicitly representing spread better capture a general change in prevalence without implying a named receiving community?"
+  ],
+  "limitations": [
+    "An abstract-level assertion; not a site-by-site demonstration or a new independent corroborating source.",
+    "This is a proposal, not an independent review; existing research basis is not upgraded.",
+    "A separate source record preserves the existing shared source file while citing the same author and abstract; it is not independent evidence."
+  ],
+  "usage": {
+    "observed_tool_calls": "Local shell and one web open; exact total not recorded.",
+    "elapsed_seconds": null,
+    "tokens": null,
+    "billing": null
+  },
+  "created_utc": "2026-11-10T22:53:02.094189+00:00"
+}
