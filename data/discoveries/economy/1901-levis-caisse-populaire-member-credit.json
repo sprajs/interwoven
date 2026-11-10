@@ -1,0 +1,103 @@
+{
+  "id": "1901-levis-caisse-populaire-member-credit",
+  "name": "Lévis member savings and credit cooperative",
+  "description": "A local cooperative organized member savings and credit in Lévis.",
+  "kind": "practice",
+  "domain": "economy.money",
+  "grain": "capability",
+  "concept": "levis-cooperative-savings-credit",
+  "places": [
+    {
+      "place": "canada"
+    }
+  ],
+  "events": [
+    {
+      "id": "first-operations",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1901,
+          "month": 1,
+          "day": 23
+        },
+        "latest": {
+          "year": 1901,
+          "month": 1,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1901-01-23",
+        "basis": "Date of the documented episode, not a universal origin."
+      },
+      "statement": "The Caisse populaire de Lévis began operations; twelve members deposited a total of $26.40.",
+      "scope": "The Lévis cooperative, not a universal first.",
+      "evidence": [
+        {
+          "source": "w10-quebec-caisse-history",
+          "locator": "Synthèse",
+          "supports": "Dates the first operations and records twelve deposits totalling $26.40."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "first-operations",
+    "rationale": "Earliest documented episode in this scoped record, not a global origin."
+  },
+  "caveats": "Deposits document use, not actual loans, inclusive eligibility or distribution of credit. European cooperatives preceded the Lévis institution.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass. Independent review read the Québec heritage register’s synthesis, including the 1900 founding, 1901 operations, twelve depositing members and nominal deposit total."
+  },
+  "people": [
+    {
+      "person": "alphonse-desjardins",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "members depositing on first day",
+      "value": 12,
+      "unit": "members",
+      "event": "first-operations",
+      "subject": "Lévis caisse",
+      "conditions": "Members depositing on the specified day, not total membership.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-quebec-caisse-history",
+          "locator": "Synthèse",
+          "supports": "Dates the first operations and records twelve deposits totalling $26.40."
+        }
+      ]
+    },
+    {
+      "quantity": "first-day deposits",
+      "value": 26.4,
+      "unit": "Canadian dollars",
+      "event": "first-operations",
+      "subject": "Lévis caisse",
+      "conditions": "Nominal historical dollars, total from 12 members, not purchasing-power adjusted.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-quebec-caisse-history",
+          "locator": "Synthèse",
+          "supports": "Dates the first operations and records twelve deposits totalling $26.40."
+        }
+      ]
+    }
+  ]
+}

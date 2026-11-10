@@ -1,0 +1,112 @@
+{
+  "id": "1912-louisville-black-librarian-training",
+  "name": "Western Branch librarianship training",
+  "description": "A segregated public library trained African American library workers.",
+  "kind": "practice",
+  "domain": "economy.education",
+  "grain": "capability",
+  "concept": "black-librarian-training",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "training-program",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1912
+        },
+        "latest": {
+          "year": 1912
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1912",
+        "basis": "Date of the documented episode, not a universal origin."
+      },
+      "statement": "Thomas Fountain Blue began a training program in librarianship for African Americans at the Western Branch, later also operated with Rachel Harris.",
+      "scope": "Louisville program; segregation restricted professional opportunity.",
+      "evidence": [
+        {
+          "source": "w10-usm-library-profiles",
+          "locator": "Louisville Western Colored Branch profile",
+          "supports": "Dates Blue’s librarianship training program from 1912, later with Harris."
+        }
+      ]
+    },
+    {
+      "id": "apprentice-class-1915",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1915
+        },
+        "latest": {
+          "year": 1915
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1915",
+        "basis": "Year on the branch brochure, reporting trainees to date."
+      },
+      "statement": "The library described a three-month apprentice class entered by examination and reported that twelve people had taken the course.",
+      "scope": "1915 brochure account, a cumulative count rather than annual enrollment.",
+      "evidence": [
+        {
+          "source": "w10-louisville-colored-1916",
+          "locator": "Apprentice Class, 1915 brochure",
+          "supports": "Describes entrance examination, three months of work, and twelve trainees by the account date."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "training-program",
+    "rationale": "Earliest documented episode in this scoped record, not a global origin."
+  },
+  "caveats": "The 1915 brochure describes an examination but does not establish complete admission criteria, tuition or employment outcomes.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass. Independent review checked the University of Southern Mississippi history and the 1915-era branch brochure: twelve people had taken the three-month course, and Harris’s role is later than Blue’s start."
+  },
+  "people": [
+    {
+      "person": "thomas-fountain-blue",
+      "role": "contributor"
+    },
+    {
+      "person": "rachel-d-harris",
+      "role": "contributor"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "people who had taken apprentice course",
+      "value": 12,
+      "unit": "people",
+      "event": "apprentice-class-1915",
+      "subject": "Western Branch apprentice class",
+      "conditions": "Cumulative to the 1915 brochure, not a graduation or annual count.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-louisville-colored-1916",
+          "locator": "Apprentice Class, 1915 brochure",
+          "supports": "Describes entrance examination, three months of work, and twelve trainees by the account date."
+        }
+      ]
+    }
+  ]
+}

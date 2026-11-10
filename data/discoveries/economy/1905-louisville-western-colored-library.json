@@ -1,0 +1,109 @@
+{
+  "id": "1905-louisville-western-colored-library",
+  "name": "Louisville Western Colored Branch",
+  "description": "A public library branch served Black readers in segregated Louisville.",
+  "kind": "practice",
+  "domain": "economy.education",
+  "grain": "capability",
+  "concept": "segregated-black-public-library",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "western-opens",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1905,
+          "month": 9,
+          "day": 23
+        },
+        "latest": {
+          "year": 1905,
+          "month": 9,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1905-09-23",
+        "basis": "Date of the documented episode, not a universal origin."
+      },
+      "statement": "Louisville opened a segregated public library branch for Black readers in temporary quarters.",
+      "scope": "Western Colored Branch, Louisville; the Carnegie building opened in 1908.",
+      "evidence": [
+        {
+          "source": "w10-louisville-colored-1916",
+          "locator": "History; summary of work, fiscal year ending 31 August 1916",
+          "supports": "Reports 1905 opening and annual branch circulation figures."
+        }
+      ]
+    },
+    {
+      "id": "circulation-1916",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1916,
+          "month": 8,
+          "day": 31
+        },
+        "latest": {
+          "year": 1916,
+          "month": 8,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1916-08-31",
+        "basis": "Date of the documented episode, not a universal origin."
+      },
+      "statement": "For the fiscal year ending 31 August 1916, the branch reported 36,418 adult and juvenile circulations.",
+      "scope": "Western branch circulation; annual transaction count, not distinct readers.",
+      "evidence": [
+        {
+          "source": "w10-louisville-colored-1916",
+          "locator": "History; summary of work, fiscal year ending 31 August 1916",
+          "supports": "Reports 1905 opening and annual branch circulation figures."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "western-opens",
+    "rationale": "Earliest documented episode in this scoped record, not a global origin."
+  },
+  "caveats": "The segregated branch reflected exclusion from equal facilities; its opening does not establish equal service or access for all.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass. Independent review read the contemporary branch account and its appended fiscal-1916 summary. The 36,418 figure is the Western Branch circulation total, not readers, and the 1905 opening preceded the 1908 building."
+  },
+  "measures": [
+    {
+      "quantity": "annual branch circulation",
+      "value": 36418,
+      "unit": "circulations",
+      "event": "circulation-1916",
+      "subject": "Western Colored Branch",
+      "conditions": "Adult and juvenile branch circulation for fiscal year ending 31 August 1916, excluding classroom and station totals.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-louisville-colored-1916",
+          "locator": "History; summary of work, fiscal year ending 31 August 1916",
+          "supports": "Reports 1905 opening and annual branch circulation figures."
+        }
+      ]
+    }
+  ]
+}

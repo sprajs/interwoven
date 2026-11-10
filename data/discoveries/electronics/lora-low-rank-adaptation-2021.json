@@ -1,0 +1,161 @@
+{
+  "id": "lora-low-rank-adaptation-2021",
+  "name": "LoRA low-rank model adaptation",
+  "description": "LoRA adapts a pretrained model using trainable low-rank matrices while leaving base weights frozen.",
+  "kind": "technology",
+  "domain": "electronics.ai",
+  "grain": "improvement",
+  "concept": "low-rank-model-adaptation",
+  "origin": "unknown",
+  "events": [
+    {
+      "id": "lora-preprint-v1",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 6,
+          "day": 17
+        },
+        "latest": {
+          "year": 2021,
+          "month": 6,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2021-06-17",
+        "basis": "Source-reported publication or announcement date."
+      },
+      "statement": "Seven authors submitted the first LoRA paper, applying low-rank adaptation to Transformer language models.",
+      "evidence": [
+        {
+          "source": "w10-arxiv-lora-2021-v1",
+          "locator": "Version 1 metadata, abstract and references",
+          "supports": "Gives date, authors, method and Transformer context."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "edward-j-hu",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        },
+        {
+          "person": "yelong-shen",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        },
+        {
+          "person": "phillip-wallis",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        },
+        {
+          "person": "zeyuan-allen-zhu",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        },
+        {
+          "person": "yuanzhi-li",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        },
+        {
+          "person": "shean-wang",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        },
+        {
+          "person": "weizhu-chen",
+          "role": "contributor",
+          "resource": "Coauthored the first version of the paper.",
+          "evidence": [
+            {
+              "source": "w10-arxiv-lora-2021-v1",
+              "locator": "Version 1 author list",
+              "supports": "Names the author in version 1."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "lora-preprint-v1",
+    "rationale": "Earliest supported event for this scoped record, not a universal priority claim."
+  },
+  "caveats": "The initial paper does not establish that adaptation is free or removes the need for pretrained model access and compute.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Independent reader checked the cited original version, event claims and specified facets. The June 2021 v1 names seven authors and explicitly cites the 2017 Transformer paper."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "transformer-attention-2017",
+      "from_event": "preprint-2017",
+      "to_event": "lora-preprint-v1",
+      "status": "established",
+      "statement": "The LoRA paper applies its method to Transformer language models and cites the Transformer architecture.",
+      "scope": "Transformer-based language-model adaptation in LoRA version 1.",
+      "evidence": [
+        {
+          "source": "w10-arxiv-lora-2021-v1",
+          "locator": "Version 1 abstract, section 4 and references",
+          "supports": "Describes adapting Transformer weights and cites the 2017 Transformer paper."
+        }
+      ]
+    }
+  ]
+}

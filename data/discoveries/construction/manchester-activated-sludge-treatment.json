@@ -1,0 +1,141 @@
+{
+  "id": "manchester-activated-sludge-treatment",
+  "name": "Manchester activated-sludge sewage treatment",
+  "description": "A wastewater-treatment capability developed at Davyhulme and subsequently adopted across the works.",
+  "kind": "technology",
+  "domain": "construction.sanitation",
+  "grain": "capability",
+  "concept": "activated-sludge-wastewater-treatment",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "manchester"
+    }
+  ],
+  "events": [
+    {
+      "id": "reported-development-1914",
+      "type": "formulation",
+      "date": {
+        "earliest": {
+          "year": 1914
+        },
+        "latest": {
+          "year": 1914
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1914",
+        "basis": "Year reported for this scoped historical event; not a universal invention date."
+      },
+      "statement": "A later utility history attributes development of activated-sludge sewage treatment at Davyhulme to Ardern and Lockett in 1914.",
+      "places": [
+        "manchester"
+      ],
+      "evidence": [
+        {
+          "source": "w10-united-utilities-davyhulme",
+          "locator": "Historical overview, Davyhulme",
+          "supports": "Attributes the 1914 development to Ardern and Lockett."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "edward-ardern",
+          "role": "developer",
+          "resource": "Activated-sludge sewage-treatment development.",
+          "evidence": [
+            {
+              "source": "w10-united-utilities-davyhulme",
+              "locator": "Historical overview",
+              "supports": "Names Ardern as a developer."
+            }
+          ]
+        },
+        {
+          "person": "william-t-lockett",
+          "role": "developer",
+          "resource": "Activated-sludge sewage-treatment development.",
+          "evidence": [
+            {
+              "source": "w10-united-utilities-davyhulme",
+              "locator": "Historical overview",
+              "supports": "Names Lockett as a developer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paper-may-1914",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1914,
+          "month": 5,
+          "day": 30
+        },
+        "latest": {
+          "year": 1914,
+          "month": 5,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "30 May 1914",
+        "basis": "Journal publisher metadata date; article body not inspected."
+      },
+      "statement": "Ardern and Lockett published a paper on sewage treatment experiments.",
+      "evidence": [
+        {
+          "source": "w10-ardern-lockett-1914-paper",
+          "locator": "Publisher metadata",
+          "supports": "Gives authors, title and publication date."
+        }
+      ]
+    },
+    {
+      "id": "davyhulme-conversion-by-1936",
+      "type": "adoption",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1936
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "By 1936",
+        "basis": "Reported completion or operation by this year; exact start is not asserted."
+      },
+      "statement": "The utility history reports that the Davyhulme works had been converted to the process by 1936.",
+      "places": [
+        "manchester"
+      ],
+      "evidence": [
+        {
+          "source": "w10-united-utilities-davyhulme",
+          "locator": "Historical overview",
+          "supports": "Dates completion of conversion of the works to 1936."
+        }
+      ],
+      "caveats": "No precise adoption start date, population coverage or causal effect is established."
+    }
+  ],
+  "earliest_record": {
+    "event": "reported-development-1914",
+    "rationale": "Earliest supported event for this scoped case, not a worldwide priority claim."
+  },
+  "caveats": "Dates refer to the reported development and later works conversion. The source describes earlier treatment practices; no global priority or specific downstream public-health effect is inferred.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked the cited historical passages; original operating records and population-level access or outcomes are not established by these accounts."
+  }
+}

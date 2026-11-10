@@ -136,25 +136,10 @@
       "concept": "sourced",
       "places": "sourced",
       "events": "reviewed",
-      "measures": "reviewed"
+      "measures": "reviewed",
+      "links": "reviewed"
     },
-    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources.",
-    "unresolved": [
-      {
-        "about": "transmission",
-        "note": "Juul describes earlier Vester Egesborg and Bogø trials as inputs to the design; neither specific trial is represented.",
-        "evidence": [
-          {
-            "source": "juul-1961-gedser-wind-wave9",
-            "locator": "UN proceedings W/17, summary and Gedser mill",
-            "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
-          }
-        ]
-      }
-    ],
-    "missing_prerequisites": [
-      "Vester Egesborg and Bogø wind-power experimental plants, which Juul identifies as the basis for the Gedser design."
-    ]
+    "note": "Source-backed admission; independent review pending. Independent reader checked the dated events and marked measures against the cited sources. Wave 10 added source-described links to the two now represented pilot plants; links await independent review. Independent reader checked Juul p. 233, which explicitly attributes Gedser design and construction to research and experimental experience at both earlier plants."
   },
   "measures": [
     {
@@ -202,6 +187,48 @@
           "source": "juul-1961-gedser-wind-wave9",
           "locator": "UN proceedings W/17, summary and Gedser mill",
           "supports": "Juul reports a 200 kW plant completed in 1957, put into service in June 1958, with Danish government grants for the pilot and three measuring stations; the plant cost 272,000 Danish crowns excluding other specified costs."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "vester-egesborg-wind-pilot",
+      "from_event": "pilot-1950",
+      "to_event": "completed-1957",
+      "status": "established",
+      "statement": "Juul says Gedser was designed substantially from experience with the earlier Vester Egesborg and Bogø experimental plants.",
+      "scope": "Source-described development relationship between these records.",
+      "confidence": "high",
+      "alternatives": "Other antecedents may also have contributed.",
+      "caveats": "A historical design relation, not a claim that the earlier apparatus was a component of the later one.",
+      "timing": "The described earlier event predates the later event.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, Summary",
+          "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "bogo-grid-connected-wind-conversion",
+      "from_event": "converted-operation-1952",
+      "to_event": "completed-1957",
+      "status": "established",
+      "statement": "Juul says Gedser was designed substantially from experience with the earlier Vester Egesborg and Bogø experimental plants.",
+      "scope": "Source-described development relationship between these records.",
+      "confidence": "high",
+      "alternatives": "Other antecedents may also have contributed.",
+      "caveats": "A historical design relation, not a claim that the earlier apparatus was a component of the later one.",
+      "timing": "The described earlier event predates the later event.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, Summary",
+          "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
         }
       ]
     }

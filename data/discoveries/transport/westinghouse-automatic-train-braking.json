@@ -1,0 +1,134 @@
+{
+  "id": "westinghouse-automatic-train-braking",
+  "name": "Westinghouse automatic train braking",
+  "description": "An automatic air brake system applied brakes in response to loss of train-line pressure.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "capability",
+  "concept": "automatic-train-air-brake",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "automatic-brake-1872",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1872
+        },
+        "latest": {
+          "year": 1872
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1872",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A federal railway history dates Westinghouse’s introduction of the automatic air brake to 1872.",
+      "evidence": [
+        {
+          "source": "asme-2019-automatic-air-brake-wave10",
+          "locator": "Landmark overview",
+          "supports": "ASME attributes automatic air-brake development and triple-valve refinement to George Westinghouse, contrasting it with the earlier direct-air brake. Its heading lists 1869 and 1872."
+        },
+        {
+          "source": "fra-1978-rail-brake-history-wave10",
+          "locator": "pp. 7–10",
+          "supports": "Federal report dates introduction of the automatic air brake to 1872."
+        }
+      ],
+      "caveats": "The 1869 straight-air brake was a distinct earlier system; the source does not identify an exact 1872 deployment day.",
+      "contributions": [
+        {
+          "person": "george-westinghouse",
+          "role": "developer",
+          "resource": "Developed the automatic train air brake",
+          "evidence": [
+            {
+              "source": "asme-2019-automatic-air-brake-wave10",
+              "locator": "Landmark overview",
+              "supports": "ASME attributes automatic air-brake development and triple-valve refinement to George Westinghouse, contrasting it with the earlier direct-air brake. Its heading lists 1869 and 1872."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automatic-in-use-by-1880",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1880
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "by 1880",
+        "basis": "The library reports installations by 1880 without an exact first-use date."
+      },
+      "statement": "By 1880 automatic air brakes had been installed on locomotives and cars in the United States.",
+      "evidence": [
+        {
+          "source": "linda-hall-nd-rail-brakes-wave10",
+          "locator": "Automatic air brake paragraph",
+          "supports": "Library says by 1880 Westinghouse automatic air brakes had been installed on 2,211 locomotives and 7,224 cars in the United States; it distinguishes his 1869 initial brake patent."
+        }
+      ],
+      "caveats": "Counts are installed vehicles, not number of trains or a global adoption measure."
+    }
+  ],
+  "earliest_record": {
+    "event": "automatic-brake-1872",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked FRA printed p. 8 on the 1872 introduction, ASME on development, and Linda Hall on the 1880 US installed vehicle counts."
+  },
+  "measures": [
+    {
+      "quantity": "locomotives equipped",
+      "value": 2211,
+      "unit": "locomotives",
+      "event": "automatic-in-use-by-1880",
+      "subject": "US locomotives with automatic air brake",
+      "conditions": "Reported installations by 1880; not an annual installation count.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "linda-hall-nd-rail-brakes-wave10",
+          "locator": "Automatic air brake paragraph",
+          "supports": "Library says by 1880 Westinghouse automatic air brakes had been installed on 2,211 locomotives and 7,224 cars in the United States; it distinguishes his 1869 initial brake patent."
+        }
+      ]
+    },
+    {
+      "quantity": "cars equipped",
+      "value": 7224,
+      "unit": "cars",
+      "event": "automatic-in-use-by-1880",
+      "subject": "US rail cars with automatic air brake",
+      "conditions": "Reported installations by 1880; not an annual installation count.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "linda-hall-nd-rail-brakes-wave10",
+          "locator": "Automatic air brake paragraph",
+          "supports": "Library says by 1880 Westinghouse automatic air brakes had been installed on 2,211 locomotives and 7,224 cars in the United States; it distinguishes his 1869 initial brake patent."
+        }
+      ]
+    }
+  ]
+}

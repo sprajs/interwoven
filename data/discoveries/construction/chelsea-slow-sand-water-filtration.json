@@ -1,0 +1,85 @@
+{
+  "id": "chelsea-slow-sand-water-filtration",
+  "name": "Chelsea slow-sand drinking-water filtration",
+  "description": "A Chelsea water company applied sand filtration to a piped urban drinking-water supply.",
+  "kind": "technology",
+  "domain": "construction.water-works",
+  "grain": "capability",
+  "concept": "urban-slow-sand-water-filtration",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "london"
+    }
+  ],
+  "events": [
+    {
+      "id": "chelsea-filter-by-1829",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1829
+        },
+        "precision": "year",
+        "status": "bounded",
+        "label": "By 1829",
+        "basis": "Reported completion or operation by this year; exact start is not asserted."
+      },
+      "statement": "Simpson’s sand-filtration scheme at Chelsea Waterworks provided filtered river water to local residents.",
+      "places": [
+        "london"
+      ],
+      "evidence": [
+        {
+          "source": "w10-institute-water-chelsea",
+          "locator": "Historical account, early Chelsea system",
+          "supports": "Dates the filter by 1829 and describes its supply to Chelsea residents."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "james-simpson-water-engineer",
+          "role": "developer",
+          "resource": "Chelsea water-filtration scheme.",
+          "evidence": [
+            {
+              "source": "w10-institute-water-chelsea",
+              "locator": "Historical account",
+              "supports": "Names Simpson as the company’s engineer."
+            }
+          ]
+        },
+        {
+          "organization": "chelsea-waterworks-company",
+          "role": "operator",
+          "resource": "Chelsea water supply and filtration scheme.",
+          "evidence": [
+            {
+              "source": "w10-institute-water-chelsea",
+              "locator": "Historical account",
+              "supports": "Identifies the company and its scheme."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "chelsea-filter-by-1829",
+    "rationale": "Earliest supported event for this scoped case, not a worldwide priority claim."
+  },
+  "caveats": "The source describes prior filtration experiments; this record does not assert global invention, universal access, customer counts or a separately verified health-effect estimate.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed"
+    },
+    "note": "Independent review checked the cited historical passages; original operating records and population-level access or outcomes are not established by these accounts."
+  }
+}

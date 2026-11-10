@@ -1,0 +1,90 @@
+{
+  "id": "vester-egesborg-wind-pilot",
+  "name": "Vester Egesborg wind-power pilot",
+  "description": "A Danish pilot wind-power plant supported experiments on electricity generation and automatic operation.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "instance",
+  "concept": "wind-generated-electricity",
+  "places": [
+    {
+      "place": "denmark",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "pilot-1950",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1950
+        },
+        "latest": {
+          "year": 1950
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1950",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A wind-power pilot plant was built near Vester Egesborg for measurements and testing.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, Summary",
+          "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
+        }
+      ],
+      "caveats": "The source dates construction and experiments, not public commercial service.",
+      "contributions": [
+        {
+          "organization": "southeast-zealand-electricity",
+          "role": "contributor",
+          "resource": "Organized wind-power investigations that included the pilot",
+          "evidence": [
+            {
+              "source": "juul-1961-gedser-wind-wave9",
+              "locator": "UN proceedings W/17, Summary",
+              "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "pilot-1950",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked Juul’s 1961 paper, p. 229, on 1950 construction, 7.5 m diameter and SEAS investigations."
+  },
+  "measures": [
+    {
+      "quantity": "rotor diameter",
+      "value": 7.5,
+      "unit": "m",
+      "event": "pilot-1950",
+      "subject": "Vester Egesborg pilot",
+      "conditions": "Diameter reported in Juul’s summary; not power output.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, Summary",
+          "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
+        }
+      ]
+    }
+  ]
+}

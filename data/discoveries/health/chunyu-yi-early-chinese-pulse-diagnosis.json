@@ -1,0 +1,86 @@
+{
+  "id": "chunyu-yi-early-chinese-pulse-diagnosis",
+  "name": "Chunyu Yi pulse diagnosis in the Shiji",
+  "description": "The Shiji memoir of Chunyu Yi describes a diagnostic approach involving examination of the pulse and records medical case histories.",
+  "kind": "practice",
+  "domain": "health.diagnostics",
+  "grain": "instance",
+  "concept": "early-chinese-pulse-diagnosis",
+  "places": [
+    {
+      "place": "china"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": -86
+        },
+        "latest": {
+          "year": -86
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "Shiji conventionally dated about 86 BCE",
+        "basis": "The date is scoped to this described observation, text, archaeological interpretation or object, not the origin of the wider practice."
+      },
+      "statement": "The Shiji memoir of Chunyu Yi describes a diagnostic approach involving examination of the pulse and records medical case histories.",
+      "places": [
+        "china"
+      ],
+      "evidence": [
+        {
+          "source": "w10-hsu-chunyu-pulse",
+          "locator": "Introduction, pp. 3–4",
+          "supports": "Hsu interprets the Chunyu Yi memoir in chapter 105 of the Shiji as an early extensive account of pulse-based diagnostic reasoning and dates composition conventionally around 86 BCE while warning of complex textual history. Only the publisher’s introductory excerpt was inspected, not the complete translation or a contemporary manuscript."
+        },
+        {
+          "source": "w10-hsu-2010-frontmatter-review",
+          "locator": "Preface",
+          "supports": "Hsu’s preface dates the Shiji to about 86 BCE and identifies the memoir in chapter 105 as an extensive account of pulse diagnosis with 25 medical case histories. This is a conventional date for the history, not the date of a surviving manuscript or proof that transmitted wording is original. Only the front matter and preface were inspected."
+        }
+      ],
+      "caveats": "The date is a conventional estimated composition date of a transmitted text, not a surviving manuscript date or precise date of each patient encounter. Hsu describes a complex textual history; only the introductory excerpt was read, and no modern diagnostic validity is assumed.",
+      "contributions": [
+        {
+          "person": "chunyu-yi",
+          "role": "operator",
+          "resource": "Diagnostic reasoning as represented in the memoir",
+          "evidence": [
+            {
+              "source": "w10-hsu-chunyu-pulse",
+              "locator": "Introduction, pp. 3–4",
+              "supports": "Hsu interprets the Chunyu Yi memoir in chapter 105 of the Shiji as an early extensive account of pulse-based diagnostic reasoning and dates composition conventionally around 86 BCE while warning of complex textual history. Only the publisher’s introductory excerpt was inspected, not the complete translation or a contemporary manuscript."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date represents this scoped witness, not global origin."
+  },
+  "caveats": "The date is a conventional estimated composition date of a transmitted text, not a surviving manuscript date or precise date of each patient encounter. Hsu describes a complex textual history; only the introductory excerpt was read, and no modern diagnostic validity is assumed.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Independently checked event and place facets and any marked person facet; other facets retain their existing basis."
+  },
+  "people": [
+    {
+      "person": "chunyu-yi",
+      "role": "contributor"
+    }
+  ]
+}

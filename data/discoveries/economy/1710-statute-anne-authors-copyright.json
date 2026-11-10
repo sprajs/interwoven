@@ -40,13 +40,56 @@
           "supports": "The statute specifies terms, registration and penalties."
         }
       ]
+    },
+    {
+      "id": "pope-curl-interim-injunction",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1741,
+          "month": 6,
+          "day": 5
+        },
+        "latest": {
+          "year": 1741,
+          "month": 6,
+          "day": 5
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1741-06-05",
+        "basis": "Date of the documented episode, not a universal origin."
+      },
+      "statement": "The Court of Chancery ordered an interim injunction restraining Edmund Curll and his agents from printing, publishing or selling specified letters written by Alexander Pope, pending Curll’s answer and further order.",
+      "scope": "One author’s claim and interim relief, not evidence of a final judgment or damages.",
+      "evidence": [
+        {
+          "source": "w10-pope-curl-order-1741",
+          "locator": "5 June 1741 court order transcription",
+          "supports": "The court ordered a temporary injunction over Pope’s letters pending an answer and further order."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "alexander-pope",
+          "role": "user",
+          "resource": "Brought the action as plaintiff.",
+          "evidence": [
+            {
+              "source": "w10-pope-curl-order-1741",
+              "locator": "5 June 1741 court order transcription",
+              "supports": "The court ordered a temporary injunction over Pope’s letters pending an answer and further order."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
     "event": "dated-episode",
     "rationale": "Earliest scoped episode established in these sources, not universal priority."
   },
-  "caveats": "The law is not proof of effective enforcement or equal bargaining power. Authors could assign rights and existing booksellers’ rights mattered.",
+  "caveats": "The law is not proof of effective enforcement or equal bargaining power. Authors could assign rights and existing booksellers’ rights mattered. The 1741 interim injunction demonstrates one author’s access to relief, not equal bargaining or a final decision.",
   "research": {
     "status": "sourced",
     "basis": {
@@ -55,9 +98,10 @@
       "concept": "sourced",
       "places": "sourced",
       "events": "reviewed",
-      "measures": "reviewed"
+      "measures": "reviewed",
+      "people": "sourced"
     },
-    "note": "Initial source pass; independent review remains open. Independent review checked statutory sections II and XI: April 1710 commencement, separate terms for earlier books, and the new-book fourteen-year term with conditional renewal."
+    "note": "Initial source pass; independent review remains open. Independent review checked statutory sections II and XI: April 1710 commencement, separate terms for earlier books, and the new-book fourteen-year term with conditional renewal. Independent review checked the 1741 Court of Chancery order against its transcription: it is an interim injunction pending the defendant’s answer, not a final judgment. The 1710 event was checked in the preceding wave."
   },
   "measures": [
     {
@@ -75,6 +119,12 @@
           "supports": "Specifies the fourteen-year term and conditional extension."
         }
       ]
+    }
+  ],
+  "people": [
+    {
+      "person": "alexander-pope",
+      "role": "contributor"
     }
   ]
 }

@@ -1,0 +1,86 @@
+{
+  "id": "noel-herrick-sickle-cell-case-description",
+  "name": "Noel case and Herrick’s 1910 report",
+  "description": "James Herrick’s 1910 report described unusual red blood cell shapes in Walter Clement Noel, a student from Grenada.",
+  "kind": "practice",
+  "domain": "health.disease",
+  "grain": "instance",
+  "concept": "sickle-cell-disease-description",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1910
+        },
+        "latest": {
+          "year": 1910
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1910",
+        "basis": "The date is scoped to this described observation, text, archaeological interpretation or object, not the origin of the wider practice."
+      },
+      "statement": "James Herrick’s 1910 report described unusual red blood cell shapes in Walter Clement Noel, a student from Grenada.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "w10-herrick-1910-case-excerpt",
+          "locator": "1910 report excerpt, JAMA Network Revisited 2014",
+          "supports": "The selected reproduction of Herrick’s 1910 paper reports unusual red-cell morphology in an anaemic patient and explicitly states that a definite diagnosis could not be made. It is an excerpt reprinted in 2014, not the full five-page original report."
+        },
+        {
+          "source": "w10-nhlbi-sickle-cell-history",
+          "locator": "Timeline, 1910",
+          "supports": "The NHLBI historical timeline identifies Walter Clement Noel, a student from Grenada, as the patient described by Herrick in 1910. The report does not mean his was the first occurrence or prior community knowledge of the disease."
+        }
+      ],
+      "caveats": "The cited 2014 reproduction contains selected excerpts, not the full original paper. Herrick explicitly said a definite diagnosis could not be made; later disease classification and community knowledge should not be projected back into this case.",
+      "contributions": [
+        {
+          "person": "james-b-herrick",
+          "role": "contributor",
+          "resource": "Author of the 1910 case report",
+          "evidence": [
+            {
+              "source": "w10-herrick-1910-case-excerpt",
+              "locator": "1910 report excerpt, JAMA Network Revisited 2014",
+              "supports": "The selected reproduction of Herrick’s 1910 paper reports unusual red-cell morphology in an anaemic patient and explicitly states that a definite diagnosis could not be made. It is an excerpt reprinted in 2014, not the full five-page original report."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Date represents this scoped witness, not global origin."
+  },
+  "caveats": "The cited 2014 reproduction contains selected excerpts, not the full original paper. Herrick explicitly said a definite diagnosis could not be made; later disease classification and community knowledge should not be projected back into this case.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "reviewed",
+      "events": "reviewed",
+      "people": "reviewed"
+    },
+    "note": "Independently checked event and place facets and any marked person facet; other facets retain their existing basis."
+  },
+  "people": [
+    {
+      "person": "james-b-herrick",
+      "role": "author"
+    }
+  ]
+}

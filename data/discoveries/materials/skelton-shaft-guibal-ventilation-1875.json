@@ -1,0 +1,105 @@
+{
+  "id": "skelton-shaft-guibal-ventilation-1875",
+  "name": "Skelton Shaft mechanical mine ventilation",
+  "description": "A steam-driven Guibal fan ventilated Bell Brothers’ Skelton Shaft iron mine, with an airflow recorded in 1875.",
+  "kind": "practice",
+  "domain": "materials.mining",
+  "grain": "instance",
+  "concept": "powered-mine-ventilation",
+  "places": [
+    {
+      "place": "england"
+    }
+  ],
+  "events": [
+    {
+      "id": "documented-case",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 1875
+        },
+        "latest": {
+          "year": 1875
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1875 recorded fan airflow",
+        "basis": "This dates the scoped witness or event, not a claim of global invention."
+      },
+      "statement": "A steam-driven Guibal fan ventilated Bell Brothers’ Skelton Shaft iron mine, with an airflow recorded in 1875.",
+      "places": [
+        "england"
+      ],
+      "evidence": [
+        {
+          "source": "w10-historic-england-skelton-fan",
+          "locator": "History: fanhouse and 1875 airflow",
+          "supports": "Historic England reports a Guibal fan at Bell Brothers’ Skelton Shaft, steam-driven by two engines; in 1875 the recorded airflow was 110,000 cubic feet per minute. It replaced or supplemented a ventilation furnace."
+        }
+      ],
+      "caveats": "The airflow is a historical reported operating figure, not independently calibrated or a measure of worker safety or mine-wide exposure. The fanhouse dates from about 1870; the 1875 record anchors the measurement.",
+      "contributions": [
+        {
+          "group": "Skelton Shaft mine workers",
+          "role": "operator",
+          "resource": "Mechanical mine ventilation",
+          "evidence": [
+            {
+              "source": "w10-historic-england-skelton-fan",
+              "locator": "History: fanhouse and 1875 airflow",
+              "supports": "Historic England reports a Guibal fan at Bell Brothers’ Skelton Shaft, steam-driven by two engines; in 1875 the recorded airflow was 110,000 cubic feet per minute. It replaced or supplemented a ventilation furnace."
+            }
+          ]
+        },
+        {
+          "organization": "bell-brothers-iron-company",
+          "role": "operator",
+          "resource": "Skelton Shaft iron mine",
+          "evidence": [
+            {
+              "source": "w10-historic-england-skelton-fan",
+              "locator": "History: fanhouse and 1875 airflow",
+              "supports": "Historic England reports a Guibal fan at Bell Brothers’ Skelton Shaft, steam-driven by two engines; in 1875 the recorded airflow was 110,000 cubic feet per minute. It replaced or supplemented a ventilation furnace."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "documented-case",
+    "rationale": "Sourced date of this particular witness, not a priority claim."
+  },
+  "caveats": "The airflow is a historical reported operating figure, not independently calibrated or a measure of worker safety or mine-wide exposure. The fanhouse dates from about 1870; the 1875 record anchors the measurement.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the event facet against the cited source; other facets retain their existing basis and the stated source limits."
+  },
+  "measures": [
+    {
+      "quantity": "reported air flow",
+      "value": 110000,
+      "unit": "cubic feet per minute",
+      "event": "documented-case",
+      "subject": "Skelton Shaft Guibal fan",
+      "status": "claimed",
+      "conditions": "Recorded in 1875 as reported by Historic England; not a measured health outcome.",
+      "evidence": [
+        {
+          "source": "w10-historic-england-skelton-fan",
+          "locator": "History: fanhouse and 1875 airflow",
+          "supports": "Historic England reports a Guibal fan at Bell Brothers’ Skelton Shaft, steam-driven by two engines; in 1875 the recorded airflow was 110,000 cubic feet per minute. It replaced or supplemented a ventilation furnace."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "1952-nsf-graduate-fellowships",
+  "name": "NSF graduate science fellowships",
+  "description": "Federal fellowships supported selected individuals pursuing advanced scientific study.",
+  "kind": "practice",
+  "domain": "economy.education",
+  "grain": "capability",
+  "concept": "nsf-graduate-fellowships",
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "events": [
+    {
+      "id": "fellowship-awards",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1952,
+          "month": 4
+        },
+        "latest": {
+          "year": 1952,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1952-04",
+        "basis": "Date of the documented episode, not a universal origin."
+      },
+      "statement": "The NSF reported awarding 624 graduate and postdoctoral fellowships for 1952–53 from approximately 3,000 applicants.",
+      "scope": "1952 fellowship cohort, distinct from research-project grants.",
+      "evidence": [
+        {
+          "source": "w10-nsf-annual-report-1952",
+          "locator": "pp. 21–24, scientific manpower and fellowship program",
+          "supports": "Reports April 1952 awards, applicant count and terms."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "fellowship-awards",
+    "rationale": "Earliest documented episode in this scoped record, not a global origin."
+  },
+  "caveats": "The report states awards and stipend terms, not actual disbursement or equal access. Applicants underwent tests, academic review and recommendations; 55 of the 624 awards were postdoctoral.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Initial source pass. Independent review inspected the 1952 NSF report pp. 21–24: 624 awards comprised 569 predoctoral and 55 postdoctoral, selected from about 3,000 applicants; changed the denominator label from applications to applicants."
+  },
+  "measures": [
+    {
+      "quantity": "fellowships awarded",
+      "value": 624,
+      "unit": "awards",
+      "event": "fellowship-awards",
+      "subject": "1952 NSF fellowship cohort",
+      "conditions": "569 predoctoral and 55 postdoctoral awards; not necessarily acceptances or payments.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-nsf-annual-report-1952",
+          "locator": "pp. 21–24, scientific manpower and fellowship program",
+          "supports": "Reports April 1952 awards, applicant count and terms."
+        }
+      ]
+    },
+    {
+      "quantity": "applicants",
+      "value": 3000,
+      "unit": "persons",
+      "event": "fellowship-awards",
+      "subject": "1952 NSF fellowship cohort",
+      "conditions": "Approximately 3,000 applicants; approximate count, not an exact success-rate denominator.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-nsf-annual-report-1952",
+          "locator": "pp. 21–24, scientific manpower and fellowship program",
+          "supports": "Reports April 1952 awards, applicant count and terms."
+        }
+      ]
+    }
+  ]
+}

@@ -58,31 +58,62 @@
       "domain": "sourced",
       "grain": "recalled",
       "events": "reviewed",
-      "people": "sourced"
+      "people": "sourced",
+      "links": "reviewed"
     },
-    "missing_prerequisites": [
-      "Nyquist’s 1924 and 1928 telegraph transmission theory papers",
-      "Hartley’s 1928 Transmission of Information paper"
-    ],
-    "unresolved": [
-      {
-        "about": "Nyquist and Hartley transmission theories",
-        "note": "Shannon explicitly treats these papers as a theoretical basis; model each original capability and contribution before creating direct links.",
-        "evidence": [
-          {
-            "source": "shannon-1948-communication-wave9",
-            "locator": "Introduction and references 1–2",
-            "supports": "Shannon identifies Nyquist and Hartley papers and extends the communication theory."
-          }
-        ]
-      }
-    ],
-    "note": "Independent reader: Checked Shannon’s 1948 opening and footnotes naming both Nyquist papers and the Hartley paper as his theoretical basis."
+    "note": "Independent reader: Checked Shannon’s 1948 opening and footnotes naming both Nyquist papers and the Hartley paper as his theoretical basis. Earlier named theoretical foundations now have sourced records and links."
   },
   "people": [
     {
       "person": "claude-shannon",
       "role": "author"
+    }
+  ],
+  "links": [
+    {
+      "type": "uses_theory",
+      "from": "nyquist-telegraph-bandwidth-and-signalling",
+      "status": "established",
+      "statement": "Shannon cited Nyquist’s April 1924 paper as a theoretical basis.",
+      "evidence": [
+        {
+          "source": "shannon-1948-communication-wave9",
+          "locator": "Introduction and references 1–2",
+          "supports": "Shannon names Nyquist’s two papers and Hartley’s paper as a basis of his theory."
+        }
+      ],
+      "from_event": "publication-1924",
+      "to_event": "publication-part-one-1948"
+    },
+    {
+      "type": "uses_theory",
+      "from": "nyquist-telegraph-bandwidth-and-signalling",
+      "status": "established",
+      "statement": "Shannon also cited Nyquist’s 1928 paper as a theoretical basis.",
+      "evidence": [
+        {
+          "source": "shannon-1948-communication-wave9",
+          "locator": "Introduction and references 1–2",
+          "supports": "Shannon names Nyquist’s two papers and Hartley’s paper as a basis of his theory."
+        }
+      ],
+      "from_event": "transmission-theory-1928",
+      "to_event": "publication-part-one-1948"
+    },
+    {
+      "type": "uses_theory",
+      "from": "hartley-transmission-information-measure",
+      "status": "established",
+      "statement": "Shannon names Hartley’s 1928 analysis as a theoretical basis.",
+      "evidence": [
+        {
+          "source": "shannon-1948-communication-wave9",
+          "locator": "Introduction and references 1–2",
+          "supports": "Shannon names Nyquist’s two papers and Hartley’s paper as a basis of his theory."
+        }
+      ],
+      "from_event": "paper-1928",
+      "to_event": "publication-part-one-1948"
     }
   ]
 }

@@ -1,0 +1,116 @@
+{
+  "id": "romer-fixed-point-thermometer-scale-1708",
+  "name": "Rømer’s reference-point thermometry",
+  "description": "Thermometers with a reproducible scale based on reference temperatures.",
+  "kind": "technology",
+  "domain": "measurement.laboratory",
+  "grain": "capability",
+  "concept": "romer-reference-point-thermometry",
+  "people": [
+    {
+      "person": "ole-romer",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "copenhagen",
+      "note": "Place of the reported visit."
+    }
+  ],
+  "events": [
+    {
+      "id": "adversaria-1702",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1702
+        },
+        "latest": {
+          "year": 1702
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1702",
+        "basis": "Dated source witness, not a claim that the idea originated on this date."
+      },
+      "statement": "Rømer described alcohol-filled thermometers in his Adversaria in 1702, according to the later historical account.",
+      "evidence": [
+        {
+          "source": "w10-romer-darnell-2013",
+          "locator": "p. 524, Measuring the temperature, and note 10",
+          "supports": "Darnell reports that Rømer described his alcohol thermometers in his Adversaria in 1702."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "ole-romer",
+          "role": "developer",
+          "resource": "Described his thermometers.",
+          "evidence": [
+            {
+              "source": "w10-romer-darnell-2013",
+              "locator": "p. 524, Measuring the temperature, and note 10",
+              "supports": "Darnell reports that Rømer described his alcohol thermometers in his Adversaria in 1702."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dated-witness",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1708
+        },
+        "latest": {
+          "year": 1708
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1708",
+        "basis": "Dated report, thesis, recollected visit or specific object, as stated; no global first implied."
+      },
+      "statement": "Fahrenheit later recalled seeing Rømer’s thermometers in Copenhagen in 1708.",
+      "evidence": [
+        {
+          "source": "w10-romer-darnell-2013",
+          "locator": "pp. 523–524 and note 11",
+          "supports": "The 1729 letter, quoted in the 2013 study, recalls the 1708 visit; the article separately discusses Rømer’s 1702 notes."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "ole-romer",
+          "role": "developer",
+          "resource": "Developed the documented capability or design.",
+          "evidence": [
+            {
+              "source": "w10-romer-darnell-2013",
+              "locator": "pp. 523–524 and note 11",
+              "supports": "The 1729 letter, quoted in the 2013 study, recalls the 1708 visit; the article separately discusses Rømer’s 1702 notes."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "adversaria-1702",
+    "rationale": "The 1702 note described by Darnell predates Fahrenheit’s later account of the 1708 visit."
+  },
+  "caveats": "The account is a 1729 retrospective report of a 1708 visit. Rømer’s 1702 notes are an earlier documentary witness. The instrument witnessed should not be assumed identical in every detail to later reconstructions of the scale.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "places": "sourced"
+    },
+    "note": "Dated witness and later historical descriptions are distinguished; additional prior stages remain open. Independent review checked event scope and dates against the cited primary or historical evidence."
+  }
+}

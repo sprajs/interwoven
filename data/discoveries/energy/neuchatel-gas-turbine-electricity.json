@@ -1,0 +1,106 @@
+{
+  "id": "neuchatel-gas-turbine-electricity",
+  "name": "Neuchâtel gas-turbine electricity generation",
+  "description": "A stationary gas turbine drove an electricity generator at the Neuchâtel municipal power station.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "grain": "instance",
+  "concept": "grid-gas-turbine-generation",
+  "places": [
+    {
+      "place": "switzerland",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "installed-1939",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1939
+        },
+        "latest": {
+          "year": 1939
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1939",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Brown Boveri’s gas turbine was installed at Neuchâtel’s municipal power station in 1939.",
+      "evidence": [
+        {
+          "source": "asme-nd-neuchatel-wave10",
+          "locator": "Landmark history",
+          "supports": "ASME says Brown Boveri built the machine installed in 1939 at Neuchâtel municipal power station, and reports 4 MW output and 17.4 percent efficiency; it notes commercial operation but not a separate start date."
+        }
+      ],
+      "caveats": "ASME describes successful commercial operation but does not establish whether it commenced in 1939 or give a separate commencement date.",
+      "contributions": [
+        {
+          "organization": "brown-boveri",
+          "role": "manufacturer",
+          "resource": "Designed and built the turbine",
+          "evidence": [
+            {
+              "source": "asme-nd-neuchatel-wave10",
+              "locator": "Landmark history",
+              "supports": "ASME says Brown Boveri built the machine installed in 1939 at Neuchâtel municipal power station, and reports 4 MW output and 17.4 percent efficiency; it notes commercial operation but not a separate start date."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "installed-1939",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the ASME account for 1939 installation and the stated output and efficiency."
+  },
+  "measures": [
+    {
+      "quantity": "generator output",
+      "value": 4,
+      "unit": "MW",
+      "event": "installed-1939",
+      "subject": "Neuchâtel gas turbine generator",
+      "conditions": "Power reported at generator terminals, not annual energy.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "asme-nd-neuchatel-wave10",
+          "locator": "Landmark history",
+          "supports": "ASME says Brown Boveri built the machine installed in 1939 at Neuchâtel municipal power station, and reports 4 MW output and 17.4 percent efficiency; it notes commercial operation but not a separate start date."
+        }
+      ]
+    },
+    {
+      "quantity": "reported efficiency",
+      "value": 17.4,
+      "unit": "percent",
+      "event": "installed-1939",
+      "subject": "Neuchâtel gas turbine",
+      "conditions": "ASME figure; test conditions and measurement basis are not specified in the page.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "asme-nd-neuchatel-wave10",
+          "locator": "Landmark history",
+          "supports": "ASME says Brown Boveri built the machine installed in 1939 at Neuchâtel municipal power station, and reports 4 MW output and 17.4 percent efficiency; it notes commercial operation but not a separate start date."
+        }
+      ]
+    }
+  ]
+}

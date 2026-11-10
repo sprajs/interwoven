@@ -1,0 +1,156 @@
+{
+  "id": "jvc-hr3300-vhs-home-video-recorder",
+  "name": "JVC HR-3300 VHS home video recorder",
+  "description": "A consumer videocassette recorder for recording and playing home video using VHS.",
+  "kind": "technology",
+  "domain": "communication.recording",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "japan-sale-1976",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1976,
+          "month": 10,
+          "day": 31
+        },
+        "latest": {
+          "year": 1976,
+          "month": 10,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1976-10-31",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The JVC HR-3300 was sold in Japan on 31 October 1976.",
+      "evidence": [
+        {
+          "source": "smg-jvc-hr3300-wave10",
+          "locator": "Object description",
+          "supports": "Museum dates HR-3300 Japanese sale to 31 October 1976."
+        },
+        {
+          "source": "kahaku-hr3300-wave10",
+          "locator": "Object description",
+          "supports": "Tokyo museum identifies 1976 model, two-hour capacity and 256,000-yen price."
+        }
+      ],
+      "caveats": "Sale date is scoped to Japan; listed price is not an observed transaction.",
+      "places": [
+        "japan"
+      ],
+      "contributions": [
+        {
+          "organization": "jvc",
+          "role": "manufacturer",
+          "resource": "Manufactured the HR-3300.",
+          "evidence": [
+            {
+              "source": "smg-jvc-hr3300-wave10",
+              "locator": "Object description",
+              "supports": "Museum dates HR-3300 Japanese sale to 31 October 1976."
+            },
+            {
+              "source": "kahaku-hr3300-wave10",
+              "locator": "Object description",
+              "supports": "Tokyo museum identifies 1976 model, two-hour capacity and 256,000-yen price."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uk-us-sale-1977",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 1977
+        },
+        "latest": {
+          "year": 1977
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1977",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The Science Museum Group dates HR-3300 sales in the United States and United Kingdom to 1977.",
+      "evidence": [
+        {
+          "source": "smg-jvc-hr3300-wave10",
+          "locator": "Object description",
+          "supports": "Museum dates HR-3300 Japanese sale to 31 October 1976."
+        }
+      ],
+      "caveats": "The source does not give exact day, prices or buyer counts.",
+      "places": [
+        "united-states",
+        "united-kingdom"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "japan-sale-1976",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "reviewed",
+      "places": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader: Checked the Science Museum Group sale chronology and Japanese museum’s model-specific 256,000-yen price and two-hour capacity."
+  },
+  "places": [
+    {
+      "place": "japan"
+    },
+    {
+      "place": "united-states"
+    },
+    {
+      "place": "united-kingdom"
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "listed recorder price",
+      "value": 256000,
+      "unit": "Japanese yen per recorder",
+      "event": "japan-sale-1976",
+      "subject": "JVC HR-3300",
+      "status": "claimed",
+      "conditions": "Japanese museum’s listed 1976 model price; nominal, not a documented transaction.",
+      "evidence": [
+        {
+          "source": "kahaku-hr3300-wave10",
+          "locator": "Object description",
+          "supports": "Tokyo museum identifies 1976 model, two-hour capacity and 256,000-yen price."
+        }
+      ]
+    },
+    {
+      "quantity": "recording duration",
+      "value": 2,
+      "unit": "hours",
+      "event": "japan-sale-1976",
+      "subject": "JVC HR-3300",
+      "status": "claimed",
+      "conditions": "Museum-stated recording capability, not observed household use.",
+      "evidence": [
+        {
+          "source": "kahaku-hr3300-wave10",
+          "locator": "Object description",
+          "supports": "Tokyo museum identifies 1976 model, two-hour capacity and 256,000-yen price."
+        }
+      ]
+    }
+  ],
+  "caveats": "Other home video formats preceded VHS; no specific transmission to Nigerian video production is inferred."
+}

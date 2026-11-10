@@ -75,7 +75,8 @@
       "events": "reviewed",
       "places": "sourced",
       "people": "sourced",
-      "measures": "reviewed"
+      "measures": "reviewed",
+      "links": "reviewed"
     },
     "missing_prerequisites": [
       "Fairchild CCD sensor used in the Kodak prototype",
@@ -94,7 +95,7 @@
         ]
       }
     ],
-    "note": "Independent reader: Checked the Camera Museum account: the Fairchild sensor is not identified as the represented CCD101, and 23 seconds is recording time, not exposure."
+    "note": "Independent reader: Checked the Camera Museum account: the Fairchild sensor is not identified as the represented CCD101, and 23 seconds is recording time, not exposure. The CCD relation is scoped to the general functional concept, not identity of the Fairchild sensor with the original experimental device."
   },
   "places": [
     {
@@ -137,6 +138,27 @@
           "source": "camera-museum-1975-digital-wave9",
           "locator": "Opening paragraphs",
           "supports": "Museum identifies Sasson, Fairchild sensor, Motorola conversion, image and cassette."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "requires",
+      "from": "boyle-smith-charge-coupled-device-concept",
+      "status": "established",
+      "statement": "The prototype’s CCD imaging uses the charge-transfer device function described in the 1970 concept.",
+      "caveats": "This concerns the general CCD function; it does not identify Boyle and Smith’s experimental device as the specific Fairchild sensor.",
+      "evidence": [
+        {
+          "source": "boyle-smith-1970-ccd-wave10",
+          "locator": "pp. 587–593, abstract and applications",
+          "supports": "CCD concept specifies charge transfer and a potential imaging device."
+        },
+        {
+          "source": "camera-museum-1975-digital-wave9",
+          "locator": "Opening paragraphs",
+          "supports": "Museum identifies a Fairchild CCD in the Kodak prototype."
         }
       ]
     }

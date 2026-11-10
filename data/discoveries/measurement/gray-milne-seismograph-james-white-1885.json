@@ -1,0 +1,110 @@
+{
+  "id": "gray-milne-seismograph-james-white-1885",
+  "name": "Gray–Milne recording seismograph made in Glasgow",
+  "description": "Seismographic recording of horizontal and vertical earthquake motion.",
+  "kind": "technology",
+  "domain": "measurement.sensing",
+  "grain": "instance",
+  "concept": "gray-milne-earthquake-recording",
+  "people": [
+    {
+      "person": "john-milne",
+      "role": "originator"
+    },
+    {
+      "person": "thomas-gray-seismologist",
+      "role": "originator"
+    }
+  ],
+  "places": [
+    {
+      "place": "glasgow",
+      "note": "Place of manufacture of this instance; design was made in Japan."
+    },
+    {
+      "place": "japan",
+      "note": "Museum states the design was made in Japan."
+    }
+  ],
+  "events": [
+    {
+      "id": "dated-witness",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 1885
+        },
+        "latest": {
+          "year": 1885
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1885",
+        "basis": "Dated report, thesis, recollected visit or specific object, as stated; no global first implied."
+      },
+      "statement": "The James White firm produced a Gray–Milne seismograph in Glasgow in 1885, from a design developed by Gray and Milne in Japan.",
+      "evidence": [
+        {
+          "source": "w10-gray-milne-smg",
+          "locator": "Object 1885-115 Pt2, description",
+          "supports": "The museum identifies the 1885 object, designers, design location and Glasgow manufacturer."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "john-milne",
+          "role": "developer",
+          "resource": "Developed the documented capability or design.",
+          "evidence": [
+            {
+              "source": "w10-gray-milne-smg",
+              "locator": "Object 1885-115 Pt2, description",
+              "supports": "The museum identifies the 1885 object, designers, design location and Glasgow manufacturer."
+            }
+          ]
+        },
+        {
+          "person": "thomas-gray-seismologist",
+          "role": "developer",
+          "resource": "Codesigned the seismograph.",
+          "evidence": [
+            {
+              "source": "w10-gray-milne-smg",
+              "locator": "Object 1885-115 Pt2, description",
+              "supports": "The museum identifies the 1885 object, designers, design location and Glasgow manufacturer."
+            }
+          ]
+        },
+        {
+          "organization": "james-white-glasgow",
+          "role": "manufacturer",
+          "resource": "Made the Glasgow instrument in the museum collection.",
+          "evidence": [
+            {
+              "source": "w10-gray-milne-smg",
+              "locator": "Object 1885-115 Pt2, description",
+              "supports": "The museum identifies the 1885 object, designers, design location and Glasgow manufacturer."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "dated-witness",
+    "rationale": "Earliest episode supported in the current record, not a universal first."
+  },
+  "caveats": "This is one extant 1885 instrument, not the first seismograph. Ewing’s earlier horizontal pendulum and earlier non-recording instruments have different histories; the source does not prove continuous recording for this object.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "events": "reviewed",
+      "people": "sourced",
+      "places": "sourced"
+    },
+    "note": "Dated witness and later historical descriptions are distinguished; additional prior stages remain open. Independent review checked event scope and dates against the cited primary or historical evidence."
+  }
+}

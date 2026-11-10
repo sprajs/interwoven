@@ -1,0 +1,138 @@
+{
+  "id": "little-falls-rapid-water-filtration",
+  "name": "Little Falls rapid water filtration",
+  "description": "East Jersey Water Company built a rapid filtration installation at Little Falls, New Jersey.",
+  "kind": "technology",
+  "domain": "construction.water-works",
+  "grain": "capability",
+  "concept": "rapid-water-filtration",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "new-jersey"
+    }
+  ],
+  "events": [
+    {
+      "id": "little-falls-filter-1902",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1902
+        },
+        "latest": {
+          "year": 1902
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1902",
+        "basis": "Year reported for this scoped historical event; not a universal invention date."
+      },
+      "statement": "The East Jersey Water Company built a filtration installation at Little Falls, New Jersey.",
+      "places": [
+        "new-jersey"
+      ],
+      "evidence": [
+        {
+          "source": "w10-loc-morse-waterworks",
+          "locator": "Printed p. 37, Little Falls filter",
+          "supports": "Dates the East Jersey installation to 1902 and describes the concrete filters."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "east-jersey-water-company",
+          "role": "operator",
+          "resource": "Little Falls water-filtration works.",
+          "evidence": [
+            {
+              "source": "w10-loc-morse-waterworks",
+              "locator": "Printed p. 37",
+              "supports": "Attributes the filter to the East Jersey Water Company."
+            }
+          ]
+        }
+      ],
+      "caveats": "The source says built in 1902; the start of full service is not independently dated by this passage."
+    },
+    {
+      "id": "inspection-report-1904",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1904
+        },
+        "latest": {
+          "year": 1904
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1904",
+        "basis": "Year reported for this scoped historical event; not a universal invention date."
+      },
+      "statement": "Municipal engineers inspected the plant, whose contemporary description reported 32 filters and their nominal capacity.",
+      "places": [
+        "new-jersey"
+      ],
+      "evidence": [
+        {
+          "source": "w10-fuller-little-falls-1904",
+          "locator": "Printed p. 192, inspection heading and plant description",
+          "supports": "Dates the 1904 inspection and gives the number and nominal capacity of filters."
+        }
+      ],
+      "caveats": "Nominal design capacity is not actual daily output or a count of people supplied."
+    }
+  ],
+  "earliest_record": {
+    "event": "little-falls-filter-1902",
+    "rationale": "Earliest supported event for this scoped case, not a worldwide priority claim."
+  },
+  "caveats": "The later historical account dates construction to 1902; another EPA history says 1901. Treat the 1902 date as reported, not a resolution of that discrepancy or a global first.",
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "places": "reviewed",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Independent review checked the HAER construction account and the municipal engineers’ plant description on printed p. 192. The publisher-indexed text includes the 11 June 1904 inspection heading omitted by one PDF text extraction. Capacity remains nominal, and the conflicting 1901/1902 construction chronology remains unresolved."
+  },
+  "measures": [
+    {
+      "quantity": "filter count reported in plant description",
+      "value": 32,
+      "unit": "filters",
+      "event": "inspection-report-1904",
+      "status": "claimed",
+      "subject": "Little Falls plant at the 1904 inspection",
+      "evidence": [
+        {
+          "source": "w10-fuller-little-falls-1904",
+          "locator": "Printed p. 192, nominal working capacity",
+          "supports": "Reports 32 filters."
+        }
+      ]
+    },
+    {
+      "quantity": "nominal daily capacity of each filter",
+      "value": 1000000,
+      "unit": "gallons per day per filter",
+      "event": "inspection-report-1904",
+      "status": "claimed",
+      "subject": "Individual filters at the Little Falls plant",
+      "conditions": "Nominal rating, not measured throughput.",
+      "evidence": [
+        {
+          "source": "w10-fuller-little-falls-1904",
+          "locator": "Printed p. 192, nominal working capacity",
+          "supports": "Reports nominal working capacity per filter."
+        }
+      ]
+    }
+  ]
+}

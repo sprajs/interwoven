@@ -1,0 +1,119 @@
+{
+  "id": "francis-1849-inward-flow-turbine",
+  "name": "Francis inward-flow water turbine",
+  "description": "Francis developed and built a full-scale inward-flow turbine after acquiring rights to Howd’s design.",
+  "kind": "technology",
+  "domain": "energy.water-wind",
+  "grain": "capability",
+  "concept": "inward-flow-water-turbine",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "rights-1847",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1847
+        },
+        "latest": {
+          "year": 1847
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1847",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A county historical survey reports that Francis purchased Howd patent rights in 1847.",
+      "evidence": [
+        {
+          "source": "winneshiek-nd-howd-francis-wave10",
+          "locator": "p. 12, turbine history",
+          "supports": "County historical survey dates Samuel Howd’s inward-flow patent to 1838 and reports Francis purchased rights in 1847 and built a full-scale inward-flow turbine in 1849. It cites Lewis et al. for these historical statements."
+        }
+      ],
+      "caveats": "The survey is a retrospective account and cites earlier historical research."
+    },
+    {
+      "id": "full-scale-1849",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 1849
+        },
+        "latest": {
+          "year": 1849
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1849",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "Francis built a full-scale inward-flow turbine in 1849.",
+      "evidence": [
+        {
+          "source": "winneshiek-nd-howd-francis-wave10",
+          "locator": "p. 12, turbine history",
+          "supports": "County historical survey dates Samuel Howd’s inward-flow patent to 1838 and reports Francis purchased rights in 1847 and built a full-scale inward-flow turbine in 1849. It cites Lewis et al. for these historical statements."
+        }
+      ],
+      "caveats": "The date describes construction; the inspected passage does not establish the date of sustained mill operation.",
+      "contributions": [
+        {
+          "person": "james-b-francis",
+          "role": "developer",
+          "resource": "Developed the turbine described by the survey",
+          "evidence": [
+            {
+              "source": "winneshiek-nd-howd-francis-wave10",
+              "locator": "p. 12, turbine history",
+              "supports": "County historical survey dates Samuel Howd’s inward-flow patent to 1838 and reports Francis purchased rights in 1847 and built a full-scale inward-flow turbine in 1849. It cites Lewis et al. for these historical statements."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "full-scale-1849",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred. The 1847 rights transaction is earlier preparation, not the documented constructed turbine."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "links": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the county survey’s 1847 rights, 1849 construction and described development from Howd; the survey is retrospective."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "howd-inward-flow-water-turbine",
+      "from_event": "patent-1838",
+      "to_event": "full-scale-1849",
+      "status": "established",
+      "statement": "The survey identifies the Howd patent as the design Francis improved after purchasing rights.",
+      "scope": "Source-described development relationship between these records.",
+      "confidence": "high",
+      "alternatives": "Other antecedents may also have contributed.",
+      "caveats": "A historical design relation, not a claim that the earlier apparatus was a component of the later one.",
+      "timing": "The described earlier event predates the later event.",
+      "evidence": [
+        {
+          "source": "winneshiek-nd-howd-francis-wave10",
+          "locator": "p. 12, turbine history",
+          "supports": "County historical survey dates Samuel Howd’s inward-flow patent to 1838 and reports Francis purchased rights in 1847 and built a full-scale inward-flow turbine in 1849. It cites Lewis et al. for these historical statements."
+        }
+      ]
+    }
+  ]
+}

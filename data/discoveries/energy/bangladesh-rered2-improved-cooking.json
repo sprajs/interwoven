@@ -1,0 +1,102 @@
+{
+  "id": "bangladesh-rered2-improved-cooking",
+  "name": "Bangladesh RERED II improved-cookstove access",
+  "description": "A rural development program supported access to improved household cooking stoves in Bangladesh.",
+  "kind": "technology",
+  "domain": "energy.fire",
+  "grain": "instance",
+  "concept": "improved-cookstove-distribution",
+  "places": [
+    {
+      "place": "bangladesh",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "stove-sales-2012-2020",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2012
+        },
+        "latest": {
+          "year": 2020
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "2012–2020",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The World Bank reports 1.8 million improved cookstoves sold through the project during 2012–2020.",
+      "evidence": [
+        {
+          "source": "world-bank-2021-rered2-cooking-wave10",
+          "locator": "Results 2012–2020 and project financing",
+          "supports": "World Bank reports 1.8 million improved cookstoves sold during 2012–2020 under RERED II and identifies IDCOL as key implementing agency; initial project finance was approved in 2012."
+        }
+      ],
+      "caveats": "Stoves sold are not necessarily unique households, continued use, or verified air-quality outcomes.",
+      "contributions": [
+        {
+          "organization": "bangladesh-idcol",
+          "role": "operator",
+          "resource": "Acted as the project’s key implementing agency",
+          "evidence": [
+            {
+              "source": "world-bank-2021-rered2-cooking-wave10",
+              "locator": "Results 2012–2020 and project financing",
+              "supports": "World Bank reports 1.8 million improved cookstoves sold during 2012–2020 under RERED II and identifies IDCOL as key implementing agency; initial project finance was approved in 2012."
+            }
+          ]
+        },
+        {
+          "organization": "world-bank",
+          "role": "funder",
+          "resource": "Financed the project through the International Development Association and mobilized other finance",
+          "evidence": [
+            {
+              "source": "world-bank-2021-rered2-cooking-wave10",
+              "locator": "Results 2012–2020 and project financing",
+              "supports": "World Bank reports 1.8 million improved cookstoves sold during 2012–2020 under RERED II and identifies IDCOL as key implementing agency; initial project finance was approved in 2012."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "stove-sales-2012-2020",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed",
+      "measures": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked the World Bank results brief: 1.8 million is a 2012–2020 count of stoves sold; finance and IDCOL refer to the wider project."
+  },
+  "measures": [
+    {
+      "quantity": "improved cookstoves sold",
+      "value": 1800000,
+      "unit": "stoves",
+      "event": "stove-sales-2012-2020",
+      "subject": "RERED II supported stove sales",
+      "conditions": "Cumulative 2012–2020 project figure reported by the World Bank.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "world-bank-2021-rered2-cooking-wave10",
+          "locator": "Results 2012–2020 and project financing",
+          "supports": "World Bank reports 1.8 million improved cookstoves sold during 2012–2020 under RERED II and identifies IDCOL as key implementing agency; initial project finance was approved in 2012."
+        }
+      ]
+    }
+  ]
+}

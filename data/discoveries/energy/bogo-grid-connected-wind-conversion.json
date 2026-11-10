@@ -1,0 +1,71 @@
+{
+  "id": "bogo-grid-connected-wind-conversion",
+  "name": "Bogø grid-connected wind conversion",
+  "description": "A former direct-current wind plant was converted to supply alternating current to the SEAS grid.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "instance",
+  "concept": "grid-connected-wind-generation",
+  "places": [
+    {
+      "place": "denmark",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "converted-operation-1952",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1952
+        },
+        "latest": {
+          "year": 1952
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1952",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "The converted Bogø wind plant began operating in autumn 1952 with an alternating-current grid connection.",
+      "evidence": [
+        {
+          "source": "juul-1961-gedser-wind-wave9",
+          "locator": "UN proceedings W/17, Summary",
+          "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
+        }
+      ],
+      "caveats": "The source does not quantify customers, kWh or individual household access.",
+      "contributions": [
+        {
+          "organization": "southeast-zealand-electricity",
+          "role": "infrastructure_provider",
+          "resource": "Provided the alternating-current grid described by Juul",
+          "evidence": [
+            {
+              "source": "juul-1961-gedser-wind-wave9",
+              "locator": "UN proceedings W/17, Summary",
+              "supports": "Juul describes the 1950 Vester Egesborg plant, 1952 Bogø conversion, and their contribution to Gedser design."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "converted-operation-1952",
+    "rationale": "Earliest event for this scoped capability established by the inspected passages; no global priority is inferred."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "reviewed"
+    },
+    "note": "Source-backed admission; independent review pending. Independent reader checked Juul’s paper, pp. 229 and 240, on conversion and operation in autumn 1952."
+  }
+}

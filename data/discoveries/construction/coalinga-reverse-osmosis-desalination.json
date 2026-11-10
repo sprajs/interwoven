@@ -46,18 +46,43 @@
       ],
       "contributions": [
         {
-          "group": "Office of Saline Water",
-          "role": "infrastructure_provider",
-          "resource": "Coalinga reverse-osmosis demonstration",
+          "role": "contributor",
+          "resource": "Office of Saline Water demonstration plant at Coalinga",
           "evidence": [
             {
               "source": "california-water-board-coalinga-1965",
               "locator": "pp. 190–191",
-              "supports": "The state report documents a 1965 Coalinga reverse-osmosis demonstration plant treating brackish groundwater."
+              "supports": "State historical context identifies Coalinga as an Office of Saline Water reverse-osmosis demonstration plant; it does not specify funding or operational roles."
             }
-          ]
+          ],
+          "organization": "us-office-of-saline-water"
         }
       ]
+    },
+    {
+      "id": "cost-report-1967",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1967
+        },
+        "latest": {
+          "year": 1967
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1967",
+        "basis": "Year reported for this scoped historical event; not a universal invention date."
+      },
+      "statement": "Stevens and Loeb reported water-production cost for the Coalinga pilot, a combined experimental and production unit.",
+      "evidence": [
+        {
+          "source": "w10-stevens-loeb-coalinga-costs",
+          "locator": "Abstract",
+          "supports": "Reports the cost and combined experimental and production context."
+        }
+      ],
+      "caveats": "The source is an abstract; exact accounting period and consumer price are not stated."
     }
   ],
   "earliest_record": {
@@ -76,7 +101,7 @@
       "events": "reviewed",
       "measures": "reviewed"
     },
-    "note": "Independent review read the state report and UCLA account; the two reported daily figures differ and the state report describes a small demonstration."
+    "note": "Independent review read the state report and UCLA account; the two reported daily figures differ and the state report describes a small demonstration. The Office of Saline Water is identified as the demonstration programme, without inferring its funding or operational role. The additional cost is the 1967 authors’ figure, not a household price. A second reader inspected the publisher-indexed 1967 abstract and confirmed the scoped historical cost; full cost accounting remains uninspected."
   },
   "measures": [
     {
@@ -92,6 +117,24 @@
           "source": "california-water-board-coalinga-1965",
           "locator": "pp. 190–191",
           "supports": "The state report documents a 1965 Coalinga reverse-osmosis demonstration plant treating brackish groundwater."
+        }
+      ]
+    },
+    {
+      "quantity": "reported water-production cost for combined experimental and production unit",
+      "value": 1.94,
+      "unit": "USD per 1,000 gallons",
+      "currency": "USD",
+      "money_context": "Nominal amount as reported in 1967; accounting period unspecified, not a household tariff.",
+      "status": "claimed",
+      "event": "cost-report-1967",
+      "subject": "Coalinga combined experimental and production pilot",
+      "conditions": "The published abstract presents the unit cost and separate hypothetical estimates for production-only plants; it does not specify the accounting interval.",
+      "evidence": [
+        {
+          "source": "w10-stevens-loeb-coalinga-costs",
+          "locator": "Abstract",
+          "supports": "Reports $1.94 per thousand gallons for the combined experimental and production unit."
         }
       ]
     }

@@ -1,0 +1,4 @@
+QLoRA: Efficient Finetuning of Quantized LLMs, version 1
+Research notes, accessed 2026-11-10
+
+Version 1 submitted 23 May 2023 uses LoRA adapters and a frozen quantized model. Authors report fine-tuning a 65-billion-parameter pretrained model with a single 48 GB GPU. Their 65B comparison is against 16-bit LoRA, not a demonstrated full-16-bit 65B baseline. The PDF https://arxiv.org/pdf/2305.14314v1 was inspected; it uses earlier LLaMA models, not Llama 2.
