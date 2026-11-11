@@ -1,0 +1,428 @@
+{
+  "prompt_version": "paused-batch12-finalize-v1",
+  "lane": "transport_institutions",
+  "base_commit": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "execution": {
+    "assigned_model": "gpt-6.1-terra",
+    "assigned_effort": "high",
+    "actual_model": "gpt-6.1-terra",
+    "actual_effort": "high",
+    "usage": "not available",
+    "independent_review": "pending, separate execution required"
+  },
+  "original_archive": "docs/research-drafts/paused-batch12-2026-11-11",
+  "original_manifest_external": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/manifest.json",
+  "original_files": [
+    {
+      "path": "data/discoveries/communication/1744-haudenosaunee-wampum-diplomatic-record.json",
+      "sha256": "a28ee2ba7f6309f2b792c0ff059993339d55db63ca6d515418616f35da1cc0c8",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/communication/1744-haudenosaunee-wampum-diplomatic-record.json"
+    },
+    {
+      "path": "data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json",
+      "sha256": "985a2ebc620936da1544d7dce15f187b4577f93c89be24ebcd719ab3f73a9cdf",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json"
+    },
+    {
+      "path": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json",
+      "sha256": "75507b23051c161d74b94f0bb05f25f683811e7ff8ca9d98884b899cf8254576",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json"
+    },
+    {
+      "path": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json",
+      "sha256": "413b39c5cdd6dcdb94bd3259bc058fec60c1279c16946b7494d64c4cc4afb06d",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json"
+    },
+    {
+      "path": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json",
+      "sha256": "7205a00d5da5de46885c7dea9c05f835e2bddc248dcc3634b01f5f14ee98ab67",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json"
+    },
+    {
+      "path": "data/discoveries/transport/taumako-parangaina-tepuke-1997.json",
+      "sha256": "00ee029d04948459b883e1a16a4724692e47ffa98f4dd817d5cff83e96940d10",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/transport/taumako-parangaina-tepuke-1997.json"
+    },
+    {
+      "path": "data/sources/f/finney-1998-return-lata-wave12.json",
+      "sha256": "28c72cdc9fca664378a18b2019eedd16b37e8d65ba89a27032c3dea8a889c874",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/f/finney-1998-return-lata-wave12.json"
+    },
+    {
+      "path": "data/sources/h/hornell-1937-mtepe-lamu-wave12.json",
+      "sha256": "7a9799f49c4d6bcad88a4280d5a5d48b0190321d5dc4256022dfff45a6924e1e",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/h/hornell-1937-mtepe-lamu-wave12.json"
+    },
+    {
+      "path": "data/sources/n/neuzil-sims-1939-grand-portage-canoe-wave12.json",
+      "sha256": "fa626bd5d0ceadaedeae8010958246f333c61fb9c2b4907f1332fe38c39ab30c",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/neuzil-sims-1939-grand-portage-canoe-wave12.json"
+    },
+    {
+      "path": "data/sources/n/nps-grand-portage-canoes-wave12.json",
+      "sha256": "94ff231a92fcb0bed2eb680b99653ba160f065b6a4cc163029c1663063b4cc8e",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/nps-grand-portage-canoes-wave12.json"
+    },
+    {
+      "path": "data/sources/o/olali-2024-lamu-mtepe-wave12.json",
+      "sha256": "9befcb4632427ea9acacb37c6cbde48149dd8d93e1fa3ac977441d068d1ab413",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/o/olali-2024-lamu-mtepe-wave12.json"
+    },
+    {
+      "path": "data/sources/s/science-museum-lamu-mtepe-model-wave12.json",
+      "sha256": "2ac4cc468c4739aeae1fdd587b60ee3820c078acb49f6dc7a4077e7551f912a6",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/s/science-museum-lamu-mtepe-model-wave12.json"
+    },
+    {
+      "path": "data/sources/t/te-papa-parangaina-tepuke-wave12.json",
+      "sha256": "6ad6201f5b6d8061f9e566573570f74fa1a9e9286b427f327a10f784872ee172",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/t/te-papa-parangaina-tepuke-wave12.json"
+    },
+    {
+      "path": "data/sources/w/w12-lancaster-1744-proceedings.json",
+      "sha256": "ce29d69b2bc9e3290c2eb941658aabdad5c076d2a8264c6905e49eaceeb01ebb",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-lancaster-1744-proceedings.json"
+    },
+    {
+      "path": "data/sources/w/w12-onondaga-powless-return.json",
+      "sha256": "4451d5ba5b50647982e95c8a149ec7defb0dc5db1b62a6c9acb65f04f167389c",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-onondaga-powless-return.json"
+    },
+    {
+      "path": "data/sources/w/w12-onondaga-wampum-record.json",
+      "sha256": "698b4703ec1c4ef8053fe65b2bfe4162b8b613d4086ea88cffe360b2408fb673",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-onondaga-wampum-record.json"
+    },
+    {
+      "path": "data/sources/w/w12-puga-trefler-venice-contract.json",
+      "sha256": "05fbcac2acec176de50ea1a7f3d583636da5bd3637952d7b68f4c3e43970db93",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-puga-trefler-venice-contract.json"
+    },
+    {
+      "path": "data/sources/w/w12-stefini-bosnian-waqfs-abstract.json",
+      "sha256": "9495a86db82886f86b83a8a056078310b87ad9e618ad289779a02e08b2c79357",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-stefini-bosnian-waqfs-abstract.json"
+    },
+    {
+      "path": "evidence/f/finney-1998-return-lata-wave12-notes.txt",
+      "sha256": "daa6f456ea253845776f6fdcbebd0bb6c088f013e4fb66d3309bda1b575b0eb7",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/f/finney-1998-return-lata-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/h/hornell-1937-mtepe-lamu-wave12-notes.txt",
+      "sha256": "936f364215c719675cd0ea4d3d8e6c801b229f7c5d835ece279e76a57445f67e",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/h/hornell-1937-mtepe-lamu-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/n/neuzil-sims-1939-grand-portage-canoe-wave12-notes.txt",
+      "sha256": "a291fdae18fd5cb2ea9db925418ca214f511af78302ea82b3992ad0de5c315b1",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/neuzil-sims-1939-grand-portage-canoe-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/n/nps-grand-portage-canoes-wave12-notes.txt",
+      "sha256": "e1aff536c467219832daad289ddfcfa4e4e586db3cb921d27fe50b84339e8df7",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/nps-grand-portage-canoes-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/o/olali-2024-lamu-mtepe-wave12-notes.txt",
+      "sha256": "69a7c83f7836a968122b14f07096a2c4e0e850a3cb0ec8c08db1e13777ddd0dc",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/o/olali-2024-lamu-mtepe-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/s/science-museum-lamu-mtepe-model-wave12-notes.txt",
+      "sha256": "1d99176314ae005f3709fe77f7507dd75730451bc44cbdea9cd08cd9c60984cc",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/s/science-museum-lamu-mtepe-model-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/t/te-papa-parangaina-tepuke-wave12-notes.txt",
+      "sha256": "b37018318ffde777c6e4c2a9386179610df080fcf25732454dd5360ecda40e12",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/t/te-papa-parangaina-tepuke-wave12-notes.txt"
+    },
+    {
+      "path": "evidence/w/w12-lancaster-1744-proceedings-notes.txt",
+      "sha256": "d5a0a3f24448d5407cc83f4c54ee3935eccd78c910fb90769b033d57ed73bb5d",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-lancaster-1744-proceedings-notes.txt"
+    },
+    {
+      "path": "evidence/w/w12-onondaga-powless-return-notes.txt",
+      "sha256": "7abcd9da42e74eb040d2b8e044b2ce4cfd28431b095c9a445eeb496f86d48fa7",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-onondaga-powless-return-notes.txt"
+    },
+    {
+      "path": "evidence/w/w12-onondaga-wampum-record-notes.txt",
+      "sha256": "c334cf4f2b76e7fb5a92d2c7f1e9358ee4c377a1079ac2a25c0f8ab985632f79",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-onondaga-wampum-record-notes.txt"
+    },
+    {
+      "path": "evidence/w/w12-puga-trefler-venice-contract-notes.txt",
+      "sha256": "38e8bf2b3f44ef8a096c04f62290c249d220fc0dd2998474d12a187987b64867",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-puga-trefler-venice-contract-notes.txt"
+    },
+    {
+      "path": "evidence/w/w12-stefini-bosnian-waqfs-abstract-notes.txt",
+      "sha256": "f6b043cd18620dc4404d933595f0641da040b4fe8d892c0d5f0d91624e52a0cb",
+      "archive_pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-stefini-bosnian-waqfs-abstract-notes.txt"
+    }
+  ],
+  "duplicate_screen": "Searched current data/discoveries and data/leads.jsonl for wampum, jiimaan, mtepe, tepuke, Parangaina, colleganza and cash waqf. Existing Venetian and Sarajevo records extended or restored, not duplicated. No existing matching discovery for the new scoped instances and wampum record. Open wampum lead overlaps the admitted record; canoe, mtepe and tepuke leads ask broader technical or earlier-period questions and should remain open. Sarajevo contract lead remains open. No leads edited.",
+  "corrections_and_deferrals": [
+    {
+      "original": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json#/events/1",
+      "disposition": "deferred; base record restored",
+      "reason": "Conference abstract identifies Bosnian waqfs, but does not establish that the 1587 register contains a Sarajevo waqf. A different geographic scope is not an event on this Sarajevo record."
+    },
+    {
+      "original": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json#/caveats",
+      "disposition": "extension reverted with event",
+      "reason": "Original remains archived; the abstract and notes remain available for future research."
+    },
+    {
+      "original": "data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json#/measures/3",
+      "disposition": "derived percentage",
+      "reason": "The paper states three quarters; percent is a calculation, not a directly reported percentage."
+    },
+    {
+      "original": "data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json#/events/1",
+      "disposition": "retained pending independent review",
+      "reason": "Distinct 1199 agreement; author translation directly inspected, working paper calls the traveller Staniario in translation and Stagnario in caption and discussion; caveat added."
+    },
+    {
+      "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/events/1",
+      "disposition": "deferred",
+      "reason": "Original Hornell PDF could not be inspected in this pass; paraphrase alone is insufficient for admission."
+    },
+    {
+      "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/description",
+      "disposition": "narrowed to dated museum model",
+      "reason": "Museum dates a locally built rigged model and classifies it as a sewn boat; a model does not prove construction date for a working vessel."
+    },
+    {
+      "original": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json#/description",
+      "disposition": "narrowed",
+      "reason": "NPS gives generic Ojibwe canoe materials, not component-by-component evidence for this particular 1939 canoe; removed generic source from instance event."
+    },
+    {
+      "original": "data/discoveries/transport/taumako-parangaina-tepuke-1997.json#/measures/0/evidence/0",
+      "disposition": "corrected locator and support",
+      "reason": "The 6800 mm figure is in museum item details dimensions, not overview and history."
+    },
+    {
+      "original": "data/discoveries/communication/1744-haudenosaunee-wampum-diplomatic-record.json",
+      "disposition": "retained pending independent review",
+      "reason": "Lancaster speech and Onondaga Nation accounts inspected. 1744 and 1989 episodes do not date the origin of the practice."
+    },
+    {
+      "original": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json#/research",
+      "disposition": "extension reverted with 1587 event",
+      "reason": "The new research note, event basis and associated caveat referred to a Bosnian context whose connection to this Sarajevo record is not established; base research retained verbatim."
+    },
+    {
+      "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/grain",
+      "disposition": "changed capability to instance",
+      "reason": "The retained event dates one museum model; the original broader working-vessel claim remains archived pending inspection of Hornell."
+    },
+    {
+      "original": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json#/events/0/evidence/1",
+      "disposition": "removed generic support from instance event",
+      "reason": "NPS generic materials and fur trade context do not establish particulars for the 1939 canoe; the source and note are preserved."
+    },
+    {
+      "original": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json#/events/0/type",
+      "disposition": "corrected to documented_description",
+      "reason": "The caption records construction and completion; it does not establish practical use. Earliest-record rationale now scopes to this canoe."
+    },
+    {
+      "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/concept",
+      "disposition": "removed concept and associated register row",
+      "reason": "The catalogue classifies the model under sewn boats but does not establish the broader historical Swahili-planking concept."
+    },
+    {
+      "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/research/unresolved/0/note",
+      "disposition": "corrected",
+      "reason": "Explicitly records that Hornell was not inspected in this repair and avoids implying an original-source reading."
+    },
+    {
+      "original": "data/sources/h/hornell-1937-mtepe-lamu-wave12.json",
+      "disposition": "removed active source and paraphrase note",
+      "reason": "Passage inspection in the inherited metadata was not verified in this repair; original source record and note remain archived."
+    },
+    {
+      "original": "data/sources/o/olali-2024-lamu-mtepe-wave12.json",
+      "disposition": "removed active source and paraphrase note",
+      "reason": "Passage inspection in the inherited metadata was not verified in this repair; original source record and note remain archived."
+    }
+  ],
+  "register_additions": [
+    {
+      "register": "data/concepts.jsonl",
+      "id": "haudenosaunee-wampum-record-protocols",
+      "row": {
+        "id": "haudenosaunee-wampum-record-protocols",
+        "name": "Haudenosaunee wampum diplomatic records",
+        "summary": "Wampum strings and belts work with speech and community custodianship to recall agreements and history."
+      },
+      "canonical_sha256": "796cf32ceb8842d847b7d6a7e1c9ef67b284bb9fea01ec40e6006a3110b7d3f9",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "id": "ojibwe-birchbark-jiimaan",
+      "row": {
+        "id": "ojibwe-birchbark-jiimaan",
+        "name": "Ojibwe birchbark jiimaan",
+        "summary": "Bark, wood and plant-root construction for transport on inland waterways."
+      },
+      "canonical_sha256": "aa2da0e706eb3fde1baf81fc51b3ee957902c80033d24e47cb00fd1d6b1c89aa",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "id": "tepuke-sailing-canoe",
+      "row": {
+        "id": "tepuke-sailing-canoe",
+        "name": "Tepuke sailing canoe",
+        "summary": "A Temotu sailing canoe with a hollowed hull and a mat sail."
+      },
+      "canonical_sha256": "dc577e064358818b861ea62951f6edfcede7a25f58f2569d414d5b7113fe8b94",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/people.jsonl",
+      "id": "giovanni-agadi",
+      "row": {
+        "id": "giovanni-agadi",
+        "name": "Giovanni Agadi",
+        "basis": "sourced"
+      },
+      "canonical_sha256": "7de7e45f2905031f2bd4e7e4d113f44f05bd81504b9287bc2c1143b90a351735",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/people.jsonl",
+      "id": "irving-powless-jr",
+      "row": {
+        "id": "irving-powless-jr",
+        "name": "Irving Powless Jr.",
+        "basis": "sourced"
+      },
+      "canonical_sha256": "29b7abe870e415682979126b152fe161f6e7eb9b2b10feb415dae52066256cd7",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/people.jsonl",
+      "id": "william-keizy-tepuke-builder",
+      "row": {
+        "id": "william-keizy-tepuke-builder",
+        "name": "William Keizy",
+        "basis": "sourced"
+      },
+      "canonical_sha256": "ba57ef3e5b9d2f6723d5e0b6b681765ba60831f0bc317fa5e7a73f70f3139966",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/people.jsonl",
+      "id": "zaccaria-stagnario",
+      "row": {
+        "id": "zaccaria-stagnario",
+        "name": "Zaccaria Stagnario",
+        "basis": "sourced"
+      },
+      "canonical_sha256": "a79d78a8a1ade8ff5d5c2220f3140164f9332769458accb6d907bb48fdc3ecf5",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    },
+    {
+      "register": "data/places.jsonl",
+      "id": "solomon-islands",
+      "row": {
+        "id": "solomon-islands",
+        "name": "Solomon Islands",
+        "kind": "country",
+        "lat": -9.6,
+        "lon": 160.2,
+        "country": "SB",
+        "region": "oceania",
+        "within": null,
+        "basis": "recalled",
+        "note": "Approximate country location; Taumako event"
+      },
+      "canonical_sha256": "d5a8a361cf8dc429422e17e59811ac398172448f9e230425e618cf51bc4fd528",
+      "canonicalization": "UTF-8 JSON, sorted keys, no whitespace, ensure_ascii=false"
+    }
+  ],
+  "source_cache": [
+    {
+      "source": "finney-1998-return-lata-wave12",
+      "url": "https://www.vaka.org/post/the-return-of-lata-building-an-authentic-polynesian-voyaging-canoe",
+      "local_path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/transport_institutions-raw/finney-1998-return-lata-wave12.raw",
+      "sha256": "753c7062805025351453fbb6945dd349d553a9125952f0d79450796e0352345e",
+      "bytes": 884359,
+      "retrieved": "2026-11-11",
+      "note": "HTTP response bytes; not the paraphrased notes. Content may be a later dynamic page version."
+    },
+    {
+      "source": "nps-grand-portage-canoes-wave12",
+      "url": "https://www.nps.gov/articles/000/canoes-of-grand-portage.htm",
+      "local_path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/transport_institutions-raw/nps-grand-portage-canoes-wave12.raw",
+      "sha256": "2957138b336ee8f73b1b8fd57b8bca2934ffaba977ae07b6ee5c9418dda80f53",
+      "bytes": 36217,
+      "retrieved": "2026-11-11",
+      "note": "HTTP response bytes; not the paraphrased notes. Content may be a later dynamic page version."
+    },
+    {
+      "source": "te-papa-parangaina-tepuke-wave12",
+      "url": "https://collections.tepapa.govt.nz/object/335559",
+      "local_path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/transport_institutions-raw/te-papa-parangaina-tepuke-wave12.raw",
+      "sha256": "3887abffa6a42d222537cb506d50a55d080e31caef70dd4761e0945224eea317",
+      "bytes": 63729,
+      "retrieved": "2026-11-11",
+      "note": "HTTP response bytes; not the paraphrased notes. Content may be a later dynamic page version."
+    },
+    {
+      "source": "w12-lancaster-1744-proceedings",
+      "url": "https://treaties.okstate.edu/treaties/treaty-of-lancaster-1744-21777",
+      "local_path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/transport_institutions-raw/w12-lancaster-1744-proceedings.raw",
+      "sha256": "38975a65a45f6d9f9b4583bd634b64ef3ee4251429fd6dd2c89ae42827869668",
+      "bytes": 133264,
+      "retrieved": "2026-11-11",
+      "note": "HTTP response bytes; not the paraphrased notes. Content may be a later dynamic page version."
+    },
+    {
+      "source": "w12-puga-trefler-venice-contract",
+      "url": "https://www.nber.org/system/files/working_papers/w18288/w18288.pdf",
+      "local_path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/transport_institutions-raw/w12-puga-trefler-venice-contract.raw",
+      "sha256": "478f1014a76de86caccddab54867fffb538a41932d5d4eaf6bda66efbed6851f",
+      "bytes": 862986,
+      "retrieved": "2026-11-11",
+      "note": "HTTP response bytes; not the paraphrased notes. Content may be a later dynamic page version."
+    },
+    {
+      "source": "w12-stefini-bosnian-waqfs-abstract",
+      "url": "https://histecon.fas.harvard.edu/credit/abstracts/Institutions%20Credit%20State%20-%20Stefini%20Abstract.pdf",
+      "local_path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/transport_institutions-raw/w12-stefini-bosnian-waqfs-abstract.raw",
+      "sha256": "dab23313af51a917286ebfdbc1c3850f1c26d582749f73df09bcba443704ae4e",
+      "bytes": 90692,
+      "retrieved": "2026-11-11",
+      "note": "HTTP response bytes; not the paraphrased notes. Content may be a later dynamic page version."
+    }
+  ],
+  "access_limitations": [
+    "Onondaga pages, Grand Portage photo caption, Science Museum catalogue and NPS rendered in web reader; direct original-byte retrieval was unavailable for some. Their cited passages were inspected, but no original-byte hash is claimed where missing.",
+    "Hornell original inaccessible in pass; Olali journal abstract unavailable in pass. Paraphrased notes retained as historical draft material, not an independent verification.",
+    "Raw HTTP files are local outside the repository and may not be available on another machine; their precise hash and URL are recorded here."
+  ],
+  "resume_handoffs": [
+    "/tmp/interwoven-research-20261109/movement/paths-wave12.json",
+    "/tmp/interwoven-research-20261109/movement/registers-wave12.json",
+    "/tmp/interwoven-research-20261109/movement/capability-audit-wave12.json",
+    "/tmp/interwoven-research-20261109/movement/leads-wave12.jsonl",
+    "/tmp/interwoven-research-20261109/institutions/paths-wave12.json",
+    "/tmp/interwoven-research-20261109/institutions/registers-wave12.json",
+    "/tmp/interwoven-research-20261109/institutions/capability-audit-wave12.json",
+    "/tmp/interwoven-research-20261109/institutions/leads-wave12.jsonl"
+  ],
+  "review_requirements": [
+    "Separate reviewer must inspect original source passages and current records, including surname discrepancy, event scope and all retained facets.",
+    "Do not treat this repair execution as independent admission review.",
+    "Reviewer corrections applied after independent review; the same separate reviewer must recheck the amended result."
+  ]
+}

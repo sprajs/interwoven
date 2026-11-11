@@ -135,10 +135,11 @@
       "grain": "recalled",
       "concept": "sourced",
       "origin": "unknown",
-      "events": "reviewed",
-      "links": "reviewed"
+      "events": "sourced",
+      "links": "reviewed",
+      "measures": "sourced"
     },
-    "note": "Independent reader checked the cited original version, event claims and specified facets. The June 2021 v1 names seven authors and explicitly cites the 2017 Transformer paper."
+    "note": "Independent reader checked the cited original version, event claims and specified facets. The June 2021 v1 names seven authors and explicitly cites the 2017 Transformer paper. Wave 12 additions await independent review."
   },
   "links": [
     {
@@ -154,6 +155,40 @@
           "source": "w10-arxiv-lora-2021-v1",
           "locator": "Version 1 abstract, section 4 and references",
           "supports": "Describes adapting Transformer weights and cites the 2017 Transformer paper."
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "reported VRAM for conventional fine-tuning",
+      "value": 1.2,
+      "unit": "TB",
+      "event": "lora-preprint-v1",
+      "subject": "Authors’ GPT-3 motivating example",
+      "conditions": "Author-reported comparison, not a general minimum or independent replication.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-arxiv-lora-2021-v1",
+          "locator": "Section 3.1, Practical Benefits and Limitations, printed p. 4",
+          "supports": "For their GPT-3 motivating use case, the authors report reducing VRAM consumption from 1.2 TB to 350 GB. They also describe smaller task-specific checkpoints while retaining the pretrained model."
+        }
+      ]
+    },
+    {
+      "quantity": "reported VRAM for LoRA adaptation",
+      "value": 350,
+      "unit": "GB",
+      "event": "lora-preprint-v1",
+      "subject": "Authors’ GPT-3 motivating example",
+      "conditions": "Author-reported comparison; pretrained model access and substantial compute remain necessary.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-arxiv-lora-2021-v1",
+          "locator": "Section 3.1, Practical Benefits and Limitations, printed p. 4",
+          "supports": "For their GPT-3 motivating use case, the authors report reducing VRAM consumption from 1.2 TB to 350 GB. They also describe smaller task-specific checkpoints while retaining the pretrained model."
         }
       ]
     }

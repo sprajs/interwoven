@@ -109,6 +109,31 @@
           "supports": "The 1963 authors report BBN service from September 1962 and identify the absence of a drum program library."
         }
       ]
+    },
+    {
+      "id": "programmers-guide-1963",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1963
+        },
+        "latest": {
+          "year": 1963
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1963",
+        "basis": "Publication year of the cited document, not necessarily the first use of the described arrangement."
+      },
+      "statement": "The 1963 CTSS guide describes login using problem and programmer numbers, accounting at logout, and restrictions on referencing unauthorized files.",
+      "evidence": [
+        {
+          "source": "mit-computation-center-1963-compatible-time-sharing",
+          "locator": "Printed pp. 23–24 and 69",
+          "supports": "The guide describes user problem and programmer numbers at login, per-session accounting at logout, and authorization boundaries on disk-file references. It discusses a private code as a future possibility rather than asserting it was already required."
+        }
+      ],
+      "caveats": "The guide describes a private code as a future possibility; it does not establish passwords were already required, how users obtained eligibility, or a price."
     }
   ],
   "earliest_record": {
@@ -126,7 +151,7 @@
   },
   "caveats": "The 1961 CTSS demonstration is earlier but does not establish all 1963 service features. BBN already operated protected time sharing from 1962. The sources do not establish that each summer visitor personally used every disk-file feature or that CTSS was the first file service.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -180,7 +205,7 @@
         ]
       }
     ],
-    "note": "Candidate historical and lifecycle assertions await independent review. Independent reader checked the 57-person summer-study measure and the participant retrospective’s CTSS access description. The count is not a CTSS-only or simultaneous-user count; other event facets were not re-reviewed in this pass."
+    "note": "Candidate historical and lifecycle assertions await independent review. Independent reader checked the 57-person summer-study measure and the participant retrospective’s CTSS access description. The count is not a CTSS-only or simultaneous-user count; other event facets were not re-reviewed in this pass. Wave 12 additions await independent review."
   },
   "grain": "instance",
   "measures": [

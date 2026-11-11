@@ -1,0 +1,68 @@
+{
+  "id": "lamu-mtepe-sewn-plank-vessels",
+  "name": "Lamu mtepe model",
+  "description": "A locally built rigged model of a Lamu mtepe, classified in the museum catalogue as a sewn boat.",
+  "kind": "technology",
+  "domain": "transport.watercraft",
+  "grain": "instance",
+  "places": [
+    {
+      "place": "kenya",
+      "note": "Place refers to the sourced event; historic political boundaries are not inferred."
+    }
+  ],
+  "events": [
+    {
+      "id": "lamu-model-1901-1930",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1901
+        },
+        "latest": {
+          "year": 1930
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1901–1930",
+        "basis": "Date stated in the cited source."
+      },
+      "statement": "A locally built mtepe model from Lamu is catalogued to 1901–1930.",
+      "evidence": [
+        {
+          "source": "science-museum-lamu-mtepe-model-wave12",
+          "locator": "Catalog entry, object 1936-29",
+          "supports": "The museum dates a locally made, rigged wooden mtepe model from Lamu to 1901–1930 and lists its maker as unknown; it is a scale model, not a surviving working boat."
+        }
+      ],
+      "caveats": "The object is a model; its maker is unknown and the dating range does not prove a working vessel was built in any particular year."
+    }
+  ],
+  "earliest_record": {
+    "event": "lamu-model-1901-1930",
+    "rationale": "The museum dates this model to 1901–1930; this is not a date of origin for mtepe vessels."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "places": "sourced",
+      "events": "sourced"
+    },
+    "note": "Museum catalogue inspected; the working-vessel description and its date are deferred pending direct inspection of Hornell. Independent review pending.",
+    "unresolved": [
+      {
+        "about": "transmission",
+        "note": "The museum model does not establish an origin date, named shipwright, construction details of a working vessel, or transmission to any represented Indian Ocean vessel. Hornell’s original was not inspected during this repair.",
+        "evidence": [
+          {
+            "source": "science-museum-lamu-mtepe-model-wave12",
+            "locator": "Catalog entry, object 1936-29",
+            "supports": "The museum dates a locally made, rigged wooden mtepe model from Lamu to 1901–1930 and lists its maker as unknown; it is a scale model, not a surviving working boat."
+          }
+        ]
+      }
+    ]
+  }
+}

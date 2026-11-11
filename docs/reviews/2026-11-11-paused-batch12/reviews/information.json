@@ -1,0 +1,245 @@
+{
+  "prompt_version": "paused-batch12-finalize-v1",
+  "reviewer": {
+    "execution_id": "/root/batch12_review_information",
+    "actual_model": "gpt-6.1-terra",
+    "actual_reasoning_effort": "high",
+    "independent_of": "/root/batch12_information"
+  },
+  "base_commit": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+  "prior_reviewed_worker_commit": "8215a6b92b40763cff22906b8bc395fc8f59d213",
+  "verdict": "accept revised scoped changes, conditional on integrator mechanical validation and exact approved bytes",
+  "corrections": [
+    "IRIS event and Michels descriptor/notes distinguish FFT implementation from separate Cooley routine; checked revised bytes against p. 1.",
+    "NASA Voyager chapter source authors corrected to Roger Ludwig and Jim Taylor as title page states."
+  ],
+  "claim_decisions": [
+    {
+      "path": "good#/name,/description,/kind,/domain,/grain",
+      "decision": "accept",
+      "source_and_locator": "Good 1958 publisher summary, paragraphs 1–2; Cooley et al. 1967 pp. 1675–1676",
+      "rationale": "Factorial interactions and analogous Fourier shortcuts are explicit. Technology/software and capability are catalogue classifications, not historical priority; publisher summary inspected via search service, not a claim of full-text inspection."
+    },
+    {
+      "path": "good#/events/0,/earliest_record,/concept",
+      "decision": "accept",
+      "source_and_locator": "Good 1958 publisher metadata and summary; Cooley et al. 1967 p. 1676",
+      "rationale": "Publisher attributes paper to I. J. Good and first publication July 1958; his contribution is authorship. This is a publication date and first retained event, not invention date or global priority. Concept groups fast discrete Fourier methods; Cooley et al. describe Good’s distinct prime-factor algorithm."
+    },
+    {
+      "path": "good#/research/unresolved",
+      "decision": "accept",
+      "source_and_locator": "Cooley et al. 1967 bibliography p. 1676",
+      "rationale": "Bibliography cites 1960 addendum, but the repair did not inspect its original text or verify month or contents; defer event."
+    },
+    {
+      "path": "golay#/name,/description,/kind,/domain,/grain",
+      "decision": "accept",
+      "source_and_locator": "Golay 1949 p. 657, columns 1 and 3 and table I",
+      "rationale": "Golay describes block error-correcting binary and ternary schemes, under stated bounded-error assumptions. Technology/software and capability are classification."
+    },
+    {
+      "path": "golay#/events/0,/events/1,/earliest_record",
+      "decision": "accept",
+      "source_and_locator": "Golay 1949 p. 657 footnote, signed author line, reprint footer",
+      "rationale": "Note received 23 February 1949; footer identifies June 1949 Proceedings publication; author is Marcel J. E. Golay. Receipt precedes publication and is not public circulation or priority."
+    },
+    {
+      "path": "golay#/events/2",
+      "decision": "accept",
+      "source_and_locator": "Ludwig and Taylor, Voyager Telecommunications §§3.6.2.2–3.6.3; NTRS 1979 article abstract",
+      "rationale": "Chapter reports Golay algorithm used at Jupiter and Saturn and separately dates Jupiter encounter 1979. NTRS describes completed Voyager 1 Jupiter encounter, but its publication date alone is not the encounter date. No claim of all telemetry."
+    },
+    {
+      "path": "golay#/links/0",
+      "decision": "accept candidate",
+      "source_and_locator": "Golay 1949 p. 657 col. 1 footnote",
+      "rationale": "Golay credits Shannon’s seven-symbol example and explicitly extends its solution; candidate builds_on points from 1948 Shannon paper to 1949 note. Author account alone does not satisfy independent corroboration for established edge; does not imply dependence on Hamming."
+    },
+    {
+      "path": "cooley#/events/2,/research/unresolved",
+      "decision": "accept extension",
+      "source_and_locator": "Michels July 1966 report, title page, abstract p. v and introduction p. 1",
+      "rationale": "Report date is July 1966. It reports FFT implemented in IRIS reduction and simulation programs, and separately explains use of Cooley FORTRAN IV routine. Passage does not establish same specific program in IRIS or flight use. This dated report is a new event beyond 1964 receipt and 1965 publication in base."
+    },
+    {
+      "path": "cooley#/links/0,/research/missing_prerequisites",
+      "decision": "accept candidate",
+      "source_and_locator": "Cooley and Tukey 1965 p. 297; Cooley, Lewis and Welch 1967 pp. 1675–1676",
+      "rationale": "1965 authors discuss Good generalization and application; 1967 authors distinguish prime-factor and Cooley–Tukey algorithms. Candidate direction Good to 1965 is supported as author-described connection, but 1967 shares Cooley and is not independent corroboration for established relation. Replacing missing prerequisite note with a represented candidate is appropriate."
+    },
+    {
+      "path": "data/people.jsonl#i-j-good,marcel-j-e-golay",
+      "decision": "accept",
+      "source_and_locator": "Good publisher author metadata; Golay 1949 p. 657 signed author line",
+      "rationale": "Names and sourced basis supported; no biography inferred. Merge by ID and verify no duplicate IDs, using exact canonical row hashes."
+    },
+    {
+      "path": "data/sources/* and evidence/* retained descriptors and notes",
+      "decision": "accept",
+      "source_and_locator": "Original source title pages and cited passages; 1979 NTRS citation metadata; Good publisher metadata and summary",
+      "rationale": "Titles, authors, dates, locators and descriptive notes checked at cited scope; NASA chapter credits both Ludwig and Taylor. Notes are explicitly research notes rather than raw evidence. Good full text was not inspected by repair; do not equate cached summary with original full text."
+    },
+    {
+      "path": "fired-clay-type#/impact,/grain; bessemer-air-conversion#/impact,/grain",
+      "decision": "defer",
+      "source_and_locator": "Original archived draft versus base",
+      "rationale": "Unsourced recalled impact additions reverted, no active claim approved."
+    }
+  ],
+  "catalogue_screen": {
+    "snapshot": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+    "origin_main_at_review": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+    "decision": "Good and Golay distinct from existing Cooley–Tukey, Shannon and Hamming records; Cooley IRIS dated assertion extends existing 1964 and 1965 events. Leads remain open for broader unresolved scope. No absolute priority or independence claim."
+  },
+  "register_rows": [
+    {
+      "id": "i-j-good",
+      "name": "I. J. Good",
+      "basis": "sourced",
+      "canonical_sha256": "432648b403088ec33dec040365880792a81e13db9381b0ede28a443beccef94a"
+    },
+    {
+      "id": "marcel-j-e-golay",
+      "name": "Marcel J. E. Golay",
+      "basis": "sourced",
+      "canonical_sha256": "868e2c25ffede1848480fec80f89eb0fcbbc434e5416d76250f8159dab6e4788"
+    }
+  ],
+  "changed_file_sha256": {
+    "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json": "9f63398e84760fc1cdf0b4c358e3f493e04936c4f985d33fb7c041297bf7a32a",
+    "data/discoveries/electronics/golay-digital-error-correction-1949.json": "29115f9c72029a0d09805434f2784b2fee707992f92886c265b50083ce1076c4",
+    "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json": "9c549a596af30e8bcbbc1ff080a573f1ac12dd7734c56a0998289767b3ab6878",
+    "data/people.jsonl": "908cd424d92b92f05a5b87e80bc8d849bd5770a1905212b0bb093fd23cdb5021",
+    "data/sources/c/cooley-1967-fft-history-wave12.json": "7ed39b6e9d1351b4c1a442d300a9b395173976797843af25817811d9faccc043",
+    "data/sources/g/golay-1949-digital-coding-wave12.json": "2e6a7ea4e39afee62c0f6b8f7327ec0b04b04b245ab141c3ca6b54c2b3bd8443",
+    "data/sources/g/good-1958-interaction-analysis-wave12.json": "fb24925b3878946d7ef031cdfcf9963423319319523ff9a856b749b4ebccad15",
+    "data/sources/m/michels-1966-fourier-spectroscopy-wave12.json": "2a04246647806b69660c02318d06e116df4422b4113b464f948ebe0e3edc4cee",
+    "data/sources/n/nasa-voyager-jupiter-1979-wave12.json": "beff97236d31de5d66073863d548983c5000c4b55020416cdbe83d53257dbdd1",
+    "data/sources/n/nasa-voyager-telecommunication-wave12.json": "976edd335665614d7b45f708379b90f9902cfcab45bb3bffa09f3a19493ff80e",
+    "docs/reviews/2026-11-11-paused-batch12/lanes/information.json": "0d438fb49d1a0b9a40ec149b28907033bdcf66acafa27b796249ceefdd193bbc",
+    "evidence/c/cooley-1967-fft-history-wave12-notes.txt": "0088ce6bbca8ad6fb96ded901e9fd246692703e9927d0abc425cadc9b3777e54",
+    "evidence/g/golay-1949-digital-coding-wave12-notes.txt": "5e1f7ca2b323e85f657dc88e7ff3a522301363d768cd1d310e80638a5a25e5e9",
+    "evidence/g/good-1958-interaction-analysis-wave12-notes.txt": "4c0d3bb805f18dda2d5190a163d844f18869054e150a107f7b1480698622d157",
+    "evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt": "9469c85fe9dbb73edb22dfecc9f2bc6233cbd22a35613c906450595a5e7061e5",
+    "evidence/n/nasa-voyager-jupiter-1979-wave12-notes.txt": "820b96250a1c2f78ffa090e4cc801b9ab6c58155a881d6575e2d57a26737b6a1",
+    "evidence/n/nasa-voyager-telecommunication-wave12-notes.txt": "8bfb43c8bcc15a19da00df4a6d7c44d41dd892ad49d2a46bd32a90399066dc47"
+  },
+  "raw_source_sha256": {
+    "cooley-1967-fft-history-wave12.pdf": "7fc1ed700e5025752e4b8cf200224e2cdce8677186ae231937adff30089fa0f7",
+    "cooley-1967-fft-history-wave12.txt": "87d4f8c281fc1f0654ed66f7a41c77338dd744be1998a7cc605ba1f2cc1df5bb",
+    "cooley-tukey-1965-fourier-wave11.pdf": "8fe5d32dcf08c01f9168a71e3fea746308ba465d0b4d0ef95e7f4f2af300e282",
+    "golay-1949-digital-coding-wave12.pdf": "8384039863245e7e85e6f7aa86761b97a4c726213872005d6d4baa55e20367ca",
+    "golay-1949-digital-coding-wave12.txt": "ef6cbd2161eaea7943ce8693b9824d23d1793ffb1c0fca05b600d3899b44c977",
+    "michels-1966-fourier-spectroscopy-wave12.pdf": "1d35b341e195201c0a05fd05a2f09fb28de3bc35d8902024253104d2925fa0e4",
+    "michels-1966-fourier-spectroscopy-wave12.txt": "4a4d269d7cc6ba3f2c395faab2cd1eaa9761e344b77de413018a32d16df0fc15",
+    "nasa-voyager-jupiter-1979-wave12.html": "0d4e89508ec437692a5d4f13de3640f46c6e6fb1c85ab80abf72a35b690967bf",
+    "nasa-voyager-telecommunication-wave12.pdf": "1bd13bc930e999e35415a19f2679ec5251a4fa111c0fc78b07a92c1590e61f26",
+    "nasa-voyager-telecommunication-wave12.txt": "a23091bfc0b4c6eba5d1630f2200bb704e26f47b8cd42b870bbdb3dd2ac65f91"
+  },
+  "original_19": [
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/communication/fired-clay-type.json",
+      "sha256": "2528b5088ebee9e4969f0dc8825b16605b704418da8403b4e4db29192b1bb244",
+      "decision": "reverted to base; original impact and grain deferred"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json",
+      "sha256": "d9329dcfb09dfb5e7bd71666a788fe5a2d431ddd16e7e4faddc5e58347b78d6d",
+      "decision": "retained modified: candidate Good link and corrected IRIS event"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/golay-digital-error-correction-1949.json",
+      "sha256": "f546a3988c8c50a2f9603f93ec3bcfe5c64d482f1d043df305966cf38a7dba43",
+      "decision": "retained modified: candidate Shannon link and Voyager evidence attribution"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json",
+      "sha256": "d234e66edef5284901aecdd1bde9b32c7d047b48a95d05550b74cfb2d9d012a9",
+      "decision": "1958 retained; 1960 event deferred"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/materials/bessemer-air-conversion.json",
+      "sha256": "5bc26ba164eada6df0b6e920539db6e4b5923b19fd074a051e32b5a7ad978b89",
+      "decision": "reverted to base; original impact and grain deferred"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/c/cooley-1967-fft-history-wave12.json",
+      "sha256": "7ed39b6e9d1351b4c1a442d300a9b395173976797843af25817811d9faccc043",
+      "decision": "retained with claim-level review"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/g/golay-1949-digital-coding-wave12.json",
+      "sha256": "2e6a7ea4e39afee62c0f6b8f7327ec0b04b04b245ab141c3ca6b54c2b3bd8443",
+      "decision": "retained with claim-level review"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/g/good-1958-interaction-analysis-wave12.json",
+      "sha256": "fb24925b3878946d7ef031cdfcf9963423319319523ff9a856b749b4ebccad15",
+      "decision": "retained with claim-level review"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/g/good-1960-interaction-addendum-wave12.json",
+      "sha256": "91b9406128cf097be435056b5c41021a7b318329f6ee2a224e95fb218209416c",
+      "decision": "deferred; source body and original summary not verified in repair"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/m/michels-1966-fourier-spectroscopy-wave12.json",
+      "sha256": "d9b41ac629fd4c8ee9a45c223e557af28c340a6a9363293f2d0a94798fd7f2f7",
+      "decision": "retained corrected: Cooley program and IRIS implementation distinguished"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/nasa-voyager-jupiter-1979-wave12.json",
+      "sha256": "ffa1afa8a80c7e719add79c7336cb0a482ae6743b8212b9148560f542e38c1d7",
+      "decision": "retained corrected metadata; publication date not encounter date"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/nasa-voyager-telecommunication-wave12.json",
+      "sha256": "017e6fb38e53c589fc5119af097c3a40f9726db8dac8d668bc6c1063162984d1",
+      "decision": "retained corrected coauthor metadata where applicable"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/c/cooley-1967-fft-history-wave12-notes.txt",
+      "sha256": "0088ce6bbca8ad6fb96ded901e9fd246692703e9927d0abc425cadc9b3777e54",
+      "decision": "retained with claim-level review"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/g/golay-1949-digital-coding-wave12-notes.txt",
+      "sha256": "5e1f7ca2b323e85f657dc88e7ff3a522301363d768cd1d310e80638a5a25e5e9",
+      "decision": "retained with claim-level review"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/g/good-1958-interaction-analysis-wave12-notes.txt",
+      "sha256": "4c0d3bb805f18dda2d5190a163d844f18869054e150a107f7b1480698622d157",
+      "decision": "retained with claim-level review"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/g/good-1960-interaction-addendum-wave12-notes.txt",
+      "sha256": "5ff57d70aa88a3380790409a154477661fdce9c90505dd0ef38fcaf880f9f629",
+      "decision": "deferred; source body and original summary not verified in repair"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+      "sha256": "fc188f29d28ec6cae95ff89b1ce295fa43e4f979b4509b032b83e574b554fecb",
+      "decision": "retained corrected: Cooley program and IRIS implementation distinguished"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/nasa-voyager-jupiter-1979-wave12-notes.txt",
+      "sha256": "c5d1e1ac55faca72b0eff65896c2bb0afad278919e285e813fff63809daf7e34",
+      "decision": "retained corrected metadata; publication date not encounter date"
+    },
+    {
+      "pointer": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/nasa-voyager-telecommunication-wave12-notes.txt",
+      "sha256": "8bfb43c8bcc15a19da00df4a6d7c44d41dd892ad49d2a46bd32a90399066dc47",
+      "decision": "retained corrected coauthor metadata where applicable"
+    }
+  ],
+  "limitations": [
+    "This review approves candidate links only, not established graph edges.",
+    "Good publisher summary and metadata were accessed via search service; no full-text claim is made for the worker’s inspection.",
+    "No independent check of physical implementations; historical document assertions only.",
+    "Shared registers must be merged by ID; canonical sorted-key compact UTF-8 JSON hashes apply to individual rows, not whole register.",
+    "The integrator must verify schema, source and evidence hashes, duplicate IDs, affected tests, and integration bytes; changes invalidate this binding."
+  ]
+}

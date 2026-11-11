@@ -1,0 +1,76 @@
+{
+  "id": "good-interaction-and-fourier-analysis-1958",
+  "name": "Good interaction algorithm and Fourier analysis",
+  "description": "An interaction algorithm with methods for efficient Fourier analysis developed in a study of factorial experiments.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "paper-1958",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1958,
+          "month": 7
+        },
+        "latest": {
+          "year": 1958,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1958-07",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "I. J. Good published an interaction algorithm and related Fourier-analysis shortcuts.",
+      "evidence": [
+        {
+          "source": "good-1958-interaction-analysis-wave12",
+          "locator": "Publisher metadata and original summary",
+          "supports": "Good’s original summary describes an interaction algorithm and Fourier shortcuts in July 1958."
+        },
+        {
+          "source": "cooley-1967-fft-history-wave12",
+          "locator": "pp. 1675–1676",
+          "supports": "The Cooley coauthored history distinguishes Good’s prime-factor and Cooley–Tukey algorithms."
+        }
+      ],
+      "caveats": "The publisher abstract was inspected, but the original full text was unavailable; the 1967 history characterizes the prime-factor method.",
+      "contributions": [
+        {
+          "person": "i-j-good",
+          "role": "contributor",
+          "resource": "Authored the original paper.",
+          "evidence": [
+            {
+              "source": "good-1958-interaction-analysis-wave12",
+              "locator": "Publisher metadata and original summary",
+              "supports": "Good’s original summary describes an interaction algorithm and Fourier shortcuts in July 1958."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "paper-1958",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "concept": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "1960 addendum",
+        "note": "Draft event deferred: the original addendum and its summary were inaccessible in this repair; the 1967 history cites a 1960 addendum but does not establish its contents or month."
+      }
+    ]
+  },
+  "concept": "fast-discrete-fourier-transformation"
+}

@@ -1,0 +1,141 @@
+{
+  "id": "golay-digital-error-correction-1949",
+  "name": "Golay digital error-correcting codes",
+  "description": "Binary and ternary codes described for correcting transmission errors in blocks of symbols.",
+  "kind": "technology",
+  "domain": "electronics.software",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "note-received-1949",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1949,
+          "month": 2,
+          "day": 23
+        },
+        "latest": {
+          "year": 1949,
+          "month": 2,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1949-02-23",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "The Institute received Golay’s note on 23 February 1949.",
+      "evidence": [
+        {
+          "source": "golay-1949-digital-coding-wave12",
+          "locator": "p. 657 and footnote",
+          "supports": "Golay explicitly extends Shannon’s seven-symbol example, presents binary and ternary codes and dates receipt and publication."
+        }
+      ],
+      "caveats": "Receipt is not proof of immediate public circulation."
+    },
+    {
+      "id": "note-published-1949",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1949,
+          "month": 6
+        },
+        "latest": {
+          "year": 1949,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1949-06",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "Golay published a note presenting error-correcting coding schemes.",
+      "evidence": [
+        {
+          "source": "golay-1949-digital-coding-wave12",
+          "locator": "p. 657 and footnote",
+          "supports": "Golay explicitly extends Shannon’s seven-symbol example, presents binary and ternary codes and dates receipt and publication."
+        }
+      ],
+      "caveats": "The paper explicitly extends Shannon’s example; this does not establish that Hamming’s independent method was derived from Golay.",
+      "contributions": [
+        {
+          "person": "marcel-j-e-golay",
+          "role": "contributor",
+          "resource": "Authored the note.",
+          "evidence": [
+            {
+              "source": "golay-1949-digital-coding-wave12",
+              "locator": "p. 657 and footnote",
+              "supports": "Golay explicitly extends Shannon’s seven-symbol example, presents binary and ternary codes and dates receipt and publication."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voyager-jupiter-1979",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1979
+        },
+        "latest": {
+          "year": 1979
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1979",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "NASA reports Golay encoding was used in the Voyager Jupiter encounter telemetry system.",
+      "evidence": [
+        {
+          "source": "nasa-voyager-telecommunication-wave12",
+          "locator": "Section 3.6.2.2",
+          "supports": "NASA describes Golay encoding at Jupiter and Saturn and dates the Jupiter encounter to 1979."
+        },
+        {
+          "source": "nasa-voyager-jupiter-1979-wave12",
+          "locator": "1979 catalog and abstract",
+          "supports": "The 1979 catalog entry describes the completed Voyager 1 Jupiter encounter and its communications."
+        }
+      ],
+      "caveats": "This mission-specific application does not imply all data used Golay."
+    }
+  ],
+  "earliest_record": {
+    "event": "note-received-1949",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "shannon-mathematical-theory-of-communication",
+      "from_event": "publication-part-one-1948",
+      "to_event": "note-published-1949",
+      "status": "candidate",
+      "statement": "Golay explicitly extends the seven-symbol example presented in Shannon’s 1948 paper.",
+      "evidence": [
+        {
+          "source": "golay-1949-digital-coding-wave12",
+          "locator": "p. 657 and footnote",
+          "supports": "Golay explicitly extends Shannon’s seven-symbol example, presents binary and ternary codes and dates receipt and publication."
+        }
+      ],
+      "caveats": " The direct author account has not yet been independently corroborated under the project gate; this is a candidate, not an established graph edge."
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "prompt_version": "paused-batch12-finalize-v1",
+  "actual_model": "gpt-6.1-terra",
+  "actual_reasoning_effort": "high",
+  "role": "repairer; independent admission review required",
+  "base_commit": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "archive_original_root": "docs/research-drafts/paused-batch12-2026-11-11/original",
+  "register_additions": [
+    {
+      "register": "data/people.jsonl",
+      "row": {
+        "id": "i-j-good",
+        "name": "I. J. Good",
+        "basis": "sourced"
+      },
+      "canonical_sha256": "432648b403088ec33dec040365880792a81e13db9381b0ede28a443beccef94a"
+    },
+    {
+      "register": "data/people.jsonl",
+      "row": {
+        "id": "marcel-j-e-golay",
+        "name": "Marcel J. E. Golay",
+        "basis": "sourced"
+      },
+      "canonical_sha256": "868e2c25ffede1848480fec80f89eb0fcbbc434e5416d76250f8159dab6e4788"
+    }
+  ],
+  "claim_ledger": [
+    {
+      "original": "data/discoveries/communication/fired-clay-type.json#/impact, /grain, /research/basis",
+      "disposition": "reverted to base",
+      "reason": "Unsupported recalled impact and grain; original snapshot retained in archive."
+    },
+    {
+      "original": "data/discoveries/materials/bessemer-air-conversion.json#/impact, /grain, /research/basis",
+      "disposition": "reverted to base",
+      "reason": "Unsupported recalled impact and grain; original snapshot retained in archive."
+    },
+    {
+      "original": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/events/1",
+      "disposition": "deferred",
+      "reason": "1960 addendum summary and full text inaccessible in this execution. 1967 bibliography confirms a 1960 addendum but not month or content. Associated source descriptor and notes omitted from active data and preserved in archive."
+    },
+    {
+      "original": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/links/0/status",
+      "disposition": "changed established to candidate",
+      "reason": "1965 paper explicitly describes applying Good’s methods, but 1967 historical account shares Cooley as author; independent informative corroboration of dependence is not yet established."
+    },
+    {
+      "original": "data/discoveries/electronics/golay-digital-error-correction-1949.json#/links/0/status",
+      "disposition": "changed established to candidate",
+      "reason": "Golay explicitly extends Shannon’s example, but independently corroborated consequential relation required before established edge."
+    },
+    {
+      "original": "data/discoveries/electronics/golay-digital-error-correction-1949.json#/events/2/evidence",
+      "disposition": "corrected support attributions",
+      "reason": "NASA history itself dates Jupiter encounter to 1979; NTRS publication date is not encounter date."
+    },
+    {
+      "original": "data/sources/n/nasa-voyager-jupiter-1979-wave12.json#/authors, /lineage, /passages/0/note",
+      "disposition": "corrected",
+      "reason": "NTRS lists actual article authors; NASA is catalog, not author. Publication date alone does not date encounter."
+    },
+    {
+      "original": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/research/unresolved",
+      "disposition": "added deferral",
+      "reason": "Record access gap for 1960 addendum."
+    },
+    {
+      "original": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/events/2/statement, /events/2/evidence/0/supports, /research/unresolved/0/note; data/sources/m/michels-1966-fourier-spectroscopy-wave12.json#/lineage, /passages/0/note; evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+      "disposition": "corrected attribution following independent review",
+      "reason": "Michels p. 1 reports FFT implementation in IRIS and separately explains use of Cooley’s FORTRAN IV program; it does not identify the IRIS implementation as that specific program. Note file hash updated."
+    },
+    {
+      "original": "data/sources/n/nasa-voyager-telecommunication-wave12.json#/authors",
+      "disposition": "corrected following independent review",
+      "reason": "The source title page credits Jim Taylor alongside Roger Ludwig; draft omitted the second author."
+    }
+  ],
+  "retained_for_independent_review": "All other draft claims in the two new records, the IRIS event and the six retained source descriptors/notes remain proposals pending separate review. No self-approval.",
+  "source_access": {
+    "local_external_directory": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/information-original-sources",
+    "retrieved_utc_date": "2026-11-11",
+    "raw_files": [
+      {
+        "filename": "cooley-1967-fft-history-wave12.pdf",
+        "sha256": "7fc1ed700e5025752e4b8cf200224e2cdce8677186ae231937adff30089fa0f7",
+        "bytes": 323815
+      },
+      {
+        "filename": "cooley-tukey-1965-fourier-wave11.pdf",
+        "sha256": "8fe5d32dcf08c01f9168a71e3fea746308ba465d0b4d0ef95e7f4f2af300e282",
+        "bytes": 358294
+      },
+      {
+        "filename": "golay-1949-digital-coding-wave12.pdf",
+        "sha256": "8384039863245e7e85e6f7aa86761b97a4c726213872005d6d4baa55e20367ca",
+        "bytes": 368092
+      },
+      {
+        "filename": "michels-1966-fourier-spectroscopy-wave12.pdf",
+        "sha256": "1d35b341e195201c0a05fd05a2f09fb28de3bc35d8902024253104d2925fa0e4",
+        "bytes": 1125825
+      },
+      {
+        "filename": "nasa-voyager-jupiter-1979-wave12.html",
+        "sha256": "0d4e89508ec437692a5d4f13de3640f46c6e6fb1c85ab80abf72a35b690967bf",
+        "bytes": 86686
+      },
+      {
+        "filename": "nasa-voyager-telecommunication-wave12.pdf",
+        "sha256": "1bd13bc930e999e35415a19f2679ec5251a4fa111c0fc78b07a92c1590e61f26",
+        "bytes": 2764983
+      }
+    ],
+    "good_1958": "Publisher site blocked direct download (HTTP 403); publisher 1958 metadata and original summary were visible in search service results. Full text was not inspected. Original research notes remain labelled research notes.",
+    "good_1960": "Publisher URL returned 403 and was not checked in this execution; deferral, not a source verification."
+  },
+  "resume_handoff_paths": [
+    "/tmp/interwoven-research-20261109/information/paths-wave12.json",
+    "/tmp/interwoven-research-20261109/information/registers-wave12.json",
+    "/tmp/interwoven-research-20261109/information/leads-wave12.jsonl",
+    "/tmp/interwoven-research-20261109/information/wave12.py"
+  ],
+  "catalogue_screen": "Searched current base for Good, Golay, Cooley, Fourier and error correction; Good and Golay distinct from existing Cooley, Hamming, Shannon records; leads retained because broader questions remain open.",
+  "limitations": [
+    "Independent review has not occurred.",
+    "No global priority or historical transmission is asserted.",
+    "Original publisher full texts for Good 1958 and 1960 were not retrieved.",
+    "Cached raw source files are local outside Git and must be carried with provenance if this work moves machines."
+  ]
+}

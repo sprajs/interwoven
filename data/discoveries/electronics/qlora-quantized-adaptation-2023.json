@@ -27,12 +27,17 @@
         "label": "2023-05-23",
         "basis": "Source-reported publication or announcement date."
       },
-      "statement": "Dettmers and colleagues submitted QLoRA version 1, reporting fine-tuning a 65-billion-parameter model on one 48 GB GPU.",
+      "statement": "Dettmers and colleagues submitted QLoRA version 1, reporting fine-tuning a 65-billion-parameter model on one 48 GB GPU. The authors state that 33B Guanaco can be fine-tuned on 24 GB consumer GPUs in less than twelve hours.",
       "evidence": [
         {
           "source": "w10-arxiv-qlora-2023-v1",
           "locator": "Version 1 metadata, abstract and sections 4–5",
           "supports": "Gives date, authors, method and reported fine-tuning configuration."
+        },
+        {
+          "source": "w10-arxiv-qlora-2023-v1",
+          "locator": "Section 5.3, printed p. 10; Introduction, p. 2",
+          "supports": "The authors state that their 33B Guanaco can be trained on 24 GB consumer GPUs in less than twelve hours. This concerns fine-tuning, not pretraining the underlying model."
         }
       ],
       "contributions": [
@@ -99,11 +104,11 @@
       "grain": "recalled",
       "concept": "sourced",
       "origin": "unknown",
-      "events": "reviewed",
+      "events": "sourced",
       "links": "reviewed",
-      "measures": "reviewed"
+      "measures": "sourced"
     },
-    "note": "Independent reader checked the cited original version, event claims and specified facets. The 65B/48 GB figure is an author-reported fine-tuning configuration, not pretraining cost; v1 table 4 reports the 65B BFloat16 adapter comparison."
+    "note": "Independent reader checked the cited original version, event claims and specified facets. The 65B/48 GB figure is an author-reported fine-tuning configuration, not pretraining cost; v1 table 4 reports the 65B BFloat16 adapter comparison. Wave 12 additions await independent review."
   },
   "links": [
     {
@@ -153,6 +158,22 @@
           "source": "w10-arxiv-qlora-2023-v1",
           "locator": "Version 1 abstract",
           "supports": "Reports one GPU for 65B model fine-tuning."
+        }
+      ]
+    },
+    {
+      "quantity": "GPU memory in authors’ stated 33B fine-tuning capability",
+      "value": 24,
+      "unit": "GB per GPU",
+      "event": "qlora-preprint-v1",
+      "subject": "Authors’ 33B Guanaco fine-tuning",
+      "conditions": "Authors state 33B Guanaco can be trained on 24 GB consumer GPUs in less than twelve hours; excludes pretraining, access to the pretrained base, and other resources; GPU count is unspecified.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w10-arxiv-qlora-2023-v1",
+          "locator": "Section 5.3, printed p. 10; Introduction, p. 2",
+          "supports": "The authors state that their 33B Guanaco can be trained on 24 GB consumer GPUs in less than twelve hours. This concerns fine-tuning, not pretraining the underlying model."
         }
       ]
     }

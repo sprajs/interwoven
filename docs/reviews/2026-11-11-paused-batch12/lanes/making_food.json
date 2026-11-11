@@ -1,0 +1,465 @@
+{
+  "protocol": "paused-batch12-finalize-v1",
+  "lane": "making_food",
+  "base": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "model": "gpt-6.1-terra",
+  "effort": "high",
+  "role": "researcher/repairer; independent review pending",
+  "worktree": "/Users/szymon/.codex/worktrees/commit-all-20261111/making_food",
+  "original_archive": "Parent preserves all exact originals; original_pointer paths are relative to archived snapshot and /Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/original",
+  "handoffs_to_preserve": [
+    "/tmp/interwoven-research-20261109/making/paths-wave12.json",
+    "/tmp/interwoven-research-20261109/making/source-prep-wave12.json",
+    "/tmp/interwoven-research-20261109/making/registers-wave12.json",
+    "/tmp/interwoven-research-20261109/making/leads-wave12.jsonl",
+    "/tmp/interwoven-research-20261109/sustenance/paths-wave12.json",
+    "/tmp/interwoven-research-20261109/sustenance/source-prep-wave12.json",
+    "/tmp/interwoven-research-20261109/sustenance/registers-wave12.json",
+    "/tmp/interwoven-research-20261109/sustenance/leads-wave12.jsonl",
+    "/tmp/interwoven-research-20261109/making/fieldaudit-wave12.json",
+    "/tmp/interwoven-research-20261109/sustenance/capability-audit-wave12.json"
+  ],
+  "files": [
+    {
+      "path": "data/discoveries/daily-life/te-takinga-maori-pataka-storehouse.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/daily-life/te-takinga-maori-pataka-storehouse.json",
+      "original_sha256": "99dcf273e0dba2e0746671b6f0b5e93d08aab03ea782e4193b28aa9771a2a266",
+      "final_sha256": "e19e20bbe0ba2f04d0167a2b3ade15b022f57f8d2f8377125362b77aa7ca6783"
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json",
+      "original_sha256": "6a24516eb12e7e5af6f1bd84c2af2fcd7cc367b67e2b328e186ceee54daf7a0c",
+      "final_sha256": "7e42a0a29a11cf8fcd0f7c2e8d666d9f126c208e688d4f089f51db6ffa02fa81"
+    },
+    {
+      "path": "data/discoveries/food/palugaswewa-sri-lanka-tank-cascade-management.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/food/palugaswewa-sri-lanka-tank-cascade-management.json",
+      "original_sha256": "179efbf2b7fef8d896636d8eca6279a34083582fc9e1b4cda677590e34d323c7",
+      "final_sha256": "999fe14645da0984488e0106f77e47425951f236490bb6c14592bdfe562a060a"
+    },
+    {
+      "path": "data/discoveries/food/snaketown-hohokam-canal-irrigation.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/food/snaketown-hohokam-canal-irrigation.json",
+      "original_sha256": "69c301923013af55c3c8466f3b0a7ffc51e4c50ae7421f5946bddbab31069f87",
+      "final_sha256": "1c1ed54c2a1b47aa6f260b1e83986298b309f3defd2da461bfb4e5dd771ee4a6"
+    },
+    {
+      "path": "data/discoveries/materials/asante-narrow-strip-loom-weaving-kumase.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/materials/asante-narrow-strip-loom-weaving-kumase.json",
+      "original_sha256": "51ea01db49cda65b689d7617729fcf826a8f4ca62a70a9b9ea26bd6f2180af8e",
+      "final_sha256": "43e3f657521511facacd791e9e1e89a6b37b6bc6fc3d85354724dbe96121d068"
+    },
+    {
+      "path": "data/discoveries/materials/huacas-de-moche-mould-ceramics.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/materials/huacas-de-moche-mould-ceramics.json",
+      "original_sha256": "545f688ddc378a450ea833f68b3f14c9102196e1d1fce475f6212be0cc17b4e0",
+      "final_sha256": "5545d298cc2a8212b559a7c8701b4caba6cdca54abb136fa1279ec5e21d7d2ed"
+    },
+    {
+      "path": "data/discoveries/materials/java-canting-wax-resist-workshop.json",
+      "disposition": "retained with repairs",
+      "original_pointer": "data/discoveries/materials/java-canting-wax-resist-workshop.json",
+      "original_sha256": "760f2a38ad89fd3afc2bedc241f3c6a52f55f9bcf81935079a71f4fa45637fe5",
+      "final_sha256": "a7c48ba0037e522be57c95e1c1adc59fc7367258fb915c79e4e1c334307cdbc7"
+    },
+    {
+      "path": "data/sources/w/w12-anagnost-asante-weaving.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-anagnost-asante-weaving.json",
+      "original_sha256": "63d4e9c9b9dd21719bc52168f3f052388c2a1f1eb8b3fa4365dc440074928ff9",
+      "final_sha256": "63d4e9c9b9dd21719bc52168f3f052388c2a1f1eb8b3fa4365dc440074928ff9"
+    },
+    {
+      "path": "data/sources/w/w12-bernier-moche-workshop.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-bernier-moche-workshop.json",
+      "original_sha256": "91198f3e41b2f38f30a380d1dd8e9860d1621ea05c128b36782c94c043b1ea8e",
+      "final_sha256": "91198f3e41b2f38f30a380d1dd8e9860d1621ea05c128b36782c94c043b1ea8e"
+    },
+    {
+      "path": "data/sources/w/w12-kerlogue-java-batik.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-kerlogue-java-batik.json",
+      "original_sha256": "d7e6042d313d2721044cc355486b9539df2514a6feaa88fa7fac1c5b2bb73cd3",
+      "final_sha256": "d7e6042d313d2721044cc355486b9539df2514a6feaa88fa7fac1c5b2bb73cd3"
+    },
+    {
+      "path": "data/sources/w/w12-lang-stump-engaruka.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-lang-stump-engaruka.json",
+      "original_sha256": "64760e0ab6beb68722928f4c9f6f41a5052905e78a31fc3b54cab0ade949e5f1",
+      "final_sha256": "64760e0ab6beb68722928f4c9f6f41a5052905e78a31fc3b54cab0ade949e5f1"
+    },
+    {
+      "path": "data/sources/w/w12-rengifo-huacas-chronology.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-rengifo-huacas-chronology.json",
+      "original_sha256": "70359190b259eb9116dc5cff980a155cdc224d1c06226e6ad45ab5d586fc0bd9",
+      "final_sha256": "70359190b259eb9116dc5cff980a155cdc224d1c06226e6ad45ab5d586fc0bd9"
+    },
+    {
+      "path": "data/sources/w/w12-sri-lanka-fao-palugaswewa.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-sri-lanka-fao-palugaswewa.json",
+      "original_sha256": "a0d4c1faca9afda245ed604eca6a8b7ae79aadfcf96e2857f6eb9c5f27208dfd",
+      "final_sha256": "a0d4c1faca9afda245ed604eca6a8b7ae79aadfcf96e2857f6eb9c5f27208dfd"
+    },
+    {
+      "path": "data/sources/w/w12-tepapa-storing-kai.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-tepapa-storing-kai.json",
+      "original_sha256": "d9af0b0599501467b71b30b463d408aabd49a595f5fb53379a1a319a14da1246",
+      "final_sha256": "d9af0b0599501467b71b30b463d408aabd49a595f5fb53379a1a319a14da1246"
+    },
+    {
+      "path": "data/sources/w/w12-tepapa-te-takinga.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-tepapa-te-takinga.json",
+      "original_sha256": "ce82c02b5bb46f41af6bd728a4537584df34ecadc69308059dac64e3ebfb84f6",
+      "final_sha256": "ce82c02b5bb46f41af6bd728a4537584df34ecadc69308059dac64e3ebfb84f6"
+    },
+    {
+      "path": "data/sources/w/w12-zhu-woodson-snaketown.json",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "data/sources/w/w12-zhu-woodson-snaketown.json",
+      "original_sha256": "56fb7ae6c550c978f75912f2639dcaf75b6501f9b8ec59962b1a2a1b38cc3d58",
+      "final_sha256": "56fb7ae6c550c978f75912f2639dcaf75b6501f9b8ec59962b1a2a1b38cc3d58"
+    },
+    {
+      "path": "evidence/w/w12-anagnost-asante-weaving-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-anagnost-asante-weaving-notes.txt",
+      "original_sha256": "7d36b1cbebb4ad7e79546e993414686aa0d6ac3e022f44d306432703899ccfba",
+      "final_sha256": "7d36b1cbebb4ad7e79546e993414686aa0d6ac3e022f44d306432703899ccfba"
+    },
+    {
+      "path": "evidence/w/w12-bernier-moche-workshop-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-bernier-moche-workshop-notes.txt",
+      "original_sha256": "7ec758eecf25d86a20b86b9f10bf344966c578cf7a21157939296a4f582a2b03",
+      "final_sha256": "7ec758eecf25d86a20b86b9f10bf344966c578cf7a21157939296a4f582a2b03"
+    },
+    {
+      "path": "evidence/w/w12-kerlogue-java-batik-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-kerlogue-java-batik-notes.txt",
+      "original_sha256": "427a16a083f1f778b3386ac4ef299ab929c9c6c7e8484e77f00e57960befa8a3",
+      "final_sha256": "427a16a083f1f778b3386ac4ef299ab929c9c6c7e8484e77f00e57960befa8a3"
+    },
+    {
+      "path": "evidence/w/w12-lang-stump-engaruka-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-lang-stump-engaruka-notes.txt",
+      "original_sha256": "6498bcb35b4ab3dd32651a7702513a9bbf394e9f2af11bbce41f1080962093f8",
+      "final_sha256": "6498bcb35b4ab3dd32651a7702513a9bbf394e9f2af11bbce41f1080962093f8"
+    },
+    {
+      "path": "evidence/w/w12-rengifo-huacas-chronology-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-rengifo-huacas-chronology-notes.txt",
+      "original_sha256": "e47a3198b34d0b894285644160b2b3075c555e719772c518d7c3c58f0467815c",
+      "final_sha256": "e47a3198b34d0b894285644160b2b3075c555e719772c518d7c3c58f0467815c"
+    },
+    {
+      "path": "evidence/w/w12-sri-lanka-fao-palugaswewa-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-sri-lanka-fao-palugaswewa-notes.txt",
+      "original_sha256": "0f06daa3de70d658a480ac0d23bccb7583eb4a3e5bb94d3ab220ed43a42d22e7",
+      "final_sha256": "0f06daa3de70d658a480ac0d23bccb7583eb4a3e5bb94d3ab220ed43a42d22e7"
+    },
+    {
+      "path": "evidence/w/w12-tepapa-storing-kai-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-tepapa-storing-kai-notes.txt",
+      "original_sha256": "7b3de741d590bb496d7ac6f48c92d3387c2cc47cc055f3f23064470082215566",
+      "final_sha256": "7b3de741d590bb496d7ac6f48c92d3387c2cc47cc055f3f23064470082215566"
+    },
+    {
+      "path": "evidence/w/w12-tepapa-te-takinga-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-tepapa-te-takinga-notes.txt",
+      "original_sha256": "f926ee3f4d6406a7a522832ba5514317b000738e70fae37d901c3efc0b4c4fa0",
+      "final_sha256": "f926ee3f4d6406a7a522832ba5514317b000738e70fae37d901c3efc0b4c4fa0"
+    },
+    {
+      "path": "evidence/w/w12-zhu-woodson-snaketown-notes.txt",
+      "disposition": "retained as original research note or source metadata",
+      "original_pointer": "evidence/w/w12-zhu-woodson-snaketown-notes.txt",
+      "original_sha256": "1f87b7b4282236edc68b8aa7c7cfe1449fef47e0586033766ba60d76abd16cb2",
+      "final_sha256": "1f87b7b4282236edc68b8aa7c7cfe1449fef47e0586033766ba60d76abd16cb2"
+    }
+  ],
+  "claims": [
+    {
+      "record": "te-takinga-maori-pataka-storehouse",
+      "retained": "Object, attributed carver and approximate range, using Te Papa catalogue; general pātaka function does not establish contents.",
+      "locator": "Item details/production and overview; teaching resource module 4 p.14",
+      "deferred": "Contents, users and prior history.",
+      "original_pointer": "data/discoveries/daily-life/te-takinga-maori-pataka-storehouse.json",
+      "changed": "Clarified that Te Hape is the original location; the object was later moved."
+    },
+    {
+      "record": "engaruka-terraced-irrigation-and-sediment-capture",
+      "retained": "Contextual landscape chronology, check dams, stratigraphy and >1000 ha paper claim.",
+      "locator": "Lang and Stump abstract, introduction and stratigraphy",
+      "changed": "Removed numeric 1000-hectare measure because source says strictly more than 1000, not an exact value; the published statement preserves the bound.",
+      "deferred": "Direct dates per wall, individual builders, abandonment causes.",
+      "original_pointer": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json"
+    },
+    {
+      "record": "palugaswewa-sri-lanka-tank-cascade-management",
+      "retained": "2017 nomination contemporary branched system, two organizations, four tanks under Palugaswewa group.",
+      "locator": "Proposal pp. 69–70, 80–82",
+      "deferred": "Origin, historical rights and unchanged operation.",
+      "original_pointer": "data/discoveries/food/palugaswewa-sri-lanka-tank-cascade-management.json"
+    },
+    {
+      "record": "snaketown-hohokam-canal-irrigation",
+      "retained": "Period-level reconstruction of canal and subsequent expansion; not direct dating or measured flows.",
+      "locator": "Zhu et al. case selection and chronology, article pp. 2–3",
+      "deferred": "Primary excavation chronology and community perspectives.",
+      "original_pointer": "data/discoveries/food/snaketown-hohokam-canal-irrigation.json"
+    },
+    {
+      "record": "asante-narrow-strip-loom-weaving-kumase",
+      "retained": "1817 observation of people using a foot loom in Kumase; not an invention date.",
+      "locator": "Anagnost p. 13",
+      "deferred": "Whether the 1817 loom and observed people produced the separately described adinkra cotton strips, and regional transmission.",
+      "original_pointer": "data/discoveries/materials/asante-narrow-strip-loom-weaving-kumase.json",
+      "changed": "Removed attribution of separately described narrow cotton strips and adinkra production to the observed 1817 Kumase weavers; changed concept to general foot-loom weaving."
+    },
+    {
+      "record": "huacas-de-moche-mould-ceramics",
+      "retained": "Workshop moulds and phase context, 300 m² excavated, and residence matches; phase dates are contextual.",
+      "locator": "Bernier fineware workshop; Rengifo phase IV",
+      "changed": "Corrected measure evidence support to explicitly state excavated area.",
+      "deferred": "Direct workshop floor dates and patronage.",
+      "original_pointer": "data/discoveries/materials/huacas-de-moche-mould-ceramics.json"
+    },
+    {
+      "record": "java-canting-wax-resist-workshop",
+      "retained": "1901 letter describes women using canting; process and image caveats.",
+      "locator": "Kerlogue p. 9, accessed using web-rendered PDF",
+      "deferred": "Local maker identities, origin and relationship of photograph to makers; direct PDF retrieval returned 403, web renderer accessible.",
+      "original_pointer": "data/discoveries/materials/java-canting-wax-resist-workshop.json"
+    }
+  ],
+  "global_repairs": [
+    "Changed all prior reviewed basis labels to sourced and removed assertions of completed independent review; current work is not an independent admission review.",
+    "Inserted all proposed register rows in ID order; preserved existing rows."
+  ],
+  "duplicate_screen": "Searched exact site, place and process terms across current data/discoveries and data/leads.jsonl. No other matching discovery found; nearest related records and existing open leads are in wave12 source-prep handoffs. Search is not an exhaustive semantic duplicate proof.",
+  "lead_disposition": "Existing matching open leads retained; suggested focused updates in handoffs deferred to integrator rather than silently removing unresolved questions.",
+  "register_additions": [
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "ceramic-mould-forming",
+        "name": "Mould-forming ceramics",
+        "field": "materials.ceramics",
+        "summary": "Shaping clay ceramic objects with moulds."
+      },
+      "canonical_sha256": "63a7130d3877250b6c12f4b88de078b2a51543db7f92efa9ea153d92471ccca8"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "engaruka-sediment-capture-irrigation",
+        "name": "Engaruka sediment-capture irrigation",
+        "summary": "Terraced farming landscape using check dams and irrigation to retain sediment.",
+        "field": "food.irrigation"
+      },
+      "canonical_sha256": "07defd3164d82ebb6f14f80af072ac839c5e9fd82ca7f5440789dc7c84077f70"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "foot-loom-weaving",
+        "name": "Foot-loom weaving",
+        "field": "materials.textiles",
+        "summary": "Weaving using a foot-operated loom."
+      },
+      "canonical_sha256": "c7e3d4b0838c21b28ec3b49dc713c1ead6f78c685c95cc1b3cfdda29a1d6a9ea"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "hand-applied-wax-resist-textile",
+        "name": "Hand-applied wax-resist textile decoration",
+        "field": "materials.textiles",
+        "summary": "Applying wax by hand to reserve areas of textile against dye."
+      },
+      "canonical_sha256": "c5e77772a318287d11a6a6e3e7472e988628e34d1009058ab2f7e58f5dbc9b61"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "maori-pataka-storehouse",
+        "name": "Māori pātaka storehouse",
+        "summary": "Māori storehouse as a material and cultural structure.",
+        "field": "daily-life.household"
+      },
+      "canonical_sha256": "f8e6f0da799273d5e0a1a0aeefa0a798ed8df0bae02d93c597a45ec8816248f4"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "middle-gila-canal-irrigation",
+        "name": "Middle Gila canal irrigation",
+        "summary": "Diversion and distribution canals for farming in the Middle Gila River valley.",
+        "field": "food.irrigation"
+      },
+      "canonical_sha256": "2c6f38a9367bbda5edee705d9cd0f5b3858a0ce3bb1069528e10ecaf7108fa88"
+    },
+    {
+      "register": "data/concepts.jsonl",
+      "row": {
+        "id": "village-tank-cascade-management",
+        "name": "Village tank-cascade management",
+        "summary": "Community management of linked reservoir and agricultural landscapes.",
+        "field": "food.irrigation"
+      },
+      "canonical_sha256": "ae5d318319dbc10a3161ea28b4da6806482ead811a0b891a139e3af59abb3271"
+    },
+    {
+      "register": "data/organizations.jsonl",
+      "row": {
+        "id": "palugaswewa-farmer-organization",
+        "name": "Palugaswewa Farmer Organization",
+        "kind": "other",
+        "basis": "sourced",
+        "note": "Farmer organization described in the 2017 heritage proposal."
+      },
+      "canonical_sha256": "6642d2c77b200ea7a2a1e868af5635018fbf98c10e6aa5afa584d7a2e88e4085"
+    },
+    {
+      "register": "data/organizations.jsonl",
+      "row": {
+        "id": "udakadawala-farmer-organization",
+        "name": "Udakadawala Farmer Organization",
+        "kind": "other",
+        "basis": "sourced",
+        "note": "Farmer organization described in the 2017 heritage proposal."
+      },
+      "canonical_sha256": "935734e302e214fc01a57d6ed401dec3d8c2f4fdce2fc3b2553a5ca7ea30f78d"
+    },
+    {
+      "register": "data/people.jsonl",
+      "row": {
+        "id": "te-harete-te-whanarere",
+        "name": "Te Hārete Te Whanarere",
+        "occupations": [
+          "carver"
+        ],
+        "basis": "sourced"
+      },
+      "canonical_sha256": "661c54aa741a5a50c5f3f5fade947846e1f56ec6f6a398ad5e935f0f1f71d9d3"
+    },
+    {
+      "register": "data/places.jsonl",
+      "row": {
+        "id": "arizona",
+        "name": "Arizona",
+        "kind": "area",
+        "lat": 34.0,
+        "lon": -111.7,
+        "country": "US",
+        "region": "north_america",
+        "within": "united-states",
+        "basis": "recalled",
+        "note": "Approximate state coordinate."
+      },
+      "canonical_sha256": "4a9900a6da1f74b1dd9c6c314962eeb7e857222ab988ea9a9e88abac9472c437"
+    },
+    {
+      "register": "data/places.jsonl",
+      "row": {
+        "id": "sri-lanka",
+        "name": "Sri Lanka",
+        "kind": "country",
+        "lat": 7.9,
+        "lon": 80.7,
+        "country": "LK",
+        "region": "asia",
+        "within": null,
+        "basis": "recalled",
+        "note": "Approximate country coordinate."
+      },
+      "canonical_sha256": "f67878770fe1e76cde291bc9dd49ceb417fd8a1ce38ba6c90f343e14b40ec987"
+    },
+    {
+      "register": "data/places.jsonl",
+      "row": {
+        "id": "tanzania",
+        "name": "Tanzania",
+        "kind": "country",
+        "lat": -6.3,
+        "lon": 35.0,
+        "country": "TZ",
+        "region": "africa",
+        "within": null,
+        "basis": "recalled",
+        "note": "Approximate country coordinate."
+      },
+      "canonical_sha256": "46c2c1d79d8544f23280b5571cb8c2b8719324073a90d4fd1fe17bb8f09953d2"
+    }
+  ],
+  "cache_descriptors": [
+    "evidence/w/w12-anagnost-asante-weaving-original.pdf.cache.json",
+    "evidence/w/w12-tepapa-storing-kai-original.pdf.cache.json",
+    "evidence/w/w12-sri-lanka-fao-palugaswewa-original.pdf.cache.json",
+    "evidence/w/w12-zhu-woodson-snaketown-original.pdf.cache.json",
+    "evidence/w/w12-rengifo-huacas-chronology-original.pdf.cache.json"
+  ],
+  "raw_sources": [
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/rengifo-original.pdf",
+      "sha256": "de2da8ea59efe6e112359340bc58b29bed771e411a9964937cbc3ed362f1ed43",
+      "bytes": 4767669
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/snaketown-original.pdf",
+      "sha256": "9141cd850b7dc32747581378fd03cd5b76a492395b110452aa92654356b6cee4",
+      "bytes": 2730917
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/snaketown-springer.html",
+      "sha256": "400c830d5357635e35f554c0e6ac3ecd1b585b9e4a0d0c0268b554c70a1cda53",
+      "bytes": 418220
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/w12-anagnost-asante-weaving.pdf",
+      "sha256": "b034fdf145276b244fe964daff820ab7539f5f1f80e447bd84ba0e161ab3f4a7",
+      "bytes": 2529842
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/w12-lang-stump-engaruka.html",
+      "sha256": "905b47dbee2110c9276b41005de383cf728b2c953947c5b5d4189ab5bb1eb2ed",
+      "bytes": 1158798
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/w12-sri-lanka-fao-palugaswewa.pdf",
+      "sha256": "03330f4398754ff306c299b0dca2582e584ce2e62fc265e651aff2641df2ada3",
+      "bytes": 6508705
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/w12-tepapa-storing-kai.pdf",
+      "sha256": "72ddb37424dfc4c15dc87d44bbd9939ee71e4c4ce9bc0f24f707035900029a36",
+      "bytes": 2581290
+    },
+    {
+      "path": "/Users/szymon/Documents/ChatGPT/big_idea-research-state/commit-all-20261111/making_food-raw/w12-tepapa-te-takinga.html",
+      "sha256": "b4d4779bf4e0f55d743980ecc16acb659c2c85f66883fcda4aca6a724de6c1be",
+      "bytes": 72755
+    }
+  ],
+  "access_limit": "Bernier and Kerlogue were inspected through web rendering after direct retrieval returned 403. Original bytes for these are not locally saved; Rengifo and Zhu were obtained from alternative original-article PDF URLs. One PMC fetch was a CAPTCHA and is excluded.",
+  "approval": "none; mandatory separate reviewer has not yet assessed this commit."
+}

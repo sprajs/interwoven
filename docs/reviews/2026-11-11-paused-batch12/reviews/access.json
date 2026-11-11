@@ -1,0 +1,127 @@
+{
+  "prompt_version": "paused-batch12-finalize-v1",
+  "lane": "access",
+  "verdict": "accept_scoped_extensions",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent /root/batch12_review_access",
+    "response_id": null,
+    "usage": null
+  },
+  "researcher": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "/root/batch12_access"
+  },
+  "base_commit": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "final_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+  "revised_from": "037fb4d804c12f58160bb2452dd1257740ecb128",
+  "changed_file_sha256": {
+    "data/discoveries/electronics/chatgpt-research-preview-2022.json": "052810068a66ba115fbf6ad29b4fdad225fa16ca03025e6222519e746eb81569",
+    "data/discoveries/electronics/compatible-time-sharing-with-persistent-files-and-batch-service.json": "30a475df7e7cc36366ed41e3266e6258f03a6b4674afcc0f70ec707c673424f1",
+    "data/discoveries/electronics/llama-2-conditional-weights-release-2023.json": "954467acd48cd182e5146620480bb8cb94bd9b28917af4be275740479f953ba9",
+    "data/discoveries/electronics/lora-low-rank-adaptation-2021.json": "af8e9931db38985c98a4426ba412dbf9a5d91fa3507108caac8cba5ad92dbb3b",
+    "data/discoveries/electronics/mosis-multiproject-chip-fabrication-service.json": "36a314dce522af6fd5c7000797596f79b7450f76716e011a23ccc7662485b9af",
+    "data/discoveries/electronics/qlora-quantized-adaptation-2023.json": "2d05c937645d244a0d65f0f65e1f1df68db039e980a84c54ffdf59209cbd685f",
+    "data/sources/w/w10-meta-llama2-community-license.json": "775c727cb1fb60bc27ac94cc4341b6636e8bafb39e747d047260602b0d660835",
+    "data/sources/w/w12-pendleton-1985-mosis-soar.json": "385108d7bcfc25d021df4c165dbc1a4fd1b382a8b0621cb3409157a91248bf93",
+    "docs/reviews/2026-11-11-paused-batch12/lanes/access.json": "f195ad911fee0b8557de98da96eb882d29ab80695f015a3d9b34fcc8b0f868d6",
+    "evidence/w/w10-meta-llama2-community-license-2023-original.txt": "8c17c2ebb0ea011be9981cc3922db8ca8fa61e828c5d3f44cb6ae342bf80460b",
+    "evidence/w/w12-pendleton-1985-mosis-soar-notes.txt": "baa1cd480f60d2ad661ba166ec29dc78a2b440d3ff7b3e04b0b71e7555701271"
+  },
+  "accepted_claims": [
+    {
+      "path": "data/discoveries/electronics/chatgpt-research-preview-2022.json",
+      "pointer": "/events/1/{statement,evidence,caveats}",
+      "decision": "accept",
+      "source": "w10-openai-chatgpt-plus-2023",
+      "locator": "Original Plus launch, benefits and free access",
+      "rationale": "The dated 1 February 2023 original-launch post lists peak-time access, faster responses and priority, as offered benefits. The living page records a later expansion separately; no 2022 or present-day terms are inferred."
+    },
+    {
+      "path": "data/discoveries/electronics/compatible-time-sharing-with-persistent-files-and-batch-service.json",
+      "pointer": "/events/1",
+      "decision": "accept",
+      "source": "mit-computation-center-1963-compatible-time-sharing",
+      "locator": "Printed pp. 23–24, 69",
+      "rationale": "The guide describes identity numbers, logout accounting and file restrictions; a private code is described prospectively. The publication date does not date first use."
+    },
+    {
+      "path": "data/discoveries/electronics/llama-2-conditional-weights-release-2023.json",
+      "pointer": "/events/0/{evidence/1,caveats}",
+      "decision": "accept",
+      "source": "w10-meta-llama2-community-license",
+      "locator": "2023 immutable license §§1(a),1(b)(i),(iii),(v),2",
+      "rationale": "The exact release agreement states the limited grant and the specified distribution and model-improvement terms; this is a description of that document, not a conclusion about later terms or legal effect."
+    },
+    {
+      "path": "data/discoveries/electronics/lora-low-rank-adaptation-2021.json",
+      "pointer": "/measures/0",
+      "decision": "accept",
+      "source": "w10-arxiv-lora-2021-v1",
+      "locator": "v1 §3.1 Practical Benefits, printed p. 4",
+      "rationale": "The authors give 1.2 TB before their GPT-3 VRAM reduction; attributed claim, not a universal minimum."
+    },
+    {
+      "path": "data/discoveries/electronics/lora-low-rank-adaptation-2021.json",
+      "pointer": "/measures/1",
+      "decision": "accept",
+      "source": "w10-arxiv-lora-2021-v1",
+      "locator": "v1 §3.1 Practical Benefits, printed p. 4",
+      "rationale": "The same authors give 350 GB after the reduction, with pretrained weights retained. Section 5 describes V100 experiments; the cited passage does not specify a dtype for this figure."
+    },
+    {
+      "path": "data/discoveries/electronics/qlora-quantized-adaptation-2023.json",
+      "pointer": "/events/0/{statement,evidence/1}",
+      "decision": "accept",
+      "source": "w10-arxiv-qlora-2023-v1",
+      "locator": "v1 §5.3, printed p. 10",
+      "rationale": "The authors state 33B Guanaco can be trained on 24 GB consumer GPUs in under 12 hours; this is capability wording, not proof of a completed run or a specific GPU count."
+    },
+    {
+      "path": "data/discoveries/electronics/qlora-quantized-adaptation-2023.json",
+      "pointer": "/measures/2",
+      "decision": "accept",
+      "source": "w10-arxiv-qlora-2023-v1",
+      "locator": "v1 §5.3, printed p. 10",
+      "rationale": "The 24 GB is per consumer GPU; the number of GPUs is not stated in this passage. Paper context concerns 4-bit QLoRA and fine-tuning, not pretraining."
+    },
+    {
+      "path": "data/discoveries/electronics/mosis-multiproject-chip-fabrication-service.json",
+      "pointer": "/events/3",
+      "decision": "accept",
+      "source": "w12-pendleton-1985-mosis-soar",
+      "locator": "1985 dissertation, printed pp. 124–125",
+      "rationale": "The author describes the DARPA-sponsored university service as an intermediary and SOAR process constraints. The publication event is bounded to the account and does not assert price or order completion."
+    }
+  ],
+  "extension_decisions": {
+    "chatgpt-research-preview-2022": "extends existing 2023 pilot event, not a new 2022 event",
+    "compatible-time-sharing-with-persistent-files-and-batch-service": "new 1963 guide publication event distinct from existing 1963 summer-study deployment",
+    "llama-2-conditional-weights-release-2023": "extends 2023 release caveats",
+    "lora-low-rank-adaptation-2021": "adds scoped figures to existing paper",
+    "mosis-multiproject-chip-fabrication-service": "new 1985 dissertation description distinct from existing 1985 USC count",
+    "qlora-quantized-adaptation-2023": "adds scoped capability to existing paper"
+  },
+  "source_version_hashes": {
+    "ctss_pdf_sha256": "fc27ac5ed118d3802774eab581c3ab848c620f3b104b398843659fc88132c9f5",
+    "soar_pdf_sha256": "0c6a2d16ac6e7d602f32b08e3ef608c1afe591d9d7167bfe07873f5233d10a96",
+    "lora_v1_pdf_sha256": "38a259c1926b724363fcfbd8e5f80fcadf0dd8d9ab6944fea8c00e74fd7590b0",
+    "qlora_v1_pdf_sha256": "33a4e757c19d6ea8d3cca8958fce8fe405e290272e135c99ee66065c775d5bd1",
+    "meta_2023_raw_sha256": "8c17c2ebb0ea011be9981cc3922db8ca8fa61e828c5d3f44cb6ae342bf80460b"
+  },
+  "original_archive": "All 18 paths in lane ledger independently hashed and matched. Four local PDF/text hashes in ledger also matched. Five duplicate w12 sources and notes are omitted in favor of existing IDs; no register entries were added. Integrator must exclude raw-overlay duplicate sources.",
+  "corrections_verified": [
+    "Revised QLoRA language is a stated capability, no single-GPU inference.",
+    "Llama license points to and retains the immutable 18 July 2023 Meta revision."
+  ],
+  "limitations": [
+    "Only changed claims were reviewed; unchanged older claims and links are not upgraded. MOSIS prior draft status is preserved.",
+    "The current OpenAI page is a living document explicitly describing the original Plus launch; no independently archived exact 2023 HTML or raw hash was available in this pass.",
+    "Paper figures are author claims; LoRA data type and detailed hardware configuration for the specific VRAM figure are not established by the cited passage.",
+    "The exact original Meta license text contains upstream trailing whitespace; git diff --check flags those preserved bytes.",
+    "External raw PDFs used for checking are not retained in this commit; their hashes identify inspected bytes."
+  ],
+  "integration_scope": "Acceptance binds exactly the listed final file hashes and base; any subsequent modifications require rereview. Validation and final integration remain the coordinator’s responsibility."
+}

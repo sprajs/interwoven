@@ -33,24 +33,78 @@
           "supports": "Describes the dated contract, investment shares and proportional loss clause."
         }
       ]
+    },
+    {
+      "id": "agadi-stagnario-1199",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1199,
+          "month": 8
+        },
+        "latest": {
+          "year": 1199,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1199-08",
+        "basis": "Date of the documented episode, not the origin of the wider practice."
+      },
+      "statement": "An August 1199 Rialto agreement records Zaccaria Stagnario receiving 300 pounds of Venetian pennies from Giovanni Agadi for a trading voyage, with specified shares of profits and allocation of some risks.",
+      "scope": "One translated agreement; payment and profit clauses do not prove a completed voyage or realized profit.",
+      "evidence": [
+        {
+          "source": "w12-puga-trefler-venice-contract",
+          "locator": "pp. 12–13, figure 2",
+          "supports": "The translated 1199 contract identifies participants, capital, profit shares and particular risk terms."
+        }
+      ],
+      "contributions": [
+        {
+          "person": "giovanni-agadi",
+          "role": "funder",
+          "resource": "Provided capital for the trading venture.",
+          "evidence": [
+            {
+              "source": "w12-puga-trefler-venice-contract",
+              "locator": "pp. 12–13, figure 2",
+              "supports": "The translated 1199 contract identifies participants, capital, profit shares and particular risk terms."
+            }
+          ]
+        },
+        {
+          "person": "zaccaria-stagnario",
+          "role": "operator",
+          "resource": "Received the capital for a trading voyage and agreed to account for it.",
+          "evidence": [
+            {
+              "source": "w12-puga-trefler-venice-contract",
+              "locator": "pp. 12–13, figure 2",
+              "supports": "The translated 1199 contract identifies participants, capital, profit shares and particular risk terms."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
     "event": "witness",
     "rationale": "The dated episode anchors this community-scoped capability; earlier practices are not excluded."
   },
-  "caveats": "Contract forms and loss allocation varied. This case is not proof of every participant’s access, actual profits or completed voyages; the original document was not inspected.",
+  "caveats": "Contract forms and loss allocation varied. This case is not proof of every participant’s access, actual profits or completed voyages; the original document was not inspected. The 1199 agreement, unlike the 1130 bilateral example, assigns specified sea and human risks to the investor and a share of profit to each partner; outcome, enforcement and equal access are not established. The working paper spells the merchant Staniario in its translation but Stagnario in the figure caption and subsequent discussion.",
   "research": {
     "status": "sourced",
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
       "concept": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "places": "reviewed",
-      "measures": "reviewed"
+      "measures": "sourced",
+      "people": "sourced"
     },
-    "note": "Initial source pass.  Independent review checked Margetić’s contract discussion: resident 200 libbre, traveler 100, two years and proportional force-majeure loss; the cited medieval instrument was not directly inspected."
+    "note": "Initial source pass.  Independent review checked Margetić’s contract discussion: resident 200 libbre, traveler 100, two years and proportional force-majeure loss; the cited medieval instrument was not directly inspected. Wave 12 adds a distinct 1199 agreement from a scholarly translation of a reproduced parchment; the Latin original was not independently translated."
   },
   "places": [
     {
@@ -89,6 +143,49 @@
           "supports": "Describes the dated contract, investment shares and proportional loss clause."
         }
       ]
+    },
+    {
+      "quantity": "capital received for voyage",
+      "value": 300,
+      "unit": "pounds of Venetian pennies",
+      "event": "agadi-stagnario-1199",
+      "subject": "Agadi–Stagnario agreement",
+      "conditions": "Amount in one agreement in August 1199; no modern-value conversion.",
+      "status": "claimed",
+      "evidence": [
+        {
+          "source": "w12-puga-trefler-venice-contract",
+          "locator": "pp. 12–13, figure 2",
+          "supports": "The translated 1199 contract identifies participants, capital, profit shares and particular risk terms."
+        }
+      ]
+    },
+    {
+      "quantity": "investor share of profits",
+      "value": 75,
+      "unit": "percent",
+      "event": "agadi-stagnario-1199",
+      "subject": "Agadi–Stagnario agreement",
+      "conditions": "Three quarters of any profit as specified in this one contract, not realized return or a general rule.",
+      "status": "derived",
+      "evidence": [
+        {
+          "source": "w12-puga-trefler-venice-contract",
+          "locator": "pp. 12–13, figure 2",
+          "supports": "The translated 1199 contract identifies participants, capital, profit shares and particular risk terms."
+        }
+      ],
+      "method": "Three quarters multiplied by 100."
+    }
+  ],
+  "people": [
+    {
+      "person": "giovanni-agadi",
+      "role": "contributor"
+    },
+    {
+      "person": "zaccaria-stagnario",
+      "role": "contributor"
     }
   ]
 }
