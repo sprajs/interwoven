@@ -1,0 +1,531 @@
+{
+  "nodes": [
+    {
+      "id": "GHA-T01",
+      "label": "Southern cocoa farms and income",
+      "kind": "resource",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T02",
+      "label": "Southern locally initiated road projects",
+      "kind": "technology",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T03",
+      "label": "Southern lorry haulage",
+      "kind": "technology",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T04",
+      "label": "Southern railway long-haul service",
+      "kind": "technology",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T05",
+      "label": "African owner-driver enterprises",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T06",
+      "label": "Hire-purchase vehicle finance",
+      "kind": "institution",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T07",
+      "label": "Land purchase/lease rules and group credit",
+      "kind": "institution",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T08",
+      "label": "Hired migrant farm labour",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T09",
+      "label": "Early Ashanti coerced farm labour",
+      "kind": "institution",
+      "case_ids": [
+        "GHA-C01"
+      ]
+    },
+    {
+      "id": "GHA-T10",
+      "label": "Northern PWD road-maintenance gangs",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C02"
+      ]
+    },
+    {
+      "id": "GHA-T11",
+      "label": "Local recruitment bargaining and paid offers",
+      "kind": "institution",
+      "case_ids": [
+        "GHA-C02"
+      ]
+    },
+    {
+      "id": "GHA-T12",
+      "label": "Residual compulsory cleaning and road duties",
+      "kind": "institution",
+      "case_ids": [
+        "GHA-C02"
+      ]
+    },
+    {
+      "id": "GHA-T13",
+      "label": "Northern political-road maintenance",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C02"
+      ]
+    },
+    {
+      "id": "GHA-T14",
+      "label": "Government grants and paid road gangs",
+      "kind": "institution",
+      "case_ids": [
+        "GHA-C02"
+      ]
+    },
+    {
+      "id": "GHA-T15",
+      "label": "Northern farmer feeder roads",
+      "kind": "technology",
+      "case_ids": [
+        "GHA-C03"
+      ]
+    },
+    {
+      "id": "GHA-T16",
+      "label": "Village road initiatives and supplied labour",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C03"
+      ]
+    },
+    {
+      "id": "GHA-T17",
+      "label": "Bridge/material and skilled-work assistance",
+      "kind": "complement",
+      "case_ids": [
+        "GHA-C03"
+      ]
+    },
+    {
+      "id": "GHA-T18",
+      "label": "Fuel-dependent lorry exports from Bladjai",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C03"
+      ]
+    },
+    {
+      "id": "GHA-T19",
+      "label": "Maintenance of the Bladjai feeder road",
+      "kind": "practice",
+      "case_ids": [
+        "GHA-C03"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "GHA-E01",
+      "from": "GHA-T02",
+      "to": "GHA-T03",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K01",
+        "GHA-K02"
+      ],
+      "source_ids": [
+        "GHA-S01",
+        "GHA-S02"
+      ],
+      "confidence": "medium",
+      "qualification": "Named roads supplied routes used by lorries; not all motorable roads were locally initiated.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "deployment",
+        "configuration": "Southern cocoa feeder/trade connections in the 1910s–1931"
+      },
+      "alternatives": [
+        "State-constructed roads",
+        "Rail with head-loading feeders"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Road contribution is documented, but its independent share of haulage growth and local consent are unknown."
+    },
+    {
+      "id": "GHA-E02",
+      "from": "GHA-T03",
+      "to": "GHA-T04",
+      "relation": "complements",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K02"
+      ],
+      "source_ids": [
+        "GHA-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Lorries could feed rail long hauls before the mid-1920s; edge does not describe every route or later period.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "deployment",
+        "configuration": "Earlier southern feeder-lorry/rail configuration"
+      },
+      "alternatives": [
+        "Head-loading to rail stations",
+        "Direct lorry service on viable routes"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Complementarity and competition can coexist across routes and periods."
+    },
+    {
+      "id": "GHA-E03",
+      "from": "GHA-T03",
+      "to": "GHA-T04",
+      "relation": "competes-with",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K02"
+      ],
+      "source_ids": [
+        "GHA-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Later road haulage competed for some coastal cocoa traffic without eliminating rail.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "diffusion",
+        "configuration": "Southern cocoa transport later in the 1920s to 1930–31"
+      },
+      "alternatives": [
+        "Continued lorry-to-rail interchanges",
+        "Direct rail from nearby farms"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Modal shares do not isolate costs, new demand or diversion, and are not a welfare ranking."
+    },
+    {
+      "id": "GHA-E04",
+      "from": "GHA-T06",
+      "to": "GHA-T05",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K03"
+      ],
+      "source_ids": [
+        "GHA-S01",
+        "GHA-S02"
+      ],
+      "confidence": "medium",
+      "qualification": "Hire-purchase was an observed financing route for some small operators, with unmeasured terms/default risk.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "deployment",
+        "configuration": "Southern African owner-driver businesses described in interwar accounts"
+      },
+      "alternatives": [
+        "Outright purchase",
+        "Chiefly or other fleet employment",
+        "Other finance terms not reconstructed"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Entry and returns cannot be attributed uniquely to finance or low overheads."
+    },
+    {
+      "id": "GHA-E05",
+      "from": "GHA-T07",
+      "to": "GHA-T01",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K04"
+      ],
+      "source_ids": [
+        "GHA-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Purchase groups, credit and lease rights provided distinct routes to cocoa farming; rules could also exclude others.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "deployment",
+        "configuration": "Akyem Abuakwa and Ashanti land-access subepisodes, 1890s–1930s"
+      },
+      "alternatives": [
+        "Own-chief land access where available",
+        "Lease instead of purchase",
+        "Hired labour rather than farm ownership"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Political mediation is not isolated from land suitability, migration, timing and scarcity."
+    },
+    {
+      "id": "GHA-E06",
+      "from": "GHA-T09",
+      "to": "GHA-T01",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K05"
+      ],
+      "source_ids": [
+        "GHA-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Coerced labour contributed to early colonial Ashanti farm formation; no universal or beneficial necessity is asserted.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "deployment",
+        "configuration": "Early colonial Ashanti cocoa planting contextual subepisode"
+      },
+      "alternatives": [
+        "Self/family labour",
+        "Hired labour when incomes and offers permitted"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Contribution is Austin’s historical reconstruction; magnitude and individual burdens not quantified."
+    },
+    {
+      "id": "GHA-E07",
+      "from": "GHA-T01",
+      "to": "GHA-T08",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C01"
+      ],
+      "claim_ids": [
+        "GHA-K05"
+      ],
+      "source_ids": [
+        "GHA-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Farm income helped permit hiring in Austin’s interpretation, alongside legal and social change.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C01",
+        "stage": "diffusion",
+        "configuration": "Southern cocoa farm-labour transition through the 1930s"
+      },
+      "alternatives": [
+        "Own cultivation",
+        "Earlier bound recruitment",
+        "Other wage sectors"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Coerced labour also helped create farms; reciprocal causation and legal enforcement remain important."
+    },
+    {
+      "id": "GHA-E08",
+      "from": "GHA-T11",
+      "to": "GHA-T10",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C02"
+      ],
+      "claim_ids": [
+        "GHA-K06",
+        "GHA-K07"
+      ],
+      "source_ids": [
+        "GHA-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Local bargaining and paid offers changed particular PWD recruitment arrangements; residual obligations persisted.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C02",
+        "stage": "deployment",
+        "configuration": "Makongo 1925 and Savelugu June 1930 plus later recruitment context"
+      },
+      "alternatives": [
+        "Compulsory recruitment",
+        "Offer accepted after southern wages fell",
+        "Reduced maintenance"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Pre-ratification chronology does not exclude earlier outside pressure or establish universal implementation."
+    },
+    {
+      "id": "GHA-E09",
+      "from": "GHA-T14",
+      "to": "GHA-T13",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C02"
+      ],
+      "claim_ids": [
+        "GHA-K08"
+      ],
+      "source_ids": [
+        "GHA-S03",
+        "GHA-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Actual grants/payments supported some political-road maintenance through paid gangs; no inference that all grant-funded work was voluntary.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C02",
+        "stage": "deployment",
+        "configuration": "Selected northern districts in the mid/late 1930s"
+      },
+      "alternatives": [
+        "Compulsory local service",
+        "PWD transfer",
+        "Abandoning maintained mileage"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Kunkel and Pont Cháfer differ on breadth/timing; planned subsidy and actual payments cannot be conflated."
+    },
+    {
+      "id": "GHA-E10",
+      "from": "GHA-T16",
+      "to": "GHA-T15",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C03"
+      ],
+      "claim_ids": [
+        "GHA-K09"
+      ],
+      "source_ids": [
+        "GHA-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Named village initiatives supplied requests and work for feeder connections.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C03",
+        "stage": "deployment",
+        "configuration": "Krachi–Salaga–Kpandai area, 1928–1937"
+      },
+      "alternatives": [
+        "Government-initiated construction",
+        "Remain on bush tracks",
+        "Hire workers if funds available"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "A village initiative does not establish every resident’s consent or complete self-financing."
+    },
+    {
+      "id": "GHA-E11",
+      "from": "GHA-T17",
+      "to": "GHA-T15",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C03"
+      ],
+      "claim_ids": [
+        "GHA-K09"
+      ],
+      "source_ids": [
+        "GHA-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Materials, skills and assistance complemented village inputs; supply and access varied.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "GHA-C03",
+        "stage": "deployment",
+        "configuration": "Named northern feeder connections and requests in the 1928–1945 episode"
+      },
+      "alternatives": [
+        "Local materials and skills where adequate",
+        "Different alignment",
+        "Delayed or failed connection"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Requests for assistance do not show every requested input was supplied or universally necessary."
+    },
+    {
+      "id": "GHA-E12",
+      "from": "GHA-T18",
+      "to": "GHA-T19",
+      "relation": "enables",
+      "case_ids": [
+        "GHA-C03"
+      ],
+      "claim_ids": [
+        "GHA-K10"
+      ],
+      "source_ids": [
+        "GHA-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Useful export service may have motivated upkeep; the April 1945 interruption/deterioration sequence is not isolated causality.",
+      "basis": "hypothesis",
+      "scope": {
+        "case_id": "GHA-C03",
+        "stage": "displacement/reversal",
+        "configuration": "Bladjai feeder-road maintenance around the April 1945 fuel interruption"
+      },
+      "alternatives": [
+        "Publicly financed maintenance independent of exports",
+        "Other traffic or uses",
+        "Bush-track standard"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Weather, wartime labour and finance could contribute; no measured counterfactual or maintenance rate."
+    }
+  ]
+}

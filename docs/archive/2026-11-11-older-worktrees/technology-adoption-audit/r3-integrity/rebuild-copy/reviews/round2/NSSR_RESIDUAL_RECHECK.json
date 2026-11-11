@@ -1,0 +1,90 @@
+{
+  "reviewer": "/root/precision_repair_skills",
+  "date_utc": "2026-11-05T15:47:29.604734+00:00",
+  "review_type": "separate targeted residual recheck addendum",
+  "verdict": "accepted_no_residual_in_NSSR_correction_scope",
+  "closes": "NSSR-RC-01",
+  "prior_report": {
+    "path": "NSSR_RECHECK.md",
+    "sha256": "32f6f2575834f00f3f15d36fb20fe7fde6c2e0c09e4d836b1b3e4e80506761d6"
+  },
+  "target": {
+    "path": "nssr-residual-snapshot/MANIFEST.json",
+    "sha256": "21d6d9e9fb4d1460922050751e768fb19271339c28efa2ccc53b0ad2d32db656",
+    "files": {
+      "OCE-claims.json": "9fc28ffdf2dd8ee82b9f56410d8436ce211292adb8ea44dacf39e09962f84e0b"
+    }
+  },
+  "baseline_mapping": {
+    "OCE-claims.json": "nssr-repair-snapshot/contributions/OCE/claims.json"
+  },
+  "changed_fields": [
+    "OCE-K11.test.discriminating_observation"
+  ],
+  "checks": [
+    {
+      "name": "residual_snapshot_file_hash",
+      "pass": true,
+      "actual_sha256": "9fc28ffdf2dd8ee82b9f56410d8436ce211292adb8ea44dacf39e09962f84e0b"
+    },
+    {
+      "name": "initial_five_file_snapshot_intact",
+      "pass": true,
+      "files_checked": 5
+    },
+    {
+      "name": "original_source_review_snapshot_intact",
+      "pass": true,
+      "files_checked": 27
+    },
+    {
+      "name": "initial_recheck_report_unchanged",
+      "pass": true
+    },
+    {
+      "name": "claim_ids_unchanged",
+      "pass": true,
+      "count": 20
+    },
+    {
+      "name": "only_requested_field_changed",
+      "pass": true,
+      "changed_fields": [
+        "OCE-K11.test.discriminating_observation"
+      ]
+    },
+    {
+      "name": "accepted_status_and_validation_scope_preserved",
+      "pass": true
+    },
+    {
+      "name": "independent_methodological_read",
+      "pass": true,
+      "basis": "New wording separately assigns slope comparison to an interaction test and mechanism-versus-selection discrimination to additional environmental comparability or a defensible causal design; separate-significance warning retained."
+    }
+  ],
+  "checks_passed": 8,
+  "checks_total": 8,
+  "new_sentence": "A direct between-regime interaction contrast would test whether rainfall–fire-size slopes differ. Separating a fuel-mosaic mechanism from environmental selection additionally requires environmental comparability or a defensible causal design; separate significant/nonsignificant slopes establish neither.",
+  "acceptance_composition": {
+    "retain_from_initial_snapshot": [
+      "contributions/ENE/report.md",
+      "contributions/ENE/cases.json",
+      "contributions/ENE/claims.json",
+      "contributions/OCE/report.md"
+    ],
+    "replace_initial_contributions/OCE/claims.json_with": "nssr-residual-snapshot/OCE-claims.json"
+  },
+  "open_residuals": [],
+  "limits": [
+    "Only the previously identified NSSR correction scope is accepted.",
+    "No later edits or final JSON/CSV/HTML transport checked.",
+    "No new raw-data analysis, graph acceptance or causal identification.",
+    "Initial report and immutable snapshots preserved.",
+    "No live research or snapshot modified by reviewer."
+  ],
+  "report": {
+    "path": "NSSR_RESIDUAL_RECHECK.md",
+    "sha256": "e4020ee4927958d69396bfe58a8accaa15159ace10bdf186069f235d8ccc9b0f"
+  }
+}

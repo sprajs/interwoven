@@ -1,0 +1,105 @@
+{
+  "snapshot_manifest": "r2-snapshot/MANIFEST.json",
+  "snapshot_manifest_sha256": "45ebc58aa0ac07394435d5e52c96489c53a72c046e4d7ea63e6654647fba6133",
+  "compiled_counts": {
+    "cases": 73,
+    "sources": 170,
+    "claims": 266,
+    "nodes": 347,
+    "edges": 246,
+    "comparisons": 53
+  },
+  "canonical_rebuild_graph_counts": {
+    "nodes": 348,
+    "edges": 247
+  },
+  "completed_contributions": [
+    "AGR",
+    "ANC",
+    "DIG",
+    "ENE",
+    "IND",
+    "LBR",
+    "MAT",
+    "MED",
+    "MOB",
+    "NET",
+    "OCE",
+    "POL",
+    "SYN"
+  ],
+  "excluded_incomplete": [
+    "PSY",
+    "SKL"
+  ],
+  "r1_closure_file": "R1_CLOSURE_R2.json",
+  "synthesis_proposition_ids": [
+    "SYN-K11",
+    "SYN-K14",
+    "SYN-K12",
+    "SYN-K13"
+  ],
+  "role_proposition_targets": [
+    "FUTURE_ROLES.md opening incumbent/cohort claim",
+    "FUTURE_ROLES.md Candidate B teaching/competence",
+    "FUTURE_ROLES.md Candidate C coordination/bargaining"
+  ],
+  "unique_passage_checked_source_records_or_variants": [
+    "AGR-S11",
+    "AGR-S12-author-2012",
+    "AGR-S13",
+    "IND-S03",
+    "IND-S08",
+    "IND-S09",
+    "IND-S15",
+    "LBR-S02",
+    "MAT-S08",
+    "MED-S12",
+    "MED-S14",
+    "MED-S15",
+    "MOB-S12",
+    "MOB-S13",
+    "NET-S05"
+  ],
+  "source_count": 15,
+  "passage_access_boundaries": {
+    "MED-S15": "Partial original-text/publisher retrieval, no fresh table verification",
+    "MED-S14": "Original first pages plus transcription fallback, no full table audit",
+    "AGR-S12-author-2012": "Separately identified author working-paper version, not byte-identical source or independent replication",
+    "ANC-S04": "Downloaded but no completed new passage check; excluded from 15 count"
+  },
+  "parent_records_checked": [
+    "IND-E01",
+    "IND-E04",
+    "IND-E05",
+    "IND-E09",
+    "IND-E10",
+    "IND-E11",
+    "IND-E14",
+    "IND-K10",
+    "IND-K11",
+    "LBR-K02",
+    "MAT-C06",
+    "MAT-E03",
+    "MAT-E06",
+    "MAT-E07",
+    "MAT-E08",
+    "MAT-E12",
+    "MAT-T28",
+    "MAT-T30",
+    "IND-T02",
+    "IND-T33",
+    "IND-T05",
+    "IND-T34"
+  ],
+  "selection": "Targeted R1 repair closure; four consequential generalisations chosen by independent synthesis reviewer; three future-role propositions challenged using negative cases. Network screening covers whole compiled graph. Not a statistical sample; no programme error-rate estimate.",
+  "checks": {
+    "consistency_and_rebuild": 47,
+    "passed": 46,
+    "failed_due_real_edition_generation_mismatch": 1,
+    "negative_validator_probes": 4,
+    "negative_probes_passed": 4
+  },
+  "browser_status": "No successful browser runtime/visual check. Fragment behaviour inferred from exact frozen source. CLI unavailable and browser file-protocol action blocked; no workaround attempted.",
+  "later_state": "r2-parent/later-drift-inventory.json plus r2-parent/later-selected/MANIFEST.json; narrow sentence-level closure of R2-05 only."
+}

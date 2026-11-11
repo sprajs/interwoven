@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "scope": "AGR contribution only",
+  "status": "passed",
+  "checks": [
+    "all JSON parsed",
+    "programme required top-level fields present",
+    "local builder reference and nested-schema assertions passed",
+    "edge endpoint and supporting-claim case scope consistent",
+    "source URL/access/date form checked"
+  ],
+  "counts": {
+    "cases": 8,
+    "sources": 16,
+    "claims": 24,
+    "comparisons": 6,
+    "nodes": 38,
+    "edges": 27
+  },
+  "source_access": {
+    "abstract": 1,
+    "full-text": 15
+  },
+  "warnings": [
+    "AGR-S16 is abstract-only, supporting only the published central result; AGR-S12 provides the inspected earlier full text. The records describe one experiment, not independent replication.",
+    "Source access denotes acquired/available text, not cover-to-cover reading.",
+    "Ancient raised-field node is intentionally disconnected; no transmission edge is inferred merely from resemblance or chronology."
+  ],
+  "errors": [],
+  "limit": "Structural checks do not verify historical truth or reproduce empirical estimates. Source and claim limitations remain in the ledgers."
+}

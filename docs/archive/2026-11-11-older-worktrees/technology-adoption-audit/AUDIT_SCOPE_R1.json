@@ -1,0 +1,314 @@
+{
+  "snapshot_manifest": "r1-snapshot/MANIFEST.json",
+  "snapshot_manifest_sha256": "8409c5d3da489d8df4b2557c3b23fe6aadfa924cacc9e3ff9519c03218220431",
+  "selection": "Risk-based source samples saved before checking; graph sample adaptive risk selection; one disclosed parent follow-up IND-K11 to adjudicate IND-E14. No statistical error-rate inference.",
+  "snapshot_counts": {
+    "cases": 23,
+    "claims": 78,
+    "source_records": 49,
+    "nodes": 93,
+    "edges": 72,
+    "comparisons": 13
+  },
+  "per_dossier": {
+    "MAT": {
+      "cases": 7,
+      "claims": 24,
+      "sources": 16,
+      "edges": 19,
+      "source_audited_claims": 6
+    },
+    "ANC": {
+      "cases": 6,
+      "claims": 22,
+      "sources": 13,
+      "edges": 21,
+      "source_audited_claims": 4
+    },
+    "IND": {
+      "cases": 8,
+      "claims": 25,
+      "sources": 16,
+      "edges": 30,
+      "source_audited_claims": 5
+    },
+    "LBR": {
+      "cases": 2,
+      "claims": 7,
+      "sources": 4,
+      "edges": 2,
+      "source_audited_claims": 5
+    }
+  },
+  "source_audited_unique_claim_count": 20,
+  "source_audited_claim_ids": [
+    "ANC-K05",
+    "ANC-K08",
+    "ANC-K14",
+    "ANC-K15",
+    "IND-K03",
+    "IND-K10",
+    "IND-K11",
+    "IND-K23",
+    "IND-K24",
+    "LBR-K01",
+    "LBR-K02",
+    "LBR-K03",
+    "LBR-K04",
+    "LBR-K05",
+    "MAT-K01",
+    "MAT-K03",
+    "MAT-K12",
+    "MAT-K19",
+    "MAT-K20",
+    "MAT-K22"
+  ],
+  "core_claim_cases": [
+    "ANC-C02",
+    "ANC-C03",
+    "ANC-C04",
+    "IND-C02",
+    "IND-C04",
+    "IND-C08",
+    "LBR-C01",
+    "LBR-C02",
+    "MAT-C01",
+    "MAT-C04",
+    "MAT-C06",
+    "MAT-C07"
+  ],
+  "ordinary_descriptive_control_ids": [
+    "MAT-K01",
+    "MAT-K22",
+    "ANC-K08",
+    "ANC-K14",
+    "IND-K23",
+    "LBR-K03"
+  ],
+  "detailed_edge_count": 22,
+  "detailed_edge_ids": [
+    "ANC-E05",
+    "ANC-E06",
+    "ANC-E07",
+    "ANC-E11",
+    "ANC-E13",
+    "ANC-E15",
+    "IND-E01",
+    "IND-E04",
+    "IND-E05",
+    "IND-E09",
+    "IND-E14",
+    "IND-E26",
+    "IND-E27",
+    "IND-E28",
+    "IND-E29",
+    "IND-E30",
+    "LBR-E01",
+    "LBR-E02",
+    "MAT-E06",
+    "MAT-E07",
+    "MAT-E08",
+    "MAT-E18"
+  ],
+  "edge_source_passage_checks_before_parent_followup": [
+    "ANC-E05",
+    "ANC-E06",
+    "ANC-E07",
+    "ANC-E11",
+    "ANC-E13",
+    "ANC-E15",
+    "IND-E04",
+    "IND-E05",
+    "IND-E26",
+    "IND-E27",
+    "IND-E28",
+    "IND-E29",
+    "IND-E30",
+    "LBR-E01",
+    "LBR-E02",
+    "MAT-E06",
+    "MAT-E07",
+    "MAT-E18"
+  ],
+  "adaptive_edge_followup": "IND-E14: relevant co-support IND-K11 inspected by parent; remains unresolved scope/provenance, not counted as upheld",
+  "record_only_detailed_edges": [
+    "IND-E01",
+    "IND-E09",
+    "MAT-E08"
+  ],
+  "unique_frozen_source_records_passage_checked": [
+    "ANC-S03",
+    "ANC-S05",
+    "ANC-S07",
+    "ANC-S08",
+    "ANC-S09",
+    "IND-S03",
+    "IND-S08",
+    "IND-S09",
+    "IND-S16",
+    "LBR-S01",
+    "LBR-S02",
+    "LBR-S03",
+    "MAT-S01",
+    "MAT-S02",
+    "MAT-S06",
+    "MAT-S11",
+    "MAT-S13",
+    "MAT-S14"
+  ],
+  "source_record_count": 18,
+  "claim_review_index": {
+    "MAT-K01": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld"
+      }
+    ],
+    "MAT-K12": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld"
+      }
+    ],
+    "MAT-K19": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "claim upheld; associated case wording repair (R1-MAT-01, low severity)"
+      }
+    ],
+    "MAT-K22": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld"
+      },
+      {
+        "reviewer": "parent",
+        "audit_file": "r1-parent/claim_audit.json",
+        "disposition": "supported-with-stated-limits"
+      }
+    ],
+    "ANC-K05": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld; consequential rival checked"
+      }
+    ],
+    "ANC-K08": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld"
+      }
+    ],
+    "ANC-K14": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld"
+      },
+      {
+        "reviewer": "parent",
+        "audit_file": "r1-parent/claim_audit.json",
+        "disposition": "supported-primary-wording-secondary-context-partial"
+      }
+    ],
+    "ANC-K15": [
+      {
+        "reviewer": "materials",
+        "audit_file": "r1-materials/claim_audit.json",
+        "disposition": "upheld"
+      }
+    ],
+    "LBR-K01": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "supported_with_stated_access_limit"
+      }
+    ],
+    "LBR-K02": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "supported_conditional_causal_inference"
+      }
+    ],
+    "LBR-K03": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "supported"
+      }
+    ],
+    "LBR-K04": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "supported"
+      }
+    ],
+    "IND-K03": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "claim_supported_graph_scope_repair"
+      }
+    ],
+    "IND-K10": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "bounded_claim_supported_diagnostic_chain_needs_narrowing"
+      }
+    ],
+    "IND-K23": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "supported"
+      }
+    ],
+    "IND-K24": [
+      {
+        "reviewer": "industrial",
+        "audit_file": "r1-industrial/claim-audit.json",
+        "disposition": "supported_mechanism_not_identified_effect"
+      }
+    ],
+    "MAT-K03": [
+      {
+        "reviewer": "parent",
+        "audit_file": "r1-parent/claim_audit.json",
+        "disposition": "supported-with-stated-limits"
+      }
+    ],
+    "MAT-K20": [
+      {
+        "reviewer": "parent",
+        "audit_file": "r1-parent/claim_audit.json",
+        "disposition": "supported-with-stated-limits"
+      }
+    ],
+    "LBR-K05": [
+      {
+        "reviewer": "parent",
+        "audit_file": "r1-parent/claim_audit.json",
+        "disposition": "supported-with-stated-limits"
+      }
+    ],
+    "IND-K11": [
+      {
+        "reviewer": "parent",
+        "audit_file": "r1-parent/claim_audit.json",
+        "disposition": "supported_attributed_advocacy_edge_support_needs_scope"
+      }
+    ]
+  },
+  "extra_graph_claim_scope": "ANC-K09 and ANC-K11 were checked for edge-level subpropositions, not counted as full standalone claim audits. Other graph-linked claims are record checks only unless listed in source_audited_claim_ids.",
+  "completion_limit": "IND is included as delivered substantive records but provisional: frozen validation lists it complete while questions.md is absent. Rebuild gate excludes it until real handoff complete."
+}

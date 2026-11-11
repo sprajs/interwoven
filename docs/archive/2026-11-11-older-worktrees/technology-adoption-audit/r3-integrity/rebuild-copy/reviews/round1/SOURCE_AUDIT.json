@@ -1,0 +1,699 @@
+{
+  "review": "Independent source entailment review, round 1",
+  "reviewer": "/root/review1_sources",
+  "completed_utc": "2026-11-05T15:13:36.010454+00:00",
+  "target": {
+    "manifest": "snapshot/MANIFEST.json",
+    "manifest_sha256": "296c4faa68c3a408c633a4668a4931289906e16bc99a3ce00fd5ada97c7feba1",
+    "created_utc": "2026-11-05T14:27:23.496317+00:00",
+    "file_count": 169,
+    "hash_mismatches": [],
+    "population_counts": {
+      "cases": 59,
+      "sources": 129,
+      "claims": 210,
+      "nodes": 271,
+      "edges": 192,
+      "comparisons": 41
+    }
+  },
+  "selection": {
+    "register": "SOURCE_AUDIT_selection.json",
+    "register_sha256": "a59f861e0189657c2d31db96d8091d79528d944e3fa01e11cd039642e8023c72",
+    "risk_count": 11,
+    "ordinary_count": 9,
+    "risk_ids": [
+      "MAT-K15",
+      "ANC-K07",
+      "NET-K17",
+      "IND-K06",
+      "AGR-K11",
+      "AGR-K15",
+      "MED-K09",
+      "MOB-K21",
+      "DIG-K16",
+      "LBR-K02",
+      "IND-K08"
+    ],
+    "ordinary_ids": [
+      "MAT-K11",
+      "ANC-K10",
+      "NET-K04",
+      "IND-K25",
+      "AGR-K05",
+      "MED-K01",
+      "MOB-K11",
+      "DIG-K20",
+      "LBR-K04"
+    ],
+    "ordinary_rule": "For each of the nine historical contribution domains, select the minimum SHA-256(seed + claim ID) among descriptive claims excluding risk IDs. Reproduced exactly.",
+    "seed": "source-audit-round1-ordinary-v1:",
+    "amendment": "After aggregate access-class inventory, before reopening IND-S06, add IND-K08 as 20th claim because 17/129 records are partial-text/abstract and the initial risk selection did not explicitly cover one. Ordinary sample unchanged; no adverse source-check result selected this addition.",
+    "selection_limitation": "Purposive risk and hash-selected descriptive controls; not an error-rate estimator. SYN claims and new-wave dossiers are outside the selected source audit."
+  },
+  "scope": {
+    "unique_claims": 20,
+    "unique_source_records": 21,
+    "relevant_full_texts": 20,
+    "abstract_only": 1,
+    "additional_scholarly_contrasts": 4,
+    "population_access": {
+      "full-text": 112,
+      "partial-text": 10,
+      "abstract": 7
+    },
+    "whole_source_reading_claimed": false,
+    "raw_data_replication": false,
+    "original_archival_documents_read_when_mediated_by_secondary_sources": false,
+    "complete_graph_audit": false,
+    "complete_synthesis_audit": false,
+    "live_or_snapshot_records_modified": false
+  },
+  "verdict_definitions": {
+    "supported": "The specified observation, attributed statement or bounded logical inference is directly supported by the inspected passage. This is not replication.",
+    "qualified": "The statement is faithful as currently bounded, but source access, reconstruction, identification or measurement limits materially constrain what can be concluded. Qualification is not automatically a defect or a request to lower its label.",
+    "defective": "The sampled assertion contradicts, misstates or materially exceeds inspected support.",
+    "unresolved": "Available material does not permit a source-entailment verdict."
+  },
+  "verdict_counts": {
+    "supported": 10,
+    "qualified": 10
+  },
+  "assessment": "No sampled historical statement was shown false or materially unsupported as bounded. Ten supported and ten qualified verdicts; one nonblocking precision recommendation. This does not accept the whole edition or validate unreviewed claims.",
+  "claim_audit": [
+    {
+      "claim_id": "AGR-K05",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "AGR-S03",
+        "AGR-S04"
+      ],
+      "inspected_locator": "AGR-S03 pp.100–102; AGR-S04 proof pp.2–3",
+      "assessment": "The scanned observation names IR64 in September 1988 and a subsequent high-yielding variety within the coordinated Manuaba calendar. The later narrative is inherited from Lansing, not a second independent observation.",
+      "remaining_limit": "Retain the site/date boundary and descriptive-only status."
+    },
+    {
+      "claim_id": "AGR-K11",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "AGR-S08"
+      ],
+      "inspected_locator": "AGR-S08 pp.2362–2369, equation 12 and section IV.B; pp.2378–2379",
+      "assessment": "The 44% fixed-allocation estimate and 90-country baseline are supported. Page 2369 specifies the average country; release-timing assumptions and alternative innovation remain consequential.",
+      "remaining_limit": "Clarify the averaging unit; no re-estimation was performed."
+    },
+    {
+      "claim_id": "AGR-K15",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "AGR-S11"
+      ],
+      "inspected_locator": "AGR-S11 pp.599–601,624–629; Tables III–V",
+      "assessment": "The cash/insurance comparisons support increased investment and risk exposure. Table III is the first stage; Table IV instruments insurance receipt using randomized prices and requires an exclusion assumption.",
+      "remaining_limit": "This is stronger than an observational association, but not a universal constraint ranking or welfare result."
+    },
+    {
+      "claim_id": "ANC-K07",
+      "selection": "risk",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "ANC-S03",
+        "ANC-S05"
+      ],
+      "inspected_locator": "ANC-S03 Introduction and Results; ANC-S05 §§116–118",
+      "assessment": "Operating Roman watermills and reported enslaved hydraulic maintenance defeat the absolute institutional-incompatibility proposition as framed.",
+      "remaining_limit": "Neither source identifies the legal status of Barbegal workers or a marginal labour-cost effect."
+    },
+    {
+      "claim_id": "ANC-K10",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "ANC-S06"
+      ],
+      "inspected_locator": "ANC-S06 §§III and V, especially Urso/Venafrum and private grants",
+      "assessment": "Bannon explicitly distinguishes personal grants from property rights, combines fees/status with open-access fountains, and documents local administration.",
+      "remaining_limit": "Rules and selected examples do not establish actual equal access; inscriptions were read through Bannon."
+    },
+    {
+      "claim_id": "DIG-K16",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "DIG-S09"
+      ],
+      "inspected_locator": "DIG-S09 pp.1288–1292, equations 1–2 and attrition discussion",
+      "assessment": "The paper reports the approximately 194,000-household extrapolation using early agent expansion and 2014 outcomes. The record correctly distinguishes estimation from a counted beneficiary total.",
+      "remaining_limit": "High attrition, rollout selection and extrapolation remain material; supplementary tables and raw data were not replicated."
+    },
+    {
+      "claim_id": "DIG-K20",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "DIG-S13"
+      ],
+      "inspected_locator": "DIG-S13 Note 16, printed pp.124–125",
+      "assessment": "The filed table reports $1,896 million revenue and $16,120 million operating loss for Reality Labs in 2023; the segment includes AR, mixed reality and VR.",
+      "remaining_limit": "Company segment accounting does not identify active users, retention or per-headset economics."
+    },
+    {
+      "claim_id": "IND-K06",
+      "selection": "risk",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "IND-S04"
+      ],
+      "inspected_locator": "IND-S04 January 2002 text p.13 and Table 3 p.23",
+      "assessment": "The version explicitly gives less than 0.01 percentage points before 1830 and a larger railway-era contribution. The inspected table is consistent with that bounded claim.",
+      "remaining_limit": "This is faithful reporting of a reconstruction, not validation of steam stocks or later scholarship."
+    },
+    {
+      "claim_id": "IND-K25",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "IND-S16"
+      ],
+      "inspected_locator": "IND-S16 pp.368–370, Market penetration",
+      "assessment": "Devine reports slightly under one-quarter in 1909 and over 53% in 1919, while explaining the lack of comprehensive unit-drive configuration data.",
+      "remaining_limit": "Horsepower capacity must remain distinct from establishment adoption and factory redesign."
+    },
+    {
+      "claim_id": "LBR-K02",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "LBR-S02"
+      ],
+      "inspected_locator": "LBR-S02 §§III,VI–VII and conclusion p.1934",
+      "assessment": "Linked incumbents and later young cohorts have different observed outcomes, as stated. Incumbent occupational income scores are proxies, and linkage is selective.",
+      "remaining_limit": "Preserve cohort definitions, local comparisons and observation intervals; the results do not measure continuous unemployment duration."
+    },
+    {
+      "claim_id": "LBR-K04",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "LBR-S02"
+      ],
+      "inspected_locator": "LBR-S02 §VII.B, pp.1927–1928",
+      "assessment": "The authors expressly cannot exclude wage changes of approximately plus or minus 10%; the smaller wage sample has 72 cutovers versus 261 in the main sample.",
+      "remaining_limit": "This is a power limitation, not proof of zero effect or a shared interval for every subgroup."
+    },
+    {
+      "claim_id": "MAT-K11",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "MAT-S05"
+      ],
+      "inspected_locator": "MAT-S05 p.42 n.6",
+      "assessment": "Wagner regards the often-repeated output figure as plausible but rejects the reliability of Hartwell’s quota-based calculation. The record accurately preserves that distinction.",
+      "remaining_limit": "The review did not independently inspect the Chinese fiscal sources or reconstruct output."
+    },
+    {
+      "claim_id": "MAT-K15",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "MAT-S08"
+      ],
+      "inspected_locator": "MAT-S08 pp.498–508, Tables 4–6 and Figs.24–27",
+      "assessment": "The experiment supports task-dependent hardness/working-property trade-offs. The paper itself notes difficulty obtaining reproducible elongation measurements.",
+      "remaining_limit": "A modern alloy comparison does not establish ancient selection motives; alloy concentration and processing matter."
+    },
+    {
+      "claim_id": "MED-K01",
+      "selection": "ordinary",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "MED-S01"
+      ],
+      "inspected_locator": "MED-S01 Ottoman/European inoculation section",
+      "assessment": "Boylston reproduces the Timonius, Mather/Onesimus and Pylarinius reports, including women practitioners. The record uses these as transmission evidence and avoids a precise-origin claim.",
+      "remaining_limit": "The original correspondence was not independently acquired; specific geographical identities in the secondary account are not needed for this claim."
+    },
+    {
+      "claim_id": "MED-K09",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "MED-S06"
+      ],
+      "inspected_locator": "MED-S06 pp.589–590,606 and617; Table 4 pp.612–613",
+      "assessment": "The preferred estimate is 26.6 of 79.2 log points in the treated setting, with complementarity between the interventions. Boston is excluded from estimation.",
+      "remaining_limit": "This is a conditional local estimate; composition/pre-trend checks do not establish random rollout or universal effects."
+    },
+    {
+      "claim_id": "MOB-K11",
+      "selection": "ordinary",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "MOB-S08"
+      ],
+      "inspected_locator": "MOB-S08 January 2015 version §2.1, printed pp.5–6 and Fig.1",
+      "assessment": "The stated western mining/military route and eastern route sequence, including wartime delays and Kumasi in 1923, match the source.",
+      "remaining_limit": "This confirms faithful use of the authors’ reconstruction; the colonial records and cited railway histories were not independently reopened."
+    },
+    {
+      "claim_id": "MOB-K21",
+      "selection": "risk",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "MOB-S11"
+      ],
+      "inspected_locator": "MOB-S11 published 2016 article p.37, Tables 2–3 and pp.44–46",
+      "assessment": "The article distinguishes large adoption-timing estimates from smaller product comparisons and explicitly reports failed pre-trend robustness.",
+      "remaining_limit": "The stronger product comparison remains design-dependent; no pooled general-equilibrium or port-specific return is established."
+    },
+    {
+      "claim_id": "NET-K04",
+      "selection": "ordinary",
+      "verdict": "supported",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "NET-S03"
+      ],
+      "inspected_locator": "NET-S03 pp.2–3, Reference collection and preceding discussion",
+      "assessment": "The collection has 228 papers, 133 undated, and 83 dated to the eighteenth/nineteenth centuries; the text explains trade and finishing obstacles to manufacturing attribution.",
+      "remaining_limit": "Neither text language nor this conservation collection is a medieval adoption denominator."
+    },
+    {
+      "claim_id": "NET-K17",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "NET-S11"
+      ],
+      "inspected_locator": "NET-S11 pp.6–7 and19–26",
+      "assessment": "Schwartz distinguishes unlocated alleged Bayezid/Selim bans from the 1588 protection of printed-book merchants and traces inherited assertions.",
+      "remaining_limit": "This verifies the source’s bounded documentary argument, not the nonexistence of every restriction or a new archival search."
+    },
+    {
+      "claim_id": "IND-K08",
+      "selection": "risk",
+      "verdict": "qualified",
+      "statement_entailment": "supported_within_stated_scope",
+      "source_ids": [
+        "IND-S06"
+      ],
+      "inspected_locator": "IND-S06 author-institution repository abstract",
+      "assessment": "The abstract expressly attributes unbuilt large schemes to coordination and collective funding. The record accurately labels this as Malm’s argument and low-confidence, abstract-only evidence.",
+      "remaining_limit": "Scheme feasibility and causal weight remain unresolved; the full article was not acquired."
+    }
+  ],
+  "source_access_audit": [
+    {
+      "source_id": "AGR-S03",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/LansingKremer.BaliWaterTemples.pdf",
+      "reopened_url": "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/LansingKremer.BaliWaterTemples.pdf",
+      "claim_ids": [
+        "AGR-K05"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/AGR-S03.pdf",
+      "sha256": "7f97d6c200fedb4a4a738174fc252a3e640a7af3231135591048bebc7849d112",
+      "access_route": "Retained scanned PDF; pp.100–102 visually inspected in rendered PNGs"
+    },
+    {
+      "source_id": "AGR-S04",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://dlc.dlib.indiana.edu/dlc/bitstreams/34db1e42-4d4f-4b25-a7d7-16e8f023677a/download",
+      "reopened_url": "https://dlc.dlib.indiana.edu/dlc/bitstreams/34db1e42-4d4f-4b25-a7d7-16e8f023677a/download",
+      "claim_ids": [
+        "AGR-K05"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/AGR-S04.pdf",
+      "sha256": "5226de4adb1ceb223c6f0fd091cb65b59ce27b4c46d26f68bf05d4ae86cc3a78"
+    },
+    {
+      "source_id": "AGR-S08",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://gwern.net/doc/economics/2021-gollin.pdf",
+      "reopened_url": "https://gwern.net/doc/economics/2021-gollin.pdf",
+      "claim_ids": [
+        "AGR-K11"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/AGR-S08.pdf",
+      "sha256": "72b176e3260e569e11085948fb8bb9ad1c736aa52a2ce19498d98db4b71be80e"
+    },
+    {
+      "source_id": "AGR-S11",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://www.atai-research.org/wp-content/uploads/2016/07/Agricultural-Decisions-after-Relaxing-Credit-and-Risk-Constraints.pdf",
+      "reopened_url": "https://www.atai-research.org/wp-content/uploads/2016/07/Agricultural-Decisions-after-Relaxing-Credit-and-Risk-Constraints.pdf",
+      "claim_ids": [
+        "AGR-K15"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/AGR-S11.pdf",
+      "sha256": "1ef73b82741d800ee7c3ec713c00bb200df95e1dadb78e0532ac4e4c04bb92a2"
+    },
+    {
+      "source_id": "ANC-S03",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://doi.org/10.1126/sciadv.aar3620",
+      "reopened_url": "https://doi.org/10.1126/sciadv.aar3620",
+      "claim_ids": [
+        "ANC-K07"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/ANC-S03.html",
+      "sha256": "49315543e73e9f5eee8879d59c6b1188636c62880826a13968e201af085bc054",
+      "access_route": "Retained Europe PMC full-article XML (file has .html suffix)"
+    },
+    {
+      "source_id": "ANC-S05",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/Bennett/2%2A.html",
+      "reopened_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/Bennett/2%2A.html",
+      "claim_ids": [
+        "ANC-K07"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/ANC-S05.html",
+      "sha256": "ed575390fe8a679d7a68ecc542561d2a42fca62db09cbde6bd3938a7a2eefe74"
+    },
+    {
+      "source_id": "ANC-S06",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://doi.org/10.1017/S007543581700079X",
+      "reopened_url": "https://www.cambridge.org/core/journals/journal-of-roman-studies/article/fresh-water-in-roman-law-rights-and-policy/548B1C559B3D6ACEDF50C4576DD14603",
+      "claim_ids": [
+        "ANC-K10"
+      ],
+      "retained_evidence": null,
+      "access_route": "Web full-text extraction; no local copy"
+    },
+    {
+      "source_id": "DIG-S09",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://www.findevgateway.org/sites/default/files/publications/files/new_jack_and_suri_paper_1.pdf",
+      "reopened_url": "https://www.findevgateway.org/sites/default/files/publications/files/new_jack_and_suri_paper_1.pdf",
+      "claim_ids": [
+        "DIG-K16"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/DIG-S09.pdf",
+      "sha256": "e1bf0ff148966e1403d0a89300dbd4f727eb7c84c3957870a6b94a5b0497d145"
+    },
+    {
+      "source_id": "DIG-S13",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680124000012/meta-20231231.htm",
+      "reopened_url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680124000012/meta-20231231.htm",
+      "claim_ids": [
+        "DIG-K20"
+      ],
+      "retained_evidence": null,
+      "access_route": "Web full-text extraction; no local copy"
+    },
+    {
+      "source_id": "IND-S04",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://www.frbsf.org/wp-content/uploads/sites/4/crafts.pdf",
+      "reopened_url": "https://www.frbsf.org/wp-content/uploads/sites/4/crafts.pdf",
+      "claim_ids": [
+        "IND-K06"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/IND-S04.pdf",
+      "sha256": "d28d23254cd66f57483e16a68b337bf33d676d33f41f9023825e63c0ff61e0b5"
+    },
+    {
+      "source_id": "IND-S16",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://gwern.net/doc/economics/automation/1983-devine.pdf",
+      "reopened_url": "https://gwern.net/doc/economics/automation/1983-devine.pdf",
+      "claim_ids": [
+        "IND-K25"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/IND-S16.pdf",
+      "sha256": "afb57a0f261b8d3796dcbcb62d5caf2eedd188a10f9942e21e8c6388efc013e3"
+    },
+    {
+      "source_id": "LBR-S02",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://www.dpgross.com/papers/answering-call-automation.pdf",
+      "reopened_url": "https://www.dpgross.com/papers/answering-call-automation.pdf",
+      "claim_ids": [
+        "LBR-K02",
+        "LBR-K04"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/LBR-S02.pdf",
+      "sha256": "b4c77eb4c6fbf49765e9a5c08515482b15697846ec315028a804b750ed85ed50"
+    },
+    {
+      "source_id": "MAT-S05",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://donwagner.dk/arch-iron/resources/Wagner2001.pdf",
+      "reopened_url": "https://donwagner.dk/arch-iron/resources/Wagner2001.pdf",
+      "claim_ids": [
+        "MAT-K11"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/MAT-S05.pdf",
+      "sha256": "639c5d9fc242321dd3bcc268dc27ae92c19549db3a9a6a9eec5c8def703f1589"
+    },
+    {
+      "source_id": "MAT-S08",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://www.academia.edu/31356952/Lechtman_Arsenic_Bronze_Dirty_Copper_1996",
+      "reopened_url": "https://www.academia.edu/31356952/Lechtman_Arsenic_Bronze_Dirty_Copper_1996",
+      "claim_ids": [
+        "MAT-K15"
+      ],
+      "retained_evidence": null,
+      "access_route": "Web full-text extraction; no local copy"
+    },
+    {
+      "source_id": "MED-S01",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://journals.sagepub.com/doi/10.1258/jrsm.2012.12k044",
+      "reopened_url": "https://journals.sagepub.com/doi/10.1258/jrsm.2012.12k044",
+      "claim_ids": [
+        "MED-K01"
+      ],
+      "retained_evidence": null,
+      "access_route": "Web full-text extraction; no local copy"
+    },
+    {
+      "source_id": "MED-S06",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://bpb-us-e1.wpmucdn.com/sites.harvard.edu/dist/e/935/files/2025/11/alsangoldin_jpe.pdf",
+      "reopened_url": "https://bpb-us-e1.wpmucdn.com/sites.harvard.edu/dist/e/935/files/2025/11/alsangoldin_jpe.pdf",
+      "claim_ids": [
+        "MED-K09"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/MED-S06.pdf",
+      "sha256": "6ac28619b0455c15f4f0213598e6c10416de8d546a4d2d7c89595fe51411a7de"
+    },
+    {
+      "source_id": "MOB-S08",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://alexandermoradi.org/research/rail.pdf",
+      "reopened_url": "https://alexandermoradi.org/research/rail.pdf",
+      "claim_ids": [
+        "MOB-K11"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/MOB-S08.pdf",
+      "sha256": "c1f1f90710cafbedf4318a5337d87d17311dcac52d51a2ad1d89c664a6c2475d"
+    },
+    {
+      "source_id": "MOB-S11",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://qn1-next.xuetangonline.com/16800654811573.pdf",
+      "reopened_url": "https://qn1-next.xuetangonline.com/16800654811573.pdf",
+      "claim_ids": [
+        "MOB-K21"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/MOB-S11.pdf",
+      "sha256": "1c1fdd7139f13839434be42f7aa16c5776b3dc327c1f7a1159f210cff6ddad80"
+    },
+    {
+      "source_id": "NET-S03",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://discovery.ucl.ac.uk/1527462/1/2016%20Mahgoub%20HS.pdf",
+      "reopened_url": "https://discovery.ucl.ac.uk/1527462/1/2016%20Mahgoub%20HS.pdf",
+      "claim_ids": [
+        "NET-K04"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/NET-S03.pdf",
+      "sha256": "ffb22a08d59af1c93c584154f95bdaf88bca66654a3556c55bf754028c72bde3"
+    },
+    {
+      "source_id": "NET-S11",
+      "declared_access": "full-text",
+      "observed_access": "full-text available; relevant passages inspected",
+      "access_consistency": "consistent",
+      "source_url": "https://religionculturesociety.com/wp-content/uploads/2019/05/s1__schwartz_did-ottoman-sultans-ban-print.pdf",
+      "reopened_url": "https://religionculturesociety.com/wp-content/uploads/2019/05/s1__schwartz_did-ottoman-sultans-ban-print.pdf",
+      "claim_ids": [
+        "NET-K17"
+      ],
+      "retained_evidence": "SOURCE_AUDIT_materials/NET-S11.pdf",
+      "sha256": "7bf43787b9531ef762f337e62cd3b7de5517b198ada9391feca90d54c23d3f21"
+    },
+    {
+      "source_id": "IND-S06",
+      "declared_access": "abstract",
+      "observed_access": "abstract",
+      "access_consistency": "consistent",
+      "source_url": "https://portal.research.lu.se/en/publications/fleeing-the-flowing-commons-robert-thom-water-reservoir-schemes-a/",
+      "reopened_url": "https://portal.research.lu.se/en/publications/fleeing-the-flowing-commons-robert-thom-water-reservoir-schemes-a/",
+      "claim_ids": [
+        "IND-K08"
+      ],
+      "retained_evidence": null,
+      "access_route": "Web repository abstract; no full article"
+    }
+  ],
+  "mandatory_corrections": [],
+  "findings": [
+    {
+      "id": "SRC-R1-PRECISION-01",
+      "priority": "P3",
+      "type": "nonblocking_precision",
+      "target_ids": [
+        "AGR-K11"
+      ],
+      "target_paths": [
+        "contributions/AGR/claims.json",
+        "contributions/AGR/report.md"
+      ],
+      "status": "recommended_clarification",
+      "finding": "The 44% figure is faithfully reported, but the compact statement and report omit the source’s explicit average-country unit.",
+      "evidence": "AGR-S08 section IV.B, printed p.2369, following equation 12.",
+      "recommended_change": "Add “in the average country” and p.2369 to the locator. Keep fixed allocations and identification limits.",
+      "acceptance_check": "Inspect the changed claim and report plus their compiled ledger; do not substitute a global output-weighted or farmer-level percentage.",
+      "does_not_establish": "No numerical contradiction or invalidity of the econometric estimate is established."
+    }
+  ],
+  "additional_scholarship": [
+    {
+      "id": "SRC-R1-LEAD-01",
+      "target_ids": [
+        "IND-K08",
+        "IND-C03"
+      ],
+      "status": "new_original_rival_evidence; not a refutation",
+      "publication": "Jonell, Jones, Lucas and Naylor (2024), Limited waterpower contributed to rise of steam power in British Cottonopolis",
+      "url": "https://doi.org/10.1093/pnasnexus/pgae251",
+      "retained_evidence": "SOURCE_AUDIT_materials/RIVAL-IND-Jonell2024.html",
+      "inspected": "Introduction, waterpower potential/results, basin comparisons, reservoirs discussion and methods",
+      "assessment": "High-resolution historical waterpower reconstruction finds geographically concentrated scarcity. This gives the existing physical-reliability rival concrete evidence; it does not isolate the fate of Malm’s individual reservoir schemes.",
+      "next_step": "Compare matching basin, period and scheme constraints before elevating the coordination hypothesis; do not treat the model as a replicated adoption treatment effect."
+    },
+    {
+      "id": "SRC-R1-LEAD-02",
+      "target_ids": [
+        "NET-K17",
+        "NET-C05"
+      ],
+      "status": "alternative mechanism; compatible with bounded ban criticism",
+      "publication": "Titus Nemeth (2022), Overlooked: The Role of Craft in the Adoption of Typography in the Muslim Middle East",
+      "url": "https://centaur.reading.ac.uk/106214/8/10.1515_9783110776485-002.pdf",
+      "retained_evidence": "SOURCE_AUDIT_materials/RIVAL-NET-Nemeth2022.pdf",
+      "inspected": "pp.21–24, craft/reading discussion and conclusion pp.49–52",
+      "assessment": "Accepts the missing blanket-ban evidence while arguing that formal typography and reading conventions deserve causal attention. It does not restore the alleged decrees.",
+      "next_step": "Treat craft/legibility as a testable additional mechanism; do not convert modern reading evidence into a measured historical effect."
+    },
+    {
+      "id": "SRC-R1-LEAD-03",
+      "target_ids": [
+        "DIG-K16",
+        "DIG-C05"
+      ],
+      "status": "critique adjudicated; no demonstrated numerical rebuttal",
+      "publication": "Bateman, Duvendack and Loubere (2019), Is Fin-Tech the New Panacea for Poverty Alleviation and Local Development?",
+      "url": "https://doi.org/10.1080/03056244.2019.1614552",
+      "retained_evidence": "SOURCE_AUDIT_materials/RIVAL-DIG-Bateman2019.pdf",
+      "inspected": "Sections (1), (2), (6) and conclusion",
+      "assessment": "Raises displacement, external-validity and selection concerns. Its assertion that the original lacks a counterfactual is not supported by the original equations and comparison design. No replication establishes a corrected poverty count here.",
+      "next_step": "Retain unresolved spillover/general-equilibrium questions and inspect original supplementary/replication material before stronger claims."
+    },
+    {
+      "id": "SRC-R1-LEAD-04",
+      "target_ids": [
+        "MED-K09",
+        "MED-C04"
+      ],
+      "status": "external-validity contrast; not a same-sample replication",
+      "publication": "Aidt, Davenport and Gray (2023), New perspectives on the contribution of sanitary investments to mortality decline in English cities, 1845–1909",
+      "url": "https://www.campop.geog.cam.ac.uk/research/projects/migrationmortalitymedicalisation/publications/aidtetal_echr2022acceptedversion.pdf",
+      "retained_evidence": "SOURCE_AUDIT_materials/RIVAL-MED-Aidt2023.pdf",
+      "inspected": "Accepted manuscript pp.2–5, debate discussion and concluding interpretation",
+      "assessment": "English capital-stock evidence differs across periods and interventions and also supports complementarity. It bounds extrapolation without contradicting the Massachusetts estimate.",
+      "next_step": "Use different geography, outcomes and exposure definitions explicitly; do not pool the effect sizes."
+    }
+  ],
+  "lineage_checks": [
+    "AGR-S04 inherits the Lansing historical narrative and reuses model/data lineage; it is not a second field confirmation of AGR-K05.",
+    "ANC-S06 overlaps Frontinus for relevant Roman aqueduct propositions; legal synthesis and ancient text are not two independent observations.",
+    "DIG-S09 extends the earlier Suri/Jack household data programme; earlier falsification tests are not independent replication.",
+    "LBR-K02 and LBR-K04 share the AT&T/census/cutover study and do not count as two independent replications.",
+    "Reconstructed engine stocks, capacity shares, colonial routes and Song output criticism were checked at the cited-author level; underlying historical datasets were not rebuilt.",
+    "NET-S11 explicitly traces a repeated historiographic claim rather than counting each repetition as independent corroboration."
+  ],
+  "limits": [
+    "Twenty claims of 210 and 21 source records of 129 were passage-audited. No absence of defects can be generalized to the remaining records.",
+    "Access consistency concerns current availability and inspected support, not proof of every contributor’s historical reading behaviour.",
+    "Supplementary models, raw statistical data, original translated manuscripts and all upstream citations were not independently replicated.",
+    "Existing uncertain knowledge is not converted into a historical failure solely because evidence remains missing.",
+    "The current live programme and the separate external-R1 repair snapshot are outside this verdict."
+  ]
+}

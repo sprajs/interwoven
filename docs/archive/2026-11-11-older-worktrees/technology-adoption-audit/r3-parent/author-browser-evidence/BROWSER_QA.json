@@ -1,0 +1,1115 @@
+{
+  "created_utc": "2026-11-05T16:11:33.920Z",
+  "review_type": "Implementation author QA; not independent historical acceptance",
+  "runtime": {
+    "browser": "headed Google Chrome via Playwright",
+    "version": "156.0.8078.80",
+    "desktop": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "isMobile": true,
+      "hasTouch": true
+    },
+    "transport": "loopback HTTP server; no file URL policy workaround"
+  },
+  "input_snapshot": "reviews/round2/full-snapshot",
+  "input_snapshot_manifest_sha256": "25716753bb0b62f804b05897ba2ab696681f82d95f4381f023454b3770c8fe36",
+  "builder_sha256": "c8feed6ec2fa23cfc1d163711f342e0d1c29f4f366bf0142dbc8942b3df71dad",
+  "preview_sha256": "f38929606fdcab1bcbe5279949aed715f6d8fe48b092b1c747caf05249d0a6cc",
+  "counts": {
+    "cases": 88,
+    "sources": 204,
+    "claims": 329,
+    "nodes": 428,
+    "edges": 299,
+    "comparisons": 69
+  },
+  "chronology_routes": 9,
+  "preliminary_checks": [
+    {
+      "check": "R2-04 case and section survive click, reload and copied URL in fresh tab",
+      "passed": true,
+      "url": "http://127.0.0.1:8765/index.html#view=case&id=MED-C07&section=relations"
+    },
+    {
+      "check": "R2-03 case to exact hypothesis edge to supporting claim to claim-specific source locator",
+      "passed": true,
+      "url": "http://127.0.0.1:8765/index.html#view=source&id=IND-S08&case=IND-C04&section=relations&claim=IND-K10",
+      "sourceUrl": "https://ora.ox.ac.uk/objects/uuid%3A4f321519-a0b7-4879-a521-139cbca81b25/download_file?safe_filename=Humphries_and_Schneider_Spinning_the_industrial_revolution.pdf&type_of_work=Journal+article"
+    },
+    {
+      "check": "Exact node view lists every recorded incident edge",
+      "passed": true,
+      "node": "IND-T33",
+      "edges": [
+        "IND-E09",
+        "IND-E10",
+        "IND-E11"
+      ]
+    },
+    {
+      "check": "R2-03 case comparison to another case and browser back preserves origin",
+      "passed": true,
+      "comparison": "SYN-X04",
+      "from": "IND-C04",
+      "to": "LBR-C01"
+    },
+    {
+      "check": "Separate comparison index and search",
+      "passed": true
+    },
+    {
+      "check": "Absent optional chronology has explicit usable fallback",
+      "passed": true
+    }
+  ],
+  "full_edition_check_groups": [
+    {
+      "check": "Full edition R2-04 reload and fresh-tab case/section persistence",
+      "passed": true,
+      "url": "http://127.0.0.1:8765/full/index.html#view=case&id=MED-C07&section=relations"
+    },
+    {
+      "check": "Full edition edge to claim to exact source locator; source context survives reload",
+      "passed": true,
+      "edge": "IND-E14",
+      "claim": "IND-K10",
+      "source": "IND-S08"
+    },
+    {
+      "check": "Full edition node exposes every exact incident edge and scoped edge view",
+      "passed": true,
+      "node": "IND-T33",
+      "edges": [
+        "IND-E09",
+        "IND-E10",
+        "IND-E11"
+      ]
+    },
+    {
+      "check": "Comparison traversal, origin context, browser back/forward and index search/reset/no-result",
+      "passed": true,
+      "comparison": "SYN-X04",
+      "from": "IND-C04",
+      "to": "LBR-C01",
+      "cases": 9
+    },
+    {
+      "check": "All nine historical routes link to their exact cases and unchanged original period/episode strings",
+      "passed": true,
+      "routes": [
+        {
+          "id": "early-materials",
+          "cases": 1,
+          "exactDates": true
+        },
+        {
+          "id": "early-landscapes",
+          "cases": 8,
+          "exactDates": true
+        },
+        {
+          "id": "classical",
+          "cases": 5,
+          "exactDates": true
+        },
+        {
+          "id": "medieval-networks",
+          "cases": 11,
+          "exactDates": true
+        },
+        {
+          "id": "early-modern",
+          "cases": 9,
+          "exactDates": true
+        },
+        {
+          "id": "industrial-transformations",
+          "cases": 12,
+          "exactDates": true
+        },
+        {
+          "id": "urban-networks",
+          "cases": 13,
+          "exactDates": true
+        },
+        {
+          "id": "twentieth-systems",
+          "cases": 24,
+          "exactDates": true
+        },
+        {
+          "id": "recent-observations",
+          "cases": 26,
+          "exactDates": true
+        }
+      ],
+      "distinctCases": 88
+    },
+    {
+      "check": "Disputed MAT-C06 dates and observation limits remain visible on route card; route\u2192case\u2192route round trip works",
+      "passed": true,
+      "case": "MAT-C06",
+      "route": "medieval-networks"
+    },
+    {
+      "check": "Mobile case picker opens/closes; search, strand, reset and no-result states preserve open record; selected case closes picker",
+      "passed": true,
+      "viewport": "390x844"
+    },
+    {
+      "check": "Mobile MED-C07 case/section URL survives reload and copied fresh-tab opening with case context visible",
+      "passed": true,
+      "url": "http://127.0.0.1:8765/full/index.html#view=case&id=MED-C07&section=relations"
+    },
+    {
+      "check": "Mobile claim\u2192source link exposes exact source locator and access context without horizontal overflow",
+      "passed": true,
+      "claim": "IND-K10",
+      "source": "IND-S08"
+    },
+    {
+      "check": "Mobile chronology index and disputed-date route detail remain readable with exact dates and no horizontal overflow",
+      "passed": true,
+      "case": "MAT-C06"
+    },
+    {
+      "check": "Mobile comparison index search and exact comparison view show layered meaning and wrapped case links",
+      "passed": true,
+      "comparison": "SYN-X04"
+    },
+    {
+      "check": "Keyboard record-ID form addresses all six exact record kinds and normalizes whitespace/case",
+      "passed": true,
+      "records": [
+        {
+          "id": "mat-c06",
+          "kind": "case",
+          "passed": true
+        },
+        {
+          "id": "IND-K10",
+          "kind": "claim",
+          "passed": true
+        },
+        {
+          "id": "IND-S08",
+          "kind": "source",
+          "passed": true
+        },
+        {
+          "id": "IND-T33",
+          "kind": "node",
+          "passed": true
+        },
+        {
+          "id": "IND-E14",
+          "kind": "edge",
+          "passed": true
+        },
+        {
+          "id": "SYN-X04",
+          "kind": "comparison",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "check": "Malformed, wrong-kind, unknown and inherited-property URLs fail explicitly without substitution or exceptions",
+      "passed": true,
+      "cases": [
+        {
+          "hash": "view=edge&id=DOES-NOT-EXIST",
+          "expected": "Record not found",
+          "passed": true
+        },
+        {
+          "hash": "view=edge&id=MAT-C06",
+          "expected": "Record not found",
+          "passed": true
+        },
+        {
+          "hash": "view=__proto__&id=MAT-C06",
+          "expected": "Record not found",
+          "passed": true
+        },
+        {
+          "hash": "view=constructor&id=MAT-C06",
+          "expected": "Record not found",
+          "passed": true
+        },
+        {
+          "hash": "%",
+          "expected": "Record not found",
+          "passed": true
+        },
+        {
+          "hash": "relations",
+          "expected": "This section link needs a case",
+          "passed": true
+        },
+        {
+          "hash": "view=chronology&route=missing-route",
+          "expected": "The requested route missing-route is unavailable.",
+          "passed": true
+        },
+        {
+          "hash": "view=chronology&route=__proto__",
+          "expected": "The requested route __proto__ is unavailable.",
+          "passed": true
+        },
+        {
+          "hash": "view=case&id=MAT-C06&section=constructor",
+          "expected": "The section constructor is not available.",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "check": "Legacy raw case and edge IDs canonicalize to exact addressed records",
+      "passed": true,
+      "records": [
+        {
+          "id": "MED-C07",
+          "url": "http://127.0.0.1:8765/full/index.html#view=case&id=MED-C07",
+          "passed": true
+        },
+        {
+          "id": "IND-E14",
+          "url": "http://127.0.0.1:8765/full/index.html#view=edge&id=IND-E14",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "check": "All six case-section controls preserve exact case ID; actor/labour/source disclosure controls open and close",
+      "passed": true,
+      "case": "MAT-C06",
+      "sections": [
+        {
+          "id": "episode",
+          "label": "Episode and actors",
+          "passed": true
+        },
+        {
+          "id": "stages",
+          "label": "Stages",
+          "passed": true
+        },
+        {
+          "id": "evidence",
+          "label": "Evidence and rivals",
+          "passed": true
+        },
+        {
+          "id": "relations",
+          "label": "Graph relations",
+          "passed": true
+        },
+        {
+          "id": "comparisons",
+          "label": "Comparisons",
+          "passed": true
+        },
+        {
+          "id": "sources",
+          "label": "Sources and lineage",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "check": "Keyboard skip link visibly receives focus and moves to current record",
+      "passed": true
+    },
+    {
+      "check": "Reading-files disclosure opens/closes and Synthesis document link opens successfully",
+      "passed": true,
+      "url": "http://127.0.0.1:8765/full/analysis/SYNTHESIS.md"
+    },
+    {
+      "check": "Final builder smoke after singular route-label correction: desktop/mobile chronology, case-section reload/fresh tab and mobile exact source locator",
+      "passed": true
+    }
+  ],
+  "viewport_observations": [
+    {
+      "label": "mobile initial",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 10677,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": 538.6484375
+        },
+        ".layers": {
+          "x": 22,
+          "y": 419.8046875,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": 457.5
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": 552.6484375,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": 575.8984375
+        },
+        "#detail": {
+          "x": 0,
+          "y": 590.8984375,
+          "width": 390,
+          "height": 9947.921875,
+          "right": 390,
+          "bottom": 10538.8203125
+        }
+      }
+    },
+    {
+      "label": "mobile picker filtered no results",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 11129,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": 538.6484375
+        },
+        ".layers": {
+          "x": 22,
+          "y": 419.8046875,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": 457.5
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": 552.6484375,
+          "width": 346,
+          "height": 475.921875,
+          "right": 368,
+          "bottom": 1028.5703125
+        },
+        "#detail": {
+          "x": 0,
+          "y": 1043.5703125,
+          "width": 390,
+          "height": 9947.921875,
+          "right": 390,
+          "bottom": 10991.4921875
+        }
+      }
+    },
+    {
+      "label": "mobile MED-C07 graph section after reload",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 10027,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -4669,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": -4130.3515625
+        },
+        ".layers": {
+          "x": 22,
+          "y": -4249.1953125,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": -4211.5
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": -4116.3515625,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": -4093.1015625
+        },
+        "#detail": {
+          "x": 0,
+          "y": -4078.1015625,
+          "width": 390,
+          "height": 9298.4140625,
+          "right": 390,
+          "bottom": 5220.3125
+        }
+      }
+    },
+    {
+      "label": "mobile source claim-specific locator",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 2996,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -591,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": -52.3515625
+        },
+        ".layers": {
+          "x": 22,
+          "y": -171.1953125,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": -133.5
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": -38.3515625,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": -15.1015625
+        },
+        "#detail": {
+          "x": 0,
+          "y": -0.1015625,
+          "width": 390,
+          "height": 2267.546875,
+          "right": 390,
+          "bottom": 2267.4453125
+        }
+      }
+    },
+    {
+      "label": "mobile chronology index",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 3889,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -16.5,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": 522.1484375
+        },
+        ".layers": {
+          "x": 22,
+          "y": 403.3046875,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": 441
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": 536.1484375,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": 559.3984375
+        },
+        "#detail": {
+          "x": 0,
+          "y": 574.3984375,
+          "width": 390,
+          "height": 3159.9453125,
+          "right": 390,
+          "bottom": 3734.34375
+        }
+      }
+    },
+    {
+      "label": "mobile chronology disputed-date card",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 5612,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -2018,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": -1479.3515625
+        },
+        ".layers": {
+          "x": 22,
+          "y": -1598.1953125,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": -1560.5
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": -1465.3515625,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": -1442.1015625
+        },
+        "#detail": {
+          "x": 0,
+          "y": -1427.1015625,
+          "width": 390,
+          "height": 4883.1875,
+          "right": 390,
+          "bottom": 3456.0859375
+        }
+      }
+    },
+    {
+      "label": "mobile long comparison heading and case links",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 5621,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -591,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": -52.3515625
+        },
+        ".layers": {
+          "x": 22,
+          "y": -171.1953125,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": -133.5
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": -38.3515625,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": -15.1015625
+        },
+        "#detail": {
+          "x": 0,
+          "y": -0.1015625,
+          "width": 390,
+          "height": 4892.3671875,
+          "right": 390,
+          "bottom": 4892.265625
+        }
+      }
+    },
+    {
+      "label": "mobile no-result message with controls",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 6074,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -170.5,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": 368.1484375
+        },
+        ".layers": {
+          "x": 22,
+          "y": 249.3046875,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": 287
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": 382.1484375,
+          "width": 346,
+          "height": 475.921875,
+          "right": 368,
+          "bottom": 858.0703125
+        },
+        "#detail": {
+          "x": 0,
+          "y": 873.0703125,
+          "width": 390,
+          "height": 4892.3671875,
+          "right": 390,
+          "bottom": 5765.4375
+        }
+      }
+    },
+    {
+      "label": "desktop invalid section retains requested case",
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 5044,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -418,
+          "width": 1440,
+          "height": 418.0859375,
+          "right": 1440,
+          "bottom": 0.0859375
+        },
+        ".layers": {
+          "x": 72,
+          "y": -122.7578125,
+          "width": 1296,
+          "height": 37.6953125,
+          "right": 1368,
+          "bottom": -85.0625
+        },
+        "#case-picker": {
+          "x": 20,
+          "y": 24.0859375,
+          "width": 284,
+          "height": 13115.1328125,
+          "right": 304,
+          "bottom": 13139.21875
+        },
+        "#detail": {
+          "x": 325,
+          "y": 0.0859375,
+          "width": 1115,
+          "height": 4544.203125,
+          "right": 1440,
+          "bottom": 4544.2890625
+        }
+      }
+    },
+    {
+      "label": "desktop expanded actor and labour fields",
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 5678,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -1332,
+          "width": 1440,
+          "height": 418.0859375,
+          "right": 1440,
+          "bottom": -913.9140625
+        },
+        ".layers": {
+          "x": 72,
+          "y": -1036.7578125,
+          "width": 1296,
+          "height": 37.6953125,
+          "right": 1368,
+          "bottom": -999.0625
+        },
+        "#case-picker": {
+          "x": 20,
+          "y": 24,
+          "width": 284,
+          "height": 13115.1328125,
+          "right": 304,
+          "bottom": 13139.1328125
+        },
+        "#detail": {
+          "x": 325,
+          "y": -913.9140625,
+          "width": 1115,
+          "height": 5177.8046875,
+          "right": 1440,
+          "bottom": 4263.890625
+        }
+      }
+    },
+    {
+      "label": "desktop initial final builder",
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 6830,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 418.0859375,
+          "right": 1440,
+          "bottom": 418.0859375
+        },
+        ".layers": {
+          "x": 72,
+          "y": 295.2421875,
+          "width": 1296,
+          "height": 37.6953125,
+          "right": 1368,
+          "bottom": 332.9375
+        },
+        "#case-picker": {
+          "x": 20,
+          "y": 442.0859375,
+          "width": 284,
+          "height": 13115.1328125,
+          "right": 304,
+          "bottom": 13557.21875
+        },
+        "#detail": {
+          "x": 325,
+          "y": 418.0859375,
+          "width": 1115,
+          "height": 6329.9921875,
+          "right": 1440,
+          "bottom": 6748.078125
+        }
+      }
+    },
+    {
+      "label": "desktop chronology final builder",
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 2513,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 418.0859375,
+          "right": 1440,
+          "bottom": 418.0859375
+        },
+        ".layers": {
+          "x": 72,
+          "y": 295.2421875,
+          "width": 1296,
+          "height": 37.6953125,
+          "right": 1368,
+          "bottom": 332.9375
+        },
+        "#case-picker": {
+          "x": 20,
+          "y": 442.0859375,
+          "width": 284,
+          "height": 13115.1328125,
+          "right": 304,
+          "bottom": 13557.21875
+        },
+        "#detail": {
+          "x": 325,
+          "y": 418.0859375,
+          "width": 1115,
+          "height": 2012.9609375,
+          "right": 1440,
+          "bottom": 2431.046875
+        }
+      }
+    },
+    {
+      "label": "mobile chronology final builder",
+      "width": 390,
+      "height": 844,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 3889,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -16.5,
+          "width": 390,
+          "height": 538.6484375,
+          "right": 390,
+          "bottom": 522.1484375
+        },
+        ".layers": {
+          "x": 22,
+          "y": 403.3046875,
+          "width": 346,
+          "height": 37.6953125,
+          "right": 368,
+          "bottom": 441
+        },
+        "#case-picker": {
+          "x": 22,
+          "y": 536.1484375,
+          "width": 346,
+          "height": 23.25,
+          "right": 368,
+          "bottom": 559.3984375
+        },
+        "#detail": {
+          "x": 0,
+          "y": 574.3984375,
+          "width": 390,
+          "height": 3159.9453125,
+          "right": 390,
+          "bottom": 3734.34375
+        }
+      }
+    },
+    {
+      "label": "desktop exact node incidence",
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 2885,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -418,
+          "width": 1440,
+          "height": 418.0859375,
+          "right": 1440,
+          "bottom": 0.0859375
+        },
+        ".layers": {
+          "x": 72,
+          "y": -122.7578125,
+          "width": 1296,
+          "height": 37.6953125,
+          "right": 1368,
+          "bottom": -85.0625
+        },
+        "#case-picker": {
+          "x": 20,
+          "y": 24.0859375,
+          "width": 284,
+          "height": 13115.1328125,
+          "right": 304,
+          "bottom": 13139.21875
+        },
+        "#detail": {
+          "x": 325,
+          "y": 0.0859375,
+          "width": 1115,
+          "height": 2385.0390625,
+          "right": 1440,
+          "bottom": 2385.125
+        }
+      }
+    },
+    {
+      "label": "desktop exact claim and rivals",
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 1880,
+      "scrollX": 0,
+      "regions": {
+        "header": {
+          "x": 0,
+          "y": -418,
+          "width": 1440,
+          "height": 418.0859375,
+          "right": 1440,
+          "bottom": 0.0859375
+        },
+        ".layers": {
+          "x": 72,
+          "y": -122.7578125,
+          "width": 1296,
+          "height": 37.6953125,
+          "right": 1368,
+          "bottom": -85.0625
+        },
+        "#case-picker": {
+          "x": 20,
+          "y": 24.0859375,
+          "width": 284,
+          "height": 13115.1328125,
+          "right": 304,
+          "bottom": 13139.21875
+        },
+        "#detail": {
+          "x": 325,
+          "y": 0.0859375,
+          "width": 1115,
+          "height": 1379.984375,
+          "right": 1440,
+          "bottom": 1380.0703125
+        }
+      }
+    }
+  ],
+  "browser_errors": [],
+  "automatic_external_requests": [],
+  "screenshots": [
+    {
+      "path": "full-case-actor-details.png",
+      "bytes": 233420,
+      "sha256": "a33e1b4e0cdfca83492061a1c895a1eb964a6ef600c3095431a8afeaebc46365",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-chronology-disputed-dates.png",
+      "bytes": 242164,
+      "sha256": "9541d0e25815b3a668c5aacddb21f6ebc3059e4c32e1ddc8f2b3f4983494bb83",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-chronology-index.png",
+      "bytes": 230437,
+      "sha256": "66bd347d376b5ed72f0b563df21243c802b9ae9958a23edb4a782ba45419bf56",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-claim-rivals.png",
+      "bytes": 249122,
+      "sha256": "0cb2cc27359a1993061b43e4345f33833fda4d377ba6e517d4b7d9cb8cb82d41",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-comparison.png",
+      "bytes": 265866,
+      "sha256": "884de5b7b9eca61a12068b18dcd312e40ebe583533bd8e544702418bde21afbe",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-desktop-initial.png",
+      "bytes": 203053,
+      "sha256": "45a0b42117f4518b8c761134787a142fd3f60f49aef7c0152ce6e156f6b17be8",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-hypothesis-edge.png",
+      "bytes": 205873,
+      "sha256": "984d542bc742c8806f848bb971476ba9c25d1f5967d99f9486b50097f644f83a",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-invalid-section.png",
+      "bytes": 255879,
+      "sha256": "d41f2646d2f86f89fe5588abc979a60371c9eb67fb94763d35586c86156098bb",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-med-c07-section-fresh.png",
+      "bytes": 228451,
+      "sha256": "4bf20bc96095a4d6fdeeee7d3dfa750d78a62cf8ef7770b78cab02fd69293304",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-chronology-disputed-dates.png",
+      "bytes": 77702,
+      "sha256": "9cebade5a6004fb7e6db77463bda763da81cd66e80a5c4f1ec051e29b3b6472f",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-chronology-index.png",
+      "bytes": 27613,
+      "sha256": "d3e692468a15da85df780e8ba9d9989eab77edc1ef457f75112f0a1a38134e47",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-comparison.png",
+      "bytes": 91189,
+      "sha256": "2a12977caad53108056c2145102b89a9b38fdc39008ace2f7fd713171a0186ff",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-initial.png",
+      "bytes": 81655,
+      "sha256": "72efb59a1896785046f1aba45a1827403a94ca1c36caa7c4e78d6c33cf294052",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-picker-no-results.png",
+      "bytes": 58563,
+      "sha256": "656c9a315146e7051c3a7ee43955dd696823303f0ad0a5f0583118a243270d76",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-section-reload.png",
+      "bytes": 79594,
+      "sha256": "462917e775161c3cba033620dab9e348722a2ade6570a3f914cf151049c56d6f",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-mobile-source-locator.png",
+      "bytes": 71868,
+      "sha256": "e9ef22403e98d963a817a4c75fa2abba709f1a4bf645d319519e65f50139efde",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-node-incidence.png",
+      "bytes": 205976,
+      "sha256": "7c4a592578c69e30bdc83e8d229c8153f42aec207fc9ef3def169840225d7437",
+      "visually_reviewed": true
+    },
+    {
+      "path": "full-source-locator.png",
+      "bytes": 223608,
+      "sha256": "47a64258f9ce5d32daa5b7a2a2fa0eaedd9102b411ebc9a9035e908c49947427",
+      "visually_reviewed": true
+    }
+  ],
+  "visual_assessment": {
+    "passed": true,
+    "notes": "Desktop and mobile initial views, case sections, source locator, hypothesis edge, node incidence, comparisons, chronology, expanded actors and malformed-section state were visually inspected. No unintended clipping, overlap, horizontal overflow, illegible text or hidden principal control observed. Long records intentionally scroll.",
+    "exploratory_coverage": "Manual-input exploration included switching navigation layers, mobile picker/filter/reset, disclosure opening and closing, route/case round trips, browser history, keyboard skip/lookup and malformed or legacy links.",
+    "limits": [
+      "One installed Chromium-family browser; no Safari/Firefox or screen-reader audit.",
+      "Not all 88 full case pages or 329 claim renderings visually inspected.",
+      "Source content and causal validity are outside this implementation QA.",
+      "Final production index generation and all-contribution parity remain parent-owned."
+    ]
+  },
+  "passed": true,
+  "completed_utc": "2026-11-05T16:13:27.854Z",
+  "cleanup": {
+    "browser_contexts_and_browser_closed": true,
+    "server_shutdown": "PTY received Ctrl-C; exited successfully with status 0"
+  }
+}

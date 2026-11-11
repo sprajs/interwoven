@@ -1,0 +1,62 @@
+[
+  {
+    "id": "R2-01",
+    "priority": "P2",
+    "status": "confirmed-frozen-edition-inconsistency",
+    "ids": [
+      "OCE-T26",
+      "OCE-E19",
+      "OCE-E06",
+      "OCE-K04",
+      "OCE-S07",
+      "OCE-X03"
+    ],
+    "issue": "Completed canonical OCE records and compiled JSON/CSV/Markdown/HTML belong to different generations.",
+    "repair": "Regenerate from a stable completed set; check canonical-to-compiled parity across every contribution; record generation hashes."
+  },
+  {
+    "id": "R2-02",
+    "priority": "P2",
+    "status": "confirmed-integration-gap",
+    "files": [
+      "analysis/SYNTHESIS.md",
+      "analysis/GLOBAL_MAP.md",
+      "index.html"
+    ],
+    "issue": "Primary reading routes retain first-wave counts and omit 14 completed ENE/OCE/POL cases.",
+    "repair": "Refresh or prominently version the first-wave route and supply expanded chronological routes; reconsider inference, not just counts."
+  },
+  {
+    "id": "R2-03",
+    "priority": "P2",
+    "status": "confirmed-source-usability-defect",
+    "files": [
+      "index.html:31",
+      "index.html:32"
+    ],
+    "issue": "Graph and comparison references are plain text; no direct evidence or related-case traversal.",
+    "repair": "Link existing scoped nodes/cases/claims/sources and compare routes; keep analogy/chronology distinct from causal transmission."
+  },
+  {
+    "id": "R2-04",
+    "priority": "P2",
+    "status": "source-confirmed-no-live-reproduction",
+    "files": [
+      "index.html:22",
+      "index.html:25",
+      "index.html:35"
+    ],
+    "issue": "Section anchors overwrite case fragment; reinitialization selects first case.",
+    "repair": "Separate case identity from section anchor; verify click/reload/shared-link behaviour in browser."
+  },
+  {
+    "id": "R2-05",
+    "priority": "P3",
+    "status": "closed-in-narrow-later-check",
+    "files": [
+      "analysis/FUTURE_ROLES.md:9"
+    ],
+    "issue": "Frozen cohort recovery phrasing implies unobserved fall-and-rebound.",
+    "repair": "Later captured wording states no measured overall employment reduction for studied subsequent young female cohorts; accepted at sentence level."
+  }
+]

@@ -1,0 +1,233 @@
+{
+  "audit_round": "R3",
+  "reviewer_role": "independent relationship-evidence/historical-map reviewer",
+  "completed_at_utc": "2026-11-05T16:55:42.419373+00:00",
+  "snapshot_root": "/Users/szymon/.codex/worktrees/4b39/big_idea/research/technology-adoption-audit/r3-snapshot",
+  "snapshot_capture_utc": "2026-11-05T16:36:43Z",
+  "selection_file": "selection.json",
+  "source_access_file": "source_access.json",
+  "checks_file": "checks.json",
+  "topology_file": "topology_checks.json",
+  "decision": {
+    "source_sample": "5/5 qualified-supported; no new material source contradiction found",
+    "historical_map_requirement": "not-satisfied-by-frozen-R3",
+    "case_library_and_comparative_synthesis": "materially improved; useful scoped evidence and analytical connections",
+    "forthcoming_layer": "excluded from this review; no verdict on unfinished or later changes"
+  },
+  "findings": [
+    {
+      "id": "R3-REL-F01",
+      "priority": "P1",
+      "category": "requested-deliverable-gap",
+      "status": "open-on-frozen-snapshot",
+      "title": "An integrated historical relationship map remains absent from the frozen edition",
+      "refs": [
+        {
+          "file": "analysis/GLOBAL_MAP.md",
+          "line": 38
+        },
+        {
+          "file": "analysis/GLOBAL_MAP.md",
+          "line": 40
+        },
+        {
+          "file": "analysis/SYNTHESIS.md",
+          "line": 21
+        },
+        {
+          "file": "data/GRAPH_GUIDE.md",
+          "line": 5
+        },
+        {
+          "file": "data/CHRONOLOGICAL_ROUTES.md",
+          "line": 3
+        }
+      ],
+      "evidence": {
+        "R2_components": 109,
+        "R3_components": 138,
+        "R3_nodes": 428,
+        "R3_edges": 299,
+        "cross_strand_edges": 0,
+        "cross_case_endpoint_edges": 0,
+        "multi_case_edges": 0,
+        "largest_component_nodes": 7,
+        "documented_transmission_edges": 10,
+        "chronological_routes": 9,
+        "cases_in_routes": 88,
+        "cross_strand_comparisons": 10,
+        "comparison_largest_component_cases": 81
+      },
+      "why_it_matters": "The collection supports connected analytical comparison and local historical episodes, but cannot yet be followed across cases as an evidence-bearing account of predecessor developments, transmission, dependencies or convergences. Honest disclaimers correctly prevent overclaiming; they do not complete that requested layer.",
+      "acceptance_condition": "Supply the separately planned historical relationship layer with explicit configuration endpoints, dates/regions, typed relationship meaning, claim/source/passage traceability, alternatives and uncertainty. Demonstrate at least substantive historical routes linking relevant cases across the requested eras and regions; do not use chronological proximity or shared concepts as causal evidence. A single universal lineage or a fully connected graph is not required. Unsupported links should remain explicitly unknown. The new layer requires its own bounded source and render/integration checks.",
+      "not_a_finding": "Disconnectedness by itself is not error. No assertion that all cases must be connected, that every edge must cross strands, or that the underlying local evidence is false."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "SKL-E01",
+      "status": "qualified-supported",
+      "category": "documented named replication",
+      "refs": [
+        {
+          "file": "data/graph.json",
+          "id": "SKL-E01",
+          "json_pointer": "/edges/280",
+          "line": 12775
+        },
+        {
+          "file": "data/claims.json",
+          "id": "SKL-K01",
+          "json_pointer": "/296",
+          "line": 8383
+        }
+      ],
+      "source_work_ids": [
+        "RMG_K1",
+        "KENDALL_OBITUARY"
+      ],
+      "judgment": "Copying H4 into K1 is an evidenced local development/transmission step. Enables is acceptable within this commissioned-copy configuration; serial manufacture, cheap access and universal necessity are not claimed.",
+      "chronology": "1766 commission and 1769 completion are supported; approximate 1771 delivery in the obituary is a distinct reported event and does not undermine the copying link.",
+      "historical_map_role": "A real local historical path, but neither endpoint joins another case or strand.",
+      "material_correction_required": false
+    },
+    {
+      "id": "SKL-E09",
+      "status": "qualified-supported",
+      "category": "observed and retrospectively described skill transmission",
+      "refs": [
+        {
+          "file": "data/graph.json",
+          "id": "SKL-E09",
+          "json_pointer": "/edges/288",
+          "line": 13028
+        },
+        {
+          "file": "data/claims.json",
+          "id": "SKL-K10",
+          "json_pointer": "/305",
+          "line": 8639
+        }
+      ],
+      "source_work_ids": [
+        "GRACE_AFRICAN_MOTORS"
+      ],
+      "judgment": "Documented transmission is warranted for supervised participation passing practical work and learning opportunities. The local garage source does not establish a general transfer law, typical outcome or exclusive training route, and the edge does not assert those.",
+      "chronology": "1960s–1980s histories are kept separate from 2011–2012 field observation.",
+      "historical_map_role": "An internal training-to-repair relationship, not an evidenced lineage connecting automobile technology across cases.",
+      "material_correction_required": false
+    },
+    {
+      "id": "SKL-E16",
+      "status": "qualified-supported",
+      "category": "bounded network transmission with unresolved causal components",
+      "refs": [
+        {
+          "file": "data/graph.json",
+          "id": "SKL-E16",
+          "json_pointer": "/edges/295",
+          "line": 13248
+        },
+        {
+          "file": "data/claims.json",
+          "id": "SKL-K16",
+          "json_pointer": "/311",
+          "line": 8803
+        }
+      ],
+      "source_work_ids": [
+        "COLLINS_TEA_SET"
+      ],
+      "judgment": "The edge accurately represents contact-associated replication in the investigated early network. Failed contacts and possible written-only routes remain explicit; enables does not become necessity or sufficiency.",
+      "chronology": "The summer 1971 British sample and North American contacts fit the source; the 1975 power-unit follow-up is not folded into this edge.",
+      "historical_map_role": "A real within-case diffusion history, compressed to one contributor-to-copy edge; it does not connect the wider historical map.",
+      "material_correction_required": false
+    },
+    {
+      "id": "GHA-X02",
+      "status": "qualified-supported",
+      "category": "historically overlapping cross-strand comparison, not an extra causal edge",
+      "refs": [
+        {
+          "file": "data/comparisons.json",
+          "id": "GHA-X02",
+          "json_pointer": "/21",
+          "line": 326
+        },
+        {
+          "file": "data/claims.json",
+          "id": "GHA-K11",
+          "json_pointer": "/108",
+          "line": 3119
+        },
+        {
+          "file": "data/graph.json",
+          "id": "GHA-E02",
+          "json_pointer": "/edges/97",
+          "line": 6948
+        },
+        {
+          "file": "data/graph.json",
+          "id": "GHA-E03",
+          "json_pointer": "/edges/98",
+          "line": 6979
+        }
+      ],
+      "source_work_ids": [
+        "AUSTIN_GHANA",
+        "JEDWAB_MORADI_2015"
+      ],
+      "judgment": "The comparison validly joins actor/process history to spatial rail evidence and recognises their shared scholarship. Added road agency does not refute rail effects. Local complements and competition are separately period-scoped.",
+      "chronology": "Earlier feeder complementarity and later 1920s–1930/31 competition are supported. Repaired GHA-K11/GHA-S05 references to §4.1 pp. 11–12 and §5.1.3 p. 18 are verified.",
+      "historical_map_role": "Substantive connected regional interpretation, but the comparison adds no traversable evidence-bearing historical relationship between case nodes.",
+      "material_correction_required": false
+    },
+    {
+      "id": "CTX-X01",
+      "status": "qualified-supported",
+      "category": "cross-period cross-strand comparison with shared-source dependence",
+      "refs": [
+        {
+          "file": "data/comparisons.json",
+          "id": "CTX-X01",
+          "json_pointer": "/10",
+          "line": 154
+        },
+        {
+          "file": "data/claims.json",
+          "id": "CTX-K01",
+          "json_pointer": "/47",
+          "line": 1403
+        },
+        {
+          "file": "data/claims.json",
+          "id": "CTX-K02",
+          "json_pointer": "/48",
+          "line": 1427
+        },
+        {
+          "file": "data/claims.json",
+          "id": "CTX-K03",
+          "json_pointer": "/49",
+          "line": 1456
+        }
+      ],
+      "source_work_ids": [
+        "EYFERTH_2012"
+      ],
+      "judgment": "The contrast between pre-1949 hybrid textiles and later constrained household production is supported as a comparison. Same-article dependence and unequal units are explicit; the record does not assert that one case causally produced the other.",
+      "chronology": "Distinct regimes and locations are preserved; post-1950s procurement and labour arrangements are not projected backward.",
+      "historical_map_role": "A useful historical comparison, not a demonstrated transmission or dependence link between the two configurations.",
+      "material_correction_required": false
+    }
+  ],
+  "scope_limits": "Targeted cited passages only. Unchanged claims,9 bounded-necessity edges, unselected transmission links, econometric estimates and full source corpus not re-audited.",
+  "requested_locator_repair": {
+    "records": [
+      "GHA-S05",
+      "GHA-K11"
+    ],
+    "status": "verified",
+    "details": "January 2015 manuscript §4.1 pp. 11–12 and §5.1.3 p. 18 are correct."
+  }
+}

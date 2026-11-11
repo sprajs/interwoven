@@ -1,0 +1,630 @@
+{
+  "nodes": [
+    {
+      "id": "POL-T01",
+      "label": "Tokugawa rural firearm use",
+      "kind": "technology",
+      "case_ids": [
+        "POL-C01"
+      ]
+    },
+    {
+      "id": "POL-T02",
+      "label": "Crop protection and hunting tasks",
+      "kind": "practice",
+      "case_ids": [
+        "POL-C01"
+      ]
+    },
+    {
+      "id": "POL-T03",
+      "label": "Task-specific licenses and class authority",
+      "kind": "institution",
+      "case_ids": [
+        "POL-C01"
+      ]
+    },
+    {
+      "id": "POL-T04",
+      "label": "Yuan silver-convertible paper currency, 1260–76",
+      "kind": "technology",
+      "case_ids": [
+        "POL-C02"
+      ]
+    },
+    {
+      "id": "POL-T05",
+      "label": "Silver reserves and exchange bureaux",
+      "kind": "institution",
+      "case_ids": [
+        "POL-C02"
+      ]
+    },
+    {
+      "id": "POL-T06",
+      "label": "Yuan tax, salary and legal-payment requirements",
+      "kind": "institution",
+      "case_ids": [
+        "POL-C02"
+      ]
+    },
+    {
+      "id": "POL-T07",
+      "label": "Civil-war fiscal demands",
+      "kind": "practice",
+      "case_ids": [
+        "POL-C02"
+      ]
+    },
+    {
+      "id": "POL-T08",
+      "label": "Yuan fiat note issues, 1310–55",
+      "kind": "technology",
+      "case_ids": [
+        "POL-C02"
+      ]
+    },
+    {
+      "id": "POL-T09",
+      "label": "Silver and other regional payment practices",
+      "kind": "practice",
+      "case_ids": [
+        "POL-C02"
+      ]
+    },
+    {
+      "id": "POL-T10",
+      "label": "Late-Qing landline telegraph service",
+      "kind": "technology",
+      "case_ids": [
+        "POL-C03"
+      ]
+    },
+    {
+      "id": "POL-T11",
+      "label": "Strategic state priorities and controlled provision",
+      "kind": "institution",
+      "case_ids": [
+        "POL-C03"
+      ]
+    },
+    {
+      "id": "POL-T12",
+      "label": "Merchant investment and dividend claims",
+      "kind": "institution",
+      "case_ids": [
+        "POL-C03"
+      ]
+    },
+    {
+      "id": "POL-T13",
+      "label": "Private messengers and letters with cargo",
+      "kind": "practice",
+      "case_ids": [
+        "POL-C03"
+      ]
+    },
+    {
+      "id": "POL-T14",
+      "label": "Existing grain-trading and waterway networks",
+      "kind": "complement",
+      "case_ids": [
+        "POL-C03"
+      ]
+    },
+    {
+      "id": "POL-T15",
+      "label": "Metric standards and calibrated instruments",
+      "kind": "technology",
+      "case_ids": [
+        "POL-C04"
+      ]
+    },
+    {
+      "id": "POL-T16",
+      "label": "1812 mixed metric-based retail measures",
+      "kind": "technology",
+      "case_ids": [
+        "POL-C04"
+      ]
+    },
+    {
+      "id": "POL-T17",
+      "label": "1837 repeal effective in 1840",
+      "kind": "institution",
+      "case_ids": [
+        "POL-C04"
+      ]
+    },
+    {
+      "id": "POL-T18",
+      "label": "Customary local and task-linked measures",
+      "kind": "practice",
+      "case_ids": [
+        "POL-C04"
+      ]
+    },
+    {
+      "id": "POL-T19",
+      "label": "Teaching, conversion tables and verification",
+      "kind": "complement",
+      "case_ids": [
+        "POL-C04"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "POL-E01",
+      "from": "POL-T02",
+      "to": "POL-T01",
+      "relation": "complements",
+      "case_ids": [
+        "POL-C01"
+      ],
+      "claim_ids": [
+        "POL-K01",
+        "POL-K02",
+        "POL-K03"
+      ],
+      "source_ids": [
+        "POL-S01",
+        "POL-S02",
+        "POL-S03"
+      ],
+      "confidence": "medium",
+      "qualification": "Economic tasks offer a legitimate niche, not a sufficient cause of persistence.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C01",
+        "stage": "non-adoption/niche",
+        "configuration": "Selected Tokugawa village crop-protection/hunting uses"
+      },
+      "alternatives": [
+        "Other crop protection/hunting techniques not comparatively assessed"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Permitted uses documented; relative importance against illegal possession or weak enforcement unmeasured."
+    },
+    {
+      "id": "POL-E02",
+      "from": "POL-T03",
+      "to": "POL-T01",
+      "relation": "constrains",
+      "case_ids": [
+        "POL-C01"
+      ],
+      "claim_ids": [
+        "POL-K02",
+        "POL-K03"
+      ],
+      "source_ids": [
+        "POL-S01",
+        "POL-S03"
+      ],
+      "confidence": "medium",
+      "qualification": "Licensing delimits users/tasks while allowing some possession.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C01",
+        "stage": "deployment",
+        "configuration": "Task-specific and locally variable firearm permission"
+      },
+      "alternatives": [
+        "Different domain rules; unlicensed possession possible but uncounted"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Not a universal national ban or a causal estimate of regulation."
+    },
+    {
+      "id": "POL-E03",
+      "from": "POL-T05",
+      "to": "POL-T04",
+      "relation": "complements",
+      "case_ids": [
+        "POL-C02"
+      ],
+      "claim_ids": [
+        "POL-K05"
+      ],
+      "source_ids": [
+        "POL-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Reserves/redemption support the specified convertible arrangement; availability geographically uneven.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C02",
+        "stage": "deployment",
+        "configuration": "Yuan 1260–76 convertibility and subsequent redemption institutions"
+      },
+      "alternatives": [
+        "Inconvertible paper with tax/legal support",
+        "Metal money"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Historical period boundaries and local redemption differ; no universal money necessity."
+    },
+    {
+      "id": "POL-E04",
+      "from": "POL-T06",
+      "to": "POL-T04",
+      "relation": "enables",
+      "case_ids": [
+        "POL-C02"
+      ],
+      "claim_ids": [
+        "POL-K05",
+        "POL-K08",
+        "POL-K09"
+      ],
+      "source_ids": [
+        "POL-S04",
+        "POL-S05",
+        "POL-S06"
+      ],
+      "confidence": "medium",
+      "qualification": "Government payments/requirements create uses for notes, not proof of consent or sole circulation.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C02",
+        "stage": "deployment",
+        "configuration": "Yuan state-directed payment demand"
+      },
+      "alternatives": [
+        "Silver private trades",
+        "Regional account conventions"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Legal rules exceed actual homogeneous practice; coercion incidence not measured."
+    },
+    {
+      "id": "POL-E05",
+      "from": "POL-T07",
+      "to": "POL-T08",
+      "relation": "enables",
+      "case_ids": [
+        "POL-C02"
+      ],
+      "claim_ids": [
+        "POL-K07"
+      ],
+      "source_ids": [
+        "POL-S04"
+      ],
+      "confidence": "medium",
+      "qualification": "Fiscal demand is a candidate driver of additional issues; this edge does not mean warfare benefits society.",
+      "basis": "hypothesis",
+      "scope": {
+        "case_id": "POL-C02",
+        "stage": "scaling",
+        "configuration": "Civil-war association with note issuance, 1260–1355 series and post-1310 regime"
+      },
+      "alternatives": [
+        "Higher taxes",
+        "Reserve use",
+        "Reduced spending; feasibility not established"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Reverse causation and omitted instability; external wars do not share the same result."
+    },
+    {
+      "id": "POL-E06",
+      "from": "POL-T09",
+      "to": "POL-T08",
+      "relation": "competes-with",
+      "case_ids": [
+        "POL-C02"
+      ],
+      "claim_ids": [
+        "POL-K08"
+      ],
+      "source_ids": [
+        "POL-S04",
+        "POL-S05"
+      ],
+      "confidence": "medium",
+      "qualification": "Alternative transactions/account practices coexist with paper; not all are the same medium.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C02",
+        "stage": "non-adoption/niche",
+        "configuration": "Yuan regional and property-transaction settings"
+      },
+      "alternatives": [
+        "Paper settlement where accepted"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Unit-of-account diversity alone does not prove distinct circulating currencies."
+    },
+    {
+      "id": "POL-E07",
+      "from": "POL-T11",
+      "to": "POL-T10",
+      "relation": "enables",
+      "case_ids": [
+        "POL-C03"
+      ],
+      "claim_ids": [
+        "POL-K10"
+      ],
+      "source_ids": [
+        "POL-S07"
+      ],
+      "confidence": "medium",
+      "qualification": "Strategic impetus and state route control contribute to rollout.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C03",
+        "stage": "deployment",
+        "configuration": "Late-Qing official/provincial line expansion"
+      },
+      "alternatives": [
+        "Foreign cable services",
+        "Government horse posts"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Background inherited from Baark; strategic placement does not establish econometric exogeneity."
+    },
+    {
+      "id": "POL-E08",
+      "from": "POL-T12",
+      "to": "POL-T10",
+      "relation": "complements",
+      "case_ids": [
+        "POL-C03"
+      ],
+      "claim_ids": [
+        "POL-K11",
+        "POL-K12"
+      ],
+      "source_ids": [
+        "POL-S08",
+        "POL-S09"
+      ],
+      "confidence": "low",
+      "qualification": "Investor interests form part of enterprise finance/governance.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C03",
+        "stage": "deployment",
+        "configuration": "Telegraph administrations with merchant investors under state influence"
+      },
+      "alternatives": [
+        "Direct state financing",
+        "Different private concessions; not evaluated here"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Abstract-only accounts; no capital-contribution series or optimal-ownership finding."
+    },
+    {
+      "id": "POL-E09",
+      "from": "POL-T12",
+      "to": "POL-T10",
+      "relation": "constrains",
+      "case_ids": [
+        "POL-C03"
+      ],
+      "claim_ids": [
+        "POL-K11"
+      ],
+      "source_ids": [
+        "POL-S08"
+      ],
+      "confidence": "low",
+      "qualification": "Yoon proposes dividend demands constrain service investment and affordability.",
+      "basis": "hypothesis",
+      "scope": {
+        "case_id": "POL-C03",
+        "stage": "diffusion",
+        "configuration": "Popular use under high tariffs and limited equipment investment"
+      },
+      "alternatives": [
+        "Reinvestment",
+        "Tariff reduction with different finance; counterfactual feasibility unknown"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Capital costs/low demand could explain both high tariffs and restrained investment."
+    },
+    {
+      "id": "POL-E10",
+      "from": "POL-T13",
+      "to": "POL-T10",
+      "relation": "competes-with",
+      "case_ids": [
+        "POL-C03"
+      ],
+      "claim_ids": [
+        "POL-K10",
+        "POL-K11"
+      ],
+      "source_ids": [
+        "POL-S07",
+        "POL-S08"
+      ],
+      "confidence": "medium",
+      "qualification": "Slower services remain alternatives for different users/tasks; no full displacement asserted.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C03",
+        "stage": "non-adoption/niche",
+        "configuration": "Official and private messages before/alongside telegraph adoption"
+      },
+      "alternatives": [
+        "Use of telegraph by intermediaries rather than direct household access"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Comparative user volumes and costs unavailable."
+    },
+    {
+      "id": "POL-E11",
+      "from": "POL-T14",
+      "to": "POL-T10",
+      "relation": "complements",
+      "case_ids": [
+        "POL-C03"
+      ],
+      "claim_ids": [
+        "POL-K13",
+        "POL-K14"
+      ],
+      "source_ids": [
+        "POL-S07"
+      ],
+      "confidence": "medium",
+      "qualification": "Communication affects commodity markets through existing trading routes and traders.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C03",
+        "stage": "scaling",
+        "configuration": "Rice-price response in 130 prefectures, 1870–1904"
+      },
+      "alternatives": [
+        "State relief as tested rival",
+        "Private letters coordinating slower trade"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Price evidence does not observe all trade flows or household welfare; no joint necessity claim."
+    },
+    {
+      "id": "POL-E12",
+      "from": "POL-T15",
+      "to": "POL-T16",
+      "relation": "complements",
+      "case_ids": [
+        "POL-C04"
+      ],
+      "claim_ids": [
+        "POL-K15",
+        "POL-K16"
+      ],
+      "source_ids": [
+        "POL-S10",
+        "POL-S12",
+        "POL-S13"
+      ],
+      "confidence": "high",
+      "qualification": "Mixed retail measures remain defined relative to metric standards and require usable instruments.",
+      "basis": "technical-possibility",
+      "scope": {
+        "case_id": "POL-C04",
+        "stage": "deployment",
+        "configuration": "1812 authorized instrument arrangement"
+      },
+      "alternatives": [
+        "Strict decimal instruments",
+        "Legacy customary instruments outside the authorized configuration"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Direct decree specifies design; actual supply/use incomplete."
+    },
+    {
+      "id": "POL-E13",
+      "from": "POL-T17",
+      "to": "POL-T16",
+      "relation": "displaces",
+      "case_ids": [
+        "POL-C04"
+      ],
+      "claim_ids": [
+        "POL-K17"
+      ],
+      "source_ids": [
+        "POL-S11",
+        "POL-S13"
+      ],
+      "confidence": "high",
+      "qualification": "Displacement is legal authorization only, effective 1840.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C04",
+        "stage": "displacement/reversal",
+        "configuration": "Repeal of 1812 legal arrangement by the 1837 law"
+      },
+      "alternatives": [
+        "Continued customary practice beyond the deadline"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Does not assert actual market or household disappearance."
+    },
+    {
+      "id": "POL-E14",
+      "from": "POL-T18",
+      "to": "POL-T16",
+      "relation": "competes-with",
+      "case_ids": [
+        "POL-C04"
+      ],
+      "claim_ids": [
+        "POL-K15",
+        "POL-K18"
+      ],
+      "source_ids": [
+        "POL-S10",
+        "POL-S12"
+      ],
+      "confidence": "medium",
+      "qualification": "Familiar customary conventions remain an alternative to the mixed legal arrangement.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C04",
+        "stage": "non-adoption/niche",
+        "configuration": "French retail/local task measures, with Isère evidence"
+      },
+      "alternatives": [
+        "Decimal metric usage",
+        "Tables converting local quantities"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Persistence may concern words as well as magnitudes; not a national share."
+    },
+    {
+      "id": "POL-E15",
+      "from": "POL-T19",
+      "to": "POL-T15",
+      "relation": "complements",
+      "case_ids": [
+        "POL-C04"
+      ],
+      "claim_ids": [
+        "POL-K15",
+        "POL-K16",
+        "POL-K18"
+      ],
+      "source_ids": [
+        "POL-S10",
+        "POL-S12",
+        "POL-S13"
+      ],
+      "confidence": "medium",
+      "qualification": "Instruction, conversion and verification support operable standardization.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "POL-C04",
+        "stage": "deployment",
+        "configuration": "French metric implementation, 1795–1840"
+      },
+      "alternatives": [
+        "Private conversion expertise",
+        "Existing local verification"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Effects on individual learning and uptake not isolated; later archive coda is not an 1840 estimate."
+    }
+  ]
+}

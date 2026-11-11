@@ -1,0 +1,36 @@
+# R1 materials and ancient engineering: bounded evidence audit
+
+5 November 2026. Reviewed only the frozen `r1-snapshot`; no programme or snapshot files were changed. Selection was saved in `selection.json` before opening cited original sources. Both methods documents and both dossier reports were read. Associated cases, claim tests, source lineages and the seven directly linked edges were examined.
+
+**Conclusion:** the eight sampled claims are supportable at their stated evidential levels. No high- or medium-severity source-entailment failure was found. One low-severity case-label repair remains open: MAT-C06 converts a proposed transmission into an unqualified outcome phrase. This is a bounded sample result, not approval of all MAT/ANC claims or a historical-truth certification.
+
+## Sample and access
+
+The purposive sample covers **8 of 46 unique claims**: 4/24 MAT and 4/22 ANC. IDs: **MAT-K01, MAT-K12, MAT-K19, MAT-K22; ANC-K05, ANC-K08, ANC-K14, ANC-K15**. MAT-K01, ANC-K08 and ANC-K14 were selected as ordinary/descriptive controls; the others target experiment-to-history inference, weak-access transmission, primary manufacture, market inference and physical necessity. No statistical error rate should be inferred.
+
+Seven linked edges were audited: **MAT-E06, MAT-E07, MAT-E18, ANC-E05, ANC-E06, ANC-E13, ANC-E15** (7/40 eligible edges). Associated cases were **MAT-C01, MAT-C04, MAT-C06, MAT-C07, ANC-C02, ANC-C03, ANC-C04**. Unselected claims in those cases remain outside the claim-audit denominator.
+
+Nine cited source records were checked at relevant passages: MAT-S01/S06/S11/S13/S14 and ANC-S03/S05/S08/S09. Eight offered article/chapter/translation text or preserved originals; MAT-S11 offered the publisher abstract only. That distinction matches the dossier. “Full text” here means the relevant passages were inspectable and read, not that every underlying archive, table, figure, supplement or critical edition was independently reanalysed. Exact access and file hashes are in `source_access.json`; claim-level records give the narrower passages actually checked. No new original-source files were downloaded.
+
+## Finding requiring a small repair
+
+**R1-MAT-01 — low severity; MAT-C06.outcome[1], associated with MAT-K19.** The outcome reads “local transformation of transmitted techniques”. In isolation, a case card or categorical summary can treat transmission as established. MAT-K19 instead labels it a hypothesis, and its test is underdetermined. [Hosler’s 1988 abstract](https://anthrosource.onlinelibrary.wiley.com/doi/abs/10.1525/aa.1988.90.4.02a00040) supports attribution of the proposal; the detailed transfer evidence was not available in this audit. Change the outcome to **“proposed local transformation of transmitted techniques”**, or an equivalent qualified formulation. Closure requires checking the field and any exported card/table, not adding another general caveat elsewhere. The claim and report themselves need no substantive correction.
+
+## Evidence-level results
+
+- **MAT-K01:** [Wu et al.](https://www.researchgate.net/publication/228089260_Early_Pottery_at_20000_Years_Ago_in_Xianrendong_Cave_China), pp.1697–1699, links dated deposits to pottery-bearing strata and discusses context integrity. The claim correctly describes surviving occurrence rather than invention. The case does not turn this site into a regional adoption denominator.
+- **MAT-K12:** the preserved Meroe experiment article’s trials and pp.411–415 support operational learning and a viable tested combination. Its later results lack detailed quantification. The dossier already distinguishes this from isolated input effects and the unique ancient recipe; that boundary is substantive. MAT-E06 confines ore necessity to primary reduction, and MAT-E07 does not assert one necessary air-delivery design.
+- **MAT-K22:** the [accepted manuscript](https://discovery.ucl.ac.uk/id/eprint/10104101/3/Rehren_Babalola%20et%20al%20Antiquity%202020%20final%20version.pdf), pp.2–4, supports raw-batch transformation while explicitly identifying museum-store provenance. MAT-E18 stays at compatible material families, not a proven quarry. Different samples strengthen the local-production interpretation without becoming independent proof of an invention lineage.
+- **ANC-K08:** preserved Frontinus §§116–117 directly supports reported ownership, counts and work functions. The text also describes diversion of workers to private use; the dossier appropriately avoids turning nominal staffing into realised daily service. ANC-E06 is a reported contribution, not a measured performance effect.
+- **ANC-K14:** preserved Polybius X.28.3–4 supports the five-generation cultivation-right wording. No explicit tax exemption appears in the inspected English text. Boucharlat’s discussion reuses this witness; it is not additional testimony. ANC-E15 properly keeps the investment-incentive link hypothetical.
+- **ANC-K15:** Boucharlat §17.1 and the al-Madam discussion distinguish groundwater collection from other underground conveyance. The stated water/gradient/passability condition is a physical constraint, not a measured adoption explanation. ANC-E13 is valid only for that configuration. Disputed source classification of individual early galleries remains genuinely unresolved.
+
+## Consequential rival checked
+
+For **ANC-K05**, the preserved 2018 XML’s isotope discussion and Fig.4 support recurrent interruptions in sampled operational traces; the customer inference is a further step. I sought original scholarship supporting a different market and inspected [Leveau 1996, p.149](https://www.academia.edu/8397838/The_Barbegal_water_mill_in_its_environment_archaeology_and_the_economie_and_social_history_of_antiquity). He interprets revised archaeological chronology as supporting an exclusively Arles urban flour market. This is a concrete rival to harbour provisions, although it predates the isotope work and shares an investigator with the later study. Its contextual inference cannot overturn the later operational proxy or itself identify purchasers. Conversely, seasonal interruption alone does not establish an exclusive shipping market. **ANC-K05 and ANC-E05 already retain the correct underdetermined status.** Adding Leveau as the named historical rival would strengthen the evidence trail, but is not a necessary factual repair. `counterevidence.json` distinguishes this inspected paper from inaccessible/metadata-only leads.
+
+## Remaining boundaries
+
+The unknowns are evidence-based: no purchaser record for Barbegal; no inspected transfer catalogue for West Mexico; no precise date or independent invention proof from the museum glass fragments; no ancient Meroe yield series; no audit of actual aqueduct staffing; no original Persian grant. They do not erase positive evidence of physical operation or what ancient authors report. None of the sampled claims supplies causal identification of historical adoption or a labour-welfare effect. This audit did not replicate dating, geochemistry, experimental mass balances, Greek/Latin translation or the unselected claims.
+
+Machine-readable results: `claim_audit.json`, `edge_audit.json`, `findings.json`, `source_access.json`, `counterevidence.json`. Saved selection and frozen-context extracts allow the scope to be checked without reconstructing it from the prose.

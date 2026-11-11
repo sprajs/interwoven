@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "review_id": "NEW_STRANDS_R2_SOURCE_REVIEW",
+  "completed_utc": "2026-11-05T15:34:22.425676+00:00",
+  "reviewer": "/root/precision_repair_skills",
+  "independence": "Authored SKL only; no authorship of ENE/OCE/POL. Contributor self-audits are not acceptance evidence. No subagents used.",
+  "target": {
+    "manifest": "wave2-source-snapshot/MANIFEST.json",
+    "manifest_sha256": "099f2e165868785013db3aa978175fe58a4b546e92c432b5cac365692994eb47",
+    "manifest_files": 27,
+    "target_is_frozen": true,
+    "live_research_edited": false
+  },
+  "registration": {
+    "path": "NEW_STRANDS_PREREGISTRATION.json",
+    "sha256": "1834ef64d038856614f2b0269b5c9fabeae95ea68affc9f12be4563bbfa03597"
+  },
+  "denominators": {
+    "reports_read": 3,
+    "reports_in_target": 3,
+    "claims_audited": 9,
+    "claims_in_target": 56,
+    "purposive_claims": 6,
+    "ordinary_hash_claims": 3,
+    "source_records_reopened": 9,
+    "source_records_in_target": 41,
+    "source_records_complete_original_available": 7,
+    "source_records_archived_partial_original": 1,
+    "source_records_abstract_only": 1,
+    "additional_edition_checks_not_additional_sources": 1,
+    "episode_records_checked": 6,
+    "case_records_in_target": 14,
+    "incident_edges_audited": 11,
+    "edges_in_target": 55,
+    "interpretation": "Purposive audit plus three deterministic ordinary checks. No general error rate or acceptance of unaudited records follows."
+  },
+  "overall_verdict": "Seven selected claims retainable within limits; two require narrow revisions. No selected numerical transcription error found. All eleven audited incident propositions retainable with their existing scope; no whole-programme or final-synthesis acceptance.",
+  "findings": [
+    {
+      "id": "NSSR-01",
+      "severity": "moderate",
+      "required": true,
+      "claim_id": "OCE-K11",
+      "target_fields": [
+        "test.status",
+        "test.evidence_sought_found",
+        "test.discriminating_observation"
+      ],
+      "finding": "An evaluated test is asserted against a realistic environmental-selection rival which remains compatible with the observed proxy-regime comparison. The stated 90% validation omits that only estimated burn age, not ignition source, was checked.",
+      "evidence": [
+        "OCE-S08 Results rainfall coefficients",
+        "OCE-S08 Materials and Methods: proximity classes, centroid attribution, one climate station, accessible 50-point burn-age check"
+      ],
+      "repair": "Set the mechanism test against that rival to underdetermined, and specify burn-age mapping at 50 points within 500 m of a road/track. Keep the observed pattern. An evaluated narrower climate-only test may instead be separately scoped while the environmental-selection rival remains unresolved.",
+      "affected_edge_ids": [
+        "OCE-E10",
+        "OCE-E12"
+      ],
+      "edge_disposition": "No required edge mutation: current scoped contribution and confounding qualifications are compatible with the repaired claim; do not promote them to necessity or unqualified identified effect.",
+      "acceptance_check": "Read revised canonical OCE-K11 plus linked prose/edges. Confirm precise burn-age wording and that status no longer implies selection-rival discrimination."
+    },
+    {
+      "id": "NSSR-02",
+      "severity": "low",
+      "required": true,
+      "claim_id": "ENE-K01",
+      "target_fields": [
+        "statement",
+        "test.evidence_sought_found",
+        "linked episode measurement scope if changed"
+      ],
+      "finding": "The statement's US label blends US market examples with Nemet's explicitly worldwide price outcome.",
+      "evidence": [
+        "ENE-S01 §§1.2–2.1: worldwide data and two world price surveys",
+        "ENE-S01 §§3.1.1–3.1.4: US buyer, concentration and standardization examples"
+      ],
+      "repair": "Explicitly distinguish worldwide PV cost/price reconstruction from the partly US market evidence used to interpret it. Retain underdetermined causal allocation and the limit on the early residual.",
+      "affected_edge_ids": [],
+      "edge_disposition": "No graph edge cites ENE-K01 in the frozen target.",
+      "acceptance_check": "Verify revised canonical claim and any linked case/report phrasing preserve worldwide price geography and bounded US examples."
+    }
+  ],
+  "claim_audits": [
+    {
+      "claim_id": "ENE-K02",
+      "selection": "purposive",
+      "frozen_record_sha256": "314ff0e2090c1f9662e14bc318911bfbc5fee6d6ebc4a3229d9891d0e96d2a0e",
+      "source_ids": [
+        "ENE-S01",
+        "ENE-S02"
+      ],
+      "case_ids": [
+        "ENE-C01"
+      ],
+      "incident_edge_ids": [
+        "ENE-E01"
+      ],
+      "verdict": "supported-as-scoped",
+      "passage_entailment": "The 43%, 8% and 36% entries and bounded semiconductor supply/process history match the cited tables and discussion.",
+      "population_and_measure": "Worldwide crystalline-silicon module cost reconstructions, matching 1980–2001 and distinct 2001–2012 intervals; shares of modeled cost change, not adopter shares or installed electricity cost.",
+      "rival_and_diagnosticity": "Different model structures and reconstructed inputs jointly explain why allocations can differ; no controlled decomposition isolates equation change alone. The claim is descriptive rather than a policy-effect estimate.",
+      "remaining_limit": "Neither model was re-estimated; original industry inputs and upstream semiconductor records remain inherited. Advisory: say model-and-input sensitivity.",
+      "finding_ids": []
+    },
+    {
+      "claim_id": "ENE-K15",
+      "selection": "purposive",
+      "frozen_record_sha256": "f80edf4d076fcb2d0611099035e5b0643050ac332af575f99d9bcb6d2e47f8f4",
+      "source_ids": [
+        "ENE-S11"
+      ],
+      "case_ids": [
+        "ENE-C04"
+      ],
+      "incident_edge_ids": [
+        "ENE-E16"
+      ],
+      "verdict": "supported-with-disclosed-partial-access",
+      "passage_entailment": "Archived original passages explicitly contain the baseline shares, inclusion of pilot/nonroutine work in R&D and the reported alternative-assignment exercise.",
+      "population_and_measure": "Representative high-energy 18650 cells for 1995–2000 versus 2010–2015; modeled cost per Wh. Neither packs nor all battery services nor workers' contribution shares.",
+      "rival_and_diagnosticity": "Intertwined process research and routine manufacturing remain a credible classification rival. The observed sensitivity test changes selected material-price/hardware assignments, not every plausible process classification. Underdetermined is appropriate.",
+      "remaining_limit": "No full PDF acquired in this review and no supplement/model replication. Public/private R&D policy effects cannot be inferred.",
+      "finding_ids": []
+    },
+    {
+      "claim_id": "ENE-K01",
+      "selection": "ordinary-hash",
+      "frozen_record_sha256": "1051545048054536b7734baf8664ade48aabca43f1ebe7a24249f7d3cb543f7d",
+      "source_ids": [
+        "ENE-S01"
+      ],
+      "case_ids": [
+        "ENE-C01"
+      ],
+      "incident_edge_ids": [],
+      "verdict": "supported-after-population-clarification",
+      "passage_entailment": "The reported market and product changes match; the dependent price/cost series is worldwide rather than exclusively US.",
+      "population_and_measure": "US evidence about market structure is interpreted alongside worldwide module prices. The frozen wording needs to keep those populations distinct.",
+      "rival_and_diagnosticity": "Manufacturing learning, changing quality, margins and standardization can operate together. Residual engineering-model error alone cannot allocate their contributions. The frozen underdetermined status is retained.",
+      "remaining_limit": "The wider real rival is a joint account, not simply zero market change. No matched unchanged-product counterfactual was reconstructed.",
+      "finding_ids": [
+        "NSSR-02"
+      ]
+    },
+    {
+      "claim_id": "OCE-K06",
+      "selection": "purposive",
+      "frozen_record_sha256": "77f263a23ade1c5e91c186d9b8c2a622e1a7c40a063e86ba5e350316614ef152",
+      "source_ids": [
+        "OCE-S05",
+        "OCE-S06"
+      ],
+      "case_ids": [
+        "OCE-C02"
+      ],
+      "incident_edge_ids": [
+        "OCE-E05",
+        "OCE-E06"
+      ],
+      "verdict": "supported-as-scoped",
+      "passage_entailment": "The nomination supports opposition, rapid water recession and flood-limited trap function; the community project text gives 1954 completion.",
+      "population_and_measure": "Tae Rak lake-margin structures and their operating water conditions, not all fishing by all Gunditjmara and not a measured catch or employment effect.",
+      "rival_and_diagnosticity": "Independent livelihood or preference change cannot alone explain observed loss of hydraulic opportunity and documented objections. It can still affect labor/catches. The bounded disabling claim is supported without identifying all outcomes.",
+      "remaining_limit": "Shared project/heritage lineage, no original opposition letters, independent flow records or catch time series. Grazing beneficiaries are not evaluated.",
+      "finding_ids": []
+    },
+    {
+      "claim_id": "OCE-K11",
+      "selection": "purposive",
+      "frozen_record_sha256": "cd42c79babb603d00c127f5d657ca98a49c18c31563d3c0ebf16cc03c90e8313",
+      "source_ids": [
+        "OCE-S08"
+      ],
+      "case_ids": [
+        "OCE-C03"
+      ],
+      "incident_edge_ids": [
+        "OCE-E10",
+        "OCE-E12"
+      ],
+      "verdict": "observations-supported-test-calibration-required",
+      "passage_entailment": "Fire-size, clustering and reported rainfall relations match. The ground check is burn-age classification, and no environmental-selection exclusion is established.",
+      "population_and_measure": "1999–2010 spinifex region; proxied Aboriginal and lightning regimes cover approximately 10% and 50% of the area, leaving mixed/unclassified areas outside that comparison. Fire centroids determine assigned regime.",
+      "rival_and_diagnosticity": "Track/community siting and environmental heterogeneity can affect both exposure classification and fire behavior. Broad vegetation similarity and a shared rainfall record do not eliminate that rival. Separate significant/nonsignificant coefficients do not test a between-slope difference.",
+      "remaining_limit": "No imagery reclassification, spatial-control reanalysis or independent ignition census; no direct mammal population or welfare outcomes.",
+      "finding_ids": [
+        "NSSR-01"
+      ]
+    },
+    {
+      "claim_id": "OCE-K20",
+      "selection": "ordinary-hash",
+      "frozen_record_sha256": "ca1e32fe1e9021af31080fc8a7609bd19c37278d98c12952e874bc31de573471",
+      "source_ids": [
+        "OCE-S08"
+      ],
+      "case_ids": [
+        "OCE-C03"
+      ],
+      "incident_edge_ids": [
+        "OCE-E19"
+      ],
+      "verdict": "supported-as-scoped",
+      "passage_entailment": "The published ethnographic description includes restricted burning rights, possible retribution and social rewards for caring for Country.",
+      "population_and_measure": "Contemporary observed Martu context; an account of norms and meanings rather than a census of adherence or sanctions.",
+      "rival_and_diagnosticity": "Descriptive correction to an institution-free reading. It does not assign a causal weight between immediate hunting returns, obligations and reputation; those motives may coexist.",
+      "remaining_limit": "No quantified independent enforcement dataset or individual longitudinal motivation study. Same paper as K11 is not independent corroboration.",
+      "finding_ids": []
+    },
+    {
+      "claim_id": "POL-K11",
+      "selection": "purposive",
+      "frozen_record_sha256": "4cbbbcedb107d4a3c5716534514d60b5ac637f4bf2c5343d38bd510babdc6c6c",
+      "source_ids": [
+        "POL-S08"
+      ],
+      "case_ids": [
+        "POL-C03"
+      ],
+      "incident_edge_ids": [
+        "POL-E08",
+        "POL-E09",
+        "POL-E10"
+      ],
+      "verdict": "attribution-supported-causal-account-underdetermined",
+      "passage_entailment": "The complete publisher abstract advances the stated dividend, investment, tariff and limited-use account.",
+      "population_and_measure": "Late-Qing Telegraph Administration as interpreted by Yoon; abstract supplies neither a customer denominator nor tariff elasticity or investment series.",
+      "rival_and_diagnosticity": "Capital scarcity, technical difficulty and low demand could also produce high tariffs and restrained investment. Frozen low-confidence hypothesis and underdetermined test correctly preserve this.",
+      "remaining_limit": "No body text or underlying administrative records audited. Price effects among traders do not refute restricted mass direct usage.",
+      "finding_ids": []
+    },
+    {
+      "claim_id": "POL-K13",
+      "selection": "purposive",
+      "frozen_record_sha256": "8e49ef0702882535f1bbdf89c2a60d3fb969709c16ced0d85c405d3d77f8caae",
+      "source_ids": [
+        "POL-S07"
+      ],
+      "case_ids": [
+        "POL-C03"
+      ],
+      "incident_edge_ids": [
+        "POL-E11"
+      ],
+      "verdict": "reported-estimate-and-conditional-design-supported",
+      "passage_entailment": "Table 3 high-quality-rice coefficients divided by Table 1 mean reproduce the reported range; data and methods establish the stated outcome and frame.",
+      "population_and_measure": "47,436 observed prefecture-months in 130 prefectures/nine provinces over a 420-month frame, 1870–1904; monthly reported wholesale maxima, not consumer means or national welfare.",
+      "rival_and_diagnosticity": "Pretrends, fixed effects/trends, transport/port controls, selected-location exclusions and network predictions test concrete alternatives. Unmeasured concurrent changes, reporting response, timing and staggered-treatment assumptions remain. The label is conditional source-design evidence, not randomized or replicated proof.",
+      "remaining_limit": "No original regressions, microdata or staggered-DID re-estimation. Shared institutional narrative with Yoon does not turn two papers into independent tests of dividend causality.",
+      "finding_ids": []
+    },
+    {
+      "claim_id": "POL-K06",
+      "selection": "ordinary-hash",
+      "frozen_record_sha256": "9faf0da3d031d0c75b512903591aca777151cc1644d518098aafcc06da758135",
+      "source_ids": [
+        "POL-S04"
+      ],
+      "case_ids": [
+        "POL-C02"
+      ],
+      "incident_edge_ids": [],
+      "verdict": "reported-estimate-supported-no-independent-reconstruction",
+      "passage_entailment": "Both inspected editions report 11.0%, 1.8% and 4.5% for the stated intervals, and explain sparse observations and interpolation. Publisher confirms a separate interval typo correction absent from the frozen claim.",
+      "population_and_measure": "A reconstructed seven-product respectability index from inherited market-price observations; rates are not a continuous national price census or household-specific cost-of-living series.",
+      "rival_and_diagnosticity": "Uneven preservation, basket weights and interpolated prices can affect rate magnitudes. This is a descriptive attributed reconstruction, not an identified causal account of currency change.",
+      "remaining_limit": "No underlying Li data or CPI replication. The source's corrected doubling interval is documented rather than silently importing another edition.",
+      "finding_ids": []
+    }
+  ],
+  "source_inspections": [
+    {
+      "access_actual": "Complete cached original PDF; independently extracted and relevant pages read, including visual checks.",
+      "edition": "Energy Policy 34 (2006), 3218–3232; PDF retains ARTICLE IN PRESS header.",
+      "evidence_files": [
+        "ENE-S01.pdf",
+        "ENE-S01.txt"
+      ],
+      "passages_inspected": [
+        "§§1.2–2.1, printed pp. 3221–3222",
+        "§§3.1–3.2, pp. 3224–3225",
+        "Tables 2–3 and §4.3, pp. 3226–3227"
+      ],
+      "lineage_independently_observed": "The cost input uses two world PV price surveys (Maycock and Strategies Unlimited). Buyer/quality/concentration examples cite Moore, Christensen, Wohlgemuth, Wolf, Roessner and Maycock; silicon discussion cites Menanteau. Those inherited originals were not separately inspected.",
+      "access_or_lineage_discrepancy": "No access overstatement found. Worldwide outcome and US market examples require explicit separation in ENE-K01.",
+      "source_id": "ENE-S01",
+      "url": "https://wikis.mit.edu/confluence/download/attachments/21139745/Nemet_BeyondtheLearningCurve_EP_06.pdf?api=v2",
+      "frozen_source_record_sha256": "9506f5f65255b330242b867c5fe25ae78c4136b86aebd42e253258b456e193f3",
+      "evidence_file_hashes": {
+        "ENE-S01.pdf": "34a3a73b6c3206a00ff9fdbf9b99977700cb7efcc8d6a91a1e1b307387ce1850",
+        "ENE-S01.txt": "ed45df695021a439e987c06d67f682bf289d1991d34bffa3e22ea01e545a185b"
+      }
+    },
+    {
+      "access_actual": "Complete cached original PDF; fresh extraction and visual checks of Tables 3 and associated text.",
+      "edition": "Energy Policy 123 (2018), 700–710.",
+      "evidence_files": [
+        "ENE-S02.pdf",
+        "ENE-S02.txt"
+      ],
+      "passages_inspected": [
+        "§4.1 and Table 3, pp. 705–706",
+        "§4.2, pp. 706–707",
+        "Table 1 input reconstruction referenced by §4.1"
+      ],
+      "lineage_independently_observed": "Explicitly compares with and uses Nemet; semiconductor account cites Woditsch/Koch, Sarti/Einhaus, Swanson and Fisher. Shared historical series and method prevent treating the two cost reconstructions as independent policy-effect replications.",
+      "access_or_lineage_discrepancy": "No material discrepancy. Input reconstruction changes as well as model structure.",
+      "source_id": "ENE-S02",
+      "url": "https://static1.squarespace.com/static/56afb881e321406be6160228/t/5bff10822b6a2884d7267f17/1543442566890/Evaluating%2Bthe%2Bcauses%2Bof%2Bcost%2Breduction%2Bin%2Bphotovoltaic%2Bmodules.pdf",
+      "frozen_source_record_sha256": "96664328780de8e15a1295411ecfccb54b3d0776244bf1567d9d97e1a32d2934",
+      "evidence_file_hashes": {
+        "ENE-S02.pdf": "3b9b3881744df3ea9dbb90ea79ad6c0c431f6627aef1497cee8ecfb52a965716",
+        "ENE-S02.txt": "4aa3398e077400a537a16de89bad09c37af886978cab35f72d5e166fefbe0c92"
+      }
+    },
+    {
+      "access_actual": "Archived original web PDF extraction, six source-labelled segments; fresh RSC HTML/PDF attempts failed 403 and MIT PDF failed 429. No complete local original PDF acquired by this reviewer.",
+      "edition": "Published Energy & Environmental Science 14 (2021), 6074–6098, DOI 10.1039/D1EE01313K; archive identifies publisher PDF with June 2026 download footer.",
+      "evidence_files": [
+        "ENE-S11-archived-original-extracts.txt",
+        "ENE-S11-acquisition.json",
+        "ENE-S11-repository-discovery.txt",
+        "ENE-S11-download-route.txt",
+        "web-access-initial.txt"
+      ],
+      "passages_inspected": [
+        "Original extraction lines 353–440: periods, cell definition and cost equation",
+        "lines 1492–1539: representative periods and model-cost comparison",
+        "lines 1730–1751 and 1797–1888: R&D definitions, baseline shares, assignment sensitivity",
+        "lines 1991–2032: chemistry/materials research allocation context"
+      ],
+      "lineage_independently_observed": "The model assembles historical technical and price estimates; it explicitly follows the previous PV allocation approach. These are not sampled factory accounts or independently identified funding effects. Supplementary assignments and raw data were not re-estimated.",
+      "access_or_lineage_discrepancy": "Frozen partial-text designation is accurate. The archive is original tool-extracted source text, not the contributor's summary or self-audit.",
+      "source_id": "ENE-S11",
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2021/ee/d1ee01313k",
+      "frozen_source_record_sha256": "7698cb99719bf9e8406f2bdb81d1ea2053e51d816ddf380e1009061d3193e52c",
+      "evidence_file_hashes": {
+        "ENE-S11-archived-original-extracts.txt": "1667e91cd3763211e251461fd334da8518ad11ea9372812aabdd10997beaec98",
+        "ENE-S11-acquisition.json": "894cf56295de75d6eaefbb18bb27507399c008d45fd5235f572ea0b79e7440f6",
+        "ENE-S11-repository-discovery.txt": "e34320080c906bb13c389a825fc68c37374136071f7c715ff4f4b324b589223a",
+        "ENE-S11-download-route.txt": "8d483b4cc777758ee95e1113aba43d23c8fd4cad80952b9fb0c6e5201a91c77f",
+        "web-access-initial.txt": "e7309ea228b8a9207412e556a7f955db1f9ca4abd9cbddcc1720ca912b59f5de"
+      }
+    },
+    {
+      "access_actual": "Complete cached original nomination PDF; new extraction; printed pp. 68–69 visually inspected.",
+      "edition": "Budj Bim Cultural Landscape nomination, December 2017; printed pp. 68–70 correspond to PDF pp. 86–88.",
+      "evidence_files": [
+        "OCE-S05.pdf",
+        "OCE-S05.txt"
+      ],
+      "passages_inspected": [
+        "The rebirth of Tae Rak and renewal of water flow, printed pp. 68–70",
+        "Notes 289–295"
+      ],
+      "lineage_independently_observed": "Drainage account cites Gunditjmara 2010 and Richards 2011; lake-margin operation cites Gunditjmara 2010:65. Restoration note 292 cites the Gunditj Mirring project page. The two selected sources overlap; opposition letters and hydrological studies were not inspected directly.",
+      "access_or_lineage_discrepancy": "No material discrepancy. Institutional statements are not an independently reconstructed flow/catch series.",
+      "source_id": "OCE-S05",
+      "url": "https://whc.unesco.org/document/166283",
+      "frozen_source_record_sha256": "eece34619945f41fe41c785f6057d6d474b6ab8aaa0a93caeb82687d89a25974",
+      "evidence_file_hashes": {
+        "OCE-S05.pdf": "a1e46c2aa8302d097f003d3b52c97db141facf21388a7b9eafd5ef7346d9c92a",
+        "OCE-S05.txt": "2a0bffe6110a5da0c3202285601f4e4da4e631378eae4ac21b2a9d80be7e6589"
+      }
+    },
+    {
+      "access_actual": "Complete cached original community project HTML; independently parsed with the Python HTML parser.",
+      "edition": "Undated Lake Condah Restoration Project page cached on the contribution's acquisition date; publication date is not invented.",
+      "evidence_files": [
+        "OCE-S06.html",
+        "OCE-S06.txt"
+      ],
+      "passages_inspected": [
+        "Opening history paragraphs, extracted lines 33–46: 1946 floods, 1954 completion, unsuccessful trial, plans, studies and construction"
+      ],
+      "lineage_independently_observed": "Community project's institutional retrospective, partly reused by the nomination. A distinct source file is not an independent observation of the same historical events.",
+      "access_or_lineage_discrepancy": "No material discrepancy.",
+      "source_id": "OCE-S06",
+      "url": "https://www.gunditjmirring.com/lake-condah-restoration-project",
+      "frozen_source_record_sha256": "85d47e1f287d791ba3ce28eed4624155c94f0a7b2bee50229795c9c9e9d87345",
+      "evidence_file_hashes": {
+        "OCE-S06.html": "bd0e35fd059f03cacb6ee99e1c083c84e8f0e91fef0cb527342df209015e0738",
+        "OCE-S06.txt": "9ba9795fd799bbb0f169ce3e2baaa6a8fbf9c3542383437abbdafb5d2896e7c5"
+      }
+    },
+    {
+      "access_actual": "Complete cached original PMC HTML of the research paper; independent extraction, full relevant Results and Materials and Methods read.",
+      "edition": "PNAS 109(26), 10287–10292 (2012), DOI 10.1073/pnas.1204585109; PMCID PMC3387077.",
+      "evidence_files": [
+        "OCE-S08.html",
+        "OCE-S08.txt"
+      ],
+      "passages_inspected": [
+        "Introduction and Results, extracted lines 174–272",
+        "Rainfall coefficients, lines 430–462",
+        "Customary rights and public goods, lines 588–598",
+        "Burn-age map, regime definition, sample and rainfall source, lines 600–615"
+      ],
+      "lineage_independently_observed": "Original remote imagery, ethnography and climatic analysis within an overlapping Martu research programme; foraging claims cite earlier programme publications. Field notes and imagery were not re-coded. The 90% check validates burn ages, not ignition identity.",
+      "access_or_lineage_discrepancy": "No source-access discrepancy. OCE-K11's validation summary needs its precise object; realistic environmental-selection rival remains unresolved.",
+      "source_id": "OCE-S08",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3387077/",
+      "frozen_source_record_sha256": "b4292820dbd9c2edf42bcc5dff877152954bf8bcd7e05bec78ae79721826f627",
+      "evidence_file_hashes": {
+        "OCE-S08.html": "78758da23bf6c5037caaf8e9b153738b060fb87cf3b953f067226038bd5b10c6",
+        "OCE-S08.txt": "bbebcebd18b9f695cd596a85e66edd2d1f9e9f410b5537909aa97e161e93dda9"
+      }
+    },
+    {
+      "access_actual": "Complete cached accepted-manuscript PDF; original pp. 26–28 and Figure 6 read and visually checked. Publisher's corrected Figure 6 discussion and note 45 were additionally reopened online.",
+      "edition": "Accepted manuscript hosted by Hoover, contrasted explicitly with Wiley's published text carrying 7 March 2024 correction. No silent edition substitution.",
+      "evidence_files": [
+        "POL-S04.pdf",
+        "POL-S04.txt",
+        "POL-S04-published-version-comparison.txt",
+        "POL-S04-replication-access.txt",
+        "POL-S04-rate-reconciliation-search.txt"
+      ],
+      "passages_inspected": [
+        "Price indexes, manuscript pp. 26–28, Figure 6 and notes 44–45",
+        "Publisher Figure 6 discussion and correction notice, saved lines 259–265 and 711–712",
+        "Manuscript replication-package link, p. 60"
+      ],
+      "lineage_independently_observed": "Price observations are inherited from Li pp. 12–71, interpolated/extrapolated into weighted baskets by Guan/Palma/Wu. Multiple indexes share those observations. No new transcription of Yuan records or reconstruction of the CPI was performed.",
+      "access_or_lineage_discrepancy": "The manuscript contains a doubling-interval typo corrected by the publisher. The selected frozen claim does not repeat it. Data landing page exposed only a loading screen; direct fetch returned 403, so no replication is claimed.",
+      "source_id": "POL-S04",
+      "url": "https://www.hoover.org/sites/default/files/2025-01/Rise%20and%20Demise%20of%20Paper%20Money%20in%20Yuan%20China.pdf",
+      "frozen_source_record_sha256": "04ac2f29e67b346a9f118d1ee1bd988862fe0d32f7af33a636c52e7e82b7feb3",
+      "evidence_file_hashes": {
+        "POL-S04.pdf": "61f7f1be83ca7244615453b1bed62f530e2dc22a2c9ecb205755403fbd49786d",
+        "POL-S04.txt": "1880ce3070c70fb7d1cd59752b20a3def834661beac6c3f6d3fd8f9ff1981dfd",
+        "POL-S04-published-version-comparison.txt": "642e769f149cf5bd4d0a61d310c08182a4a9e655312a4dd375fe5b764772698e",
+        "POL-S04-replication-access.txt": "c5143bbca633b54f34add723991946faa85eedbad4ef6447c9d2145254a12912",
+        "POL-S04-rate-reconciliation-search.txt": "91ee2a6f820e498652b887442c085f73479d6f8ea2a71dc182d8f26e26f8306c"
+      }
+    },
+    {
+      "access_actual": "Complete cached original accepted-manuscript PDF; new extraction; Tables 1 and 3 visually checked.",
+      "edition": "AEA-hosted accepted manuscript, title and authors match frozen source; untypeset page headers retained.",
+      "evidence_files": [
+        "POL-S07.pdf",
+        "POL-S07.txt"
+      ],
+      "passages_inspected": [
+        "Data and treatment construction, pp. 10–14",
+        "DID and event study, pp. 15–18",
+        "Selection, spillover and network checks, pp. 18–22",
+        "Tables 1 and 3, pp. 39 and 41",
+        "Trading context, pp. 9–10"
+      ],
+      "lineage_independently_observed": "Qing official grain-price reporting compiled by Wang; telegraph map, histories and gazetteers; inherited weather compendium. The institutional discussion cites Yoon, including line-cost claims. No microdata re-estimation, reporting-register audit or modern staggered-DID replication was conducted.",
+      "access_or_lineage_discrepancy": "No material discrepancy. 47,436 observed prefecture-months differ from the theoretical 130×420 frame; the frozen claim does not state that the panel is complete.",
+      "source_id": "POL-S07",
+      "url": "https://assets.aeaweb.org/asset-server/files/13141.pdf",
+      "frozen_source_record_sha256": "f93ee1f3e46e4d9ffb314c1f9fa30835221fca8fd37c7357c84b60631709a38a",
+      "evidence_file_hashes": {
+        "POL-S07.pdf": "7bb42af17ac9a630e799b0d36792c0bf0baffce9024f4fd298caa5eab712bb7e",
+        "POL-S07.txt": "29ad8cf3d8814356ec8b3f7f79f660b4190dafd655b44bc91e563615e4a28a33"
+      }
+    },
+    {
+      "access_actual": "Live publisher abstract and visible footnotes/references; no body text.",
+      "edition": "Modern Asian Studies 49(3), 832–857 (2015); online 23 October 2013, DOI 10.1017/S0026749X13000309.",
+      "evidence_files": [
+        "web-access-initial.txt"
+      ],
+      "passages_inspected": [
+        "Publisher abstract, saved lines 450–453",
+        "Thesis-origin note and reference 6, lines 475–502"
+      ],
+      "lineage_independently_observed": "Developed from Yoon's 2008 thesis. Reference 6 identifies Zongli Yamen, Youchuanbu and Grand Council archives. Those records were not inspected; Gao/Lei draws on Yoon for historical background.",
+      "access_or_lineage_discrepancy": "Frozen abstract-only and low-confidence hypothesis labels accurately reflect what can be verified.",
+      "source_id": "POL-S08",
+      "url": "https://www.cambridge.org/core/journals/modern-asian-studies/article/abs/dashed-expectations-limitations-of-the-telegraphic-service-in-the-late-qing/62CACD9A5094EBEAFD5E0E760EB55C69",
+      "frozen_source_record_sha256": "efec5f5760845af28c7a9e088f0a4d00e4464b2b55340bb4705512389fc201a1",
+      "evidence_file_hashes": {
+        "web-access-initial.txt": "e7309ea228b8a9207412e556a7f955db1f9ca4abd9cbddcc1720ca912b59f5de"
+      }
+    }
+  ],
+  "edge_audits": [
+    {
+      "edge_id": "ENE-E01",
+      "frozen_record_sha256": "ad6262105800aad5fb6897a889a654d4848334559e95d1162327116f7fc88332",
+      "basis": "documented-transmission",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Published histories support bounded semiconductor supply/process contribution; inherited documentation, not proof of timeless necessity or a measured policy effect.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "ENE-E16",
+      "frozen_record_sha256": "99761ffad8b3bce3d4c1ea6df17d5737bb89c8804cdbd1cab945dca76b61fcdc",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "The source model supports the scoped density/material contribution to cost per Wh; qualification preserves model status and avoids a causal funding claim.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "OCE-E05",
+      "frozen_record_sha256": "6bb2c4644e609c1c1ea17b9b6bfc8a4bb3f784eeb2292d7c2c43f85cfece2197",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Hydrological constraint on retained water is supported by source account; no independently estimated flow/catch effect.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "OCE-E06",
+      "frozen_record_sha256": "d8a8293acd8cc1046d7e986de4db799a3a079cd2fa490cb7057bbb5d001e138a",
+      "basis": "technical-possibility",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Technical possibility at specified elevations is appropriate; available water does not establish actual operation or yield.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "OCE-E10",
+      "frozen_record_sha256": "dcb14f547ce9499251622e4a3b69754166bc9b6edaea03f67828f441c2e6a7e7",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Burning contributes to local fuel-age patterns as a scoped observational proposition; comparative causal magnitude remains confounded. NSSR-01 must not be erased on export.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "OCE-E12",
+      "frozen_record_sha256": "5ad321c0073cb6cb92be664776bf9ac5f917321330e8c076c0593d099fcf1e3b",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Source directly discusses tracks and vehicle-mediated contemporary access; edge keeps walking alternatives and denies a historical vehicle prerequisite.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "OCE-E19",
+      "frozen_record_sha256": "f419b472c54fc0d439415943da3400bd755e31c07f25ec055192b0b2945ed361",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Published rights/retribution description supports a scoped constraint; no quantitative enforcement effect is asserted.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "POL-E08",
+      "frozen_record_sha256": "d3f8d8d038e07c846b5e2d1c8bb615797ae0614a9a38b7fdebc24250c5b0d1d4",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Shareholder interests in the inspected abstract support the narrow finance/governance presence. Low confidence and abstract-only qualification are required; POL-S09 body was not independently audited.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "POL-E09",
+      "frozen_record_sha256": "8b89b02a268605231f4fa84b9ba45404ebfea44fb436bd69ae94ec1ed89c27e6",
+      "basis": "hypothesis",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Hypothesis basis correctly preserves the financing mechanism's unresolved capital/demand rival.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "POL-E10",
+      "frozen_record_sha256": "4e874a6f1f7816970de5ebbdc4d063e7fdb1d3668927b87ad17ab2e6309ca77f",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Gao/Lei trading context supports slower letters/messengers as alternatives; no complete displacement or comparative volume is established.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    },
+    {
+      "edge_id": "POL-E11",
+      "frozen_record_sha256": "c8d8337e3ad62aa30ae516077070f93b194e4b35a65d55b0b6457eb430b2546c",
+      "basis": "observed-contribution",
+      "verdict": "retain-current-bounded-proposition",
+      "assessment": "Existing trade/waterway mechanism is supportable as a bounded complement. Price evidence is indirect regarding all physical trade flows and household welfare.",
+      "source_audit_limit": "Only the selected-claim proposition is checked. Other cited claims/sources are not automatically accepted."
+    }
+  ],
+  "advisories": [
+    {
+      "id": "NSSR-A01",
+      "target": "ENE-K02/report",
+      "required": false,
+      "text": "Model sensitivity also includes changed historical input reconstructions. Nemet's 1980 plant size is 125 kW/year; Kavlak's is 1 MW/year. Do not infer that changing the equation alone caused the allocation difference."
+    },
+    {
+      "id": "NSSR-A02",
+      "target": "ENE-K15",
+      "required": false,
+      "text": "Keep the sensitivity exercise bounded to the active-material price and hardware assignments actually tested; it is not unrestricted reassignment of all process work."
+    },
+    {
+      "id": "NSSR-A03",
+      "target": "POL-S04",
+      "required": false,
+      "text": "Add the known publisher correction to the source ledger if useful; preserve accepted-versus-published edition distinction. The selected claim's numbers are unchanged in both editions."
+    },
+    {
+      "id": "NSSR-A04",
+      "target": "POL-K13/episode denominator",
+      "required": false,
+      "text": "For precise future reproduction, record 47,436 observed prefecture-months within the 130×420 frame. Current phrasing does not claim a complete panel."
+    }
+  ],
+  "rejected_candidate_findings": [
+    {
+      "target": "POL-K06",
+      "candidate": "Accepted manuscript's doubling interval conflicts with Figure 6, so the frozen inflation claim may be wrong.",
+      "resolution": "Publisher explicitly corrected the separate interval from 1260–1355 to 1346–1355 on 7 March 2024. The frozen claim excludes that sentence; its three attributed rates appear unchanged in the corrected published version. Do not report a transcription error or fabricate corrected rates from a plotted line.",
+      "evidence": "POL-S04-published-version-comparison.txt"
+    }
+  ],
+  "limits": [
+    "Original technical inputs, archival letters, raw imagery/field observations and econometric microdata were not independently reconstructed.",
+    "Full-text file availability is distinct from complete text audit; only listed passages were inspected.",
+    "ENE-S11 conclusions depend on original archived partial source extracts after fresh download failures; POL-S08 remains abstract-only.",
+    "Multiple records or papers sharing the same evidence are not independent corroboration.",
+    "No prevalence, national representativeness, livelihood-transition or welfare inference follows from the selected cases.",
+    "Future synthesis/export changes require version comparison and verification; this review addresses only the frozen manifest."
+  ]
+}

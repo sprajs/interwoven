@@ -1,0 +1,1174 @@
+           sustainability
+
+Article
+Sustainability of the Dujiangyan Irrigation System
+for over 2000 Years–A Numerical Investigation of the
+Water and Sediment Dynamic Diversions
+Xiaogang Zheng 1,2 , Ehsan Kazemi 2 , Eslam Gabreil 3 , Xingnian Liu 1 and Ridong Chen 1, *
+ 1    State Key Laboratory of Hydraulics and Mountain River Engineering, College of Water Resource and
+      Hydropower, Sichuan University, Chengdu 610065, China; scuzhengxiaogang@163.com (X.Z.);
+      scucrs@163.com (X.L.)
+ 2    Department of Civil and Structural Engineering, University of Sheffield, Sheffield S1 3JD, UK;
+      e.kazemi@sheffield.ac.uk
+ 3    Department of Civil Engineering, University of Gharyan, Gharyan 52GG + FM, Libya;
+      eslamgabreil@yahoo.com
+ *    Correspondence: chenridong1984@163.com
+                                                                                                     
+ Received: 30 January 2020; Accepted: 10 March 2020; Published: 20 March 2020                        
+
+
+ Abstract: The Dujiangyan Irrigation System (DIS), located in the western portion of the Chengdu
+ Plain at the transitional junction between the Qinghai-Tibet Plateau and Sichuan Basin, has been in
+ operation for about 2300 years. The system automatically uses natural topographical and hydrological
+ features and provides automatic water diversion, sediment drainage and intake flow discharge
+ control, thus preventing disastrous events in the region in a ‘natural’ way. Using a numerical modeling
+ approach, this study aims to investigate the reasons behind this natural behavior of the system and
+ provide a better understanding of the complex mechanisms which have caused the sustainability of
+ the DIS for over two millennia. For this purpose, a two-phase flow model based on the Shallow Water
+ Equations (SWEs) is developed to simulate the fluid and sediment motions in the DIS. A coupled
+ explicit-implicit technique based on the Finite Element Method is applied for the fluid flow and
+ a Sediment Mass (SM) model in the framework of the Lagrangian particle method is proposed to
+ simulate the sediment motion under different flow discharge conditions. The results show how
+ different components of the DIS make full use of the hydrodynamic and topographical characteristics
+ of the river to effectively discharge sediment and excess flood to the downstream and create an
+ environmentally sustainable irrigation system.
+
+ Keywords: Dujiangyan; sediment mass model; hydraulic properties; sediment diversion;
+ sustainable development
+
+
+
+
+1. Introduction
+     The ancient water conservancy projects, such as the control project of Nel-Hammurabi on the
+Euphrates River built by the Babylon Kingdom, the manmade canals constructed by the ancient Roman
+Empire [1], and the agricultural irrigation systems dating back to the 1st-6th centuries in Israel [2] have
+long fallen into disuse. However, there are some old irrigation structures that are still in operation, such
+as the irrigation in sediment-laden rivers developed in ancient Peru [3]. Moreover, the qanat system, a
+subterranean aqueduct used to convey water for irrigation and domestic consumption, originated in
+Iran as early as the 7th century BCE [4], was brought to Spain in the 8th century, and then to the New
+World in the 16th century [5,6]. This system still irrigates farmlands in Iran at the present day.
+     The Dujiangyan Irrigation System (DIS) is one of the ancient irrigation systems which are still in
+operation. This system began in the 3rd century BCE, is characterized by the non-dam intake project
+
+
+Sustainability 2020, 12, 2431; doi:10.3390/su12062431                      www.mdpi.com/journal/sustainability
+44     operation. This system began in the 3rd century BCE, is characterized by the non-dam intake project
+45     and is still discharging its functions perfectly [1]. It was listed as a World Cultural Heritage Site in
+46     2000 and a World Heritage Irrigation Structure in 2018. The main headworks of the DIS are located
+47     in the transitional region, where the river flows from a gorge to an alluvial plain. The location has a
+48     50 km distance and 273 m elevation difference from Chengdu City, China (Figure 1). This is on the
+     Sustainability 2020, 12, 2431                                                                                  2 of 15
+49     commanding point of the alluvial plain so as to prevent floodwater flowing directly to the Chengdu
+50     Plain [7]. Natural topographical and hydrological features are used to exclude sediment and divert
+51     water
+     and        for discharging
+           is still  irrigation without    the use of
+                                    its functions     dams. The
+                                                   perfectly [1].system
+                                                                  It washas   produced
+                                                                          listed         benefits
+                                                                                 as a World       in flood
+                                                                                               Cultural    prevention,
+                                                                                                         Heritage  Site in
+52     agricultural     irrigation, and   water consumption   for many   years [8].
+     2000 and a World Heritage Irrigation Structure in 2018. The main headworks of the DIS are located
+53            Recently, a dam
+     in the transitional           waswhere
+                               region,   constructed  upstream
+                                               the river        of thea DIS
+                                                         flows from         (about
+                                                                        gorge  to an4 alluvial
+                                                                                      km fromplain.
+                                                                                                the Fish
+                                                                                                       TheMouth).
+                                                                                                           locationThe
+                                                                                                                    has a
+54     reservoir of the dam can be seen in Figure 1. The dam construction was completed in 2006, and since
+     50 km distance and 273 m elevation difference from Chengdu City, China (Figure 1). This is on the
+55     then, it has provided a more stable water supply to the Dujiangyan areas during the dry season, and
+     commanding point of the alluvial plain so as to prevent floodwater flowing directly to the Chengdu
+56     also reduced the peak flow discharge of the river during the flood season. Since this dam is a
+     Plain [7]. Natural topographical and hydrological features are used to exclude sediment and divert
+57     relatively new structure and the focus of the present study is on the historical performance of the DIS
+     water for irrigation without the use of dams. The system has produced benefits in flood prevention,
+58     based on its natural and topographical characteristics during the past 2000 years, the effect of the dam
+     agricultural irrigation, and water consumption for many years [8].
+59     is not taken into consideration in this study.
+
+
+
+
+60
+61          Figure1.1.Sketch
+          Figure       Sketchmap
+                              mapofofthe
+                                      the study area. The
+                                                      Theinset
+                                                           insetmap
+                                                                 map(top
+                                                                      (topright)
+                                                                            right)shows
+                                                                                    showsthethe
+                                                                                              location of of
+                                                                                                location  thethe
+                                                                                                               Dujiangyan
+                                                                                                                   Dujiangyan
+62          IrrigationSystem
+          Irrigation    System(DIS)
+                                (DIS)in
+                                      inChina.
+                                         China. The Puyang,
+                                                     Puyang,Baitiao,
+                                                               Baitiao,Zouma,
+                                                                        Zouma,and  andJiang’an
+                                                                                        Jiang’an Rivers all all
+                                                                                                   Rivers   flow   from
+                                                                                                                flow     thethe
+                                                                                                                      from
+63          Baopingkou(the
+          Baopingkou      (thebottle-neck
+                               bottle-neckchannel
+                                            channel of the
+                                                       the DIS).
+                                                           DIS).
+
+64         Recently, a
+             The        dam of
+                  headworks    was  constructed
+                                  the DIS          upstream
+                                           are composed     of of   the DIS
+                                                                three primary(about 4  km from
+                                                                               components:         the Fish
+                                                                                              (1) The  FishMouth
+                                                                                                             Mouth).   (theThe
+65      front
+     reservoirend looksdam
+                of the  like acan
+                               fishbe
+                                    mouth),
+                                      seen ina Figure
+                                               diversion   embankment
+                                                       1. The             dividing the
+                                                                 dam construction    was Minjiang
+                                                                                           completedRiver
+                                                                                                        ininto
+                                                                                                           2006,     Inner
+                                                                                                                theand    since
+66      River, primarily  for  irrigation, and  the  Outer   River,   mainly  for flood  and  sediment
+     then, it has provided a more stable water supply to the Dujiangyan areas during the dry season, and  discharge;     (2)
+67      Feishayan,
+     also  reduced athe
+                      low  spillway
+                        peak          dam removing
+                               flow discharge    of the sediment
+                                                        river duringandthe
+                                                                         excess water
+                                                                            flood       from
+                                                                                   season.    the Inner
+                                                                                            Since this damRiver
+                                                                                                              is ainto  the
+                                                                                                                    relatively
+68   newOuter  River; and
+           structure   andthe
+                            (3) focus
+                                 Baopingkou    (bottle-neck
+                                       of the present          channel),
+                                                        study is on   the a water
+                                                                          historicalintake  automatically
+                                                                                      performance            controlling
+                                                                                                      of the DIS    based on
+69      intake discharge  from   the Inner  River (Figure   2).
+     its natural and topographical characteristics during the past 2000 years, the effect of the dam is not
+     taken into consideration in this study.
+           The headworks of the DIS are composed of three primary components: (1) The Fish Mouth (the
+     front end looks like a fish mouth), a diversion embankment dividing the Minjiang River into the
+     Inner River, primarily for irrigation, and the Outer River, mainly for flood and sediment discharge; (2)
+     Feishayan, a low spillway dam removing sediment and excess water from the Inner River into the
+     Outer River; and (3) Baopingkou (bottle-neck channel), a water intake automatically controlling intake
+     discharge from the Inner River (Figure 2).
+           The need to understand how the DIS has preserved its functionality for more than 2000 years and
+     the need for protecting it have urged researchers and engineers to investigate the hydrodynamics of the
+     system, such as flow motion, sediment transport, and riverbed evolution. They have been conducting
+     research in the last few decades on the mechanisms of water and sediment diversion under different
+     discharge conditions in order to improve the methods of protecting the system. Since the first physical
+     model experiment of the DIS conducted in 1941 [9], scholars have studied the characteristics of the
+     water and sediment transport by using the prototype survey [10,11], physical hydraulics model [12],
+     and numerical model [13–15]. As for the dynamic water diversion process, based on the ancients’
+     experience, more than 60% of the Minjiang River typically goes into the Inner River for the use of the
+     Chengdu Plain during the low discharge period, while in the flood period, this ratio can reduce to
+     less than 40% [16]. The analysis of the prototype data carried out by Sun et al. suggested that after
+     the construction of the check gate across the Outer River in 1974, the water distribution into the Inner
+      Sustainability 2020, 12, 2431                                                                                                                       3 of 15
+
+
+
+      River was close to 75% in spring time and only 37.5% in the flood season [10]. Later, as a complement
+      to the laboratory experiments conducted in Sichuan University [12], a two-dimensional (2D) numerical
+      model   has been used to study the performance of the system under different inflow conditions [13].
+       Sustainability 2020, 12, x FOR PEER REVIEW                                                      3 of 15
+
+
+
+
+ 70
+ 71                                                         Figure2.2.General
+                                                           Figure      Generalayout
+                                                                              layoutofofthe
+                                                                                         theDIS.
+                                                                                             DIS.
+
+ 72             The need
+             Many              to understand
+                       irrigation                      how the
+                                      projects in history           DISabandoned
+                                                                 were      has preserved    due to itssedimentation.
+                                                                                                        functionality for      Themore        than 2000
+                                                                                                                                      long-term             years
+                                                                                                                                                     vitality   of
+ 73     and
+      the  DIS theproject
+                   need is  forlinked
+                                  protecting
+                                          to theitfact
+                                                     have    urged
+                                                           that        researchers
+                                                                 sediment      is         and   engineers
+                                                                                    automatically         excluded   investigate
+                                                                                                                  to by        natural the    hydrodynamics
+                                                                                                                                           characteristics      of
+ 74     of the
+      the  system.system,
+                        Sedimentsuch as      flow is
+                                       deposition    motion,      sediment
+                                                            primarily     formed bytransport,
+                                                                                            the and
+                                                                                                 moving bedriverbed        evolution.
+                                                                                                                     load from        May to They     have [11].
+                                                                                                                                                  October    been
+ 75     conducting
+      Based     on the research
+                           distorted in the
+                                          movable   last few     decades
+                                                         model, the           on he
+                                                                         amount            mechanisms
+                                                                                       of bed     load entering  of waterthe and       sediment
+                                                                                                                               Inner River             diversion
+                                                                                                                                                  through     the
+ 76     under
+      Fish   Mouthdifferent
+                        is only discharge
+                                    about 29% ofconditions      in load
+                                                         the total   orderin tothe improve
+                                                                                        Minjiang the River
+                                                                                                       methods            protecting
+                                                                                                                [17];ofand that       is 26%      system.
+                                                                                                                                            the based       Since
+                                                                                                                                                          on the
+ 77     the
+      results first  physical
+                 of the    prototype model      experiment[18].
+                                           observations           of theTheDIS       conducted
+                                                                              Feishayan         begins in to1941 [9],
+                                                                                                                 discharge   scholars
+                                                                                                                                  sediment haveto the
+                                                                                                                                                    studied
+                                                                                                                                                          Outer the
+ 78     characteristics
+      River     when the of    flowtherate
+                                         water      andInner
+                                               of the      sediment
+                                                                 River istransport
+                                                                              over 500    by m   3
+                                                                                              using/s [12].    prototype
+                                                                                                         the The       larger thesurveyflood [10,11],   physical
+                                                                                                                                                  discharge     is,
+ 79     hydraulics
+      the   higher is the model [12],
+                                 discharge   anddiversion
+                                                    numerical       model
+                                                                ratio    at the[13–15].
+                                                                                    FeishayanAs for   andthethe dynamic
+                                                                                                                    more waterefficient isdiversion
+                                                                                                                                               the systemprocess,
+                                                                                                                                                                in
+ 80     based on the
+      discharging           ancients’
+                         sediment          experience,
+                                        from     the Innermore River. than   60%the
+                                                                         Under        of the    Minjiang
+                                                                                           function      of the River     typically
+                                                                                                                    Feishayan,       overgoes 90%intofthe
+                                                                                                                                                        the Inner
+                                                                                                                                                             bed
+ 81     River
+      load       for the
+              carried    intousetheof the    Chengdu
+                                      Inner River            Plain during
+                                                         can be   discharged      thetolow
+                                                                                         the discharge
+                                                                                              downstream         period,
+                                                                                                                    area ofwhilethe inOuter theRiver      period,
+                                                                                                                                                  flood[19].    In
+ 82     this  ratiothe
+      addition,       canV-Shaped
+                             reduce toDike  less than      40%an
+                                                   Spillway,     [16]. The
+                                                                     auxiliary analysis
+                                                                                    projectofofthe      prototype
+                                                                                                    the DIS,      also data
+                                                                                                                         diverts carried
+                                                                                                                                     sediment out byandSun   et al.
+                                                                                                                                                          excess
+ 83     suggested
+      water     during   that    after of
+                            periods      theflood
+                                               construction        of the
+                                                      [20]. Finally,     lesscheck
+                                                                                than 8%  gateof the
+                                                                                                 across      the Outer
+                                                                                                         total     sediment    River
+                                                                                                                                   of thein 1974,
+                                                                                                                                             Minjiang       water
+                                                                                                                                                      theRiver
+ 84     distribution
+      can reach      the into the
+                           Baopingkou,  Inner River
+                                                ensuring   was   close
+                                                              that   the to   75% in lands
+                                                                          irrigation      springreceive
+                                                                                                      time and   clearonly
+                                                                                                                         water37.5%[17].inIthe is flood
+                                                                                                                                                  notableseason
+                                                                                                                                                             that
+ 85     [10].have
+      there     Later,    as a
+                       also      complement
+                              been small       amountsto theoflaboratory         experiments
+                                                                sediment deposition                   conducted
+                                                                                                 in the    Inner River   in Sichuan        University
+                                                                                                                               section which         have [12],
+                                                                                                                                                            beena
+ 86     two-dimensional
+      dredged      annually (2D)          numerical
+                                  (probably        since themodel     has been
+                                                                irrigation           used to
+                                                                                system       wastudyfirst the     performance of the system under
+                                                                                                           constructed).
+ 87     different     inflowthe
+             At present,         conditions
+                                     prototype     [13].
+                                                     observations and model experiments can only explain the basics of the
+ 88   sediment  Many     irrigation
+                     discharge          projects
+                                     process         in history
+                                                  in the    DIS. On werethe abandoned
+                                                                             other hand,due      the to   sedimentation. (1D)
+                                                                                                       one-dimensional              The long-term
+                                                                                                                                            [14] and 2D   vitality
+                                                                                                                                                             [15]
+ 89     of   the DIS
+      numerical             project
+                       models       usedis for
+                                             linked       to the fact
+                                                   simulating       riverbedthatevolution
+                                                                                      sedimentinisthe DIS  automatically            excluded
+                                                                                                                       have difficulty          in by     natural
+                                                                                                                                                    describing
+ 90     characteristics
+      the   ‘dynamic’ of           the system.
+                              ediment      diversion,Sediment
+                                                            which hasdeposition
+                                                                            a key is      primarily
+                                                                                       role in    the formed
+                                                                                                       understanding    by theof the
+                                                                                                                                   moving        bed load
+                                                                                                                                           dynamics          from
+                                                                                                                                                          of the
+ 91     May
+      sediment  to October
+                     discharge    [11].   Based on
+                                     processes            the system.
+                                                     in the    distorted      movable
+                                                                           For 1D             model,
+                                                                                        models,       thisthe
+                                                                                                            is dueamountto theofone bed load       entering of
+                                                                                                                                        dimensionality          the
+ 92     Inner
+      the  model River    through
+                      being    able to the Fish
+                                          describe   Mouth     is only
+                                                         the bed    loadabout
+                                                                           movement  29% of the
+                                                                                             process  total
+                                                                                                          onlyload in in
+                                                                                                                       one the  Minjiang
+                                                                                                                              channel      whileRiver   [17]; and
+                                                                                                                                                    ignoring     it
+ 93   inthat
+          theisother
+                  26%DIS based on      the For
+                               channels.      results2Dof the
+                                                           models,prototype       observations
+                                                                      when considering              only[18].
+                                                                                                            theThe     Feishayan
+                                                                                                                   continuity           begins
+                                                                                                                                    of the    bedto    discharge
+                                                                                                                                                    load,  there
+ 94     sediment
+      is often         to the
+                  a large    timeOuter
+                                     scaleRiver     when the
+                                             difference           flow rate
+                                                             between      flowof   andthe Inner
+                                                                                         sediment    River     is over
+                                                                                                         motion,           500 m
+                                                                                                                       which        3/s [12]. The larger the
+                                                                                                                                 results     in non-accurate
+ 95     flood    discharge
+      estimation of              is, the higher
+                          riverbed      morphology.    is theIndischarge
+                                                                addition, the diversion
+                                                                                     grid-basedratio at    the due
+                                                                                                       models,     Feishayanto theand      the more
+                                                                                                                                     Eulerian            efficient
+                                                                                                                                                   description
+ 96     is the   system     in  discharging         sediment      from    the   Inner     River.    Under
+      of the sediment medium, are unable to provide details of the motion of sediment particles between         the   function      of  the   Feishayan,      over
+ 97     90%
+      different of the    bed load carried into the Inner River can be discharged to the downstream area of the
+                   channels.
+ 98     Outer     Riverstudy,
+             In this       [19]. In   addition,
+                                    to tackle        the V-Shaped
+                                                   these    difficulties, Dike      Spillway,
+                                                                             the fluid       flowanin the
+                                                                                                       auxiliary DIS is project    of the by
+                                                                                                                            simulated        DIS, also
+                                                                                                                                                   solvingdiverts
+                                                                                                                                                              the
+ 99     sediment
+      Shallow          and excess
+                   Water      Equations water      duringwhich
+                                               (SWEs),        periods  canof flood
+                                                                             effectively[20]. deal
+                                                                                               Finally,with  lessthethan
+                                                                                                                       large8% of
+                                                                                                                                scale theoftotal    sediment
+                                                                                                                                              the study     area,of
+100     the
+      coupled Minjiang
+                   with aRiver newly  can reach
+                                          proposed     theSediment
+                                                            Baopingkou,          ensuring
+                                                                         Mass (SM)              that for
+                                                                                             model      the the
+                                                                                                              irrigation
+                                                                                                                     bed load  lands     receive clear
+                                                                                                                                    transport.              water
+                                                                                                                                                     The fluid
+101     [17]. Itisisbased
+      model           notable      that there
+                              on the     coupled    have also     been small
+                                                        explicit-implicit            amounts of
+                                                                                solution                sediment
+                                                                                               algorithms               deposition
+                                                                                                                   of the    SWEs and     in the SM Inner   River
+                                                                                                                                                         model
+102   issection
+         developed  which  fromhavethe been
+                                         Lagrangian  dredged       annually
+                                                            particle    modeling    (probably
+                                                                                         concept,since consideringthe theirrigation
+                                                                                                                                  orderly system
+                                                                                                                                               movementwas (in first
+103     constructed).
+104             At present, the prototype observations and model experiments can only explain the basics of the
+105     sediment discharge process in the DIS. On the other hand, the one-dimensional (1D) [14] and 2D [15]
+106     numerical models used for simulating riverbed evolution in the DIS have difficulty in describing the
+107     ‘dynamic’ sediment diversion, which has a key role in the understanding of the dynamics of the
+Sustainability 2020, 12, 2431                                                                       4 of 15
+
+
+
+the form of bed load transport belt) of large amounts of sediment. With the SM model, due to its
+Lagrangian framework, we can understand how sediment particles move from one channel to another,
+i.e., ‘dynamic’ sediment diversion. Examples of such particle modeling approaches in fluid flow
+simulation and sediment transport process were developed by Pu et al. [21], Ran et al. [22], and Zheng
+et al. [23].
+       The developed coupled model is used to simulate the sediment motion in the DIS under different
+flow conditions; and the results are discussed to explain why the DIS has operated for 2300 years and
+is still functioning well.
+
+2. Fluid Flow Model
+      The 2D Shallow Water Equations (Equations (1) and (2)) are solved for the fluid flow:
+
+                                            ∂η
+                                               + ∇·(hu) = 0                                            (1)
+                                            ∂t
+
+                                  D(hu)                    gµ2 |u|u
+                                        = AH h∇2 u − gh∇η − 1/3                                        (2)
+                                   Dt                       h
+where: η = water surface; t = time; h = flow depth; u = the velocity vector with the longitudinal and
+transversal components of u and v, respectively; AH = the horizontal eddy viscosity coefficient; g =
+gravitational acceleration; and µ = the bed roughness coefficient.
+      The solution is based on the method used in Zheng et al. [24]. The water level and flow velocity
+are calculated by the implicit Eulerian-Lagrangian method (ELM), i.e., the quantities at time t + dt are
+updated using those at time t, implicitly, where dt is the time step size in the flow model; and then
+the temporary ELM traced lines are corrected explicitly by using the Characteristics-based Splitting
+method, i.e., the intermediate values between times t and t + dt are explicitly computed. This leads
+to the enhancement of the computational efficiency of the model as the detailed flow information
+lost in the implicit computation can be recovered by increasing the number of explicit intermediate
+computational steps. In fact, the coupled method merges the merits of the high computational accuracy
+from the explicit scheme with the high numerical efficiency and stability from the implicit scheme.
+      For the ELM computations, the computational domain is discretized by triangular mesh elements,
+and the governing equations are solved by using the Finite Element Method. For the boundary
+conditions, three types of boundaries are considered:
+      (1) an open boundary applied in the flow inlet and outlet;
+      (2) a land boundary satisfying slip and non-penetration conditions; and
+      (3) a moving boundary relating to the continuous changes of flow and sediment transport. More
+details on the numerical discretization and boundary conditions can be found in Zheng et al. [24] and
+Chen et al. [25].
+      The model has previously been used for a few applications including dam-break flow [24],
+long-term river meandering process [24], and unsteady flow propagation [26].
+      Due to the bending section of the Minjiang River and the diversion of flow at the Fish Mouth, the
+effect of secondary flow is not negligible in the present application, an effect which is often neglected
+in 2D SWE models. To include the secondary flow effect in the present model, a transversal velocity
+vr is computed at the nodes of the computational domain by using the Rozovskii formula (Equation
+(3), [27]), and added to the transversal component of u (i.e., v) with the magnitude of velocity |u|being
+unchanged. This applies a modification to the direction of the velocity vector, while its magnitude
+remains unchanged.
+                                                                  √ #
+                                                                µ g
+                                                "
+                                            1 h
+                                    vr = u 2 F1 (λ) − F2 (λ) 1/6                                       (3)
+                                           κ R                  κh
+where: κ = von Karman constant (~0.4); R = radius of curvature; λ = normalized vertical co-ordinate
+                                                                               2
+                                          λ 2λ                         λ ln2 λ
+                                       R                          R
+(which is set to 0.3 here); F1 (λ) = −2 0 ln
+                                           1−λ dλ + 1 ; and F2 (λ) = 0 1−λ dλ − 2.
+       Sustainability 2020, 12, 2431                                                                               5 of 15
+
+
+
+       3. Sediment Transport Model
+            In the present study, bed load is considered as the dominant form of sediment transport, and a
+       particle-based SM model is proposed to model the convection motion of bed load in a disk-like form,
+       considering sediment as a discrete medium and bed load as a motion of a group of sediment grains. In
+       the following, a description of the SM model is presented.
+            Taking only the convective motion into account, in order to minimize the error caused by the
+       omission of the sediment diffusion, a time step size smaller than the one used in the flow model
+       is set for the calculation of sediment motion, i.e., ∆T = dt/N, where N is the number of segments
+       determined based on the velocity gradient (set to 2~10 in this study). Disks, representing SMs, are
+       used to discretize the sediment domain. Each disk contains a number of sediment particles virtually,
+       with a circular bottom area defining the influence domain of the SM, and a height (thickness) equal to
+       the multiplication of the porosity of sediment medium by the mean diameter of the sediment grains
+       within the disk influence area. The disks can overlap each other and move over the fluid domain based
+       on their velocity, which is determined as follows.
+            Firstly, in each sub-step ∆T, the velocity of a virtual sediment particle is calculated as follows:
+
+                                                        ut+∆T = ut + ua                                                (4)
+
+       where: ut and ut+∆T = the sediment particle velocity vector at times t and t+∆T, respectively; and
+       ua = the increase in the velocity of the sediment particle during ∆T. The magnitude of ua , i.e., ua ,
+       is calculated by Equation (5); and its direction is determined by considering a normal distribution
+       for the angle between it and the streamline (as depicted in Figure 3a) based on the assumption that
+       the direction of ua is random due to the randomness of sediment particle collisions during bed load
+       transport:
+                                                 ua = (uw − uc ) × β                                     (5)
+
+       where uc = critical incipient velocity computed by the Sharmove formula [28]:
+                                                                                1
+                                                                   γs − γ    h (6)
+                                                               r
+                                                   uc = 1.14              gD( )                                        (6)
+                                                                     γ       D
+      Sustainability 2020, 12, x FOR PEER REVIEW                                                                6 of 15
+        and uw = mean flow velocity at the center of the SM, calculated as the arithmetic average of flow
+                       γ – γ D located inside the influence area of the disk. In addition,β = correction coefficient
+192   in which at
+        velocity ψ =the snodes and   J = the bed slope. The displacement of the SM in each sub-step is then
+        (which is set toγhJ
+                          0.1 in the present simulations), γs = specific weigh of sediment grains (= 26.5 kN/m3
+193   evaluated as Δx = uSM × ΔT. Figure 3 shows the 3resultant velocity of a sediment particle and the motion
+        here), γ = specific weigh of flow (= 10 kN/m for water), and D = diameter of sediment grains.
+194   of an SM according to its velocity.
+
+
+
+
+             Figure 3. Bed load velocity and mass motion: (a) sediment particle resultant velocity; and (b) sediment
+195        Figure
+             mass 3. Bed load
+                  motion   overvelocity andomain
+                                the fluid  mass motion:
+                                                 (which (a) sediment particle
+                                                        is discretized        resultant
+                                                                       by triangular    velocity; and (b) sediment
+                                                                                     elements).
+196        mass motion over the fluid domain (which is discretized by triangular elements).
+
+197        After the position of the SM disks is updated, the calculated properties of the sediment domain
+198   are transported to the fluid domain. For this, the velocity and thickness of each disk is converted to
+199   the flow domain nodes that are located inside the influence domain of the disk using a weighting
+200   function (Spline here), and then the converted values at each node are summed up. This yields the
+201   average thickness hs and velocity us of the sediment layer at the position of the nodes. Then, the bed
+Sustainability 2020, 12, 2431                                                                         6 of 15
+
+
+
+     To determine the direction of the velocity vector ua a normal distribution is considered for the
+angle between the streamline and the direction of the ua vector (as depicted in Figure 3a). Then, the
+velocity of the SM is calculated as uSM = ut+∆T × P, where the Einstein bed load theory is used to
+estimate the incipient probability P:
+                                                      Z 1 ψ−2
+                                               1         7          2
+                                        P = 1− √                  e−t dt                                 (7)
+                                                π      − 17 ψ−2
+
+                  (γ – γ) D
+in which ψ = s γhJ       and J = the bed slope. The displacement of the SM in each sub-step is then
+evaluated as ∆x = uSM × ∆T. Figure 3 shows the resultant velocity of a sediment particle and the
+motion of an SM according to its velocity.
+      After the position of the SM disks is updated, the calculated properties of the sediment domain
+are transported to the fluid domain. For this, the velocity and thickness of each disk is converted to the
+flow domain nodes that are located inside the influence domain of the disk using a weighting function
+(Spline here), and then the converted values at each node are summed up. This yields the average
+thickness hs and velocity us of the sediment layer at the position of the nodes. Then, the bed load
+transport rate qb is estimated using Equation (8), and the change of the riverbed elevation from t to t +
+∆T is computed by using Equation (9):
+                                               qb = hs × us                                             (8)
+                                               ∂zb
+                                          (1 − ξ)  + ∇ · qb = 0                                        (9)
+                                               ∂t
+where ξ = porosity; and zb = thickness of the movable bed layer.
+     Then, the fluid model equations are solved in the next sub-step, and this process is repeated until
+the number of sub-steps reaches N. Then, for the next time step, i.e., at t + dt, SMs are regenerated
+instead of turning the node information back to them. This will reduce the error related to the diffusion
+effect without increasing extra calculation.
+
+4. Model Applications in the DIS
+     In this section, the numerical model is applied to simulate the sediment processes in the DIS. The
+flood control discharge and the 1000-year flood of the area are 800 m3 /s and 10,120 m3 /s, respectively.
+Besides, if the Inner River discharge exceeds 1000 m3 /s, a large amount of sediment can be discharged
+into the Outer River via the Feishayan [12]. Considering these factors, three flow rates, i.e., 800 m3 /s
+(low discharge), 1800 m3 /s (medium discharge), and 10,120 m3 /s (high discharge), are selected to
+simulate different sediment diversion conditions. At the initial time of each simulation, a number
+of SM disks are placed at the inlet boundary with their velocity being determined according to the
+desired flow discharge. The total simulation time is 7 days, and the grid and time step sizes are set
+to 3 m and 10 s, respectively. Sections 4.1 and 4.2 present the results of the fluid flow and sediment
+motion, respectively.
+
+4.1. Simulation of Fluid Flow
+     Figures 4–6 show the results of velocity of the numerical model for flow rates of 800, 1800 and
+10,120 m3 /s, respectively. The water diversion ratio, i.e., the ratio of the flow discharge in the Inner
+River to that of the Minjiang River, is automatically regulated at the Fish Mouth due to the central
+shoal located upstream of it (Figure 2). In the dry season, the central shoal is unsubmerged. As a result,
+according to the historical record (Figure 7), more than 60% of the total discharge runs into the Inner
+River, which is beneficial for the water intake of the irrigation area. In the wet season, the shoal is fully
+submerged, and the current tends straight into the Outer River, so the water diversion ratio is reverse.
+Due to these, the DIS, naturally, has functions of water intake and flood drainage during the dry and
+wet seasons, respectively. Figure 7 presents the water diversion ratio of the Inner River obtained from
+224     central shoal located upstream of it (Figure 2). In the dry season, the central shoal is unsubmerged.
+224    central shoal located upstream of it (Figure 2). In the dry season, the central shoal is unsubmerged.
+225     As a result, according to the historical record (Figure 7), more than 60% of the total discharge runs
+225    As a result, according to the historical record (Figure 7), more than 60% of the total discharge runs
+226     into the Inner River, which is beneficial for the water intake of the irrigation area. In the wet season,
+226    into the Inner River, which is beneficial for the water intake of the irrigation area. In the wet season,
+227     the shoal is fully submerged, and the current tends straight into the Outer River, so the water
+227    the shoal is fully submerged, and the current tends straight into the Outer River, so the water
+228 Sustainability
+        diversion ratio is reverse. Due to these, the DIS, naturally, has functions of water intake and flood
+228    diversion2020,
+                    ratio
+                        12,is reverse. Due to these, the DIS, naturally, has functions of water intake and flood
+                            2431                                                                                   7 of 15
+229     drainage during the dry and wet seasons, respectively. Figure 7 presents the water diversion ratio of
+229    drainage during the dry and wet seasons, respectively. Figure 7 presents the water diversion ratio of
+230     the Inner River obtained from the present simulations for different flow discharges in the Minjiang
+230    the Inner River obtained from the present simulations for different flow discharges in the Minjiang
+231 theRiver
+         presentin comparison     with
+                    simulationswith      the historical
+                                   for different        records
+                                                  flowrecords    in the
+                                                         discharges     site,
+                                                                     insite,  where good
+                                                                        the Minjiang       agreement
+                                                                                        River          is observed.
+                                                                                               in comparison   withItIt
+                                                                                                                      the
+231    River   in comparison            the historical          in the        where good  agreement   is observed.
+232 historical
+        clearly shows
+                  records that
+                            in  thesite,
+                               the  diversion
+                                         where  ratio
+                                                 good of the Inner is
+                                                        agreement   River  decreases
+                                                                      observed.   It  when
+                                                                                     clearly the Minjiang
+                                                                                              shows that   River
+                                                                                                          the    flow
+                                                                                                              diversion
+232    clearly shows that the diversion ratio of the Inner River decreases when the Minjiang River flow
+233     discharge    goes River
+                           up. decreases when the Minjiang River flow discharge goes up.
+233 ratio of  the Inner
+       discharge    goes up.
+
+
+
+
+234
+234
+235                               Figure 4. Flowvelocity
+                                                  velocity fieldunder
+                                                                 under a flow
+                                                                           flow discharge
+                                                                                discharge of 800 m  /s.
+                                                                                                   33
+                                                                                                  3/s./s.
+235                               Figure4.4.Flow
+                                Figure       Flow velocity field
+                                                           field under aa flow discharge ofof800
+                                                                                              800mm
+
+
+
+
+236
+236                                        5. Flow  velocity field under a flow discharge of 1800 m3 /s.3
+237      Sustainability 2020, 12, x Figure
+                                    FOR PEER
+                                      Figure  REVIEW
+                                             5. Flow velocity field under a flow discharge of 1800 m /s.        8 of 15
+237                              Figure 5. Flow velocity field under a flow discharge of 1800 m /s. 3
+
+
+
+
+238
+                                                                                                    3 /s.
+239                             Figure6.6.Flow
+                              Figure       Flowvelocity
+                                                velocityfield
+                                                         field under
+                                                               under aa flow dischargeof
+                                                                        flow discharge of10,120
+                                                                                          10,120mm3/s.
+238
+      Sustainability 2020, 12, 2431                                                                                    8 of 15
+239                             Figure 6. Flow velocity field under a flow discharge of 10,120 m3/s.
+
+
+
+
+240
+241         Figure 7.
+            Figure     Computed and
+                    7. Computed     and measured
+                                         measured water
+                                                    water diversion
+                                                          diversion ratio
+                                                                    ratio for
+                                                                          for different
+                                                                                different flow
+                                                                                          flow discharges.
+                                                                                               discharges. There
+                                                                                                            There is
+                                                                                                                   is no
+                                                                                                                      no
+242         historical record
+            historical record for
+                               for the
+                                   the high
+                                       high discharge
+                                              discharge condition
+                                                        condition (10,120
+                                                                  (10,120 m
+                                                                             3 /s). The historical record is from field
+                                                                           m3/s).  The historical record is from field
+243         measurements in
+            measurements    in the
+                               the DIS
+                                    DIS [10].
+                                        [10].
+
+      4.2. Simulation of Sediment Processes
+244   4.2. Simulation of Sediment Processes
+             In order to understand how under different flow regimes, the sediment transport is distributed
+245          In order to understand how under different flow regimes, the sediment transport is distributed
+      over the channels of the DIS, i.e., the Inner and Outer Rivers, the results of the bed load movement
+246   over the channels of the DIS, i.e., the Inner and Outer Rivers, the results of the bed load movement
+      simulated by the proposed model in Section 3 are presented. Figures 8–10 show these results under the
+247   simulated by the proposed model in Section 3 are presented. Figures 8, 9, and     10 show these results
+      low, medium, and high flow discharge conditions (800, 1800, and 10,120 m3 /s, respectively).
+248   under the low, medium, and high flow discharge conditions3 (800, 1800, and 10,120 m3/s, respectively).
+             As seen in Figure 4, when the discharge is low (800 m /s), the flow velocity in the Inner River is
+249          As seen in Figure 4, when the discharge is low (800 m3/s), the flow velocity in the Inner River is
+      not significant (the average velocity in the middle of the channel is about 3 m/s). Therefore, only a
+250   not significant (the average velocity in the middle of the channel is about 3 m/s). Therefore, only a
+      small amount of sediment moves through the Inner River (see Figure 8).
+251   small amount of sediment moves through the Inner River (see       Figure 8).
+             During the medium flow discharge condition (1800 m3 /s), the sediment and surplus water are
+252          During the medium flow discharge condition (1800 m3/s), the sediment and surplus water are
+      discharged through the Feishayan (Figure 5; Figure 9). This can be explained by the mutual functionality
+253   discharged through the Feishayan (Figure 5; Figure 9). This can be explained by the mutual
+      between the Feishayan and the Baopingkou. The Feishayan is a low spillway weir with a width of 240
+254   functionality between the Feishayan and the Baopingkou. The Feishayan is a low spillway weir with
+      m, average weir crest elevation of 728.25 m, and distance of 710 m away from the Fish Mouth; the
+255   a width of 240 m, average weir crest elevation of 728.25 m, and distance of 710 m away from the Fish
+      Baopingkou, with a width of 20.4 m, bottom elevation of 716.3 m, and a distance of 120 m away from
+256   Mouth; the Baopingkou, with a width of 20.4 m, bottom elevation of 716.3 m, and a distance of 120 m
+      the Feishayan, serves as a water intake throat to the downstream irrigation areas (Figure 2). The width
+257   away from the Feishayan, serves as a water intake throat to the downstream irrigation areas (Figure
+      of the Baopingkou is only one-tenth of that of the Feishayan. Therefore, once the discharge in the Inner
+      River exceeds the intake capacity of the Baopingkou, most of the excess flood flows out into the Outer
+      River via the Feishayan (Figure 5). Another important function of the Feishayan is sediment diversion.
+      The Minjiang River carries large amounts of materials flowing into the Inner River and may cause the
+      siltation of the Baopingkou, changes in the elevation of the riverbed, and reduction of the irrigation
+      water intake. However, due to the diversion of sediment at the Feishayan, these impacts are effectively
+      mitigated. The reason behind that the Feishayan is able to discharge sediment to the Outer River is that
+      it is located on the convex bank of the slightly curved Inner River section. Under the function of the
+      centrifugal force, the surface flow with low sediment concentration flows to the Baopingkou located
+      on the concave bank, whereas the bottom water containing high concentration moves to the Feishayan
+      located on the convex bank (see Reference [29]). The larger the flood discharge is, the higher is the
+      water division ratio of the Feishayan and the more efficient is the sediment diversion of the Feishayan.
+ riverbed, and reduction of the irrigation water intake. However, due to the diversion of sediment at
+ the Feishayan, these impacts are effectively mitigated. The reason behind that the Feishayan is able
+ to discharge sediment to the Outer River is that it is located on the convex bank of the slightly curved
+ Inner River section. Under the function of the centrifugal force, the surface flow with low sediment
+ concentration flows to the Baopingkou located on the concave bank, whereas the bottom water
+Sustainability 2020, 12, 2431                                                                       9 of 15
+ containing high concentration moves to the Feishayan located on the convex bank (see Reference
+ [29]). The larger the flood discharge is, the higher is the water division ratio of the Feishayan and the
+
+
+
+
+                                                       (a)
+
+
+
+
+                                                       (b)
+
+
+
+
+                                                       (c)
+
+     Figure 8. Bed load movement process under the discharge of 800 m3 /s on: (a) Day 1; (b) Day 4; and (c)
+     Day 7.
+ 279    the annual dredging project.Under a high discharge condition, the upstream central shoal is
+ 280    submerged, thus the main flood current carrying most of the moving bed load diverts directly toward
+ 281    the Outer River. At the same time, due to the fact that the Inner River is located on the concave bank
+ 282    of the curved river section, the bed load is transported into the Outer River along the convex bank
+ 283    under   the 2020,
+       Sustainability function  of the bend flow. In summary, the major amounts of the flood and the bed
+                          12, 2431                                                                         load
+                                                                                                        10 of 15
+ 284    are diverted into the Outer River at the Fish Mouth ( Figure 6; Figure 10).
+
+
+
+
+                                                               (a)
+
+
+
+
+       Sustainability 2020, 12, x FOR PEER REVIEW              (b)                                              11 of 15
+
+
+
+
+                                                             (c)
+285         Figure
+             Figure9.9.Bed
+                        Bedload
+                            loadmovement
+                                movement process
+                                         process under the discharge
+                                                 under the dischargeof
+                                                                     of1800
+                                                                        1800mm3 /s
+                                                                                3/s on: (a) Day 1; (b) Day 4; and
+                                                                                   on: (a) Day 1; (b) Day 4; and (c)
+286         (c)
+             DayDay
+                  7. 7.
+
+287         The rest of the sediment and water which flow into the Inner River is diverted once again at the
+288    Feishayan. After this diversion, if the flood discharge is still high, then the excess amount is
+289    automatically discharged through the V-Shaped Dike Spillway. The V-Shaped Dike is an auxiliary
+290    project located downstream of the Feishayan and is a low spillway dam with 60 m width and 729 m
+291    average weir crest elevation which is slightly higher than that of the Feishayan. Under low and
+292    medium flood conditions, the influence of the backwater is not substantial in front of the Baopingkou,
+293    meaning that the water level of the Inner River only reaches the crest of the Feishayan and is below
+294    that of the V-Shaped Dike (i.e., the V-Shaped Dike Spillway is effectively dry at low and medium
+295    discharges). Thus, the flood entering the Inner River is mainly discharged via the Feishayan (see
+296    Figures 4 and 5). However, during the high flood discharge period, the upstream backwater of the
+297    Baopingkou is considerable and the water level is higher than the V-Shaped Dike, enabling part of
+ 302           In summary, the results showed that most of the flood in the Inner River is discharged to the
+ 303     Outer River via the Feishayan; and under the high flood discharge condition, a part of it can also be
+ 304     discharged through the V-Shaped Dike Spillway to the Outer River. In addition, as shown in Figure
+ 305     7, a larger flood discharge in the Minjiang River results in smaller water diversion ratios at the
+ 306     Baopingkou,
+        Sustainability 2020,a 12, 2431
+                              function that protects the Chengdu Plain from disastrous floods.         11 of 15
+
+
+
+
+       Sustainability 2020, 12, x FOR PEER REVIEW                                                                12 of 15
+
+
+
+                                                              (a)
+
+
+
+
+                                                              (b)
+
+
+
+
+                                                              (c)
+307         Figure
+             Figure10.10.Bed
+                          Bedload
+                              loadmovement
+                                  movementprocess
+                                           process under the discharge
+                                                   under the dischargeofof10,120
+                                                                           10,120m3
+                                                                                  m/s3/son:
+                                                                                         on:(a)
+                                                                                              (a)Day
+                                                                                                  Day1; 1;
+                                                                                                        (b)(b)
+                                                                                                            DayDay 4;
+                                                                                                                4; and
+308         and  (c) Day
+             (c) Day 7.   7.
+
+309    5. Discussion
+              There is a small amount of sediment which is not discharged through the Feishayan, but deposits
+         in the Fengqiwo Section. This is because the narrow Baopingkou is not located at the middle of the
+310          Three key components of the DIS (i.e., the Fish Mouth, the Feishayan, and the Baopingkou)
+         width of the Inner River. The flood flows to the Lidui and then a backwater is formed in front of it. The
+311    combining with ancillary embankments and watercourses ensure there is efficient sediment diversion
+         effect of the backwater propagates upstream with the increase of the Inner River discharge. Once the
+312    and regular water supply for the Chengdu Plain. The reason behind that the DIS is still performing
+         backwater effect reaches the Feishayan, some amount of the sediment deposits at the Fengqiwo Section
+313    designated functions today is that the sediment is automatically transported in an orderly manner
+314    without causing adverse effects on the system. A summary of the operation of the DIS is the 6-
+315    character maxim “deeply clearing channel (specially meaning the channel at the Fengqiwo Section),
+316    building low dike” [1].
+317          The purpose of a “deeply clearing channel” is to keep the sediment transport in an equilibrium
+318    state during a year, namely, the equilibrium of erosion and deposition in the Inner River. This
+Sustainability 2020, 12, 2431                                                                     12 of 15
+
+
+
+due to a large reduction in the bottom flow velocity. The deposited sediment is removed in the annual
+dredging project.Under a high discharge condition, the upstream central shoal is submerged, thus the
+main flood current carrying most of the moving bed load diverts directly toward the Outer River. At
+the same time, due to the fact that the Inner River is located on the concave bank of the curved river
+section, the bed load is transported into the Outer River along the convex bank under the function of
+the bend flow. In summary, the major amounts of the flood and the bed load are diverted into the
+Outer River at the Fish Mouth (Figure 6; Figure 10).
+     The rest of the sediment and water which flow into the Inner River is diverted once again at
+the Feishayan. After this diversion, if the flood discharge is still high, then the excess amount is
+automatically discharged through the V-Shaped Dike Spillway. The V-Shaped Dike is an auxiliary
+project located downstream of the Feishayan and is a low spillway dam with 60 m width and 729
+m average weir crest elevation which is slightly higher than that of the Feishayan. Under low and
+medium flood conditions, the influence of the backwater is not substantial in front of the Baopingkou,
+meaning that the water level of the Inner River only reaches the crest of the Feishayan and is below
+that of the V-Shaped Dike (i.e., the V-Shaped Dike Spillway is effectively dry at low and medium
+discharges). Thus, the flood entering the Inner River is mainly discharged via the Feishayan (see
+Figures 4 and 5). However, during the high flood discharge period, the upstream backwater of the
+Baopingkou is considerable and the water level is higher than the V-Shaped Dike, enabling part of the
+flood to discharge into the Outer River via the V-Shaped Dike Spillway (Figure 6). The flood diversion
+through the V-Shaped Dike Spillway causes a reduction in the upstream water level and therefore is
+beneficial for the reasonable water intake of the Baopingkou. The larger the discharge in the Inner
+River is, the more effective is the function of the V-Shaped Dike Spillway.
+     In summary, the results showed that most of the flood in the Inner River is discharged to the
+Outer River via the Feishayan; and under the high flood discharge condition, a part of it can also be
+discharged through the V-Shaped Dike Spillway to the Outer River. In addition, as shown in Figure 7, a
+larger flood discharge in the Minjiang River results in smaller water diversion ratios at the Baopingkou,
+a function that protects the Chengdu Plain from disastrous floods.
+
+5. Discussion
+     Three key components of the DIS (i.e., the Fish Mouth, the Feishayan, and the Baopingkou)
+combining with ancillary embankments and watercourses ensure there is efficient sediment diversion
+and regular water supply for the Chengdu Plain. The reason behind that the DIS is still performing
+designated functions today is that the sediment is automatically transported in an orderly manner
+without causing adverse effects on the system. A summary of the operation of the DIS is the 6-character
+maxim “deeply clearing channel (specially meaning the channel at the Fengqiwo Section), building
+low dike” [1].
+     The purpose of a “deeply clearing channel” is to keep the sediment transport in an equilibrium
+state during a year, namely, the equilibrium of erosion and deposition in the Inner River. This requires
+the longitudinal profile of the riverbed to reach the balanced section. Therefore, annual dredging is
+necessary. Also, the dredging level needs to reach the iron bar markers (the position of the riverbed
+balanced section) buried in the Fengqiwo Section. If the dredging depth is shallower than the iron bar
+markers, the sediment will further deposit, which is an adverse effect to the sediment diversion and
+the water intake of irrigation areas. If the dredging depth exceeds the iron bar markers (equivalent to
+the reduction of the erosional basis), then the erosion will strengthen and cause the non-equilibrium of
+the sediment supply and transport. The DIS is a successful case where the theory of riverbed balanced
+section can be applied to the water conservancy project [30].
+     “Building low dike” means that the height of the Feishayan should be low, which is conducive
+to discharge water and sediment in the flood period. It shows that floods have been a key factor in
+designing the DIS. If a hydraulic system is designed without taking floods into consideration, it is
+unlikely that it can remain in working condition. There are numerous examples of hydraulic works
+Sustainability 2020, 12, 2431                                                                            13 of 15
+
+
+
+built in which usage for irrigation and the hydraulic profile for the flood period have been combined.
+A few examples are the spate irrigation system in Africa [31–34] and the ancient irrigation system in
+the Central Negev desert [35].
+      Principles of the DIS are still valuable references in modern diversion project design, including:
+making full use of the natural bend flow to discharge water and sediment; annual well-organized
+maintenance to dredge a specific river section; and coexistence of water intake and flood control. This
+is a good example of comprehensively utilizing natural water resources and realizing harmonious
+coordination between humans and the nature.
+
+6. Conclusions
+     The DIS, both naturally and with the aid of man-made structures, has been functioning for
+2300 years, excluding sediment, preventing flood, and diverting water for irrigation in the Chengdu
+plain. To better understand the hydrodynamics and sediment transport processes in the system,
+numerical modeling approaches were used in this study. A coupled explicit-implicit numerical scheme
+was applied to simulate the fluid flow, coupled with an SM model for the sediment transport. The
+simulations were carried out for three different flow regimes: low, medium, and high (based on the
+1000-year flood event) discharges; and the water and sediment diversions at the Fish Mouth, Feishayan,
+and V-shaped Dike Spillway were investigated in detail.
+     According to the model results, (1) under the low discharge condition, the system mainly diverts
+the water flow at the Fish Mouth for irrigation; (2) under the medium discharge condition, the current
+carries more bed load flowing into the Inner River, which is then discharged through the Feishayan
+to the Outer River; and (3) under the high discharge condition, the main current flows straight into
+the Outer River, thus the bed load is discharged directly through that channel. The model was able
+to demonstrate these processes numerically and complement the findings of the previous studies.
+The processes are mainly attributed to the central shoal located upstream of the Fish Mouth and the
+bending channel, i.e., at low discharges, the shoal is unsubmerged, thus it diverts more water into the
+Inner River; and when coming to the high discharge conditions, the shoal is submerged and the water
+flows straight into the Outer River.
+     In summary, the water flow and sediment diversion project (Fish Mouth), the discharge projects
+(Feishayan and V-shaped Dike Spillway) and the intake project (Baopingkou) make full use of the flow
+dynamics and topographical characteristics (e.g., the bending channel and the elevation differences
+between these components) to effectively discharge excess floodwater and provide a reliable water
+supply to the irrigation areas. The results and discussions in this study clearly explain why the DIS
+has operated for thousands of years, and provide useful references for the engineering design of such
+systems. The proposed numerical models, however, still need rigorous and comprehensive validations
+based on benchmark tests of flow and sediment transport, different channel geometries, and various
+flow conditions. These are considered as future study areas.
+
+Author Contributions: X.Z. and R.C. performed the model simulations and analyses; X.Z., E.K., and E.G. prepared
+the manuscript and carried out reviews and editing; X.L. took the leadership of the project and gave suggestions
+during the whole work; R.C. developed and tested the numerical code used in the project. All authors have read
+and agreed to the published version of the manuscript.
+Funding: This research was funded by the National Natural Science Foundation of China (No. 51609161), National
+Key Research and Development Program of China (No. 2016YFC0402302) and Open Funding of the State Key
+Laboratory of Hydraulics and Mountain River Engineering, Sichuan University (SKLH 1710; 1712; 1911).
+Acknowledgments: The authors would like to thank the anonymous reviewers for their helpful comments.
+Xiaogang Zheng thanks the fund from the China Scholarship Council for supporting his visit to the University
+of Sheffield.
+Conflicts of Interest: The authors declare no conflict of interest.
+Sustainability 2020, 12, 2431                                                                                 14 of 15
+
+
+
+References
+1.    World Heritage Committee. Mount Qingcheng and the Dujiangyan irrigation system. In World Heritage
+      Committee Nomination Documentation; The United Nations Educational, Scientific and Cultural Organization
+      (UNESCO): Paris, France, 2000.
+2.    Hadas, G. Ancient agricultural irrigation systems in the oasis of Ein Gedi, Dead Sea, Israel. J. Arid Environ.
+      2012, 86, 75–81. [CrossRef]
+3.    Hesse, R.; Baade, J. Irrigation agriculture and the sedimentary record in the Palpa Valley, southern Peru.
+      Catena 2009, 77, 119–129. [CrossRef]
+4.    Neely, J.A. Sasanian and early Islamic water-control and irrigation systems on the Deh Luran Plain, Iran. In
+      Irrigation’s Impact on Society; Downing, T.E., Gibson, M., Eds.; University of Arizona Press: Tucson, AZ, USA,
+      1974; Chapter 3; pp. 21–42.
+5.    Beekman, C.S.; Weigand, P.C.; Pint, J.J. Old World irrigation technology in a New World context: Qanats in
+      Spanish colonial western Mexico. Antiquity 1999, 73, 440–446. [CrossRef]
+6.    Butzer, K.W.; Mateu, J.F.; Butzer, E.K.; Kraus, P. Irrigation agrosystems in eastern Spain: Roman or Islamic
+      origins? Ann. Assoc. Am. Geogr. 1985, 75, 479–509. [CrossRef]
+7.    Li, K.K.; Xu, Z.F. Overview of Dujiangyan irrigation scheme of ancient China with current theory. Irrig.
+      Drain. 2006, 55, 291–298. [CrossRef]
+8.    Xu, Y.J. Dujiangyan: Could the ancient hydraulic engineering be a sustainable solution for Mississippi River
+      diversions? In Proceedings of the Ocean Sciences Meeting 2016, New Orleans, LA, USA, 21–26 February
+      2016; American Geophysical Union: Washington, DC, USA, 2016; EC41A-08.
+9.    Tan, X.M. Record History on the Dujiangyan; China Water Power Press: Beijing, China, 2009; p. 273. (In Chinese)
+10.   Sun, Y.F.; Peng, S.M.; Wang, X.K.; Zheng, J.; Xu, X.W. Study on water-diversion of Dujiangyan project. J.
+      Hydroelectr. Eng. 2006, 25, 11–15. (In Chinese)
+11.   Wang, X.K.; Sun, Y.F.; Tan, X.P.; Zheng, J. Study on scour and slit of Neijiang River at Dujiangyan. J.
+      Hydroelectr. Eng. 2006, 25, 16–20. (In Chinese)
+12.   Du, G.H. Sedimentation Research and Practice of Hydraulic Engineering; Waterpower Press: Beijing, China, 2008;
+      pp. 126–212. (In Chinese)
+13.   Gan, F.Y.; Zhang, J.; Liu, X.N.; Guo, Z.X. Analysis on flow characteristics of Dujiangyan reach under various
+      inflow conditions. Water Resour. Hydropower Eng. 2013, 44, 39–43. (In Chinese)
+14.   Fang, D.; Cao, S.Y.; Liu, X.N.; Chen, J.Y. Computer model of the bed changes caused by pebble in Dujiangyan.
+      J. Sediment Res. 1988, 1, 12–22. (In Chinese)
+15.   Xie, G. Two-Dimensional Flow and Sediment Numerical Model for River of Mountain Area. Master’s Thesis,
+      Sichuan University, Chengdu, China, 2004. (In Chinese).
+16.   Chinese Local Chronicles Compilation Committee in Sichuan Province (CLCCCSP). Dujiangyan History;
+      Sichuan Cishu Press: Chengdu, China, 1993. (In Chinese)
+17.   Cao, S.Y.; Liu, X.N.; Huang, E. Dujiangyan irrigation system-a world cultural heritage corresponding to
+      concepts of modern hydraulic science. J. Hydro-Environ. Res. 2010, 4, 3–13. [CrossRef]
+18.   Zheng, J. Research on the Flow and Sediment Transport of Dujiangyan Project. Ph.D. Thesis, Tsinghua
+      University, Beijing, China, 2008. (In Chinese).
+19.   Zhang, S.H.; Yi, Y.J.; Liu, Y.; Wang, X.K. Hydraulic principles of the 2268-year-old Dujiangyan project in
+      China. J. Hydraul. Eng. 2013, 139, 538–546. [CrossRef]
+20.   Tian, J.J.; Wang, B.; Chen, Y.L.; Yang, X.L. Discussion of “Hydraulic principles of the 2268-year-old Dujiangyan
+      project in China” by Shanghong Zhang, Yujun Yi, Yan Liu, and Xingkui Wang. J. Hydraul. Eng. 2014, 140,
+      07014005. [CrossRef]
+21.   Pu, J.H.; Cheng, N.S.; Tan, S.K.; Shao, S.D. Source term treatment of SWEs using surface gradient upwind
+      method. J. Hydraul. Res. 2012, 50, 145–153. [CrossRef]
+22.   Ran, Q.H.; Tong, J.; Shao, S.D.; Fu, X.D.; X, Y.P. Incompressible SPH scour model for movable bed dam break
+      flows. Adv. Water Resour. 2015, 82, 39–50. [CrossRef]
+23.   Zheng, X.; Shao, S.D.; Khayyer, A.; Duan, W.Y.; Ma, Q.W.; Liao, K.P. Corrected first-order derivative ISPH in
+      water wave simulations. Coast. Eng. J. 2017, 59, 1750010. [CrossRef]
+Sustainability 2020, 12, 2431                                                                               15 of 15
+
+
+
+24.   Zheng, X.G.; Pu, J.H.; Chen, R.D.; Liu, X.N.; Shao, S.D. A novel explicit-implicit coupled solution method of
+      SWE for long-term river meandering process induced by dambreak. J. Appl. Fluid Mech. 2016, 9, 2647–2660.
+      [CrossRef]
+25.   Chen, R.D.; Shao, S.D.; Liu, X.N. Water-sediment flow modeling for field case studies in Southwest China.
+      Nat. Hazards 2015, 78, 1197–1224. [CrossRef]
+26.   Ding, Y.F.; Liu, Y.; Liu, X.N.; Chen, R.D.; Shao, S.D. Applications of coupled explicit-implicit solution of
+      SWEs for unsteady flow in Yangtze River. Water 2017, 9, 91. [CrossRef]
+27.   Rozovskii, I.L. Flow of Water in Bends of Open Channels, 2nd ed.; Academy of Sciences of the Ukrainian SSR:
+      Jerusalem, Israel, 1957.
+28.   Chien, N.; Wan, Z.H. Mechanics of Sediment Transport; American Society of Civil Engineers (ASCE) Press:
+      Reston, VA, USA, 1999; p. 323.
+29.   Bhuiyan, F.; Hey, R.D.; Wormleaton, P.R. Bank-attached vanes for bank erosion control and restoration of
+      river meanders. J. Hydraul. Eng. 2007, 136, 583–596. [CrossRef]
+30.   Guo, Y.W. Analysis on effects of river geomorphology on water conservancy construction. J. Sediment Res.
+      1994, 2, 56–58. (In Chinese)
+31.   Tesfai, M.; Stroosnijder, L. The Eritrean spate irrigation system. Agric. Water Manag. 2001, 48, 51–60.
+      [CrossRef]
+32.   Komakech, H.C.; Mul, M.L.; van der Zaag, P.; Rwehumbiza, F.B.R. Water allocation and management in an
+      emerging spate irrigation system in Makanya catchment, Tanzania. Agric. Water Manag. 2011, 98, 1719–1726.
+      [CrossRef]
+33.   Embaye, T.G.; Beevers, L.; Mehari Haile, A. Dealing with sedimentation issues in spate irrigation systems.
+      Irrig. Drain. 2012, 61, 220–230. [CrossRef]
+34.   Gebrehiwot, K.A.; Haile, A.M.; De Fraiture, C.; Chukalla, A.D.; Embaye, T.G. Optimizing flood and sediment
+      management of spate irrigation in Aba’ala Plains. Water Resour. Manag. 2015, 29, 833–847. [CrossRef]
+35.   Shanan, L. Runoff, erosion, and the sustainability of ancient irrigation systems in the Central Negev desert.
+      In The Hydrology-Geomorphology Interface: Rainfall, Floods, Sedimentation, Land Use; IAHS Press: Wallingford,
+      UK, 2000; pp. 75–106.
+
+                           © 2020 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access
+                           article distributed under the terms and conditions of the Creative Commons Attribution
+                           (CC BY) license (http://creativecommons.org/licenses/by/4.0/).
+

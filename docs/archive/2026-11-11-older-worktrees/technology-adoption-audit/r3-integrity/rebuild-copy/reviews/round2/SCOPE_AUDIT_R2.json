@@ -1,0 +1,855 @@
+{
+  "created_utc": "2026-11-05T16:34:02.124108+00:00",
+  "reviewer": "/root/review1_scope_power",
+  "assignment": "SCOPE_ASSIGNMENT.md",
+  "target": {
+    "path": "full-snapshot/MANIFEST.json",
+    "sha256": "25716753bb0b62f804b05897ba2ab696681f82d95f4381f023454b3770c8fe36",
+    "files_checked": 290,
+    "mismatches": []
+  },
+  "target_counts": {
+    "cases": 88,
+    "sources": 204,
+    "claims": 329,
+    "nodes": 428,
+    "edges": 299,
+    "comparisons": 69
+  },
+  "independence": {
+    "live_or_target_research_modified": false,
+    "other_r2_review_findings_read": false,
+    "author_original_source_caches_used": true,
+    "cache_use": "Original texts/PDFs only, with independently reopened passages and recorded hashes. No other reviewers' conclusions used.",
+    "repair_target_read_before_original_report_preserved": false
+  },
+  "selection_design": "Purposive proposition/risk audit, not a random sample or claim-error-rate estimate. Registered after reading revised narrative and catalog metadata but before reopening original source passages in R2. Prior R1 knowledge is retained. Source IDs will be corrected transparently if catalog mapping differs; no adverse/successful result substitution.",
+  "preregistration_files": [
+    "SCOPE_PREREGISTRATION_R2.json",
+    "SCOPE_PREREGISTRATION_ADDENDUM_R2.json",
+    "SCOPE_PREREGISTRATION_ADDENDUM2_R2.json"
+  ],
+  "coverage": {
+    "case_metadata_screen_count": 88,
+    "substantive_case_records_count": 16,
+    "substantive_case_ids": [
+      "CTX-C01",
+      "IND-C07",
+      "GHA-C01",
+      "GHA-C02",
+      "GHA-C03",
+      "MOB-C04",
+      "AGR-C03",
+      "LBR-C01",
+      "SKL-C04",
+      "SKL-C05",
+      "NET-C06",
+      "OCE-C01",
+      "OCE-C02",
+      "PSY-C03",
+      "NET-C02",
+      "MAT-C06"
+    ],
+    "selected_source_crosschecked_claim_count": 38,
+    "selected_source_crosschecked_claim_ids": [
+      "CTX-K01",
+      "CTX-K02",
+      "CTX-K03",
+      "CTX-K04",
+      "CTX-K05",
+      "CTX-K06",
+      "CTX-K07",
+      "CTX-K08",
+      "GHA-K01",
+      "GHA-K02",
+      "GHA-K03",
+      "GHA-K04",
+      "GHA-K05",
+      "GHA-K06",
+      "GHA-K07",
+      "GHA-K08",
+      "GHA-K09",
+      "GHA-K10",
+      "GHA-K11",
+      "AGR-K25",
+      "LBR-K08",
+      "SKL-K10",
+      "SKL-K11",
+      "SKL-K12",
+      "SKL-K13",
+      "SKL-K14",
+      "SKL-K15",
+      "OCE-K01",
+      "OCE-K03",
+      "OCE-K04",
+      "OCE-K06",
+      "OCE-K07",
+      "OCE-K08",
+      "NET-K07",
+      "NET-K08",
+      "NET-K24",
+      "PSY-K07",
+      "PSY-K09"
+    ],
+    "canonical_context_or_scope_only_claim_ids": [
+      "MAT-K19",
+      "OCE-K02",
+      "OCE-K05",
+      "PSY-K08",
+      "PSY-K10"
+    ],
+    "source_records_reopened_count": 21,
+    "source_record_ids": [
+      "CTX-S01",
+      "CTX-S03",
+      "GHA-S01",
+      "GHA-S02",
+      "GHA-S03",
+      "GHA-S04",
+      "GHA-S05",
+      "AGR-S05",
+      "LBR-S02",
+      "SKL-S08",
+      "SKL-S09",
+      "OCE-S01",
+      "OCE-S02",
+      "OCE-S05",
+      "OCE-S06",
+      "OCE-S14",
+      "NET-S15",
+      "NET-S05",
+      "NET-S16",
+      "PSY-S05",
+      "PSY-S06"
+    ],
+    "comparisons_read_count": 23,
+    "comparisons_read_ids": [
+      "SYN-X01",
+      "SYN-X02",
+      "SYN-X03",
+      "SYN-X04",
+      "SYN-X05",
+      "SYN-X06",
+      "SYN-X07",
+      "SYN-X08",
+      "AGR-X02",
+      "NET-X01",
+      "MOB-X02",
+      "SKL-X01",
+      "SKL-X02",
+      "SKL-X03",
+      "SKL-X04",
+      "OCE-X01",
+      "OCE-X02",
+      "OCE-X03",
+      "OCE-X04",
+      "PSY-X03",
+      "CTX-X01",
+      "GHA-X01",
+      "GHA-X02"
+    ],
+    "analysis_documents_read": [
+      "SYNTHESIS.md",
+      "FUTURE_ROLES.md",
+      "GLOBAL_MAP.md",
+      "SELECTION_REGISTER.md",
+      "HYPOTHESES_AND_NEGATIVE_CASES.md",
+      "UNCERTAINTY_AND_NEXT_RESEARCH.md"
+    ],
+    "other_navigation_read": [
+      "analysis/chronology_routes.json",
+      "data/CHRONOLOGICAL_ROUTES.md"
+    ],
+    "claim_count_not_certified": 329,
+    "not_an_estimated_error_rate": true
+  },
+  "proposition_verdicts": [
+    {
+      "proposition_id": "SP2-P01",
+      "topic": "Later household-textile persistence, refusal and positive counterevidence",
+      "case_ids": [
+        "CTX-C01",
+        "IND-C07"
+      ],
+      "claim_records_source_crosschecked": [
+        "CTX-K01",
+        "CTX-K02",
+        "CTX-K03",
+        "CTX-K04",
+        "CTX-K05",
+        "CTX-K06",
+        "CTX-K07",
+        "CTX-K08"
+      ],
+      "verdict": "supported_with_recorded_limits",
+      "review_note": "CTX adds distinct post1949 constraints and unpaid-work pathways while keeping positive uses/social gains, local sample and exact Eyferth/Hershatter lineage. Earlier IND episode remains separate; no causal-share estimate."
+    },
+    {
+      "proposition_id": "SP2-P02",
+      "topic": "African transport initiative, entry and heterogeneous road labour",
+      "case_ids": [
+        "GHA-C01",
+        "GHA-C02",
+        "GHA-C03",
+        "MOB-C04"
+      ],
+      "claim_records_source_crosschecked": [
+        "GHA-K01",
+        "GHA-K02",
+        "GHA-K03",
+        "GHA-K04",
+        "GHA-K05",
+        "GHA-K06",
+        "GHA-K07",
+        "GHA-K08",
+        "GHA-K09",
+        "GHA-K10",
+        "GHA-K11"
+      ],
+      "verdict": "supported_with_locator_repair",
+      "review_note": "GHA supports local initiative and heterogeneous entry/compulsion without common denominators or invented modal-series reconciliation. Source methods and rival archival interpretations remain distinct. GHA-K11 substantive proposition supported but locators require repair."
+    },
+    {
+      "proposition_id": "SP2-P03",
+      "topic": "Project enforcement alongside household authority",
+      "case_ids": [
+        "AGR-C03"
+      ],
+      "claim_records_source_crosschecked": [
+        "AGR-K25"
+      ],
+      "verdict": "supported_with_recorded_limits",
+      "review_note": "1990 credit/plot sanction, seizures and conditional return documented. Household control and project authority are distinct potentially interacting pathways; no universal coercion claim."
+    },
+    {
+      "proposition_id": "SP2-P04",
+      "topic": "Complementary maintenance demand versus gendered entry and actual cohort transitions",
+      "case_ids": [
+        "LBR-C01"
+      ],
+      "claim_records_source_crosschecked": [
+        "LBR-K08"
+      ],
+      "verdict": "supported_with_recorded_limits",
+      "review_note": "Published paper supports lack of compensating later-cohort nonoperator-telephone employment growth and heavily male maintenance, distinct from linked-incumbent outcomes. Does not isolate a causal exclusion mechanism or claim zero female entry."
+    },
+    {
+      "proposition_id": "SP2-P05",
+      "topic": "Repair work entry, ownership, returns and quality",
+      "case_ids": [
+        "SKL-C04",
+        "SKL-C05"
+      ],
+      "claim_records_source_crosschecked": [
+        "SKL-K10",
+        "SKL-K11",
+        "SKL-K12",
+        "SKL-K13",
+        "SKL-K14",
+        "SKL-K15"
+      ],
+      "verdict": "supported_with_recorded_limits",
+      "review_note": "Original repair histories support training/tools/ownership and selected restored service, with quality disputes. No representative entry/return/safety/repair-survival/career panel; Mchome partly inherits Grace."
+    },
+    {
+      "proposition_id": "SP2-P06",
+      "topic": "Expertise under pressure or voluntary sacrifice; governance and restoration",
+      "case_ids": [
+        "NET-C06",
+        "OCE-C01",
+        "OCE-C02"
+      ],
+      "claim_records_source_crosschecked": [
+        "NET-K24",
+        "OCE-K01",
+        "OCE-K03",
+        "OCE-K04",
+        "OCE-K06",
+        "OCE-K07",
+        "OCE-K08"
+      ],
+      "verdict": "supported_with_recorded_limits",
+      "review_note": "One coercive pilot procurement episode, modern voyaging mentorship/volunteering and bounded partial restoration supported. No pilot consent/pay or ancient institutional reconstruction; no fishery income/career effects inferred."
+    },
+    {
+      "proposition_id": "SP2-P07",
+      "topic": "Communicator incentives, gendered credibility and weak livelihood inferences",
+      "case_ids": [
+        "PSY-C03"
+      ],
+      "claim_records_source_crosschecked": [
+        "PSY-K07",
+        "PSY-K09"
+      ],
+      "verdict": "bounded_claims_supported_synthesis_sentence_repair",
+      "review_note": "Bounded PSY-K07/K09 supported, with shared experiment and subgroup/pooled distinction. Synthesis necessity sentence exceeds source. Network-only PSY-K08/K10 are canonical context, not original-source checks in this review."
+    },
+    {
+      "proposition_id": "SP2-P08",
+      "topic": "Printing explanation scope, tentative transmission and comparison lineage",
+      "case_ids": [
+        "NET-C02",
+        "MAT-C06"
+      ],
+      "claim_records_source_crosschecked": [
+        "NET-K07",
+        "NET-K08"
+      ],
+      "verdict": "supported_with_recorded_limits",
+      "review_note": "Printing niches compatible with script-sensitive cost model, so relative causal weights unresolved. MAT-C06/MAT-K19 hypothesis status and export repair checked for consistency only; original Hosler studies not reopened."
+    }
+  ],
+  "claim_record_scope_checks": [
+    {
+      "id": "CTX-K01",
+      "source_records_reopened": [
+        "CTX-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K02",
+      "source_records_reopened": [
+        "CTX-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K03",
+      "source_records_reopened": [
+        "CTX-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K04",
+      "source_records_reopened": [
+        "CTX-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K05",
+      "source_records_reopened": [
+        "CTX-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K06",
+      "source_records_reopened": [
+        "CTX-S01",
+        "CTX-S03"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K07",
+      "source_records_reopened": [
+        "CTX-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "CTX-K08",
+      "source_records_reopened": [
+        "CTX-S03"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K01",
+      "source_records_reopened": [
+        "GHA-S01",
+        "GHA-S02"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K02",
+      "source_records_reopened": [
+        "GHA-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K03",
+      "source_records_reopened": [
+        "GHA-S01",
+        "GHA-S02"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K04",
+      "source_records_reopened": [
+        "GHA-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K05",
+      "source_records_reopened": [
+        "GHA-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K06",
+      "source_records_reopened": [
+        "GHA-S04"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K07",
+      "source_records_reopened": [
+        "GHA-S04"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K08",
+      "source_records_reopened": [
+        "GHA-S03",
+        "GHA-S04"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K09",
+      "source_records_reopened": [
+        "GHA-S04"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K10",
+      "source_records_reopened": [
+        "GHA-S04"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "GHA-K11",
+      "source_records_reopened": [
+        "GHA-S05",
+        "GHA-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_locator_repair",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "AGR-K25",
+      "source_records_reopened": [
+        "AGR-S05"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "LBR-K08",
+      "source_records_reopened": [
+        "LBR-S02"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "SKL-K10",
+      "source_records_reopened": [
+        "SKL-S08"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "SKL-K11",
+      "source_records_reopened": [
+        "SKL-S08"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "SKL-K12",
+      "source_records_reopened": [
+        "SKL-S08"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "SKL-K13",
+      "source_records_reopened": [
+        "SKL-S09"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "SKL-K14",
+      "source_records_reopened": [
+        "SKL-S09"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "SKL-K15",
+      "source_records_reopened": [
+        "SKL-S09"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "OCE-K01",
+      "source_records_reopened": [
+        "OCE-S01"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "OCE-K03",
+      "source_records_reopened": [
+        "OCE-S02"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "OCE-K04",
+      "source_records_reopened": [
+        "OCE-S14"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "OCE-K06",
+      "source_records_reopened": [
+        "OCE-S05",
+        "OCE-S06"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "OCE-K07",
+      "source_records_reopened": [
+        "OCE-S05",
+        "OCE-S06"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "OCE-K08",
+      "source_records_reopened": [
+        "OCE-S06"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "NET-K07",
+      "source_records_reopened": [
+        "NET-S05"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "NET-K08",
+      "source_records_reopened": [
+        "NET-S05",
+        "NET-S16"
+      ],
+      "other_attached_sources_not_reopened": [
+        "NET-S04"
+      ],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "NET-K24",
+      "source_records_reopened": [
+        "NET-S15"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "PSY-K07",
+      "source_records_reopened": [
+        "PSY-S05"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    },
+    {
+      "id": "PSY-K09",
+      "source_records_reopened": [
+        "PSY-S06"
+      ],
+      "other_attached_sources_not_reopened": [],
+      "status": "central_proposition_supported_with_record_limits",
+      "scope": "Selected original passages bearing on preregistered proposition; not all source methods, data or attached evidence independently replicated."
+    }
+  ],
+  "original_source_provenance_file": "SCOPE_SOURCE_PROGRESS_R2.json",
+  "original_source_provenance_sha256": "8cc0646f37a75c593b9108e15e5aead53f745b46fe15e9b7eb9200439dd04d8a",
+  "visual_source_checks": [
+    {
+      "source_id": "AGR-S05",
+      "file": "scope-power-evidence/AGR-S05-163.png",
+      "passage": "printedp5 in compilationPDFpage163"
+    },
+    {
+      "source_id": "LBR-S02",
+      "files": [
+        "scope-power-evidence/LBR-S02-50.png",
+        "scope-power-evidence/LBR-S02-51.png"
+      ],
+      "passage": "publishedpp1928–1929 FigureV"
+    },
+    {
+      "source_id": "PSY-S05",
+      "file": "scope-power-evidence/PSY-S05-22.png",
+      "passage": "Table7"
+    },
+    {
+      "source_id": "PSY-S06",
+      "files": [
+        "scope-power-evidence/PSY-S06-34.png",
+        "scope-power-evidence/PSY-S06-35.png",
+        "scope-power-evidence/PSY-S06-36.png"
+      ],
+      "passage": "Tables5–7,printedpp33–35"
+    }
+  ],
+  "prior_findings": [
+    {
+      "id": "SP01",
+      "status": "closed_bounded_script_hypothesis"
+    },
+    {
+      "id": "SP02",
+      "status": "closed_project_sanctions_recorded"
+    },
+    {
+      "id": "SP03",
+      "status": "closed_distinct_post1949_supplement"
+    },
+    {
+      "id": "SP04",
+      "status": "closed_bounded_transport_agency_supplement",
+      "residual_new_finding": "P3-SP2-01"
+    },
+    {
+      "id": "SP05",
+      "status": "closed_for_conditional_question_set_only",
+      "contemporary_opportunity_validated": false
+    },
+    {
+      "id": "SP06",
+      "status": "closed_qualified_tag_export_consistency_only"
+    },
+    {
+      "id": "SP07",
+      "status": "closed_targeted_lineage_distinctions"
+    }
+  ],
+  "findings": [
+    {
+      "id": "P3-SP2-01",
+      "priority": "P3",
+      "status": "open_in_frozen_target",
+      "title": "Ghana rail comparison points to wrong manuscript pages and a nonexistent section",
+      "target_version": "GHA-S05 January2015 PDF SHA256 c1f1f90710cafbedf4318a5337d87d17311dcac52d51a2ad1d89c664a6c2475d",
+      "targets": [
+        "contributions/GHA/sources.json:GHA-S05.locator",
+        "contributions/GHA/claims.json:GHA-K11.sources[GHA-S05].locator",
+        "contributions/GHA/report.md:Comparison with MOB-C04 citation",
+        "downstream generated bibliography/claim/source/HTML representations"
+      ],
+      "evidence": "Cocoa-suitable southern sample restriction is printedpp11–12 §4.1, notp10; Hill/Austin migration discussion is p18 §5.1.3, notp17 §5.4. Manuscript has no§5.4. §§2–3 onpp5–10 are historical/data context.",
+      "impact": "Traceability defect only; substantive scope and shared-lineage interpretation is supported.",
+      "acceptance": "Repair exact locators for this acquired version and regenerate downstream outputs; retain sourceversion and no-replication limit. Recheck corrected files against separate frozen manifest.",
+      "parent_notified": true,
+      "parent_reply": "Parent agreed to reopen matching PDF, repair live locators and freeze corrected files. Original full-snapshot unchanged."
+    },
+    {
+      "id": "P2-SP2-02",
+      "priority": "P2",
+      "status": "open_in_frozen_target",
+      "title": "Malawi synthesis turns incentive responsiveness into a requirement for communication",
+      "targets": [
+        "analysis/SYNTHESIS.md:69, section6 Malawi sentence",
+        "downstream synthesis HTML rendering"
+      ],
+      "evidence": "PSY-S05 Tables5–6 pp18–20 record communication and some significant recipient knowledge gains in unrewarded arms; pp21–22 Table7 supports rewarded-peer adoption response. PSY-K07/C03 and FUTURE_ROLES already preserve institutional/bundle limits.",
+      "impact": "Local assertion-scope error: necessary reward/contacts wording is stronger than the experiment and could imply an unobserved general need for paid intermediation. The broader role proposition and PSY structured claims survive.",
+      "acceptance": "Describe measured responsiveness of effort/communication/adoption under specified rewards and contact arrangements; remove universal incentive necessity; preserve observed unrewarded communication and unknown livelihood returns. Regenerate downstream synthesis rendering.",
+      "parent_notified": true,
+      "parent_reply": "Parent agrees, will independently reopen original passages and freeze a separate supplemental repair target. Original snapshots unchanged."
+    }
+  ],
+  "navigation": {
+    "case_count": 88,
+    "route_count": 9,
+    "route_memberships": 109,
+    "unique_covered": 88,
+    "missing_case_ids": [],
+    "foreign_case_ids": [],
+    "duplicate_within_route": [],
+    "route_results": [
+      {
+        "id": "early-materials",
+        "membership_count": 1,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "early-landscapes",
+        "membership_count": 8,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "classical",
+        "membership_count": 5,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "medieval-networks",
+        "membership_count": 11,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "early-modern",
+        "membership_count": 9,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "industrial-transformations",
+        "membership_count": 12,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "urban-networks",
+        "membership_count": 13,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "twentieth-systems",
+        "membership_count": 24,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      },
+      {
+        "id": "recent-observations",
+        "membership_count": 26,
+        "global_map_same_ids_order": true,
+        "chronological_index_same_ids_order": true,
+        "period_errors": []
+      }
+    ],
+    "manual_screen": "All88 IDs,titles,qualified periods and regions read; route scopes match included intervals/subepisodes; no inference that dates are first invention or that chronological proximity establishes transmission."
+  },
+  "targeted_export_parity": {
+    "records_checked": 78,
+    "mismatches": [],
+    "mat_outcome": {
+      "outcome": [
+        "specialised performance priorities",
+        "proposed local transformation of transmitted techniques"
+      ],
+      "csv_same": true,
+      "dossier_proposal_and_access_limits": true,
+      "coverage_inventory_has_qualified_outcome": true,
+      "case_index_has_qualified_outcome": true,
+      "html_payload_has_qualified_outcome": true,
+      "scope_note": "Case Markdown renders stages/summary rather than outcome tags; checked its proposal/access wording separately."
+    }
+  },
+  "final_decision": "Examined scope/power argument survives and SP01–SP07 acceptance boundaries satisfied, subject to localized P2-SP2-02 narrative and P3-SP2-01 locator repairs in original frozen target. Separate repair recheck required; no whole-edition certification.",
+  "limits": [
+    "No all329claim certification or random error-rate estimate.",
+    "No full source/data/archival replication; selected original passages and counterevidence only.",
+    "Source records are not independent evidence-lineage counts.",
+    "CTX publisher web passages and some HTML/text sources lack a reviewer-acquired full PDF byte copy; original access form and cache provenance retained.",
+    "NET-K08 attached NET-S04 and other context claims not reopened; MAT transmission checked only for consistent qualification.",
+    "No UI behaviour test, full graph audit, occupational forecast or contemporary opportunity validation.",
+    "No general demand for more cases made without an inference-changing omission."
+  ]
+}

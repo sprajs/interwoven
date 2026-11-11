@@ -1,0 +1,102 @@
+{
+  "review_id": "SB-R2-RECHECK",
+  "reviewer": "/root/review1_sources",
+  "reviewed_utc": "2026-11-05T15:55:20.221872+00:00",
+  "independent_of_authors_and_implementers": true,
+  "inherited_model": "Astra",
+  "target": {
+    "manifest": "sb-repair-snapshot/MANIFEST.json",
+    "manifest_sha256": "0292161a2ccb4ce26b255632e19b3d11d6c9b0d316b92aec2c0d6d294e899e1c",
+    "file_count": 8,
+    "all_hashes_match": true
+  },
+  "baseline": {
+    "manifest": "skills-behaviour-snapshot/MANIFEST.json",
+    "manifest_sha256": "430e5e198be4545239452e43ee18ff36d3f21c2aff4f7f75fa65a6cd50d48081",
+    "source_audit": "SKILLS_BEHAVIOUR_SOURCE_AUDIT.json",
+    "source_audit_sha256": "42e535b93e96727a2cd5a22cc850fd9bdd68528ba0818bb10f3d7df525a74d36",
+    "source_audit_denominator_unchanged": {
+      "selected_claims": 8,
+      "claim_population": 38,
+      "selected_sources": 9,
+      "source_population": 26
+    }
+  },
+  "verdict": "accepted-for-bounded-repairs",
+  "outstanding_required_repairs": [],
+  "findings": [
+    {
+      "id": "SB01",
+      "disposition": "closed",
+      "basis": "Documented school/enrolment/grade/distance limits are separated from unknown disability/cycling/route representation across report, case, source, edge, comparison and questions.",
+      "source_locators": [
+        "PSY-S11 §3.3 printed p.9",
+        "PSY-S11 Appendix B printed pp.74–75"
+      ]
+    },
+    {
+      "id": "SB02",
+      "disposition": "closed-disclosure-repair",
+      "basis": "Manuscript pooled results and final abstract assertion explicitly differ; no uninspected final estimate inferred.",
+      "source_locators": [
+        "PSY-S11 opening abstract",
+        "PSY-S11 Table 3 printed p.40",
+        "PSY-S11 Table A.11 printed p.56",
+        "PSY-S14 final primary publisher abstract"
+      ],
+      "residual": "Final tables, definitions and pooled/arm-specific interpretation remain uninspected. The manuscript abstract itself already uses positive aspirations wording, so no publication-stage change is established."
+    },
+    {
+      "id": "SB03",
+      "disposition": "closed",
+      "basis": "Mechanism test underdetermined; randomised effect on measured questionnaire indices retained separately; demand/salience rival is not treated as discriminated.",
+      "source_locators": [
+        "PSY-S11 §4.4.3 footnote 19",
+        "PSY-S11 §6.3 and Tables 3/A.11"
+      ]
+    },
+    {
+      "id": "SB-A01",
+      "disposition": "addressed",
+      "basis": "Separate 1975 outcome T28; E17/E18 additionally separated to T29/T30. No source/scope/qualification changes, necessity assertion or combined path.",
+      "historical_scope": "Structural preservation of existing propositions; no renewed S10 source audit."
+    }
+  ],
+  "checked_change_scope": {
+    "PSY_structured_records": [
+      "PSY-C05",
+      "PSY-K20",
+      "PSY-S11",
+      "PSY-S14",
+      "PSY-E14",
+      "PSY-X05"
+    ],
+    "PSY_other_claims_unchanged": 19,
+    "PSY_E14_only_field_changed": "dispute",
+    "SKL_added_nodes": [
+      "SKL-T28",
+      "SKL-T29",
+      "SKL-T30"
+    ],
+    "SKL_edge_destination_changes": {
+      "SKL-E17": "SKL-T29",
+      "SKL-E18": "SKL-T30",
+      "SKL-E19": "SKL-T28"
+    },
+    "SKL_other_edge_fields_unchanged": true,
+    "SKL_E16_unchanged": true,
+    "SKL_new_outcome_nodes_have_outgoing_edges": false,
+    "author_handoff_files_matched": 7
+  },
+  "residuals": [
+    "Final Zambia full-text reconciliation unresolved, including aspirations interpretation.",
+    "No distinct psychological norm/agency mechanism or independent bicycle-component effect identified.",
+    "Disability/cycling/route applicability remains uncertain.",
+    "Collins and Harrison1975 narrative remains inaccessible; earlier S10 source not reopened in recheck.",
+    "Final export parity and whole-synthesis interpretation outside this bounded recheck."
+  ],
+  "no_live_or_snapshot_edits": true,
+  "checks_file": "SB_RECHECK_CHECKS.json",
+  "validator": "SB_RECHECK_VALIDATE.py",
+  "narrative": "SB_RECHECK.md"
+}

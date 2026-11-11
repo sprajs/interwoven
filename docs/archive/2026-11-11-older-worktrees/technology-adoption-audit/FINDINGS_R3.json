@@ -1,0 +1,37 @@
+[
+  {
+    "id": "R3-01",
+    "priority": "required-before-full-acceptance",
+    "status": "confirmed-frozen-scope-gap",
+    "title": "Integrated historical relationship map absent",
+    "evidence": [
+      "r3-snapshot/analysis/GLOBAL_MAP.md:38",
+      "r3-snapshot/analysis/SYNTHESIS.md:21",
+      "r3-integrity/verification.json",
+      "r3-relationships/topology_checks.json"
+    ],
+    "acceptance": "Separate navigable historical relationship layer with scoped/date/region endpoints, explicit relationship meaning, exact claim/source locators, alternatives and uncertainty; practical cross-era/regional paths; new generation parity plus targeted relationship/source and live-navigation checks. No forced unified lineage or graph-connectivity quota."
+  },
+  {
+    "id": "R3-02",
+    "priority": "P3",
+    "status": "confirmed-nonblocking-discoverability-gap",
+    "title": "Later East Asian printing subepisodes absent from matching era entries",
+    "record_ids": [
+      "NET-C02",
+      "NET-C03"
+    ],
+    "repair": "Add later-episode memberships or links; preserve operating dates separately from research/reconstruction dates."
+  },
+  {
+    "id": "R3-03",
+    "priority": "P3",
+    "status": "confirmed-nonblocking-markdown-navigation-gap",
+    "title": "Markdown graph inventory advertises links it does not provide",
+    "evidence": [
+      "r3-snapshot/analysis/GLOBAL_MAP.md:38",
+      "r3-snapshot/data/GRAPH_GUIDE.md:7"
+    ],
+    "repair": "Link case/claim/edge/source references or accurately describe the plain-ID inventory; HTML traversal remains repaired."
+  }
+]

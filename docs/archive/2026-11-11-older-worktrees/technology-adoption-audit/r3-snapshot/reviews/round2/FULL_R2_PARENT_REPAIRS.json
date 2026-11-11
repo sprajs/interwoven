@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-11-05T16:13:41.448991+00:00",
+  "findings": [
+    "C2-01",
+    "P3-SP2-01"
+  ],
+  "before": {
+    "contributions/SYN/synthesis_specs.json": "d80b661f437a74a74ff719aee0df23e30342050501bc7cf89b3a92b5adc02a82",
+    "contributions/SKL/claims.json": "02b58a7f780e84531565dac9ebae953ec59730257891a6e37af0070c44e529f3",
+    "analysis/HYPOTHESES_AND_NEGATIVE_CASES.md": "7fee3a50148927536e1728f2148fd5df7012731b1c52b0f4634f56d17461f401",
+    "analysis/SYNTHESIS.md": "093fff0a7d98dee0dabd7ef4af8c0eaec9adb3a7ff9262f6fc5fd806ad3d4c54",
+    "contributions/GHA/sources.json": "fcf09d69ac5a9f7e6232f78f7e42a4a1d934539112c16cb37db5acd8ff1442f1",
+    "contributions/GHA/claims.json": "f36105a7551c8041345ccd1790c6415f7c6af6f749cfbc6b1e953a8a74ff3d98",
+    "contributions/GHA/report.md": "645ba81b10d95201ff3ca6fb79e41bc249bb728ca1ebe853e4fde3e8d534528c"
+  },
+  "after": {
+    "contributions/SYN/synthesis_specs.json": "11cbd99e1b927e14842a082b293dedbd46a17dfe93f2cbceae08924d718c19d0",
+    "contributions/SKL/claims.json": "466b9fee193d0aefdc9403a19c3cd3e5e136cc30d1e868d7c59f22780565e953",
+    "analysis/HYPOTHESES_AND_NEGATIVE_CASES.md": "3b2d08e7680f60ae6fdef1564775d314472cae185ab8076e06159a4a042c9766",
+    "analysis/SYNTHESIS.md": "d245fb9f09a51b3410cda9272fa8287dee4cb179fb0f23669106047efbab36c6",
+    "contributions/GHA/sources.json": "94729720984422e6345c10e60a0b96e4c7dc62f189f521c8a4ed101fda23ef31",
+    "contributions/GHA/claims.json": "86836b73f3320afe7197efb555ad860c118f44fb1767df9beddb4bc86af79af1",
+    "contributions/GHA/report.md": "1154c6912632b00b0e8f09da7f5ceb55c04c532cc6015f24a660d7e7eee1c1eb"
+  },
+  "source_reopening": [
+    {
+      "path": "contributions/GHA/evidence/GHA-S05.pdf",
+      "sha256": "c1f1f90710cafbedf4318a5337d87d17311dcac52d51a2ad1d89c664a6c2475d",
+      "inspected": "printed pp.11\u201312 and18, PDF pages12\u201313 and19; independently re-read extraction with printed page footers"
+    },
+    {
+      "path": "contributions/SKL/cache/collins1974.pdf",
+      "sha256": "2010990223b8a7f58264d02978e9008ecd8ed24a9792284ef81b55cee585d3eb",
+      "inspected": "printed p.177, failed visits and strict-profile/rough-alternative examples; independently re-read original extraction"
+    }
+  ],
+  "scope": "Direction/status of precision/contact inference and GHA source locators; no new historical outcome or numerical estimate.",
+  "independent_recheck": "pending after completed original review reports"
+}

@@ -1,0 +1,617 @@
+{
+  "nodes": [
+    {
+      "id": "PSY-T01",
+      "label": "Busia maize CAN top-dressing configuration",
+      "kind": "technology",
+      "case_ids": [
+        "PSY-C01"
+      ]
+    },
+    {
+      "id": "PSY-T02",
+      "label": "Harvest-time SAFI sale and delivery offer",
+      "kind": "institution",
+      "case_ids": [
+        "PSY-C01"
+      ]
+    },
+    {
+      "id": "PSY-T03",
+      "label": "Seaweed pod-size adjustment",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C02"
+      ]
+    },
+    {
+      "id": "PSY-T04",
+      "label": "Personalised trial summary and explanation",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C02"
+      ]
+    },
+    {
+      "id": "PSY-T05",
+      "label": "Malawi maize pit planting",
+      "kind": "technology",
+      "case_ids": [
+        "PSY-C03"
+      ]
+    },
+    {
+      "id": "PSY-T06",
+      "label": "Performance rewards for peer communication",
+      "kind": "institution",
+      "case_ids": [
+        "PSY-C03"
+      ]
+    },
+    {
+      "id": "PSY-T07",
+      "label": "Central-network selection of two seed farmers",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C03"
+      ]
+    },
+    {
+      "id": "PSY-T08",
+      "label": "Female-led extension demonstrations",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C03"
+      ]
+    },
+    {
+      "id": "PSY-T09",
+      "label": "Recipient judgements of female agricultural credibility",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C03"
+      ]
+    },
+    {
+      "id": "PSY-T10",
+      "label": "Trial digital hearing aids with active amplification",
+      "kind": "technology",
+      "case_ids": [
+        "PSY-C04"
+      ]
+    },
+    {
+      "id": "PSY-T11",
+      "label": "Audiological fitting, verification and orientation",
+      "kind": "complement",
+      "case_ids": [
+        "PSY-C04"
+      ]
+    },
+    {
+      "id": "PSY-T12",
+      "label": "Consumer selection among preset hearing aids",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C04"
+      ]
+    },
+    {
+      "id": "PSY-T13",
+      "label": "Hearing-aid purchase/retention decisions",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C04"
+      ]
+    },
+    {
+      "id": "PSY-T14",
+      "label": "Local meanings of visible hearing aids and ageing",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C04"
+      ]
+    },
+    {
+      "id": "PSY-T15",
+      "label": "Everyday speech communication under trial conditions",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C04"
+      ]
+    },
+    {
+      "id": "PSY-T16",
+      "label": "Bihar earmarked bicycle grant through schools",
+      "kind": "institution",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    },
+    {
+      "id": "PSY-T17",
+      "label": "Bihar girls’ access to secondary schooling",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    },
+    {
+      "id": "PSY-T18",
+      "label": "Bihar all-weather road connectivity proxy",
+      "kind": "complement",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    },
+    {
+      "id": "PSY-T19",
+      "label": "Zambia bicycle with school support package",
+      "kind": "technology",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    },
+    {
+      "id": "PSY-T20",
+      "label": "Zambia trained school-linked bicycle mechanics",
+      "kind": "complement",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    },
+    {
+      "id": "PSY-T21",
+      "label": "Zambia school-use custody and resale restrictions",
+      "kind": "institution",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    },
+    {
+      "id": "PSY-T22",
+      "label": "Zambia eligible girls’ school commute",
+      "kind": "practice",
+      "case_ids": [
+        "PSY-C05"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "PSY-E01",
+      "from": "PSY-T02",
+      "to": "PSY-T01",
+      "relation": "complements",
+      "case_ids": [
+        "PSY-C01"
+      ],
+      "claim_ids": [
+        "PSY-K02",
+        "PSY-K03"
+      ],
+      "source_ids": [
+        "PSY-S01"
+      ],
+      "confidence": "high",
+      "qualification": "Offer raises seasonal use; not a permanent habit or uniquely identified present-bias channel.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C01",
+        "stage": "deployment",
+        "configuration": "Busia school-parent households offered early market-price fertilizer with free delivery for2004 seasons."
+      },
+      "alternatives": [
+        "Private purchase near application",
+        "Late subsidy",
+        "No fertilizer"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Early versus late difference only p=.08; late effect not established as zero; no persistent use effect."
+    },
+    {
+      "id": "PSY-E02",
+      "from": "PSY-T04",
+      "to": "PSY-T03",
+      "relation": "enables",
+      "case_ids": [
+        "PSY-C02"
+      ],
+      "claim_ids": [
+        "PSY-K05",
+        "PSY-K06"
+      ],
+      "source_ids": [
+        "PSY-S03"
+      ],
+      "confidence": "medium",
+      "qualification": "Randomised trial-plus-summary exposure changes some measured practices; summary timing itself not independently randomised.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C02",
+        "stage": "deployment",
+        "configuration": "Nusa Penida treated farmers, later personalised explanations after on-plot experiments,2007–08."
+      },
+      "alternatives": [
+        "Learning from raw experience",
+        "Customary cutting",
+        "Other extension advice"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Attention, calculation, credible instruction and elapsed learning are not separated; objective weight effect imprecise."
+    },
+    {
+      "id": "PSY-E03",
+      "from": "PSY-T06",
+      "to": "PSY-T05",
+      "relation": "enables",
+      "case_ids": [
+        "PSY-C03"
+      ],
+      "claim_ids": [
+        "PSY-K07"
+      ],
+      "source_ids": [
+        "PSY-S05"
+      ],
+      "confidence": "high",
+      "qualification": "Rewards operate through communicator effort and demonstrations; not a universal prerequisite for learning.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C03",
+        "stage": "diffusion",
+        "configuration": "Malawi2009–11 incentivised peer-communicator programme; pit-planting arm."
+      },
+      "alternatives": [
+        "Officer communication",
+        "Unrewarded peers",
+        "Other demonstration routes"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Communicator identity and number confounded in lead-versus-peer contrast; reward can also signal priorities."
+    },
+    {
+      "id": "PSY-E04",
+      "from": "PSY-T07",
+      "to": "PSY-T05",
+      "relation": "enables",
+      "case_ids": [
+        "PSY-C03"
+      ],
+      "claim_ids": [
+        "PSY-K08",
+        "PSY-K10"
+      ],
+      "source_ids": [
+        "PSY-S04"
+      ],
+      "confidence": "high",
+      "qualification": "Central targeting increases some diffusion metrics relative to benchmark selection; benchmark uptake remains possible.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C03",
+        "stage": "diffusion",
+        "configuration": "Two trained seeds per village;200-village Malawi experiment,2011–13."
+      },
+      "alternatives": [
+        "Extension-worker seed selection",
+        "Geographic seed selection",
+        "Additional seeds not tested here"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "No necessity claim despite stronger wording in source; year3 rate contrast imprecise; complex contagion not uniquely identified."
+    },
+    {
+      "id": "PSY-E05",
+      "from": "PSY-T09",
+      "to": "PSY-T08",
+      "relation": "constrains",
+      "case_ids": [
+        "PSY-C03"
+      ],
+      "claim_ids": [
+        "PSY-K09"
+      ],
+      "source_ids": [
+        "PSY-S06"
+      ],
+      "confidence": "medium",
+      "qualification": "Hypothesised credibility mechanism for lower attendance at female-led demonstrations, not a demonstrated reduction in aggregate adoption.",
+      "basis": "hypothesis",
+      "scope": {
+        "case_id": "PSY-C03",
+        "stage": "reception of extension demonstrations",
+        "configuration": "Gender-reserved versus unreserved communicator roles in143 villages,2009–11."
+      },
+      "alternatives": [
+        "Informal conversations",
+        "Learning from others",
+        "Direct experimentation"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Negative measured recipient beliefs coexist with comparable measured competence and imprecise pooled downstream differences; mediation not randomised."
+    },
+    {
+      "id": "PSY-E06",
+      "from": "PSY-T11",
+      "to": "PSY-T10",
+      "relation": "complements",
+      "case_ids": [
+        "PSY-C04"
+      ],
+      "claim_ids": [
+        "PSY-K11"
+      ],
+      "source_ids": [
+        "PSY-S07",
+        "PSY-S13"
+      ],
+      "confidence": "high",
+      "qualification": "Specific fitting/orientation service package used with same hardware; not proven necessary for positive benefit.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C04",
+        "stage": "deployment",
+        "configuration": "Indiana trial eligible first-time users; six-week audiology best-practice arm."
+      },
+      "alternatives": [
+        "Consumer preset selection with optional support"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Several outcomes similar with presets; benefit, satisfaction and logged use differ in sensitivity; calibration corrected."
+    },
+    {
+      "id": "PSY-E07",
+      "from": "PSY-T12",
+      "to": "PSY-T10",
+      "relation": "complements",
+      "case_ids": [
+        "PSY-C04"
+      ],
+      "claim_ids": [
+        "PSY-K11"
+      ],
+      "source_ids": [
+        "PSY-S07",
+        "PSY-S13"
+      ],
+      "confidence": "high",
+      "qualification": "Preset self-selection is a functioning alternative within this clinic trial.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C04",
+        "stage": "deployment",
+        "configuration": "Trial consumer-decides arm using three preset amplification profiles and same devices."
+      },
+      "alternatives": [
+        "Audiologist fitting and orientation"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Not all retail OTC models or users; lower satisfaction/preliminary keep intention; later rescue fitting confounds final between-arm retention."
+    },
+    {
+      "id": "PSY-E08",
+      "from": "PSY-T10",
+      "to": "PSY-T15",
+      "relation": "enables",
+      "case_ids": [
+        "PSY-C04"
+      ],
+      "claim_ids": [
+        "PSY-K11"
+      ],
+      "source_ids": [
+        "PSY-S07",
+        "PSY-S13"
+      ],
+      "confidence": "high",
+      "qualification": "Active amplification improves specified hearing outcomes versus placebo; does not restore normal hearing generally.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C04",
+        "stage": "feasibility",
+        "configuration": "Mild-to-moderate loss in selected volunteers with same device hardware and blinded six-week comparisons."
+      },
+      "alternatives": [
+        "Communication adaptation",
+        "Unaided communication",
+        "Other assistive approaches outside trial"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Daily hours did not significantly differ from placebo; use alone not sufficient outcome measure."
+    },
+    {
+      "id": "PSY-E09",
+      "from": "PSY-T14",
+      "to": "PSY-T13",
+      "relation": "constrains",
+      "case_ids": [
+        "PSY-C04"
+      ],
+      "claim_ids": [
+        "PSY-K13"
+      ],
+      "source_ids": [
+        "PSY-S09"
+      ],
+      "confidence": "medium",
+      "qualification": "Local identity meanings may discourage some purchases/use; support or indifference can offset them.",
+      "basis": "hypothesis",
+      "scope": {
+        "case_id": "PSY-C04",
+        "stage": "help-seeking and retention decisions",
+        "configuration": "Predominantly White Bay Area dyads aged60+ followed for one year."
+      },
+      "alternatives": [
+        "Supportive communication partners",
+        "Visible aids accepted",
+        "Delayed or no purchase"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Interviews elicit meaning but do not identify causal magnitude; costs/benefit and retrospective rationalisation remain rivals."
+    },
+    {
+      "id": "PSY-E10",
+      "from": "PSY-T16",
+      "to": "PSY-T17",
+      "relation": "enables",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "claim_ids": [
+        "PSY-K15",
+        "PSY-K16"
+      ],
+      "source_ids": [
+        "PSY-S10"
+      ],
+      "confidence": "medium",
+      "qualification": "Exposure estimate concerns grade-age enrolment/completion, not directly measured bicycle use.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C05",
+        "stage": "deployment",
+        "configuration": "Bihar2006–08 girls’ grade9 earmarked grant; cohort/gender/Jharkhand comparison."
+      },
+      "alternatives": [
+        "Walking",
+        "Other transport where available",
+        "Changes in school location or provision"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Quasi-experimental assumptions; safety/norms/transport channels not individually separated."
+    },
+    {
+      "id": "PSY-E11",
+      "from": "PSY-T18",
+      "to": "PSY-T17",
+      "relation": "complements",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "claim_ids": [
+        "PSY-K17"
+      ],
+      "source_ids": [
+        "PSY-S12"
+      ],
+      "confidence": "medium",
+      "qualification": "Proposed infrastructure contribution based on heterogeneous programme associations; road variable measures routes to health facilities.",
+      "basis": "hypothesis",
+      "scope": {
+        "case_id": "PSY-C05",
+        "stage": "deployment",
+        "configuration": "Bihar villages at least3km from secondary school in DLHS-3; health-facility all-weather access proxy."
+      },
+      "alternatives": [
+        "Dry-season roads or tracks",
+        "Other transport",
+        "Closer school"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Road selection and measurement confounding; null unconnected estimate cannot establish necessity; same policy/survey lineage asS10."
+    },
+    {
+      "id": "PSY-E12",
+      "from": "PSY-T20",
+      "to": "PSY-T19",
+      "relation": "complements",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "claim_ids": [
+        "PSY-K18"
+      ],
+      "source_ids": [
+        "PSY-S11"
+      ],
+      "confidence": "medium",
+      "qualification": "Trained mechanics make local servicing available in both treatment arms; independent maintenance effect unmeasured.",
+      "basis": "technical-possibility",
+      "scope": {
+        "case_id": "PSY-C05",
+        "stage": "deployment",
+        "configuration": "Zambia2017 school-distributed bicycles with school-linked repair support."
+      },
+      "alternatives": [
+        "Other repair providers, availability unmeasured",
+        "Family repair"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Component included by design; no bicycle-only or repair-only arm; do not infer causal durability magnitude."
+    },
+    {
+      "id": "PSY-E13",
+      "from": "PSY-T21",
+      "to": "PSY-T19",
+      "relation": "constrains",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "claim_ids": [
+        "PSY-K18",
+        "PSY-K20"
+      ],
+      "source_ids": [
+        "PSY-S11"
+      ],
+      "confidence": "high",
+      "qualification": "Primary school-use condition and four-year resale prohibition restrict asset discretion.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C05",
+        "stage": "deployment",
+        "configuration": "Zambia2017 custody contract and school supervisory committee."
+      },
+      "alternatives": [
+        "Unrestricted ownership not tested"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Enforcement and intrahousehold autonomy not fully measured; conditions can coexist with benefits."
+    },
+    {
+      "id": "PSY-E14",
+      "from": "PSY-T19",
+      "to": "PSY-T22",
+      "relation": "enables",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "claim_ids": [
+        "PSY-K18"
+      ],
+      "source_ids": [
+        "PSY-S11",
+        "PSY-S14"
+      ],
+      "confidence": "high",
+      "qualification": "Installed bicycle/support package reduces commute time in eligible population.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "PSY-C05",
+        "stage": "deployment",
+        "configuration": "Zambia grade5–7 girls initially walking>3km;100-school randomisation and2018 follow-up."
+      },
+      "alternatives": [
+        "Continue walking",
+        "Other transport where available"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Not a single-component test; out-of-school girls outside target and urban/some very remote schools excluded. Disability/cycling-ability representation and route accessibility not established; self-report and attrition limits."
+    }
+  ]
+}

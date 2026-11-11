@@ -1,0 +1,76 @@
+{
+  "review_target": "r3-snapshot captured 2026-11-05T16:36:43Z",
+  "browser_verified": false,
+  "r2_closures": [
+    {
+      "id": "R2-01",
+      "status": "closed",
+      "basis": "All 17 completed canonical dossiers equal all six compiled record categories; four CSVs and seven HTML payloads equal compiled data; 106 rebuilt core output files byte-identical."
+    },
+    {
+      "id": "R2-02",
+      "status": "closed at stale-edition and case-coverage scope",
+      "basis": "Synthesis 2 integrates new strands, CTX and GHA; every one of 88 cases appears in the current nine-route chronology. Route membership remains a coarse navigation layer."
+    },
+    {
+      "id": "R2-03",
+      "status": "closed at source and executable-function scope",
+      "basis": "Cases, claims, sources, nodes, edges and comparisons have linked views, context and backlinks; all 18,917 internal links emitted for 1,417 records resolve. Live browser acceptance left to parent."
+    },
+    {
+      "id": "R2-04",
+      "status": "closed at source and executable-function scope",
+      "basis": "Explicit view/id/section URL parameters preserve all 528 case-section combinations; legacy section hashes report missing case instead of silently selecting one. Live reload/new-tab behavior not independently observed."
+    }
+  ],
+  "findings": [
+    {
+      "id": "R3-INTEGRITY-01",
+      "priority": "P2",
+      "kind": "scope-acceptance-gap",
+      "title": "Frozen edition does not yet provide the requested integrated historical relationship map",
+      "evidence": [
+        "tools/build_explorer.py:51-57",
+        "tools/build_explorer.py:177-237",
+        "analysis/GLOBAL_MAP.md:36-63",
+        "verification.json#/graph"
+      ],
+      "description": "Existing explorer has case/chronology/comparison layers and local incident-edge cards; global diagram is expressly an analytical guide. There is no integrated evidence-bearing historical relationship overview across eras/regions. 138 weak components, maximum seven nodes, three multi-case components, zero multi-case edges and zero cross-contribution edges describe the evidence represented, not a demand to force connectivity.",
+      "acceptance": "Provide a navigable relationship overview preserving documented/inferred transmission or development, scoped engineering dependence, chronology/context and analogy as distinct layers. Link relations to exact claims/locators and uncertainty. Retain disconnected or unresolved histories; do not merge similar labels, infer transmission from dates, or force a unified tree. Do not claim acceptance for the forthcoming layer until separately inspected."
+    },
+    {
+      "id": "R3-INTEGRITY-02",
+      "priority": "P3",
+      "kind": "chronology-usability",
+      "title": "Case coverage is complete but significant later subepisodes remain hidden from era entry routes",
+      "evidence": [
+        "analysis/chronology_routes.json:40-91",
+        "data/cases.json#NET-C02",
+        "data/cases.json#NET-C03",
+        "reading-paths.json"
+      ],
+      "description": "NET-C02 spans 868–c1850 and NET-C03 1377–early nineteenth century, yet both appear only in the broadly pre1500 route. Early-modern publishing lists NET-C04/C05/C06 without them. NET-X01 provides an indirect bridge, so cases are not lost; the date-route entry is incomplete for comparative reading.",
+      "acceptance": "When developing the historical layer, add explicit later-episode route memberships or episode links for these histories. Keep operating episodes distinct from modern research/reconstruction dates."
+    },
+    {
+      "id": "R3-INTEGRITY-03",
+      "priority": "P3",
+      "kind": "markdown-navigation",
+      "title": "Markdown edge inventory advertises links it does not provide",
+      "evidence": [
+        "analysis/GLOBAL_MAP.md:38",
+        "tools/build_collection.py:223-232",
+        "data/GRAPH_GUIDE.md:7-9"
+      ],
+      "description": "GLOBAL_MAP says the edge inventory links each relationship to cases, claims and sources. GRAPH_GUIDE emits plain case/claim/edge identifiers and no source column; COMPARISONS also emits plain case IDs. The explorer resolves these references correctly, so this is limited to the Markdown reading path.",
+      "acceptance": "Make the Markdown IDs links to explorer record views or case/evidence sections, and include source references or accurately describe the inventory as an unlinked index."
+    }
+  ],
+  "limitations": [
+    "No new historical-source audit",
+    "No browser, DOM, event, focus, layout, reload or accessibility verification",
+    "No live-main drift assessment",
+    "Snapshot excludes nested review/evidence assets and does not contain delivered-generation integrity manifests; related failed local checks do not establish live-main defects",
+    "No inspection of announced future relationship layer"
+  ]
+}

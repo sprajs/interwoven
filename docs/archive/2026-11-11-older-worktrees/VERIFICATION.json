@@ -1,0 +1,22 @@
+{
+  "verified_utc": "2026-11-11T13:05:01.965758+00:00",
+  "integrated_handoff_commit": "ad20c0b41e54b5ca26dd5730c77debc75b00faad",
+  "archive_payload_files_verified": 1242,
+  "older_audit_files": 1190,
+  "older_review_files": 10,
+  "git_bundles": 2,
+  "unpublished_branch_histories": 13,
+  "late_numbered_duplicates_preserved": 40,
+  "original_batch12_drafts_preserved": 92,
+  "original_batch12_handoffs_preserved": 26,
+  "review_bound_files_checked": 84,
+  "new_register_rows_checked": 23,
+  "raw_cache_paths_verified_locally": 29,
+  "prototype_independent_restore": "PASS: original commit and nine clean tracked files",
+  "checks": {
+    "python3 tools/validate.py": "PASS in main checkout after duplicate archival",
+    "npm test": "PASS in main checkout: 169 Python tests and 53 app tests",
+    "npm run build": "PASS in main checkout; existing nonblocking bundle-size warning"
+  },
+  "scope": "Source caches and build/dependency directories remain ignored by existing repository policy. Original older worktrees remain unchanged; their pending contents and histories are preserved here."
+}

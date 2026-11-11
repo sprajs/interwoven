@@ -1,0 +1,41 @@
+{
+  "scope": "Independent inspection of author-produced browser evidence, not independent live browser observation. No local server or browser workaround used.",
+  "source_helper_test": "source-navigation-verification.json",
+  "builder_same_as_author_test": true,
+  "payload_hash_comparison": {
+    "cases.json": true,
+    "claims.json": false,
+    "sources.json": false,
+    "graph.json": true,
+    "comparisons.json": true,
+    "validation.json": true,
+    "chronology.json": true
+  },
+  "changed_records_since_preview": {
+    "claims": {
+      "added": [],
+      "removed": [],
+      "changed": [
+        "SKL-K17",
+        "SYN-K21",
+        "GHA-K11"
+      ]
+    },
+    "sources": {
+      "added": [],
+      "removed": [],
+      "changed": [
+        "GHA-S05"
+      ]
+    }
+  },
+  "author_reported_passed": true,
+  "author_browser_version": "156.0.8078.80",
+  "independently_viewed_screenshots": [
+    "full-desktop-initial.png",
+    "full-mobile-comparison.png",
+    "full-source-locator.png",
+    "full-chronology-disputed-dates.png"
+  ],
+  "visual_result": "No visible clipping/overlap or illegibility in these four frames. Noncausal comparison notice, source locator/access, and qualified dates/observation limits are legible. This does not establish current runtime behaviour or all-page/mobile/accessibility acceptance."
+}

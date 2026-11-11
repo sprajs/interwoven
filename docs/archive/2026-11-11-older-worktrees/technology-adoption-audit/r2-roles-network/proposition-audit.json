@@ -1,0 +1,181 @@
+{
+  "review": "R2 roles and network",
+  "snapshot_capture_utc": "2026-11-05 14:55:49",
+  "accessed": "2026-11-05",
+  "scope": "Frozen r2-snapshot only; completed 73 cases; unfinished PSY/SKL excluded",
+  "overall_role_verdict": "Conditional research propositions are responsibly bounded; no major unsupported forecast found in sampled assertions. One minor terminology repair and two concrete negative-case tests.",
+  "propositions": [
+    {
+      "id": "R2-RN-P1",
+      "target": "analysis/FUTURE_ROLES.md:9",
+      "assertion": "Adverse outcomes for incumbents coexisted with employment recovery for later cohorts.",
+      "records": [
+        "LBR-K02",
+        "LBR-K03",
+        "LBR-K04"
+      ],
+      "record_locations": [
+        "data/claims.json:3289",
+        "data/claims.json:3318",
+        "data/claims.json:3342",
+        "contributions/LBR/report.md:9"
+      ],
+      "challenge": "Recovery can imply a measured fall and subsequent rebound; original finding is later-cohort employment resilience, with heterogeneous adjustment and incumbent harms.",
+      "original_source": "LBR-S02",
+      "original_locator": "QJE 139(3), p.1879 abstract; pp.1883–1884 introduction; p.1933 heterogeneity discussion",
+      "original_passage": "did not reduce future cohorts’ overall employment",
+      "negative_case": "Manufacturing-intensive cities and severe Depression demand contractions are less favourable adjustment environments.",
+      "verdict": "Core distinction supported; minor wording refinement",
+      "priority": "P3",
+      "action": "Use resilience among studied later cohorts, keep sample scope visible, and test substitution demand rather than assuming retraining.",
+      "already_acknowledged": "LBR dossier and claims preserve cohort scope, selective linkage and wage uncertainty."
+    },
+    {
+      "id": "R2-RN-P2",
+      "target": "analysis/FUTURE_ROLES.md:27–35",
+      "assertion": "Teaching, adaptation, demonstration and interpretation may matter when users apply capabilities.",
+      "records": [
+        "MED-K20",
+        "MED-K21",
+        "MED-E18"
+      ],
+      "record_locations": [
+        "data/claims.json:4670",
+        "data/claims.json:4694",
+        "data/graph.json:8136",
+        "contributions/MED/report.md:77–83"
+      ],
+      "challenge": "Historical programme participation and competent preparation do not identify durable marginal demand for paid instruction.",
+      "original_source": "MED-S14",
+      "original_locator": "Health Policy and Planning 12(1), pp.58–59: abstract and programme description",
+      "original_passage": "an intergenerational transfer of the knowledge on ORT",
+      "negative_case": "Informal transmission and expanding packaged supply can change the remaining need for paid teaching.",
+      "verdict": "Survives as conditional proposition; negative-case test recommended",
+      "priority": "research-next",
+      "action": "Compare paid instruction with informal diffusion and product/access improvements; measure paid and unpaid time, funding and sustained use.",
+      "already_acknowledged": "Candidate B already names free instruction, access constraints and interface alternatives; dossier does not claim randomized programme-component effects."
+    },
+    {
+      "id": "R2-RN-P3",
+      "target": "analysis/FUTURE_ROLES.md:39–47",
+      "assertion": "Coordination, dispute resolution and credible commitments may create value where participants cannot solve a problem alone.",
+      "records": [
+        "MOB-K22",
+        "MOB-K23",
+        "MOB-E25"
+      ],
+      "record_locations": [
+        "data/claims.json:5399",
+        "data/claims.json:5423",
+        "data/graph.json:9119"
+      ],
+      "challenge": "A coordination bargain can protect incumbent claims through exclusions imposed on other workers; productive gain and access are distinct.",
+      "original_sources": [
+        "MOB-S12",
+        "MOB-S13"
+      ],
+      "original_locators": [
+        "390 U.S.261, paragraphs 2–4",
+        "822 F.2d1203, opening factual/procedural account"
+      ],
+      "original_passage": null,
+      "negative_case": "PMA/ILWU arrangement reserved container work within fifty miles to longshoremen at PMA stations; the excluded firm employed Teamsters. The earlier compensation-fund financing also imposed contested unequal charges.",
+      "verdict": "Survives conditionally; no source contradiction",
+      "priority": "research-next",
+      "action": "Evaluate incumbent members, excluded workers, entrants and payers separately; measure bargaining jurisdiction and benefit incidence, not only aggregate output.",
+      "already_acknowledged": "Candidate C warns about rents, exclusion and nonchoosers; MOB claims distinguish judicial records from welfare measurement."
+    }
+  ],
+  "sources_inspected": [
+    {
+      "source_id": "LBR-S02",
+      "url": "https://www.dpgross.com/papers/answering-call-automation.pdf",
+      "access": "original published paper parsed PDF",
+      "inspected": "Abstract/introduction pp.1879–1884; heterogeneity passage p.1933; sample and incumbent passages",
+      "not_done": "No replication or full appendix audit"
+    },
+    {
+      "source_id": "MED-S14",
+      "url": "https://academic.oup.com/heapol/article-pdf/12/1/58/6749104/12-1-58.pdf",
+      "access": "Original PDF pp.58–59 parsed on first fetch; subsequent fetch/find redirected unsuccessfully",
+      "fallback_url": "https://paperity.org/p/87784247/the-status-of-ort-in-bangladesh-how-widely-is-it-used",
+      "fallback_access": "Original-paper transcription preview, pp.58–59, inspected",
+      "not_done": "No independent table/page-image audit; abstract usage headline not adopted as table denominator; no token-bearing URLs retained"
+    },
+    {
+      "source_id": "MOB-S12",
+      "url": "https://www.law.cornell.edu/supremecourt/text/390/261",
+      "access": "Original judicial opinion text, paragraphs 2–4 and incidence discussion",
+      "not_done": "Not the signed collective agreement or a worker outcome panel"
+    },
+    {
+      "source_id": "MOB-S13",
+      "url": "https://law.justia.com/cases/federal/appellate-courts/F2/822/1203/373792/",
+      "access": "Original judicial opinion opening factual account",
+      "not_done": "No complete jurisdictional/legal analysis; used only as historical evidence"
+    }
+  ],
+  "integration_findings": [
+    {
+      "id": "R2-RN-F1",
+      "type": "defect",
+      "priority": "P2",
+      "locations": [
+        "analysis/GLOBAL_MAP.md:9–16",
+        "analysis/GLOBAL_MAP.md:29",
+        "analysis/SYNTHESIS.md:3",
+        "analysis/SYNTHESIS.md:93",
+        "index.html:6"
+      ],
+      "finding": "Main routes retain first-wave coverage/counts although 14 ENE/OCE/POL cases are complete.",
+      "action": "Refresh or prominently version first-wave routes and add completed-wave chronology."
+    },
+    {
+      "id": "R2-RN-F2",
+      "type": "usability-defect",
+      "priority": "P2",
+      "locations": [
+        "index.html:31",
+        "index.html:32"
+      ],
+      "finding": "Graph endpoints and edge claim/source IDs, plus comparison case IDs, are text rather than navigable references.",
+      "action": "Link existing identifiers and show incident scoped relations; no invented causal connections required."
+    },
+    {
+      "id": "R2-RN-F3",
+      "type": "source-confirmed-defect-live-test-pending",
+      "priority": "P2",
+      "locations": [
+        "index.html:22",
+        "index.html:23",
+        "index.html:25",
+        "index.html:35"
+      ],
+      "finding": "Section anchors overwrite case hash; reopened section URL defaults to first case.",
+      "action": "Encode selected case separately from section anchor."
+    },
+    {
+      "id": "R2-RN-L1",
+      "type": "declared-coverage-limitation",
+      "priority": "material",
+      "locations": [
+        "data/graph.json",
+        "analysis/GLOBAL_MAP.md:35–60"
+      ],
+      "finding": "109 weak components, largest7, zero cross-strand edges, only3 multicase components; not a broad historical dependency network.",
+      "action": "Add comparison and chronological navigation layers separately from causal/transmission graph."
+    },
+    {
+      "id": "R2-RN-L2",
+      "type": "chronological-navigation-limitation",
+      "priority": "material",
+      "locations": [
+        "index.html:23",
+        "data/cases.json",
+        "analysis/GLOBAL_MAP.md:9–16"
+      ],
+      "finding": "Browser order follows strand/ID; dates are prose and mixed episodes; static map supplies coarse routes only.",
+      "action": "Create uncertain episode-date ranges distinguishing operating dates from evidence/reconstruction dates."
+    }
+  ]
+}

@@ -1,0 +1,903 @@
+{
+  "date": "2026-11-05",
+  "input": "r1-snapshot only; external source passages checked for the three specified source records",
+  "sampling": "Purposive risk-based 10-edge sample: cross-episode node identity, ordinary physical necessity, coerced maintenance and finance, explicit joint-input bundle, experimental/ancient distinction, abstract-only mechanism. Not a random sample and not a prevalence estimate.",
+  "denominators": {
+    "all_cases_structurally_checked": 23,
+    "all_claims_structurally_checked": 78,
+    "all_sources_lineage_screened": 49,
+    "all_edges_structurally_checked": 72,
+    "all_nodes_structurally_checked": 93,
+    "all_comparisons_screened": 13,
+    "detailed_edges": 10,
+    "distinct_linked_claims": 11,
+    "distinct_linked_source_records": 10,
+    "source_records_passage_checked": 3,
+    "sample_edges_with_source_passage_check": 4
+  },
+  "sample_edge_ids": [
+    "ANC-E06",
+    "ANC-E07",
+    "ANC-E11",
+    "IND-E01",
+    "IND-E09",
+    "IND-E27",
+    "IND-E28",
+    "MAT-E06",
+    "MAT-E08",
+    "LBR-E01"
+  ],
+  "linked_claim_ids": [
+    "ANC-K08",
+    "ANC-K09",
+    "ANC-K11",
+    "IND-K01",
+    "IND-K02",
+    "IND-K07",
+    "IND-K08",
+    "IND-K24",
+    "LBR-K01",
+    "MAT-K12",
+    "MAT-K13"
+  ],
+  "linked_source_ids": [
+    "ANC-S05",
+    "ANC-S07",
+    "IND-S01",
+    "IND-S02",
+    "IND-S05",
+    "IND-S06",
+    "IND-S16",
+    "LBR-S01",
+    "MAT-S06",
+    "MAT-S07"
+  ],
+  "source_passage_checks": [
+    {
+      "source_id": "ANC-S05",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/Bennett/2%2A.html",
+      "passages": "De aquaeductu II §§116–118, 121–123; independently read web edition, with frozen local copy available.",
+      "supports_edge_ids": [
+        "ANC-E06",
+        "ANC-E07"
+      ],
+      "result": "Pass for reported enslaved specialist workforce and named finance arrangements; not an operational audit or free-labour evidence."
+    },
+    {
+      "source_id": "ANC-S07",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Procopius/Wars/5C%2A.html",
+      "passages": "Wars V.19.13,19–28; independently read web edition.",
+      "supports_edge_ids": [
+        "ANC-E11"
+      ],
+      "result": "Pass for described current-driven boatmill configuration; one narrative witness, no measured output or universal permanence claim."
+    },
+    {
+      "source_id": "LBR-S01",
+      "url": "https://jamesfeigenbaum.github.io/research/att/",
+      "passages": "Author abstract, especially adaptation/interdependencies and market-size paragraph.",
+      "supports_edge_ids": [
+        "LBR-E01"
+      ],
+      "result": "Pass for attributed author interpretation only. Full article and archive not independently checked."
+    }
+  ],
+  "path_reviews": [
+    {
+      "edges": [
+        "ANC-E07",
+        "ANC-E06"
+      ],
+      "result": "Same c.100 CE episode. Finance→workforce→service is intelligible but the path cannot identify a total causal effect or count as independent confirmation."
+    },
+    {
+      "edges": [
+        "IND-E09",
+        "IND-E01"
+      ],
+      "result": "Cross-case node identity conflates British textile and central-European mining waterpower. Typed competes-with/enables adjacency is not causal closure; split IND-T02."
+    },
+    {
+      "edges": [
+        "MAT-E08",
+        "MAT-E06"
+      ],
+      "result": "Same case but different ancient versus modern subepisodes. Shared MAT-T28 should be split; necessity direction also prevents reading this as a simple enabling chain."
+    },
+    {
+      "edges": [
+        "IND-E27",
+        "IND-E28"
+      ],
+      "result": "Common-target explicit joint bundle; paired incoming edges and counterpart lists neither prove joint necessity nor sufficient cause. Alternative onsite generation remains visible."
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "ANC-E06",
+      "location": {
+        "file": "contributions/ANC/graph.json",
+        "json_pointer": "/edges/5"
+      },
+      "edge_record": {
+        "id": "ANC-E06",
+        "from": "ANC-T09",
+        "to": "ANC-T08",
+        "relation": "complements",
+        "case_ids": [
+          "ANC-C03"
+        ],
+        "claim_ids": [
+          "ANC-K08",
+          "ANC-K09"
+        ],
+        "source_ids": [
+          "ANC-S05"
+        ],
+        "confidence": "high",
+        "qualification": "Frontinus reports this workforce; realised effectiveness not independently audited.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "ANC-C03",
+          "stage": "maintenance c. 100 CE",
+          "configuration": "Specialist gangs assigned to Rome's conduits and distribution."
+        },
+        "alternatives": [
+          "Contractors also performed work; other organisational forms possible."
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Reported staffing and duties are not a worker-day series."
+      },
+      "linked_claims": [
+        {
+          "id": "ANC-K08",
+          "location": {
+            "file": "contributions/ANC/claims.json",
+            "json_pointer": "/7"
+          },
+          "statement": "Frontinus reports about 240 publicly owned and 460 imperial enslaved aqueduct workers organised into specialised maintenance functions.",
+          "causal_status": "descriptive",
+          "confidence": "high",
+          "test": {
+            "status": "descriptive-only",
+            "reason": "Attribution to a specific ancient account, with performance limits explicit."
+          },
+          "inference_limits": "High confidence in the reported arrangement, not an independently verified staffing census."
+        },
+        {
+          "id": "ANC-K09",
+          "location": {
+            "file": "contributions/ANC/claims.json",
+            "json_pointer": "/8"
+          },
+          "statement": "Frontinus describes recurrent funding and timed, sequential shutdowns as arrangements for maintaining Rome's aqueduct service.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Funding and advance scheduling -> personnel/materials available during limited shutdowns -> intended preservation of supply.",
+            "strongest_rival": "Actual reliability may have depended more on redundant routes and favourable water sources, with rules poorly observed.",
+            "discriminating_observation": "Work records or dated repairs showing compliance and service changes before/after procedural changes.",
+            "evidence_sought_found": "ANC-S05 prescriptive and financial passages inspected; no independent operational audit found.",
+            "remaining_ambiguity": "Administrative intention cannot be equated with realised performance.",
+            "hypothesis_timing": "pre-search candidate"
+          },
+          "inference_limits": "No causal estimate of improved reliability or fiscal adequacy."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "reviewed",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Reported coerced workforce; first edge in a funding→workforce→service path.",
+      "verdict": "supported_with_limits",
+      "source_reviewed": [
+        "ANC-S05"
+      ],
+      "assessment": "Frontinus §§116–117 names enslaved gangs and specialist duties; high confidence fits the reported assignment, not realised reliability. ANC-K09 remains medium/underdetermined. ANC-C03 actors.ability_to_refuse does not turn expenses into free labour. Alternatives include contractors, correctly avoiding necessity."
+    },
+    {
+      "edge_id": "ANC-E07",
+      "location": {
+        "file": "contributions/ANC/graph.json",
+        "json_pointer": "/edges/6"
+      },
+      "edge_record": {
+        "id": "ANC-E07",
+        "from": "ANC-T10",
+        "to": "ANC-T09",
+        "relation": "enables",
+        "case_ids": [
+          "ANC-C03"
+        ],
+        "claim_ids": [
+          "ANC-K09"
+        ],
+        "source_ids": [
+          "ANC-S05"
+        ],
+        "confidence": "medium",
+        "qualification": "Funding arrangement described by Frontinus; does not imply adequate payment or free choice.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "ANC-C03",
+          "stage": "maintenance c. 100 CE",
+          "configuration": "Public and imperial resources support designated gangs and materials."
+        },
+        "alternatives": [
+          "Contracted work, other revenues or in-kind mobilisation could support repairs."
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Accounts are reported, not independently audited."
+      },
+      "linked_claims": [
+        {
+          "id": "ANC-K09",
+          "location": {
+            "file": "contributions/ANC/claims.json",
+            "json_pointer": "/8"
+          },
+          "statement": "Frontinus describes recurrent funding and timed, sequential shutdowns as arrangements for maintaining Rome's aqueduct service.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Funding and advance scheduling -> personnel/materials available during limited shutdowns -> intended preservation of supply.",
+            "strongest_rival": "Actual reliability may have depended more on redundant routes and favourable water sources, with rules poorly observed.",
+            "discriminating_observation": "Work records or dated repairs showing compliance and service changes before/after procedural changes.",
+            "evidence_sought_found": "ANC-S05 prescriptive and financial passages inspected; no independent operational audit found.",
+            "remaining_ambiguity": "Administrative intention cannot be equated with realised performance.",
+            "hypothesis_timing": "pre-search candidate"
+          },
+          "inference_limits": "No causal estimate of improved reliability or fiscal adequacy."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "reviewed",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Second edge of same within-episode path; finance and coercion distinction.",
+      "verdict": "supported_with_limits",
+      "source_reviewed": [
+        "ANC-S05"
+      ],
+      "assessment": "Frontinus §118 explicitly names treasury, water-right receipts and emperor’s purse; §§121–123 prescribe repair timing. Funding→designated workforce is bounded observed contribution. No audited service effect, adequate payment or voluntary employment follows. The two edges share one source, so the path supplies no independent corroboration."
+    },
+    {
+      "edge_id": "ANC-E11",
+      "location": {
+        "file": "contributions/ANC/graph.json",
+        "json_pointer": "/edges/10"
+      },
+      "edge_record": {
+        "id": "ANC-E11",
+        "from": "ANC-T13",
+        "to": "ANC-T14",
+        "relation": "depends-on",
+        "case_ids": [
+          "ANC-C03"
+        ],
+        "claim_ids": [
+          "ANC-K11"
+        ],
+        "source_ids": [
+          "ANC-S07"
+        ],
+        "confidence": "high",
+        "qualification": "Physical dependence inside the reported boatmill configuration.",
+        "basis": "bounded-necessity",
+        "scope": {
+          "case_id": "ANC-C03",
+          "stage": "537 emergency",
+          "configuration": "Wheels suspended between moored boats are driven by current."
+        },
+        "alternatives": [
+          "Different power sources could supply milling with a different configuration."
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "Without current through these wheels, their reported motive input disappears.",
+        "dispute": "Exact current velocities and hull/wheel design are unspecified."
+      },
+      "linked_claims": [
+        {
+          "id": "ANC-K11",
+          "location": {
+            "file": "contributions/ANC/claims.json",
+            "json_pointer": "/10"
+          },
+          "statement": "Procopius reports aqueduct disruption stopping Rome's mills in 537, fodder scarcity limiting animal substitution, and Tiber boatmills restoring grinding while wells still supplied drinking water.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Siege cuts aqueduct flow and limits fodder -> existing mills and animal alternatives are constrained -> river-driven boatmills substitute for grinding.",
+            "strongest_rival": "Some milling may have continued elsewhere; the emergency innovation may be less comprehensive than the narrative claims.",
+            "discriminating_observation": "Contemporary grain/mill records and securely dated traces of competing installations during the siege.",
+            "evidence_sought_found": "ANC-S07 explicitly links disruption, feed scarcity and boatmills; drinking water has other sources.",
+            "remaining_ambiguity": "Detailed sequence is one literary witness and cannot quantify city-wide adequacy.",
+            "hypothesis_timing": "emerged during research"
+          },
+          "inference_limits": "No throughput, household coverage or proof of permanent aqueduct abandonment."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "reviewed",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Ordinary noncontroversial physical relation; necessity direction control.",
+      "verdict": "supported_with_limits",
+      "source_reviewed": [
+        "ANC-S07"
+      ],
+      "assessment": "Procopius Wars V.19.20–22 describes wheels between moored boats driven by current. depends-on points from boatmill to current, correctly. High physical confidence need not equal confidence in the narrative’s city-wide sufficiency. Removing current disables this configuration; different power substitutes change the configuration. No diffusion denominator claimed."
+    },
+    {
+      "edge_id": "IND-E01",
+      "location": {
+        "file": "contributions/IND/graph.json",
+        "json_pointer": "/edges/0"
+      },
+      "edge_record": {
+        "id": "IND-E01",
+        "from": "IND-T02",
+        "to": "IND-T01",
+        "relation": "enables",
+        "case_ids": [
+          "IND-C01"
+        ],
+        "claim_ids": [
+          "IND-K01",
+          "IND-K02"
+        ],
+        "source_ids": [
+          "IND-S01",
+          "IND-S02"
+        ],
+        "confidence": "high",
+        "qualification": "Hydraulic configurations only; mine pumping also used human and animal power. No universal water prerequisite.",
+        "basis": "technical-possibility",
+        "scope": {
+          "case_id": "IND-C01",
+          "stage": "deployment and use",
+          "configuration": "Direct/remote mine drainage under site-specific water and transmission conditions; Hydraulic configurations only; mine pumping also used human and animal power. No universal water prerequisite."
+        },
+        "alternatives": [
+          "Human or animal pumping",
+          "Drainage works",
+          "Foregoing deeper extraction"
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Hydraulic configurations only; mine pumping also used human and animal power. No universal water prerequisite."
+      },
+      "linked_claims": [
+        {
+          "id": "IND-K01",
+          "location": {
+            "file": "contributions/IND/claims.json",
+            "json_pointer": "/0"
+          },
+          "statement": "Agricola’s 1556 account presents human, animal and hydraulic mine-work choices together and includes repairable components and site access among practical considerations.",
+          "causal_status": "descriptive",
+          "confidence": "high",
+          "test": {
+            "status": "descriptive-only",
+            "reason": "The bounded claim identifies a text, configuration, attributed estimate or observed dataset measure; it does not estimate the causes of the wider outcome. See inference_limits for the distinction."
+          },
+          "inference_limits": "Supports existence of described techniques and stated criteria, not measured prevalence, profitability or a universal choice rule."
+        },
+        {
+          "id": "IND-K02",
+          "location": {
+            "file": "contributions/IND/claims.json",
+            "json_pointer": "/1"
+          },
+          "statement": "In sixteenth- and seventeenth-century central European mining, rod transmission extended the use of waterpower to pumps distant from the stream; non-steam engineering continued to change.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "evaluated",
+            "mechanism_chain": "Remote hydraulic resource -> construct rod linkage -> mechanical power reaches distant pumps -> expanded site choice.",
+            "strongest_rival": "Static post-Agricola mining would predict little relevant configuration change; a weaker rival accepts change but denies cost advantage.",
+            "discriminating_observation": "Later mechanisms and installations absent from Agricola distinguish change; operating accounts are needed for cost advantage.",
+            "evidence_sought_found": "Read Agricola and Multhauf (IND-S01/S02); latter compares remote rod/ balanced transmission and later depictions.",
+            "remaining_ambiguity": "Configuration change is supported; diffusion rate and net advantage remain unresolved.",
+            "hypothesis_timing": "emerged during research"
+          },
+          "inference_limits": "No region-wide diffusion denominator. Adequate hydraulics delaying German steam adoption is a further hypothesis, not established by this claim."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "finding G01",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Endpoint of cross-case shared-node path; technical possibility versus operation.",
+      "verdict": "revise_node_identity",
+      "source_reviewed": [],
+      "assessment": "The edge itself is scoped to central-European mine drainage and uses technical-possibility rather than claiming prevalence. IND-K01 is appropriately descriptive about Agricola; IND-K02 supports configuration change, not cost advantage. IND-T02 nevertheless shares identity with British textile waterpower in IND-C03. Scope text does not satisfy the v2 separate-local-nodes requirement."
+    },
+    {
+      "edge_id": "IND-E09",
+      "location": {
+        "file": "contributions/IND/graph.json",
+        "json_pointer": "/edges/8"
+      },
+      "edge_record": {
+        "id": "IND-E09",
+        "from": "IND-T11",
+        "to": "IND-T02",
+        "relation": "competes-with",
+        "case_ids": [
+          "IND-C03"
+        ],
+        "claim_ids": [
+          "IND-K07",
+          "IND-K08"
+        ],
+        "source_ids": [
+          "IND-S05",
+          "IND-S06"
+        ],
+        "confidence": "medium",
+        "qualification": "Steam and usable water were alternative power sources at particular mill locations; national potential is not the choice denominator.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "IND-C03",
+          "stage": "diffusion and improvement",
+          "configuration": "British textile-mill power choices, including unrealised collective reservoirs; Steam and usable water were alternative power sources at particular mill locations; national potential is not the choice denominator."
+        },
+        "alternatives": [
+          "Existing or relocated waterpower",
+          "Individual steam",
+          "Mixed power",
+          "Reduced expansion"
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Steam and usable water were alternative power sources at particular mill locations; national potential is not the choice denominator."
+      },
+      "linked_claims": [
+        {
+          "id": "IND-K07",
+          "location": {
+            "file": "contributions/IND/claims.json",
+            "json_pointer": "/6"
+          },
+          "statement": "Jonell and colleagues reconstruct unused waterpower potential across much of Britain alongside local constraints around Greater Manchester, and describe supplementary steam use in water-powered mills.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Local dependable water constraints -> mill seeks extra power -> steam supplement/replacement -> capacity expansion.",
+            "strongest_rival": "Labour access/control or agglomeration could favour steam despite adequate water; national abundance predicts no shortage only if local access is ignored.",
+            "discriminating_observation": "Comparable mills/sites with usable flow versus scarce flow, plus seasonal output and expansion decisions.",
+            "evidence_sought_found": "Read IND-S05 impact/method sections: local Manchester constraint alongside national potential and supplementary steam; compared IND-S06 coordination abstract.",
+            "remaining_ambiguity": "Industrial clustering partly creates scarcity; reservoir costs, rights and labour conditions unresolved.",
+            "hypothesis_timing": "pre-search candidate"
+          },
+          "inference_limits": "Partial-text inspection only; underlying model and supplements not rerun. Local scarcity does not identify why factories originally clustered there."
+        },
+        {
+          "id": "IND-K08",
+          "location": {
+            "file": "contributions/IND/claims.json",
+            "json_pointer": "/7"
+          },
+          "statement": "Malm argues that large proposed reservoir schemes in the 1820s–1830s failed partly because their collective financing and coordination requirements conflicted with manufacturers’ arrangements.",
+          "causal_status": "contested",
+          "confidence": "low",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Shared reservoir requires funding and allocation -> manufacturers cannot coordinate -> proposed expansion not built.",
+            "strongest_rival": "Projects may be physically unreliable or financially unattractive even under feasible collective governance.",
+            "discriminating_observation": "Scheme correspondence and cost/flow evidence showing viable projects blocked specifically by coordination, compared with realised schemes.",
+            "evidence_sought_found": "Searched full article; only IND-S06 author abstract acquired. It explicitly makes the coordination claim; scheme-level evidence not found.",
+            "remaining_ambiguity": "Both rivals fit non-building. Weak-access claim retained only as attributed hypothesis.",
+            "hypothesis_timing": "pre-search candidate"
+          },
+          "inference_limits": "Abstract-only evidence: claim is about the author’s interpretation, not an independent finding that water was consistently cheaper or every proposed scheme feasible."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "finding G01",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Other side of cross-case shared-node path and partial/abstract supporting claims.",
+      "verdict": "revise_node_identity",
+      "source_reviewed": [],
+      "assessment": "Competition at particular mill locations is narrower than a national hydropower comparison. IND-K07 is medium/underdetermined; IND-K08 is low/underdetermined abstract-only reservoir interpretation. Medium edge confidence does not alone imply the low-access mechanism is confirmed. The endpoint IND-T02 joins this British textile configuration to IND-E01 central-European mine pumping; split the node. No physical necessity or documented transmission is claimed."
+    },
+    {
+      "edge_id": "IND-E27",
+      "location": {
+        "file": "contributions/IND/graph.json",
+        "json_pointer": "/edges/26"
+      },
+      "edge_record": {
+        "id": "IND-E27",
+        "from": "IND-T30",
+        "to": "IND-T29",
+        "relation": "complements",
+        "case_ids": [
+          "IND-C08"
+        ],
+        "claim_ids": [
+          "IND-K24"
+        ],
+        "source_ids": [
+          "IND-S16"
+        ],
+        "confidence": "medium",
+        "qualification": "Reorganisation and compatible machinery condition indirect benefits; complete redesign is not necessary for every motor installation.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "IND-C08",
+          "stage": "deployment and use",
+          "configuration": "US factory mechanical-drive configurations and electricity provision; Reorganisation and compatible machinery condition indirect benefits; complete redesign is not necessary for every motor installation."
+        },
+        "alternatives": [
+          "Group drive",
+          "Line shafts",
+          "Onsite generation",
+          "Utility supply"
+        ],
+        "joint_inputs": [
+          "IND-T31"
+        ],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Reorganisation and compatible machinery condition indirect benefits; complete redesign is not necessary for every motor installation."
+      },
+      "linked_claims": [
+        {
+          "id": "IND-K24",
+          "location": {
+            "file": "contributions/IND/claims.json",
+            "json_pointer": "/23"
+          },
+          "statement": "Devine links effective unit-drive use to compatible machinery, production redesign, utility expansion and application services, with sunk onsite equipment differentiating retrofits from new plants.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Compatible motors/tools plus redesign and service -> flexible local power -> productive reorganisation -> adoption benefits.",
+            "strongest_rival": "Demand-led expansion or new capital generally causes both redesign and productivity, with motors only accompanying it.",
+            "discriminating_observation": "Matched retrofits/new plants measuring workflow and output before/after, with comparable non-electric new equipment.",
+            "evidence_sought_found": "Read IND-S16 configuration history, redesign comments and utility installation services; evidence for needed complements found, no clean experiment.",
+            "remaining_ambiguity": "Selective engineering cases and firm growth can bias productivity interpretation; unit drive not always superior.",
+            "hypothesis_timing": "pre-search candidate"
+          },
+          "inference_limits": "Not causal identification of all postwar productivity gains; worker pace, discretion and welfare are not assessed by the engineering evidence."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "reviewed",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Explicit joint-input bundle and task-specific productivity attribution.",
+      "verdict": "supported_with_limits",
+      "source_reviewed": [],
+      "assessment": "IND-K24 proposes compatible machinery/redesign plus service as a pathway and gives demand/new-capital rivalry with matched-plant discrimination still missing. Medium observed-contribution and no necessity claim are reasonable as a historical interpretation. The counterpart joint input IND-T31 is real and in the same case. This bundle cannot establish that every motor installation needs complete redesign or a utility."
+    },
+    {
+      "edge_id": "IND-E28",
+      "location": {
+        "file": "contributions/IND/graph.json",
+        "json_pointer": "/edges/27"
+      },
+      "edge_record": {
+        "id": "IND-E28",
+        "from": "IND-T31",
+        "to": "IND-T29",
+        "relation": "enables",
+        "case_ids": [
+          "IND-C08"
+        ],
+        "claim_ids": [
+          "IND-K24"
+        ],
+        "source_ids": [
+          "IND-S16"
+        ],
+        "confidence": "medium",
+        "qualification": "Utilities and engineering services promoted deployment; onsite generation remained an alternative.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "IND-C08",
+          "stage": "deployment and use",
+          "configuration": "US factory mechanical-drive configurations and electricity provision; Utilities and engineering services promoted deployment; onsite generation remained an alternative."
+        },
+        "alternatives": [
+          "Group drive",
+          "Line shafts",
+          "Onsite generation",
+          "Utility supply"
+        ],
+        "joint_inputs": [
+          "IND-T30"
+        ],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Utilities and engineering services promoted deployment; onsite generation remained an alternative."
+      },
+      "linked_claims": [
+        {
+          "id": "IND-K24",
+          "location": {
+            "file": "contributions/IND/claims.json",
+            "json_pointer": "/23"
+          },
+          "statement": "Devine links effective unit-drive use to compatible machinery, production redesign, utility expansion and application services, with sunk onsite equipment differentiating retrofits from new plants.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Compatible motors/tools plus redesign and service -> flexible local power -> productive reorganisation -> adoption benefits.",
+            "strongest_rival": "Demand-led expansion or new capital generally causes both redesign and productivity, with motors only accompanying it.",
+            "discriminating_observation": "Matched retrofits/new plants measuring workflow and output before/after, with comparable non-electric new equipment.",
+            "evidence_sought_found": "Read IND-S16 configuration history, redesign comments and utility installation services; evidence for needed complements found, no clean experiment.",
+            "remaining_ambiguity": "Selective engineering cases and firm growth can bias productivity interpretation; unit drive not always superior.",
+            "hypothesis_timing": "pre-search candidate"
+          },
+          "inference_limits": "Not causal identification of all postwar productivity gains; worker pace, discretion and welfare are not assessed by the engineering evidence."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "reviewed",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Second member of joint bundle; utility service versus onsite alternative.",
+      "verdict": "supported_with_limits",
+      "source_reviewed": [],
+      "assessment": "The reciprocal joint-input reference to IND-T30 is consistent with IND-E27. Onsite generation is named as an alternative, and the claim is undetermined rather than identified. IND-C08 distinguishes horsepower from establishment/use shares; the graph cannot convert aggregate motor capacity into unit-drive uptake or worker welfare. No transitive or joint necessity is established."
+    },
+    {
+      "edge_id": "MAT-E06",
+      "location": {
+        "file": "contributions/MAT/graph.json",
+        "json_pointer": "/edges/5"
+      },
+      "edge_record": {
+        "id": "MAT-E06",
+        "from": "MAT-T28",
+        "to": "MAT-T27",
+        "relation": "depends-on",
+        "case_ids": [
+          "MAT-C04"
+        ],
+        "claim_ids": [
+          "MAT-K12"
+        ],
+        "source_ids": [
+          "MAT-S06"
+        ],
+        "confidence": "high",
+        "qualification": "Meroe experiments establish process-specific ore sensitivity; does not imply every listed ore is usable.",
+        "basis": "bounded-necessity",
+        "scope": {
+          "case_id": "MAT-C04",
+          "stage": "feasibility (modern experiment)",
+          "configuration": "Production of new iron by ore reduction in the reported Meroe replica experiments"
+        },
+        "alternatives": [
+          "Other suitable iron ores may substitute",
+          "Imported metal bypasses the primary-reduction task"
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "Within primary ore-reduction production of new iron, removing all iron-bearing feedstock prevents that output. This does not require a specific ore deposit, local ownership, or primary smelting rather than buying metal.",
+        "dispute": "Oolitic ore was promising; not every ore source or mixture was tested."
+      },
+      "linked_claims": [
+        {
+          "id": "MAT-K12",
+          "location": {
+            "file": "contributions/MAT/claims.json",
+            "json_pointer": "/11"
+          },
+          "statement": "Meroe replica smelts improved after changes in ore, air delivery and operation, demonstrating coupled operating constraints rather than the sufficiency of a copied furnace shape.",
+          "causal_status": "mechanism-supported",
+          "confidence": "high",
+          "test": {
+            "status": "evaluated",
+            "mechanism_chain": "Suitable ore plus adjusted blast/charging and operator coordination -> better reduction/slag behaviour -> more workable products in replica trials.",
+            "strongest_rival": "Different modern operating choices could also succeed; apparent improvement could result from one unisolated variable rather than the whole historical reconstruction.",
+            "discriminating_observation": "Controlled replication changing one parameter at a time, matching archaeological residues and retaining detailed mass balances.",
+            "evidence_sought_found": "MAT-S06 Tables 2–4 and Lessons Learned record failed/low-yield runs and improved combinations; authors flag anecdotal later data.",
+            "remaining_ambiguity": "Joint changes prevent attribution to each input; viability is demonstrated only for tested modern configurations, not a unique ancient procedure.",
+            "hypothesis_timing": "emerged during research"
+          },
+          "inference_limits": "Modern reconstructed feasibility does not identify the unique ancient process or provide an ancient output series."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "finding G01",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Modern experimental necessity sharing a node with ancient deployment.",
+      "verdict": "revise_node_identity",
+      "source_reviewed": [],
+      "assessment": "The local counterfactual is sound: new iron by ore reduction requires iron-bearing feedstock, while imported metal bypasses the task. MAT-K12 openly acknowledges coupled parameter changes, so evaluated means feasibility evidence rather than isolated effects. MAT-T28 improperly combines ancient later/post-Meroitic process and modern replica; split identities despite the experimental scope text."
+    },
+    {
+      "edge_id": "MAT-E08",
+      "location": {
+        "file": "contributions/MAT/graph.json",
+        "json_pointer": "/edges/7"
+      },
+      "edge_record": {
+        "id": "MAT-E08",
+        "from": "MAT-T14",
+        "to": "MAT-T28",
+        "relation": "enables",
+        "case_ids": [
+          "MAT-C04"
+        ],
+        "claim_ids": [
+          "MAT-K13"
+        ],
+        "source_ids": [
+          "MAT-S07"
+        ],
+        "confidence": "high",
+        "qualification": "Documented selected fuel; does not imply acacia is the sole physically possible fuel.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "MAT-C04",
+          "stage": "deployment",
+          "configuration": "Ancient Meroe/Hamadab metallurgical fuel contexts"
+        },
+        "alternatives": [
+          "Other charcoal species physically possible but not shown as common smelting fuels",
+          "Imported acacia charcoal versus locally procured acacia"
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Selection is observed; provenance and sustainable management are unresolved."
+      },
+      "linked_claims": [
+        {
+          "id": "MAT-K13",
+          "location": {
+            "file": "contributions/MAT/claims.json",
+            "json_pointer": "/12"
+          },
+          "statement": "Charcoal analysis at Meroe and Hamadab shows persistent, selective use of Acacia type nilotica in metallurgical contexts across a long production history.",
+          "causal_status": "descriptive",
+          "confidence": "high",
+          "test": {
+            "status": "descriptive-only",
+            "reason": "Describes observed charcoal selection over dated contexts."
+          },
+          "inference_limits": "Persistent fuel selection does not by itself prove woodland management, local sourcing or unchanged production intensity."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "finding G01",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Ancient archaeological fuel contribution connected to experimental necessity through MAT-T28.",
+      "verdict": "revise_node_identity",
+      "source_reviewed": [],
+      "assessment": "MAT-K13 describes archaeological charcoal selection; observed-contribution with alternative taxa and unresolved provenance avoids a claim that acacia is uniquely necessary or sustainable. The ancient edge nevertheless targets a node naming both ancient operation and modern replicas. MAT-E08→MAT-E06 is therefore a cross-subepisode path that must not imply the ancient fuel record proves the replica’s input configuration or vice versa."
+    },
+    {
+      "edge_id": "LBR-E01",
+      "location": {
+        "file": "contributions/LBR/graph.json",
+        "json_pointer": "/edges/0"
+      },
+      "edge_record": {
+        "id": "LBR-E01",
+        "from": "LBR-T02",
+        "to": "LBR-T01",
+        "relation": "complements",
+        "case_ids": [
+          "LBR-C01"
+        ],
+        "claim_ids": [
+          "LBR-K01"
+        ],
+        "source_ids": [
+          "LBR-S01"
+        ],
+        "confidence": "medium",
+        "qualification": "Author-summary mechanism; not a universal necessity or independently ranked cause.",
+        "basis": "observed-contribution",
+        "scope": {
+          "case_id": "LBR-C01",
+          "stage": "deployment/diffusion",
+          "configuration": "AT&T switching within its early twentieth-century service organisation"
+        },
+        "alternatives": [
+          "Manual/hybrid operation; alternative firm organisation"
+        ],
+        "joint_inputs": [],
+        "necessity_rationale": "No necessity claim",
+        "dispute": "Abstract-level mechanism support; competing technical/scale explanations not independently adjudicated."
+      },
+      "linked_claims": [
+        {
+          "id": "LBR-K01",
+          "location": {
+            "file": "contributions/LBR/claims.json",
+            "json_pointer": "/0"
+          },
+          "statement": "The AT&T historical study attributes delayed switching automation to organisational interdependencies and market-scale economics, rather than treating invention as immediate deployability.",
+          "causal_status": "mechanism-supported",
+          "confidence": "medium",
+          "test": {
+            "status": "underdetermined",
+            "mechanism_chain": "Interdependent manual service -> firm/technology adaptation -> viable switching at suitable scale -> staged adoption",
+            "strongest_rival": "Purely technical improvement or wage-cost changes could drive timing without independent organisational causation.",
+            "discriminating_observation": "Internal plans and comparable exchanges with different organisational readiness or market size.",
+            "evidence_sought_found": "LBR-S01 abstract reports archival interpretation; full mechanism evidence was not acquired, so no adjudication claimed.",
+            "remaining_ambiguity": "The contribution cannot rank organisational adaptation versus technical and economic change.",
+            "hypothesis_timing": "emerged during research"
+          },
+          "inference_limits": "Abstract-level support; relative causal weights not audited."
+        }
+      ],
+      "checks": {
+        "basis_and_relation": "reviewed",
+        "scope_and_node_identity": "reviewed",
+        "alternatives": "reviewed",
+        "joint_inputs": "reviewed",
+        "necessity": "reviewed",
+        "uncertainty_propagation": "reviewed",
+        "export": "fields preserved in controlled complete-dossier temporary-copy run"
+      },
+      "selection": "Weak-access organisational mechanism and alternative technical/scale explanations.",
+      "verdict": "supported_as_attributed_interpretation",
+      "source_reviewed": [
+        "LBR-S01"
+      ],
+      "assessment": "The author abstract explicitly states firm/technology adaptation and market-scale profitability. The edge flags author-summary support; LBR-K01 test is underdetermined and says full mechanism evidence was not acquired. observed-contribution is defensible only as an attributed historical interpretation, not an independently identified organisational effect. Full-text archival tests remain necessary before strengthening it."
+    }
+  ],
+  "limits": "No full MAT/IND source re-audit, no reconstruction of historical datasets, no running statistical models, no visual browser interaction. Record/claim reading and source-passage review are reported separately. No source material or live main collection was changed."
+}

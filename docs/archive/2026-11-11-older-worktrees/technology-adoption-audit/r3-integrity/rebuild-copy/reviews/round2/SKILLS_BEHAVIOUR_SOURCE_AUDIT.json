@@ -1,0 +1,461 @@
+{
+  "review_id": "SB-R2",
+  "reviewer": "/root/review1_sources",
+  "review_date": "2026-11-05",
+  "created_utc": "2026-11-05T15:43:20.325356+00:00",
+  "independence": {
+    "authored_reviewed_strands": false,
+    "author_self_audits_used_as_acceptance": false,
+    "inherited_model": "Astra"
+  },
+  "target": {
+    "manifest": "skills-behaviour-snapshot/MANIFEST.json",
+    "manifest_sha256": "430e5e198be4545239452e43ee18ff36d3f21c2aff4f7f75fa65a6cd50d48081",
+    "file_count": 20,
+    "all_target_hashes_match": true,
+    "scope": "Frozen SKL and PSY; no live or snapshot edits"
+  },
+  "selection": {
+    "preregistration": "SKILLS_BEHAVIOUR_PREREGISTRATION.json",
+    "preregistration_sha256": "e60c5d172d300d4a0dde826ff180d7018d33c1fdbb07f02dd546102066fd75ca",
+    "risk_claims": [
+      "SKL-K18",
+      "SKL-K11",
+      "SKL-K08",
+      "PSY-K18",
+      "PSY-K20",
+      "PSY-K03"
+    ],
+    "ordinary_claims": [
+      "SKL-K07",
+      "PSY-K04"
+    ],
+    "ordinary_rule": "Smallest SHA-256(seed + ID) among claims with causal_status descriptive in each domain, excluding risk-selected IDs. No seed retries.",
+    "ordinary_seed": "skills-behaviour-source-audit-r2-ordinary-v1:",
+    "registered_before_original_source_reopening": true,
+    "reproduced": true
+  },
+  "denominator": {
+    "strands": 2,
+    "cases": 11,
+    "claims": 38,
+    "source_records": 26,
+    "edges": 33,
+    "selected_claims": 8,
+    "selected_source_records": 9,
+    "context_cases": 6,
+    "directly_linked_edges_audited": 8,
+    "additional_edges_context_only": 3,
+    "original_pdf_files": 5,
+    "full_institutional_pages": 2,
+    "partial_publisher_article": 1,
+    "abstract_only_article": 1,
+    "rendered_pages_visually_inspected": 9,
+    "not_a_population_error_rate": true
+  },
+  "verdict": "requires-three-bounded-repairs; sampled factual entailment supported at recorded scope",
+  "claims": [
+    {
+      "id": "SKL-K07",
+      "selection": "ordinary",
+      "verdict": "supported-as-scoped",
+      "passages": [
+        "SKL-S07: complete NPS page, contract/tooling paragraphs and dated 1822/1832 testimony",
+        "SKL-S06: printed p.55, PDF p.89, note225"
+      ],
+      "entailment": "Patent 1811, contract 1819 and subsequent tooling are separate events; prior musket-factory piecework and 55 occupations are documented. Claim does not turn managerial testimony into measured worker or cost gains.",
+      "rival": "Established task division predates Hall; machine implementation still needs skilled tooling. Test properly descriptive.",
+      "lineage": "S06 and S07 overlap through Smith-family scholarship; quotations not independently checked against archival originals.",
+      "findings": []
+    },
+    {
+      "id": "SKL-K08",
+      "selection": "risk",
+      "verdict": "supported-as-scoped",
+      "passages": [
+        "SKL-S06: printed p.59, PDF p.93, notes244–245 and figure19",
+        "SKL-S12: museum object HAFE7427, ca.1846"
+      ],
+      "entailment": "Working-gauge comparison to a separate reference set is explicit. Later physical Model 1841 inspection set supports equipment existence, not 1823 adoption or conformity of all output.",
+      "rival": "Machines alone versus operational metrology: reference checking supports a concrete task role but does not estimate incremental yield or cost. Frozen test is already underdetermined.",
+      "lineage": "Museum record and figure19 depict the same surviving set; gauge history is inherited through Smith 1977, not independent archaeological replication.",
+      "findings": []
+    },
+    {
+      "id": "SKL-K11",
+      "selection": "risk",
+      "verdict": "supported-as-scoped",
+      "passages": [
+        "SKL-S08: printed pp.118–121, especially120 (PDF135); notes141–142 on printed335 (PDF350)"
+      ],
+      "entailment": "Personal wrenches and salvaged tools provide task options; Katigiro narrates under-tree shop 1967 and larger site/welding 1972. Dates and scope match.",
+      "rival": "Demand, skill, customers and tools coevolve; narrative says business grew before investment. No exogenous tool access or apprentice cohort is observed. Frozen test is underdetermined and no earnings effect is claimed.",
+      "lineage": "Retrospective named interviews in 2011–12 plus author apprenticeship; no independent career-panel replication.",
+      "findings": []
+    },
+    {
+      "id": "SKL-K18",
+      "selection": "risk",
+      "verdict": "supported-with-declared-partial-access",
+      "passages": [
+        "SKL-S11: publisher footnotes 2,8,10,11; main body restricted"
+      ],
+      "entailment": "Simultaneous changes prevent separate input attribution; teaching burden and at least six power-unit failures by June 1975 support material/time alternatives to a communication-only account. Footnote 10 specifies roughly two weeks delay on three occasions, not total delay allocation.",
+      "rival": "Learning may itself affect hardware reliability; observed failures do not prove an exogenous hardware effect. Frozen test is underdetermined.",
+      "lineage": "Coauthored builder follow-up within Collins research programme; not independent theory confirmation.",
+      "findings": []
+    },
+    {
+      "id": "PSY-K03",
+      "selection": "risk",
+      "verdict": "supported-as-scoped",
+      "passages": [
+        "PSY-S01: printed pp.2375–2377 (PDF26–28)",
+        "PSY-S01: §VI printed 2383–2387, Table 6 printed 2385 (PDF 34–38)"
+      ],
+      "entailment": "Late offer +9–10 percentage points is not significant; early-versus-late contrast p=.08. Choice-of-timing use does not follow one simple-model prediction. These are offer/use comparisons, while earlier pilot data measure purchases.",
+      "rival": "Seasonal resources, fixed costs and advance announcement share predictions with present bias. Maize-sale and announced-delay tests constrain some simple variants but do not independently identify a discount parameter.",
+      "lineage": "Same SAFI programme/team; demonstration-plot pilot farmers differ from main sample and cannot be treated as independent population replication.",
+      "findings": []
+    },
+    {
+      "id": "PSY-K04",
+      "selection": "ordinary",
+      "verdict": "supported-as-scoped",
+      "passages": [
+        "PSY-S03: Table II printed 1330 (PDF 20), adjacent pp.1329–1331; §III measurement design"
+      ],
+      "entailment": "Baseline 489 denominator, 86% current pod-size and 87% optimal-size nonresponse exactly match; spacing answers and enumerator measurements are distinguished.",
+      "rival": "Answering in grams may reflect measurement vocabulary as well as attention. Claim is descriptive and acknowledges that limitation.",
+      "lineage": "One original seaweed experiment; baseline elicitation precedes intervention outcomes, and 2012/2014 versions are one lineage.",
+      "findings": []
+    },
+    {
+      "id": "PSY-K18",
+      "selection": "risk",
+      "verdict": "supported-as-scoped",
+      "passages": [
+        "PSY-S11: Table 1 printed38 (PDF39), Table 4 printed41 (PDF42)",
+        "PSY-S11: §§3.2–3.3 printed8–10, §4.4.2 printed15–16, Appendix B printed74–75",
+        "PSY-S14: complete primary Oxford abstract returned by search, direct article open failed"
+      ],
+      "entailment": "One-way minutes and prior-week absent days match;35.08/103.77=33.8055% and.29/1.01=28.7129%. N 1,879 and 1,952 are outcome-specific respondent counts; 100 schools,25/20/55 allocation match. Package includes mechanics/custody.",
+      "rival": "School randomisation supports total-package reported-outcome effect relative to common trends; attrition/self-report and mediation remain limited. No bare-asset or independent repair effect follows.",
+      "lineage": "Manuscript and final abstract are one 2017–18 Zambia experiment, with later administrative collection separately dated.",
+      "findings": [
+        "SB01"
+      ]
+    },
+    {
+      "id": "PSY-K20",
+      "selection": "risk",
+      "verdict": "supported-in-manuscript-repairs-required",
+      "passages": [
+        "PSY-S11: Table 3 printed40 (PDF41), Table A.11 printed56 (PDF57)",
+        "PSY-S11: §6.3 printed20–21, §4.4.3 printed16 footnote 19",
+        "PSY-S14: final Oxford abstract, educational-aspiration assertion"
+      ],
+      "entailment": "Main locus-control/bargaining coefficients 0.18/0.21; controlled-appendix 0.16/0.19 with corrected p=.02/.04 and .00/.01. Pooled mobility/aspirations imprecise. Aggregate corrected p=.04/.12 is adjustment-sensitive. Final abstract uses different aspirations wording.",
+      "rival": "Demand, salience and family-reallocation explanations can produce changed answers without broader norm change. Discontinued behavioural games do not supply the missing discriminator.",
+      "lineage": "One dataset and same trial across versions; final full tables uninspected, so no silent reconciliation or independent replication credit.",
+      "findings": [
+        "SB02",
+        "SB03"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "SB01",
+      "severity": "medium",
+      "status": "requires-repair",
+      "title": "Unsupported design exclusion of cycling/disability/route groups",
+      "claim_ids": [
+        "PSY-K18"
+      ],
+      "edge_ids": [
+        "PSY-E14"
+      ],
+      "locations": [
+        {
+          "path": "contributions/PSY/report.md",
+          "line": 79
+        },
+        {
+          "path": "contributions/PSY/graph.json",
+          "line": 614
+        }
+      ],
+      "evidence": [
+        "PSY-S11 §3.3 printed p.9; Appendix B printed74–75"
+      ],
+      "requested_change": "Retain documented enrolment/grade/distance and school-sampling limits; recast disability/cycling ability/route applicability as unmeasured rather than established exclusion.",
+      "does_not_require": "Changing package effect estimates or claiming all girls are represented."
+    },
+    {
+      "id": "SB02",
+      "severity": "medium",
+      "status": "requires-repair",
+      "title": "Known manuscript/final-abstract aspirations difference",
+      "claim_ids": [
+        "PSY-K20"
+      ],
+      "edge_ids": [],
+      "locations": [
+        {
+          "path": "contributions/PSY/claims.json",
+          "line": 534
+        },
+        {
+          "path": "contributions/PSY/report.md",
+          "line": 75
+        },
+        {
+          "path": "contributions/PSY/sources.json",
+          "record": "PSY-S14"
+        },
+        {
+          "path": "contributions/PSY/cases.json",
+          "record": "PSY-C05"
+        }
+      ],
+      "evidence": [
+        "PSY-S11 Table 3 and A.11",
+        "PSY-S14 final abstract"
+      ],
+      "requested_change": "Explicitly attribute detailed null/imprecise result to 7 May 2025 manuscript, record final abstract says educational aspirations improved, and preserve unresolved final-table/pooling/outcome-definition check.",
+      "does_not_require": "Inferring a changed final pooled effect or discarding inspected manuscript estimates."
+    },
+    {
+      "id": "SB03",
+      "severity": "medium",
+      "status": "requires-repair",
+      "title": "Mechanism test does not discriminate its stated survey-response rival",
+      "claim_ids": [
+        "PSY-K20"
+      ],
+      "edge_ids": [],
+      "locations": [
+        {
+          "path": "contributions/PSY/claims.json",
+          "line": 548
+        }
+      ],
+      "evidence": [
+        "PSY-S11 §4.4.3 footnote 19; §6.3; Tables3/A.11",
+        "METHODS_ADDENDUM_V2 Claims: shared predictions imply underdetermined"
+      ],
+      "requested_change": "Mark mechanism test underdetermined or split the evaluated total-effect test from the unresolved psychological mechanism.",
+      "does_not_require": "Removing causal-identification for effects on reported indices or deleting any current norm edge; no such norm edge exists."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SKL-S06",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://npshistory.com/series/archeology/ncr/21/report.pdf",
+      "locator": "NPS Regional Archeology Program Occasional Report 21; historical discussion pp. 55–59, notes 221–247; figure 19.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/SKL-S06.pdf",
+      "sha256": "855d6b735351edeaf1c281207d3f5f53e6444bbb062eea4e6bb102eb1b412b88",
+      "cached_original_manifest_match": true
+    },
+    {
+      "id": "SKL-S07",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://home.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+      "locator": "Entire page, updated 23 September 2019; 1819 contract, Hall letter of 20 December 1822, Talcott statement of 1832.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/SKL-institutional-and-publisher-pages.txt",
+      "access_detail": "Live primary/institutional page reopened; SKL-S11 body remains restricted."
+    },
+    {
+      "id": "SKL-S08",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://www.bibliopen.org/p/bopen/9781478094456",
+      "locator": "Open-access full PDF acquired from the page's Download PDF link; selected Chapter 2, Overhaul: pp. 94–99, 118–121, 136–142 and table 2.1, pp. 138–140.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/SKL-S08.pdf",
+      "sha256": "d8669e327c22020301605e82c2572bf08755ee4c23394fcc7f1bf61d1698c8c3",
+      "cached_original_manifest_match": true
+    },
+    {
+      "id": "SKL-S11",
+      "declared_access": "partial-text",
+      "audited_access": "partial-text",
+      "url": "https://journals.sagepub.com/doi/10.1177/030631277500500404",
+      "locator": "Social Studies of Science 5(4), pp. 441–450; publisher-displayed footnotes 2, 8, 10 and 11 inspected. Main narrative not available.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/SKL-institutional-and-publisher-pages.txt",
+      "access_detail": "Live primary/institutional page reopened; SKL-S11 body remains restricted."
+    },
+    {
+      "id": "SKL-S12",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://artsandculture.google.com/asset/view-4/KAFQGvXgiHqy_Q?childAssetId=XgHi054cXIxrog",
+      "locator": "Complete museum object record, date ca. 1846, attribution to Major William A. Thornton, catalog HAFE 7427.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/SKL-institutional-and-publisher-pages.txt",
+      "access_detail": "Live primary/institutional page reopened; SKL-S11 body remains restricted."
+    },
+    {
+      "id": "PSY-S01",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://www.atai-research.org/wp-content/uploads/2016/07/aer-Nudging-Fertilizer-2011.pdf",
+      "locator": "AER 101(6), pp.2350–2390; inspected §III–IV, Tables 3–4, §VI and Table 6, particularly pp.2366–2377, 2383–2387.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/PSY-S01.pdf",
+      "sha256": "101d953eb1bf4c4a8b7ca88d1e7ad432445da7a19e55bf3f0f332d304b119893",
+      "cached_original_manifest_match": true
+    },
+    {
+      "id": "PSY-S03",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://www.hbs.edu/ris/Publication%20Files/Learning%20Through%20Noticing%20Field%202014_c1214d62-9429-4357-b47a-4195dae00881.pdf",
+      "locator": "QJE 129(3), pp.1311–1353; §III, Tables II–V, §IV.C, footnotes 23–29; pp.1325–1342.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/PSY-S03.pdf",
+      "sha256": "4369edfe8d05506f5d1dd9ef43b091f9fb85bc1242bcdffb957974b8fae31110",
+      "cached_original_manifest_match": true
+    },
+    {
+      "id": "PSY-S11",
+      "declared_access": "full-text",
+      "audited_access": "full-text",
+      "url": "https://www.nishithprakash.com/s/Wheels_of_Change.pdf",
+      "locator": "7 May 2025 manuscript, §§3–6; Tables 1–6, A.4 and A.11; pp.8–24,38–43,56.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/PSY-S11.pdf",
+      "sha256": "5cb7f4c5c7a10f61b67c64a6bce1c70f9626c6cf4a6ff03888f1e888df1551b2",
+      "cached_original_manifest_match": true
+    },
+    {
+      "id": "PSY-S14",
+      "declared_access": "abstract",
+      "audited_access": "abstract",
+      "url": "https://doi.org/10.1093/ej/ueaf122",
+      "locator": "Economic Journal 136(679), October 2026, pp.2531–2561; online publication 8 November 2025; abstract and publication metadata.",
+      "lineage_checked": true,
+      "file": "skills-behaviour-evidence/PSY-S14-search-primary-output.txt",
+      "access_detail": "Complete primary Oxford abstract/metadata returned via search; direct open500 and urllib403; final full text not acquired."
+    }
+  ],
+  "edges": [
+    {
+      "id": "SKL-E07",
+      "verdict": "supported-scoped-testimony",
+      "reason": "Hall rifle works kept separate from musket production; managerial evidence is qualified.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "SKL-E08",
+      "verdict": "supported-scoped-contribution",
+      "reason": "Reference checks and later gauge object remain distinct; no universal necessity or conformity claim.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "SKL-E10",
+      "verdict": "supported-conditional-contribution",
+      "reason": "Task role and qualitative expansion supported, conditional on demand/skills/customers.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "SKL-E19",
+      "verdict": "supported-with-node-granularity-caution",
+      "reason": "Footnotes support interruptions; 1975 edge scope is explicit but shares generic node SKL-T23 with different earlier builds.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "PSY-E01",
+      "verdict": "supported-as-scoped",
+      "reason": "Seasonal offer contribution, no uniquely identified present-bias or persistence claim.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "PSY-E12",
+      "verdict": "supported-as-design-component",
+      "reason": "Mechanic support is included; technical-possibility label avoids isolated maintenance effect.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "PSY-E13",
+      "verdict": "supported-as-institutional-rule",
+      "reason": "Custody contract restrictions supported; enforcement uncertainty retained.",
+      "claim_support_reopened": true
+    },
+    {
+      "id": "PSY-E14",
+      "verdict": "relation-supported-qualification-repair",
+      "reason": "Package commute effect supported; unsupported disability representation assertion requires SB01.",
+      "claim_support_reopened": true
+    }
+  ],
+  "context_edges": [
+    {
+      "id": "SKL-E16",
+      "claim_support_reopened": false,
+      "purpose": "Inspect shared SKL-T23 across distinct configurations; no entailment verdict for S10"
+    },
+    {
+      "id": "SKL-E17",
+      "claim_support_reopened": false,
+      "purpose": "Inspect shared SKL-T23 across distinct configurations; no entailment verdict for S10"
+    },
+    {
+      "id": "SKL-E18",
+      "claim_support_reopened": false,
+      "purpose": "Inspect shared SKL-T23 across distinct configurations; no entailment verdict for S10"
+    }
+  ],
+  "advisory": [
+    {
+      "id": "SB-A01",
+      "severity": "low",
+      "edge_ids": [
+        "SKL-E19"
+      ],
+      "node_ids": [
+        "SKL-T23"
+      ],
+      "request": "Prefer a distinct 1975 follow-up outcome node before combining paths. Existing edge scopes preserve episodes; no current outgoing/transitive path or necessity assertion was found."
+    }
+  ],
+  "recalculations": [
+    {
+      "description": "commute reduction percent",
+      "numerator": 35.08,
+      "denominator": 103.77,
+      "value": 33.805531463814205,
+      "rounded": 34
+    },
+    {
+      "description": "last-week absence reduction percent",
+      "numerator": 0.29,
+      "denominator": 1.01,
+      "value": 28.71287128712871,
+      "rounded": 29
+    }
+  ],
+  "lineage_conclusion": "Sampled records preserve shared NPS scholarship/object, one Grace research programme, Collins follow-up programme, SAFI pilots, single seaweed study and Zambia version lineage. No counts are treated as independent corroboration.",
+  "limitations": [
+    "Eight claims only; unselected 30 claims not source-audited.",
+    "No participant data/statistical replication, archival original behind NPS narrative or interview recordings.",
+    "Full Collins 1975 narrative unavailable; footnote-supported statements only.",
+    "Final Zambia article tables/appendix unavailable; manuscript/final-abstract difference unresolved.",
+    "Three adjacent TEA edges examined structurally only; their S10 source not reopened.",
+    "First-round source audit separate, not repeated."
+  ],
+  "supporting_files": [
+    "SKILLS_BEHAVIOUR_SOURCE_REVIEW.md",
+    "SKILLS_BEHAVIOUR_MANIFEST_CHECK.json",
+    "SKILLS_BEHAVIOUR_SOURCE_PROVENANCE.json",
+    "SKILLS_BEHAVIOUR_EVIDENCE_MANIFEST.json",
+    "SKILLS_BEHAVIOUR_AUDIT_VALIDATE.py"
+  ]
+}

@@ -1,0 +1,221 @@
+<title>Interwoven Graph Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: one reading column in Interwoven's own sheet, tables with one fine rule per row and no columns of boxes. Italic means science, as on the chart. */
+:root {
+  --paper:#f4efe6; --sheet:#f8f4ec; --ink:#26211c; --ink2:#4e463c; --ink3:#6a6156; --rule:rgba(38,33,28,.22); --soft:rgba(38,33,28,.11);
+  --agree:#0c8269; --change:#d39a1e; --reject:#b0472d; --cannot:#265a96; --heat:38,90,150; --on-heat:#fff; --pill:rgba(38,33,28,.06);
+  --serif:'EB Garamond',Georgia,'Times New Roman',serif; --ui:system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper:#1c1915; --sheet:#221e19; --ink:#efe8db; --ink2:#cfc6b6; --ink3:#a79d8d; --rule:rgba(239,232,219,.24); --soft:rgba(239,232,219,.12);
+  --agree:#1f9c80; --change:#b98500; --reject:#e0607f; --cannot:#5d8ccb; --heat:93,140,203; --on-heat:#14110e; --pill:rgba(239,232,219,.08); color-scheme:dark } }
+:root[data-theme="dark"] {
+  --paper:#1c1915; --sheet:#221e19; --ink:#efe8db; --ink2:#cfc6b6; --ink3:#a79d8d; --rule:rgba(239,232,219,.24); --soft:rgba(239,232,219,.12);
+  --agree:#1f9c80; --change:#b98500; --reject:#e0607f; --cannot:#5d8ccb; --heat:93,140,203; --on-heat:#14110e; --pill:rgba(239,232,219,.08); color-scheme:dark }
+body { background:var(--paper); color:var(--ink); font:400 17px/24px var(--serif); padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); padding-block:24px 60px }
+.wrap { max-width:940px; margin:0 auto; display:flex; flex-direction:column; gap:24px }
+h1 { font:400 29px/36px var(--serif); margin:0; text-wrap:balance } h2 { font:400 24px/30px var(--serif); margin:0; text-wrap:balance } h3 { font:500 17px/24px var(--serif); margin:0 }
+p { margin:0; max-width:66ch } .note { font-size:14px; line-height:18px; color:var(--ink3) } a { color:inherit }
+nav { display:flex; flex-wrap:wrap; gap:6px 18px; border-bottom:1px solid var(--rule); padding-bottom:6px; position:sticky; top:env(safe-area-inset-top,0px); background:var(--paper); z-index:5 }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--paper) }
+nav button { all:unset; cursor:pointer; padding:3px 0; color:var(--ink3); border-bottom:2px solid transparent } nav button[aria-current="page"] { color:var(--ink); border-bottom-color:var(--ink) }
+nav button:focus-visible,.cell:focus-visible,.seg:focus-visible,summary:focus-visible { outline:2px solid var(--cannot); outline-offset:2px }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px 24px }
+.stat b { display:block; font:400 29px/36px var(--serif); font-variant-numeric:tabular-nums } .stat span { font-size:14px; line-height:18px; color:var(--ink2); display:block }
+section { display:flex; flex-direction:column; gap:12px }
+ol.ten { margin:0; padding-left:26px; display:flex; flex-direction:column; gap:10px } ol.ten li { padding-left:4px } .cls { color:var(--ink3); font-size:14px }
+.charts { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:30px } @media (max-width:760px){ .charts{grid-template-columns:minmax(0,1fr)} }
+.chart { display:flex; flex-direction:column; gap:10px; min-width:0 }
+.heat { display:grid; grid-template-columns:48px repeat(4,minmax(0,1fr)); gap:2px; font-size:14px; line-height:18px }
+.heat .ax { color:var(--ink3); display:flex; align-items:center; justify-content:center; padding:4px 2px; text-align:center } .cell { all:unset; display:flex; align-items:center; justify-content:center; height:46px; border-radius:4px; font-variant-numeric:tabular-nums; cursor:pointer; color:var(--ink); background:var(--soft) } .cell.zero { cursor:default; background:transparent; color:var(--ink3) }
+.cell:hover:not(.zero) { outline:1.5px solid var(--ink) }
+.brow { display:grid; grid-template-columns:minmax(0,190px) minmax(0,1fr) 28px; gap:8px; align-items:center; font-size:14px; line-height:18px; padding:3px 0 } .blabel { color:var(--ink2); overflow-wrap:anywhere } .bar { display:flex; gap:2px; height:16px } .seg { all:unset; display:block; height:16px; cursor:pointer; min-width:3px } .seg:first-child { border-radius:2px 0 0 2px } .seg:last-child { border-radius:0 4px 4px 0 } .seg:hover { filter:brightness(1.12) } .num { color:var(--ink3); text-align:right; font-variant-numeric:tabular-nums }
+@media (max-width:480px){ .brow{ grid-template-columns:minmax(0,1fr) 24px } .blabel{ grid-column:1 / -1 } }
+.legend { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:14px; line-height:18px; color:var(--ink2) } .sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:baseline }
+.filters { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:end } .filters label { display:flex; flex-direction:column; font-size:14px; line-height:18px; color:var(--ink3); gap:2px; min-width:0 } .filters input,.filters select { font:400 15px/21px var(--serif); color:var(--ink); background:var(--sheet); border:1px solid var(--rule); border-radius:3px; padding:4px 6px; max-width:100% } .filters input { width:220px }
+.count { font-size:14px; color:var(--ink2) } .clear { all:unset; cursor:pointer; font-size:14px; color:var(--ink2); text-decoration:underline; padding:5px 0 } .clear:focus-visible { outline:2px solid var(--cannot) }
+.row { border-top:.75px solid var(--rule); padding:10px 0; display:flex; flex-direction:column; gap:4px; min-width:0 } .rhead { display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline }
+.name { font-weight:500 } .science { font-style:italic; font-weight:400 } .ends { color:var(--ink2) }
+.pill { font-size:14px; line-height:18px; padding:0 7px; border-radius:9px; background:var(--pill); color:var(--ink2); white-space:nowrap; display:inline-flex; align-items:center; gap:5px } .dot { width:8px; height:8px; border-radius:50% ; display:inline-block } .sev-high { font-weight:500; color:var(--ink) }
+.issue { color:var(--ink); overflow-wrap:anywhere } .fix { color:var(--ink2); overflow-wrap:anywhere } .fix em { font-style:normal; color:var(--ink3) } details { font-size:14px; line-height:18px; color:var(--ink2) } summary { cursor:pointer; color:var(--ink3) } details > div { padding-top:4px; display:flex; flex-direction:column; gap:4px; overflow-wrap:anywhere }
+.tablewrap { overflow-x:auto } table { border-collapse:collapse; width:100%; font-size:14px; line-height:18px } th { text-align:left; font-weight:500; color:var(--ink2); padding:5px 12px 5px 0; border-bottom:1px solid var(--rule) } td { padding:5px 12px 5px 0; border-bottom:.75px solid var(--soft); vertical-align:top } td.n { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap }
+.tip { position:fixed; pointer-events:none; background:var(--ink); color:var(--paper); font-size:14px; line-height:18px; padding:4px 8px; border-radius:3px; z-index:20; max-width:260px }
+@media (prefers-reduced-motion:no-preference){ .row { transition:background .1s } }
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:6px">
+    <h1>Interwoven graph review</h1>
+    <p class="note">Independent review of commit <span id="commit"></span>: every connection and every entry, with how each was checked. Tiers and kinds are opinion. Counts come from <code style="font-size:13px">summarise_verdicts.py</code>.</p>
+  </header>
+  <nav aria-label="Views">
+    <button data-view="overview">Overview</button><button data-view="connections">Connections</button><button data-view="entries">Entries</button><button data-view="dates">Dates</button><button data-view="gaps">Gaps</button>
+  </nav>
+  <main id="main" class="wrap"></main>
+</div>
+<div id="tip" class="tip" hidden></div>
+
+<script>
+const D = /*DATA*/null;
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const VERDICT = {agree:['Agree','var(--agree)'],change:['Change','var(--change)'],reject:['Reject','var(--reject)'],cannot_verify:['Cannot verify','var(--cannot)']};
+const CHECK = {read_cited_source:'Cited source read',read_cited_source_partly:'Cited source partly read',could_not_read_cited_source:'Could not read source',read_cited_and_other_source:'Cited and other source read',read_other_source:'Other source read',entry_record_and_linked_edge_sources:'Record and linked sources read',knowledge_only:'Record and knowledge only'};
+const CLASS = {none:'No issue',historical_error:'Historical error',modelling_choice:'Modelling choice',evidence_limit:'Evidence limit',opinion:'Opinion'};
+const ID = {agree:'Agree',duplicate:'Duplicate or split',witness_for_broader:'Witness for something broader',wrong_witness:'Wrong witness',too_narrow:'Too narrow',unclear:'Unclear',bundle:'Bundle'};
+const state = {view:'overview',
+  c:{q:'',verdict:'',severity:'',relation:'',check:'',cls:''},
+  e:{q:'',tier:'',tv:'',to:'',kv:'',iv:'',av:'',lab:''},
+  g:{type:'missing_breakthrough'}};
+const nodes = Object.fromEntries(D.entries.map(e => [e.id, e]));
+const sum = D.summary;
+
+function pill(label, color, extra=''){ return `<span class="pill ${extra}">${color?`<span class="dot" style="background:${color}"></span>`:''}${esc(label)}</span>`; }
+function classes(v){ return String(v).split(';').map(c => CLASS[c]||c).join(' and '); }
+function nameOf(id){ const n = nodes[id]; return n ? `<span class="${n.kind==='science'?'science':''}">${esc(n.label)}</span>` : esc(id); }
+
+function overview(){
+  const c = sum.connections, e = sum.entries;
+  const stat = (n,l) => `<div class="stat"><b>${n}</b><span>${esc(l)}</span></div>`;
+  return `<section>
+    <p>The individual claims are very good, but the picture they add up to is not yet reliable. Nearly every statement holds up against its source. The problems are in dates chosen from later witnesses, in which things were selected, in ranking done batch by batch, and in well-known links left out.</p>
+    <div class="stats">
+      ${stat(c.verdict.agree,'of 131 connections I agree with')}
+      ${stat(c.verdict.change,'I would change, mostly the relation type')}
+      ${stat(c.verdict.reject,'I would remove')}
+      ${stat(c.evidence_support.supported,'cited sources fully support the statement')}
+      ${stat(sum.graph.display_reversed_edges.length,'connections drawn backwards by their dates')}
+      ${stat(e.tier0_kept,'of 35 tier 0 entries I keep')}
+    </div></section>
+  <section class="charts">
+    <div class="chart"><h3>Where the tiers would move</h3>
+      <div class="heat" id="heat" role="group" aria-label="Current tier by proposed tier, entries"></div>
+      <p class="note">Rows are the tier now, columns the tier I propose. Select a cell to list those entries. This is judgement, not measurement.</p></div>
+    <div class="chart"><h3>Verdicts by relation type</h3>
+      <div class="legend">${Object.values(VERDICT).map(([l,c])=>`<span><span class="sw" style="background:${c}"></span>${l}</span>`).join('')}</div>
+      <div id="bars"></div>
+      <p class="note">Select a segment to list those connections.</p></div>
+  </section>
+  <section><h2>The ten most important corrections</h2><ol class="ten">${D.top.map(t=>`<li><span>${esc(t[0])}</span> <span class="cls">${esc(t[1])}</span></li>`).join('')}</ol></section>
+  <section><h3>How this was checked</h3><p class="note">Evidence readers opened each cited passage for ${c.check_method.read_cited_source + (c.check_method.read_cited_source_partly||0) + (c.check_method.read_cited_and_other_source||0)} of 131 connections, and I spot-checked a sample. One source could not be read. Every entry's record was read, but each entry's own anchor evidence was not separately checked: ${e.check_method.knowledge_only} entries rest on the record and my knowledge alone. Gap citations are leads from memory. <code style="font-size:13px">REVIEW.md</code> has the full limits.</p></section>`;
+}
+function afterOverview(){
+  const g=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+  D.entries.forEach(e=>g[e.tier][e.proposed_tier??e.tier]++);
+  const mx=Math.max(...g.flat());
+  let h='<span></span>'+[0,1,2,3].map(i=>`<span class="ax">Tier ${i}</span>`).join('');
+  g.forEach((row,y)=>{ h+=`<span class="ax">Tier ${y}</span>`; row.forEach((n,x)=>{ const a=n?(.12+.88*n/mx):0; const dark=a>.62;
+    h+= n?`<button class="cell" style="background:rgba(var(--heat),${a.toFixed(2)});${dark?'color:var(--on-heat)':''}" data-from="${y}" data-to="${x}" data-tip="${n} ${n===1?'entry':'entries'}: tier ${y} ${x===y?'kept':'to tier '+x}" aria-label="${n} entries, tier ${y} to tier ${x}">${n}</button>`:`<span class="cell zero" aria-hidden="true"></span>`; }); });
+  $('#heat').innerHTML=h;
+  $('#heat').addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; Object.assign(state.e,{q:'',tv:'',kv:'',iv:'',av:'',lab:'',tier:b.dataset.from,to:b.dataset.to}); go('entries'); });
+  const rel={}; D.connections.forEach(c=>{ (rel[c.relation]??={total:0})[c.verdict]=(rel[c.relation][c.verdict]||0)+1; rel[c.relation].total++; });
+  const names=Object.keys(rel).sort((a,b)=>rel[b].total-rel[a].total), max=rel[names[0]].total;
+  $('#bars').innerHTML=names.map(n=>`<div class="brow"><span class="blabel">${esc(n)}</span><span class="bar" style="width:${(100*rel[n].total/max).toFixed(1)}%">${Object.keys(VERDICT).filter(v=>rel[n][v]).map(v=>`<button class="seg" style="flex:${rel[n][v]} 1 0;background:${VERDICT[v][1]}" data-rel="${n}" data-v="${v}" data-tip="${esc(n)}: ${rel[n][v]} ${VERDICT[v][0].toLowerCase()}" aria-label="${esc(n)}: ${rel[n][v]} ${VERDICT[v][0]}"></button>`).join('')}</span><span class="num">${rel[n].total}</span></div>`).join('');
+  $('#bars').addEventListener('click',ev=>{ const b=ev.target.closest('button'); if(!b)return; Object.assign(state.c,{q:'',severity:'',check:'',cls:'',relation:b.dataset.rel,verdict:b.dataset.v}); go('connections'); });
+}
+
+function opts(list, val, all){ return `<option value="">${all}</option>`+list.map(([v,l])=>`<option value="${esc(v)}" ${String(val)===String(v)?'selected':''}>${esc(l)}</option>`).join(''); }
+function connections(){
+  const s=state.c, rels=[...new Set(D.connections.map(c=>c.relation))].sort();
+  return `<div class="filters">
+    <label for="cq">Search<input id="cq" value="${esc(s.q)}" placeholder="Fleming, Watt, pH…"></label>
+    <label for="cv">Verdict<select id="cv">${opts(Object.entries(VERDICT).map(([k,v])=>[k,v[0]]),s.verdict,'All')}</select></label>
+    <label for="cs">Severity<select id="cs">${opts([['high','High'],['medium','Medium'],['low','Low']],s.severity,'All')}</select></label>
+    <label for="cr">Relation<select id="cr">${opts(rels.map(r=>[r,r]),s.relation,'All')}</select></label>
+    <label for="cl">Kind of issue<select id="cl">${opts([['modelling_choice','Modelling choice'],['evidence_limit','Evidence limit'],['none','No issue']],s.cls,'All')}</select></label>
+    <label for="ck">How checked<select id="ck">${opts(Object.keys(sum.connections.check_method).map(k=>[k,CHECK[k]]),s.check,'All')}</select></label>
+    <button class="clear" id="cclear">Clear filters</button></div>
+    <p class="count" id="ccount" aria-live="polite"></p><div id="clist"></div>`;
+}
+function renderConnections(){
+  const s=state.c, q=s.q.toLowerCase();
+  const rank={high:0,medium:1,low:2}, vr={reject:0,cannot_verify:1,change:2,agree:3};
+  const out=D.connections.filter(c=>(!s.verdict||c.verdict===s.verdict)&&(!s.severity||c.severity===s.severity)&&(!s.relation||c.relation===s.relation)&&(!s.check||c.check_method===s.check)&&(!s.cls||c.issue_class===s.cls)&&(!q||[c.id,c.statement,c.issue,c.proposed_change,nodes[c.from]?.label,nodes[c.to]?.label].join(' ').toLowerCase().includes(q)))
+    .sort((a,b)=>rank[a.severity]-rank[b.severity]||vr[a.verdict]-vr[b.verdict]);
+  $('#ccount').textContent=`${out.length} of ${D.connections.length} connections`;
+  $('#clist').innerHTML=out.length?out.map(c=>`<article class="row">
+    <div class="rhead">${pill(VERDICT[c.verdict][0],VERDICT[c.verdict][1])}<span class="ends">${nameOf(c.from)} → ${nameOf(c.to)}</span></div>
+    <div class="rhead note"><span>${esc(c.relation)}</span><span>${esc(c.confidence)} confidence</span><span class="${c.severity==='high'?'sev-high':''}">${esc(c.severity)} severity</span><span>${esc(classes(c.issue_class))}</span></div>
+    <div class="issue">${esc(c.issue)}</div>
+    ${c.verdict!=='agree'||c.proposed_change!=='No change.'?`<div class="fix"><em>Proposed:</em> ${esc(c.proposed_change)}${c.proposed_relation?` <em>Type:</em> ${esc(c.proposed_relation)}.`:''}</div>`:''}
+    <details><summary>Statement and how it was checked</summary><div><span><b style="font-weight:500">Graph says:</b> ${esc(c.statement)}</span><span><b style="font-weight:500">Check:</b> ${esc(CHECK[c.check_method])}. ${esc(c.basis)}</span><span class="note">${esc(c.id)}</span></div></details>
+  </article>`).join(''):'<p>No connections match. Clear a filter to see more.</p>';
+}
+function entries(){
+  const s=state.e;
+  return `<div class="filters">
+    <label for="eq">Search<input id="eq" value="${esc(s.q)}" placeholder="Kilby, Hōkūleʻa, nylon…"></label>
+    <label for="et">Tier now<select id="et">${opts([0,1,2,3].map(i=>[i,'Tier '+i]),s.tier,'All')}</select></label>
+    <label for="eo">Proposed tier<select id="eo">${opts([0,1,2,3].map(i=>[i,'Tier '+i]),s.to,'All')}</select></label>
+    <label for="ev">Tier verdict<select id="ev">${opts([['agree','Agree'],['too_high','Too high'],['too_low','Too low']],s.tv,'All')}</select></label>
+    <label for="ea">Date<select id="ea">${opts([['misleading','Misleading'],['minor','Minor issue'],['agree','Agree']],s.av,'All')}</select></label>
+    <label for="ei">Identity<select id="ei">${opts(Object.entries(ID),s.iv,'All')}</select></label>
+    <label for="ek">Kind<select id="ek">${opts([['agree','Agree'],['third_kind','Needs a new kind'],['change','Change']],s.kv,'All')}</select></label>
+    <label for="el">Label<select id="el">${opts([['y','Has a label issue']],s.lab,'All')}</select></label>
+    <button class="clear" id="eclear">Clear filters</button></div>
+    <p class="count" id="ecount" aria-live="polite"></p><div id="elist"></div>`;
+}
+function renderEntries(){
+  const s=state.e, q=s.q.toLowerCase();
+  const to=e=>e.proposed_tier??e.tier;
+  const out=D.entries.filter(e=>(s.tier===''||e.tier==s.tier)&&(s.to===''||to(e)==s.to)&&(!s.tv||e.tier_verdict===s.tv)&&(!s.av||e.anchor_verdict===s.av)&&(!s.iv||e.identity_verdict===s.iv)&&(!s.kv||e.kind_verdict===s.kv)&&(!s.lab||e.label_issue)&&(!q||[e.id,e.label,e.issue,e.label_issue].join(' ').toLowerCase().includes(q)))
+    .sort((a,b)=>a.tier-b.tier||a.label.localeCompare(b.label));
+  $('#ecount').textContent=`${out.length} of ${D.entries.length} entries`;
+  $('#elist').innerHTML=out.length?out.map(e=>`<article class="row">
+    <div class="rhead"><span class="name ${e.kind==='science'?'science':''}">${esc(e.label)}</span>
+      ${pill(e.proposed_tier!=null?`Tier ${e.tier} → ${e.proposed_tier}`:`Tier ${e.tier}`, e.tier_verdict==='too_high'?'var(--reject)':e.tier_verdict==='too_low'?'var(--agree)':'')}
+      ${e.anchor_verdict==='misleading'?pill('Date misleads','var(--change)'):''}${e.identity_verdict!=='agree'?pill(ID[e.identity_verdict]):''}${e.kind_verdict!=='agree'?pill('Kind: '+(e.proposed_kind||'')):''}</div>
+    <div class="note">${esc(e.kind)} · shown at ${esc(e.date_label)} · ${esc(classes(e.issue_class))}</div>
+    <div class="issue">${esc(e.issue)}</div>
+    ${e.label_issue?`<div class="fix"><em>Label:</em> ${esc(e.label_issue)}</div>`:''}
+    <details><summary>How it was checked</summary><div><span>${esc(CHECK[e.check_method])}. ${esc(e.basis)}</span><span class="note">${esc(e.id)}</span></div></details>
+  </article>`).join(''):'<p>No entries match. Clear a filter to see more.</p>';
+}
+function dates(){
+  const g=sum.graph;
+  const rows=g.anchor_gaps_20y_or_more;
+  const yr=y=>y<0?`${-y} BCE`:`${y}`;
+  return `<section><p>A date on the chart is when a named community first shows evidence of the thing, which can be long after it existed. These are the cases where that choice changes what a reader would conclude. Some gaps come from honest date ranges, so read the entry verdict before treating a row as an error.</p></section>
+  <section><h2>Connections drawn backwards</h2><p class="note">The edge is right in all of these. The anchors of its two ends put them in the wrong order.</p>
+  <div class="tablewrap"><table><thead><tr><th>From</th><th>Shown at</th><th>To</th><th>Shown at</th></tr></thead><tbody>
+  ${g.display_reversed_edges.map(r=>{const c=D.connections.find(x=>x.id===r.id);return `<tr><td>${nameOf(c.from)}</td><td class="n">${r.from_year}</td><td>${nameOf(c.to)}</td><td class="n">${r.to_year}</td></tr>`}).join('')}</tbody></table></div></section>
+  <section><h2>Entries shown 20 or more years after their earliest event</h2>
+  <div class="tablewrap"><table><thead><tr><th>Entry</th><th>Tier</th><th>Earliest event</th><th>Shown at</th><th style="text-align:right">Years later</th></tr></thead><tbody>
+  ${rows.map(r=>`<tr><td>${nameOf(r.id)}</td><td class="n">${r.tier}</td><td class="n">${yr(r.earliest_event)}</td><td>${esc(r.anchor)}</td><td class="n">${r.gap_years.toLocaleString('en-GB')}</td></tr>`).join('')}</tbody></table></div></section>`;
+}
+function gaps(){
+  const t=state.g.type, b=D.gaps.filter(g=>g.type===t);
+  const tab=(v,l)=>`<button class="clear" data-gap="${v}" style="${t===v?'text-decoration:none;color:var(--ink);font-weight:500':''}">${l}</button>`;
+  const body=t==='missing_breakthrough'
+   ? `<table><thead><tr><th style="text-align:right">#</th><th>Breakthrough</th><th>Why it matters here</th><th>Likely source</th></tr></thead><tbody>${b.map(g=>`<tr><td class="n">${g.rank}</td><td>${esc(g.name)}</td><td>${esc(g.reason)}</td><td>${esc(g.likely_source)}</td></tr>`).join('')}</tbody></table>`
+   : `<table><thead><tr><th style="text-align:right">#</th><th>From → to</th><th>Why</th><th>Likely source</th><th>Check</th></tr></thead><tbody>${b.map(g=>`<tr><td class="n">${g.rank}</td><td>${nameOf(g.from)} → ${nameOf(g.to)}<br><span class="note">${esc(g.proposed_relation)}</span></td><td>${esc(g.reason)}</td><td>${esc(g.likely_source)}</td><td>${esc({read_source_locally:'Read',read_entry_record:'Entry record',knowledge_only:'Knowledge'}[g.check_method])}</td></tr>`).join('')}</tbody></table>`;
+  return `<section><p>Proposals only, most important first. Sources are starting points from memory unless the check says otherwise, so verify them before use.</p>
+  <div class="filters">${tab('missing_breakthrough','30 missing breakthroughs')}${tab('missing_connection','30 missing connections')}</div>
+  <div class="tablewrap">${body}</div></section>`;
+}
+function bind(id,obj,key,render){ const el=$(id); if(!el)return; el.addEventListener(el.tagName==='INPUT'?'input':'change',()=>{obj[key]=el.value;render();}); }
+function go(v){ state.view=v; try{ location.hash=v; }catch{} show(); window.scrollTo(0,0); }
+function show(){
+  document.querySelectorAll('nav button').forEach(b=>{ if(b.dataset.view===state.view) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+  const m=$('#main');
+  if(state.view==='overview'){ m.innerHTML=overview(); afterOverview(); }
+  if(state.view==='connections'){ m.innerHTML=connections(); renderConnections();
+    [['#cq','q'],['#cv','verdict'],['#cs','severity'],['#cr','relation'],['#ck','check'],['#cl','cls']].forEach(([i,k])=>bind(i,state.c,k,renderConnections));
+    $('#cclear').onclick=()=>{ state.c={q:'',verdict:'',severity:'',relation:'',check:'',cls:''}; show(); }; }
+  if(state.view==='entries'){ m.innerHTML=entries(); renderEntries();
+    [['#eq','q'],['#et','tier'],['#eo','to'],['#ev','tv'],['#ea','av'],['#ei','iv'],['#ek','kv'],['#el','lab']].forEach(([i,k])=>bind(i,state.e,k,renderEntries));
+    $('#eclear').onclick=()=>{ state.e={q:'',tier:'',tv:'',to:'',kv:'',iv:'',av:'',lab:''}; show(); }; }
+  if(state.view==='dates'){ m.innerHTML=dates(); }
+  if(state.view==='gaps'){ m.innerHTML=gaps(); m.querySelectorAll('[data-gap]').forEach(b=>b.onclick=()=>{state.g.type=b.dataset.gap;show();}); }
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.view));
+window.addEventListener('hashchange',()=>{ const h=location.hash.slice(1); if(h&&h!==state.view&&document.querySelector(`nav [data-view="${h}"]`)){ state.view=h; show(); } });
+const tip=$('#tip');
+document.addEventListener('pointermove',ev=>{ const t=ev.target.closest&&ev.target.closest('[data-tip]'); if(!t){tip.hidden=true;return;} tip.textContent=t.dataset.tip; tip.hidden=false; const w=tip.offsetWidth; tip.style.left=Math.min(ev.clientX+12,innerWidth-w-8)+'px'; tip.style.top=(ev.clientY+14)+'px'; });
+$('#commit').textContent=sum.reviewed_commit;
+const h=location.hash.slice(1); if(h&&document.querySelector(`nav [data-view="${h}"]`)) state.view=h;
+show();
+</script>

@@ -1,0 +1,459 @@
+{
+  "registered_utc": "2026-11-05T15:24:30.218672+00:00",
+  "before_original_source_reopening": true,
+  "target_manifest": "skills-behaviour-snapshot/MANIFEST.json",
+  "manifest_sha256": "430e5e198be4545239452e43ee18ff36d3f21c2aff4f7f75fa65a6cd50d48081",
+  "ordinary_seed": "skills-behaviour-source-audit-r2-ordinary-v1:",
+  "ordinary_rule": "Smallest SHA-256(seed + ID) among claims with causal_status descriptive in each domain, excluding risk-selected IDs. No seed retries.",
+  "risk": [
+    {
+      "id": "SKL-K18",
+      "domain": "SKL",
+      "reason": "Partial Collins/Harrison 1975 access; hardware confounding versus exclusive knowledge-transfer explanation."
+    },
+    {
+      "id": "SKL-K11",
+      "domain": "SKL",
+      "reason": "Tools-to-autonomy mechanism risks converting a selective career narrative into an asset/livelihood effect."
+    },
+    {
+      "id": "SKL-K08",
+      "domain": "SKL",
+      "reason": "Measurement-reference claim and physical gauge evidence span different dates/models; graph scope and lineage matter."
+    },
+    {
+      "id": "PSY-K18",
+      "domain": "PSY",
+      "reason": "Zambia manuscript/final-abstract version boundary, exact numerical units, eligible population and bundled intervention."
+    },
+    {
+      "id": "PSY-K20",
+      "domain": "PSY",
+      "reason": "Self-reported agency, multiple-testing corrections and causal/norm-change interpretation."
+    },
+    {
+      "id": "PSY-K03",
+      "domain": "PSY",
+      "reason": "Present-bias versus access/timing alternatives; formal early/late contrast and nonsignificant effects."
+    }
+  ],
+  "ordinary": [
+    {
+      "id": "SKL-K07",
+      "domain": "SKL",
+      "hash": "3bf5113651af3ceb5a9ca786b86af5297eb0724cc37889d2f7bc2d4995c24837",
+      "reason": "Deterministic descriptive control, selected before original-source reopening."
+    },
+    {
+      "id": "PSY-K04",
+      "domain": "PSY",
+      "hash": "052411d510ddca0bc8bfe5b1aba7ed8a7c66adc01ad069c2548656367203550a",
+      "reason": "Deterministic descriptive control, selected before original-source reopening."
+    }
+  ],
+  "claims": [
+    {
+      "id": "SKL-K07",
+      "case_ids": [
+        "SKL-C03"
+      ],
+      "statement": "Hall's 1811 rifle patent preceded his 1819 government contract and years of tooling; his and Talcott's statements describe reduced dependence on handwork, not the elimination of skilled toolmaking or measured gains for workers.",
+      "evidence_type": "institutional-synthesis",
+      "confidence": "medium",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "SKL-S07",
+          "locator": "Contract paragraph and 1822/1832 testimony",
+          "supports": "Separates patent, procurement, tooling and contemporaries' assertions about ordinary labour/machinery."
+        },
+        {
+          "source_id": "SKL-S06",
+          "locator": "p. 55",
+          "supports": "Main factory's piece-rate and 55-task organisation already existed by 1816."
+        }
+      ],
+      "counterevidence": "Hall was defending his project, and the museum page is celebratory; no independent cost or skill inventory is provided.",
+      "inference_limits": "Cannot infer net deskilling, lower full cost or higher wages from promoters' statements.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Sequences institutional events and identifies the limits of contemporary labour assertions."
+      }
+    },
+    {
+      "id": "SKL-K08",
+      "case_ids": [
+        "SKL-C03"
+      ],
+      "statement": "The Harpers Ferry standardisation account describes working gauges checked against a separate gauge set, so repeated dimensions were supported by maintained measurement references as well as machines; the later HAFE7427 set documents physical inspection equipment.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "mechanism-supported",
+      "sources": [
+        {
+          "source_id": "SKL-S06",
+          "locator": "p. 59, notes 244–245",
+          "supports": "1823 gauge adoption and separate gauges to check working gauges."
+        },
+        {
+          "source_id": "SKL-S12",
+          "locator": "Catalog HAFE7427, ca.1846",
+          "supports": "Surviving Model 1841 inspection set attributed to Thornton; same set as S06 figure 19."
+        }
+      ],
+      "counterevidence": "A gauge can wear or be used incorrectly; its existence alone does not show output conformed. Different model and workshop dates cannot be combined into one universal system.",
+      "inference_limits": "No tolerance values, rejection rates or universal necessity of this exact gauge system are claimed.",
+      "test": {
+        "status": "underdetermined",
+        "mechanism_chain": "Component variation -> comparison with gauges -> checking working gauges against references -> a repeatable basis for accepting dimensions.",
+        "strongest_rival": "Machines alone deliver sufficient repeatability, with inspection merely ceremonial.",
+        "discriminating_observation": "Documented checks on the gauges themselves are more expected when measurement drift matters than when machine output is self-validating.",
+        "evidence_sought_found": "S06 explicitly describes reference checking; S12 supplies a later physical set but no actual pass/fail dataset.",
+        "remaining_ambiguity": "Operational importance is supported; marginal effects on yield/cost remain unidentified.",
+        "hypothesis_timing": "pre-search candidate"
+      }
+    },
+    {
+      "id": "SKL-K11",
+      "case_ids": [
+        "SKL-C04"
+      ],
+      "statement": "Personal tool accumulation could widen apprentices' ability to take work outside a garage; Grace records salvaged tools and one mechanic's growth from an under-tree shop in 1967 to larger premises and welding equipment in 1972.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "mechanism-supported",
+      "sources": [
+        {
+          "source_id": "SKL-S08",
+          "locator": "p. 120, notes 141–142",
+          "supports": "Links own wrenches/tools to independent work and provides Juma Katigiro's dated account."
+        }
+      ],
+      "counterevidence": "Customer connections, skill and demand grow together with tools; failed entrants are poorly observed.",
+      "inference_limits": "One career and qualitative accounts do not identify an asset effect or prove tools alone suffice.",
+      "test": {
+        "status": "underdetermined",
+        "mechanism_chain": "Participation -> accumulation of usable tools and skill -> ability to accept some independent jobs -> possible workshop autonomy.",
+        "strongest_rival": "Demand/reputation alone drives both tool purchases and independent work; tools may proxy success.",
+        "discriminating_observation": "Track otherwise comparable apprentices before and after obtaining tools, including those who never exit and job types needing particular equipment.",
+        "evidence_sought_found": "S08 links particular tools to tasks and narrates one expansion, but gives no apprentice cohort or exogenous tool access.",
+        "remaining_ambiguity": "Tools have a concrete task role; their marginal contribution to entry or income remains unknown.",
+        "hypothesis_timing": "pre-search candidate"
+      }
+    },
+    {
+      "id": "SKL-K18",
+      "case_ids": [
+        "SKL-C06"
+      ],
+      "statement": "Accessible footnotes to Collins and Harrison's1975 follow-up record simultaneous changes to two build variables and repeated power-unit failures; those observations leave any exclusive knowledge-transfer explanation of that episode's delays underdetermined.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "mechanism-supported",
+      "sources": [
+        {
+          "source_id": "SKL-S11",
+          "locator": "Footnotes2,8,10–11",
+          "supports": "Two variables changed together; teaching burden; at least six power-unit failures byJune1975; available written advice was not always consulted."
+        }
+      ],
+      "counterevidence": "Full narrative was not acquired, so the total chronology or authors' full causal explanation is not reconstructed.",
+      "inference_limits": "Hardware reliability and time allocation are demonstrated candidate confounders, not measured shares of delay.",
+      "test": {
+        "status": "underdetermined",
+        "mechanism_chain": "Build difficulties -> simultaneous adjustments and repairs amid time constraints -> eventual observations cannot isolate each input's effect.",
+        "strongest_rival": "Learning alone explains progress; hardware failures are consequences of inexperienced construction rather than independent causes.",
+        "discriminating_observation": "Contemporaneous logs and one-variable interventions distinguishing component faults, operator experience and available time.",
+        "evidence_sought_found": "S11 footnotes explicitly state the simultaneous changes, teaching load and repeated failures; no complete log/body text inspected.",
+        "remaining_ambiguity": "Reciprocal causation between learning and hardware failures remains possible.",
+        "hypothesis_timing": "emerged during research"
+      }
+    },
+    {
+      "id": "PSY-K03",
+      "case_ids": [
+        "PSY-C01"
+      ],
+      "statement": "SAFI’s pattern is consistent with procrastination/commitment mechanisms, but does not uniquely identify present bias: late free delivery estimated +9–10pp without significance, the early–late difference had p=.08, and timing-choice take-up did not fully match the simple model.",
+      "evidence_type": "experiment",
+      "confidence": "medium",
+      "causal_status": "mechanism-supported",
+      "sources": [
+        {
+          "source_id": "PSY-S01",
+          "locator": "pp.2375–2377, §VI pp.2383–2387; Table6",
+          "supports": "Timing arms, prechoice, maize-purchase test, pilot intention/purchase gaps and alternative explanations."
+        }
+      ],
+      "counterevidence": "Seasonal liquidity, opportunity costs, trusted delivery and a surprise late offer can also matter; pilots use purchases rather than subsequent use.",
+      "inference_limits": "No independently elicited present-bias parameter. Cannot equate one insignificant arm with zero or read welfare rankings directly from trial outcomes.",
+      "test": {
+        "status": "underdetermined",
+        "mechanism_chain": "Harvest-time small acquisition-cost reduction -> earlier purchase/less delay -> more seasonal use",
+        "strongest_rival": "Time-consistent farmers with seasonal resources, fixed costs and changing opportunities also prefer early offers.",
+        "discriminating_observation": "Announce late offers in advance; vary liquidity independently; directly elicit intertemporal choices and relate them prospectively to response.",
+        "evidence_sought_found": "PSY-S01 includes timing prechoice, favourable maize-purchase test and smaller announced-delay pilots; these constrain some simple rivals, but p=.08 timing contrast and model misfit remain.",
+        "remaining_ambiguity": "Several timing and saving motives share predictions; favourable maize sale is not a complete liquidity intervention.",
+        "hypothesis_timing": "pre-search candidate"
+      }
+    },
+    {
+      "id": "PSY-K04",
+      "case_ids": [
+        "PSY-C02"
+      ],
+      "statement": "Among 489 surveyed Indonesian seaweed growers, 86% could not state their current pod size and 87% could not state an optimal size, whereas most could state spacing; these beliefs were elicited before uptake outcomes and alongside observed farm practices.",
+      "evidence_type": "experiment",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "PSY-S03",
+          "locator": "TableII and §IV.A, pp.1329–1331; field measurement §III",
+          "supports": "Input-specific knowledge responses and independently recorded plot practices."
+        }
+      ],
+      "counterevidence": "Being unable to answer in grams may partly reflect measurement language rather than complete lack of practical knowledge.",
+      "inference_limits": "A bounded descriptive contrast, not a universal cognitive deficit among farmers.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Reports baseline answers and the measurement design without assigning a psychological cause."
+      }
+    },
+    {
+      "id": "PSY-K18",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "statement": "In Zambia’s 100-school experiment, the bicycle-plus-support package reduced self-reported one-way commute by 35.08 minutes (control 103.77) and last-week absence by 0.29 days (control 1.01) at one year; the final article abstract rounds these to 34% and 29%.",
+      "evidence_type": "experiment",
+      "confidence": "high",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "PSY-S11",
+          "locator": "Tables1/4, pp.38/41; §§3–6; attrition §4.4.2",
+          "supports": "25 payment,20 free,55 control schools; commute N=1,879; absence N=1,952; school-clustered randomisation inference."
+        },
+        {
+          "source_id": "PSY-S14",
+          "locator": "Final journal abstract",
+          "supports": "Rounded34% commute and29% absenteeism reductions; final full text not acquired."
+        }
+      ],
+      "counterevidence": "Differential follow-up and self-report; programme includes mechanics, committees and use restrictions. One-year dropout/grade-transition/English effects not significant.",
+      "inference_limits": "Effect of the installed package on eligible already-enrolled girls; not a bare-asset effect, school-entry effect or proof all girls can use bicycles.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Bike/support offer -> usable school transport -> shorter commute -> better attendance",
+        "strongest_rival": "Common schooling improvement explains gains, or mere stated enthusiasm without travel/task change.",
+        "discriminating_observation": "Randomised school control and concrete travel/attendance outcomes, with attrition checks and longer administrative follow-up.",
+        "evidence_sought_found": "PSY-S11 Tables1/4 show large specific effects; S14 abstract confirms rounded direction/magnitude; manuscript attrition bounds inspected.",
+        "remaining_ambiguity": "Self-report not blinded; no independent randomisation of maintenance/custody; follow-up excludes some girls and later records are separately scoped.",
+        "hypothesis_timing": "pre-search candidate"
+      }
+    },
+    {
+      "id": "PSY-K20",
+      "case_ids": [
+        "PSY-C05"
+      ],
+      "statement": "Zambia’s package improved selected self-reported agency measures, notably locus of control and bargaining, but did not clearly change general mobility or pooled aspirations; the aggregate empowerment result varies with specification/correction and does not identify a distinct norm-change mechanism.",
+      "evidence_type": "experiment",
+      "confidence": "medium",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "PSY-S11",
+          "locator": "Table3 p.40; TableA.11 p.56; §6.3",
+          "supports": "Main locus-control0.18SD/bargaining0.21SD; controlled appendix0.16/0.19 with corrected p-values .02/.04 and <=.01; general mobility/aspirations imprecise."
+        }
+      ],
+      "counterevidence": "Aggregate index p-value .04 or .12 across adjustment families in appendix; no direct normative mediator randomised. Asset custody rules constrain movement and resale.",
+      "inference_limits": "Self-reported agency is independently measured rather than inferred from attendance, but it is neither unrestricted freedom nor an adult earnings/occupation outcome. Final full-text version audit remains open.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Supported school transport -> changed daily constraints/experience -> selected reported agency dimensions",
+        "strongest_rival": "Interview demand, asset salience or family reallocation changes reports without broad social norms changing.",
+        "discriminating_observation": "Independent pre/post agency questions, multiple-testing corrections and behavioural/longitudinal measures; distinguish dimensions.",
+        "evidence_sought_found": "PSY-S11 survey indices and appendix corrections support some dimensions but not general mobility/aspirations; behavioural games were stopped and not used as confirmation.",
+        "remaining_ambiguity": "Mechanism among saved time, safety, ownership and school exposure remains underdetermined; self-report not blind.",
+        "hypothesis_timing": "pre-search candidate"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "SKL-S06",
+      "title": "Archeological Investigation of the Armory Street, Lower Armory Grounds, Harpers Ferry Armory (46JF518)",
+      "authors": [
+        "Darlene Hassler",
+        "Justin Ebersole"
+      ],
+      "year": 2016,
+      "url": "https://npshistory.com/series/archeology/ncr/21/report.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "NPS Regional Archeology Program Occasional Report 21; historical discussion pp. 55–59, notes 221–247; figure 19.",
+      "scope_limit": "Complete 22 MB report acquired; selected historical sections read. These claims use its documentary synthesis, not the excavations as direct proof of interchangeability. Hall's rifle works and the musket factory must be distinguished.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Historical passages depend on Merritt Roe Smith, Charles Snell, Peter Schmidt and Stuart Brown; p. 56 test account is mediated through Schmidt, p. 59 gauge history through Smith. Report also contains original archaeology, which is not treated as independent corroboration of those documentary claims."
+    },
+    {
+      "id": "SKL-S07",
+      "title": "John H Hall",
+      "authors": [
+        "Harpers Ferry National Historical Park, National Park Service"
+      ],
+      "year": 2019,
+      "url": "https://home.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+      "source_type": "institutional-synthesis",
+      "access": "full-text",
+      "locator": "Entire page, updated 23 September 2019; 1819 contract, Hall letter of 20 December 1822, Talcott statement of 1832.",
+      "scope_limit": "Short institutional account with celebratory framing. Hall's claim of economy and ordinary-worker production is testimony, not an audited cost or worker-income estimate.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Quotes Hall and Talcott via a bibliography including Smith, Hounshell and Huntington; archival originals not checked. Shares the Smith evidence family with S06."
+    },
+    {
+      "id": "SKL-S08",
+      "title": "African Motors: Technology, Gender, and the History of Development",
+      "authors": [
+        "Joshua Grace"
+      ],
+      "year": 2021,
+      "url": "https://www.bibliopen.org/p/bopen/9781478094456",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Open-access full PDF acquired from the page's Download PDF link; selected Chapter 2, Overhaul: pp. 94–99, 118–121, 136–142 and table 2.1, pp. 138–140.",
+      "scope_limit": "Entire book available, only stated sections inspected. Historical interviews are retrospective; one month of apprenticeship plus return visits is not a representative workshop census or controlled repair durability test. Male-centred archive does not establish all women's participation.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original oral histories with named mechanics (mostly 2011–2012 in the cited sections), photographs, archives and author apprenticeship. Table 2.1 names interviews for each repair. Author's earlier Modernization Bubu work shares this research programme, so references to it in S09 are not independent replication."
+    },
+    {
+      "id": "SKL-S11",
+      "title": "Building a TEA Laser: The Caprices of Communication",
+      "authors": [
+        "H. M. Collins",
+        "R. G. Harrison"
+      ],
+      "year": 1975,
+      "url": "https://journals.sagepub.com/doi/10.1177/030631277500500404",
+      "source_type": "scholarly-analysis",
+      "access": "partial-text",
+      "locator": "Social Studies of Science 5(4), pp. 441–450; publisher-displayed footnotes 2, 8, 10 and 11 inspected. Main narrative not available.",
+      "scope_limit": "Only displayed footnotes support claims: simultaneous variable changes, teaching burden and power-unit failures. Do not infer the full build sequence or outcome from inaccessible body text.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Coauthored follow-up involving the builder's own experience. Same Collins research programme as S10; partially different episode, not independent confirmation of an all-purpose tacit-knowledge theory."
+    },
+    {
+      "id": "SKL-S12",
+      "title": "Box of U.S. Rifle Model 1841 Inspection Gauges (View 4), HAFE 7427",
+      "authors": [
+        "National Park Service, Museum Management Program"
+      ],
+      "year": null,
+      "url": "https://artsandculture.google.com/asset/view-4/KAFQGvXgiHqy_Q?childAssetId=XgHi054cXIxrog",
+      "source_type": "institutional-synthesis",
+      "access": "full-text",
+      "locator": "Complete museum object record, date ca. 1846, attribution to Major William A. Thornton, catalog HAFE 7427.",
+      "scope_limit": "Museum attribution and physical object are evidence of inspection equipment, not independently measured tolerances or evidence of all factory output meeting them. Thumbnail was not used for metrology.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "NPS custodial catalogue for the same surviving gauge set illustrated in S06 figure 19. This is object-level corroboration with explicit shared material, not a second independent gauge-adoption history."
+    },
+    {
+      "id": "PSY-S01",
+      "title": "Nudging Farmers to Use Fertilizer: Theory and Experimental Evidence from Kenya",
+      "authors": [
+        "Esther Duflo",
+        "Michael Kremer",
+        "Jonathan Robinson"
+      ],
+      "year": 2011,
+      "url": "https://www.atai-research.org/wp-content/uploads/2016/07/aer-Nudging-Fertilizer-2011.pdf",
+      "source_type": "original field experiment and economic model",
+      "access": "full-text",
+      "locator": "AER 101(6), pp.2350–2390; inspected §III–IV, Tables 3–4, §VI and Table 6, particularly pp.2366–2377, 2383–2387.",
+      "scope_limit": "Parents sampled through 16 Busia schools; household any-plot use is not purchaser-only use. Present bias is a proposed mechanism; welfare comparisons are model calibrations.",
+      "evidence_lineage": "Original 2003–05 SAFI experiment and earlier pilots with ICS; related Busia agronomic trials in S02. Programme population and team overlap; not independent replication.",
+      "accessed": "2026-11-05",
+      "local_file": "cache/S01.pdf"
+    },
+    {
+      "id": "PSY-S03",
+      "title": "Learning Through Noticing: Theory and Evidence from a Field Experiment",
+      "authors": [
+        "Rema Hanna",
+        "Sendhil Mullainathan",
+        "Joshua Schwartzstein"
+      ],
+      "year": 2014,
+      "url": "https://www.hbs.edu/ris/Publication%20Files/Learning%20Through%20Noticing%20Field%202014_c1214d62-9429-4357-b47a-4195dae00881.pdf",
+      "source_type": "original field experiment and learning model",
+      "access": "full-text",
+      "locator": "QJE 129(3), pp.1311–1353; §III, Tables II–V, §IV.C, footnotes 23–29; pp.1325–1342.",
+      "scope_limit": "489 experienced farmers from seven Indonesian villages; 117 trial participants; short follow-up. Trial then explanation are sequential, not separate randomisations.",
+      "evidence_lineage": "Original 2006 census and 2007–08 seaweed surveys, plot trials and enumerator measures. September 2012 NBER draft also downloaded but final 2014 version used; those versions are one evidence lineage.",
+      "accessed": "2026-11-05",
+      "local_file": "cache/S03.pdf"
+    },
+    {
+      "id": "PSY-S11",
+      "title": "Wheels of Change: Transforming Girls’ Lives with Bicycles (7 May 2025 author manuscript)",
+      "authors": [
+        "Nathan Fiala",
+        "Ana Garcia-Hernandez",
+        "Kritika Narula",
+        "Nishith Prakash"
+      ],
+      "year": 2025,
+      "url": "https://www.nishithprakash.com/s/Wheels_of_Change.pdf",
+      "source_type": "original cluster field experiment; author manuscript",
+      "access": "full-text",
+      "locator": "7 May 2025 manuscript, §§3–6; Tables 1–6, A.4 and A.11; pp.8–24,38–43,56.",
+      "scope_limit": "100 schools in three Zambian districts, grades 5–7 initially enrolled and living >3km away. Survey attrition differs across arms; later administrative outcomes not preregistered. Manuscript abstract and tables differ slightly. S14 is final-abstract check, not final full-text verification.",
+      "evidence_lineage": "Original 2017–18 trial survey plus 2019–21 administrative follow-up collected with implementing partner WBR; 2022 draft preserved separately. Same evidence lineage as final article S14. Programme includes mechanics, monitoring and use restrictions; not a bare bicycle transfer.",
+      "accessed": "2026-11-05",
+      "local_file": "cache/S11.pdf"
+    },
+    {
+      "id": "PSY-S14",
+      "title": "Wheels of Change: Transforming Girls’ Lives with Bicycles (final journal abstract and metadata)",
+      "authors": [
+        "Nathan Fiala",
+        "Ana Garcia-Hernandez",
+        "Kritika Narula",
+        "Nishith Prakash"
+      ],
+      "year": 2026,
+      "url": "https://doi.org/10.1093/ej/ueaf122",
+      "source_type": "final journal article, abstract inspected",
+      "access": "abstract",
+      "locator": "Economic Journal 136(679), October 2026, pp.2531–2561; online publication 8 November 2025; abstract and publication metadata.",
+      "scope_limit": "Final full text not acquired; verifies publication status and abstract’s rounded 34% commute/29% absenteeism effects only. Detailed methods and null comparisons in contribution are explicitly from S11 author manuscript.",
+      "evidence_lineage": "Final publication of same Zambia trial as S11, not independent evidence. Revised rounded abstract numbers accord with S11 tables, whereas its opening abstract retained older 35%/27% values.",
+      "accessed": "2026-11-05"
+    }
+  ],
+  "population_counts": {
+    "SKL": {
+      "cases": 6,
+      "claims": 18,
+      "sources": 12,
+      "nodes": 27,
+      "edges": 19,
+      "comparisons": 4
+    },
+    "PSY": {
+      "cases": 5,
+      "claims": 20,
+      "sources": 14,
+      "nodes": 22,
+      "edges": 14,
+      "comparisons": 5
+    }
+  },
+  "initial_manifest_check": {
+    "files": 20,
+    "mismatches": []
+  }
+}

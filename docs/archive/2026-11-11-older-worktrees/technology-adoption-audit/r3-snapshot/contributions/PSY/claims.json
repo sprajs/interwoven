@@ -1,0 +1,562 @@
+[
+  {
+    "id": "PSY-K01",
+    "case_ids": [
+      "PSY-C01"
+    ],
+    "statement": "In Busia’s research-assisted on-farm trials, half-teaspoon CAN top-dressing produced a mean calculated seasonal return of 36%, while the full Ministry-recommended fertilizer/hybrid-seed package had a negative mean return; higher physical yield did not make every input configuration profitable.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S02",
+        "locator": "pp.483–487; Table1, panels B/D",
+        "supports": "Randomised adjacent plots, dose-specific yield and calculated return comparisons."
+      }
+    ],
+    "counterevidence": "Small plots, assisted application and noisy seasonal returns; risk and labour assumptions affect interpretation.",
+    "inference_limits": "Identifies tested plot-package performance under those conditions, not farm-wide realised profits or a profitable dose for every farmer.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Specified dose/package -> changed input application -> yield less input cost -> calculated return",
+      "strongest_rival": "All fertilizer packages have uniformly high private returns, versus configuration-specific economics.",
+      "discriminating_observation": "Compare net returns, not only yields, across randomised doses/packages.",
+      "evidence_sought_found": "PSY-S02 Table1: positive mean return at half teaspoon; negative at one teaspoon and full official package.",
+      "remaining_ambiguity": "Labour/assistance, small-plot noise and heterogeneous future conditions limit economic transportability.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K02",
+    "case_ids": [
+      "PSY-C01"
+    ],
+    "statement": "Randomised harvest-time SAFI offers increased household fertilizer use in treated seasons (adjusted +14.3pp and +18.1pp in the two main seasons), but did not produce a detectable persistent increase after the offer ceased.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S01",
+        "locator": "Table4 A/B; pp.2373–2375",
+        "supports": "Season-specific randomised offer effects and follow-up coefficients."
+      }
+    ],
+    "counterevidence": "About one-quarter of originally sampled farmers lacked adoption data; full-control denominators smaller. Persistent effects could be smaller than study precision.",
+    "inference_limits": "Household any-plot use, not stable individual habit, market-wide diffusion or sustained welfare gain.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Early delivered purchase offer -> additional acquisition/use this season -> possible learning/wealth change -> later use",
+      "strongest_rival": "One use permanently changes knowledge, wealth or habit enough to maintain increased adoption.",
+      "discriminating_observation": "Positive later-season effects when original offer is absent.",
+      "evidence_sought_found": "PSY-S01 Table4 shows treatment-season gains and later estimates near comparison-group usage.",
+      "remaining_ambiguity": "No detectable persistence does not prove no learning; liquidity, shocks or small scale may offset learned benefits.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K03",
+    "case_ids": [
+      "PSY-C01"
+    ],
+    "statement": "SAFI’s pattern is consistent with procrastination/commitment mechanisms, but does not uniquely identify present bias: late free delivery estimated +9–10pp without significance, the early–late difference had p=.08, and timing-choice take-up did not fully match the simple model.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S01",
+        "locator": "pp.2375–2377, §VI pp.2383–2387; Table6",
+        "supports": "Timing arms, prechoice, maize-purchase test, pilot intention/purchase gaps and alternative explanations."
+      }
+    ],
+    "counterevidence": "Seasonal liquidity, opportunity costs, trusted delivery and a surprise late offer can also matter; pilots use purchases rather than subsequent use.",
+    "inference_limits": "No independently elicited present-bias parameter. Cannot equate one insignificant arm with zero or read welfare rankings directly from trial outcomes.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Harvest-time small acquisition-cost reduction -> earlier purchase/less delay -> more seasonal use",
+      "strongest_rival": "Time-consistent farmers with seasonal resources, fixed costs and changing opportunities also prefer early offers.",
+      "discriminating_observation": "Announce late offers in advance; vary liquidity independently; directly elicit intertemporal choices and relate them prospectively to response.",
+      "evidence_sought_found": "PSY-S01 includes timing prechoice, favourable maize-purchase test and smaller announced-delay pilots; these constrain some simple rivals, but p=.08 timing contrast and model misfit remain.",
+      "remaining_ambiguity": "Several timing and saving motives share predictions; favourable maize sale is not a complete liquidity intervention.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K04",
+    "case_ids": [
+      "PSY-C02"
+    ],
+    "statement": "Among 489 surveyed Indonesian seaweed growers, 86% could not state their current pod size and 87% could not state an optimal size, whereas most could state spacing; these beliefs were elicited before uptake outcomes and alongside observed farm practices.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "PSY-S03",
+        "locator": "TableII and §IV.A, pp.1329–1331; field measurement §III",
+        "supports": "Input-specific knowledge responses and independently recorded plot practices."
+      }
+    ],
+    "counterevidence": "Being unable to answer in grams may partly reflect measurement language rather than complete lack of practical knowledge.",
+    "inference_limits": "A bounded descriptive contrast, not a universal cognitive deficit among farmers.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports baseline answers and the measurement design without assigning a psychological cause."
+    }
+  },
+  {
+    "id": "PSY-K05",
+    "case_ids": [
+      "PSY-C02"
+    ],
+    "statement": "In the seaweed trial, input changes were more evident after personalised summaries than after trial participation alone; measured pod-size phase differences were significant, but the approximately 7g post-summary treatment effect itself was imprecise.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S03",
+        "locator": "TableIV, pp.1337–1338; TableV",
+        "supports": "Post-summary self-reported change +0.162/+0.171; pod-size effects 6.951/7.316g; phase-difference p=.003/.015; fixed-effect post-summary p=.14."
+      }
+    ],
+    "counterevidence": "Self-reported phase-difference equality not rejected (p=.148/.221); spacing did not change. All treated farmers received summary later, rather than randomising explanation time separately.",
+    "inference_limits": "Randomised trial-package versus control supports effects of exposure path, not a pure independently randomised summary-only effect or long-run income improvement.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "On-plot trial plus later interpreted results -> information usable for input choice -> subsequent pod-size/practice changes",
+      "strongest_rival": "Experience alone eventually causes learning; later change need not arise specifically from noticing.",
+      "discriminating_observation": "Separate trial-only, delayed-learning and summary-only arms at the same follow-up date, with objective practices.",
+      "evidence_sought_found": "PSY-S03 TableIV provides randomised treated/control contrasts at two stages and objective weights; phase differences for weights support a change after summaries.",
+      "remaining_ambiguity": "No independent summary timing randomisation; direct effect precision is weak and farmer demand effects possible.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K06",
+    "case_ids": [
+      "PSY-C02"
+    ],
+    "statement": "Limited attention is a plausible account of the seaweed input-specific pattern, but explanation also reduces computational demands and can alter credibility; the evidence does not isolate attention as the sole mechanism.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S03",
+        "locator": "§IV.C, pp.1341–1342; footnote29; TablesII–V",
+        "supports": "Authors consider labour costs, numeracy and perceptibility; farmers knew a summary was coming."
+      }
+    ],
+    "counterevidence": "Baseline differences across input dimensions support attention; however, spacing and weight tasks need not impose the same calculation burden.",
+    "inference_limits": "No laboratory findings borrowed from cited papers; neither an innate deficit nor irrationality established. The model itself allows costly attention to be chosen optimally given mistaken priors.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Unnoticed input dimension -> raw experience not encoded -> salient explanation -> changed practice",
+      "strongest_rival": "Summary makes arithmetic easier, provides trusted advice or simply arrives after enough time.",
+      "discriminating_observation": "Vary salience while holding calculations, recommendation and timing fixed; independently measure attention/recall.",
+      "evidence_sought_found": "PSY-S03 baseline knowledge plus measurements fits attention; §IV.C explicitly discusses computational rival and footnote29 notes anticipated summaries.",
+      "remaining_ambiguity": "Belief reports are stronger than inference from uptake alone but not direct attention measurement.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K07",
+    "case_ids": [
+      "PSY-C03"
+    ],
+    "statement": "In the 120-village Malawi extension experiment, performance incentives to ordinary peer communicators increased their experimentation/communication and downstream adoption; simply appointing local communicators without incentives did not reliably produce that diffusion.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S05",
+        "locator": "§§2.1–2.2,5–7; Tables5–7",
+        "supports": "Cross-randomised communicator/incentive design, knowledge exams and observed practices."
+      }
+    ],
+    "counterevidence": "Peer strategy used five communicators versus one lead farmer; number, relevance and identity not separately randomised. Incentives can signal priorities as well as pay for effort.",
+    "inference_limits": "Supports incentive-dependent communication in this institutional programme, not a universal claim that peers need payment or that ordinary identity alone causes adoption.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Performance reward -> communicator effort/own demonstration -> recipient knowledge -> farm adoption",
+      "strongest_rival": "Passive diffusion follows automatically from selecting respected/local farmers, without effort incentives.",
+      "discriminating_observation": "Cross-randomise rewards; observe communicator actions and recipient knowledge/practices rather than correlate friends’ uptake.",
+      "evidence_sought_found": "PSY-S05 documents weak unincentivised effects and stronger rewarded peer communication/adoption.",
+      "remaining_ambiguity": "Payment, task salience, number of contacts and demonstrator adoption interact; identity-versus-number remains unresolved.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K08",
+    "case_ids": [
+      "PSY-C03"
+    ],
+    "statement": "In the separate 200-village Malawi network experiment, central-seed targeting increased pit-planting diffusion relative to extension-worker selection; adoption-rate differences were significant in year two but not year three, and 45% of benchmark villages had no non-seed adopter after three years.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S04",
+        "locator": "pp.5–6; §§2–4 and adoption tables",
+        "supports": "Same two seed slots across four selection arms; diffusion rates and any-non-seed village outcome."
+      }
+    ],
+    "counterevidence": "Some benchmark villages did diffuse; most farmers still did not adopt even under central targeting. Network collection expensive; CRM differs from pit planting.",
+    "inference_limits": "No necessity edge warranted. The larger village-level probability of any adoption and average individual uptake are different estimands.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Network-based choice of two trained seeds -> wider relevant contacts -> some non-seed adoption",
+      "strongest_rival": "Any two locally selected informed farmers eventually yield equivalent reach over observed time.",
+      "discriminating_observation": "Hold training/seed count fixed and randomise selection rule; compare both average adoption and stalls.",
+      "evidence_sought_found": "PSY-S04 reports ~3pp rate advantage in years2/3, precise only year2, and fewer no-diffusion villages under central targeting.",
+      "remaining_ambiguity": "Three years cannot establish permanent stalls; centrality co-varies with other seed attributes.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K09",
+    "case_ids": [
+      "PSY-C03"
+    ],
+    "statement": "Female-reserved communicator roles in the Malawi 143-village study elicited lower recipient ratings and lower training attendance despite comparable measured communicator knowledge/use; pooled downstream knowledge/adoption and yields did not show a precise corresponding gender penalty.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S06",
+        "locator": "Tables3–7, §§4.1–4.2.3, pp.14–21",
+        "supports": "Objective competence, recipient ratings, training attendance, knowledge/adoption/yields measured separately."
+      }
+    ],
+    "counterevidence": "Some female-recipient knowledge/adoption contrasts are negative at p<.10; pooled imprecision is not equivalence. Unreserved roles not exclusively male by design.",
+    "inference_limits": "Identifies effects of reservation arrangements, not a biological sex effect or complete causal mediation through prejudice.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Reservation changes messenger composition -> recipient appraisal/contact -> possible learning/adoption change",
+      "strongest_rival": "Lower reception simply reflects lower measured technical competence or necessarily creates lower final diffusion.",
+      "discriminating_observation": "Compare objective communicator competence, independent recipient perceptions and downstream results within assignment arms.",
+      "evidence_sought_found": "PSY-S06 finds no measured learning gap, lower attendance/ratings, but weak pooled downstream penalties.",
+      "remaining_ambiguity": "Selected communicators may differ on unmeasured teaching qualities; perception elicitation after assignment and heterogeneous subgroup results limit mediation claims.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K10",
+    "case_ids": [
+      "PSY-C03"
+    ],
+    "statement": "The Malawi network data support a multiple-contact learning interpretation, but complex contagion is not uniquely established: connectedness can change exposure, demonstration and persuasion as well as reinforcement of beliefs.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S04",
+        "locator": "§5 and pp.5–6; individual two-seed link analysis",
+        "supports": "Two-seed connections predict learning/adoption under randomised seed assignments; author explicitly notes alternatives."
+      }
+    ],
+    "counterevidence": "Larger effects where baseline knowledge low and land more suitable are consistent with learning; neither is exclusive to a threshold mechanism.",
+    "inference_limits": "Do not turn network topology into a universal psychological threshold or infer that one contact never suffices.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Multiple informed connections -> reinforced useful information -> learning/adoption",
+      "strongest_rival": "More contacts increase encounter probability, effort or demonstrator relevance without a discrete reinforcement threshold.",
+      "discriminating_observation": "Hold contact time/content and seed effort constant while varying independent sources; measure belief updating before use.",
+      "evidence_sought_found": "PSY-S04 uses assignment-induced two-seed exposure and knowledge; PSY-S05 demonstrates that communication effort itself can respond to incentives.",
+      "remaining_ambiguity": "Cross-study comparison suggests a rival rather than jointly identifying a mechanism; studies share institutions and researchers.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K11",
+    "case_ids": [
+      "PSY-C04"
+    ],
+    "statement": "In Humes et al.’s 154-completer trial, both effective audiology-fitted and consumer-selected preset aids improved major hearing-benefit measures versus placebo, while satisfaction and preliminary keep intention differed and daily logged use did not differ significantly across service arms.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S07",
+        "locator": "Results, Figures6–10; Table5; preliminary decision-to-keep section",
+        "supports": "Randomised service comparisons with several distinct outcomes; 81% versus55% versus36% preliminary keep intention."
+      },
+      {
+        "source_id": "PSY-S13",
+        "locator": "Full erratum, paragraphs1–3",
+        "supports": "CST test was at +1dB SNR, not originally reported +3dB."
+      }
+    ],
+    "counterevidence": "Selected volunteers, short period, no prior use and same hardware; absence of significance is not proof identical efficacy. Speech-test calibration corrected.",
+    "inference_limits": "The intention percentages are not actual final retention rates. Consumer model simulated OTC access within a clinic; does not verify all OTC products or user groups.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Effective amplification plus specified delivery -> task benefit -> satisfaction/use/retention decisions",
+      "strongest_rival": "Professional contact/placebo alone accounts for apparent hearing gains, or usage alone measures all benefit.",
+      "discriminating_observation": "Same hardware with placebo programming and blinded outcome assessment; separate benefit, hours and choice.",
+      "evidence_sought_found": "PSY-S07 active models beat placebo on benefit, but usage fails to separate groups; S13 corrects test calibration.",
+      "remaining_ambiguity": "Fitting, orientation and interpersonal service bundled; post-trial rescue fitting not independently randomised.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K12",
+    "case_ids": [
+      "PSY-C04"
+    ],
+    "statement": "The hearing-aid price comparison was not randomised: earlier participants paid $3,600 and later participants $600; the null price findings for many benefit measures and concentration of returns at the high price cannot identify a causal price effect.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "PSY-S07",
+        "locator": "Introduction final paragraphs; Methods Trial Design; final returns section",
+        "supports": "Sequential cohorts; 17/20 returners paid high price, versus60/134 keepers."
+      }
+    ],
+    "counterevidence": "Price cohorts were roughly balanced across service arms, but that does not randomise price or remove recruitment/time confounding.",
+    "inference_limits": "Neither price irrelevance nor a quantified affordability effect inferred.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Methodological fact and observed cohort association; deliberately no causal claim about price."
+    }
+  },
+  {
+    "id": "PSY-K13",
+    "case_ids": [
+      "PSY-C04"
+    ],
+    "statement": "In Wallhagen’s 91 Bay Area help-seeking dyads, independently elicited accounts linked visible hearing aids with age, disability and perceived competence; some participants rejected or discounted stigma, especially in supportive relationships.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S09",
+        "locator": "Methods; Results: altered self-perception, ageism/vanity and supportive/nonsupportive others",
+        "supports": "Separate repeated interviews elicited meanings and reasons before/after choices, including contrary accounts."
+      }
+    ],
+    "counterevidence": "Self-reports may rationalise decisions, and stigma can coexist with costs and poor benefit. Participants already seeking assessment; predominantly White.",
+    "inference_limits": "Evidence establishes heterogeneous expressed meanings, not universal innate preferences, a stigma prevalence estimate or a causal effect of de-stigmatisation.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Social meanings of visible aids -> anticipated social response/identity cost -> help-seeking or use decision",
+      "strongest_rival": "Low experienced benefit/cost explains refusal, and identity narratives are post-hoc rationalisation.",
+      "discriminating_observation": "Measure concerns before decisions and manipulate social framing/support while holding device benefit/access fixed.",
+      "evidence_sought_found": "PSY-S09 uses repeated separate interviews and follows decisions, including supportive and unconcerned participants; no framing experiment.",
+      "remaining_ambiguity": "Narratives establish a plausible local mechanism but cannot estimate mediation or independently establish actual discrimination.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K14",
+    "case_ids": [
+      "PSY-C04"
+    ],
+    "statement": "In a separate earlier Indiana volunteer cohort, 105 of 139 analysed never-users purchased hearing aids and 21 purchasers returned them; returners had poorer measured aided outcomes, while nonpurchasers differed mainly in perceived difficulties and expectations.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "PSY-S08",
+        "locator": "Methods Participants; Abstract; Results adherent/nonadherent and keep/return comparisons",
+        "supports": "Analytic sample and outcome associations after controlling for hearing severity."
+      }
+    ],
+    "counterevidence": "Only34 nonpurchasers returned for measurement; only 15 of 21 returners completed end-of-trial outcomes. Unmeasured confounding and selective participation.",
+    "inference_limits": "These are research-volunteer analytic denominators, not population adoption/abandonment rates. No claim that beliefs cause purchase or poor benefit alone causes return.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Original observational associations and counts; separate stages of adoption without a causal preference inference."
+    }
+  },
+  {
+    "id": "PSY-K15",
+    "case_ids": [
+      "PSY-C05"
+    ],
+    "statement": "For Bihar’s bicycle-grant exposure, the adjusted triple-difference estimate was +5.2pp in age-appropriate grade-9 enrolment/completion for girls, relative to older cohorts, boys and Jharkhand; it is not an estimate of actual cycling or total lifetime secondary enrolment.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S10",
+        "locator": "§§II–III; Table2 pp.333–334",
+        "supports": "Age14–15 versus16–17; female/male; Bihar/Jharkhand; full-controls N=30,112, coefficient0.052(SE0.025)."
+      }
+    ],
+    "counterevidence": "Estimate falls from0.103 without controls to0.052 with household controls; no randomised rollout. Concurrent state reforms remain a concern.",
+    "inference_limits": "Causal interpretation conditional on difference-in-differences assumptions and age/cohort comparability.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Earmarked grant -> more feasible school access -> age-appropriate grade9 participation",
+      "strongest_rival": "General Bihar reform or household/cohort composition would create similar measured change without bicycles.",
+      "discriminating_observation": "Check gender/state/cohort pretrends, socioeconomic controls and ineligible-grade placebo.",
+      "evidence_sought_found": "PSY-S10 Tables1/2/8: triple-difference pretrend not rejected; grade8 placebo near zero; adjustment materially reduces estimate.",
+      "remaining_ambiguity": "Tests cannot exclude all cohort-specific female reforms or ascertain individual bicycle use.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K16",
+    "case_ids": [
+      "PSY-C05"
+    ],
+    "statement": "Bihar’s distance heterogeneity and ineligible-grade placebo favour a school-access channel, but do not separate saved travel time, safety, peer travel and changed social norms.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S10",
+        "locator": "Distance analysis §§II–III; Table8 pp.343–345; discussion pp.346–348",
+        "supports": "Effects concentrated farther from secondary schools; grade8 placebo0.001; norms/safety discussed as possible channels."
+      }
+    ],
+    "counterevidence": "Roads and law/order may complement bicycles even if they do not explain the whole effect; outcomes do not directly measure household norms.",
+    "inference_limits": "Do not call Bihar a randomised norm-change intervention or treat enrolment as evidence of unrestricted mobility.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Grant-enabled riding -> lower distance/safety burden -> participation and possible peer/norm feedback",
+      "strongest_rival": "Other reforms or a conditional transfer’s income/incentive effect generate enrolment without norm change.",
+      "discriminating_observation": "Compare distances and noneligible grades; separately measure commute, danger and norms; randomise mobility versus unrestricted cash.",
+      "evidence_sought_found": "PSY-S10 distance gradient and grade8 placebo support access; no direct isolation of safety/norms or cash-only counterfactual.",
+      "remaining_ambiguity": "Several pathways predict the same distance pattern; equilibrium social spillovers not independently identified.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K17",
+    "case_ids": [
+      "PSY-C05"
+    ],
+    "statement": "A later Bihar reanalysis finds stronger bicycle-programme estimates in villages with all-weather road connectivity, but its health-facility road proxy and nonrandom infrastructure do not establish that such roads are strictly necessary.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S12",
+        "locator": "§2 pp.4–5; §3 pp.9–10; main results Tables3–4",
+        "supports": "DLHS health-facility access proxy, quadruple-difference estimates and authors’ unobserved-difference caution."
+      }
+    ],
+    "counterevidence": "No-road indicator permits dry-season tracks; unobserved village differences and route quality remain. Same main survey/policy lineage as S10.",
+    "inference_limits": "Contributory infrastructure hypothesis, not independent replication or bounded technical necessity.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Usable roads plus bicycle access -> reliable travel -> school participation",
+      "strongest_rival": "Road variable proxies wealth, governance, school access or treatment implementation rather than causal complementarity.",
+      "discriminating_observation": "Actual school-route quality and exogenous road changes interacted with bicycle offers.",
+      "evidence_sought_found": "PSY-S12 uses health-facility road connectivity, controls and pretrend checks, finding heterogeneity; cannot observe precise school routes.",
+      "remaining_ambiguity": "Insignificant disconnected estimate cannot distinguish absence from imprecision; no factorial road experiment.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K18",
+    "case_ids": [
+      "PSY-C05"
+    ],
+    "statement": "In Zambia’s 100-school experiment, the bicycle-plus-support package reduced self-reported one-way commute by 35.08 minutes (control 103.77) and last-week absence by 0.29 days (control 1.01) at one year; the final article abstract rounds these to 34% and 29%.",
+    "evidence_type": "experiment",
+    "confidence": "high",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S11",
+        "locator": "Tables1/4, pp.38/41; §§3–6; attrition §4.4.2",
+        "supports": "25 payment,20 free,55 control schools; commute N=1,879; absence N=1,952; school-clustered randomisation inference."
+      },
+      {
+        "source_id": "PSY-S14",
+        "locator": "Final journal abstract",
+        "supports": "Rounded34% commute and29% absenteeism reductions; final full text not acquired."
+      }
+    ],
+    "counterevidence": "Differential follow-up and self-report; programme includes mechanics, committees and use restrictions. One-year dropout/grade-transition/English effects not significant.",
+    "inference_limits": "Effect of the installed package on eligible already-enrolled girls; not a bare-asset effect, school-entry effect or proof all girls can use bicycles.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Bike/support offer -> usable school transport -> shorter commute -> better attendance",
+      "strongest_rival": "Common schooling improvement explains gains, or mere stated enthusiasm without travel/task change.",
+      "discriminating_observation": "Randomised school control and concrete travel/attendance outcomes, with attrition checks and longer administrative follow-up.",
+      "evidence_sought_found": "PSY-S11 Tables1/4 show large specific effects; S14 abstract confirms rounded direction/magnitude; manuscript attrition bounds inspected.",
+      "remaining_ambiguity": "Self-report not blinded; no independent randomisation of maintenance/custody; follow-up excludes some girls and later records are separately scoped.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K19",
+    "case_ids": [
+      "PSY-C05"
+    ],
+    "statement": "Zambia’s nominal-fee versus free bicycle arms did not yield precise differences in first-stage transport or reported empowerment outcomes; a parental-payment/psychological-ownership explanation is therefore not identified by one arm being significant and the other not.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "PSY-S11",
+        "locator": "Tables1/3 pp.38/40; §6.3 pp.20–21",
+        "supports": "Formal fee/free equality p-values: commute .40; aggregate empowerment .13; agency subscales .11–.99."
+      }
+    ],
+    "counterevidence": "Some fee-arm point estimates higher; trial is not a powered equivalence/noninferiority design, and nearly universal uptake limits selection tests.",
+    "inference_limits": "No general conclusion that charging is harmless, superior or irrelevant for poorer noneligible populations.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Parental fee -> signal of investment/psychological ownership -> greater agency or sustained use",
+      "strongest_rival": "Free ownership supports agency equally, or physical access dominates; higher fee-arm point estimates are sampling variation.",
+      "discriminating_observation": "Test fee-versus-free contrasts directly and measure ownership/investment beliefs before outcomes.",
+      "evidence_sought_found": "PSY-S11 reports no precise between-arm differences on these outcomes; older abstract’s stronger fee narrative is not adopted.",
+      "remaining_ambiguity": "Only one nominal fee and restricted setting; cannot rule out smaller effects, selective reporting or other fee sizes.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "PSY-K20",
+    "case_ids": [
+      "PSY-C05"
+    ],
+    "statement": "In Zambia’s May2025 manuscript, the package improved selected self-reported agency measures, notably locus of control and bargaining, but general mobility and pooled aspirations were imprecise; aggregate empowerment varies with specification/correction. The final abstract says educational aspirations improved, an unresolved difference from the inspected pooled tables. The inspected evidence does not identify a distinct norm-change mechanism.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "PSY-S11",
+        "locator": "Table3 p.40; TableA.11 p.56; §6.3; §4.4.3 p.16",
+        "supports": "Main locus-control0.18SD/bargaining0.21SD; controlled appendix0.16/0.19 with corrected p-values .02/.04 and <=.01. Pooled aspirations0.07(SE0.05) in Table3 and0.06(SE0.05), corrected p=.44/.50 in TableA.11. Behavioural games discontinued."
+      },
+      {
+        "source_id": "PSY-S14",
+        "locator": "Final journal abstract, aspirations sentence",
+        "supports": "States that educational aspirations improved; final tables/outcome definitions and pooled-versus-arm-specific interpretation not inspected. This records the version discrepancy, not corroboration of a positive pooled effect."
+      }
+    ],
+    "counterevidence": "Aggregate index p-value .04 or .12 across adjustment families in manuscript appendix; no direct normative mediator randomised. Final abstract’s positive aspirations assertion is not reconciled with manuscript pooled estimates; no inference that final tables changed. Asset custody rules constrain movement and resale.",
+    "inference_limits": "Causal identification is confined to the randomised package’s effects on the measured questionnaire indices in the inspected manuscript. Demand/salience versus deeper agency or norm change is not separated. These are neither unrestricted freedom nor adult earnings/occupation outcomes; final full-text reconciliation remains open.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Supported school transport -> changed daily constraints/experience -> selected reported agency dimensions",
+      "strongest_rival": "Interview demand, asset salience or family reallocation changes reports without broad social norms changing.",
+      "discriminating_observation": "Independent behavioural or longitudinal agency measures and a design separating response salience/demand from durable control; pre/post questionnaire measurement and multiple-testing corrections alone cannot discriminate this rival.",
+      "evidence_sought_found": "PSY-S11 randomised survey-index contrasts and appendix corrections support some reported dimensions; they do not distinguish the stated response mechanism rival. Behavioural games were discontinued (§4.4.3) and supply no confirmation. S14 aspirations assertion remains unresolved against manuscript pooled tables.",
+      "remaining_ambiguity": "Mechanism among saved time, safety, ownership, school exposure and survey response changes remains underdetermined; self-report not blind.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "method": "Node VM executes unchanged routing/render function source from the frozen HTML, with minimal JSON and location fixtures. No browser used; event, DOM, visual, scrolling, accessibility, reload/new-tab behavior remains unverified.",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Every rendered record-link URL resolves to a known typed record or chronology route",
+      "passed": true,
+      "detail": {
+        "record_count": 1417,
+        "hash_links_inspected": 18917,
+        "malformed": [],
+        "unknown": []
+      }
+    },
+    {
+      "name": "All 528 case/section URLs preserve identity when reparsed from a fresh hash",
+      "passed": true,
+      "detail": {
+        "count": 528,
+        "issues": []
+      }
+    },
+    {
+      "name": "Legacy case ID redirects into explicit typed URL",
+      "passed": true,
+      "detail": {
+        "parsed": {
+          "view": "case",
+          "id": "MED-C07"
+        },
+        "hash": "#view=case&id=MED-C07"
+      }
+    },
+    {
+      "name": "Ambiguous old section URL does not silently select the first case",
+      "passed": true,
+      "detail": {
+        "view": "legacy-section",
+        "section": "relations"
+      }
+    },
+    {
+      "name": "Unknown explicit case stays unknown instead of substituting another case",
+      "passed": true,
+      "detail": {
+        "view": "case",
+        "id": "NO-C99",
+        "section": "relations"
+      }
+    },
+    {
+      "name": "MED-C07 relation -> exact claim -> claim-specific locator retains return context",
+      "passed": true,
+      "detail": {
+        "edgeURL": "#view=edge&id=MED-E18&case=MED-C07&section=relations",
+        "claimURL": "#view=claim&id=MED-K20&case=MED-C07&section=relations",
+        "sourceURL": "#view=source&id=MED-S14&case=MED-C07&section=relations&claim=MED-K20",
+        "locator": "pp. 59–60, Box 1 and Methodology"
+      }
+    },
+    {
+      "name": "Precision/navigation comparison permits another case and return to the comparison",
+      "passed": true,
+      "detail": {
+        "comparisonURL": "#view=comparison&id=SYN-X07&case=SKL-C01&section=comparisons",
+        "destinationURL": "#view=case&id=OCE-C01&via=SYN-X07",
+        "returnURL": "#view=comparison&id=SYN-X07&case=OCE-C01&section=comparisons"
+      }
+    },
+    {
+      "name": "Chronology route gives linked bounded cases with both period and episode interval",
+      "passed": true,
+      "detail": {
+        "route": "early-landscapes"
+      }
+    },
+    {
+      "name": "Node view exposes its exact incident edge and scoped cases",
+      "passed": true,
+      "detail": {
+        "node": "MED-T25",
+        "edge": "MED-E18"
+      }
+    }
+  ]
+}

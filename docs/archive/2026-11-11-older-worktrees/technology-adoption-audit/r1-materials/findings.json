@@ -1,0 +1,19 @@
+[
+  {
+    "id": "R1-MAT-01",
+    "severity": "low",
+    "affected_claim_ids": [
+      "MAT-K19"
+    ],
+    "affected_case_ids": [
+      "MAT-C06"
+    ],
+    "affected_edge_ids": [],
+    "locator": "contributions/MAT/cases.json: MAT-C06.outcome[1]",
+    "problem": "Outcome wording drops the transmission-hypothesis qualifier present in claim, report and source-access record.",
+    "evidence": "Hosler abstract proposes transmission and transformation; audit did not inspect its supporting catalogue. The research claim is expressly hypothesis/underdetermined.",
+    "repair": "Qualify the outcome itself as proposed and preserve that qualifier in rendered summaries.",
+    "closure_test": "Inspect revised outcome and any generated card/table; no unqualified assertion of proven transmission.",
+    "status": "open; reviewer did not edit snapshot"
+  }
+]

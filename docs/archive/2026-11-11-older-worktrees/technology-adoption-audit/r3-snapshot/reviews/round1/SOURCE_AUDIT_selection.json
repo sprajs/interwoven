@@ -1,0 +1,930 @@
+{
+  "selected_before_source_reopening": true,
+  "selection_seed": "source-audit-round1-ordinary-v1:",
+  "risk": [
+    "MAT-K15",
+    "ANC-K07",
+    "NET-K17",
+    "IND-K06",
+    "AGR-K11",
+    "AGR-K15",
+    "MED-K09",
+    "MOB-K21",
+    "DIG-K16",
+    "LBR-K02",
+    "IND-K08"
+  ],
+  "ordinary": [
+    "MAT-K11",
+    "ANC-K10",
+    "NET-K04",
+    "IND-K25",
+    "AGR-K05",
+    "MED-K01",
+    "MOB-K11",
+    "DIG-K20",
+    "LBR-K04"
+  ],
+  "claims": [
+    {
+      "id": "AGR-K05",
+      "case_ids": [
+        "AGR-C02"
+      ],
+      "statement": "The documented 1988\u20131989 Manuaba calendar combined temple-linked coordination with high-yielding rice varieties, including IR64, so restoration of coordination did not require wholesale rejection of improved seed.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "AGR-S03",
+          "locator": "pp. 100\u2013102",
+          "supports": "Named varieties and coordinated calendar in the observed system."
+        },
+        {
+          "source_id": "AGR-S04",
+          "locator": "proof pp. 2\u20133",
+          "supports": "Historical account of disruption and restoration of coordinated irrigation practices."
+        }
+      ],
+      "counterevidence": "The historical disruption account partly inherits Lansing's earlier research; the observed mixed configuration does not establish its yield advantage over every alternative.",
+      "inference_limits": "Specific calendar and interval, not a measured Bali-wide adoption rate or proof that every promoted variety was retained.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "The evidence establishes a coexisting seed\u2013institution configuration, not an isolated causal estimate of restoration."
+      },
+      "contribution": "AGR"
+    },
+    {
+      "id": "AGR-K11",
+      "case_ids": [
+        "AGR-C04"
+      ],
+      "statement": "Gollin, Hansen and Wingender estimate a 44% direct yield gain from modern varieties during 1965\u20132010, holding allocations fixed, in their historical econometric framework; the baseline country sample contains 90 countries.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "AGR-S08",
+          "locator": "pp. 2346\u20132347, 2358\u20132365 and 2378\u20132379",
+          "supports": "Release-timing design, sample, direct yield contribution and caveats on the no-Green-Revolution counterfactual."
+        }
+      ],
+      "counterevidence": "Crop-specific concurrent changes, spillovers, sample exclusions or different counterfactual innovation could change the estimate. Reallocation effects are additional rather than part of the stated direct gain.",
+      "inference_limits": "An attributed estimate under relative-yield trend and exclusion assumptions, not a 44% gain for every farmer, a welfare share or an unqualified full-history counterfactual.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Variety releases create crop-specific opportunities -> modern-variety adoption changes crop yields -> release timing and initial crop shares identify a predicted yield contribution under maintained assumptions.",
+        "strongest_rival": "Crop-specific infrastructure, policies, demand or other research shocks correlated with release dates could generate similar relative-yield changes.",
+        "discriminating_observation": "Pre-release relative trends, event-study patterns and coincident crop interventions test the design; effects preceding releases or vanishing after credible concurrent-shock controls would weaken attribution.",
+        "evidence_sought_found": "AGR-S08 design, event-study/robustness discussion, sample restrictions and counterfactual caveats were inspected. The reported direct gain is 44%, separate from additional allocation effects.",
+        "remaining_ambiguity": "Inspection does not reproduce the dataset or prove parallel counterfactual trends. Authors expressly acknowledge that absent modern varieties other innovation might have occurred.",
+        "hypothesis_timing": "emerged during research"
+      },
+      "contribution": "AGR"
+    },
+    {
+      "id": "AGR-K15",
+      "case_ids": [
+        "AGR-C06"
+      ],
+      "statement": "In Karlan and colleagues' northern Ghana experiments, rainfall-index insurance increased agricultural expenditure and shifted production choices toward greater risk, while cash grants alone produced relatively small investment responses.",
+      "evidence_type": "experiment",
+      "confidence": "high",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "AGR-S11",
+          "locator": "pp. 599\u2013601; experiment description and investment results, including tables III\u2013IV",
+          "supports": "Randomised cash/insurance interventions and measured farm investment responses."
+        }
+      ],
+      "counterevidence": "The response varies by treatment, year and context; insurance and cash are not identical transfers in timing, state contingency or magnitude.",
+      "inference_limits": "Causal effect of the tested offers/contracts on this sample, not proof that cash constraints never matter or that greater investment raises profits or welfare.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Insurance reduces a specified rainfall downside -> farmers can mobilise resources and accept greater production risk -> agricultural expenditure and choices respond.",
+        "strongest_rival": "A general resource transfer or programme-attention effect, rather than downside-risk protection, could increase investment.",
+        "discriminating_observation": "Randomly assigned insurance alone, cash alone, both and comparison conditions allow different responses to be compared; contracts of comparable value but different risk protection would further separate channels.",
+        "evidence_sought_found": "AGR-S11 reports insurance-only investment responses and relatively modest cash-only responses in the randomised design, which weakens a simple cash-shortfall-only explanation for the sampled decisions.",
+        "remaining_ambiguity": "State-contingent income, learning and expectations coexist with risk reduction; treatment magnitudes differ and the experiment is not a universal constraint ranking.",
+        "hypothesis_timing": "pre-search candidate"
+      },
+      "contribution": "AGR"
+    },
+    {
+      "id": "ANC-K07",
+      "case_ids": [
+        "ANC-C02",
+        "ANC-C03"
+      ],
+      "statement": "Roman productive waterpower and enslaved hydraulic maintenance contradict an absolute incompatibility between slavery and complex machinery; the effect of labour costs on marginal adoption remains unidentified.",
+      "evidence_type": "synthesis-inference",
+      "confidence": "high",
+      "causal_status": "contested",
+      "sources": [
+        {
+          "source_id": "ANC-S03",
+          "locator": "Introduction and Results",
+          "supports": "Productive watermill installation in the Roman period."
+        },
+        {
+          "source_id": "ANC-S05",
+          "locator": "\u00a7\u00a7116\u2013118",
+          "supports": "Enslaved workers in a sophisticated hydraulic service."
+        }
+      ],
+      "counterevidence": "Neither source identifies Barbegal workers' legal status or a comparison of machine and labour prices.",
+      "inference_limits": "Rejects an absolute proposition only; it does not estimate a slavery effect or deny coercion.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "An absolute institutional prohibition predicts no productive machinery within the slaveholding Roman setting -> Barbegal is a counterexample.",
+        "strongest_rival": "Slavery reduces adoption incentives for some tasks without prohibiting all machinery.",
+        "discriminating_observation": "Task-matched adoption and ownership/cost evidence could test the conditional claim; no such series is available here.",
+        "evidence_sought_found": "ANC-S03 operating machinery and ANC-S05 enslaved maintenance arrangements found.",
+        "remaining_ambiguity": "The universal version fails; the conditional economic proposition remains open.",
+        "hypothesis_timing": "pre-search candidate"
+      },
+      "contribution": "ANC"
+    },
+    {
+      "id": "ANC-K10",
+      "case_ids": [
+        "ANC-C03"
+      ],
+      "statement": "Bannon's evidence distinguishes civic aqueduct grants from other water rights and shows roles for local control, payment and status; infrastructure did not imply a single empire-wide administration or equal access.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "ANC-S06",
+          "locator": "\u00a7III Civic Aqueducts; \u00a7V Conclusion",
+          "supports": "Distinct rights configurations and social/political dimensions."
+        }
+      ],
+      "counterevidence": "Open-access fountains also existed; elite grants do not imply universal exclusion.",
+      "inference_limits": "Rules and examples cannot quantify household supply or the distribution of actual consumption.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Describes institutional distinctions in the inspected legal-historical analysis."
+      },
+      "contribution": "ANC"
+    },
+    {
+      "id": "DIG-K16",
+      "case_ids": [
+        "DIG-C05"
+      ],
+      "statement": "Suri and Jack estimated about 194, 000 Kenyan households escaped extreme poverty through increased mobile-money access, using 2008\u20132010 agent expansion to explain 2014 outcomes; this is conditional quasi-experimental estimation, not a direct beneficiary count.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "DIG-S09",
+          "locator": "pp.1288\u20131292; equations 1\u20132; Table 1; attrition discussion",
+          "supports": "Design, authors\u2019 national extrapolation and limits."
+        }
+      ],
+      "counterevidence": "Early agent placement could correlate with unobserved opportunity; 35% non-Nairobi attrition and later exclusion of Nairobi limit inference. Authors report no definitive evidence for all channels.",
+      "inference_limits": "Supplementary tests were described in main paper but not separately inspected or replicated; later 2010\u20132014 rollout was intentionally not used as exogenous.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Early agent access growth -> easier financial transactions/saving/risk sharing -> occupational/consumption changes by 2014 -> lower estimated poverty.",
+        "strongest_rival": "Agents may enter places with unobserved growth prospects; those prospects could independently improve outcomes.",
+        "discriminating_observation": "Pre-rollout consumption/risk sharing and characteristics should not predict later access growth; estimates should survive plausible attrition selection.",
+        "evidence_sought_found": "Read DIG-S09 main-text description of pretests, location fixed effects and attrition bounds, plus Table 1 outcomes; supplementary tables and raw replication not acquired.",
+        "remaining_ambiguity": "Reported falsification tests reduce some concerns but cannot eliminate unobserved trends or validate national extrapolation; data lineage overlaps DIG-S08.",
+        "hypothesis_timing": "pre-search candidate"
+      },
+      "contribution": "DIG"
+    },
+    {
+      "id": "DIG-K20",
+      "case_ids": [
+        "DIG-C06"
+      ],
+      "statement": "Meta reported FY 2023 Reality Labs revenue $1.896 billion and operating loss $16.120 billion for a segment including AR, mixed reality and VR hardware/software/content.",
+      "evidence_type": "historical-primary",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "DIG-S13",
+          "locator": "Note 16, pp.124\u2013125",
+          "supports": "Segment definition, allocation description and accounting table."
+        }
+      ],
+      "counterevidence": "Large investment can finance development of future products as well as current consumption.",
+      "inference_limits": "Not number of VR users, per-device loss or retention; company has commercial interests.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+      },
+      "contribution": "DIG"
+    },
+    {
+      "id": "IND-K06",
+      "case_ids": [
+        "IND-C02",
+        "IND-C03"
+      ],
+      "statement": "In Crafts\u2019s January 2002 reconstruction, steam contributed less than 0.01 percentage points per year to British labour-productivity growth before 1830, with a larger later contribution including railways.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "IND-S04",
+          "locator": "pp. 13\u201319 and table 3 p. 23",
+          "supports": "Reports growth-accounting estimates and their stock/share assumptions."
+        }
+      ],
+      "counterevidence": "Early engine stocks are incomplete and unmeasured enabling effects may not be captured by aggregate accounting.",
+      "inference_limits": "An estimate from the inspected version, not a timeless consensus or evidence that steam was unnecessary at individual sites. No cross-era forecast is made.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "The bounded claim identifies a text, configuration, attributed estimate or observed dataset measure; it does not estimate the causes of the wider outcome. See inference_limits for the distinction."
+      },
+      "contribution": "IND"
+    },
+    {
+      "id": "IND-K25",
+      "case_ids": [
+        "IND-C08"
+      ],
+      "statement": "Devine reports that electric motors represented roughly one-quarter of US manufacturing mechanical-drive horsepower in 1909 and over half in 1919; he separately infers unit-drive diffusion because comprehensive configuration statistics were unavailable.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "IND-S16",
+          "locator": "pp. 368\u2013370, \u201cMarket penetration\u201d",
+          "supports": "Provides the capacity denominator and explains indirect evidence for unit-drive timing."
+        }
+      ],
+      "counterevidence": "Installed capacity is not utilisation, output, establishment adoption or the source of electricity generation.",
+      "inference_limits": "Reuses the bounded historical series, not a reconstructed census; motor adoption must not be counted as complete factory redesign.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "The bounded claim identifies a text, configuration, attributed estimate or observed dataset measure; it does not estimate the causes of the wider outcome. See inference_limits for the distinction."
+      },
+      "contribution": "IND"
+    },
+    {
+      "id": "LBR-K02",
+      "case_ids": [
+        "LBR-C01"
+      ],
+      "statement": "In the telephone-automation study, incumbent operators and later young female cohorts experienced different labour-market outcomes; stable later-cohort employment did not mean incumbent workers were unharmed.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "LBR-S02",
+          "locator": "\u00a7VI, \u00a7VII and conclusion p.1934",
+          "supports": "Linked incumbent outcomes differ from repeated-cohort employment findings."
+        }
+      ],
+      "counterevidence": "Genealogical linkage is non-random; the authors report robustness and weighting rather than eliminating every possible selection process.",
+      "inference_limits": "Inference is conditional on comparison/selection assumptions; not a universal automation result.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Dial cutover removes switching jobs -> incumbents lose specialised job opportunity -> adverse decade-later employment/occupational outcomes, while future entrants reallocate",
+        "strongest_rival": "Aggregate recovery may conceal incumbent losses; alternatively different local demand trends could explain both adoption and work outcomes.",
+        "discriminating_observation": "Compare linked incumbents with local matched controls separately from future cohorts around cutover timing.",
+        "evidence_sought_found": "LBR-S02 \u00a7\u00a7III,VI,VII inspected; study uses these distinct designs and reports different outcomes.",
+        "remaining_ambiguity": "Unobserved local changes, linked-sample selection and incomplete wages remain possible limitations.",
+        "hypothesis_timing": "emerged during research"
+      },
+      "contribution": "LBR"
+    },
+    {
+      "id": "LBR-K04",
+      "case_ids": [
+        "LBR-C01"
+      ],
+      "statement": "The authors find no clear overall wage effect for later young female cohorts, but the relevant tests cannot exclude wage changes around plus or minus 10 percent; no detected effect is not proof of unchanged pay.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "LBR-S02",
+          "locator": "\u00a7VII.B, pp.1927\u20131928",
+          "supports": "Explicitly discusses power and wide bounds in smaller wage-analysis sample."
+        }
+      ],
+      "counterevidence": "Heterogeneous effects and measurement noise could mask changes.",
+      "inference_limits": "Applies to these wage tests, not an exact confidence interval for every subgroup.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Reports a bounded measurement/design or author argument; no new causal effect asserted."
+      },
+      "contribution": "LBR"
+    },
+    {
+      "id": "MAT-K11",
+      "case_ids": [
+        "MAT-C03"
+      ],
+      "statement": "The often-repeated large estimate of Song iron output is not a secure observation: Wagner explicitly rejects the reliability of the extrapolation from state quota figures.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "MAT-S05",
+          "locator": "p. 42 n. 6",
+          "supports": "Discusses the roughly 115,000 metric tonne estimate and its flawed underlying assumptions."
+        }
+      ],
+      "counterevidence": "The author considers the magnitude plausible; criticism does not establish low output.",
+      "inference_limits": "Do not use disputed output as a denominator for productivity or an adoption rate.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Reports an explicit methodological criticism of an estimate."
+      },
+      "contribution": "MAT"
+    },
+    {
+      "id": "MAT-K15",
+      "case_ids": [
+        "MAT-C05"
+      ],
+      "statement": "Controlled comparisons show that tin bronze\u2019s greater possible hardness does not make it universally superior to arsenical bronze; ductility and sheet-forming performance can favour the latter.",
+      "evidence_type": "experiment",
+      "confidence": "high",
+      "causal_status": "mechanism-supported",
+      "sources": [
+        {
+          "source_id": "MAT-S08",
+          "locator": "pp. 500\u2013508; Tables 4\u20136; Figs. 25\u201327",
+          "supports": "Mechanical tests and comparison with thin-sheet fabrication traditions."
+        }
+      ],
+      "counterevidence": "Some tests need more reproducible elongation measurements; alloy concentration and processing strongly affect results.",
+      "inference_limits": "Modern mechanical advantage is not a complete explanation of archaeological selection or user value.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Alloy composition and working treatment -> different hardness/ductility/toughness -> different suitability for specified sheet-forming tasks.",
+        "strongest_rival": "A universal tin-bronze superiority account predicts better performance across relevant tasks, rather than a trade-off.",
+        "discriminating_observation": "Controlled processing of both alloys followed by relevant mechanical tests and task failure assessment.",
+        "evidence_sought_found": "MAT-S08 directly tests alloys and identifies different advantages; pp. 500\u2013508 discuss limits of elongation data.",
+        "remaining_ambiguity": "This tests material behaviour, not whether historical smiths selected it for the inferred reason or whether costs favoured it.",
+        "hypothesis_timing": "pre-search candidate"
+      },
+      "contribution": "MAT"
+    },
+    {
+      "id": "MED-K01",
+      "case_ids": [
+        "MED-C01"
+      ],
+      "statement": "Early eighteenth-century reports connect British variolation discussions to Ottoman practitioners, including women, and African expertise conveyed through Onesimus; this is evidence of transmission rather than a British origin.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "MED-S01",
+          "locator": "Inoculation in parts of the Ottoman Empire and Europe",
+          "supports": "Reproduces the relevant reports and correspondence."
+        }
+      ],
+      "counterevidence": "Surviving elite intermediaries may obscure earlier local transmission.",
+      "inference_limits": "No continental prevalence, precise birthplace or unique transmission route is inferred.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Bounded statement about documented knowledge channels, not their causal share in uptake."
+      },
+      "contribution": "MED"
+    },
+    {
+      "id": "MED-K09",
+      "case_ids": [
+        "MED-C04"
+      ],
+      "statement": "Alsan and Goldin estimate that combined safe water and effective sewerage account for about one-third of the decline in log under-five mortality in their jointly treated Massachusetts municipalities, 1880\u20131920; the interventions are complementary in their preferred model.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "medium",
+      "causal_status": "causal-identification",
+      "sources": [
+        {
+          "source_id": "MED-S06",
+          "locator": "pp. 589\u2013590; identification discussion and robustness",
+          "supports": "Staggered completion design and reported decomposition of 26.6 out of 79.2 log points."
+        }
+      ],
+      "counterevidence": "Other sanitary improvements, spillovers and population selection could threaten the design.",
+      "inference_limits": "Local estimate under model assumptions; neither a universal effect nor the national mortality contribution.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Combined exposure-route interventions -> reduced pathogen exposure -> lower child mortality",
+        "strongest_rival": "Other changes or selective migration timed with construction could mimic the effect",
+        "discriminating_observation": "No pre-trend divergence, age/cause specificity and stable composition around completion",
+        "evidence_sought_found": "MED-S06 reports pre-trend checks, age/cause contrasts, Table 4 composition checks and robustness",
+        "remaining_ambiguity": "Observational identification remains conditional; engineering rollout not random assignment.",
+        "hypothesis_timing": "emerged during research"
+      },
+      "contribution": "MED"
+    },
+    {
+      "id": "MOB-K11",
+      "case_ids": [
+        "MOB-C04"
+      ],
+      "statement": "The Ghanaian western railway was routed toward gold mines and Kumasi for commercial and military purposes, while the eastern route had different political and commercial origins and reached Kumasi only in 1923 after wartime delays.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "MOB-S08",
+          "locator": "\u00a72.1, printed pp. 5\u20136",
+          "supports": "Reconstructs western line Sekondi\u2013Tarkwa\u2013Obuasi\u2013Kumasi and eastern Accra route, lobbying, governors and construction dates."
+        }
+      ],
+      "counterevidence": "Alternative surveyed routes were judged attractive for agriculture; cocoa potential was already relevant to the eastern line.",
+      "inference_limits": "Mainly the authors\u2019 historical reconstruction; colonial political interests and technical transport benefits are not mutually exclusive.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Bounded documentary/model/measurement statement; does not itself estimate a causal contribution. Associated causal propositions are tested separately."
+      },
+      "contribution": "MOB"
+    },
+    {
+      "id": "MOB-K21",
+      "case_ids": [
+        "MOB-C06"
+      ],
+      "statement": "Bernhofen and colleagues warn that very large estimates using adoption dates alone do not convincingly establish causal trade effects; their product-containerizability comparisons are smaller and provide stronger but still qualified support.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "contested",
+      "sources": [
+        {
+          "source_id": "MOB-S11",
+          "locator": "p. 37; Table 2 pp. 43\u201344; \u00a73.4 pp. 45\u201346",
+          "supports": "Pre-trend failures and endogeneity warning; benchmark 17.4% North\u2013North product differential and approximately 14% world differential with delayed accrual."
+        }
+      ],
+      "counterevidence": "Classification and robustness choices alter estimated magnitudes; product-level effects do not capture every network spillover.",
+      "inference_limits": "Do not quote old working-paper 700% figures as established causal effects. Denominators are bilateral product trade comparisons over specified periods, not total global GDP or a universal return to a container port.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Container systems lower relevant handling costs -> suitable products should gain more trade than unsuitable products after adoption.",
+        "strongest_rival": "Countries adopt while trade is already growing, inflating aggregate adoption-timing effects.",
+        "discriminating_observation": "Pre-adoption trends among future adopters and suitable/unsuitable products test timing confounding; comparative product responses add a discriminating dimension.",
+        "evidence_sought_found": "MOB-S11 p. 37 explicitly reports failed parallel-trend robustness for adoption-only models. Tables 2\u20133 and pp. 44\u201346 give smaller product differentials and classification sensitivity.",
+        "remaining_ambiguity": "Suitability definitions and correlated product shocks remain; product effects are not equivalent to all general-equilibrium benefits.",
+        "hypothesis_timing": "emerged during research"
+      },
+      "contribution": "MOB"
+    },
+    {
+      "id": "NET-K04",
+      "case_ids": [
+        "NET-C01"
+      ],
+      "statement": "Mahgoub et al.'s 228-paper collection includes 133 undated samples and mostly eighteenth-/nineteenth-century dated examples; text language and finishing cannot by themselves establish paper's place of manufacture.",
+      "evidence_type": "experiment",
+      "confidence": "high",
+      "causal_status": "descriptive",
+      "sources": [
+        {
+          "source_id": "NET-S03",
+          "locator": "pp. 2\u20133, discussion before Methods and Reference collection",
+          "supports": "Sample composition, uncertain provenance, trade and finishing complications."
+        }
+      ],
+      "counterevidence": "Some watermarks, fibres and morphology can inform provenance when combined with other evidence.",
+      "inference_limits": "The study supplies no medieval adoption curve and no representative comparison of Islamic and European production efficiency.",
+      "test": {
+        "status": "descriptive-only",
+        "reason": "Bounded statement about records, material observations or reported counts; no independent causal effect asserted."
+      },
+      "contribution": "NET"
+    },
+    {
+      "id": "NET-K17",
+      "case_ids": [
+        "NET-C05"
+      ],
+      "statement": "Schwartz finds no inspected original of the alleged Bayezid II/Selim I general printing bans, while the extant 1588 firman protects merchants selling printed Arabic books; a blanket ban is not established evidence.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "high",
+      "causal_status": "contested",
+      "sources": [
+        {
+          "source_id": "NET-S11",
+          "locator": "pp. 6\u20137, The Non-Extant Firmans and The First Extant Firman; pp. 19\u201326 on inherited accounts",
+          "supports": "Documentary contrast and lineage of repeated ban claims."
+        }
+      ],
+      "counterevidence": "Absence of these documents does not establish universal permission; narrower restrictions and enforcement could exist.",
+      "inference_limits": "Claim concerns evidential support for alleged blanket bans, not proof that no Ottoman restrictions ever occurred.",
+      "test": {
+        "status": "evaluated",
+        "mechanism_chain": "Proposed general ban -> suppression of printing/trade -> limited uptake",
+        "strongest_rival": "Later writers conflated specific restrictions or preferences into a general ban; permission varied by actor and text.",
+        "discriminating_observation": "An authentic general prohibitory decree or consistent enforcement records versus extant permissions predating 1727.",
+        "evidence_sought_found": "NET-S11 traces repeated assertions without an original decree and closely reads the 1588 protective firman.",
+        "remaining_ambiguity": "Archival loss remains possible; extant permission defeats a timeless blanket claim but not all narrower prohibitions.",
+        "hypothesis_timing": "emerged during research"
+      },
+      "contribution": "NET"
+    },
+    {
+      "id": "IND-K08",
+      "case_ids": [
+        "IND-C03"
+      ],
+      "statement": "Malm argues that large proposed reservoir schemes in the 1820s\u20131830s failed partly because their collective financing and coordination requirements conflicted with manufacturers\u2019 arrangements.",
+      "evidence_type": "scholarly-analysis",
+      "confidence": "low",
+      "causal_status": "contested",
+      "sources": [
+        {
+          "source_id": "IND-S06",
+          "locator": "author-repository abstract",
+          "supports": "Explicitly attributes non-realisation of reservoir schemes to coordination and collective funding."
+        }
+      ],
+      "counterevidence": "Physical reliability, projected demand, land rights and cost assumptions are alternative or interacting explanations.",
+      "inference_limits": "Abstract-only evidence: claim is about the author\u2019s interpretation, not an independent finding that water was consistently cheaper or every proposed scheme feasible.",
+      "test": {
+        "status": "underdetermined",
+        "mechanism_chain": "Shared reservoir requires funding and allocation -> manufacturers cannot coordinate -> proposed expansion not built.",
+        "strongest_rival": "Projects may be physically unreliable or financially unattractive even under feasible collective governance.",
+        "discriminating_observation": "Scheme correspondence and cost/flow evidence showing viable projects blocked specifically by coordination, compared with realised schemes.",
+        "evidence_sought_found": "Searched full article; only IND-S06 author abstract acquired. It explicitly makes the coordination claim; scheme-level evidence not found.",
+        "remaining_ambiguity": "Both rivals fit non-building. Weak-access claim retained only as attributed hypothesis.",
+        "hypothesis_timing": "pre-search candidate"
+      },
+      "contribution": "IND"
+    }
+  ],
+  "sources": [
+    {
+      "id": "AGR-S03",
+      "title": "Emergent Properties of Balinese Water Temple Networks: Coadaptation on a Rugged Fitness Landscape",
+      "authors": [
+        "J. Stephen Lansing",
+        "James N. Kremer"
+      ],
+      "year": 1993,
+      "url": "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/LansingKremer.BaliWaterTemples.pdf",
+      "source_type": "original field research and ecological simulation",
+      "access": "full-text",
+      "locator": "American Anthropologist 95(1):97\u2013114; acquired scanned PDF and OCR; inspected pp.100\u2013103,106\u2013111.",
+      "scope_limit": "Two-river/172-subak model and limited observational calibration; optimality is model-conditional. No claim of a demonstrated historical origin for all Balinese institutions.",
+      "evidence_lineage": "Original Oos\u2013Petanu simulation and 1988\u20131989 crop/water observations, drawing on Lansing's earlier fieldwork; Janssen reuses this model, so the two articles are not independent field corroboration.",
+      "accessed": "2026-11-05",
+      "contribution": "AGR"
+    },
+    {
+      "id": "AGR-S04",
+      "title": "Coordination in irrigation systems: An analysis of the Lansing\u2013Kremer model of Bali",
+      "authors": [
+        "Marco A. Janssen"
+      ],
+      "year": 2007,
+      "url": "https://dlc.dlib.indiana.edu/dlc/bitstreams/34db1e42-4d4f-4b25-a7d7-16e8f023677a/download",
+      "source_type": "original computational reanalysis",
+      "access": "full-text",
+      "locator": "Accessible version is 22 June 2006 uncorrected proof, 21 pp.; inspected introduction pp.2\u20133, model/optimisation sections2\u20133 and conclusion pp.19\u201320. Published Agricultural Systems 93:170\u2013190.",
+      "scope_limit": "All cited page locators are proof pages, not final pagination. Historical intervention narrative inherits Lansing; independent contribution is model reimplementation and sensitivity analysis.",
+      "evidence_lineage": "Original Lansing\u2013Kremer source code supplied by its authors; independent reimplementation and optimisation tests; shared underlying ecology/data and inherited historical narrative.",
+      "accessed": "2026-11-05",
+      "contribution": "AGR"
+    },
+    {
+      "id": "AGR-S08",
+      "title": "Two Blades of Grass: The Impact of the Green Revolution",
+      "authors": [
+        "Douglas Gollin",
+        "Casper Worm Hansen",
+        "Asger Mose Wingender"
+      ],
+      "year": 2021,
+      "url": "https://gwern.net/doc/economics/2021-gollin.pdf",
+      "source_type": "original historical econometric analysis",
+      "access": "full-text",
+      "locator": "Journal of Political Economy129(8):2344\u20132384; inspected pp.2346\u20132347,2358\u20132365,2378\u20132379, research design, sample and counterfactual limitations. DOI10.1086/714444.",
+      "scope_limit": "Country-crop release-timing/shift-share identification depends on parallel relative-yield trends and absence of coincident crop shocks; 90-country baseline excludes specified rich/oil/small cases. No-GR counterfactual excludes alternative innovation and is explicitly qualified by authors.",
+      "evidence_lineage": "Original compilation/analysis of international variety release dates, initial crop shares and historical crop/FAO data; not independent underlying national measurement from every review using those series.",
+      "accessed": "2026-11-05",
+      "contribution": "AGR"
+    },
+    {
+      "id": "AGR-S11",
+      "title": "Agricultural Decisions after Relaxing Credit and Risk Constraints",
+      "authors": [
+        "Dean Karlan",
+        "Robert Osei",
+        "Isaac Osei-Akoto",
+        "Christopher Udry"
+      ],
+      "year": 2014,
+      "url": "https://www.atai-research.org/wp-content/uploads/2016/07/Agricultural-Decisions-after-Relaxing-Credit-and-Risk-Constraints.pdf",
+      "source_type": "original randomized field experiments",
+      "access": "full-text",
+      "locator": "Quarterly Journal of Economics129:597\u2013652; inspected pp.599\u2013601, sectionIII,VI.B,VI.D andVIII; tablesIII\u2013IV andIX context; conclusion pp.648\u2013650.",
+      "scope_limit": "Northern Ghana2009\u20132011 contracts/sample; insurance and cash treatment magnitudes not directly welfare-equivalent. Investment responses do not settle profit/welfare or commercial-delivery sustainability.",
+      "evidence_lineage": "Original multiyear randomised cash/insurance grants and random insurance prices, farmer surveys and rainfall triggers. Payout/network analyses share trial participants, not independent experiments supporting each psychological interpretation.",
+      "accessed": "2026-11-05",
+      "contribution": "AGR"
+    },
+    {
+      "id": "ANC-S03",
+      "title": "The second century CE Roman watermills of Barbegal: Unraveling the enigma of one of the oldest industrial complexes",
+      "authors": [
+        "G\u00fcl S\u00fcrmelihindi",
+        "Philippe Leveau",
+        "Christoph Sp\u00f6tl",
+        "Vincent Bernard",
+        "Cees W. Passchier"
+      ],
+      "year": 2018,
+      "url": "https://doi.org/10.1126/sciadv.aar3620",
+      "source_type": "archaeological",
+      "access": "full-text",
+      "locator": "Science Advances 4(9), eaar3620. Introduction; Results: microstratigraphy, crystal structure, stable isotope composition; Fig. 4; Discussion. Full article XML acquired at https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6124920/fullTextXML after publisher/PMC browser access failed.",
+      "scope_limit": "Carbonate samples record selected structures and years. Seasonal interruptions are better supported than identification of customers or hardtack production. Wider claims about Roman growth and empire-wide crises are not independently established here.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original analysis of carbonate fragments from the 1930s Barbegal excavations, surviving museum material and site evidence. ANC-S04 reanalyses overlapping material; the two papers are not independent replications.",
+      "contribution": "ANC"
+    },
+    {
+      "id": "ANC-S05",
+      "title": "The Aqueducts of Rome (De aquaeductu urbis Romae), Book II",
+      "authors": [
+        "Sextus Julius Frontinus",
+        "Charles E. Bennett (translator)",
+        "Mary B. McElwain (editor)"
+      ],
+      "year": 1925,
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/Bennett/2%2A.html",
+      "source_type": "historical-primary",
+      "access": "full-text",
+      "locator": "Ancient account c. 97\u2013early second century CE; Loeb English edition. Inspected \u00a7\u00a794\u201396, 116\u2013129, especially \u00a7\u00a7116\u2013118 (workforce and funding), 121\u2013124 (repair scheduling and access).",
+      "scope_limit": "Official self-presentation and prescriptions are not audited performance records. Reported staffing and finances are for Rome at a particular time, not the entire empire. Translation uses 'wages' for expenses of enslaved gangs; this does not establish free contractual employment.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Transmitted text by an imperial water commissioner, including quoted earlier legal measures. Bannon (ANC-S06) uses this same source alongside inscriptions and juristic texts; overlapping propositions are not independent corroboration.",
+      "contribution": "ANC"
+    },
+    {
+      "id": "ANC-S06",
+      "title": "Fresh Water in Roman Law: Rights and Policy",
+      "authors": [
+        "Cynthia Bannon"
+      ],
+      "year": 2017,
+      "url": "https://doi.org/10.1017/S007543581700079X",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Journal of Roman Studies 107, pp. 60\u201389; inspected Introduction, \u00a7III Civic Aqueducts, especially private grants and provincial examples, and \u00a7V Conclusion; full Cambridge HTML.",
+      "scope_limit": "Reconstruction from selected legal, epigraphic and literary evidence, principally late Republic through early Empire. Rights on paper do not measure household access or equal enforcement. Ancient-law analysis, not current legal guidance.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original legal-historical synthesis of Frontinus, municipal inscriptions, and juristic texts transmitted in Justinian's Digest. Specific inscriptions were read through Bannon, not separately inspected; part of the evidence overlaps ANC-S05.",
+      "contribution": "ANC"
+    },
+    {
+      "id": "DIG-S09",
+      "title": "The long-run poverty and gender impacts of mobile money",
+      "authors": [
+        "Tavneet Suri",
+        "William Jack"
+      ],
+      "year": 2016,
+      "url": "https://www.findevgateway.org/sites/default/files/publications/files/new_jack_and_suri_paper_1.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Science 354(6317), pp.1288\u20131292, DOI 10.1126/science.aah 5309; equations 1\u20132; Tables 1\u20133; attrition and mechanisms discussion. All five article pages inspected; supplement not acquired.",
+      "scope_limit": "Publisher-form article hosted by FinDev Gateway; direct PDF succeeded despite web-tool 403. Identification relies on early agent rollout assumptions, fixed effects and controls; substantial attrition, Nairobi later excluded. Extrapolated national poverty total is not a count. Supplemental robustness tables not independently inspected.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original five-wave 2008\u20132014 household panel, extending the data programme in DIG-S08; uses earlier research\u2019s falsification and rollout tests. This analysis is not an independent replication of those earlier findings.",
+      "contribution": "DIG"
+    },
+    {
+      "id": "DIG-S13",
+      "title": "Meta Platforms, Inc. Form 10-K for year ended December 31, 2023",
+      "authors": [
+        "Meta Platforms, Inc."
+      ],
+      "year": 2024,
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680124000012/meta-20231231.htm",
+      "source_type": "historical-primary",
+      "access": "full-text",
+      "locator": "Part I Reality Labs Products and relevant risk discussion; Note 16 Segment and Geographical Information, printed pp.124\u2013125; segment revenue/operating-loss table.",
+      "scope_limit": "Commercial company disclosure. Audited segment finances do not identify headset users, retention or per-device subsidy. Segment includes AR, mixed reality and VR; allocations and research costs prevent treating loss as cost of observed VR consumption.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Company accounting and management disclosures filed with SEC; no separate original adoption dataset used here. SEC hosting is not an independent estimate of market adoption.",
+      "contribution": "DIG"
+    },
+    {
+      "id": "IND-S04",
+      "title": "Productivity Growth in the Industrial Revolution: A New Growth Accounting Perspective",
+      "authors": [
+        "Nicholas Crafts"
+      ],
+      "year": 2002,
+      "url": "https://www.frbsf.org/wp-content/uploads/sites/4/crafts.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "January 2002 version, pp. 13\u201319 and table 3 on p. 23. Downloaded full PDF; those analytic passages and table inspected.",
+      "scope_limit": "Working-paper estimates, not silently substituted for either 2004 published article. Reconstructed horsepower, capital shares and social savings depend on assumptions; sectoral importance is not the same as aggregate growth contribution. No claim that the results settle later revisions to steam stocks.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Reconstructed engine horsepower and costs from Kanefsky, Musson and von Tunzelmann, national accounts, and railway social savings. Some inherited engineering literature overlaps IND-S03. This analysis contributes accounting, not a new installation census.",
+      "contribution": "IND"
+    },
+    {
+      "id": "IND-S16",
+      "title": "From Shafts to Wires: Historical Perspective on Electrification",
+      "authors": [
+        "Warren D. Devine, Jr."
+      ],
+      "year": 1983,
+      "url": "https://gwern.net/doc/economics/automation/1983-devine.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Journal of Economic History 43(2), pp. 347\u2013372. Full PDF downloaded; pp. 353\u2013363 and 368\u2013372 inspected, especially drive configurations, equipment redesign and utility services.",
+      "scope_limit": "Technical literature and reconstructed capacity series are stronger for engineering mechanisms than worker experience. No comprehensive unit-drive census exists; horsepower shares cannot be read as establishment adoption rates. Productivity interpretation is not an experimental estimate.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Contemporary engineering journals, manufacturers\u2019 descriptions, technical textbooks and reconstructed census/capacity data (including DuBoff). Direct original articles generally not independently acquired. IND-S04 cites related electricity literature, so apparent agreement may share ancestors.",
+      "contribution": "IND"
+    },
+    {
+      "id": "LBR-S02",
+      "title": "Answering the Call of Automation: How the Labor Market Adjusted to Mechanizing Telephone Operation",
+      "authors": "James Feigenbaum and Daniel P. Gross",
+      "year": "2024",
+      "url": "https://www.dpgross.com/papers/answering-call-automation.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Published QJE 139(3), pp.1879\u20131939; inspected introduction, \u00a7\u00a7III\u2013IV, VI\u2013VII and conclusion; especially pp.1895\u20131897,1906\u20131908,1923\u20131928,1934",
+      "scope_limit": "Observational staggered-adoption study, predominantly small-city US comparison; cohort results focus on white American-born women 16\u201325. Incumbent linkage is selective and adjusted, not random. Raw data/appendix estimates not replicated.",
+      "evidence_lineage": "AT&T records, historical newspapers, complete-count US census/IPUMS and FamilySearch genealogical links. Linked outcomes and cohort comparisons partly share the same census and cutover evidence.",
+      "accessed": "2026-11-05",
+      "contribution": "LBR"
+    },
+    {
+      "id": "MAT-S05",
+      "title": "Blast Furnaces in Song\u2013Yuan China",
+      "authors": [
+        "Donald B. Wagner"
+      ],
+      "year": 2001,
+      "url": "https://donwagner.dk/arch-iron/resources/Wagner2001.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "East Asian Science, Technology, and Medicine 18:41\u201374; pp. 41\u201343, 51\u201353, 58\u201363, especially p. 42 n. 6 and p. 61.",
+      "scope_limit": "Combines excavations, translated records and engineering inference; exact mineral-fuel chemistry and product allocation remain uncertain. Older study; not a national output dataset.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Combines reported furnace excavations, Song fiscal records, Su Shi\u2019s poem, earlier carbon measurements and engineering comparison. Original Chinese records and underlying laboratory reports were not independently read here.",
+      "contribution": "MAT"
+    },
+    {
+      "id": "MAT-S08",
+      "title": "Arsenic Bronze: Dirty Copper or Chosen Alloy? A View from the Americas",
+      "authors": [
+        "Heather Lechtman"
+      ],
+      "year": 1996,
+      "url": "https://www.academia.edu/31356952/Lechtman_Arsenic_Bronze_Dirty_Copper_1996",
+      "source_type": "experiment",
+      "access": "full-text",
+      "locator": "Journal of Field Archaeology 23(4):477\u2013514; pp. 477\u2013481, 500\u2013508, Tables 4\u20136 and Figs. 25\u201327; full-text extraction inspected.",
+      "scope_limit": "Controlled modern alloy tests establish properties, not historical motive by themselves. Some elongation measures need more reproducible experiments. Archaeological and political generalisations rely on cited studies not all independently read.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original mechanical-property experiments plus interpretations of previously analysed American artefacts and earlier scholarship. Shares lead researcher, some archaeological references and research questions with MAT-S09; those papers do not independently corroborate Inka policy.",
+      "contribution": "MAT"
+    },
+    {
+      "id": "MED-S01",
+      "title": "The origins of inoculation",
+      "authors": [
+        "Arthur Boylston"
+      ],
+      "year": 2012,
+      "url": "https://journals.sagepub.com/doi/10.1258/jrsm.2012.12k044",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Sections on Ottoman/European inoculation, China and India, and Conclusions; complete article text inspected.",
+      "scope_limit": "Historical inquiry through reports and older scholarship; early origins, coverage and precise identity/geography of informants remain contested. No reported risk ratio is adopted.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Reproduces Timonius, Mather/Onesimus, Pylarinius, North African and other accounts; depends on Needham and earlier historical compilations. Not independent inspection of those original manuscripts. Overlaps the Montagu narrative in MED-S02.",
+      "contribution": "MED"
+    },
+    {
+      "id": "MED-S06",
+      "title": "Watersheds in Child Mortality: The Role of Effective Water and Sewerage Infrastructure, 1880\u20131920",
+      "authors": [
+        "Marcella Alsan",
+        "Claudia Goldin"
+      ],
+      "year": 2019,
+      "url": "https://bpb-us-e1.wpmucdn.com/sites.harvard.edu/dist/e/935/files/2025/11/alsangoldin_jpe.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "JPE 127:586\u2013638, corrected reprint; pp. 586\u2013593, introduction to identification/results, Table 4 and robustness discussion pp. 612\u2013614 inspected; appendices not audited in full.",
+      "scope_limit": "Difference-in-differences for Massachusetts municipalities; Boston excluded from estimation; contingent on rollout exogeneity, mortality registration, interference and model assumptions.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Massachusetts vital records, municipal infrastructure histories and state/federal census data; distinct regional design from MED-S07, but historically related water systems/literature. Not independent universal replication of city-level national estimates.",
+      "contribution": "MED"
+    },
+    {
+      "id": "MOB-S08",
+      "title": "The Permanent Effects of Transportation Revolutions in Poor Countries: Evidence from Africa, January 2015 forthcoming version",
+      "authors": [
+        "Remi Jedwab",
+        "Alexander Moradi"
+      ],
+      "year": 2015,
+      "url": "https://alexandermoradi.org/research/rail.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Full PDF accessible through web text; inspected introduction, \u00a7\u00a72\u20134 and selected \u00a75\u20136 passages, especially printed pp. 5\u20139, 14\u201315, 22\u201325 and Table 3. Subsequent publication: Review of Economics and Statistics 98(2), 268\u2013284 (2016).",
+      "scope_limit": "Use this version explicitly. Main Ghana analysis uses 0.1-degree grid cells and census data 1891\u20132000; wider African comparisons are secondary here. Rail location is not random; planned lines and instruments reduce rather than eliminate selection concerns. Historical labour/forest descriptions cite earlier scholarship not separately inspected.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original historical GIS and census/cocoa dataset combined with colonial railway histories and planned routes. Ghana findings and wider African checks share methods and authors. Maintenance, labour and forest narratives inherit Luntinen, Hill, Ruf and other scholarship, not separately inspected originals.",
+      "contribution": "MOB"
+    },
+    {
+      "id": "MOB-S11",
+      "title": "Estimating the effects of the container revolution on world trade",
+      "authors": [
+        "Daniel M. Bernhofen",
+        "Zouheir El-Sahli",
+        "Richard Kneller"
+      ],
+      "year": 2016,
+      "url": "https://qn1-next.xuetangonline.com/16800654811573.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Published Journal of International Economics 98, 36\u201350, DOI 10.1016/j.jinteco.2015.09.001. Full PDF acquired; inspected pp. 36\u201340, Tables 2\u20133, pp. 44\u201347 and Appendix Table 1.",
+      "scope_limit": "Published article, not 2012\u20132014 working papers. Authors explicitly reject confident causal interpretation of adoption-timing estimates where parallel trends fail; product comparisons are smaller and depend on classification. Historical standardization/military narrative draws on prior histories, particularly Levinson, not independently inspected archives.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original trade/adoption dataset assembled from Containerisation International, trade records and engineering classifications. Historical narrative inherits Levinson, McKinsey and other accounts. Published 2016 estimates and warnings supersede claims from earlier drafts; those drafts are not separate corroboration.",
+      "contribution": "MOB"
+    },
+    {
+      "id": "NET-S03",
+      "title": "Material properties of Islamic paper",
+      "authors": [
+        "Hend Mahgoub",
+        "Tiphaine Bardon",
+        "Dirk Lichtblau",
+        "Tom Fearn",
+        "Matija Strli\u010d"
+      ],
+      "year": 2016,
+      "url": "https://discovery.ucl.ac.uk/1527462/1/2016%20Mahgoub%20HS.pdf",
+      "source_type": "experiment",
+      "access": "full-text",
+      "locator": "Heritage Science 4:34, DOI 10.1186/s40494-016-0103-4; inspected pp. 1\u20133, 9\u201310 and collection/method limitations.",
+      "scope_limit": "228-paper conservation reference collection; 133 undated; most dated samples much later than medieval diffusion. Abstract and methods describe chronology differently. Unknown provenance/storage limits inference; used to bound attribution, not measure medieval uptake.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Original laboratory analyses of a UCL reference collection; the same physical papers underpin all reported analytical methods. Independent material research but not an independent medieval chronology. Historical background draws on earlier codicological literature.",
+      "contribution": "NET"
+    },
+    {
+      "id": "NET-S11",
+      "title": "Did Ottoman Sultans Ban Print?",
+      "authors": [
+        "Kathryn A. Schwartz"
+      ],
+      "year": 2017,
+      "url": "https://religionculturesociety.com/wp-content/uploads/2019/05/s1__schwartz_did-ottoman-sultans-ban-print.pdf",
+      "source_type": "scholarly-analysis",
+      "access": "full-text",
+      "locator": "Book History 20:1\u201339, DOI 10.1353/bh.2017.0000; inspected pp. 1\u201311, 16\u201320, 22\u201329 and associated notes; documentary core pp. 6\u201311.",
+      "scope_limit": "No surviving general ban is not proof of no restriction. Interpretation is scoped to the alleged Bayezid/Selim bans and extant 1588/1727 documents. Original Ottoman documents not independently read; translations and close reading are Schwartz's.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Traces inherited ban claims through Thevet, Guignes, Cheikho and Lewis, so their repeated assertion is one transmission chain. Documentary counterevidence is the 1588 firman reproduced in a 1594 Euclid and M\u00fcteferrika's 1729 prefatory firman/fatwa materials. Uses Sabev critically; not an independent archive of his probate quantities.",
+      "contribution": "NET"
+    },
+    {
+      "id": "IND-S06",
+      "title": "Fleeing the Flowing Commons: Robert Thom, Water Reservoir Schemes, and the Shift to Steam Power in Early Nineteenth-Century Britain",
+      "authors": [
+        "Andreas Malm"
+      ],
+      "year": 2014,
+      "url": "https://portal.research.lu.se/en/publications/fleeing-the-flowing-commons-robert-thom-water-reservoir-schemes-a/",
+      "source_type": "scholarly-analysis",
+      "access": "abstract",
+      "locator": "Author-institution repository abstract and bibliographic record; journal reference Environmental History 19(1), pp. 55\u201377. Full text not acquired.",
+      "scope_limit": "Only supports an attributed summary of Malm\u2019s argument about proposed reservoirs and coordination. Scheme-level costs, archives and the article\u2019s strong cheaper-water conclusion were not audited. Do not cite detailed pages as if read.",
+      "accessed": "2026-11-05",
+      "evidence_lineage": "Abstract identifies Robert Thom and Lancashire reservoir proposals as historical material; exact archival and cost lineage unknown because the full article was not acquired.",
+      "contribution": "IND"
+    }
+  ],
+  "amendment": "After aggregate access-class inventory, before reopening IND-S06, add IND-K08 as 20th claim because 17/129 records are partial-text/abstract and the initial risk selection did not explicitly cover one. Ordinary sample unchanged; no adverse source-check result selected this addition."
+}

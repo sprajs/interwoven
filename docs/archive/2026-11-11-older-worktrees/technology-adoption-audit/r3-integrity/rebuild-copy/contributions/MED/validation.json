@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "date": "2026-11-05",
+  "contract": "METHODS.md plus METHODS_ADDENDUM_V2.md",
+  "counts": {
+    "cases": 8,
+    "sources": 16,
+    "claims": 24,
+    "nodes": 33,
+    "edges": 24,
+    "comparisons": 5,
+    "report_words": 3083
+  },
+  "checks": [
+    "JSON parsing and required fields",
+    "ID uniqueness and cross-references",
+    "v2 episode, actor, labour, test, graph and lineage fields",
+    "depends-on restricted to bounded necessity",
+    "joint-input and scope references",
+    "no access-bearing query URLs",
+    "report target length"
+  ],
+  "limits": "Structural validation only; not independent historical or full source entailment review.",
+  "errors": []
+}

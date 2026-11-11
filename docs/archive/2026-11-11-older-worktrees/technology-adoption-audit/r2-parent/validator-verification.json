@@ -1,0 +1,36 @@
+{
+  "probes": [
+    {
+      "probe": "invalid test status",
+      "exit_code": 1,
+      "matched_errors": [
+        "MAT-K01 invalid test status"
+      ],
+      "passed": true
+    },
+    {
+      "probe": "alternatives not array",
+      "exit_code": 1,
+      "matched_errors": [
+        "MAT-E01 alternatives not array"
+      ],
+      "passed": true
+    },
+    {
+      "probe": "needs substantive rationale",
+      "exit_code": 1,
+      "matched_errors": [
+        "MAT-E05 bounded necessity needs substantive rationale"
+      ],
+      "passed": true
+    },
+    {
+      "probe": "explorer rejects validation errors",
+      "exit_code": 1,
+      "stderr": "Refusing explorer generation: collection validation contains errors\n",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "scope": "Isolated invalid copies only. Real MAT report/questions retained. Existing unrelated link warnings are not used as the rejection signal."
+}

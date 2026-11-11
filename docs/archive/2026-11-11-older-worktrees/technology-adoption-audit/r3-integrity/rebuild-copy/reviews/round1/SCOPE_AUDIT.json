@@ -1,0 +1,216 @@
+{
+  "reviewer": "independent historical scope, power and comparison",
+  "date": "2026-11-05",
+  "snapshot_created_utc": "2026-11-05T14:27:23.496317+00:00",
+  "snapshot_manifest_sha256": "296c4faa68c3a408c633a4668a4931289906e16bc99a3ce00fd5ada97c7feba1",
+  "snapshot_counts": {
+    "cases": 59,
+    "sources": 129,
+    "claims": 210,
+    "nodes": 271,
+    "edges": 192,
+    "comparisons": 41
+  },
+  "integrity": {
+    "manifest_files_checked": 169,
+    "all_match": true,
+    "mismatches": []
+  },
+  "sampling": {
+    "method": "Purposive: actors, refusal, imperial/colonial histories, Indigenous production, household labour, future-role evidential bases and potential scope contradictions. Not an estimated error rate.",
+    "case_titles_periods_regions_screened": 59,
+    "full_episode_actor_labour_cases": [
+      "AGR-C01",
+      "AGR-C02",
+      "AGR-C03",
+      "AGR-C05",
+      "AGR-C07",
+      "AGR-C08",
+      "ANC-C03",
+      "ANC-C04",
+      "ANC-C05",
+      "ANC-C06",
+      "DIG-C05",
+      "IND-C05",
+      "IND-C06",
+      "IND-C07",
+      "LBR-C01",
+      "LBR-C02",
+      "MAT-C04",
+      "MAT-C07",
+      "MED-C01",
+      "MED-C07",
+      "MOB-C02",
+      "MOB-C03",
+      "MOB-C04",
+      "MOB-C06",
+      "MOB-C07",
+      "NET-C02",
+      "NET-C03",
+      "NET-C05",
+      "NET-C06"
+    ],
+    "additional_episode_outcome_cases": [
+      "ANC-C01",
+      "IND-C03",
+      "MAT-C01",
+      "MAT-C06"
+    ],
+    "comparison_records_read": [
+      "AGR-X01",
+      "AGR-X02",
+      "AGR-X03",
+      "IND-X01",
+      "IND-X02",
+      "IND-X03",
+      "IND-X04",
+      "MAT-X01",
+      "MAT-X02",
+      "MAT-X03",
+      "MAT-X04",
+      "MOB-X01",
+      "MOB-X02",
+      "MOB-X03",
+      "MOB-X04",
+      "NET-X01",
+      "NET-X02",
+      "NET-X03",
+      "NET-X04",
+      "SYN-X01",
+      "SYN-X02",
+      "SYN-X03",
+      "SYN-X04",
+      "LBR-X01"
+    ],
+    "overview_documents_read": [
+      "CHARTER.md",
+      "METHODS.md",
+      "METHODS_ADDENDUM_V2.md",
+      "analysis/SYNTHESIS.md",
+      "analysis/SELECTION_REGISTER.md",
+      "analysis/FUTURE_ROLES.md",
+      "analysis/CAUSAL_FRAMEWORK.md",
+      "analysis/HYPOTHESES_AND_NEGATIVE_CASES.md"
+    ],
+    "limits": "Claim/source reading was targeted. No exhaustive source entailment audit, raw-data replication, original-language collation or reading of other round-1 reviewer reports."
+  },
+  "v2_presence_checks": {
+    "cases": 59,
+    "required_fields_missing": [],
+    "rendered_episode_sections": 59
+  },
+  "findings": [
+    {
+      "id": "P1-SP01",
+      "severity": "P1",
+      "type": "assertion-scope defect",
+      "targets": [
+        "analysis/HYPOTHESES_AND_NEGATIVE_CASES.md:13",
+        "NET-K08.inference_limits",
+        "NET-K08.test.strongest_rival",
+        "NET-X01.conclusion_limit"
+      ]
+    },
+    {
+      "id": "P2-SP02",
+      "severity": "P2",
+      "type": "actor/enforcement evidence omission",
+      "targets": [
+        "AGR-C03.actors",
+        "AGR-C03.labour.bargaining_ownership",
+        "AGR-K07",
+        "AGR-K08",
+        "AGR-K09",
+        "AGR-X02",
+        "SYN-K12",
+        "analysis/SYNTHESIS.md"
+      ]
+    },
+    {
+      "id": "P2-SP03",
+      "severity": "P2",
+      "type": "discriminating-case selection limitation",
+      "targets": [
+        "IND-C07",
+        "IND-K20",
+        "IND-K21",
+        "IND-K22",
+        "IND-X03",
+        "SYN-X02",
+        "analysis/FUTURE_ROLES.md:51",
+        "analysis/SELECTION_REGISTER.md"
+      ]
+    },
+    {
+      "id": "P2-SP04",
+      "severity": "P2",
+      "type": "actor/history coverage limitation",
+      "targets": [
+        "MOB-C04.actors.chooser",
+        "MOB-C04.labour",
+        "MOB-K11",
+        "MOB-K12",
+        "MOB-K13",
+        "MOB-K14",
+        "MOB-X02",
+        "MOB-X03"
+      ]
+    },
+    {
+      "id": "P2-SP05",
+      "severity": "P2",
+      "type": "role-specific access/value-capture evidence gate",
+      "targets": [
+        "analysis/FUTURE_ROLES.md",
+        "LBR-C01",
+        "NET-C06",
+        "MED-C07",
+        "ANC-C03",
+        "SYN-X04",
+        "SYN-K16"
+      ]
+    },
+    {
+      "id": "P3-SP06",
+      "severity": "P3",
+      "type": "structured qualifier loss",
+      "targets": [
+        "MAT-C06.outcome",
+        "MAT-K19"
+      ]
+    },
+    {
+      "id": "P3-SP07",
+      "severity": "P3",
+      "type": "comparison-lineage refinement",
+      "targets": [
+        "SYN-X03.connections_nonindependence",
+        "SYN-X04.connections_nonindependence",
+        "MOB-X02.connections_nonindependence"
+      ]
+    }
+  ],
+  "independent_source_checks": 9,
+  "source_access_record": "SCOPE_SOURCE_ACCESS.md",
+  "source_cache_files": {
+    "SCOPE_AUSTIN_2007.pdf": {
+      "bytes": 447683,
+      "sha256": "6f72abeab59accd60d58899742cf60ee3a798cb57b271a11d15032d4a41de4b0"
+    },
+    "SCOPE_BOOK_WORLDS_2015.pdf": {
+      "bytes": 2624036,
+      "sha256": "e7998145bbe2abcee2b1c8364bd4cc16285dfeb3339ae9e7ca988ac19e2b4ff9"
+    },
+    "SCOPE_CARNEY_1992.pdf": {
+      "bytes": 17317431,
+      "sha256": "70065a4559734d22826b97dd68936574c7fbafe23f763123564bc0c5ef5ebee7"
+    }
+  },
+  "independence": {
+    "other_round1_reviews_read": false,
+    "parent_live_repairs_used_as_evidence": false,
+    "planned_gap_strands_credited": false,
+    "snapshot_modified": false
+  },
+  "status": "Review complete; parent adjudication and any repairs remain outside reviewer ownership."
+}

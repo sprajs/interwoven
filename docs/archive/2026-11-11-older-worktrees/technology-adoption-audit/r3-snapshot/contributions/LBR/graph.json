@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "LBR-T01",
+      "label": "Mechanical local telephone switching",
+      "kind": "technology",
+      "case_ids": [
+        "LBR-C01"
+      ]
+    },
+    {
+      "id": "LBR-T02",
+      "label": "Adapted telephone service organisation",
+      "kind": "institution",
+      "case_ids": [
+        "LBR-C01"
+      ]
+    },
+    {
+      "id": "LBR-T03",
+      "label": "Manual local telephone switching",
+      "kind": "practice",
+      "case_ids": [
+        "LBR-C01"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "LBR-E01",
+      "from": "LBR-T02",
+      "to": "LBR-T01",
+      "relation": "complements",
+      "case_ids": [
+        "LBR-C01"
+      ],
+      "claim_ids": [
+        "LBR-K01"
+      ],
+      "source_ids": [
+        "LBR-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Author-summary mechanism; not a universal necessity or independently ranked cause.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "LBR-C01",
+        "stage": "deployment/diffusion",
+        "configuration": "AT&T switching within its early twentieth-century service organisation"
+      },
+      "alternatives": [
+        "Manual/hybrid operation; alternative firm organisation"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Abstract-level mechanism support; competing technical/scale explanations not independently adjudicated."
+    },
+    {
+      "id": "LBR-E02",
+      "from": "LBR-T01",
+      "to": "LBR-T03",
+      "relation": "displaces",
+      "case_ids": [
+        "LBR-C01"
+      ],
+      "claim_ids": [
+        "LBR-K02"
+      ],
+      "source_ids": [
+        "LBR-S02"
+      ],
+      "confidence": "high",
+      "qualification": "Local switching tasks in converted exchanges; not all telephone tasks or all work.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "LBR-C01",
+        "stage": "displacement",
+        "configuration": "Local exchange dial cutovers in the study population"
+      },
+      "alternatives": [
+        "Manual switching persists elsewhere; non-switching roles"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Labour-market net effects differ from direct task displacement; inference limits retained in claim."
+    }
+  ]
+}

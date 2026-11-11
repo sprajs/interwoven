@@ -1,0 +1,200 @@
+{
+  "reviewer": "/root/precision_repair_skills",
+  "date_utc": "2026-11-05T15:46:02.480184+00:00",
+  "review_type": "targeted independent source-correction recheck",
+  "overall_verdict": "accepted_requested_corrections_with_one_narrow_residual_in_new_test_design_wording",
+  "target": {
+    "path": "nssr-repair-snapshot/MANIFEST.json",
+    "sha256": "1b9dcf4c0d19f279e01ce67186be3e1794866e9540f98281989401861b8924fc",
+    "files": {
+      "contributions/ENE/report.md": "8e2a5f5faa73e1f897bbbdcc7a16f12b755c50b3758c3632bc4c86421f16b0e5",
+      "contributions/ENE/cases.json": "ca995d5aa1ff11239162bd4f64600e6ff3950ecefaa15cb88b93d9dfe2410a40",
+      "contributions/ENE/claims.json": "0f9683551730df0dcbdddb58a7a519a69801211b10029c275debf432c1d03c79",
+      "contributions/OCE/report.md": "d971e52c63bc99b395e8d5c04f3ecc25232e92fbf6ecf13be450a701d055413b",
+      "contributions/OCE/claims.json": "86b20c2d6a79cfad54158feff69ceeb824412053d928022176275e2d1a87d04d"
+    },
+    "file_count": 5
+  },
+  "baseline": {
+    "path": "wave2-source-snapshot/MANIFEST.json",
+    "sha256": "099f2e165868785013db3aa978175fe58a4b546e92c432b5cac365692994eb47"
+  },
+  "parent_disposition": {
+    "path": "NSSR_PARENT_REPAIRS.json",
+    "sha256": "c3edfff7059f05b2f11feeb9882177fc75fc0cb02b3e6637692d5d1d5635702a"
+  },
+  "checks": [
+    {
+      "name": "snapshot_file_hash",
+      "path": "contributions/ENE/report.md",
+      "expected": "8e2a5f5faa73e1f897bbbdcc7a16f12b755c50b3758c3632bc4c86421f16b0e5",
+      "actual": "8e2a5f5faa73e1f897bbbdcc7a16f12b755c50b3758c3632bc4c86421f16b0e5",
+      "pass": true
+    },
+    {
+      "name": "snapshot_file_hash",
+      "path": "contributions/ENE/cases.json",
+      "expected": "ca995d5aa1ff11239162bd4f64600e6ff3950ecefaa15cb88b93d9dfe2410a40",
+      "actual": "ca995d5aa1ff11239162bd4f64600e6ff3950ecefaa15cb88b93d9dfe2410a40",
+      "pass": true
+    },
+    {
+      "name": "snapshot_file_hash",
+      "path": "contributions/ENE/claims.json",
+      "expected": "0f9683551730df0dcbdddb58a7a519a69801211b10029c275debf432c1d03c79",
+      "actual": "0f9683551730df0dcbdddb58a7a519a69801211b10029c275debf432c1d03c79",
+      "pass": true
+    },
+    {
+      "name": "snapshot_file_hash",
+      "path": "contributions/OCE/report.md",
+      "expected": "d971e52c63bc99b395e8d5c04f3ecc25232e92fbf6ecf13be450a701d055413b",
+      "actual": "d971e52c63bc99b395e8d5c04f3ecc25232e92fbf6ecf13be450a701d055413b",
+      "pass": true
+    },
+    {
+      "name": "snapshot_file_hash",
+      "path": "contributions/OCE/claims.json",
+      "expected": "86b20c2d6a79cfad54158feff69ceeb824412053d928022176275e2d1a87d04d",
+      "actual": "86b20c2d6a79cfad54158feff69ceeb824412053d928022176275e2d1a87d04d",
+      "pass": true
+    },
+    {
+      "name": "parent_before_hashes_match_original_target",
+      "pass": true
+    },
+    {
+      "name": "parent_after_hashes_match_correction_target",
+      "pass": true
+    }
+  ],
+  "changed_record_inventory": [
+    {
+      "path": "contributions/ENE/cases.json",
+      "added_ids": [],
+      "removed_ids": [],
+      "changed_ids": [
+        "ENE-C01"
+      ]
+    },
+    {
+      "path": "contributions/ENE/claims.json",
+      "added_ids": [],
+      "removed_ids": [],
+      "changed_ids": [
+        "ENE-K01",
+        "ENE-K02"
+      ]
+    },
+    {
+      "path": "contributions/OCE/claims.json",
+      "added_ids": [],
+      "removed_ids": [],
+      "changed_ids": [
+        "OCE-K11"
+      ]
+    }
+  ],
+  "source_artifacts_reopened": [
+    {
+      "path": "new-strands-evidence/ENE-S01.pdf",
+      "sha256": "34a3a73b6c3206a00ff9fdbf9b99977700cb7efcc8d6a91a1e1b307387ce1850",
+      "access": "preserved original or extraction reopened locally; no fresh network retrieval in this recheck"
+    },
+    {
+      "path": "new-strands-evidence/ENE-S01.txt",
+      "sha256": "ed45df695021a439e987c06d67f682bf289d1991d34bffa3e22ea01e545a185b",
+      "access": "preserved original or extraction reopened locally; no fresh network retrieval in this recheck"
+    },
+    {
+      "path": "new-strands-evidence/ENE-S02.pdf",
+      "sha256": "3b9b3881744df3ea9dbb90ea79ad6c0c431f6627aef1497cee8ecfb52a965716",
+      "access": "preserved original or extraction reopened locally; no fresh network retrieval in this recheck"
+    },
+    {
+      "path": "new-strands-evidence/ENE-S02.txt",
+      "sha256": "4aa3398e077400a537a16de89bad09c37af886978cab35f72d5e166fefbe0c92",
+      "access": "preserved original or extraction reopened locally; no fresh network retrieval in this recheck"
+    },
+    {
+      "path": "new-strands-evidence/OCE-S08.html",
+      "sha256": "78758da23bf6c5037caaf8e9b153738b060fb87cf3b953f067226038bd5b10c6",
+      "access": "preserved original or extraction reopened locally; no fresh network retrieval in this recheck"
+    },
+    {
+      "path": "new-strands-evidence/OCE-S08.txt",
+      "sha256": "bbebcebd18b9f695cd596a85e66edd2d1f9e9f410b5537909aa97e161e93dda9",
+      "access": "preserved original or extraction reopened locally; no fresh network retrieval in this recheck"
+    }
+  ],
+  "scope": {
+    "claims": [
+      "ENE-K01",
+      "ENE-K02",
+      "OCE-K11"
+    ],
+    "episode": [
+      "ENE-C01"
+    ],
+    "reports": [
+      "ENE/report.md changed PV passage",
+      "OCE/report.md changed Martu passage"
+    ],
+    "original_source_records_reopened": 3
+  },
+  "dispositions": [
+    {
+      "id": "NSSR-02",
+      "target": "ENE-K01;ENE-C01;ENE/report.md",
+      "verdict": "accepted",
+      "basis": "Worldwide price/cost reconstruction distinguished from partly US market evidence; price-as-cost proxy explicit; underdetermined test retained.",
+      "source_locators": [
+        "Nemet 2006 §§1.2–2.1, printed pp.3221–3222; §§3.1.1–3.1.4, pp.3224–3225"
+      ],
+      "limits": "No causal attribution of early residual or US-only outcome inferred."
+    },
+    {
+      "id": "NSSR-01",
+      "target": "OCE-K11;OCE/report.md",
+      "verdict": "requested_status_and_validation_repairs_accepted_with_residual_NSSR-RC-01",
+      "basis": "Underdetermined status; hypothesised mechanism; environmental-selection rival retained; 90% validation scoped to burn age at 50 points within 500m of roads/tracks; location proxy, centroids and single weather station disclosed.",
+      "source_locators": [
+        "Bliege Bird et al. 2012, Materials and Methods; Results"
+      ],
+      "limits": "Observed fitted rainfall associations are not a causal contrast; new test-design wording requires the narrow repair below."
+    },
+    {
+      "id": "ENE-K02-input-sensitivity",
+      "target": "ENE-K02.inference_limits",
+      "verdict": "accepted",
+      "basis": "Model definitions and reconstructed inputs both change: Nemet Table2 uses125kW/year; Kavlak Table1/text uses1MW in1980.",
+      "source_locators": [
+        "Nemet 2006 Table2, printed p.3226",
+        "Kavlak et al. 2018 Table1 and §4.1, printed pp.702,705"
+      ],
+      "limits": "No causal attribution of share differences to equation alone; published allocations unchanged."
+    }
+  ],
+  "residuals": [
+    {
+      "id": "NSSR-RC-01",
+      "priority": "P3",
+      "target": "OCE-K11.test.discriminating_observation",
+      "status": "open",
+      "finding": "A direct between-regime interaction contrast tests whether slopes differ but does not alone discriminate fuel mosaics from nonrandom environmental selection.",
+      "suggested_replacement": "A direct between-regime interaction contrast would test whether the rainfall slopes differ. Separating the fuel-mosaic mechanism from environmental selection additionally requires environmental comparability or a defensible causal design.",
+      "acceptance_condition": "Separately identified frozen revised record distinguishes statistical slope comparison from control of environmental selection; original snapshot preserved."
+    }
+  ],
+  "limits": [
+    "Not whole-strand or whole-edition acceptance.",
+    "No final JSON/CSV/HTML transport inspected.",
+    "No graph files in this target.",
+    "No raw-data reanalysis or identification of causal rainfall differences.",
+    "No live contribution or snapshot mutation by reviewer."
+  ],
+  "report": {
+    "path": "NSSR_RECHECK.md",
+    "sha256": "32f6f2575834f00f3f15d36fb20fe7fde6c2e0c09e4d836b1b3e4e80506761d6"
+  }
+}

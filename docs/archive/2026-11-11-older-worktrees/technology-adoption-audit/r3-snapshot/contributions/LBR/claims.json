@@ -1,0 +1,199 @@
+[
+  {
+    "id": "LBR-K01",
+    "case_ids": [
+      "LBR-C01"
+    ],
+    "statement": "The AT&T historical study attributes delayed switching automation to organisational interdependencies and market-scale economics, rather than treating invention as immediate deployability.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "LBR-S01",
+        "locator": "Abstract and author-page summary",
+        "supports": "States adaptation and larger-market profitability mechanisms."
+      }
+    ],
+    "counterevidence": "Technology improvement and market growth were intertwined.",
+    "inference_limits": "Abstract-level support; relative causal weights not audited.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Interdependent manual service -> firm/technology adaptation -> viable switching at suitable scale -> staged adoption",
+      "strongest_rival": "Purely technical improvement or wage-cost changes could drive timing without independent organisational causation.",
+      "discriminating_observation": "Internal plans and comparable exchanges with different organisational readiness or market size.",
+      "evidence_sought_found": "LBR-S01 abstract reports archival interpretation; full mechanism evidence was not acquired, so no adjudication claimed.",
+      "remaining_ambiguity": "The contribution cannot rank organisational adaptation versus technical and economic change.",
+      "hypothesis_timing": "emerged during research"
+    }
+  },
+  {
+    "id": "LBR-K02",
+    "case_ids": [
+      "LBR-C01"
+    ],
+    "statement": "In the telephone-automation study, incumbent operators and later young female cohorts experienced different labour-market outcomes; stable later-cohort employment did not mean incumbent workers were unharmed.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "LBR-S02",
+        "locator": "§VI, §VII and conclusion p.1934",
+        "supports": "Linked incumbent outcomes differ from repeated-cohort employment findings."
+      }
+    ],
+    "counterevidence": "Genealogical linkage is non-random; the authors report robustness and weighting rather than eliminating every possible selection process.",
+    "inference_limits": "Inference is conditional on comparison/selection assumptions; not a universal automation result.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Dial cutover removes switching jobs -> incumbents lose specialised job opportunity -> adverse decade-later employment/occupational outcomes, while future entrants reallocate",
+      "strongest_rival": "Different local demand trends or non-random linkage/selection could explain cutover timing and measured incumbent outcomes. Such trends should also appear in comparable local controls or pre-cutover outcomes; selection should be sensitive to linkage and weighting checks.",
+      "discriminating_observation": "Compare linked incumbents with local matched controls separately from future cohorts around cutover timing; inspect pre-trends, alternative controls and linkage/weighting robustness. These checks constrain but do not eliminate unobserved selection.",
+      "evidence_sought_found": "LBR-S02 §§III,VI,VII inspected; study uses these distinct designs and reports different outcomes.",
+      "remaining_ambiguity": "Unobserved local changes, linked-sample selection and incomplete wages remain possible limitations.",
+      "hypothesis_timing": "emerged during research"
+    }
+  },
+  {
+    "id": "LBR-K03",
+    "case_ids": [
+      "LBR-C01"
+    ],
+    "statement": "The main later-cohort comparison focuses on white American-born women aged 16–25, while incumbent operators are followed through a separate linked census sample; neither sample directly represents all affected workers.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "LBR-S02",
+        "locator": "§III; Figures III/IV; Table VIII",
+        "supports": "Defines populations and separate linkage strategy."
+      }
+    ],
+    "counterevidence": "The paper includes additional robustness populations, but the main population remains bounded.",
+    "inference_limits": "Do not generalise to all women, racial groups, immigrants or displaced workers.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports a bounded measurement/design or author argument; no new causal effect asserted."
+    }
+  },
+  {
+    "id": "LBR-K04",
+    "case_ids": [
+      "LBR-C01"
+    ],
+    "statement": "The authors find no clear overall wage effect for later young female cohorts, but the relevant tests cannot exclude wage changes around plus or minus 10 percent; no detected effect is not proof of unchanged pay.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "LBR-S02",
+        "locator": "§VII.B, pp.1927–1928",
+        "supports": "Explicitly discusses power and wide bounds in smaller wage-analysis sample."
+      }
+    ],
+    "counterevidence": "Heterogeneous effects and measurement noise could mask changes.",
+    "inference_limits": "Applies to these wage tests, not an exact confidence interval for every subgroup.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports a bounded measurement/design or author argument; no new causal effect asserted."
+    }
+  },
+  {
+    "id": "LBR-K05",
+    "case_ids": [
+      "LBR-C02"
+    ],
+    "statement": "The roughly 60 percent estimate of 2018 US employment in job titles added since 1940 is an imputation from new-title shares within occupations, not a direct count of workers in new micro-titles.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "LBR-S03",
+        "locator": "§II.B, Figure I and accompanying pp.1410–1412",
+        "supports": "Explains the estimate and unavailable micro-title employment counts."
+      }
+    ],
+    "counterevidence": "Index revisions and within-occupation title weighting affect measurement.",
+    "inference_limits": "Do not restate as 60 percent of occupations invented since 1940, or as identified jobs caused by technology.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports a bounded measurement/design or author argument; no new causal effect asserted."
+    }
+  },
+  {
+    "id": "LBR-K06",
+    "case_ids": [
+      "LBR-C02"
+    ],
+    "statement": "The new-work study links title emergence to both output-complementing innovation and demand shifts; its patent-based categories may overlap and cannot exhaust technological change.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "LBR-S03",
+        "locator": "§II.C pp.1413–1419; Tables IV/V discussion",
+        "supports": "Defines exposure limitations and estimates augmentation/demand relationships."
+      }
+    ],
+    "counterevidence": "Automation and augmentation exposures are positively correlated; classification itself may contribute to overlap.",
+    "inference_limits": "A US constructed-data study; neither title novelty nor patent similarity alone proves an accessible job opportunity.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Changed productive possibilities or market demand -> changed tasks/output -> new job specialties and employment allocation",
+      "strongest_rival": "Relabelling and classification changes, or shared demand trends, could create apparent new work without substantive new tasks.",
+      "discriminating_observation": "Check source-title consistency and compare innovation/demand exposures with placebo timing and alternative specifications.",
+      "evidence_sought_found": "LBR-S03 §II and Tables IV/V discuss construction, IV and placebo strategies; raw data not replicated.",
+      "remaining_ambiguity": "Classification and identification assumptions remain; title addition does not directly measure worker entry costs or bargaining.",
+      "hypothesis_timing": "emerged during research"
+    }
+  },
+  {
+    "id": "LBR-K07",
+    "case_ids": [],
+    "statement": "A task-allocation model distinguishes labour displacement, productivity effects and creation of new labour tasks; positive productivity alone need not imply increased labour demand.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "LBR-S04",
+        "locator": "Introduction pp.3–5 and abstract",
+        "supports": "Sets out the model channels and their distinct implications."
+      }
+    ],
+    "counterevidence": "Aggregate demand, ownership, institutions and adjustment alter realised outcomes.",
+    "inference_limits": "This is a model distinction, not an unconditional causal claim about every technology.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports a bounded measurement/design or author argument; no new causal effect asserted."
+    }
+  },
+  {
+    "id": "LBR-K08",
+    "case_ids": [
+      "LBR-C01"
+    ],
+    "statement": "Feigenbaum and Gross note that mechanical-switching technicians were nearly all male; their cohort estimates show no effect of cutovers on young white American-born women’s employment in non-operator telephone jobs.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "LBR-S02",
+        "locator": "pp.1928–1929, direct labour-demand discussion and FigureV",
+        "supports": "Gender composition of technicians and distinct successive-cohort test of complementary telephone employment."
+      }
+    ],
+    "counterevidence": "Some linked incumbent operators moved to other telephone jobs; this is a different population and does not contradict the cohort result.",
+    "inference_limits": "A maintenance task does not establish an accessible transition for displaced women. The study does not isolate the causes of gendered entry or prove that no individual entered such work.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports the study’s occupation composition and scoped result; not a new causal estimate of exclusion or an opportunity forecast."
+    }
+  }
+]

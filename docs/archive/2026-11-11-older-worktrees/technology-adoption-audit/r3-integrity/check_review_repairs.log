@@ -1,0 +1,15 @@
+
+STDERR
+Traceback (most recent call last):
+  File "/Users/szymon/.codex/worktrees/4b39/big_idea/research/technology-adoption-audit/r3-integrity/rebuild-copy/tools/check_review_repairs.py", line 32, in <module>
+    manifest=load(R/'reviews/round1/snapshot/MANIFEST.json')
+  File "/Users/szymon/.codex/worktrees/4b39/big_idea/research/technology-adoption-audit/r3-integrity/rebuild-copy/tools/check_review_repairs.py", line 6, in <lambda>
+    load=lambda p:json.loads(p.read_text())
+                             ~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/szymon/.codex/worktrees/4b39/big_idea/research/technology-adoption-audit/r3-integrity/rebuild-copy/reviews/round1/snapshot/MANIFEST.json'

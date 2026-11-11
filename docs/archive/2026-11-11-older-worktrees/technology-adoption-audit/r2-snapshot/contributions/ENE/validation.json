@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "checked_on": "2026-11-05",
+  "counts": {
+    "cases": 5,
+    "sources": 14,
+    "claims": 18,
+    "nodes": 30,
+    "edges": 21,
+    "comparisons": 4,
+    "report_words": 2606,
+    "local_full_source_files": 9,
+    "partial_text_sources": 5
+  },
+  "checks": [
+    "JSON parse",
+    "required v2 fields",
+    "identifier uniqueness",
+    "foreign references",
+    "mechanism-test fields",
+    "graph scope/basis/alternatives/joint inputs",
+    "no unbounded depends-on edges",
+    "report case/claim coverage",
+    "word band",
+    "acquisition count"
+  ],
+  "errors": [],
+  "warnings": [
+    "Five sources conservatively marked partial-text: relevant web-parsed sections inspected; direct originals failed/empty. See cache/web-inspections.json.",
+    "Fourteen sources are not fourteen independent evidence lineages; overlaps are recorded.",
+    "Mechanism tests are primarily underdetermined historical/model comparisons; structural checks do not establish historical truth.",
+    "Korean reactor subgroup denominator and Chinese PV interview-count discrepancy remain unresolved and are not reproduced as precise sample claims."
+  ]
+}

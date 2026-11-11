@@ -1,0 +1,297 @@
+{
+  "nodes": [
+    {
+      "id": "CTX-T01",
+      "label": "Mid-1950s cotton procurement and coupon-based cloth access",
+      "kind": "institution",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T02",
+      "label": "Limited disposable household cash in Zhouzhi accounts",
+      "kind": "resource",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T03",
+      "label": "Purchased factory cloth for household clothing",
+      "kind": "technology",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T04",
+      "label": "Guanzhong household spinning, weaving and clothing work",
+      "kind": "practice",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T05",
+      "label": "Collective agricultural work obligations",
+      "kind": "institution",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T06",
+      "label": "Women operators’ available time and rest",
+      "kind": "resource",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T07",
+      "label": "Household expectations that women provide clothing",
+      "kind": "institution",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T08",
+      "label": "Retained and informally obtained cotton",
+      "kind": "resource",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    },
+    {
+      "id": "CTX-T09",
+      "label": "Household clothing provision",
+      "kind": "practice",
+      "case_ids": [
+        "CTX-C01"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "CTX-E01",
+      "from": "CTX-T01",
+      "to": "CTX-T03",
+      "relation": "constrains",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K02"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Formal access required allocation and purchase; this edge records restricted channels, not a net effect compared with no rationing. Rationing also distributed entitlements.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Household hand production",
+        "Informal exchange or gifts",
+        "Different ration/income policies are counterfactual, not observed treatments"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "No identified overall policy effect: ration quantity, cash, prices and household needs interact."
+    },
+    {
+      "id": "CTX-E02",
+      "from": "CTX-T02",
+      "to": "CTX-T03",
+      "relation": "constrains",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K02"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Interviewees linked coupon resale/nonpurchase to scarce disposable cash. A ration coupon was not itself a purchased garment.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Reduce other spending when possible",
+        "Sell coupons and make cloth",
+        "Obtain gifts or other household resources"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Social role and cloth quality differ between reported buyers and nonsellers; no matched comparison."
+    },
+    {
+      "id": "CTX-E03",
+      "from": "CTX-T08",
+      "to": "CTX-T04",
+      "relation": "enables",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K05"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Retained, concealed or exchanged cotton supplied inputs for reported home production; legal retention did not describe all actual access.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Purchased yarn where accessible",
+        "Recycled or low-grade fibre",
+        "Purchased cloth substitutes for home processing"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Input quantities and channel shares are not independently audited; no single channel is claimed necessary."
+    },
+    {
+      "id": "CTX-E04",
+      "from": "CTX-T07",
+      "to": "CTX-T06",
+      "relation": "constrains",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K03"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Reported household expectations added clothing duties to women’s existing claims on time. This is not a claim that those expectations were necessary or sufficient for home production.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Purchased clothing",
+        "Other household members provide labour",
+        "Shared or collective services where effective"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Authority, affection, skill and scarcity overlap; no causal share or universal household rule."
+    },
+    {
+      "id": "CTX-E05",
+      "from": "CTX-T05",
+      "to": "CTX-T06",
+      "relation": "constrains",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K03"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Collective field duties competed for time also needed for domestic work and rest.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Reduced collective hours or reassignment where permitted",
+        "Purchasing substitutes",
+        "Sharing domestic work"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Retrospective accounts do not yield a complete comparable time-use panel or prove identical obligations for every woman."
+    },
+    {
+      "id": "CTX-E06",
+      "from": "CTX-T04",
+      "to": "CTX-T06",
+      "relation": "constrains",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K03"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Accounts describe additional unpaid textile work reducing available rest after other duties; the burden is scoped to the reported configuration.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Buy adequate cloth",
+        "Share the task",
+        "Reduce clothing service or other work"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "Not an inherent effect of hand weaving in all settings; these alternatives were not equally feasible."
+    },
+    {
+      "id": "CTX-E07",
+      "from": "CTX-T04",
+      "to": "CTX-T09",
+      "relation": "enables",
+      "case_ids": [
+        "CTX-C01"
+      ],
+      "claim_ids": [
+        "CTX-K01",
+        "CTX-K03",
+        "CTX-K05"
+      ],
+      "source_ids": [
+        "CTX-S01"
+      ],
+      "confidence": "medium",
+      "qualification": "Home textile work provided clothing and social textile goods in the local accounts, while imposing distinct operator costs.",
+      "basis": "observed-contribution",
+      "scope": {
+        "case_id": "CTX-C01",
+        "stage": "continued deployment under collective-era constraints",
+        "configuration": "Named Guanzhong villages and Zhouzhi work/consumption accounts under mid-1950s procurement and later collective arrangements; not all China."
+      },
+      "alternatives": [
+        "Factory cloth and purchased garments",
+        "Gifts and exchange",
+        "Collective provision when effective"
+      ],
+      "joint_inputs": [],
+      "necessity_rationale": "No necessity claim",
+      "dispute": "A productive contribution does not demonstrate a voluntary or compensated livelihood, or a technical necessity."
+    }
+  ]
+}

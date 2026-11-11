@@ -1,0 +1,654 @@
+[
+  {
+    "id": "DIG-K01",
+    "case_ids": [
+      "DIG-C01"
+    ],
+    "statement": "The 1989 CERN proposal specified remote access, heterogeneous computers, decentralised linking and access to existing information; text on 24-by-80 screens was initially sufficient and elaborate security/accounting was not a primary local requirement.",
+    "evidence_type": "historical-primary",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S01",
+        "locator": "CERN Requirements; Non requirements",
+        "supports": "Author’s explicit design priorities."
+      }
+    ],
+    "counterevidence": "Later consumer uses could require very different interfaces and protection.",
+    "inference_limits": "A proposal establishes intent, not successful deployment or the causes of mass diffusion.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K02",
+    "case_ids": [
+      "DIG-C01"
+    ],
+    "statement": "CERN released specified Web components to the public domain in April 1993 and later used permissive royalty-free licensing; this removed a reuse-permission barrier, but its contribution to later diffusion is not identified here.",
+    "evidence_type": "institutional-synthesis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "DIG-S02",
+        "locator": "Public releases of Web software; Open Source release; The first CERN Open Source software licence",
+        "supports": "Dates and terms of releases, with retrospective rationale."
+      }
+    ],
+    "counterevidence": "Working networks, usable interfaces and content could explain diffusion despite permissive licensing being present.",
+    "inference_limits": "Original signed release not separately acquired; no matched diffusion counterfactual.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Reuse permission -> implementers can copy/modify code without licensing payment -> potentially lower entry cost -> wider deployment.",
+      "strongest_rival": "Network growth and browser/interface improvement could drive the same observed expansion.",
+      "discriminating_observation": "Compare otherwise similar implementers facing different effective licensing barriers before/after release.",
+      "evidence_sought_found": "Read DIG-S01 design requirements and DIG-S02 release history; found legal change but no controlled uptake comparison.",
+      "remaining_ambiguity": "Cannot rank licence change against technical or demand complements.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "DIG-K03",
+    "case_ids": [
+      "DIG-C02"
+    ],
+    "statement": "The Census historical CPS series reports computers in about 8% of US households in 1984, 51% in 2000 and 79% in 2015; household internet use was 18% in 1997 and 73% in 2015.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S03",
+        "locator": "p.2 Computer and Internet Use over Time; Figure 1 p.3",
+        "supports": "CPS series and cross-survey warning."
+      }
+    ],
+    "counterevidence": "ACS gives different levels because questions, weighting and collection differ.",
+    "inference_limits": "Rounded household estimates; no individual-use rate or causal speed comparison across technologies.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K04",
+    "case_ids": [
+      "DIG-C02"
+    ],
+    "statement": "In the 2015 ACS, 78% of US households had desktop/laptop access, 75% handheld-computer access and 77% broadband; 62% had all three, showing household-level coexistence.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S03",
+        "locator": "p.2 Highlights; Tables 1–2; footnote 1",
+        "supports": "Device/subscription categories and joint high-connectivity indicator."
+      }
+    ],
+    "counterevidence": "Household coexistence could include disused equipment or different people rather than task complementarity for one person.",
+    "inference_limits": "Broadband includes mobile; handheld includes more than smartphones. This is access/ownership, not active usage.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K05",
+    "case_ids": [
+      "DIG-C03"
+    ],
+    "statement": "In early 2015, 33% of UK internet users aged 16+ named smartphones and 30% laptops as their most important internet-access device.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S04",
+        "locator": "pp.346–347, Figure 5.20, QE 11/QE 40; n=3095",
+        "supports": "Question, denominator and levels."
+      }
+    ],
+    "counterevidence": "Older respondents selected computers more often.",
+    "inference_limits": "Self-reported importance is not ownership, share of tasks or minutes, and does not isolate pocketability.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K06",
+    "case_ids": [
+      "DIG-C03"
+    ],
+    "statement": "Ofcom reported tablet availability in 54% of UK households in 2015; among internet users aged 55+, laptops (36%), desktops (27%) and tablets (22%) were the leading most-important-device choices.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S04",
+        "locator": "pp.341–344 Figures 5.14, 5.17; pp.346–347 Figure 5.20",
+        "supports": "Household tablet measure and age-specific preferences."
+      }
+    ],
+    "counterevidence": "Device choice differs by age, resources and tasks; broad smartphone growth did not imply no use of alternatives.",
+    "inference_limits": "The household tablet denominator differs from the age-specific internet-user denominator; no common device price comparison.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K07",
+    "case_ids": [
+      "DIG-C03"
+    ],
+    "statement": "Pew’s November 2014 surveys found smartphone ownership among 64% of US adults, against 35% in 2011; 7% of adults had both no home broadband and few alternative ways to get online.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S05",
+        "locator": "pp.2–3; Smartphone dependence section pp.16–18",
+        "supports": "Ownership history and conjunctive definition."
+      }
+    ],
+    "counterevidence": "A broader measure gives 19% experiencing at least one constraint, and should not be called the same dependent group.",
+    "inference_limits": "Late-2014 observations published in 2015; adult measure, not households or every form of smartphone-only access.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K08",
+    "case_ids": [
+      "DIG-C03"
+    ],
+    "statement": "Among Pew’s narrowly defined smartphone-dependent users in its 2014 research, 48% reported having previously suspended service because of financial hardship.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S05",
+        "locator": "p.4 summary and p.19",
+        "supports": "Financial-suspension response and dependence definition."
+      }
+    ],
+    "counterevidence": "Dependent users still used smartphones; this does not show they would prefer computers if unconstrained.",
+    "inference_limits": "Past episode with no fixed recent window; observational self-report, not current disconnected share.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K09",
+    "case_ids": [
+      "DIG-C03"
+    ],
+    "statement": "In the 2023 Ofcom Core Survey, 68% of UK smartphone users aged 16+ agreed that completing forms and working on documents was harder on their phone than on a laptop or desktop.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S15",
+        "locator": "Table 70 M 6A, pp.292–294; unweighted base 3351",
+        "supports": "Combined agreement percentage and question."
+      },
+      {
+        "source_id": "DIG-S16",
+        "locator": "pp.7–8",
+        "supports": "Adult weighting, sample and interview methods."
+      }
+    ],
+    "counterevidence": "Difficulty can coexist with useful portable access; the table does not measure objective task time or ownership of alternatives.",
+    "inference_limits": "Perceived task difficulty in a mixed quota sample. Cannot be used as a whole-market ergonomic ranking.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K10",
+    "case_ids": [
+      "DIG-C04"
+    ],
+    "statement": "India’s official compilation reports nominal average wireless-data revenue realisation falling from ₹268.97/GB in calendar 2014 to ₹9.12/GB in FY 2023–24, while monthly data revenue per data subscriber rose from ₹71.25 to ₹211.36.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S06",
+        "locator": "Table 6.2 p.61 and period/source footnote",
+        "supports": "Both series and calendar/financial-year distinction."
+      }
+    ],
+    "counterevidence": "Higher usage and changing customer composition can accompany lower per-unit revenue.",
+    "inference_limits": "Not list prices, household bills or a causal effect of competition; no inflation or income adjustment.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K11",
+    "case_ids": [
+      "DIG-C04"
+    ],
+    "statement": "At March 2024 the official Indian compilation recorded 111.75 urban and 44.16 rural internet subscriptions per 100 inhabitants.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S06",
+        "locator": "Table 1.10 p.14",
+        "supports": "Urban/rural subscription-density observations."
+      }
+    ],
+    "counterevidence": "Multiple subscriptions can make the ratio exceed 100.",
+    "inference_limits": "Not unique internet users, physical population coverage, connection quality or literacy.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K12",
+    "case_ids": [
+      "DIG-C04"
+    ],
+    "statement": "ASER’s rural enrolled-child comparison reports a smartphone at home for 36.5% in 2018 and 67.6% in 2021; the 2018 comparison excludes households without mobile phones to match telephone-survey coverage more closely.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S07",
+        "locator": "Sample Design pp.15–16; Tables 8–11 pp.28–29 and footnotes",
+        "supports": "Levels and sample restriction."
+      }
+    ],
+    "counterevidence": "Changed reachability and nonresponse can remain even after excluding no-phone households from 2018.",
+    "inference_limits": "Not all Indian children or personally owned phones; not a causal effect of school closures.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K13",
+    "case_ids": [
+      "DIG-C04"
+    ],
+    "statement": "Among ASER 2021 enrolled children with a smartphone at home, 26.1% had no access to it for studies and 27.0% had access at all times.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S07",
+        "locator": "Table 10 p.28; Table 12 p.31",
+        "supports": "Conditional access shares."
+      }
+    ],
+    "counterevidence": "A phone’s presence could still help some tasks or times; lack of study access does not uniquely identify why access was constrained.",
+    "inference_limits": "Household device availability and child control are distinct outcomes; no measured learning effect.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K14",
+    "case_ids": [
+      "DIG-C05"
+    ],
+    "statement": "M-PESA’s early Kenyan configuration combined SMS-capable phones with a carrier network, registered users, cash/e-money agents and bank-held funds; smartphone internet was not a prerequisite for this implementation.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "DIG-S08",
+        "locator": "Section II, PDFpp.6–11",
+        "supports": "Operational architecture, identification, agent liquidity and bank links."
+      }
+    ],
+    "counterevidence": "Some services could operate through banks or physical transfers; agents were not the only conceivable transfer architecture.",
+    "inference_limits": "Bounded to early M-PESA transfer/cash-conversion configuration, not all modern mobile-money products.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "SMS instruction and registered balance -> transfer between accounts -> local agent cash redemption -> usable remittance.",
+      "strongest_rival": "A handset-only account of adoption omits cash conversion and institutional acceptance.",
+      "discriminating_observation": "If phones alone sufficed for cash redemption, withdrawals would not depend on agent cash or network functioning.",
+      "evidence_sought_found": "DIG-S08 describes cash/e-float operations and Tables 14a–14b identify agent cash and network problems in actual withdrawal delays.",
+      "remaining_ambiguity": "Supports operational complement requirements; does not determine their separate shares in aggregate diffusion.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "DIG-K15",
+    "case_ids": [
+      "DIG-C05"
+    ],
+    "statement": "In Jack and Suri’s 2008/2009 survey rounds, 20% and 16% of user households reported withdrawal delays; agent cash shortages and network outages were among reported causes.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "DIG-S08",
+        "locator": "Tables 14a–14b, printed pp.25–26",
+        "supports": "Reported encounter rates and categories of delay."
+      }
+    ],
+    "counterevidence": "Most reported delays resolved within a day; expanding use and changing user composition complicate comparisons.",
+    "inference_limits": "Not transaction-level failure probabilities; delays are retrospective reports.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Agent cash shortage or network outage -> inability to redeem immediately -> withdrawal delay.",
+      "strongest_rival": "Personal documentation or deleted messages also generate delays; general dislike of technology does not predict the reported operational cause categories.",
+      "discriminating_observation": "Cause-coded delays should include liquidity/network problems rather than only user preferences.",
+      "evidence_sought_found": "DIG-S08 Table 14a reports both liquidity and network causes, with other cause categories retained.",
+      "remaining_ambiguity": "Self-attribution and nonconstant user composition limit quantitative causal apportionment.",
+      "hypothesis_timing": "emerged during research"
+    }
+  },
+  {
+    "id": "DIG-K16",
+    "case_ids": [
+      "DIG-C05"
+    ],
+    "statement": "Suri and Jack estimated about 194, 000 Kenyan households escaped extreme poverty through increased mobile-money access, using 2008–2010 agent expansion to explain 2014 outcomes; this is conditional quasi-experimental estimation, not a direct beneficiary count.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "DIG-S09",
+        "locator": "pp.1288–1292; equations 1–2; Table 1; attrition discussion",
+        "supports": "Design, authors’ national extrapolation and limits."
+      }
+    ],
+    "counterevidence": "Early agent placement could correlate with unobserved opportunity; 35% non-Nairobi attrition and later exclusion of Nairobi limit inference. Authors report no definitive evidence for all channels.",
+    "inference_limits": "Supplementary tests were described in main paper but not separately inspected or replicated; later 2010–2014 rollout was intentionally not used as exogenous.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Early agent access growth -> easier financial transactions/saving/risk sharing -> occupational/consumption changes by 2014 -> lower estimated poverty.",
+      "strongest_rival": "Agents may enter places with unobserved growth prospects; those prospects could independently improve outcomes.",
+      "discriminating_observation": "Pre-rollout consumption/risk sharing and characteristics should not predict later access growth; estimates should survive plausible attrition selection.",
+      "evidence_sought_found": "Read DIG-S09 main-text description of pretests, location fixed effects and attrition bounds, plus Table 1 outcomes; supplementary tables and raw replication not acquired.",
+      "remaining_ambiguity": "Reported falsification tests reduce some concerns but cannot eliminate unobserved trends or validate national extrapolation; data lineage overlaps DIG-S08.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "DIG-K17",
+    "case_ids": [
+      "DIG-C05"
+    ],
+    "statement": "The 2024 FinAccess report gives current mobile-money use of 82.3% among Kenyan adults 18+, across providers, and identifies lack of a phone or identity documentation among non-use barriers.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S10",
+        "locator": "Methodologypp.3–5; Figure 2.3p.12; usagep.26",
+        "supports": "Analysis age, current-use level and barrier narrative."
+      }
+    ],
+    "counterevidence": "Some adults remain outside the system; bank services and mobile money can coexist.",
+    "inference_limits": "Not M-PESA market share, registered-account counts or a fixed-window active-use measure.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K18",
+    "case_ids": [
+      "DIG-C06"
+    ],
+    "statement": "Ofcom’s 2023 Core Survey of UK adults 16+ reports gaming on VR devices 4%, phones 34%, consoles 22%, tablets 14%, laptops/netbooks 10%, desktops 8%; responses are non-exclusive and have no weekly/monthly threshold.",
+    "evidence_type": "official-statistics",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S15",
+        "locator": "Table 74 G 1 pp.307–308; fieldwork header",
+        "supports": "Matched device question, levels and 3, 643 base."
+      },
+      {
+        "source_id": "DIG-S16",
+        "locator": "pp.7–8",
+        "supports": "2, 121 face-to-face plus 1, 522 online quota interviews; adult weighting."
+      }
+    ],
+    "counterevidence": "VR use was 9% among 16–24-year-olds; non-gaming and non-UK use are outside this measure.",
+    "inference_limits": "Rounded survey estimates, not headset ownership/sales, monthly-active users or retention. Fieldwork 27 Sep–12 Nov 2023.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K19",
+    "case_ids": [
+      "DIG-C06"
+    ],
+    "statement": "A 2022 Quest 2 study found worse subjective ratings for prolonged VR desktop work than a matched physical setup among 16 university-worker completers; two additional participants withdrew on the first VR day.",
+    "evidence_type": "experiment",
+    "confidence": "medium",
+    "causal_status": "causal-identification",
+    "sources": [
+      {
+        "source_id": "DIG-S12",
+        "locator": "Sections 3.1–3.4, 3.6–3.7 and 4",
+        "supports": "Counterbalanced study, apparatus, sample, subjective results and withdrawals."
+      }
+    ],
+    "counterevidence": "Some discomfort improved with time; the experiment did not optimise the spatial advantages of VR or test other tasks/hardware.",
+    "inference_limits": "Small occupational sample; subjective productivity is not objective output; treatment includes headset/interface/remote-work bundle.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Prolonged use of tested headset/interface -> discomfort and interaction burden -> worse reported usability and productivity.",
+      "strongest_rival": "Novelty, the chosen display/input setup and differing actual work across weeks could drive the same ratings.",
+      "discriminating_observation": "Within-person, counterbalanced physical comparison with matched inputs should reveal a condition effect; persistence across optimised systems would distinguish general wearing costs.",
+      "evidence_sought_found": "DIG-S12 provided a counterbalanced matched-environment study and reported adverse ratings plus withdrawals; no matched alternative-headset experiment located within this source set.",
+      "remaining_ambiguity": "Experiment identifies this treatment bundle more credibly than any individual ergonomic mechanism; cannot extrapolate to all VR.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "DIG-K20",
+    "case_ids": [
+      "DIG-C06"
+    ],
+    "statement": "Meta reported FY 2023 Reality Labs revenue $1.896 billion and operating loss $16.120 billion for a segment including AR, mixed reality and VR hardware/software/content.",
+    "evidence_type": "historical-primary",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S13",
+        "locator": "Note 16, pp.124–125",
+        "supports": "Segment definition, allocation description and accounting table."
+      }
+    ],
+    "counterevidence": "Large investment can finance development of future products as well as current consumption.",
+    "inference_limits": "Not number of VR users, per-device loss or retention; company has commercial interests.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K21",
+    "case_ids": [
+      "DIG-C06"
+    ],
+    "statement": "The inspected Ofcom statistics establish minority UK VR gaming participation in 2023 relative to matched devices; they do not establish a global installed base, fixed-window use or retention rate.",
+    "evidence_type": "synthesis-inference",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S11",
+        "locator": "p.68 and footnote 178",
+        "supports": "Summary points to 2023 tracker but contains inconsistent comparison-year parenthesis."
+      },
+      {
+        "source_id": "DIG-S15",
+        "locator": "Table 74 G 1 pp.307–308",
+        "supports": "Underlying question/denominator resolves level but has no fixed recency/frequency threshold."
+      },
+      {
+        "source_id": "DIG-S16",
+        "locator": "pp.7–8",
+        "supports": "Population and method scope."
+      }
+    ],
+    "counterevidence": "Other places, ages, tasks and VR configurations may have different adoption patterns.",
+    "inference_limits": "No claim that 4% means commercially trivial or that VR failed as a technology.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K22",
+    "case_ids": [
+      "DIG-C07"
+    ],
+    "statement": "Microsoft reported 36.8 million Lumia and 126.8 million other non-Lumia phone sales in FY 2015 alongside $7.5 billion phone-business impairments and strategic retrenchment; FY 2014 sales covered only the post-acquisition period.",
+    "evidence_type": "historical-primary",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "DIG-S14",
+        "locator": "Shareholder letter; MD&A Phone Hardware; impairment discussion",
+        "supports": "Sales, charges, strategic scope and incomplete 2014 comparison."
+      }
+    ],
+    "counterevidence": "Substantial sales show deployment and users, so this is not a zero-adoption case.",
+    "inference_limits": "Impairments reassess asset values; they do not identify current active users or the unique cause of strategic failure.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "The bounded statistic or documentary statement is reported without assigning the cause of diffusion."
+    }
+  },
+  {
+    "id": "DIG-K23",
+    "case_ids": [
+      "DIG-C07"
+    ],
+    "statement": "Software/content coordination is a plausible contributor to the Microsoft phone episode, but its 2015 stated unified-application strategy does not establish that app shortages caused the retrenchment.",
+    "evidence_type": "synthesis-inference",
+    "confidence": "low",
+    "causal_status": "hypothesis",
+    "sources": [
+      {
+        "source_id": "DIG-S14",
+        "locator": "Create more personal computing; MD&A Phone Hardware; impairment discussion",
+        "supports": "Company’s intended ecosystem strategy and business outcome, not causal proof."
+      }
+    ],
+    "counterevidence": "Distribution, timing, acquisition valuation, margins and execution also fit the outcome.",
+    "inference_limits": "No independent app availability, carrier incentives or buyer switching data inspected.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Larger compatible app/user network -> developer/distributor participation -> buyer service availability -> sustainable phone demand.",
+      "strongest_rival": "Execution/valuation/distribution problems could cause the impairment even with adequate apps.",
+      "discriminating_observation": "Compare local uptake and retention when app availability changes but price, hardware and distribution are held similar.",
+      "evidence_sought_found": "Read DIG-S14 strategy and financial result; found management emphasis on common apps but no discriminating consumer/developer panel.",
+      "remaining_ambiguity": "Outcome and management explanation cannot isolate network effects or switching costs.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "DIG-K24",
+    "case_ids": [
+      "DIG-C03",
+      "DIG-C04",
+      "DIG-C06"
+    ],
+    "statement": "Pocket internet, performance, ergonomics and cost cannot be causally ranked from these observations; the claim that most laptops cost less than most smartphones is unestablished by this source set.",
+    "evidence_type": "synthesis-inference",
+    "confidence": "medium",
+    "causal_status": "hypothesis",
+    "sources": [
+      {
+        "source_id": "DIG-S04",
+        "locator": "Figure 5.20",
+        "supports": "Reported importance, without component intervention or price distributions."
+      },
+      {
+        "source_id": "DIG-S05",
+        "locator": "Smartphone dependence and financial constraints",
+        "supports": "Constrained access is a rival to pure preference."
+      },
+      {
+        "source_id": "DIG-S06",
+        "locator": "Table 6.2",
+        "supports": "Service-unit revenue is distinct from device purchase price."
+      },
+      {
+        "source_id": "DIG-S15",
+        "locator": "M 6A; G 1",
+        "supports": "Task perceptions and matched participation outcomes, not determinant coefficients."
+      }
+    ],
+    "counterevidence": "Phones can be useful despite document difficulty; low data unit cost can coexist with higher spending; VR participation differs by task.",
+    "inference_limits": "No dated sales-weighted laptop/smartphone price distributions or matched causal choice experiment inspected.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Portable connected device -> more moments of available service -> higher reported importance for certain tasks.",
+      "strongest_rival": "App/social coordination, constrained alternatives, status, habit and pricing can produce the same preference pattern.",
+      "discriminating_observation": "Hold task, service availability, total cost and experience similar while varying portability/performance; independently measure prices and actual choices.",
+      "evidence_sought_found": "Sought matched official device-use measures: DIG-S04 and DIG-S15 found task-specific preferences/difficulty; DIG-S05 found financial dependence; no component-separating design or price-distribution dataset found in selected sources.",
+      "remaining_ambiguity": "The findings fit multiple accounts; lack of price data establishes no ordering in either direction.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "DIG-K25",
+    "case_ids": [
+      "DIG-C02"
+    ],
+    "statement": "The 2015 US household coexistence of computers and handhelds is consistent with task complementarity, but the inspected access data cannot distinguish it from wealth, different household members or unused equipment.",
+    "evidence_type": "synthesis-inference",
+    "confidence": "medium",
+    "causal_status": "hypothesis",
+    "sources": [
+      {
+        "source_id": "DIG-S03",
+        "locator": "p.2; Table 2 high-connectivity indicator",
+        "supports": "Co-access across device/subscription categories, without task logs."
+      }
+    ],
+    "counterevidence": "Co-ownership need not imply one person actively divides tasks across devices.",
+    "inference_limits": "No longitudinal task-use or equipment-disposal data inspected.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Different device affordances -> households retain multiple devices for different tasks -> co-access.",
+      "strongest_rival": "Wealth and household composition create multiple devices even without active task complementarity.",
+      "discriminating_observation": "Within-person task logs and retained-device use, controlling resources, should show active complementary tasks.",
+      "evidence_sought_found": "Read DIG-S03 joint access and demographic tables; these establish coexistence but no task allocation.",
+      "remaining_ambiguity": "All rival accounts can produce the observed 62% joint access.",
+      "hypothesis_timing": "retrospective synthesis"
+    }
+  }
+]

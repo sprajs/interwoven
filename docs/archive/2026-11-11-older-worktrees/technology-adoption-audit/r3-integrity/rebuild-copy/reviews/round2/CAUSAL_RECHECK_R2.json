@@ -1,0 +1,115 @@
+{
+  "reviewer": "/root/review1_causality",
+  "model": "Astra",
+  "completed_utc": "2026-11-05T16:26:43.247051+00:00",
+  "assignment": "FULL_R2_RECHECK_ASSIGNMENT.md",
+  "finding_id": "C2-01",
+  "verdict": "accepted_in_bounded_repair_snapshot",
+  "still_defective": [],
+  "unresolved_historical_questions": [
+    "Whether the blocked laboratory could use the same rough substitution.",
+    "Universal contact necessity and precision sufficiency.",
+    "Exclusive contribution of knowledge transfer, hardware and time."
+  ],
+  "target": {
+    "manifest": "full-r2-repair-snapshot/MANIFEST.json",
+    "manifest_sha256": "d066fed7edd21251c4afdfbd7947a49e7303ce3ddffb0788f6e20b4954bf6dc8",
+    "created_utc": "2026-11-05T16:15:53.771336+00:00",
+    "all_manifest_files_hash_checked": 8,
+    "mismatches": [],
+    "substantive_files_reviewed": [
+      "analysis/SYNTHESIS.md",
+      "analysis/HYPOTHESES_AND_NEGATIVE_CASES.md",
+      "contributions/SYN/synthesis_specs.json",
+      "contributions/SYN/claims.json",
+      "contributions/SKL/claims.json"
+    ],
+    "GHA_files_substantively_reviewed": false
+  },
+  "original_snapshot": {
+    "manifest_sha256": "25716753bb0b62f804b05897ba2ab696681f82d95f4381f023454b3770c8fe36",
+    "files_rechecked": 290,
+    "mismatches": []
+  },
+  "original_review_preserved": {
+    "CAUSAL_REVIEW_R2.md": "8ea056931a6a2776ccb999f3d3060fa4943fd3a756fd7b9f5c5d06cf85fb50a2",
+    "CAUSAL_AUDIT_R2.json": "714af1b01959af998a0f3b330da57d4d83fd525cd0eeb46770448386a5525066",
+    "CAUSAL_SOURCE_PROVENANCE_R2.json": "5aafdde914da4f66f8047d0338e4385e87cc9a7ddbb4b78e4e0722d7414f4437",
+    "CAUSAL_EVIDENCE_MANIFEST_R2.json": "e808bc60afda2b439eb1e5a2111cb342c92c58b64c942de7325c24a732b4f963",
+    "CAUSAL_VALIDATION_R2.json": "9d67ec9244ba6f151ebea273199132f3697a39907729cb34db137d532b177dab",
+    "CAUSAL_SELECTION_R2.json": "6e24771829ffc28690988393ac3458613b62b3ea9281dc4a6e7925bffd1e9f47"
+  },
+  "checks": [
+    {
+      "criterion": "Canonical SYN statement and specification agree",
+      "pass": true
+    },
+    {
+      "criterion": "Failed visits concern contact sufficiency",
+      "pass": true
+    },
+    {
+      "criterion": "Rough success concerns strict precision necessity",
+      "pass": true
+    },
+    {
+      "criterion": "Other directions are unestablished, not disproved",
+      "pass": true
+    },
+    {
+      "criterion": "Hypothesis register separates the two categorical tests",
+      "pass": true
+    },
+    {
+      "criterion": "Main prose preserves configuration-specific uncertainty",
+      "pass": true
+    },
+    {
+      "criterion": "SKL-K17 comparison underdetermined against its actual rival",
+      "pass": true
+    },
+    {
+      "criterion": "Source and factual statement retained in SKL-K17",
+      "pass": true
+    },
+    {
+      "criterion": "Partial1975 and reliability limits retained",
+      "pass": true
+    }
+  ],
+  "record_change_inventory": [
+    {
+      "file": "contributions/SYN/claims.json",
+      "changed_records": [
+        "SYN-K21"
+      ]
+    },
+    {
+      "file": "contributions/SYN/synthesis_specs.json",
+      "changed_records": [
+        "SYN-K21"
+      ]
+    },
+    {
+      "file": "contributions/SKL/claims.json",
+      "changed_records": [
+        "SKL-K17"
+      ]
+    }
+  ],
+  "source_basis": {
+    "own_original_review_source": "CAUSAL_evidence/SKL-S10.pdf",
+    "sha256": "2010990223b8a7f58264d02978e9008ecd8ed24a9792284ef81b55cee585d3eb",
+    "locators": "Collins1974pp.176–177; independently inspected during originalR2 review",
+    "new_source_reopening": false,
+    "parent_provenance_read": "FULL_R2_PARENT_REPAIRS.json",
+    "acceptance_does_not_depend_on_parent_self_assessment": true
+  },
+  "limitations": [
+    "This is a bounded correction recheck, not a third whole-programme review.",
+    "Three GHA files were hash-checked only; their semantic correction belongs to a different reviewer.",
+    "Global compiled JSON/HTML propagation is outside this8-file snapshot and remains a separate transport check.",
+    "No raw-data or additional historical identification is claimed.",
+    "Neither snapshot nor live research was modified."
+  ]
+}

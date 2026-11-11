@@ -1,0 +1,506 @@
+[
+  {
+    "id": "ENE-K01",
+    "case_ids": [
+      "ENE-C01"
+    ],
+    "statement": "For US PV in the 1970s, the shift from a space-program buyer toward terrestrial users changed product requirements, standardization and market structure; the early fall in module prices cannot be read wholly as factory learning.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S01",
+        "locator": "§§3.1.1–3.1.4, pp. 3224–3225",
+        "supports": "Large unexplained early cost/price residual; differing quality and willingness to pay; move from custom space panels to standard terrestrial products."
+      }
+    ],
+    "counterevidence": "Manufacturing improvements also occurred; terrestrial government purchases remained substantial.",
+    "inference_limits": "No causal allocation of the 1975–1979 residual to quality, markups or standardization; niche procurement is not evidence of grid competitiveness.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "New terrestrial tasks and customers -> less customized products and altered markups -> observed prices change with production practice.",
+      "strongest_rival": "Repeated output alone lowers an unchanged product’s factory cost.",
+      "discriminating_observation": "Do prices fall faster than the engineering model explains while customers/product requirements change?",
+      "evidence_sought_found": "ENE-S01 §§3.1–3.2: early residual and market changes found; later period better explained.",
+      "remaining_ambiguity": "Quality, competition and manufacturing changed together; no matched unchanged-product counterfactual.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K02",
+    "case_ids": [
+      "ENE-C01"
+    ],
+    "statement": "PV cost decomposition is model-sensitive: for 1980–2001 Nemet assigns 43% of decline to plant size, whereas Kavlak et al. assign 8%; the latter assigns 36% for 2001–2012 and separates efficiency, material use, prices and yield. Their reconstructions also identify early silicon supply/process benefits inherited from the semiconductor industry rather than generated entirely by PV output.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "ENE-S01",
+        "locator": "Table 3 and §4.3, p. 3227",
+        "supports": "43% plant-size allocation and semiconductor silicon-supply spillover."
+      },
+      {
+        "source_id": "ENE-S02",
+        "locator": "§§4.1–4.2, Table 3, pp. 705–707",
+        "supports": "8% and 36% plant-size allocations; revised cost equation; semiconductor supply/know-how before the mid-2000s transition."
+      }
+    ],
+    "counterevidence": "Both studies support several improvement channels, but their shared historical evidence is not two independent estimates of the same causal policy effect.",
+    "inference_limits": "These are allocated contributions under engineering models; neither percentage is a universal learning coefficient, electricity-price effect or welfare estimate.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Reports and compares published model allocations, without treating them as identified causal effects."
+    }
+  },
+  {
+    "id": "ENE-K03",
+    "case_ids": [
+      "ENE-C01"
+    ],
+    "statement": "China’s emergence as a PV producer in the late 2000s did not imply similarly large domestic deployment: the inspected 2010 study reports over one-third of world production in 2008 with over 95% exported, and about 2.2% of global demand in 2009.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "ENE-S03",
+        "locator": "Abstract and §1.1, working-paper pp. 1, 4–5",
+        "supports": "Production/export estimates and separate 2009 domestic-demand share."
+      }
+    ],
+    "counterevidence": "The production and demand numbers concern different years and inherited industry estimates; domestic installations were not zero.",
+    "inference_limits": "No current market claim and no subtraction of nonmatching denominators; production capacity, annual output and deployment must remain distinct.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Dated production/export and demand observations establish a stage/geographic mismatch, not its causal magnitude."
+    }
+  },
+  {
+    "id": "ENE-K04",
+    "case_ids": [
+      "ENE-C01"
+    ],
+    "statement": "Interviews and supply-chain evidence from early Chinese PV entry support imported production equipment plus skilled personnel as important channels; upstream process secrecy and sparse equipment markets constrained entry despite downstream success.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S03",
+        "locator": "§§1.2, 2.1–2.3, working-paper pp. 7–11; conclusion pp. 17–18",
+        "supports": "Turnkey lines, vendor training, diaspora recruitment and segment-specific entry barriers."
+      }
+    ],
+    "counterevidence": "Low wages, energy prices, finance and foreign deployment incentives also mattered; firms’ retrospective accounts may exaggerate chosen channels.",
+    "inference_limits": "Small producer-centered sample, rough equipment competition measure and imperfect patent proxies; no estimate of independent policy or labour contribution.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Equipment purchases plus recruited expertise -> process operation/adaptation -> cell/module entry; upstream tacit processes remain harder to acquire.",
+      "strongest_rival": "Cheap factors alone explain entry uniformly across supply-chain stages.",
+      "discriminating_observation": "Downstream/upstream entry should differ with accessible equipment and tacit knowledge even within the same country.",
+      "evidence_sought_found": "ENE-S03 contrasts stages, documents vendor training and returning executives, and reports later FDI following pioneer firms.",
+      "remaining_ambiguity": "Stages also differ in capital intensity, energy use and market concentration; no controlled isolation.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K05",
+    "case_ids": [
+      "ENE-C02"
+    ],
+    "statement": "The 2016 seven-country reactor-cost compilation records differing within-country overnight-cost trajectories, including declines across Korean construction cohorts and escalation in later US/French cohorts; it does not identify a universal sign of nuclear learning.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "ENE-S04",
+        "locator": "§§3.1–3.2, §4.3, Table 1, pp. 373–379",
+        "supports": "Country/cohort construction-start comparisons and local-currency cost normalization."
+      }
+    ],
+    "counterevidence": "Countries adopted different designs in different eras; data quality and coverage vary, and some prototype routes are excluded.",
+    "inference_limits": "The 349-reactor sample is not all proposed projects. Korean cohort-count inconsistency is not resolved here; no precise Korean cohort total is asserted. No international cost ranking is inferred.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Describes variation in the published construction-cost sample, without attributing it solely to standardization or state structure."
+    }
+  },
+  {
+    "id": "ENE-K06",
+    "case_ids": [
+      "ENE-C02"
+    ],
+    "statement": "France’s coordinated PWR programme combined bulk ordering, licensed designs, regulatory continuity and EDF engineering capacity with rapid deployment, yet its later construction cohorts still experienced real cost escalation.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S05",
+        "locator": "§2, Table 1 and §§3–4, pp. 2–8",
+        "supports": "Institutional organization, deployment timing, design changes and estimated escalation."
+      },
+      {
+        "source_id": "ENE-S04",
+        "locator": "§3.1 and French results, pp. 374–376",
+        "supports": "Later reactor-level series also shows escalation, with different magnitudes/coverage."
+      }
+    ],
+    "counterevidence": "French cost magnitudes differ by reconstruction and cohort; national coordination did not mean unchanged designs or citizen consent.",
+    "inference_limits": "The coordinated setting supports an enabling account, not proof of necessity or sufficiency. Grubler’s universal negative-learning generalization is rejected here.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Concentrated ordering and engineering authority -> repeatable build programme -> rapid capacity deployment.",
+      "strongest_rival": "Falling unit costs are the necessary cause of rapid deployment.",
+      "discriminating_observation": "Can deployment expand under coordinated procurement while real construction costs rise?",
+      "evidence_sought_found": "ENE-S05 documents both rapid programme expansion and escalation; ENE-S04 supplies later, differently constructed French cost series.",
+      "remaining_ambiguity": "Oil security, political priorities, financing and grid demand coincide; comparison does not identify each institutional contribution.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K07",
+    "case_ids": [
+      "ENE-C02"
+    ],
+    "statement": "In Eash-Gates et al.’s US four-loop-plant reconstruction for 1976–1987, indirect accounts contribute 72% of the modeled cost increase, placing engineering, supervision and construction organization alongside hardware and regulatory requirements.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S06",
+        "locator": "§2.2, manuscript pp. 3–5; §4.4, pp. 10–11",
+        "supports": "61 EEDB accounts; 72% indirect contribution; model/data limits."
+      }
+    ],
+    "counterevidence": "Indirect accounts can themselves include responses to regulation, changed scope or schedules; the allocation does not establish a separate regulation-free cause.",
+    "inference_limits": "Account attribution is not a causal estimate that management alone explains 72%; it covers one modeled configuration and interval, not every reactor or worker productivity level.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Complex site activities and changing execution conditions -> more engineering/support and installation burden -> higher constructed cost.",
+      "strongest_rival": "Cost escalation is entirely additional reactor hardware demanded by safety rules.",
+      "discriminating_observation": "Do indirect service accounts account for large changes beyond direct hardware expenditure?",
+      "evidence_sought_found": "ENE-S06 EEDB decomposition found the majority in indirect accounts and acknowledges proportional-allocation assumptions.",
+      "remaining_ambiguity": "Regulation, redesign and site interference can generate indirect costs jointly; ultimate causal shares remain underdetermined.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K08",
+    "case_ids": [
+      "ENE-C02"
+    ],
+    "statement": "Overnight reactor construction cost excludes interest during construction, and completed-project cost trajectories omit the outcome of cancellation; they cannot by themselves establish investor affordability or system welfare.",
+    "evidence_type": "synthesis-inference",
+    "confidence": "high",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "ENE-S04",
+        "locator": "§3.2, pp. 374–375 and §5.2, p. 381",
+        "supports": "Explicit exclusion of IDC; distinction from electricity cost and coverage frame."
+      },
+      {
+        "source_id": "ENE-S06",
+        "locator": "Introduction, manuscript p. 1",
+        "supports": "Reports 2017 abandonment of VC Summer as a separate project outcome."
+      }
+    ],
+    "counterevidence": "Overnight costs remain useful for an explicitly restricted question about construction resource cost.",
+    "inference_limits": "No claim that every omitted cost reverses any national ranking; social damages and avoided pollution are not estimated.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "States accounting and sampling boundaries, including an observed cancellation, without estimating their aggregate causal effect."
+    }
+  },
+  {
+    "id": "ENE-K09",
+    "case_ids": [
+      "ENE-C03"
+    ],
+    "statement": "Hoerni’s 1959 patent application specifies retaining a nonconducting surface coating over exposed junction edges; the museum history dates a working planar transistor to March 1959 and commercial introduction to April 1960.",
+    "evidence_type": "historical-primary",
+    "confidence": "high",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S07",
+        "locator": "Specification and claim 1",
+        "supports": "Protected-junction process architecture."
+      },
+      {
+        "source_id": "ENE-S14",
+        "locator": "Main account, paragraphs 1–4",
+        "supports": "Demonstration and commercialization chronology; subsequent reliability problems."
+      }
+    ],
+    "counterevidence": "The process still needed complementary masking, diffusion, contacts and packaging; later bonding/interconnect failures continued.",
+    "inference_limits": "Patent and retrospective chronology do not measure yield or prove that planar technology alone caused the semiconductor industry’s expansion.",
+    "test": {
+      "status": "evaluated",
+      "mechanism_chain": "Surface coating retained during fabrication -> junction protection -> reproducible planar-device architecture.",
+      "strongest_rival": "A patent idea alone demonstrates commercially satisfactory production.",
+      "discriminating_observation": "Is there separate evidence of functioning hardware and a later marketed device, as well as unresolved failure modes?",
+      "evidence_sought_found": "ENE-S07 describes process; ENE-S14 records demonstration, commercial device and subsequent reliability issues.",
+      "remaining_ambiguity": "Factory qualification and independent yield series were not inspected; museum history inherits the patent record.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K10",
+    "case_ids": [
+      "ENE-C03"
+    ],
+    "statement": "The Apollo computer programme supported an early IC production niche through a large, standardized NOR-gate purchase, while its engineers valued size, power, timing and reliability rather than the lowest initial component price.",
+    "evidence_type": "institutional-synthesis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S08",
+        "locator": "Printed pp. 33–34; notes 30–35",
+        "supports": "Single-gate choice, initially higher cost, large 1963 production share and participant disagreement over perceived risk."
+      }
+    ],
+    "counterevidence": "Other military and commercial customers existed; NASA history alone cannot establish its share of total industry cost decline.",
+    "inference_limits": "Procurement volume supports demand creation in a specific niche, not a claim that NASA invented ICs or alone financed semiconductor diffusion; historical 60% estimate is not extrapolated.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Mission constraints plus financed programme -> standardized purchase and qualification effort -> early IC production at volume.",
+      "strongest_rival": "Unsubsidized component cheapness already made the choice automatic.",
+      "discriminating_observation": "Did designers choose higher-priced components for nonprice capabilities and create a large early order?",
+      "evidence_sought_found": "ENE-S08 records higher initial IC cost, single NOR type and intensive 1963 purchasing.",
+      "remaining_ambiguity": "Reliability choices and procurement size are jointly determined; no no-Apollo industry counterfactual.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K11",
+    "case_ids": [
+      "ENE-C03"
+    ],
+    "statement": "Irwin and Klenow’s 1974–1992 merchant-DRAM model estimates stronger own-firm than external learning contributions and finds no systematic faster learning rate for Japanese firms; it does not support a simple national-learning-superiority explanation.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S09",
+        "locator": "§IV, pp. 1210–1221, Tables 2–6",
+        "supports": "32-firm shipment/price dataset; own/external and Japanese-rate tests; ambiguous Japanese within-country spillover difference."
+      }
+    ],
+    "counterevidence": "Tests of stronger within-Japan spillovers are inconclusive; international cooperation, investment and equipment differences may matter through other channels.",
+    "inference_limits": "Costs and yields are not observed directly; structural competition assumptions and sample selection qualify the interpretation. Results concern merchant DRAM, not all chips or all eras.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Repeated firm production and some external knowledge -> lower inferred marginal cost -> product-generation price/output patterns.",
+      "strongest_rival": "Japanese firms inherently learn faster, or domestic-only spillovers dominate.",
+      "discriminating_observation": "Allow country-specific learning slopes and separate same-country from cross-country cumulative production.",
+      "evidence_sought_found": "ENE-S09 estimates these alternatives, reporting similar country slopes and own-firm contribution about three times external contribution in baseline.",
+      "remaining_ambiguity": "Unobserved investment, R&D and selection can covary with shipments; some spillover parameters are imprecise.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K12",
+    "case_ids": [
+      "ENE-C03"
+    ],
+    "statement": "The same DRAM study finds economically important spillovers between adjacent product generations in only two of seven tested transitions, so experience in one generation cannot be treated as a guaranteed permanent entry barrier.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S09",
+        "locator": "§IV.D and conclusion, pp. 1223–1224, Table 7",
+        "supports": "Weak cross-generation effects and entry/exit examples."
+      }
+    ],
+    "counterevidence": "Some spillovers are statistically detectable but economically tiny; capital, design skills, equipment and customer relationships can still deter entry.",
+    "inference_limits": "Weak estimated spillovers are not evidence that experience or incumbency has no value; the underlying proprietary data were not re-estimated.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Design-generation change -> partial obsolescence of specific production knowledge -> limited transferable learning advantage.",
+      "strongest_rival": "An early lead guarantees cumulatively increasing advantage across every generation.",
+      "discriminating_observation": "Does previous-generation production strongly predict subsequent-generation cost, and do entrants appear despite little prior production?",
+      "evidence_sought_found": "ENE-S09 Table 7 identifies only two economically meaningful transitions and discusses contemporaneous entry.",
+      "remaining_ambiguity": "Model imposes a particular knowledge-depreciation structure; entry is selected and requires other assets.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K13",
+    "case_ids": [
+      "ENE-C04"
+    ],
+    "statement": "Yoshino’s account separates a rechargeable laboratory configuration from saleable batteries: polyacetylene’s heat/volume limitations motivated a carbon anode, and comparative impact testing supported continued development before Japanese commercialization in 1991.",
+    "evidence_type": "historical-primary",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S10",
+        "locator": "§§1.1, 1.4–1.5, pp. 207–217",
+        "supports": "PA limitations, carbon/lithiated-cathode combination, 1985 patent, impact comparison and 1991 commercialization."
+      }
+    ],
+    "counterevidence": "This is a retrospective inventor narrative, not the whole industry’s development record or statistical safety certification.",
+    "inference_limits": "A passed impact test does not establish general safety; commercial process yields, warranties, financing terms and all intervening qualification work remain unknown.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Portable-device demand and metallic-lithium/PA limitations -> paired material changes and safety tests -> candidate suitable for commercialization.",
+      "strongest_rival": "Electrochemical charge/discharge demonstration alone suffices for market entry.",
+      "discriminating_observation": "Are working configurations rejected on heat, size or abuse performance, followed by separate commercialization steps?",
+      "evidence_sought_found": "ENE-S10 gives those rejected configurations and contrast tests, followed by commercialization date.",
+      "remaining_ambiguity": "Narrative selection and retrospective credit cannot establish independent necessity of every contribution.",
+      "hypothesis_timing": "emerged during research"
+    }
+  },
+  {
+    "id": "ENE-K14",
+    "case_ids": [
+      "ENE-C04"
+    ],
+    "statement": "For representative high-energy-density 18650 cells, Ziegler et al. compare 1995–2000 with 2010–2015 and allocate 38% of modeled cost decline to charge-density improvements; reduced material prices and nonmaterial costs also contribute.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S11",
+        "locator": "pp. 6076–6078, 6085–6087; Figures 5–6 and Table 4",
+        "supports": "Fixed-size cell definition, reconstructed costs and density/material decomposition."
+      }
+    ],
+    "counterevidence": "Historical data are sparse and unequal across variables; some parameter values represent selected high-energy cells or prototypes, not a census.",
+    "inference_limits": "USD per energy capacity differs from price per cell, pack cost, cycle life and power capability. The result does not cover LFP vehicle packs or all battery uses.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "More active capacity in a fixed cell volume plus lower input cost -> overhead and components spread over more stored energy -> lower modeled USD/Wh.",
+      "strongest_rival": "Raw-material cheapness or factory replication alone explains the decline.",
+      "discriminating_observation": "Does a fixed-configuration component model require large energy-density changes as well as input-price changes?",
+      "evidence_sought_found": "ENE-S11 separates those variables and finds a substantial charge-density contribution.",
+      "remaining_ambiguity": "Component interactions and representative-cell selection mean decomposition is not intervention identification.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K15",
+    "case_ids": [
+      "ENE-C04"
+    ],
+    "statement": "The battery model’s baseline assigns about 54% of cost decline to broadly defined R&D, 30% to scale and 2% to learning-by-doing; these shares depend on classifications that include pilot-line and process work within R&D.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "contested",
+    "sources": [
+      {
+        "source_id": "ENE-S11",
+        "locator": "pp. 6088–6091, Figures 7–9",
+        "supports": "Definitions, baseline shares, alternative-assignment sensitivity and proprietary information limits."
+      }
+    ],
+    "counterevidence": "The authors’ alternative assignments retain the broad ranking, but routine and nonroutine improvements can be complementary rather than mutually separable activities.",
+    "inference_limits": "No inference that factory workers contributed only 2%, or that a public R&D programme caused 54%. Public/private R&D and endogenous demand are not independently identified.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Recorded component/process changes -> literature-based assignment to research, routine learning or scale -> estimated mechanism shares.",
+      "strongest_rival": "A different classification of intertwined process work changes apparent research versus learning contributions.",
+      "discriminating_observation": "Does the ranking survive plausible reassignments, and are records available to separate overlapping activities?",
+      "evidence_sought_found": "ENE-S11 tests several extreme assignments and reports robust ranking but sparse/proprietary process evidence.",
+      "remaining_ambiguity": "The method cannot identify a counterfactual public/private funding effect or labour’s social contribution.",
+      "hypothesis_timing": "emerged during research"
+    }
+  },
+  {
+    "id": "ENE-K16",
+    "case_ids": [
+      "ENE-C05"
+    ],
+    "statement": "In China’s mid-2000s electric-two-wheeler market, lead-acid remained the dominant battery despite commercially available lithium-ion alternatives; a contemporary comparison estimated roughly fourfold upfront Li-ion battery cost with a longer assumed life.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "descriptive",
+    "sources": [
+      {
+        "source_id": "ENE-S12",
+        "locator": "§2.1.1, pp. 2547–2548",
+        "supports": "VRLA dominance and limited advanced-battery availability; export mix uncertainty."
+      },
+      {
+        "source_id": "ENE-S13",
+        "locator": "Conclusion, p. 289",
+        "supports": "Approximate power-equivalent fourfold purchase price and two-to-threefold lifespan comparison."
+      }
+    ],
+    "counterevidence": "Advanced-battery sales were increasing; estimated production shares include exports and are not domestic-use shares.",
+    "inference_limits": "Does not prove low income or credit constraints caused individual choices. Historical price comparison is not a current specification, a universal lifetime ratio or a fully normalized lifecycle estimate.",
+    "test": {
+      "status": "descriptive-only",
+      "reason": "Establishes coexistence/continued older practice and reported price trade-off, leaving buyer-level causal attribution open."
+    }
+  },
+  {
+    "id": "ENE-K17",
+    "case_ids": [
+      "ENE-C05"
+    ],
+    "statement": "E-bike adoption in the surveyed Chinese cities combined component-based assembly with a policy-shaped choice set: motorcycle restrictions favored some electric use, while other cities restricted e-bikes; available surveys mainly observed substitution from bicycles and public transport.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S12",
+        "locator": "§1.2, pp. 2545–2546; §§2.1.2–2.4 and §3, pp. 2547–2551",
+        "supports": "Field methods, standardized components, six factory visits, motorcycle/e-bike bans, previous-mode observations."
+      }
+    ],
+    "counterevidence": "Urban distance, incomes, transit quality and enforcement differed with policy; modular architecture did not eliminate entry/quality barriers.",
+    "inference_limits": "Ten-city observations and three-city prior-mode surveys are not a national causal estimate. No inference that all Chinese adoption was voluntary or that bans alone explain it.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Standard components and permissive local classification amid motorcycle constraints -> accessible vehicle supply and usable road space -> adoption by some urban travellers.",
+      "strongest_rival": "Uniform technical superiority or a uniform national mandate explains uptake.",
+      "discriminating_observation": "Are rival modes and local restrictions heterogeneous, and are assemblers observed using standardized prefabricated parts?",
+      "evidence_sought_found": "ENE-S12 documents opposing city rules, survey choice sets and six assembly-plant observations.",
+      "remaining_ambiguity": "Policy adoption is endogenous to congestion and demand; force-field rankings do not identify effects.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  },
+  {
+    "id": "ENE-K18",
+    "case_ids": [
+      "ENE-C05"
+    ],
+    "statement": "The 2009 partial lifecycle analysis finds that e-bike comparisons depend on regional electricity and the displaced mode; lead emissions arise upstream in battery production/recycling, so zero tailpipe emissions do not demonstrate zero pollution or a quantified health benefit.",
+    "evidence_type": "scholarly-analysis",
+    "confidence": "medium",
+    "causal_status": "mechanism-supported",
+    "sources": [
+      {
+        "source_id": "ENE-S13",
+        "locator": "§§2.1–2.3, §§3.1–4, Tables 2 and 6, pp. 282–289",
+        "supports": "Production/grid inventories, lead pathways, excluded lifecycle processes, absence of direct population health measures."
+      }
+    ],
+    "counterevidence": "E-bikes compare favorably with some motorized alternatives on several modeled emissions metrics; emissions relocation can reduce urban exposure while imposing burdens elsewhere.",
+    "inference_limits": "Mass emissions are not absorbed dose, disease or money damages. Old lead-flow factors, borrowed vehicle factors, load/lifespan assumptions and omitted processes prevent a full welfare estimate.",
+    "test": {
+      "status": "underdetermined",
+      "mechanism_chain": "Battery manufacture/recycling and electricity use -> geographically redistributed pollution -> different lifecycle comparisons than tailpipe accounting.",
+      "strongest_rival": "A vehicle without exhaust has negligible pollution regardless of energy/material supply chain or displaced travel.",
+      "discriminating_observation": "Include lead flows and region-specific electricity; compare bicycle, bus, motorcycle and car rather than one favorable alternative.",
+      "evidence_sought_found": "ENE-S13 performs a partial inventory and explicitly states missing health and lifecycle evidence.",
+      "remaining_ambiguity": "Magnitude and exposure depend on process controls, region, service life and counterfactual travel; some inputs predate rapid e-bike expansion.",
+      "hypothesis_timing": "pre-search candidate"
+    }
+  }
+]
