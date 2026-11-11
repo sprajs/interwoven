@@ -1,0 +1,1566 @@
+{
+  "base_commit": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "original_manifest_sha256": "9d980f5e4cbf1fba693980a8480868ed6a3c1acc3ce3dcf9aa6f6d948486105e",
+  "all_originals_preserved": true,
+  "counts": {
+    "archived_only": 19,
+    "admitted_repaired": 26,
+    "admitted_original_bytes": 47
+  },
+  "files": [
+    {
+      "path": "data/discoveries/communication/fired-clay-type.json",
+      "lane": "information",
+      "original_sha256": "2528b5088ebee9e4969f0dc8825b16605b704418da8403b4e4db29192b1bb244",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/communication/fired-clay-type.json",
+      "disposition": "archived_only",
+      "reason": "Unsupported recalled impact/grain extension; active base record restored.",
+      "active_final_sha256": "cd856a4954020731cf609b31c9b9e8991d720d284bc8d343b80f902ee36471f4",
+      "active_base_record_preserved": true,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/communication/fired-clay-type.json#/impact, /grain, /research/basis",
+          "disposition": "reverted to base",
+          "reason": "Unsupported recalled impact and grain; original snapshot retained in archive."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json",
+      "lane": "transport_institutions",
+      "original_sha256": "985a2ebc620936da1544d7dce15f187b4577f93c89be24ebcd719ab3f73a9cdf",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "4184427d2a3fd52ba030001ea9d999132130ccfc8ec337bfd26ca750b107204b",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json#/measures/3",
+          "disposition": "derived percentage",
+          "reason": "The paper states three quarters; percent is a calculation, not a directly reported percentage."
+        },
+        {
+          "original": "data/discoveries/economy/1130-venice-colleganza-voyage-partnership.json#/events/1",
+          "disposition": "retained pending independent review",
+          "reason": "Distinct 1199 agreement; author translation directly inspected, working paper calls the traveller Staniario in translation and Stagnario in caption and discussion; caveat added."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json",
+      "lane": "transport_institutions",
+      "original_sha256": "75507b23051c161d74b94f0bb05f25f683811e7ff8ca9d98884b899cf8254576",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json",
+      "disposition": "archived_only",
+      "reason": "The Bosnian 1587 register was not established as evidence for this Sarajevo record; active base restored.",
+      "active_final_sha256": "85aa29b225e9b7a65e66a396003564013698f66247b340b28b5731f4a8086529",
+      "active_base_record_preserved": true,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json#/events/1",
+          "disposition": "deferred; base record restored",
+          "reason": "Conference abstract identifies Bosnian waqfs, but does not establish that the 1587 register contains a Sarajevo waqf. A different geographic scope is not an event on this Sarajevo record."
+        },
+        {
+          "original": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json#/caveats",
+          "disposition": "extension reverted with event",
+          "reason": "Original remains archived; the abstract and notes remain available for future research."
+        },
+        {
+          "original": "data/discoveries/economy/1580s-sarajevo-cash-waqf-commercial-capital.json#/research",
+          "disposition": "extension reverted with 1587 event",
+          "reason": "The new research note, event basis and associated caveat referred to a Bosnian context whose connection to this Sarajevo record is not established; base research retained verbatim."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/discoveries/electronics/chatgpt-research-preview-2022.json",
+      "lane": "access",
+      "original_sha256": "840b4415ad5e3b034ea7f877b615378ac800be41fca720bb035f89077a89ba8b",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/chatgpt-research-preview-2022.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "052810068a66ba115fbf6ad29b4fdad225fa16ca03025e6222519e746eb81569",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/chatgpt-research-preview-2022.json",
+          "decision": "Retain 2023 Plus announcement benefits as provider claims, not 2022 launch or current plan; article has later expansion footnote."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/discoveries/electronics/compatible-time-sharing-with-persistent-files-and-batch-service.json",
+      "lane": "access",
+      "original_sha256": "aa154be3c57fc76683400bffc1f436c3e8d941014b1dd5a5ddb6f0ce4054eb20",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/compatible-time-sharing-with-persistent-files-and-batch-service.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "30a475df7e7cc36366ed41e3266e6258f03a6b4674afcc0f70ec707c673424f1",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/compatible-time-sharing-with-persistent-files-and-batch-service.json",
+          "decision": "Retain publication event, not first use; guide pp. 23–24 and 69; future private code is not established password use."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json",
+      "lane": "information",
+      "original_sha256": "d9329dcfb09dfb5e7bd71666a788fe5a2d431ddd16e7e4faddc5e58347b78d6d",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "9f63398e84760fc1cdf0b4c358e3f493e04936c4f985d33fb7c041297bf7a32a",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/links/0/status",
+          "disposition": "changed established to candidate",
+          "reason": "1965 paper explicitly describes applying Good’s methods, but 1967 historical account shares Cooley as author; independent informative corroboration of dependence is not yet established."
+        },
+        {
+          "original": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/events/2/statement, /events/2/evidence/0/supports, /research/unresolved/0/note; data/sources/m/michels-1966-fourier-spectroscopy-wave12.json#/lineage, /passages/0/note; evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+          "disposition": "corrected attribution following independent review",
+          "reason": "Michels p. 1 reports FFT implementation in IRIS and separately explains use of Cooley’s FORTRAN IV program; it does not identify the IRIS implementation as that specific program. Note file hash updated."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/discoveries/electronics/llama-2-conditional-weights-release-2023.json",
+      "lane": "access",
+      "original_sha256": "8807e6b50c47dc23f704b317f05e38b5b5d5d9c111b17645f89f3114df33bf66",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/llama-2-conditional-weights-release-2023.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "954467acd48cd182e5146620480bb8cb94bd9b28917af4be275740479f953ba9",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/llama-2-conditional-weights-release-2023.json",
+          "decision": "Retain conditional redistribution and model-improvement terms for agreement with 18 July 2023 release date; checked https://github.com/meta-llama/llama/blob/main/LICENSE sections 1 and 2."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/discoveries/electronics/lora-low-rank-adaptation-2021.json",
+      "lane": "access",
+      "original_sha256": "91cd7778be9d3810124a2814f7da5a5b85f31c3baa9bab1b60e2a5907ce408ca",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/lora-low-rank-adaptation-2021.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "af8e9931db38985c98a4426ba412dbf9a5d91fa3507108caac8cba5ad92dbb3b",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/lora-low-rank-adaptation-2021.json",
+          "decision": "Retain two author-claimed GPT-3 VRAM figures with original units, not a general minimum; v1 section 3.1."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/discoveries/electronics/mosis-multiproject-chip-fabrication-service.json",
+      "lane": "access",
+      "original_sha256": "166d329f8f4d4c6e6075545e020510af4008409a90555a927150b3aed870025d",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/mosis-multiproject-chip-fabrication-service.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "36a314dce522af6fd5c7000797596f79b7450f76716e011a23ccc7662485b9af",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/mosis-multiproject-chip-fabrication-service.json",
+          "decision": "Retain 1985 dissertation description, not fabrication completion or price; restore preexisting draft status rather than upgrading prior claims."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/discoveries/electronics/qlora-quantized-adaptation-2023.json",
+      "lane": "access",
+      "original_sha256": "385cd70ccbc3baab76093f780c4c31357e109d8f60b23252660dfeb40db041ad",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/qlora-quantized-adaptation-2023.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "2d05c937645d244a0d65f0f65e1f1df68db039e980a84c54ffdf59209cbd685f",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/qlora-quantized-adaptation-2023.json",
+          "decision": "Retain 33B 24 GB consumer GPU and under 12-hour author claim; remove single GPU assertion as section 5.3 states GPUs in plural and introduction does not identify 33B in same sentence."
+        },
+        {
+          "original": "data/discoveries/electronics/qlora-quantized-adaptation-2023.json",
+          "decision": "Independent reviewer correction: v1 section 5.3 states a capability, not that a run completed in under 12 hours. Event, measure and evidence now use capability wording."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/discoveries/materials/bessemer-air-conversion.json",
+      "lane": "information",
+      "original_sha256": "5bc26ba164eada6df0b6e920539db6e4b5923b19fd074a051e32b5a7ad978b89",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/materials/bessemer-air-conversion.json",
+      "disposition": "archived_only",
+      "reason": "Unsupported recalled impact/grain extension; active base record restored.",
+      "active_final_sha256": "d40562c8450009fa8e58854aeab367924e8e067ceb31bb35bfc184a4cd9f6de4",
+      "active_base_record_preserved": true,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/materials/bessemer-air-conversion.json#/impact, /grain, /research/basis",
+          "disposition": "reverted to base",
+          "reason": "Unsupported recalled impact and grain; original snapshot retained in archive."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/discoveries/communication/1744-haudenosaunee-wampum-diplomatic-record.json",
+      "lane": "transport_institutions",
+      "original_sha256": "a28ee2ba7f6309f2b792c0ff059993339d55db63ca6d515418616f35da1cc0c8",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/communication/1744-haudenosaunee-wampum-diplomatic-record.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "a28ee2ba7f6309f2b792c0ff059993339d55db63ca6d515418616f35da1cc0c8",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/communication/1744-haudenosaunee-wampum-diplomatic-record.json",
+          "disposition": "retained pending independent review",
+          "reason": "Lancaster speech and Onondaga Nation accounts inspected. 1744 and 1989 episodes do not date the origin of the practice."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/discoveries/daily-life/te-takinga-maori-pataka-storehouse.json",
+      "lane": "making_food",
+      "original_sha256": "99dcf273e0dba2e0746671b6f0b5e93d08aab03ea782e4193b28aa9771a2a266",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/daily-life/te-takinga-maori-pataka-storehouse.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "e19e20bbe0ba2f04d0167a2b3ade15b022f57f8d2f8377125362b77aa7ca6783",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "te-takinga-maori-pataka-storehouse",
+          "retained": "Object, attributed carver and approximate range, using Te Papa catalogue; general pātaka function does not establish contents.",
+          "locator": "Item details/production and overview; teaching resource module 4 p.14",
+          "deferred": "Contents, users and prior history.",
+          "original_pointer": "data/discoveries/daily-life/te-takinga-maori-pataka-storehouse.json",
+          "changed": "Clarified that Te Hape is the original location; the object was later moved."
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/electronics/golay-digital-error-correction-1949.json",
+      "lane": "information",
+      "original_sha256": "f546a3988c8c50a2f9603f93ec3bcfe5c64d482f1d043df305966cf38a7dba43",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/golay-digital-error-correction-1949.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "29115f9c72029a0d09805434f2784b2fee707992f92886c265b50083ce1076c4",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/golay-digital-error-correction-1949.json#/links/0/status",
+          "disposition": "changed established to candidate",
+          "reason": "Golay explicitly extends Shannon’s example, but independently corroborated consequential relation required before established edge."
+        },
+        {
+          "original": "data/discoveries/electronics/golay-digital-error-correction-1949.json#/events/2/evidence",
+          "disposition": "corrected support attributions",
+          "reason": "NASA history itself dates Jupiter encounter to 1979; NTRS publication date is not encounter date."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json",
+      "lane": "information",
+      "original_sha256": "d234e66edef5284901aecdd1bde9b32c7d047b48a95d05550b74cfb2d9d012a9",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "9c549a596af30e8bcbbc1ff080a573f1ac12dd7734c56a0998289767b3ab6878",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/events/1",
+          "disposition": "deferred",
+          "reason": "1960 addendum summary and full text inaccessible in this execution. 1967 bibliography confirms a 1960 addendum but not month or content. Associated source descriptor and notes omitted from active data and preserved in archive."
+        },
+        {
+          "original": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/research/unresolved",
+          "disposition": "added deferral",
+          "reason": "Record access gap for 1960 addendum."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json",
+      "lane": "making_food",
+      "original_sha256": "6a24516eb12e7e5af6f1bd84c2af2fcd7cc367b67e2b328e186ceee54daf7a0c",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "7e42a0a29a11cf8fcd0f7c2e8d666d9f126c208e688d4f089f51db6ffa02fa81",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "engaruka-terraced-irrigation-and-sediment-capture",
+          "retained": "Contextual landscape chronology, check dams, stratigraphy and >1000 ha paper claim.",
+          "locator": "Lang and Stump abstract, introduction and stratigraphy",
+          "changed": "Removed numeric 1000-hectare measure because source says strictly more than 1000, not an exact value; the published statement preserves the bound.",
+          "deferred": "Direct dates per wall, individual builders, abandonment causes.",
+          "original_pointer": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json"
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/food/palugaswewa-sri-lanka-tank-cascade-management.json",
+      "lane": "making_food",
+      "original_sha256": "179efbf2b7fef8d896636d8eca6279a34083582fc9e1b4cda677590e34d323c7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/food/palugaswewa-sri-lanka-tank-cascade-management.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "999fe14645da0984488e0106f77e47425951f236490bb6c14592bdfe562a060a",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "palugaswewa-sri-lanka-tank-cascade-management",
+          "retained": "2017 nomination contemporary branched system, two organizations, four tanks under Palugaswewa group.",
+          "locator": "Proposal pp. 69–70, 80–82",
+          "deferred": "Origin, historical rights and unchanged operation.",
+          "original_pointer": "data/discoveries/food/palugaswewa-sri-lanka-tank-cascade-management.json"
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/food/snaketown-hohokam-canal-irrigation.json",
+      "lane": "making_food",
+      "original_sha256": "69c301923013af55c3c8466f3b0a7ffc51e4c50ae7421f5946bddbab31069f87",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/food/snaketown-hohokam-canal-irrigation.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "1c1ed54c2a1b47aa6f260b1e83986298b309f3defd2da461bfb4e5dd771ee4a6",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "snaketown-hohokam-canal-irrigation",
+          "retained": "Period-level reconstruction of canal and subsequent expansion; not direct dating or measured flows.",
+          "locator": "Zhu et al. case selection and chronology, article pp. 2–3",
+          "deferred": "Primary excavation chronology and community perspectives.",
+          "original_pointer": "data/discoveries/food/snaketown-hohokam-canal-irrigation.json"
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/materials/asante-narrow-strip-loom-weaving-kumase.json",
+      "lane": "making_food",
+      "original_sha256": "51ea01db49cda65b689d7617729fcf826a8f4ca62a70a9b9ea26bd6f2180af8e",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/materials/asante-narrow-strip-loom-weaving-kumase.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "43e3f657521511facacd791e9e1e89a6b37b6bc6fc3d85354724dbe96121d068",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "asante-narrow-strip-loom-weaving-kumase",
+          "retained": "1817 observation of people using a foot loom in Kumase; not an invention date.",
+          "locator": "Anagnost p. 13",
+          "deferred": "Whether the 1817 loom and observed people produced the separately described adinkra cotton strips, and regional transmission.",
+          "original_pointer": "data/discoveries/materials/asante-narrow-strip-loom-weaving-kumase.json",
+          "changed": "Removed attribution of separately described narrow cotton strips and adinkra production to the observed 1817 Kumase weavers; changed concept to general foot-loom weaving."
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/materials/huacas-de-moche-mould-ceramics.json",
+      "lane": "making_food",
+      "original_sha256": "545f688ddc378a450ea833f68b3f14c9102196e1d1fce475f6212be0cc17b4e0",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/materials/huacas-de-moche-mould-ceramics.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "5545d298cc2a8212b559a7c8701b4caba6cdca54abb136fa1279ec5e21d7d2ed",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "huacas-de-moche-mould-ceramics",
+          "retained": "Workshop moulds and phase context, 300 m² excavated, and residence matches; phase dates are contextual.",
+          "locator": "Bernier fineware workshop; Rengifo phase IV",
+          "changed": "Corrected measure evidence support to explicitly state excavated area.",
+          "deferred": "Direct workshop floor dates and patronage.",
+          "original_pointer": "data/discoveries/materials/huacas-de-moche-mould-ceramics.json"
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/materials/java-canting-wax-resist-workshop.json",
+      "lane": "making_food",
+      "original_sha256": "760f2a38ad89fd3afc2bedc241f3c6a52f55f9bcf81935079a71f4fa45637fe5",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/materials/java-canting-wax-resist-workshop.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "a7c48ba0037e522be57c95e1c1adc59fc7367258fb915c79e4e1c334307cdbc7",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "record": "java-canting-wax-resist-workshop",
+          "retained": "1901 letter describes women using canting; process and image caveats.",
+          "locator": "Kerlogue p. 9, accessed using web-rendered PDF",
+          "deferred": "Local maker identities, origin and relationship of photograph to makers; direct PDF retrieval returned 403, web renderer accessible.",
+          "original_pointer": "data/discoveries/materials/java-canting-wax-resist-workshop.json"
+        }
+      ],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json",
+      "lane": "transport_institutions",
+      "original_sha256": "413b39c5cdd6dcdb94bd3259bc058fec60c1279c16946b7494d64c4cc4afb06d",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "c2e5d1a0bf0ed93942503ab57f86dbefe11e6fdc5739bbd19d129bd3615ef7f8",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json#/description",
+          "disposition": "narrowed",
+          "reason": "NPS gives generic Ojibwe canoe materials, not component-by-component evidence for this particular 1939 canoe; removed generic source from instance event."
+        },
+        {
+          "original": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json#/events/0/evidence/1",
+          "disposition": "removed generic support from instance event",
+          "reason": "NPS generic materials and fur trade context do not establish particulars for the 1939 canoe; the source and note are preserved."
+        },
+        {
+          "original": "data/discoveries/transport/grand-portage-ojibwe-birchbark-canoe-1939.json#/events/0/type",
+          "disposition": "corrected to documented_description",
+          "reason": "The caption records construction and completion; it does not establish practical use. Earliest-record rationale now scopes to this canoe."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json",
+      "lane": "transport_institutions",
+      "original_sha256": "7205a00d5da5de46885c7dea9c05f835e2bddc248dcc3634b01f5f14ee98ab67",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "558f4adac931f1d4c04e2fa6d5286196bcc93fb13c61ae6f36f58d123c7ea400",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/events/1",
+          "disposition": "deferred",
+          "reason": "Original Hornell PDF could not be inspected in this pass; paraphrase alone is insufficient for admission."
+        },
+        {
+          "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/description",
+          "disposition": "narrowed to dated museum model",
+          "reason": "Museum dates a locally built rigged model and classifies it as a sewn boat; a model does not prove construction date for a working vessel."
+        },
+        {
+          "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/grain",
+          "disposition": "changed capability to instance",
+          "reason": "The retained event dates one museum model; the original broader working-vessel claim remains archived pending inspection of Hornell."
+        },
+        {
+          "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/concept",
+          "disposition": "removed concept and associated register row",
+          "reason": "The catalogue classifies the model under sewn boats but does not establish the broader historical Swahili-planking concept."
+        },
+        {
+          "original": "data/discoveries/transport/lamu-mtepe-sewn-plank-vessels.json#/research/unresolved/0/note",
+          "disposition": "corrected",
+          "reason": "Explicitly records that Hornell was not inspected in this repair and avoids implying an original-source reading."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/discoveries/transport/taumako-parangaina-tepuke-1997.json",
+      "lane": "transport_institutions",
+      "original_sha256": "00ee029d04948459b883e1a16a4724692e47ffa98f4dd817d5cff83e96940d10",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/discoveries/transport/taumako-parangaina-tepuke-1997.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "904163593feccf9780f3631e8304d1b74af406641a059f52f852ef629e87fbcb",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/transport/taumako-parangaina-tepuke-1997.json#/measures/0/evidence/0",
+          "disposition": "corrected locator and support",
+          "reason": "The 6800 mm figure is in museum item details dimensions, not overview and history."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/c/cooley-1967-fft-history-wave12.json",
+      "lane": "information",
+      "original_sha256": "7ed39b6e9d1351b4c1a442d300a9b395173976797843af25817811d9faccc043",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/c/cooley-1967-fft-history-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "7ed39b6e9d1351b4c1a442d300a9b395173976797843af25817811d9faccc043",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/f/finney-1998-return-lata-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "28c72cdc9fca664378a18b2019eedd16b37e8d65ba89a27032c3dea8a889c874",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/f/finney-1998-return-lata-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "28c72cdc9fca664378a18b2019eedd16b37e8d65ba89a27032c3dea8a889c874",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/g/golay-1949-digital-coding-wave12.json",
+      "lane": "information",
+      "original_sha256": "2e6a7ea4e39afee62c0f6b8f7327ec0b04b04b245ab141c3ca6b54c2b3bd8443",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/g/golay-1949-digital-coding-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "2e6a7ea4e39afee62c0f6b8f7327ec0b04b04b245ab141c3ca6b54c2b3bd8443",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/g/good-1958-interaction-analysis-wave12.json",
+      "lane": "information",
+      "original_sha256": "fb24925b3878946d7ef031cdfcf9963423319319523ff9a856b749b4ebccad15",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/g/good-1958-interaction-analysis-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "fb24925b3878946d7ef031cdfcf9963423319319523ff9a856b749b4ebccad15",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/g/good-1960-interaction-addendum-wave12.json",
+      "lane": "information",
+      "original_sha256": "91b9406128cf097be435056b5c41021a7b318329f6ee2a224e95fb218209416c",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/g/good-1960-interaction-addendum-wave12.json",
+      "disposition": "archived_only",
+      "reason": "Original addendum content was inaccessible; draft source and claim remain archived.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/h/hornell-1937-mtepe-lamu-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "7a9799f49c4d6bcad88a4280d5a5d48b0190321d5dc4256022dfff45a6924e1e",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/h/hornell-1937-mtepe-lamu-wave12.json",
+      "disposition": "archived_only",
+      "reason": "Inherited passage-inspection metadata was not verified; original source notes retained only as drafts.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/sources/h/hornell-1937-mtepe-lamu-wave12.json",
+          "disposition": "removed active source and paraphrase note",
+          "reason": "Passage inspection in the inherited metadata was not verified in this repair; original source record and note remain archived."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/m/michels-1966-fourier-spectroscopy-wave12.json",
+      "lane": "information",
+      "original_sha256": "d9b41ac629fd4c8ee9a45c223e557af28c340a6a9363293f2d0a94798fd7f2f7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/m/michels-1966-fourier-spectroscopy-wave12.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "2a04246647806b69660c02318d06e116df4422b4113b464f948ebe0e3edc4cee",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/events/2/statement, /events/2/evidence/0/supports, /research/unresolved/0/note; data/sources/m/michels-1966-fourier-spectroscopy-wave12.json#/lineage, /passages/0/note; evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+          "disposition": "corrected attribution following independent review",
+          "reason": "Michels p. 1 reports FFT implementation in IRIS and separately explains use of Cooley’s FORTRAN IV program; it does not identify the IRIS implementation as that specific program. Note file hash updated."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/n/nasa-voyager-jupiter-1979-wave12.json",
+      "lane": "information",
+      "original_sha256": "ffa1afa8a80c7e719add79c7336cb0a482ae6743b8212b9148560f542e38c1d7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/nasa-voyager-jupiter-1979-wave12.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "beff97236d31de5d66073863d548983c5000c4b55020416cdbe83d53257dbdd1",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/sources/n/nasa-voyager-jupiter-1979-wave12.json#/authors, /lineage, /passages/0/note",
+          "disposition": "corrected",
+          "reason": "NTRS lists actual article authors; NASA is catalog, not author. Publication date alone does not date encounter."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/n/nasa-voyager-telecommunication-wave12.json",
+      "lane": "information",
+      "original_sha256": "017e6fb38e53c589fc5119af097c3a40f9726db8dac8d668bc6c1063162984d1",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/nasa-voyager-telecommunication-wave12.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "976edd335665614d7b45f708379b90f9902cfcab45bb3bffa09f3a19493ff80e",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/sources/n/nasa-voyager-telecommunication-wave12.json#/authors",
+          "disposition": "corrected following independent review",
+          "reason": "The source title page credits Jim Taylor alongside Roger Ludwig; draft omitted the second author."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "data/sources/n/neuzil-sims-1939-grand-portage-canoe-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "fa626bd5d0ceadaedeae8010958246f333c61fb9c2b4907f1332fe38c39ab30c",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/neuzil-sims-1939-grand-portage-canoe-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "fa626bd5d0ceadaedeae8010958246f333c61fb9c2b4907f1332fe38c39ab30c",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/n/nps-grand-portage-canoes-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "94ff231a92fcb0bed2eb680b99653ba160f065b6a4cc163029c1663063b4cc8e",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/n/nps-grand-portage-canoes-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "94ff231a92fcb0bed2eb680b99653ba160f065b6a4cc163029c1663063b4cc8e",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/o/olali-2024-lamu-mtepe-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "9befcb4632427ea9acacb37c6cbde48149dd8d93e1fa3ac977441d068d1ab413",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/o/olali-2024-lamu-mtepe-wave12.json",
+      "disposition": "archived_only",
+      "reason": "Inherited passage-inspection metadata was not verified; original source notes retained only as drafts.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/sources/o/olali-2024-lamu-mtepe-wave12.json",
+          "disposition": "removed active source and paraphrase note",
+          "reason": "Passage inspection in the inherited metadata was not verified in this repair; original source record and note remain archived."
+        }
+      ],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/s/science-museum-lamu-mtepe-model-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "2ac4cc468c4739aeae1fdd587b60ee3820c078acb49f6dc7a4077e7551f912a6",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/s/science-museum-lamu-mtepe-model-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "2ac4cc468c4739aeae1fdd587b60ee3820c078acb49f6dc7a4077e7551f912a6",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/t/te-papa-parangaina-tepuke-wave12.json",
+      "lane": "transport_institutions",
+      "original_sha256": "6ad6201f5b6d8061f9e566573570f74fa1a9e9286b427f327a10f784872ee172",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/t/te-papa-parangaina-tepuke-wave12.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "6ad6201f5b6d8061f9e566573570f74fa1a9e9286b427f327a10f784872ee172",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/w/w12-anagnost-asante-weaving.json",
+      "lane": "making_food",
+      "original_sha256": "63d4e9c9b9dd21719bc52168f3f052388c2a1f1eb8b3fa4365dc440074928ff9",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-anagnost-asante-weaving.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "63d4e9c9b9dd21719bc52168f3f052388c2a1f1eb8b3fa4365dc440074928ff9",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-bernier-moche-workshop.json",
+      "lane": "making_food",
+      "original_sha256": "91198f3e41b2f38f30a380d1dd8e9860d1621ea05c128b36782c94c043b1ea8e",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-bernier-moche-workshop.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "91198f3e41b2f38f30a380d1dd8e9860d1621ea05c128b36782c94c043b1ea8e",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-kerlogue-java-batik.json",
+      "lane": "making_food",
+      "original_sha256": "d7e6042d313d2721044cc355486b9539df2514a6feaa88fa7fac1c5b2bb73cd3",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-kerlogue-java-batik.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "d7e6042d313d2721044cc355486b9539df2514a6feaa88fa7fac1c5b2bb73cd3",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-lancaster-1744-proceedings.json",
+      "lane": "transport_institutions",
+      "original_sha256": "ce29d69b2bc9e3290c2eb941658aabdad5c076d2a8264c6905e49eaceeb01ebb",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-lancaster-1744-proceedings.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "ce29d69b2bc9e3290c2eb941658aabdad5c076d2a8264c6905e49eaceeb01ebb",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/w/w12-lang-stump-engaruka.json",
+      "lane": "making_food",
+      "original_sha256": "64760e0ab6beb68722928f4c9f6f41a5052905e78a31fc3b54cab0ade949e5f1",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-lang-stump-engaruka.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "64760e0ab6beb68722928f4c9f6f41a5052905e78a31fc3b54cab0ade949e5f1",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-lora-v1-resource-comparison.json",
+      "lane": "access",
+      "original_sha256": "6e898b29616c3a2996d655e4431d509b28307233cc5b79e33ac4e26e7a9a5188",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-lora-v1-resource-comparison.json",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/sources/w/w12-meta-llama2-license-redistribution.json",
+      "lane": "access",
+      "original_sha256": "8e7833c0edfb745207a5b1da60fa1484be7b89f4eca234a6dcb5b2c1d7c91a2f",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-meta-llama2-license-redistribution.json",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/sources/w/w12-meta-llama2-license-redistribution.json",
+          "decision": "Independent reviewer requested immutable 2023 license version. Updated reused source w10-meta-llama2-community-license to Meta commit 6d4c0c290aeec1fa4399694fefb864be5a153bb6; retained earlier notes and metadata in lineage; saved original license with SHA-256 8c17c2ebb0ea011be9981cc3922db8ca8fa61e828c5d3f44cb6ae342bf80460b."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/sources/w/w12-mit-ctss-1963-login.json",
+      "lane": "access",
+      "original_sha256": "bf15a1008db9811a53c47952136a98d81bb2c0825214a0d192ee556d219fcdb6",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-mit-ctss-1963-login.json",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/sources/w/w12-onondaga-powless-return.json",
+      "lane": "transport_institutions",
+      "original_sha256": "4451d5ba5b50647982e95c8a149ec7defb0dc5db1b62a6c9acb65f04f167389c",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-onondaga-powless-return.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "4451d5ba5b50647982e95c8a149ec7defb0dc5db1b62a6c9acb65f04f167389c",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/w/w12-onondaga-wampum-record.json",
+      "lane": "transport_institutions",
+      "original_sha256": "698b4703ec1c4ef8053fe65b2bfe4162b8b613d4086ea88cffe360b2408fb673",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-onondaga-wampum-record.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "698b4703ec1c4ef8053fe65b2bfe4162b8b613d4086ea88cffe360b2408fb673",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/w/w12-openai-plus-plan-features.json",
+      "lane": "access",
+      "original_sha256": "7d7600f806be914004dc616b8f45c651e853f3eeb4f9c5314486b060d570797d",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-openai-plus-plan-features.json",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/sources/w/w12-pendleton-1985-mosis-soar.json",
+      "lane": "access",
+      "original_sha256": "c21b57e6d1e0e2e68f97af9d697aecd66c3e89709a42f11601272f4f2e099d03",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-pendleton-1985-mosis-soar.json",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "385108d7bcfc25d021df4c165dbc1a4fd1b382a8b0621cb3409157a91248bf93",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/sources/w/w12-pendleton-1985-mosis-soar.json",
+          "decision": "Retain unique source; specify version and original PDF hash; no completion inferred from cited pages."
+        }
+      ],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/sources/w/w12-puga-trefler-venice-contract.json",
+      "lane": "transport_institutions",
+      "original_sha256": "05fbcac2acec176de50ea1a7f3d583636da5bd3637952d7b68f4c3e43970db93",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-puga-trefler-venice-contract.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "05fbcac2acec176de50ea1a7f3d583636da5bd3637952d7b68f4c3e43970db93",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/w/w12-qlora-v1-33b-resources.json",
+      "lane": "access",
+      "original_sha256": "970d30ced050d5e8bd7bfafaed796210c5c68e18f9189b8b17bdae796877e5e7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-qlora-v1-33b-resources.json",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "data/sources/w/w12-rengifo-huacas-chronology.json",
+      "lane": "making_food",
+      "original_sha256": "70359190b259eb9116dc5cff980a155cdc224d1c06226e6ad45ab5d586fc0bd9",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-rengifo-huacas-chronology.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "70359190b259eb9116dc5cff980a155cdc224d1c06226e6ad45ab5d586fc0bd9",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-sri-lanka-fao-palugaswewa.json",
+      "lane": "making_food",
+      "original_sha256": "a0d4c1faca9afda245ed604eca6a8b7ae79aadfcf96e2857f6eb9c5f27208dfd",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-sri-lanka-fao-palugaswewa.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "a0d4c1faca9afda245ed604eca6a8b7ae79aadfcf96e2857f6eb9c5f27208dfd",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-stefini-bosnian-waqfs-abstract.json",
+      "lane": "transport_institutions",
+      "original_sha256": "9495a86db82886f86b83a8a056078310b87ad9e618ad289779a02e08b2c79357",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-stefini-bosnian-waqfs-abstract.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "9495a86db82886f86b83a8a056078310b87ad9e618ad289779a02e08b2c79357",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "data/sources/w/w12-tepapa-storing-kai.json",
+      "lane": "making_food",
+      "original_sha256": "d9af0b0599501467b71b30b463d408aabd49a595f5fb53379a1a319a14da1246",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-tepapa-storing-kai.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "d9af0b0599501467b71b30b463d408aabd49a595f5fb53379a1a319a14da1246",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-tepapa-te-takinga.json",
+      "lane": "making_food",
+      "original_sha256": "ce82c02b5bb46f41af6bd728a4537584df34ecadc69308059dac64e3ebfb84f6",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-tepapa-te-takinga.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "ce82c02b5bb46f41af6bd728a4537584df34ecadc69308059dac64e3ebfb84f6",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "data/sources/w/w12-zhu-woodson-snaketown.json",
+      "lane": "making_food",
+      "original_sha256": "56fb7ae6c550c978f75912f2639dcaf75b6501f9b8ec59962b1a2a1b38cc3d58",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/data/sources/w/w12-zhu-woodson-snaketown.json",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "56fb7ae6c550c978f75912f2639dcaf75b6501f9b8ec59962b1a2a1b38cc3d58",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/c/cooley-1967-fft-history-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "0088ce6bbca8ad6fb96ded901e9fd246692703e9927d0abc425cadc9b3777e54",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/c/cooley-1967-fft-history-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "0088ce6bbca8ad6fb96ded901e9fd246692703e9927d0abc425cadc9b3777e54",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/f/finney-1998-return-lata-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "daa6f456ea253845776f6fdcbebd0bb6c088f013e4fb66d3309bda1b575b0eb7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/f/finney-1998-return-lata-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "daa6f456ea253845776f6fdcbebd0bb6c088f013e4fb66d3309bda1b575b0eb7",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/g/golay-1949-digital-coding-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "5e1f7ca2b323e85f657dc88e7ff3a522301363d768cd1d310e80638a5a25e5e9",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/g/golay-1949-digital-coding-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "5e1f7ca2b323e85f657dc88e7ff3a522301363d768cd1d310e80638a5a25e5e9",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/g/good-1958-interaction-analysis-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "4c0d3bb805f18dda2d5190a163d844f18869054e150a107f7b1480698622d157",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/g/good-1958-interaction-analysis-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "4c0d3bb805f18dda2d5190a163d844f18869054e150a107f7b1480698622d157",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/g/good-1960-interaction-addendum-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "5ff57d70aa88a3380790409a154477661fdce9c90505dd0ef38fcaf880f9f629",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/g/good-1960-interaction-addendum-wave12-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Original addendum content was inaccessible; draft source and claim remain archived.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/h/hornell-1937-mtepe-lamu-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "936f364215c719675cd0ea4d3d8e6c801b229f7c5d835ece279e76a57445f67e",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/h/hornell-1937-mtepe-lamu-wave12-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Inherited passage-inspection metadata was not verified; original source notes retained only as drafts.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "fc188f29d28ec6cae95ff89b1ce295fa43e4f979b4509b032b83e574b554fecb",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "9469c85fe9dbb73edb22dfecc9f2bc6233cbd22a35613c906450595a5e7061e5",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [
+        {
+          "original": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/events/2/statement, /events/2/evidence/0/supports, /research/unresolved/0/note; data/sources/m/michels-1966-fourier-spectroscopy-wave12.json#/lineage, /passages/0/note; evidence/m/michels-1966-fourier-spectroscopy-wave12-notes.txt",
+          "disposition": "corrected attribution following independent review",
+          "reason": "Michels p. 1 reports FFT implementation in IRIS and separately explains use of Cooley’s FORTRAN IV program; it does not identify the IRIS implementation as that specific program. Note file hash updated."
+        }
+      ],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/n/nasa-voyager-jupiter-1979-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "c5d1e1ac55faca72b0eff65896c2bb0afad278919e285e813fff63809daf7e34",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/nasa-voyager-jupiter-1979-wave12-notes.txt",
+      "disposition": "admitted_repaired",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "820b96250a1c2f78ffa090e4cc801b9ab6c58155a881d6575e2d57a26737b6a1",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/n/nasa-voyager-telecommunication-wave12-notes.txt",
+      "lane": "information",
+      "original_sha256": "8bfb43c8bcc15a19da00df4a6d7c44d41dd892ad49d2a46bd32a90399066dc47",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/nasa-voyager-telecommunication-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "8bfb43c8bcc15a19da00df4a6d7c44d41dd892ad49d2a46bd32a90399066dc47",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/information.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/information.json"
+    },
+    {
+      "path": "evidence/n/neuzil-sims-1939-grand-portage-canoe-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "a291fdae18fd5cb2ea9db925418ca214f511af78302ea82b3992ad0de5c315b1",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/neuzil-sims-1939-grand-portage-canoe-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "a291fdae18fd5cb2ea9db925418ca214f511af78302ea82b3992ad0de5c315b1",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/n/nps-grand-portage-canoes-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "e1aff536c467219832daad289ddfcfa4e4e586db3cb921d27fe50b84339e8df7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/n/nps-grand-portage-canoes-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "e1aff536c467219832daad289ddfcfa4e4e586db3cb921d27fe50b84339e8df7",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/o/olali-2024-lamu-mtepe-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "69a7c83f7836a968122b14f07096a2c4e0e850a3cb0ec8c08db1e13777ddd0dc",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/o/olali-2024-lamu-mtepe-wave12-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Inherited passage-inspection metadata was not verified; original source notes retained only as drafts.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/s/science-museum-lamu-mtepe-model-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "1d99176314ae005f3709fe77f7507dd75730451bc44cbdea9cd08cd9c60984cc",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/s/science-museum-lamu-mtepe-model-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "1d99176314ae005f3709fe77f7507dd75730451bc44cbdea9cd08cd9c60984cc",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/t/te-papa-parangaina-tepuke-wave12-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "b37018318ffde777c6e4c2a9386179610df080fcf25732454dd5360ecda40e12",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/t/te-papa-parangaina-tepuke-wave12-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "b37018318ffde777c6e4c2a9386179610df080fcf25732454dd5360ecda40e12",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/w/w12-anagnost-asante-weaving-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "7d36b1cbebb4ad7e79546e993414686aa0d6ac3e022f44d306432703899ccfba",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-anagnost-asante-weaving-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "7d36b1cbebb4ad7e79546e993414686aa0d6ac3e022f44d306432703899ccfba",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-bernier-moche-workshop-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "7ec758eecf25d86a20b86b9f10bf344966c578cf7a21157939296a4f582a2b03",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-bernier-moche-workshop-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "7ec758eecf25d86a20b86b9f10bf344966c578cf7a21157939296a4f582a2b03",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-kerlogue-java-batik-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "427a16a083f1f778b3386ac4ef299ab929c9c6c7e8484e77f00e57960befa8a3",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-kerlogue-java-batik-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "427a16a083f1f778b3386ac4ef299ab929c9c6c7e8484e77f00e57960befa8a3",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-lancaster-1744-proceedings-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "d5a0a3f24448d5407cc83f4c54ee3935eccd78c910fb90769b033d57ed73bb5d",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-lancaster-1744-proceedings-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "d5a0a3f24448d5407cc83f4c54ee3935eccd78c910fb90769b033d57ed73bb5d",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/w/w12-lang-stump-engaruka-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "6498bcb35b4ab3dd32651a7702513a9bbf394e9f2af11bbce41f1080962093f8",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-lang-stump-engaruka-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "6498bcb35b4ab3dd32651a7702513a9bbf394e9f2af11bbce41f1080962093f8",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-lora-v1-resource-comparison-notes.txt",
+      "lane": "access",
+      "original_sha256": "c43ce50d1c6e959080a645782aa0a66f36dc57d9de64a32495543555fa947521",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-lora-v1-resource-comparison-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "evidence/w/w12-meta-llama2-license-redistribution-notes.txt",
+      "lane": "access",
+      "original_sha256": "a33b38a1db521ea72c1d830dd7e29fb73f7bf6525e2ed776156bc1f1e31a2a21",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-meta-llama2-license-redistribution-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "evidence/w/w12-mit-ctss-1963-login-notes.txt",
+      "lane": "access",
+      "original_sha256": "c28af8cd7f1564e74b6d396284c395c5a3e3d7f122e67ccb50d58bf08b61c491",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-mit-ctss-1963-login-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "evidence/w/w12-onondaga-powless-return-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "7abcd9da42e74eb040d2b8e044b2ce4cfd28431b095c9a445eeb496f86d48fa7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-onondaga-powless-return-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "7abcd9da42e74eb040d2b8e044b2ce4cfd28431b095c9a445eeb496f86d48fa7",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/w/w12-onondaga-wampum-record-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "c334cf4f2b76e7fb5a92d2c7f1e9358ee4c377a1079ac2a25c0f8ab985632f79",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-onondaga-wampum-record-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "c334cf4f2b76e7fb5a92d2c7f1e9358ee4c377a1079ac2a25c0f8ab985632f79",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/w/w12-openai-plus-plan-features-notes.txt",
+      "lane": "access",
+      "original_sha256": "de4ec96683cb0bbfb066ad75e127de3fffa0d857211ea720faeffd0be1ba6597",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-openai-plus-plan-features-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "evidence/w/w12-pendleton-1985-mosis-soar-notes.txt",
+      "lane": "access",
+      "original_sha256": "baa1cd480f60d2ad661ba166ec29dc78a2b440d3ff7b3e04b0b71e7555701271",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-pendleton-1985-mosis-soar-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "baa1cd480f60d2ad661ba166ec29dc78a2b440d3ff7b3e04b0b71e7555701271",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "evidence/w/w12-puga-trefler-venice-contract-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "38e8bf2b3f44ef8a096c04f62290c249d220fc0dd2998474d12a187987b64867",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-puga-trefler-venice-contract-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "38e8bf2b3f44ef8a096c04f62290c249d220fc0dd2998474d12a187987b64867",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/w/w12-qlora-v1-33b-resources-notes.txt",
+      "lane": "access",
+      "original_sha256": "c0fd5a0b87d4759bb0f07c5d95005a06240a6a17386cb240019e9f9449e476af",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-qlora-v1-33b-resources-notes.txt",
+      "disposition": "archived_only",
+      "reason": "Duplicate source/notes replaced by existing source IDs with exact claim locators; original preserved.",
+      "active_final_sha256": null,
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/access.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/access.json"
+    },
+    {
+      "path": "evidence/w/w12-rengifo-huacas-chronology-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "e47a3198b34d0b894285644160b2b3075c555e719772c518d7c3c58f0467815c",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-rengifo-huacas-chronology-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "e47a3198b34d0b894285644160b2b3075c555e719772c518d7c3c58f0467815c",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-sri-lanka-fao-palugaswewa-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "0f06daa3de70d658a480ac0d23bccb7583eb4a3e5bb94d3ab220ed43a42d22e7",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-sri-lanka-fao-palugaswewa-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "0f06daa3de70d658a480ac0d23bccb7583eb4a3e5bb94d3ab220ed43a42d22e7",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-stefini-bosnian-waqfs-abstract-notes.txt",
+      "lane": "transport_institutions",
+      "original_sha256": "f6b043cd18620dc4404d933595f0641da040b4fe8d892c0d5f0d91624e52a0cb",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-stefini-bosnian-waqfs-abstract-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "f6b043cd18620dc4404d933595f0641da040b4fe8d892c0d5f0d91624e52a0cb",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/transport_institutions.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/transport_institutions.json"
+    },
+    {
+      "path": "evidence/w/w12-tepapa-storing-kai-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "7b3de741d590bb496d7ac6f48c92d3387c2cc47cc055f3f23064470082215566",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-tepapa-storing-kai-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "7b3de741d590bb496d7ac6f48c92d3387c2cc47cc055f3f23064470082215566",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-tepapa-te-takinga-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "f926ee3f4d6406a7a522832ba5514317b000738e70fae37d901c3efc0b4c4fa0",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-tepapa-te-takinga-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "f926ee3f4d6406a7a522832ba5514317b000738e70fae37d901c3efc0b4c4fa0",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    },
+    {
+      "path": "evidence/w/w12-zhu-woodson-snaketown-notes.txt",
+      "lane": "making_food",
+      "original_sha256": "1f87b7b4282236edc68b8aa7c7cfe1449fef47e0586033766ba60d76abd16cb2",
+      "archive_path": "docs/research-drafts/paused-batch12-2026-11-11/original/evidence/w/w12-zhu-woodson-snaketown-notes.txt",
+      "disposition": "admitted_original_bytes",
+      "reason": "Exact final file accepted independently; see claim-level ledger for repairs, scope and deferred subclaims.",
+      "active_final_sha256": "1f87b7b4282236edc68b8aa7c7cfe1449fef47e0586033766ba60d76abd16cb2",
+      "active_base_record_preserved": false,
+      "claim_dispositions": [],
+      "reviewed_worker_commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "review": "docs/reviews/2026-11-11-paused-batch12/reviews/making_food.json",
+      "lane_ledger": "docs/reviews/2026-11-11-paused-batch12/lanes/making_food.json"
+    }
+  ]
+}

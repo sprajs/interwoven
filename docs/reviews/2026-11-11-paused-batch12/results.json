@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "purpose": "Finalize and preserve paused batch12, no growth campaign",
+  "base_commit": "46b68706bd48a423e9c2374780ba1b1acf2ebc68",
+  "assembled_data_commit": "31546f15aca1aec8bc5ce662cb823ba264d21732",
+  "orchestrator": {
+    "execution_id": "/root",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "basis": "Configured runtime verified by coordinating chat; direct orchestration"
+  },
+  "workers": {
+    "making_food": {
+      "worktree": "/Users/szymon/.codex/worktrees/commit-all-20261111/making_food",
+      "commit": "cdb358d599b234176dfe143f54f2359aa7e3fe74",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution_id": "/root/batch12_review_making_food",
+        "execution_kind": "independent reviewer; separate agent execution",
+        "researcher_execution_id": "/root/batch12_making_food",
+        "researcher_extractor_detail": "lane ledger records researcher model and role; separate extraction execution identifier was not supplied",
+        "created_utc": "2026-11-11T12:49:31.345155+00:00",
+        "revised_utc": "2026-11-11T12:50:07.993741+00:00"
+      },
+      "original_file_dispositions": {
+        "admitted_repaired": 7,
+        "admitted_original_bytes": 18
+      }
+    },
+    "transport_institutions": {
+      "worktree": "/Users/szymon/.codex/worktrees/commit-all-20261111/transport_institutions",
+      "commit": "4cd3479a65e64d2e29cdabfd388ffef11bce0a78",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "reviewer": {
+        "actual_model": "gpt-6.1-terra",
+        "actual_effort": "high",
+        "execution": "/root/batch12_review_transport",
+        "independent_of": "/root/batch12_transport_institutions",
+        "usage": "not exposed"
+      },
+      "original_file_dispositions": {
+        "admitted_repaired": 4,
+        "archived_only": 5,
+        "admitted_original_bytes": 21
+      }
+    },
+    "information": {
+      "worktree": "/Users/szymon/.codex/worktrees/commit-all-20261111/information",
+      "commit": "8728f9fb9bbe61626c4581c4cbadcd6dd0602eac",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "reviewer": {
+        "execution_id": "/root/batch12_review_information",
+        "actual_model": "gpt-6.1-terra",
+        "actual_reasoning_effort": "high",
+        "independent_of": "/root/batch12_information"
+      },
+      "original_file_dispositions": {
+        "archived_only": 4,
+        "admitted_repaired": 8,
+        "admitted_original_bytes": 7
+      }
+    },
+    "access": {
+      "worktree": "/Users/szymon/.codex/worktrees/commit-all-20261111/access",
+      "commit": "a4f85012d3ceab5f8872c66fa58c0ac6f371f5fe",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "independent /root/batch12_review_access",
+        "response_id": null,
+        "usage": null
+      },
+      "original_file_dispositions": {
+        "admitted_repaired": 7,
+        "archived_only": 10,
+        "admitted_original_bytes": 1
+      }
+    }
+  },
+  "counts": {
+    "original_files_preserved": 92,
+    "original_handoffs_preserved": 26,
+    "archived_only": 19,
+    "admitted_repaired": 26,
+    "admitted_original_bytes": 47,
+    "new_records_admitted": 13,
+    "existing_records_extended": 8,
+    "original_discovery_drafts_archived_only": 3,
+    "new_events": 22,
+    "new_established_links": 0,
+    "new_candidate_links": 2,
+    "register_entries_added": 23
+  },
+  "disposition_manifest": "docs/research-drafts/paused-batch12-2026-11-11/disposition-manifest.json",
+  "raw_evidence_manifest": "docs/reviews/2026-11-11-paused-batch12/raw-evidence-retention.json",
+  "usage": {
+    "researcher_executions": 4,
+    "independent_reviewer_executions": 4,
+    "input_tokens": null,
+    "output_tokens": null,
+    "billing_usd": null
+  },
+  "scope": "Main checkout and older-worktree archive untouched; final main integration/push belongs to coordinating chat."
+}
