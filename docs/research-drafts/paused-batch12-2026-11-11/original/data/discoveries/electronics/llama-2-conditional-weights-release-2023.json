@@ -1,0 +1,81 @@
+{
+  "id": "llama-2-conditional-weights-release-2023",
+  "name": "Llama 2 conditional weights release",
+  "description": "Meta announced access to Llama 2 model weights under a community licence with use and redistribution conditions.",
+  "kind": "technology",
+  "domain": "electronics.ai",
+  "grain": "instance",
+  "concept": "conditional-model-weights-release",
+  "origin": "unknown",
+  "events": [
+    {
+      "id": "llama2-release-2023",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 7,
+          "day": 18
+        },
+        "latest": {
+          "year": 2023,
+          "month": 7,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2023-07-18",
+        "basis": "Source-reported publication or announcement date."
+      },
+      "statement": "Meta announced Llama 2 availability for research and commercial use, subject to its accompanying licence.",
+      "evidence": [
+        {
+          "source": "w10-meta-llama2-announcement",
+          "locator": "Announcement, takeaways and availability",
+          "supports": "Dates the announced availability."
+        },
+        {
+          "source": "w10-meta-llama2-community-license",
+          "locator": "Licence grant and additional commercial terms",
+          "supports": "Defines conditional rights and restrictions."
+        },
+        {
+          "source": "w12-meta-llama2-license-redistribution",
+          "locator": "Sections 1(a), 1(b)(i), 1(b)(iii), 1(b)(v), 2",
+          "supports": "The July 2023 agreement grants limited royalty-free rights subject to conditions. Distributors must provide the agreement to recipients and retain an attribution notice; it restricts use of the materials or their outputs to improve other large language models except Llama 2 and its derivatives. A separate grant can be required for licensees exceeding the specified threshold."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "meta-platforms",
+          "role": "distributor",
+          "resource": "Llama 2 model materials under the community licence.",
+          "evidence": [
+            {
+              "source": "w10-meta-llama2-announcement",
+              "locator": "Announcement and availability",
+              "supports": "Meta announces release and access."
+            }
+          ]
+        }
+      ],
+      "caveats": "Licence obligations apply. If products or services of a licensee and its affiliates exceeded 700 million monthly active users in the calendar month before the 18 July 2023 release, the licensee must request a further licence, which Meta may decline. Weights are not free compute. The licence requires a copy of the agreement for recipients of redistributed materials or derivatives, retention of an attribution notice in distributed copies, and restricts using materials or outputs to improve other large language models, with an exception for Llama 2 and derivatives."
+    }
+  ],
+  "earliest_record": {
+    "event": "llama2-release-2023",
+    "rationale": "Earliest supported event for this scoped record, not a universal priority claim."
+  },
+  "caveats": "Llama 2 was released after the QLoRA first version. Similar names do not establish an edge from this release to that earlier paper; no unrestricted open-source status is asserted.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "concept": "sourced",
+      "origin": "unknown",
+      "events": "sourced"
+    },
+    "note": "Independent reader checked the cited original version, event claims and specified facets. The licence threshold is tied to the month before the 2023 release, not a rolling measure. Wave 12 additions await independent review."
+  }
+}

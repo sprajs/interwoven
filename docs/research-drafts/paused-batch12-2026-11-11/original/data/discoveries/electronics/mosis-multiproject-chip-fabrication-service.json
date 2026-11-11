@@ -1,0 +1,182 @@
+{
+  "id": "mosis-multiproject-chip-fabrication-service",
+  "name": "MOSIS multiproject chip fabrication service",
+  "description": "A service pooling multiple customers’ integrated-circuit designs into fabrication runs and coordinating chip delivery.",
+  "kind": "technology",
+  "domain": "electronics.integrated-circuits",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "service-open-1981",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1981,
+          "month": 1
+        },
+        "latest": {
+          "year": 1981,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1981-01",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "MOSIS opened a publicly funded multiproject chip fabrication service.",
+      "evidence": [
+        {
+          "source": "darpa-mosis-service-wave10",
+          "locator": "Timeline description",
+          "supports": "DARPA says MOSIS opened in January 1981 and it funded the service."
+        },
+        {
+          "source": "usc-isi-mosis-history-wave10",
+          "locator": "The Legacy of MOSIS",
+          "supports": "USC reports DARPA contracts from 1981 and 1,706 designs fabricated in the twelve months through June 1985."
+        }
+      ],
+      "caveats": "The service initially supported US government research; access was not unrestricted.",
+      "contributions": [
+        {
+          "organization": "darpa",
+          "role": "funder",
+          "resource": "Funded the service.",
+          "evidence": [
+            {
+              "source": "darpa-mosis-service-wave10",
+              "locator": "Timeline description",
+              "supports": "DARPA says MOSIS opened in January 1981 and it funded the service."
+            },
+            {
+              "source": "usc-isi-mosis-history-wave10",
+              "locator": "The Legacy of MOSIS",
+              "supports": "USC reports DARPA contracts from 1981 and 1,706 designs fabricated in the twelve months through June 1985."
+            }
+          ]
+        },
+        {
+          "organization": "usc-information-sciences-institute",
+          "role": "operator",
+          "resource": "Provided fabrication services under contracts.",
+          "evidence": [
+            {
+              "source": "usc-isi-mosis-history-wave10",
+              "locator": "The Legacy of MOSIS",
+              "supports": "USC reports DARPA contracts from 1981 and 1,706 designs fabricated in the twelve months through June 1985."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "designs-fabricated-to-1985",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1985,
+          "month": 6
+        },
+        "latest": {
+          "year": 1985,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1985-06",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "USC reports 1,706 designs fabricated in the twelve months ending June 1985.",
+      "evidence": [
+        {
+          "source": "usc-isi-mosis-history-wave10",
+          "locator": "The Legacy of MOSIS",
+          "supports": "USC reports DARPA contracts from 1981 and 1,706 designs fabricated in the twelve months through June 1985."
+        }
+      ],
+      "caveats": "Retrospective count of designs, not users or unique chips."
+    },
+    {
+      "id": "commercial-service-1987",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 1987
+        },
+        "latest": {
+          "year": 1987
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1987",
+        "basis": "Date stated by the cited source; see event scope."
+      },
+      "statement": "In fall 1987 DARPA requested that USC/ISI establish a commercial service accepting third-party fabrication orders.",
+      "evidence": [
+        {
+          "source": "usc-isi-mosis-history-wave10",
+          "locator": "The Legacy of MOSIS",
+          "supports": "USC dates the request to fall 1987 and says the service was subsequently established without an explicit establishment date."
+        }
+      ],
+      "caveats": "USC reports that it established the service, but the passage does not explicitly date establishment or identify an order or sales volume."
+    },
+    {
+      "id": "berkeley-soar-description-1985",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1985
+        },
+        "latest": {
+          "year": 1985
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1985",
+        "basis": "Publication year of the cited document, not necessarily the first use of the described arrangement."
+      },
+      "statement": "A Berkeley dissertation describes using MOSIS as a university fabrication intermediary for the SOAR processor design, with process choices constrained by MOSIS availability.",
+      "evidence": [
+        {
+          "source": "w12-pendleton-1985-mosis-soar",
+          "locator": "Printed pp. 124–125",
+          "supports": "The Berkeley dissertation describes MOSIS as a DARPA-sponsored university fabrication service. It says the SOAR processor design was constrained to available MOSIS processes and describes MOSIS as arranging fabrication through outside companies; it does not establish the cost or completion of a particular order in this passage."
+        }
+      ],
+      "caveats": "This describes a particular design and the service arrangement; it does not show the price or completion date of its fabrication order."
+    }
+  ],
+  "earliest_record": {
+    "event": "service-open-1981",
+    "rationale": "Earliest dated episode established in cited evidence for this scope, not a global priority claim."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "recalled",
+      "events": "sourced",
+      "measures": "reviewed"
+    },
+    "note": "Independent reader checked DARPA and USC accounts, distinguishing the 1987 request from the undated establishment and the 1,706-design count from customers. Wave 12 additions await independent review."
+  },
+  "measures": [
+    {
+      "quantity": "reported fabricated designs",
+      "value": 1706,
+      "unit": "designs",
+      "event": "designs-fabricated-to-1985",
+      "subject": "MOSIS service",
+      "status": "claimed",
+      "conditions": "USC retrospective for the twelve months ending June 1985, not customers.",
+      "evidence": [
+        {
+          "source": "usc-isi-mosis-history-wave10",
+          "locator": "The Legacy of MOSIS",
+          "supports": "USC reports DARPA contracts from 1981 and 1,706 designs fabricated in the twelve months through June 1985."
+        }
+      ]
+    }
+  ]
+}
