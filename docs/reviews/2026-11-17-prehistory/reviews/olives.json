@@ -1,0 +1,933 @@
+{
+  "schema_version": 1,
+  "lane": "olives",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "6e3f6a46c938263284942d53870e9aaf88a90abc",
+  "worker_commit": "6e3f6a46c938263284942d53870e9aaf88a90abc",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent reviewer execution",
+    "independence": "Separate from gpt-6.2-sol high researcher; same model family and shared original excavation studies impose limitations."
+  },
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/energy/gesher-inferred-firewood-gathering.json",
+      "sha256": "2ee7d9ae5e068775a153ebe06dcb2921a6dfa727245f6242619c6e14f6af61d5"
+    },
+    {
+      "path": "data/discoveries/energy/gesher-recurrent-fire-use.json",
+      "sha256": "b9fe4d3dc948f799a5b8d439c1acb4518e63783307833b51c03240acb1fbb443"
+    },
+    {
+      "path": "data/discoveries/food/artificial-basin-irrigation-nile-valley.json",
+      "sha256": "080f82d673b2b3fecd98b9647d529289dd15703e8ad5907b69958af96a0201a3"
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json",
+      "sha256": "0fc3b21f6c0b6a082578bace52d67ec800e12f689e088523f798adfe6b4fa310"
+    },
+    {
+      "path": "data/discoveries/food/hishuley-carmel-preserved-olives.json",
+      "sha256": "3af8081e231d4c4ce516e47bb7835266ef686cdeac8d1781e14664f460d9ad16"
+    },
+    {
+      "path": "data/discoveries/food/kfar-samir-olive-oil-extraction.json",
+      "sha256": "2f74d7d109c28ee5bb63db62f2a9b4cefc25c210db28c31d8586e944c55c5f09"
+    },
+    {
+      "path": "data/discoveries/food/olive-and-fig-horticulture-in-the-jordan-valley.json",
+      "sha256": "e7a56106705cdedd6be549a3ffd3163b74b3ed9f085bdc67427a1e0bee7de817"
+    },
+    {
+      "path": "data/discoveries/materials/kfar-samir-pair-twined-basketry.json",
+      "sha256": "7bde25ff51e06d3e218e28e3eb4c3a68a2716367677bc7285fb857cf2c05d8c6"
+    },
+    {
+      "path": "data/sources/a/allue-2026-gesher-firewood.json",
+      "sha256": "b8f292192fa00aa5e199dbd500712e7eb3c2765522d3ab5f7f53d95b36f7dc6f"
+    },
+    {
+      "path": "data/sources/g/galili-1997-kfar-samir-oil-excavation.json",
+      "sha256": "a414fe8382cd5f4ce6fb4ef0aa547c99de724ec52cac7ccffb1e8b7122a12dc8"
+    },
+    {
+      "path": "data/sources/l/langgut-2024-tel-tsaf-olive-dating.json",
+      "sha256": "23f57ba8e4c8d3445f18b4704f37f0a80877ead41743cadc2bffe5c3cdb508ae"
+    },
+    {
+      "path": "data/sources/q/quibell-1900-hierakonpolis-scorpion-macehead.json",
+      "sha256": "2e0bc78fb60963eeed7a754a2edbbb14c21fac27fc2a72bdbed018c82f528256"
+    },
+    {
+      "path": "data/sources/r/rosenberg-2023-carmel-wood-and-basketry.json",
+      "sha256": "08732792fbd3cf2f42e2ad9eb9c7cf3b61b80b9e8a4d2237c604f4558d088e93"
+    },
+    {
+      "path": "data/sources/t/terral-2021-hishuley-olive-shape.json",
+      "sha256": "1db55fe271d433f8ae5b5c9365e8fb1514d0c71c9e00cdcefc290005b60eb6e7"
+    },
+    {
+      "path": "data/sources/w/willems-2017-nile-basin-debate.json",
+      "sha256": "a39fd8d2c6cd253b4d6175c6744ff0f59057adaa728d34402099de184d91c198"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/olives.json",
+      "sha256": "0442ea9bae57ef7c06841ae35d9f0e95651535a5351b000bac9116edff257cdd"
+    },
+    {
+      "path": "evidence/a/allue-2026-gesher-firewood-notes.txt",
+      "sha256": "8c4bff872981d4d8f914c2e44d67d3442f1809defb4e80b40a87df023a93df9e"
+    },
+    {
+      "path": "evidence/g/galili-1997-kfar-samir-oil-excavation-notes.txt",
+      "sha256": "712fafa6269f59c86dd8f6239e45a549138623637d2b54fe8f1549452a0f8a5b"
+    },
+    {
+      "path": "evidence/l/langgut-2024-tel-tsaf-olive-dating-notes.txt",
+      "sha256": "3a047dc6f8c144624510c604fd8cd76f4749b5d9fc71a3abf3a7fe26f69bd769"
+    },
+    {
+      "path": "evidence/q/quibell-1900-hierakonpolis-scorpion-macehead-notes.txt",
+      "sha256": "d4fe49a1002405a5673ef0cbb632f1752a60c9c4a71a4fb45252af203fbbf030"
+    },
+    {
+      "path": "evidence/r/rosenberg-2023-carmel-wood-and-basketry-notes.txt",
+      "sha256": "504c7dfe8d536c951b8e976440dd7a9864a2ce16a65c3670538004f4b8dc9974"
+    },
+    {
+      "path": "evidence/t/terral-2021-hishuley-olive-shape-notes.txt",
+      "sha256": "e4a61f2f6f61e6badfe893b6cf21958feae9daa990d1b1fc48ca0ce9287dfc31"
+    },
+    {
+      "path": "evidence/w/willems-2017-nile-basin-debate-notes.txt",
+      "sha256": "bed2eda182ded4b4bc1b30f8bb7f438feb7e5055938b673d60c2a71eb6d6f7f4"
+    }
+  ],
+  "records": [
+    {
+      "id": "artificial-basin-irrigation-nile-valley",
+      "verdict": "accept",
+      "rationale": "Accept improved attribution and explicit dispute; separate canal depiction is not evidence of a constructed basin network at 3100 BCE. No transmission connection is supported.",
+      "claim_reviews": [
+        {
+          "path": "/summary and /description",
+          "decision": "accept",
+          "rationale": "Quibell plate note reads the ruler as inaugurating irrigation; Willems pp. 259–260 reports Schenkel’s dissent. Manning remains an unavailable draft attested only by preexisting excerpt; no new independent verification of his date.",
+          "sources": [
+            "quibell-1900-hierakonpolis-scorpion-macehead",
+            "willems-2017-nile-basin-debate",
+            "manning-2012-water-irrigation-connection"
+          ],
+          "locators": [
+            "Quibell pp. 9–10 plate XXVIc",
+            "Willems pp. 259–260",
+            "Manning section 4 saved excerpt"
+          ]
+        },
+        {
+          "path": "/events/0/statement, date.basis, evidence and caveats",
+          "decision": "accept",
+          "rationale": "Original plate note explicitly describes ruler holding hoe and people building canal banks, interpreting irrigation. Willems reports interpretation disputed. Revised wording attributes the interpretation and retains the prior approximate date.",
+          "sources": [
+            "quibell-1900-hierakonpolis-scorpion-macehead",
+            "willems-2017-nile-basin-debate"
+          ],
+          "locators": [
+            "Quibell pp. 9–10",
+            "Willems pp. 259–260"
+          ],
+          "extends": "artificial-basin-irrigation-nile-valley:archaeological-evidence-3100bce"
+        },
+        {
+          "path": "/earliest_record/rationale and /research",
+          "decision": "accept",
+          "rationale": "This is a proposed witness, not a demonstrated dated basin system. Willems reports the later Niuserre interpretation and does not prove Scorpion-era agricultural use. Origin and route remain unresolved.",
+          "sources": [
+            "willems-2017-nile-basin-debate"
+          ],
+          "locators": [
+            "pp. 259–260 and n.12"
+          ]
+        }
+      ],
+      "baseline_issue": "Existing date uses bounded “by c. 3100 BCE” for an approximately dated depiction, which is not a source-defined terminus; Manning original was unavailable. This unchanged numeric date representation warrants later correction and does not itself establish basin irrigation."
+    },
+    {
+      "id": "gesher-recurrent-fire-use",
+      "verdict": "accept",
+      "rationale": "Candidate local fuel-process question is bounded to Level 1; the charcoal measurement is a separate material but shares site, researchers and horizon with earlier fire work.",
+      "claim_reviews": [
+        {
+          "path": "/research/basis/links and /links/0",
+          "decision": "accept",
+          "rationale": "Allué compares charcoal and unburnt wood with ash/olive abundant and infers available deadwood; charcoal and flint patterns differ. The source and destination are the same Level 1, while the existing fire event covers eight horizons.",
+          "sources": [
+            "allue-2026-gesher-firewood",
+            "alperson-afil-2008-gesher-fire-levels"
+          ],
+          "locators": [
+            "Allué Table 1, Fig. 2 and section 4",
+            "Alperson-Afil Table 1"
+          ],
+          "relation": {
+            "type": "uses_process",
+            "direction": "inferred local gathering to recurrent fire use, Level 1",
+            "status": "candidate",
+            "established_history": false,
+            "independent_corroboration": "Not established; overlap in excavation and investigators; new charcoal observations are separate from reused flint."
+          }
+        }
+      ]
+    },
+    {
+      "id": "gesher-fish-cooking-inference",
+      "verdict": "accept",
+      "rationale": "Retained local fire-to-cooking question; charcoal overlap is additional observation rather than independent proof of intentional cooking.",
+      "claim_reviews": [
+        {
+          "path": "/links/0/finding, caveats and evidence",
+          "decision": "accept",
+          "rationale": "Allué Fig. 2C and discussion report largest fish and charcoal concentrations overlapping in Level 1 and identify reused fish/flint inventories. Source does not independently test alternative heating causes.",
+          "sources": [
+            "allue-2026-gesher-firewood",
+            "zohar-2022-gesher-fish-cooking"
+          ],
+          "locators": [
+            "Allué Fig. 2B–C, pp. 5–6",
+            "Zohar Figs. 4–5 and Supplement E"
+          ],
+          "relation": {
+            "type": "uses_process",
+            "direction": "fire-use record to inferred fish cooking at same site",
+            "status": "candidate",
+            "established_history": false,
+            "independent_corroboration": "Charcoal newly measured but study shares authors and reuses fish and flint data; no independent causal test."
+          }
+        }
+      ]
+    },
+    {
+      "id": "hishuley-carmel-preserved-olives",
+      "verdict": "accept",
+      "rationale": "Accept attributed curing hypothesis and clearly modern experiments; no source-of-salt link is established.",
+      "claim_reviews": [
+        {
+          "path": "/events/0/statement and evidence",
+          "decision": "accept",
+          "rationale": "Galili describes olive-rich structures, comparative stone fragmentation and modern experiments; seawater fermentation and dry-salting are demonstrations of feasibility, not identified ancient methods. Terral adds shape comparison, not proof of orchard or method.",
+          "sources": [
+            "galili-2021-carmel-olive-production",
+            "terral-2021-hishuley-olive-shape"
+          ],
+          "locators": [
+            "Galili Results, Fig. 8 and discussion",
+            "Terral sections 2–5, Fig. 7"
+          ],
+          "extends": "hishuley-carmel-preserved-olives:documented-evidence"
+        },
+        {
+          "path": "/research",
+          "decision": "accept",
+          "rationale": "Changed event is sourced rather than silently marked reviewed; note distinguishes experiment from archaeological inference.",
+          "sources": [
+            "galili-2021-carmel-olive-production",
+            "terral-2021-hishuley-olive-shape"
+          ],
+          "locators": [
+            "Results and discussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kfar-samir-olive-oil-extraction",
+      "verdict": "accept",
+      "rationale": "Pit evidence and inferred oil extraction are supported; the basket function is a candidate, with object identity and use in pit 6 unresolved.",
+      "claim_reviews": [
+        {
+          "path": "/events/0/statement, evidence, caveats and /research",
+          "decision": "accept",
+          "rationale": "Original excavation describes alternating olives and organic clay above pebbles in pit 6; oil extraction remains an interpretation, and the function and cultivation are uncertain.",
+          "sources": [
+            "galili-1997-kfar-samir-oil-excavation",
+            "galili-2021-carmel-olive-production"
+          ],
+          "locators": [
+            "1997 pp. 1143–1147 Figs. 2 and 7",
+            "2021 comparisons"
+          ],
+          "extends": "kfar-samir-olive-oil-extraction:documented-evidence"
+        },
+        {
+          "path": "/links/0",
+          "decision": "accept",
+          "rationale": "KS2 is a basket found with olive stones; Rosenberg proposes an aqal-like processing role. Its association with the oil operation remains a candidate question, not established use. Companion_of represents a possible arrangement, and the 1997 analogy cannot identify KS2 as a pit 6 tool.",
+          "sources": [
+            "rosenberg-2023-carmel-wood-and-basketry",
+            "galili-1997-kfar-samir-oil-excavation"
+          ],
+          "locators": [
+            "2023 section 3.2, Fig. 7, Table 1",
+            "1997 discussion and Fig. 5"
+          ],
+          "relation": {
+            "type": "companion_of",
+            "direction": "KS2 basketry to local oil-processing practice as a proposed common arrangement",
+            "status": "candidate",
+            "established_history": false,
+            "independent_corroboration": "Same excavation tradition and shared investigator; 2023 cites 1997 interpretation, not independent proof of use."
+          }
+        }
+      ]
+    },
+    {
+      "id": "olive-and-fig-horticulture-in-the-jordan-valley",
+      "verdict": "accept",
+      "rationale": "A directly dated olive branch complements the previously dated fig twig; route and specific coastal source remain open.",
+      "claim_reviews": [
+        {
+          "path": "/summary and /events/0/statement, date.basis and evidence",
+          "decision": "accept",
+          "rationale": "2022 authors interpret abundant olive charcoal outside assumed wild range and fig twigs as horticulture; 2024 Table 2 supplies Area C olive branch Beta-657404 at 7160–6950 cal BP (68.2%) and repeats earlier fig date. No direct cultivation observation.",
+          "sources": [
+            "langgut-2022-year-old-evidence",
+            "langgut-2024-tel-tsaf-olive-dating"
+          ],
+          "locators": [
+            "2022 abstract and discussion",
+            "2024 section 3.1 and Table 2"
+          ],
+          "extends": "olive-and-fig-horticulture-in-the-jordan-valley:archaeological-evidence-5050bce"
+        },
+        {
+          "path": "/research/unresolved",
+          "decision": "accept",
+          "rationale": "The proposed regional source is a hypothesis; no cited evidence identifies an orchard, route or direct transfer to Tel Tsaf.",
+          "sources": [
+            "langgut-2024-tel-tsaf-olive-dating"
+          ],
+          "locators": [
+            "section 3.1 and Fig. 3"
+          ]
+        }
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "gesher-inferred-firewood-gathering",
+      "verdict": "accept",
+      "claim_reviews": [
+        {
+          "path": "/identity, description, kind, domain, grain, places",
+          "decision": "accept",
+          "rationale": "Allué attributes local wood gathering for fire to inferred human behavior based on charcoal and wood from one horizon; deadwood/driftwood is a suggested source. Site and lake Hula context are explicit.",
+          "sources": [
+            "allue-2026-gesher-firewood"
+          ],
+          "locators": [
+            "sections 2–4, Table 1"
+          ]
+        },
+        {
+          "path": "/events/0, earliest_record, caveats and research",
+          "decision": "accept",
+          "rationale": "Level 1 taxa and ash/olive abundance are documented, while collecting and use are inference; 0.78–0.79 Ma is the existing approximate site-age convention rather than a dated duration or precise interval.",
+          "sources": [
+            "allue-2026-gesher-firewood",
+            "alperson-afil-2017-gesher-fire"
+          ],
+          "locators": [
+            "Allué Table 1, discussion",
+            "2017 age expressions"
+          ]
+        }
+      ],
+      "duplicate_screen": "The fire record describes repeated combustion, while this node addresses inferred fuel gathering in Level 1. Related interpretations are not asserted as two independent observations."
+    },
+    {
+      "id": "kfar-samir-pair-twined-basketry",
+      "verdict": "accept",
+      "claim_reviews": [
+        {
+          "path": "/identity, description, kind, domain, grain, concept, places",
+          "decision": "accept",
+          "rationale": "Rosenberg identifies three KS2 twig basket fragments, alternate pair-twining, and a clay-filled olive-bearing pit in central Kfar Samir. Function is not established.",
+          "sources": [
+            "rosenberg-2023-carmel-wood-and-basketry"
+          ],
+          "locators": [
+            "section 3.2, Fig. 7"
+          ]
+        },
+        {
+          "path": "/events/0, earliest_record, caveats and research",
+          "decision": "accept",
+          "rationale": "Table 1 dates KS2 by the general site chronology and gives two outer sample intervals 7964–7431 and 6531–6299 cal BP; the broad displayed envelope converts these to 6014–4349 BCE. This is not a direct basket date and may include unoccupied intervals.",
+          "sources": [
+            "rosenberg-2023-carmel-wood-and-basketry"
+          ],
+          "locators": [
+            "section 3.2 and Table 1"
+          ]
+        }
+      ],
+      "duplicate_screen": "No existing exact Kfar Samir basketry record; distinct craft object from inferred oil extraction. Similar woven basketry elsewhere does not imply transmission."
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "allue-2026-gesher-firewood",
+      "url": "https://www.researchgate.net/publication/405546157_Paleoenvironmental_and_behavioral_insights_into_firewood_selection_by_early_Middle_Pleistocene_hominins",
+      "availability_and_locator": "full original article transcription, Table 1, Figs 2–3 and discussion",
+      "independence": "New charcoal analysis, shared team and fish/flint inventories with earlier Gesher studies."
+    },
+    {
+      "id": "galili-1997-kfar-samir-oil-excavation",
+      "url": "https://www.researchgate.net/publication/248578882_Evidence_for_Earliest_OliveOil_Production_in_Submerged_Settlements_off_the_Carmel_Coast_Israel",
+      "availability_and_locator": "original article transcription pp. 1143–1147 and Figs. 2, 5, 7",
+      "independence": "Original excavation; 2021 and 2023 draw on same site/samples and shared authors."
+    },
+    {
+      "id": "galili-2021-carmel-olive-production",
+      "url": "https://www.academia.edu/130181706/Early_production_of_table_olives_at_a_mid_7th_millennium_BP_submerged_site_off_the_Carmel_coast_Israel_Galili_et_al_2021_SCIENTIFIC_REPORTS",
+      "availability_and_locator": "original text Results, Fig. 8 and discussion",
+      "independence": "Same Hishuley site material as Terral, with shared authors."
+    },
+    {
+      "id": "langgut-2022-year-old-evidence",
+      "url": "https://www.academia.edu/83327401/7000_year_old_evidence_of_fruit_tree_cultivation_in_the_Jordan_Valley_Israel_Langgut_and_Garfinkel_2022_SCIENTIFIC_REPORTS",
+      "availability_and_locator": "original article abstract, methods and discussion",
+      "independence": "Same site and researcher as 2024; fig assay repeated."
+    },
+    {
+      "id": "langgut-2024-tel-tsaf-olive-dating",
+      "url": "https://www.academia.edu/121002056/The_core_area_of_fruit_tree_cultivation_central_Jordan_Valley_Levant_ca_7000_BP_Langgut_2024_PALYNOLOGY",
+      "availability_and_locator": "original article section 3.1 and Table 2",
+      "independence": "New olive sample assay but same researcher and excavation context, not independent confirmation of cultivation."
+    },
+    {
+      "id": "quibell-1900-hierakonpolis-scorpion-macehead",
+      "url": "https://petrieproject.com/book/hierakonpolis-part-i",
+      "availability_and_locator": "original publication pp. 9–10, plate XXVIc note and drawing",
+      "independence": "Primary publication; subsequent readings of same single carved object are not independent archaeological objects."
+    },
+    {
+      "id": "willems-2017-nile-basin-debate",
+      "url": "https://www.inlibra.com/document/download/pdf/uuid/486029aa-9cbf-38b8-83f4-dffa90a07aa9?page=1&toc=5723285",
+      "availability_and_locator": "publisher PDF streamed to text; pp. 259–260, n.12",
+      "independence": "Reports Schenkel view rather than a direct reading of Schenkel 1978; original dissent not independently obtained."
+    },
+    {
+      "id": "rosenberg-2023-carmel-wood-and-basketry",
+      "url": "https://www.mdpi.com/1999-4907/14/12/2373",
+      "availability_and_locator": "publisher full HTML section 3.2, Fig. 7 and Table 1",
+      "independence": "Detailed basket account; shared excavator and analogy with 1997."
+    },
+    {
+      "id": "terral-2021-hishuley-olive-shape",
+      "url": "https://www.mdpi.com/2073-4395/11/11/2187",
+      "availability_and_locator": "publisher full HTML sections 2–5, Fig. 7",
+      "independence": "Independent morphometric analysis but same Hishuley site sample and shared authors."
+    },
+    {
+      "id": "manning-2012-water-irrigation-connection",
+      "url": "http://www.econ.yale.edu/~egcenter/manning-2012.pdf",
+      "availability_and_locator": "original unavailable; existing repository excerpt only; date unchanged",
+      "independence": "Draft interpretation of same macehead; not a new independent source read."
+    }
+  ],
+  "changed_supporting_files_review": "Seven source records and their seven evidence-note files were compared with the originals identified in source_checks; each records short notes and appropriate lineage. The lane report is accepted as a bounded research account; source availability limits below apply.",
+  "duplicate_screen": "Existing six anchor records and actual event arrays checked at base; new Level 1 wood procurement and KS2 object have distinct scopes. No source proves transmission among Tel Tsaf, Hishuley Carmel and Kfar Samir.",
+  "issues": [],
+  "unknowns": [
+    "Manning full draft unavailable; unchanged bounded 3100 BCE date and its meaning require separate correction/research. Schenkel 1978 was not directly read; its dissent is attributed to Willems 2017.",
+    "The independent Ein Zippori source and Barnham comparison in the lane note were not directly accessible in this review, and are contextual rather than support for accepted dataset claims.",
+    "Actual cooking, fuel collection, basket function, curing methods, irrigation interpretation and source-orchard routes remain inferential."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass",
+    "output": "908 discoveries, 1516 events, 244 links, 1679 sources; No problems found."
+  },
+  "diff_check": {
+    "command": "git diff --check 71326e01a105da21decb1587195a81bd5b596b8c 6e3f6a46c938263284942d53870e9aaf88a90abc",
+    "result": "pass"
+  },
+  "history": [
+    {
+      "superseded_review_commit": "5f3b73d2c4867d3a64a3df86a9177d8073168d91",
+      "reason": "Previous acceptance missed that uses_instrument is restricted to observation. Root QA identified the mismatch; researcher repaired the candidate link to companion_of.",
+      "review": {
+        "schema_version": 1,
+        "lane": "olives",
+        "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+        "proposal_commit": "accd2abc2dccd6528ba6a67ebdbcc12605338279",
+        "worker_commit": "accd2abc2dccd6528ba6a67ebdbcc12605338279",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "independent reviewer execution",
+          "independence": "Separate from gpt-6.2-sol high researcher; same model family and shared original excavation studies impose limitations."
+        },
+        "overall_verdict": "accept",
+        "overall_decision": "accept",
+        "files": [
+          {
+            "path": "data/discoveries/energy/gesher-inferred-firewood-gathering.json",
+            "sha256": "2ee7d9ae5e068775a153ebe06dcb2921a6dfa727245f6242619c6e14f6af61d5"
+          },
+          {
+            "path": "data/discoveries/energy/gesher-recurrent-fire-use.json",
+            "sha256": "b9fe4d3dc948f799a5b8d439c1acb4518e63783307833b51c03240acb1fbb443"
+          },
+          {
+            "path": "data/discoveries/food/artificial-basin-irrigation-nile-valley.json",
+            "sha256": "080f82d673b2b3fecd98b9647d529289dd15703e8ad5907b69958af96a0201a3"
+          },
+          {
+            "path": "data/discoveries/food/gesher-fish-cooking-inference.json",
+            "sha256": "0fc3b21f6c0b6a082578bace52d67ec800e12f689e088523f798adfe6b4fa310"
+          },
+          {
+            "path": "data/discoveries/food/hishuley-carmel-preserved-olives.json",
+            "sha256": "3af8081e231d4c4ce516e47bb7835266ef686cdeac8d1781e14664f460d9ad16"
+          },
+          {
+            "path": "data/discoveries/food/kfar-samir-olive-oil-extraction.json",
+            "sha256": "86f9de5bdc5354a52e9aabd0fadfeb597fc944367fbe9a3b724adcf474ec31e2"
+          },
+          {
+            "path": "data/discoveries/food/olive-and-fig-horticulture-in-the-jordan-valley.json",
+            "sha256": "e7a56106705cdedd6be549a3ffd3163b74b3ed9f085bdc67427a1e0bee7de817"
+          },
+          {
+            "path": "data/discoveries/materials/kfar-samir-pair-twined-basketry.json",
+            "sha256": "7bde25ff51e06d3e218e28e3eb4c3a68a2716367677bc7285fb857cf2c05d8c6"
+          },
+          {
+            "path": "data/sources/a/allue-2026-gesher-firewood.json",
+            "sha256": "b8f292192fa00aa5e199dbd500712e7eb3c2765522d3ab5f7f53d95b36f7dc6f"
+          },
+          {
+            "path": "data/sources/g/galili-1997-kfar-samir-oil-excavation.json",
+            "sha256": "a414fe8382cd5f4ce6fb4ef0aa547c99de724ec52cac7ccffb1e8b7122a12dc8"
+          },
+          {
+            "path": "data/sources/l/langgut-2024-tel-tsaf-olive-dating.json",
+            "sha256": "23f57ba8e4c8d3445f18b4704f37f0a80877ead41743cadc2bffe5c3cdb508ae"
+          },
+          {
+            "path": "data/sources/q/quibell-1900-hierakonpolis-scorpion-macehead.json",
+            "sha256": "2e0bc78fb60963eeed7a754a2edbbb14c21fac27fc2a72bdbed018c82f528256"
+          },
+          {
+            "path": "data/sources/r/rosenberg-2023-carmel-wood-and-basketry.json",
+            "sha256": "08732792fbd3cf2f42e2ad9eb9c7cf3b61b80b9e8a4d2237c604f4558d088e93"
+          },
+          {
+            "path": "data/sources/t/terral-2021-hishuley-olive-shape.json",
+            "sha256": "1db55fe271d433f8ae5b5c9365e8fb1514d0c71c9e00cdcefc290005b60eb6e7"
+          },
+          {
+            "path": "data/sources/w/willems-2017-nile-basin-debate.json",
+            "sha256": "a39fd8d2c6cd253b4d6175c6744ff0f59057adaa728d34402099de184d91c198"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-prehistory/lanes/olives.json",
+            "sha256": "760a41ea1396dc009aa6b52682dd8e6fb4ec617e9d730d02fb74652bc18b6cea"
+          },
+          {
+            "path": "evidence/a/allue-2026-gesher-firewood-notes.txt",
+            "sha256": "8c4bff872981d4d8f914c2e44d67d3442f1809defb4e80b40a87df023a93df9e"
+          },
+          {
+            "path": "evidence/g/galili-1997-kfar-samir-oil-excavation-notes.txt",
+            "sha256": "712fafa6269f59c86dd8f6239e45a549138623637d2b54fe8f1549452a0f8a5b"
+          },
+          {
+            "path": "evidence/l/langgut-2024-tel-tsaf-olive-dating-notes.txt",
+            "sha256": "3a047dc6f8c144624510c604fd8cd76f4749b5d9fc71a3abf3a7fe26f69bd769"
+          },
+          {
+            "path": "evidence/q/quibell-1900-hierakonpolis-scorpion-macehead-notes.txt",
+            "sha256": "d4fe49a1002405a5673ef0cbb632f1752a60c9c4a71a4fb45252af203fbbf030"
+          },
+          {
+            "path": "evidence/r/rosenberg-2023-carmel-wood-and-basketry-notes.txt",
+            "sha256": "504c7dfe8d536c951b8e976440dd7a9864a2ce16a65c3670538004f4b8dc9974"
+          },
+          {
+            "path": "evidence/t/terral-2021-hishuley-olive-shape-notes.txt",
+            "sha256": "e4a61f2f6f61e6badfe893b6cf21958feae9daa990d1b1fc48ca0ce9287dfc31"
+          },
+          {
+            "path": "evidence/w/willems-2017-nile-basin-debate-notes.txt",
+            "sha256": "bed2eda182ded4b4bc1b30f8bb7f438feb7e5055938b673d60c2a71eb6d6f7f4"
+          }
+        ],
+        "records": [
+          {
+            "id": "artificial-basin-irrigation-nile-valley",
+            "verdict": "accept",
+            "rationale": "Accept improved attribution and explicit dispute; separate canal depiction is not evidence of a constructed basin network at 3100 BCE. No transmission connection is supported.",
+            "claim_reviews": [
+              {
+                "path": "/summary and /description",
+                "decision": "accept",
+                "rationale": "Quibell plate note reads the ruler as inaugurating irrigation; Willems pp. 259–260 reports Schenkel’s dissent. Manning remains an unavailable draft attested only by preexisting excerpt; no new independent verification of his date.",
+                "sources": [
+                  "quibell-1900-hierakonpolis-scorpion-macehead",
+                  "willems-2017-nile-basin-debate",
+                  "manning-2012-water-irrigation-connection"
+                ],
+                "locators": [
+                  "Quibell pp. 9–10 plate XXVIc",
+                  "Willems pp. 259–260",
+                  "Manning section 4 saved excerpt"
+                ]
+              },
+              {
+                "path": "/events/0/statement, date.basis, evidence and caveats",
+                "decision": "accept",
+                "rationale": "Original plate note explicitly describes ruler holding hoe and people building canal banks, interpreting irrigation. Willems reports interpretation disputed. Revised wording attributes the interpretation and retains the prior approximate date.",
+                "sources": [
+                  "quibell-1900-hierakonpolis-scorpion-macehead",
+                  "willems-2017-nile-basin-debate"
+                ],
+                "locators": [
+                  "Quibell pp. 9–10",
+                  "Willems pp. 259–260"
+                ],
+                "extends": "artificial-basin-irrigation-nile-valley:archaeological-evidence-3100bce"
+              },
+              {
+                "path": "/earliest_record/rationale and /research",
+                "decision": "accept",
+                "rationale": "This is a proposed witness, not a demonstrated dated basin system. Willems reports the later Niuserre interpretation and does not prove Scorpion-era agricultural use. Origin and route remain unresolved.",
+                "sources": [
+                  "willems-2017-nile-basin-debate"
+                ],
+                "locators": [
+                  "pp. 259–260 and n.12"
+                ]
+              }
+            ],
+            "baseline_issue": "Existing date uses bounded “by c. 3100 BCE” for an approximately dated depiction, which is not a source-defined terminus; Manning original was unavailable. This unchanged numeric date representation warrants later correction and does not itself establish basin irrigation."
+          },
+          {
+            "id": "gesher-recurrent-fire-use",
+            "verdict": "accept",
+            "rationale": "Candidate local fuel-process question is bounded to Level 1; the charcoal measurement is a separate material but shares site, researchers and horizon with earlier fire work.",
+            "claim_reviews": [
+              {
+                "path": "/research/basis/links and /links/0",
+                "decision": "accept",
+                "rationale": "Allué compares charcoal and unburnt wood with ash/olive abundant and infers available deadwood; charcoal and flint patterns differ. The source and destination are the same Level 1, while the existing fire event covers eight horizons.",
+                "sources": [
+                  "allue-2026-gesher-firewood",
+                  "alperson-afil-2008-gesher-fire-levels"
+                ],
+                "locators": [
+                  "Allué Table 1, Fig. 2 and section 4",
+                  "Alperson-Afil Table 1"
+                ],
+                "relation": {
+                  "type": "uses_process",
+                  "direction": "inferred local gathering to recurrent fire use, Level 1",
+                  "status": "candidate",
+                  "established_history": false,
+                  "independent_corroboration": "Not established; overlap in excavation and investigators; new charcoal observations are separate from reused flint."
+                }
+              }
+            ]
+          },
+          {
+            "id": "gesher-fish-cooking-inference",
+            "verdict": "accept",
+            "rationale": "Retained local fire-to-cooking question; charcoal overlap is additional observation rather than independent proof of intentional cooking.",
+            "claim_reviews": [
+              {
+                "path": "/links/0/finding, caveats and evidence",
+                "decision": "accept",
+                "rationale": "Allué Fig. 2C and discussion report largest fish and charcoal concentrations overlapping in Level 1 and identify reused fish/flint inventories. Source does not independently test alternative heating causes.",
+                "sources": [
+                  "allue-2026-gesher-firewood",
+                  "zohar-2022-gesher-fish-cooking"
+                ],
+                "locators": [
+                  "Allué Fig. 2B–C, pp. 5–6",
+                  "Zohar Figs. 4–5 and Supplement E"
+                ],
+                "relation": {
+                  "type": "uses_process",
+                  "direction": "fire-use record to inferred fish cooking at same site",
+                  "status": "candidate",
+                  "established_history": false,
+                  "independent_corroboration": "Charcoal newly measured but study shares authors and reuses fish and flint data; no independent causal test."
+                }
+              }
+            ]
+          },
+          {
+            "id": "hishuley-carmel-preserved-olives",
+            "verdict": "accept",
+            "rationale": "Accept attributed curing hypothesis and clearly modern experiments; no source-of-salt link is established.",
+            "claim_reviews": [
+              {
+                "path": "/events/0/statement and evidence",
+                "decision": "accept",
+                "rationale": "Galili describes olive-rich structures, comparative stone fragmentation and modern experiments; seawater fermentation and dry-salting are demonstrations of feasibility, not identified ancient methods. Terral adds shape comparison, not proof of orchard or method.",
+                "sources": [
+                  "galili-2021-carmel-olive-production",
+                  "terral-2021-hishuley-olive-shape"
+                ],
+                "locators": [
+                  "Galili Results, Fig. 8 and discussion",
+                  "Terral sections 2–5, Fig. 7"
+                ],
+                "extends": "hishuley-carmel-preserved-olives:documented-evidence"
+              },
+              {
+                "path": "/research",
+                "decision": "accept",
+                "rationale": "Changed event is sourced rather than silently marked reviewed; note distinguishes experiment from archaeological inference.",
+                "sources": [
+                  "galili-2021-carmel-olive-production",
+                  "terral-2021-hishuley-olive-shape"
+                ],
+                "locators": [
+                  "Results and discussion"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kfar-samir-olive-oil-extraction",
+            "verdict": "accept",
+            "rationale": "Pit evidence and inferred oil extraction are supported; the basket function is a candidate, with object identity and use in pit 6 unresolved.",
+            "claim_reviews": [
+              {
+                "path": "/events/0/statement, evidence, caveats and /research",
+                "decision": "accept",
+                "rationale": "Original excavation describes alternating olives and organic clay above pebbles in pit 6; oil extraction remains an interpretation, and the function and cultivation are uncertain.",
+                "sources": [
+                  "galili-1997-kfar-samir-oil-excavation",
+                  "galili-2021-carmel-olive-production"
+                ],
+                "locators": [
+                  "1997 pp. 1143–1147 Figs. 2 and 7",
+                  "2021 comparisons"
+                ],
+                "extends": "kfar-samir-olive-oil-extraction:documented-evidence"
+              },
+              {
+                "path": "/links/0",
+                "decision": "accept",
+                "rationale": "KS2 is a basket found with olive stones; Rosenberg proposes an aqal-like processing role. Its association with the oil operation remains a candidate question, not established use. Companion_of represents a possible arrangement, and the 1997 analogy cannot identify KS2 as a pit 6 tool.",
+                "sources": [
+                  "rosenberg-2023-carmel-wood-and-basketry",
+                  "galili-1997-kfar-samir-oil-excavation"
+                ],
+                "locators": [
+                  "2023 section 3.2, Fig. 7, Table 1",
+                  "1997 discussion and Fig. 5"
+                ],
+                "relation": {
+                  "type": "companion_of",
+                  "direction": "KS2 basketry to local oil-processing practice as a proposed common arrangement",
+                  "status": "candidate",
+                  "established_history": false,
+                  "independent_corroboration": "Same excavation tradition and shared investigator; 2023 cites 1997 interpretation, not independent proof of use."
+                }
+              }
+            ]
+          },
+          {
+            "id": "olive-and-fig-horticulture-in-the-jordan-valley",
+            "verdict": "accept",
+            "rationale": "A directly dated olive branch complements the previously dated fig twig; route and specific coastal source remain open.",
+            "claim_reviews": [
+              {
+                "path": "/summary and /events/0/statement, date.basis and evidence",
+                "decision": "accept",
+                "rationale": "2022 authors interpret abundant olive charcoal outside assumed wild range and fig twigs as horticulture; 2024 Table 2 supplies Area C olive branch Beta-657404 at 7160–6950 cal BP (68.2%) and repeats earlier fig date. No direct cultivation observation.",
+                "sources": [
+                  "langgut-2022-year-old-evidence",
+                  "langgut-2024-tel-tsaf-olive-dating"
+                ],
+                "locators": [
+                  "2022 abstract and discussion",
+                  "2024 section 3.1 and Table 2"
+                ],
+                "extends": "olive-and-fig-horticulture-in-the-jordan-valley:archaeological-evidence-5050bce"
+              },
+              {
+                "path": "/research/unresolved",
+                "decision": "accept",
+                "rationale": "The proposed regional source is a hypothesis; no cited evidence identifies an orchard, route or direct transfer to Tel Tsaf.",
+                "sources": [
+                  "langgut-2024-tel-tsaf-olive-dating"
+                ],
+                "locators": [
+                  "section 3.1 and Fig. 3"
+                ]
+              }
+            ]
+          }
+        ],
+        "additional_records": [
+          {
+            "id": "gesher-inferred-firewood-gathering",
+            "verdict": "accept",
+            "claim_reviews": [
+              {
+                "path": "/identity, description, kind, domain, grain, places",
+                "decision": "accept",
+                "rationale": "Allué attributes local wood gathering for fire to inferred human behavior based on charcoal and wood from one horizon; deadwood/driftwood is a suggested source. Site and lake Hula context are explicit.",
+                "sources": [
+                  "allue-2026-gesher-firewood"
+                ],
+                "locators": [
+                  "sections 2–4, Table 1"
+                ]
+              },
+              {
+                "path": "/events/0, earliest_record, caveats and research",
+                "decision": "accept",
+                "rationale": "Level 1 taxa and ash/olive abundance are documented, while collecting and use are inference; 0.78–0.79 Ma is the existing approximate site-age convention rather than a dated duration or precise interval.",
+                "sources": [
+                  "allue-2026-gesher-firewood",
+                  "alperson-afil-2017-gesher-fire"
+                ],
+                "locators": [
+                  "Allué Table 1, discussion",
+                  "2017 age expressions"
+                ]
+              }
+            ],
+            "duplicate_screen": "The fire record describes repeated combustion, while this node addresses inferred fuel gathering in Level 1. Related interpretations are not asserted as two independent observations."
+          },
+          {
+            "id": "kfar-samir-pair-twined-basketry",
+            "verdict": "accept",
+            "claim_reviews": [
+              {
+                "path": "/identity, description, kind, domain, grain, concept, places",
+                "decision": "accept",
+                "rationale": "Rosenberg identifies three KS2 twig basket fragments, alternate pair-twining, and a clay-filled olive-bearing pit in central Kfar Samir. Function is not established.",
+                "sources": [
+                  "rosenberg-2023-carmel-wood-and-basketry"
+                ],
+                "locators": [
+                  "section 3.2, Fig. 7"
+                ]
+              },
+              {
+                "path": "/events/0, earliest_record, caveats and research",
+                "decision": "accept",
+                "rationale": "Table 1 dates KS2 by the general site chronology and gives two outer sample intervals 7964–7431 and 6531–6299 cal BP; the broad displayed envelope converts these to 6014–4349 BCE. This is not a direct basket date and may include unoccupied intervals.",
+                "sources": [
+                  "rosenberg-2023-carmel-wood-and-basketry"
+                ],
+                "locators": [
+                  "section 3.2 and Table 1"
+                ]
+              }
+            ],
+            "duplicate_screen": "No existing exact Kfar Samir basketry record; distinct craft object from inferred oil extraction. Similar woven basketry elsewhere does not imply transmission."
+          }
+        ],
+        "source_checks": [
+          {
+            "id": "allue-2026-gesher-firewood",
+            "url": "https://www.researchgate.net/publication/405546157_Paleoenvironmental_and_behavioral_insights_into_firewood_selection_by_early_Middle_Pleistocene_hominins",
+            "availability_and_locator": "full original article transcription, Table 1, Figs 2–3 and discussion",
+            "independence": "New charcoal analysis, shared team and fish/flint inventories with earlier Gesher studies."
+          },
+          {
+            "id": "galili-1997-kfar-samir-oil-excavation",
+            "url": "https://www.researchgate.net/publication/248578882_Evidence_for_Earliest_OliveOil_Production_in_Submerged_Settlements_off_the_Carmel_Coast_Israel",
+            "availability_and_locator": "original article transcription pp. 1143–1147 and Figs. 2, 5, 7",
+            "independence": "Original excavation; 2021 and 2023 draw on same site/samples and shared authors."
+          },
+          {
+            "id": "galili-2021-carmel-olive-production",
+            "url": "https://www.academia.edu/130181706/Early_production_of_table_olives_at_a_mid_7th_millennium_BP_submerged_site_off_the_Carmel_coast_Israel_Galili_et_al_2021_SCIENTIFIC_REPORTS",
+            "availability_and_locator": "original text Results, Fig. 8 and discussion",
+            "independence": "Same Hishuley site material as Terral, with shared authors."
+          },
+          {
+            "id": "langgut-2022-year-old-evidence",
+            "url": "https://www.academia.edu/83327401/7000_year_old_evidence_of_fruit_tree_cultivation_in_the_Jordan_Valley_Israel_Langgut_and_Garfinkel_2022_SCIENTIFIC_REPORTS",
+            "availability_and_locator": "original article abstract, methods and discussion",
+            "independence": "Same site and researcher as 2024; fig assay repeated."
+          },
+          {
+            "id": "langgut-2024-tel-tsaf-olive-dating",
+            "url": "https://www.academia.edu/121002056/The_core_area_of_fruit_tree_cultivation_central_Jordan_Valley_Levant_ca_7000_BP_Langgut_2024_PALYNOLOGY",
+            "availability_and_locator": "original article section 3.1 and Table 2",
+            "independence": "New olive sample assay but same researcher and excavation context, not independent confirmation of cultivation."
+          },
+          {
+            "id": "quibell-1900-hierakonpolis-scorpion-macehead",
+            "url": "https://petrieproject.com/book/hierakonpolis-part-i",
+            "availability_and_locator": "original publication pp. 9–10, plate XXVIc note and drawing",
+            "independence": "Primary publication; subsequent readings of same single carved object are not independent archaeological objects."
+          },
+          {
+            "id": "willems-2017-nile-basin-debate",
+            "url": "https://www.inlibra.com/document/download/pdf/uuid/486029aa-9cbf-38b8-83f4-dffa90a07aa9?page=1&toc=5723285",
+            "availability_and_locator": "publisher PDF streamed to text; pp. 259–260, n.12",
+            "independence": "Reports Schenkel view rather than a direct reading of Schenkel 1978; original dissent not independently obtained."
+          },
+          {
+            "id": "rosenberg-2023-carmel-wood-and-basketry",
+            "url": "https://www.mdpi.com/1999-4907/14/12/2373",
+            "availability_and_locator": "publisher full HTML section 3.2, Fig. 7 and Table 1",
+            "independence": "Detailed basket account; shared excavator and analogy with 1997."
+          },
+          {
+            "id": "terral-2021-hishuley-olive-shape",
+            "url": "https://www.mdpi.com/2073-4395/11/11/2187",
+            "availability_and_locator": "publisher full HTML sections 2–5, Fig. 7",
+            "independence": "Independent morphometric analysis but same Hishuley site sample and shared authors."
+          },
+          {
+            "id": "manning-2012-water-irrigation-connection",
+            "url": "http://www.econ.yale.edu/~egcenter/manning-2012.pdf",
+            "availability_and_locator": "original unavailable; existing repository excerpt only; date unchanged",
+            "independence": "Draft interpretation of same macehead; not a new independent source read."
+          }
+        ],
+        "changed_supporting_files_review": "Seven source records and their seven evidence-note files were compared with the originals identified in source_checks; each records short notes and appropriate lineage. The lane report is accepted as a bounded research account; source availability limits below apply.",
+        "duplicate_screen": "Existing six anchor records and actual event arrays checked at base; new Level 1 wood procurement and KS2 object have distinct scopes. No source proves transmission among Tel Tsaf, Hishuley Carmel and Kfar Samir.",
+        "issues": [],
+        "unknowns": [
+          "Manning full draft unavailable; unchanged bounded 3100 BCE date and its meaning require separate correction/research. Schenkel 1978 was not directly read; its dissent is attributed to Willems 2017.",
+          "The independent Ein Zippori source and Barnham comparison in the lane note were not directly accessible in this review, and are contextual rather than support for accepted dataset claims.",
+          "Actual cooking, fuel collection, basket function, curing methods, irrigation interpretation and source-orchard routes remain inferential."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py",
+          "result": "pass",
+          "output": "908 discoveries, 1516 events, 244 links, 1679 sources; No problems found."
+        },
+        "diff_check": {
+          "command": "git diff --check 71326e01a105da21decb1587195a81bd5b596b8c 6e3f6a46c938263284942d53870e9aaf88a90abc",
+          "result": "pass"
+        }
+      }
+    }
+  ],
+  "link_vocabulary_audit": {
+    "source": "data/vocab.json link types",
+    "uses_process": "The Level 1 firewood-gathering to fire-use and fire-use to fish-cooking edges ask whether one local process made the other production possible; both remain candidate and inferential.",
+    "companion_of": "The KS2 basket to oil-extraction edge asks whether they worked together as parts of a local arrangement; candidate only.",
+    "uses_instrument": "Not retained: vocabulary restricts it to instruments making observations possible, not production equipment."
+  },
+  "review_artifact_note": "The previous review file is excluded from final file hashes because this review replaces it and cannot hash itself; its full content and old file hashes are retained in history."
+}

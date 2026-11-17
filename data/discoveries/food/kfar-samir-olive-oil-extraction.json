@@ -28,15 +28,20 @@
         "label": "About 7500–7000 years BP",
         "basis": "The source gives approximately 7500–7000 BP for the site; the olive-oil assemblage itself is reported at approximately 7000 BP. Approximate BCE endpoints use 1950 as the BP reference."
       },
-      "statement": "Crushed olive remains and associated installations are interpreted as evidence of oil extraction.",
+      "statement": "At submerged Kfar Samir, researchers found crushed olive stones and pulp in pits, including alternating layers of olive material and clay above a pebble base in pit 6. The excavators interpret these deposits as remains of oil extraction.",
       "evidence": [
         {
           "source": "galili-2021-carmel-olive-production",
           "locator": "Comparison and summary, olive exploitation",
           "supports": "The authors interpret crushed olives and installations at Kfar Samir (7500–7000 BP) as oil production and whole olives in structures at Hishuley Carmel (around 6600 BP) as preserved table olives. Both are archaeological interpretations; wild or cultivated trees are not settled."
+        },
+        {
+          "source": "galili-1997-kfar-samir-oil-excavation",
+          "locator": "The archaeological findings and Discussion, Figs. 2 and 7",
+          "supports": "Published excavation describes pit 6 and its olive remains, pulp and associated plant fragments."
         }
       ],
-      "caveats": "The use of the installations and the wild or cultivated status of the trees are interpreted; no global priority is asserted.",
+      "caveats": "The deposits support an oil-extraction interpretation. The use of individual installations, the role of particular baskets, and the fruit's wild or cultivated status remain uncertain.",
       "places": [
         "israel"
       ]
@@ -52,18 +57,44 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "places": "reviewed",
       "concept": "reviewed",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     },
-    "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
+    "note": "The prior review checked the comparative account. The excavation source and basket analysis provide details on the deposits and suggest a possible tool."
   },
   "places": [
     {
       "place": "israel"
     }
   ],
-  "concept": "plant-oil-extraction"
+  "concept": "plant-oil-extraction",
+  "links": [
+    {
+      "type": "companion_of",
+      "from": "kfar-samir-pair-twined-basketry",
+      "from_event": "ks2-basket-fragments",
+      "to_event": "documented-evidence",
+      "status": "candidate",
+      "statement": "Might the KS 2 pair-twined basket have formed part of the local equipment for olive-oil extraction?",
+      "scope": "Kfar Samir, central sector. The basket's age derives from the site chronology.",
+      "finding": "KS 2 was deposited with olive stones. Rosenberg and colleagues proposed an oil-processing function based on comparison with later woven pressing containers.",
+      "caveats": "The function remains inferred. Separate plant fragments from pit 6 cannot be assigned to the KS 2 basket. The later study cites the original excavation interpretation.",
+      "evidence": [
+        {
+          "source": "rosenberg-2023-carmel-wood-and-basketry",
+          "locator": "Section 3.2, KS 2, Fig. 7 and Table 1",
+          "supports": "Documents the basket, find context, proposed function and indirect date."
+        },
+        {
+          "source": "galili-1997-kfar-samir-oil-excavation",
+          "locator": "Discussion and conclusions, Fig. 5",
+          "supports": "Uses a later olive-pressing basket as an analogy for ancient basketry found at the site."
+        }
+      ]
+    }
+  ]
 }

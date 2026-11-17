@@ -9,10 +9,44 @@
     "reach": 2,
     "depth": 2,
     "generativity": 2,
-    "note": "A well-evidenced origin of sheep and goat herding whose lineage spread across western Eurasia, with depth held at 2 because it was one of several origin sites."
+    "note": "The settlement preserves an early, long sequence of local sheep and goat management. A line of descent to later herds elsewhere remains unresolved."
   },
   "grain": "capability",
   "events": [
+    {
+      "id": "initial-level-5-management",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -8400
+        },
+        "latest": {
+          "year": -8400
+        },
+        "precision": "century",
+        "status": "approximate",
+        "label": "Approximately 8400 cal BCE",
+        "basis": "Stiner et al. infer initial small-scale caprine management at about 8400 cal BCE within the early sequence."
+      },
+      "statement": "The expanded excavation analysis infers that residents raised small numbers of captured wild caprines in their settlement around 8400 cal BCE.",
+      "places": [
+        "turkey"
+      ],
+      "place_note": "Aşıklı Höyük, eastern Central Anatolia.",
+      "caveats": "The earliest phase is inferred from contexts and faunal remains. Urine salts combine human and animal inputs. Capture and rearing preceded substantial captive breeding.",
+      "evidence": [
+        {
+          "source": "stiner-2022-asikli-herding-sequence",
+          "locator": "Abstract; Results and Discussion, The Domesticatory Process at Aşıklı Höyük",
+          "supports": "Faunal profiles and evidence of confinement support early small-scale management near 8400 cal BCE, followed by increasingly substantial reproduction in captivity."
+        },
+        {
+          "source": "abell-2019-asikli-urine-salts",
+          "locator": "pp. 1–3, 6–7, Figs. 4–5",
+          "supports": "Sediment measurements indicate increasing urine-salt deposition from humans and animals during the occupation, contributing a separate proxy for the scale of confinement."
+        }
+      ]
+    },
     {
       "id": "documented-evidence",
       "type": "archaeological_evidence",
@@ -55,22 +89,40 @@
     }
   ],
   "earliest_record": {
-    "event": "documented-evidence",
-    "rationale": "The source infers management by or before approximately 8200 cal BCE from upper Level 4 evidence. This is a contextual by-date rather than the origin of domestication."
+    "event": "initial-level-5-management",
+    "rationale": "The expanded Level 5 analysis places the first inferred local management at approximately 8400 cal BCE."
   },
-  "caveats": "Management is inferred from multiple indicators, and the date is an approximate by-date, not the origin of domestication. The source dates upper Level 4 broadly to approximately 8400–8100 cal BCE.",
+  "caveats": "The initial Level 5 management estimate and the later Level 4 by-date rely on contextual evidence. The timing of fully domesticated forms is a separate question.",
   "research": {
     "status": "sourced",
     "basis": {
       "domain": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "sourced",
       "places": "reviewed",
       "concept": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats."
+    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats.",
+    "unresolved": [
+      {
+        "about": "Descendant herding and dairying",
+        "note": "The local faunal and sediment sequence does not identify dairying at Aşıklı or transmission of its husbandry to a specific later settlement.",
+        "evidence": [
+          {
+            "source": "stiner-2022-asikli-herding-sequence",
+            "locator": "Abstract; Results and Discussion, The Domesticatory Process at Aşıklı Höyük",
+            "supports": "Faunal profiles and evidence of confinement support early small-scale management near 8400 cal BCE, followed by increasingly substantial reproduction in captivity."
+          },
+          {
+            "source": "abell-2019-asikli-urine-salts",
+            "locator": "pp. 1–3, 6–7, Figs. 4–5",
+            "supports": "Sediment measurements indicate increasing urine-salt deposition from humans and animals during the occupation, contributing a separate proxy for the scale of confinement."
+          }
+        ]
+      }
+    ]
   },
   "places": [
     {

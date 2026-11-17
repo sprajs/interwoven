@@ -1,0 +1,808 @@
+{
+  "schema_version": 1,
+  "lane": "lithics",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "09f14ceaa5016daf97da9a8dbbee876693be845e",
+  "worker_commit": "09f14ceaa5016daf97da9a8dbbee876693be845e",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review_credit reassigned lithics",
+    "independence": "Separate execution from gpt-6.2-sol high proposing researcher."
+  },
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/energy/wonderwerk-early-burning.json",
+      "sha256": "da212cd7a87272f2111feb7f4cb0ed986450c88524c2fb4394f99f0ae9f51e79"
+    },
+    {
+      "path": "data/discoveries/machines/barbed-bone-points.json",
+      "sha256": "42a01059edeeef0ce378598f28fa0670a42a2e842e646ca5e6c693f63c60ba9f"
+    },
+    {
+      "path": "data/discoveries/machines/hafted-stone-tipped-javelins-in-the-middle-stone-age-ethiopian-rift.json",
+      "sha256": "556d979ac730bad0f44c93ebff567a483837ee760fd5318536723b421c4d0332"
+    },
+    {
+      "path": "data/discoveries/materials/birch-bark-tar-for-stone-tool-backing.json",
+      "sha256": "171b0899f7232a3fbb1f1badfda3c5e720c42427eedcc69c348f8ae7b9f512a4"
+    },
+    {
+      "path": "data/discoveries/materials/dhaba-levallois-prepared-core.json",
+      "sha256": "c5cf150ebbf9eb975ff482ee041678316085c9a9daa4206a4c0f95a6d2db50e8"
+    },
+    {
+      "path": "data/discoveries/materials/gona-flaked-stone-cutting.json",
+      "sha256": "0d8a92c5a5b436faf0a75c0feef1c8f8ca9e04f65ddf070f7b5691b37ae5831e"
+    },
+    {
+      "path": "data/discoveries/materials/nyayanga-nonlocal-stone-procurement.json",
+      "sha256": "ac92e012b21b2a26ab531251653458ead68391f3045701cddc6d670e3ab3ec24"
+    },
+    {
+      "path": "data/discoveries/materials/oldowan-flaked-stone-tools-in-east-africa.json",
+      "sha256": "0e75c4b39f7b64ff70163e2c5c716478af09e30fc43e4a943e350585a1961dd7"
+    },
+    {
+      "path": "data/discoveries/materials/pressure-retouch-of-stone-edges.json",
+      "sha256": "340b82e4f559026e911fd41004f2f49c1893a9a7a57f52836e14dc601498b49f"
+    },
+    {
+      "path": "data/sources/d/de-lumley-2018-east-gona-refits.json",
+      "sha256": "3cb4b5534f8618f0295ebd7450f53770c8c2f9085aec73682ebfd3ca211390f0"
+    },
+    {
+      "path": "data/sources/f/finestone-2025-nyayanga-stone-transport.json",
+      "sha256": "73ad91b3c4916c0b32cf2aae2436dae81b626c824168e3fd76c7e6ecf029b883"
+    },
+    {
+      "path": "data/sources/m/marin-monfort-2026-wonderwerk-strata-10-11.json",
+      "sha256": "5c605ca62fef8f2ca09c62ae65e58860df684f176b6c02e963392b9b6c282435"
+    },
+    {
+      "path": "data/sources/m/mazza-2006-campitello-birch-tar.json",
+      "sha256": "a85751554c4b03b09f26ecadbf74563e48b0e1e50ab46c41c03fcac207350a18"
+    },
+    {
+      "path": "data/sources/s/shackley-sahle-2017-gademotta-obsidian.json",
+      "sha256": "4c138bc5b81530f7af71eda46dbb823a8693aa8821cfe14bdaec057a2aee0291"
+    },
+    {
+      "path": "data/sources/v/velliky-2025-blombos-ochre-retouchers.json",
+      "sha256": "9346b128edadb4bfc2207cd5429bca97485aee0824970e2e14beca4d3c42a75c"
+    },
+    {
+      "path": "data/sources/y/yellen-1995-katanda-worked-bone.json",
+      "sha256": "a628abbcd55d1d4a1b80561740e31a48d47265922ae45b16979c216e25435025"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/lithics.json",
+      "sha256": "8899000dcf6ad549feb3f796e8f93e64ed558da61f9aace313361ffab17bf20c"
+    },
+    {
+      "path": "evidence/d/de-lumley-2018-east-gona-refits-notes.txt",
+      "sha256": "16e792e7bc79b6f1e6948688762518edcb910ceef775df9f44ebb0e84c09fdcf"
+    },
+    {
+      "path": "evidence/f/finestone-2025-nyayanga-stone-transport-notes.txt",
+      "sha256": "a4e0afad33d98826dbc8d870b9c7dd33f00bea4c90dd85d2824333d7f677eba4"
+    },
+    {
+      "path": "evidence/m/marin-monfort-2026-wonderwerk-strata-10-11-notes.txt",
+      "sha256": "704983c9baee2d4924fe72fb55867ca2007b1015b99a7d3dca28afa5b0399533"
+    },
+    {
+      "path": "evidence/m/mazza-2006-campitello-birch-tar-notes.txt",
+      "sha256": "cbc727f1dd7f0f899ea98beca19f6154400622d7710bedeb61717580afad3975"
+    },
+    {
+      "path": "evidence/s/shackley-sahle-2017-gademotta-obsidian-notes.txt",
+      "sha256": "08b4d84f629d489e31847085ae06f62743b54609d855cacaf5604bf6945c561b"
+    },
+    {
+      "path": "evidence/v/velliky-2025-blombos-ochre-retouchers-notes.txt",
+      "sha256": "98cae10d9ddfd31643ff312f416f1801144bcbe1b5a59c2f5898861483985a73"
+    },
+    {
+      "path": "evidence/y/yellen-1995-katanda-worked-bone-notes.txt",
+      "sha256": "9f285c4d3c7e591d3e2339a51860a3656b21e57efbb12f5a65a0665c4c3f5698"
+    }
+  ],
+  "records": [
+    {
+      "id": "wonderwerk-early-burning",
+      "verdict": "accept",
+      "rationale": "Distinct Stratum 11 evidence is supported; revised Stratum 10 date encloses competing approximate correlations and labels them explicitly as alternatives, not a measured continuous interval.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/energy/wonderwerk-early-burning.json#/description,impact/note,events/stratum-11-burned-microfauna,earliest_record,caveats,research",
+          "verdict": "accept",
+          "rationale": "Marin-Monfort et al. report thermally altered microfaunal bones associated with Acheulean materials and bracket the layer at 1.79–1.07 Ma; hominin introduction is inferred. Different analytical methods examine overlapping fossils and are not separate samples.",
+          "sources": [
+            "marin-monfort-2026-wonderwerk-strata-10-11: Wonderwerk Cave, Table 1, Results and Conclusions"
+          ]
+        },
+        {
+          "path": "data/discoveries/energy/wonderwerk-early-burning.json#/events/burned-sediments",
+          "verdict": "accept",
+          "rationale": "Berna prefers an approximate 1 Ma correlation; Marin-Monfort reports Jaramillo or early Brunhes alternatives. Revised field and label explicitly show about 1.0 or 0.75 Ma, with plotted bounds enclosing alternatives rather than implying a measured interval. Additional thermal evidence and scope are supported.",
+          "sources": [
+            "berna-2012-wonderwerk-fire: Abstract and Discussion",
+            "marin-monfort-2026-wonderwerk-strata-10-11: Wonderwerk Cave, Table 1 and Conclusions"
+          ]
+        }
+      ],
+      "extends": "wonderwerk-early-burning"
+    },
+    {
+      "id": "barbed-bone-points",
+      "verdict": "accept",
+      "rationale": "Primary abstract and the 2022 review support the bounded addition; no specific mounting or relationship established.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/machines/barbed-bone-points.json#/events/public-availability-48000bce/evidence,research/basis/events",
+          "verdict": "accept",
+          "rationale": "Yellen et al. describe barbed and unbarbed worked bone in a MSA context; their older age is reported separately from later chronology. Sourced basis avoids claiming final review.",
+          "sources": [
+            "yellen-1995-katanda-worked-bone: Abstract",
+            "derrico-2022-technological-functional-analysis: Introduction"
+          ]
+        }
+      ],
+      "deferred_question": "Functional or cultural relationship to toggling harpoons remains unresolved."
+    },
+    {
+      "id": "hafted-stone-tipped-javelins-in-the-middle-stone-age-ethiopian-rift",
+      "verdict": "accept",
+      "rationale": "Retains interpretation as interpretation and separates geochemical sample from particular analyzed points.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/machines/hafted-stone-tipped-javelins-in-the-middle-stone-age-ethiopian-rift.json#/description,events/archaeological-evidence-277050bce/statement,evidence,caveats",
+          "verdict": "accept",
+          "rationale": "Sahle et al. infer projectile use in sites including contexts older than 279 ka; 2017 XRF assigns much of its separate formation-wide sample to local Worja with overlaps and uncertain sources. No individual provenance asserted.",
+          "sources": [
+            "sahle-2013-earliest-stone-tipped: Abstract and Results",
+            "shackley-sahle-2017-gademotta-obsidian: Abstract and Table II"
+          ]
+        }
+      ],
+      "baseline_issue": "Unchanged summary still states hafting as fact; correction 10.1371/journal.pone.0126064 addresses a published equation. No new operational material reviewed."
+    },
+    {
+      "id": "oldowan-flaked-stone-tools-in-east-africa",
+      "verdict": "accept",
+      "rationale": "The new local process relationship is constrained to the Nyayanga assemblage and does not assert transmission between sites.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/oldowan-flaked-stone-tools-in-east-africa.json#/impact/note,events/archaeological-evidence-2579050bce/evidence,scope,research",
+          "verdict": "accept",
+          "rationale": "Finestone describes excavated and surface samples targeted to upper NY-1 and evidence for local production, supplementing Plummer’s site report. Revised impact prose no longer asserts universal descent.",
+          "sources": [
+            "finestone-2025-nyayanga-stone-transport: Results and Discussion",
+            "plummer-2023-expanded-geographic-distribution: pp. 561–564"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/oldowan-flaked-stone-tools-in-east-africa.json#/links/0",
+          "verdict": "accept",
+          "rationale": "Geological and archaeological comparisons support the use of nonlocal stones in local toolmaking at the same site and period. Source direction is procurement process to local tool assemblage; neither regional ancestry nor exclusive reliance is claimed. Finestone’s geological surveys and Plummer’s separate excavation/assemblage report are informative on different aspects but share objects and investigators; they are not wholly independent replications.",
+          "sources": [
+            "finestone-2025-nyayanga-stone-transport: Results, Figures 4–6 and Discussion",
+            "plummer-2023-expanded-geographic-distribution: Figure 2 and pp. 562–564"
+          ]
+        }
+      ],
+      "relation": {
+        "from": "nyayanga-nonlocal-stone-procurement",
+        "to": "oldowan-flaked-stone-tools-in-east-africa",
+        "type": "uses_process",
+        "status": "established",
+        "direction_context": "same Nyayanga upper NY-1 assemblage, not inter-community transmission",
+        "corroboration": "distinct geological and excavation observations with shared samples and some authors; no independent replications claimed",
+        "vocabulary_attestation": {
+          "definition_source": "data/vocab.json link_type.uses_process: The other is the process that made this production possible.",
+          "endpoint_check": "The from record is an instance of the practice of procuring nonlocal stone at Nyayanga; the receiving record is a stone-tool technology with a Nyayanga-specific event. Evidence identifies transported raw material worked into the documented tools, so procurement made production of the nonlocal-material subset possible.",
+          "scope_limit": "The link is event-scoped to this NY-1 assemblage, not a general necessity of Oldowan production; local stone was also used and no transmission is asserted.",
+          "verdict": "valid"
+        }
+      },
+      "duplicate_screen": "Nyayanga and Bokol Dora events differ from EG10/12 in Gona record; the aggregate overlaps at conceptual level but does not contain a Gona event."
+    },
+    {
+      "id": "pressure-retouch-of-stone-edges",
+      "verdict": "accept",
+      "rationale": "Ochre objects supply independently informative artifact-class evidence within the Still Bay phase, not a matched pair.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/pressure-retouch-of-stone-edges.json#/events/practical-deployment-73050bce/caveats,evidence,research",
+          "verdict": "accept",
+          "rationale": "Velliky et al. infer pressure flaking from wear on CB.200 and CFB-CFC.1566; distinct objects from earlier lithic analysis, shared researcher and no direct matching. Phase dates are contextual.",
+          "sources": [
+            "velliky-2025-blombos-ochre-retouchers: Background, Results, Table 1 and Discussion",
+            "mourre-2010-early-use-pressure: Abstract"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhaba-levallois-prepared-core",
+      "verdict": "accept",
+      "rationale": "The later Dhaba 2 and 3 deposits are a separate dated extension to the existing Dhaba 1 event.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/dhaba-levallois-prepared-core.json#/events/dhaba-2-3-later-assemblages,caveats,research/basis/events",
+          "verdict": "accept",
+          "rationale": "Clarkson et al. describe Levallois as dominant in designated younger deposits approximately 55–47 ka, absent above stratum E in the studied sequence; no regional abandonment or continuous occupation inferred.",
+          "sources": [
+            "clarkson-2020-dhaba-levallois: Results, lithic assemblage and Figures 3–5"
+          ]
+        }
+      ],
+      "extends": "dhaba-levallois-prepared-core"
+    },
+    {
+      "id": "lever-assisted-spear-throwing",
+      "verdict": "defer",
+      "rationale": "No changes proposed for this roster record. The separately contextualized Maisières and La Garenne observations are not reapproved; proposed older examples need secure individual context.",
+      "claim_reviews": [],
+      "deferred_question": "Find securely provenienced dated early material; nonoperational historical provenance only."
+    },
+    {
+      "id": "birch-bark-tar-for-stone-tool-backing",
+      "verdict": "accept",
+      "rationale": "Original Campitello report and chemical observations are cited directly; formerly stale statements now accurately describe evidence and contextual dating.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/birch-bark-tar-for-stone-tool-backing.json#/events/practical-deployment-189050bce/date/basis,evidence,caveats",
+          "verdict": "accept",
+          "rationale": "Mazza reports residues on two flakes and Betulaceae biomarkers, with age inferred from fauna and geology; Niekus supplies the later approximate bound, not a direct date. Revised caveat describes accessible original and retains uncertainties.",
+          "sources": [
+            "mazza-2006-campitello-birch-tar: sections 3, 5, 7–8",
+            "marcel-j-l-2019-middle-paleolithic-complex: Table 1"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/birch-bark-tar-for-stone-tool-backing.json#/earliest_record/rationale,community_entry/caveats,caveats,research/basis/events",
+          "verdict": "accept",
+          "rationale": "Revised rationale attributes pre-isotope-stage-6 interpretation to Mazza and approximate 191 ka bound to Niekus. Community and overall caveats retain uncertainty of function, handle and cultural transmission, without outdated access claims.",
+          "sources": [
+            "mazza-2006-campitello-birch-tar: sections 3, 5, 7–8",
+            "marcel-j-l-2019-middle-paleolithic-complex: Table 1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "line-retained-toggling-harpoon-head",
+      "verdict": "defer",
+      "rationale": "No changed record. Vinča specimen-to-phase assignment remains unresolved; no Katanda-to-later transmission can be inferred. Baseline claims are not reapproved.",
+      "claim_reviews": [],
+      "baseline_issue": "Existing summary claims independent origin at three sites whereas event caveats state no independence or intersite connection established.",
+      "deferred_question": "Trace specific Vinča specimen to secure context and dating."
+    },
+    {
+      "id": "gona-flaked-stone-cutting",
+      "verdict": "accept",
+      "rationale": "EG10 refits add observations to the existing event; geologic source is appropriately expressed as likely.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/gona-flaked-stone-cutting.json#/description,impact/note,events/gona-assemblage/evidence,scope,research",
+          "verdict": "accept",
+          "rationale": "De Lumley and colleagues report EG10 refits and a probable local conglomerate source; source inference uses earlier Gona work and same assemblage, not independent dating of every flake. No direction to Nyayanga is established.",
+          "sources": [
+            "de-lumley-2018-east-gona-refits: Introduction, site stratigraphy and refitting sets",
+            "semaw-gona-oldowan-case-study: pp. 43–44, 53"
+          ]
+        }
+      ],
+      "extends": "gona-flaked-stone-cutting"
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "nyayanga-nonlocal-stone-procurement",
+      "verdict": "accept",
+      "rationale": "Distinct documented procurement practice at the Nyayanga locality; not a duplicate of the flaking event.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/nyayanga-nonlocal-stone-procurement.json#/id,name,description,kind,domain,grain,places",
+          "verdict": "accept",
+          "rationale": "Finestone compares geological source surveys and artifact chemistry; its Awach drainage sample is around 13 km away. Exact past pickup sites are unresolved, and description says likely.",
+          "sources": [
+            "finestone-2025-nyayanga-stone-transport: Results, Sources accessed and Stone transport distance"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/nyayanga-nonlocal-stone-procurement.json#/events/nonlocal-cobbles-ny1,date,statement,scope,evidence,earliest_record,caveats,research",
+          "verdict": "accept",
+          "rationale": "The archaeological assemblage is assigned to bed NY-1 dated 3.040–2.581 Ma by Finestone; Plummer gives a different older bound, recorded explicitly. Results include excavated and surface artifacts targeted to upper NY-1, and transport inference from comparisons and reduction indicators; neither exact journey nor direct date of collection is claimed.",
+          "sources": [
+            "finestone-2025-nyayanga-stone-transport: Materials and Methods, Results, Discussion"
+          ]
+        }
+      ],
+      "duplicate_screen": "Procurement practice is a distinct bounded activity from existing NY-1 flaking and tissue-processing event; no separate record for the same procurement identified."
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "marin-monfort-2026-wonderwerk-strata-10-11",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0347480",
+      "locator": "Wonderwerk Cave, Table 1, Results and Conclusions",
+      "availability_and_independence": "Original full text read; same bone samples measured by two methods and some site investigators overlap Berna."
+    },
+    {
+      "id": "finestone-2025-nyayanga-stone-transport",
+      "url": "https://researchonline.ljmu.ac.uk/id/eprint/26985/1/sciadv.adu5838.pdf",
+      "locator": "Results, Figures 4–6; Materials and Methods",
+      "availability_and_independence": "Original full PDF text read; 401 objects including surface sample, geochemical analysis and geological survey; shares objects and team members with Plummer."
+    },
+    {
+      "id": "de-lumley-2018-east-gona-refits",
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/first-technical-sequences-in-human-evolution-from-east-gona-afar-region-ethiopia/BF7CDB1B676D362237867A6588019CBF",
+      "locator": "Introduction, stratigraphy, refitting",
+      "availability_and_independence": "Original publisher text read; physical refits are new observations on existing EG10 collection; geological origin draws prior work."
+    },
+    {
+      "id": "velliky-2025-blombos-ochre-retouchers",
+      "url": "https://wiredspace.wits.ac.za/server/api/core/bitstreams/f9b8d045-5ea3-4dbe-ab9b-6097aa0fadfd/content",
+      "locator": "Background, Results, Table 1",
+      "availability_and_independence": "Original PDF read; ochre and silcrete specimens differ, one author shared with the earlier study."
+    },
+    {
+      "id": "mazza-2006-campitello-birch-tar",
+      "url": "https://www.academia.edu/6091863/A_new_Palaeolithic_discovery_tar_hafted_stone_tools_in_a_European_Mid_Pleistocene_bone_bearing_bed",
+      "locator": "sections 3, 5, 7–8",
+      "availability_and_independence": "Original indexed text read; Niekus review relies on same Campitello objects, not independent replication."
+    },
+    {
+      "id": "shackley-sahle-2017-gademotta-obsidian",
+      "url": "https://www.researchgate.net/publication/305043087_Geochemical_Characterization_of_Four_Quaternary_Obsidian_Sources_and_Provenance_of_Obsidian_Artifacts_from_the_Middle_Stone_Age_Site_of_Gademotta_Main_Ethiopian_Rift",
+      "locator": "Abstract and Table II",
+      "availability_and_independence": "Original author-uploaded text read; separate formation-wide sample, shared author, no point-level pairing."
+    },
+    {
+      "id": "yellen-1995-katanda-worked-bone",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7725100/",
+      "locator": "Abstract",
+      "availability_and_independence": "Primary abstract only, original article not accessed; later review describes contested chronology."
+    },
+    {
+      "id": "clarkson-2020-dhaba-levallois",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7042215/",
+      "locator": "Results, lithic assemblage",
+      "availability_and_independence": "Original text read; same excavation study supplies both early and later Dhaba strata."
+    },
+    {
+      "id": "sahle-2013-earliest-stone-tipped",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0078092",
+      "locator": "Abstract, Results",
+      "availability_and_independence": "Original text and 2015 published equation correction inspected; weapon discussion limited to provenance."
+    },
+    {
+      "id": "berna-2012-wonderwerk-fire",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3356665/",
+      "locator": "Abstract and Discussion",
+      "availability_and_independence": "Original paper read; stratum 10 analysis differs from later microfauna, some investigators shared."
+    }
+  ],
+  "duplicate_screen": "Reviewed existing site events and assigned roster; Nyayanga procurement differs from flaking, Dhaba later strata differ from Dhaba 1, Wonderwerk Stratum 11 differs from Stratum 10. Same-concept Gona records distinct EG10/EG12 events from Nyayanga and Bokol Dora.",
+  "issues": [],
+  "unknowns": [
+    "No direct or established inter-community transmission from Katanda to later harpoons, or among Oldowan sites, is asserted.",
+    "Unchanged toggling-harpoon summary claims independent origins while its events do not establish them; separate baseline issue, not silently approved.",
+    "Unchanged Gademotta summary states archaeological interpretation as fact; flagged separately.",
+    "Yellen full paper and Mourre full original inaccessible; consulted abstracts and existing direct full-text source reports."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 907 discoveries, 1517 events, 243 links, 1679 sources; no problems found",
+    "diff_check": "git diff --check base..repaired proposal passed"
+  },
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "lithics",
+      "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+      "proposal_commit": "57c91c5b6167acbc31745c103acc3d784176276b",
+      "worker_commit": "57c91c5b6167acbc31745c103acc3d784176276b",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "independent review_credit reassigned lithics",
+        "independence": "Separate execution from gpt-6.2-sol high proposing researcher."
+      },
+      "overall_verdict": "changes_requested",
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/energy/wonderwerk-early-burning.json",
+          "sha256": "0011b0bf738898cc6d1d60823f2f758fe97d4454757417d62fa87acc13aec566"
+        },
+        {
+          "path": "data/discoveries/machines/barbed-bone-points.json",
+          "sha256": "42a01059edeeef0ce378598f28fa0670a42a2e842e646ca5e6c693f63c60ba9f"
+        },
+        {
+          "path": "data/discoveries/machines/hafted-stone-tipped-javelins-in-the-middle-stone-age-ethiopian-rift.json",
+          "sha256": "556d979ac730bad0f44c93ebff567a483837ee760fd5318536723b421c4d0332"
+        },
+        {
+          "path": "data/discoveries/materials/birch-bark-tar-for-stone-tool-backing.json",
+          "sha256": "a3af9bf1ad920a1e6df5f96af349dcbd4b9988748e6615ce78772a9abf1b5b1f"
+        },
+        {
+          "path": "data/discoveries/materials/dhaba-levallois-prepared-core.json",
+          "sha256": "c5cf150ebbf9eb975ff482ee041678316085c9a9daa4206a4c0f95a6d2db50e8"
+        },
+        {
+          "path": "data/discoveries/materials/gona-flaked-stone-cutting.json",
+          "sha256": "0d8a92c5a5b436faf0a75c0feef1c8f8ca9e04f65ddf070f7b5691b37ae5831e"
+        },
+        {
+          "path": "data/discoveries/materials/nyayanga-nonlocal-stone-procurement.json",
+          "sha256": "ac92e012b21b2a26ab531251653458ead68391f3045701cddc6d670e3ab3ec24"
+        },
+        {
+          "path": "data/discoveries/materials/oldowan-flaked-stone-tools-in-east-africa.json",
+          "sha256": "0e75c4b39f7b64ff70163e2c5c716478af09e30fc43e4a943e350585a1961dd7"
+        },
+        {
+          "path": "data/discoveries/materials/pressure-retouch-of-stone-edges.json",
+          "sha256": "340b82e4f559026e911fd41004f2f49c1893a9a7a57f52836e14dc601498b49f"
+        },
+        {
+          "path": "data/sources/d/de-lumley-2018-east-gona-refits.json",
+          "sha256": "3cb4b5534f8618f0295ebd7450f53770c8c2f9085aec73682ebfd3ca211390f0"
+        },
+        {
+          "path": "data/sources/f/finestone-2025-nyayanga-stone-transport.json",
+          "sha256": "73ad91b3c4916c0b32cf2aae2436dae81b626c824168e3fd76c7e6ecf029b883"
+        },
+        {
+          "path": "data/sources/m/marin-monfort-2026-wonderwerk-strata-10-11.json",
+          "sha256": "5c605ca62fef8f2ca09c62ae65e58860df684f176b6c02e963392b9b6c282435"
+        },
+        {
+          "path": "data/sources/m/mazza-2006-campitello-birch-tar.json",
+          "sha256": "a85751554c4b03b09f26ecadbf74563e48b0e1e50ab46c41c03fcac207350a18"
+        },
+        {
+          "path": "data/sources/s/shackley-sahle-2017-gademotta-obsidian.json",
+          "sha256": "4c138bc5b81530f7af71eda46dbb823a8693aa8821cfe14bdaec057a2aee0291"
+        },
+        {
+          "path": "data/sources/v/velliky-2025-blombos-ochre-retouchers.json",
+          "sha256": "9346b128edadb4bfc2207cd5429bca97485aee0824970e2e14beca4d3c42a75c"
+        },
+        {
+          "path": "data/sources/y/yellen-1995-katanda-worked-bone.json",
+          "sha256": "a628abbcd55d1d4a1b80561740e31a48d47265922ae45b16979c216e25435025"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-prehistory/lanes/lithics.json",
+          "sha256": "8899000dcf6ad549feb3f796e8f93e64ed558da61f9aace313361ffab17bf20c"
+        },
+        {
+          "path": "evidence/d/de-lumley-2018-east-gona-refits-notes.txt",
+          "sha256": "16e792e7bc79b6f1e6948688762518edcb910ceef775df9f44ebb0e84c09fdcf"
+        },
+        {
+          "path": "evidence/f/finestone-2025-nyayanga-stone-transport-notes.txt",
+          "sha256": "a4e0afad33d98826dbc8d870b9c7dd33f00bea4c90dd85d2824333d7f677eba4"
+        },
+        {
+          "path": "evidence/m/marin-monfort-2026-wonderwerk-strata-10-11-notes.txt",
+          "sha256": "704983c9baee2d4924fe72fb55867ca2007b1015b99a7d3dca28afa5b0399533"
+        },
+        {
+          "path": "evidence/m/mazza-2006-campitello-birch-tar-notes.txt",
+          "sha256": "cbc727f1dd7f0f899ea98beca19f6154400622d7710bedeb61717580afad3975"
+        },
+        {
+          "path": "evidence/s/shackley-sahle-2017-gademotta-obsidian-notes.txt",
+          "sha256": "08b4d84f629d489e31847085ae06f62743b54609d855cacaf5604bf6945c561b"
+        },
+        {
+          "path": "evidence/v/velliky-2025-blombos-ochre-retouchers-notes.txt",
+          "sha256": "98cae10d9ddfd31643ff312f416f1801144bcbe1b5a59c2f5898861483985a73"
+        },
+        {
+          "path": "evidence/y/yellen-1995-katanda-worked-bone-notes.txt",
+          "sha256": "9f285c4d3c7e591d3e2339a51860a3656b21e57efbb12f5a65a0665c4c3f5698"
+        }
+      ],
+      "records": [
+        {
+          "id": "wonderwerk-early-burning",
+          "verdict": "changes_requested",
+          "rationale": "New Stratum 11 evidence is a distinct, source-supported extension; Stratum 10 date field does not reflect its newly acknowledged competing correlation.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/energy/wonderwerk-early-burning.json#/description,impact/note,events/stratum-11-burned-microfauna,earliest_record,caveats,research",
+              "verdict": "accept",
+              "rationale": "Marin-Monfort et al. report thermally altered microfaunal bones associated with Acheulean materials and bracket the layer at 1.79–1.07 Ma; hominin introduction is inferred. Different analytical methods examine overlapping fossils and are not separate samples.",
+              "sources": [
+                "marin-monfort-2026-wonderwerk-strata-10-11: Wonderwerk Cave, Table 1, Results and Conclusions"
+              ]
+            },
+            {
+              "path": "data/discoveries/energy/wonderwerk-early-burning.json#/events/burned-sediments",
+              "verdict": "changes_requested",
+              "rationale": "The paper reports alternative Jaramillo and early Brunhes correlations; new evidence notes 1.0 or 0.75 Ma but the structured event retains only an approximate 1.0 Ma point. Represent both alternative correlations in the date field and label/basis, explicitly preserving their status as alternatives rather than a precise measured continuous interval. The additional sampled burning and scope are supported.",
+              "sources": [
+                "berna-2012-wonderwerk-fire: Abstract and Discussion",
+                "marin-monfort-2026-wonderwerk-strata-10-11: Wonderwerk Cave, Table 1 and Conclusions"
+              ]
+            }
+          ],
+          "extends": "wonderwerk-early-burning"
+        },
+        {
+          "id": "barbed-bone-points",
+          "verdict": "accept",
+          "rationale": "Primary abstract and the 2022 review support the bounded addition; no specific mounting or relationship established.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/machines/barbed-bone-points.json#/events/public-availability-48000bce/evidence,research/basis/events",
+              "verdict": "accept",
+              "rationale": "Yellen et al. describe barbed and unbarbed worked bone in a MSA context; their older age is reported separately from later chronology. Sourced basis avoids claiming final review.",
+              "sources": [
+                "yellen-1995-katanda-worked-bone: Abstract",
+                "derrico-2022-technological-functional-analysis: Introduction"
+              ]
+            }
+          ],
+          "deferred_question": "Functional or cultural relationship to toggling harpoons remains unresolved."
+        },
+        {
+          "id": "hafted-stone-tipped-javelins-in-the-middle-stone-age-ethiopian-rift",
+          "verdict": "accept",
+          "rationale": "Retains interpretation as interpretation and separates geochemical sample from particular analyzed points.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/machines/hafted-stone-tipped-javelins-in-the-middle-stone-age-ethiopian-rift.json#/description,events/archaeological-evidence-277050bce/statement,evidence,caveats",
+              "verdict": "accept",
+              "rationale": "Sahle et al. infer projectile use in sites including contexts older than 279 ka; 2017 XRF assigns much of its separate formation-wide sample to local Worja with overlaps and uncertain sources. No individual provenance asserted.",
+              "sources": [
+                "sahle-2013-earliest-stone-tipped: Abstract and Results",
+                "shackley-sahle-2017-gademotta-obsidian: Abstract and Table II"
+              ]
+            }
+          ],
+          "baseline_issue": "Unchanged summary still states hafting as fact; correction 10.1371/journal.pone.0126064 addresses a published equation. No new operational material reviewed."
+        },
+        {
+          "id": "oldowan-flaked-stone-tools-in-east-africa",
+          "verdict": "accept",
+          "rationale": "The new local process relationship is constrained to the Nyayanga assemblage and does not assert transmission between sites.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/materials/oldowan-flaked-stone-tools-in-east-africa.json#/impact/note,events/archaeological-evidence-2579050bce/evidence,scope,research",
+              "verdict": "accept",
+              "rationale": "Finestone describes excavated and surface samples targeted to upper NY-1 and evidence for local production, supplementing Plummer’s site report. Revised impact prose no longer asserts universal descent.",
+              "sources": [
+                "finestone-2025-nyayanga-stone-transport: Results and Discussion",
+                "plummer-2023-expanded-geographic-distribution: pp. 561–564"
+              ]
+            },
+            {
+              "path": "data/discoveries/materials/oldowan-flaked-stone-tools-in-east-africa.json#/links/0",
+              "verdict": "accept",
+              "rationale": "Geological and archaeological comparisons support the use of nonlocal stones in local toolmaking at the same site and period. Source direction is procurement process to local tool assemblage; neither regional ancestry nor exclusive reliance is claimed. Finestone’s geological surveys and Plummer’s separate excavation/assemblage report are informative on different aspects but share objects and investigators; they are not wholly independent replications.",
+              "sources": [
+                "finestone-2025-nyayanga-stone-transport: Results, Figures 4–6 and Discussion",
+                "plummer-2023-expanded-geographic-distribution: Figure 2 and pp. 562–564"
+              ]
+            }
+          ],
+          "relation": {
+            "from": "nyayanga-nonlocal-stone-procurement",
+            "to": "oldowan-flaked-stone-tools-in-east-africa",
+            "type": "uses_process",
+            "status": "established",
+            "direction_context": "same Nyayanga upper NY-1 assemblage, not inter-community transmission",
+            "corroboration": "distinct geological and excavation observations with shared samples and some authors; no independent replications claimed"
+          },
+          "duplicate_screen": "Nyayanga and Bokol Dora events differ from EG10/12 in Gona record; the aggregate overlaps at conceptual level but does not contain a Gona event."
+        },
+        {
+          "id": "pressure-retouch-of-stone-edges",
+          "verdict": "accept",
+          "rationale": "Ochre objects supply independently informative artifact-class evidence within the Still Bay phase, not a matched pair.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/materials/pressure-retouch-of-stone-edges.json#/events/practical-deployment-73050bce/caveats,evidence,research",
+              "verdict": "accept",
+              "rationale": "Velliky et al. infer pressure flaking from wear on CB.200 and CFB-CFC.1566; distinct objects from earlier lithic analysis, shared researcher and no direct matching. Phase dates are contextual.",
+              "sources": [
+                "velliky-2025-blombos-ochre-retouchers: Background, Results, Table 1 and Discussion",
+                "mourre-2010-early-use-pressure: Abstract"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dhaba-levallois-prepared-core",
+          "verdict": "accept",
+          "rationale": "The later Dhaba 2 and 3 deposits are a separate dated extension to the existing Dhaba 1 event.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/materials/dhaba-levallois-prepared-core.json#/events/dhaba-2-3-later-assemblages,caveats,research/basis/events",
+              "verdict": "accept",
+              "rationale": "Clarkson et al. describe Levallois as dominant in designated younger deposits approximately 55–47 ka, absent above stratum E in the studied sequence; no regional abandonment or continuous occupation inferred.",
+              "sources": [
+                "clarkson-2020-dhaba-levallois: Results, lithic assemblage and Figures 3–5"
+              ]
+            }
+          ],
+          "extends": "dhaba-levallois-prepared-core"
+        },
+        {
+          "id": "lever-assisted-spear-throwing",
+          "verdict": "defer",
+          "rationale": "No changes proposed for this roster record. The separately contextualized Maisières and La Garenne observations are not reapproved; proposed older examples need secure individual context.",
+          "claim_reviews": [],
+          "deferred_question": "Find securely provenienced dated early material; nonoperational historical provenance only."
+        },
+        {
+          "id": "birch-bark-tar-for-stone-tool-backing",
+          "verdict": "changes_requested",
+          "rationale": "The primary Campitello analysis is now accessible and supports the added evidence, but multiple retained statements incorrectly say it was inaccessible and only the 2019 comparison was inspected.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/materials/birch-bark-tar-for-stone-tool-backing.json#/events/practical-deployment-189050bce/date/basis,evidence,caveats",
+              "verdict": "changes_requested",
+              "rationale": "Mazza original describes residue on two flakes and Betulaceae biomarkers, with dating inferred from fauna and geology; Niekus supplies later bound, not a direct date. Update event caveat that incorrectly says primary was unavailable.",
+              "sources": [
+                "mazza-2006-campitello-birch-tar: sections 3, 5, 7–8",
+                "marcel-j-l-2019-middle-paleolithic-complex: Table 1"
+              ]
+            },
+            {
+              "path": "data/discoveries/materials/birch-bark-tar-for-stone-tool-backing.json#/earliest_record/rationale,community_entry/caveats,caveats,research/basis/events",
+              "verdict": "changes_requested",
+              "rationale": "Correct repeated statements that the original report was inaccessible and used only through 2019, while retaining actual source and dating limitations. New overall caveat and sourced basis are appropriate.",
+              "sources": [
+                "mazza-2006-campitello-birch-tar: sections 3, 5, 7–8",
+                "marcel-j-l-2019-middle-paleolithic-complex: Table 1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "line-retained-toggling-harpoon-head",
+          "verdict": "defer",
+          "rationale": "No changed record. Vinča specimen-to-phase assignment remains unresolved; no Katanda-to-later transmission can be inferred. Baseline claims are not reapproved.",
+          "claim_reviews": [],
+          "baseline_issue": "Existing summary claims independent origin at three sites whereas event caveats state no independence or intersite connection established.",
+          "deferred_question": "Trace specific Vinča specimen to secure context and dating."
+        },
+        {
+          "id": "gona-flaked-stone-cutting",
+          "verdict": "accept",
+          "rationale": "EG10 refits add observations to the existing event; geologic source is appropriately expressed as likely.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/materials/gona-flaked-stone-cutting.json#/description,impact/note,events/gona-assemblage/evidence,scope,research",
+              "verdict": "accept",
+              "rationale": "De Lumley and colleagues report EG10 refits and a probable local conglomerate source; source inference uses earlier Gona work and same assemblage, not independent dating of every flake. No direction to Nyayanga is established.",
+              "sources": [
+                "de-lumley-2018-east-gona-refits: Introduction, site stratigraphy and refitting sets",
+                "semaw-gona-oldowan-case-study: pp. 43–44, 53"
+              ]
+            }
+          ],
+          "extends": "gona-flaked-stone-cutting"
+        }
+      ],
+      "additional_records": [
+        {
+          "id": "nyayanga-nonlocal-stone-procurement",
+          "verdict": "accept",
+          "rationale": "Distinct documented procurement practice at the Nyayanga locality; not a duplicate of the flaking event.",
+          "claim_reviews": [
+            {
+              "path": "data/discoveries/materials/nyayanga-nonlocal-stone-procurement.json#/id,name,description,kind,domain,grain,places",
+              "verdict": "accept",
+              "rationale": "Finestone compares geological source surveys and artifact chemistry; its Awach drainage sample is around 13 km away. Exact past pickup sites are unresolved, and description says likely.",
+              "sources": [
+                "finestone-2025-nyayanga-stone-transport: Results, Sources accessed and Stone transport distance"
+              ]
+            },
+            {
+              "path": "data/discoveries/materials/nyayanga-nonlocal-stone-procurement.json#/events/nonlocal-cobbles-ny1,date,statement,scope,evidence,earliest_record,caveats,research",
+              "verdict": "accept",
+              "rationale": "The archaeological assemblage is assigned to bed NY-1 dated 3.040–2.581 Ma by Finestone; Plummer gives a different older bound, recorded explicitly. Results include excavated and surface artifacts targeted to upper NY-1, and transport inference from comparisons and reduction indicators; neither exact journey nor direct date of collection is claimed.",
+              "sources": [
+                "finestone-2025-nyayanga-stone-transport: Materials and Methods, Results, Discussion"
+              ]
+            }
+          ],
+          "duplicate_screen": "Procurement practice is a distinct bounded activity from existing NY-1 flaking and tissue-processing event; no separate record for the same procurement identified."
+        }
+      ],
+      "source_checks": [
+        {
+          "id": "marin-monfort-2026-wonderwerk-strata-10-11",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0347480",
+          "locator": "Wonderwerk Cave, Table 1, Results and Conclusions",
+          "availability_and_independence": "Original full text read; same bone samples measured by two methods and some site investigators overlap Berna."
+        },
+        {
+          "id": "finestone-2025-nyayanga-stone-transport",
+          "url": "https://researchonline.ljmu.ac.uk/id/eprint/26985/1/sciadv.adu5838.pdf",
+          "locator": "Results, Figures 4–6; Materials and Methods",
+          "availability_and_independence": "Original full PDF text read; 401 objects including surface sample, geochemical analysis and geological survey; shares objects and team members with Plummer."
+        },
+        {
+          "id": "de-lumley-2018-east-gona-refits",
+          "url": "https://www.cambridge.org/core/journals/antiquity/article/first-technical-sequences-in-human-evolution-from-east-gona-afar-region-ethiopia/BF7CDB1B676D362237867A6588019CBF",
+          "locator": "Introduction, stratigraphy, refitting",
+          "availability_and_independence": "Original publisher text read; physical refits are new observations on existing EG10 collection; geological origin draws prior work."
+        },
+        {
+          "id": "velliky-2025-blombos-ochre-retouchers",
+          "url": "https://wiredspace.wits.ac.za/server/api/core/bitstreams/f9b8d045-5ea3-4dbe-ab9b-6097aa0fadfd/content",
+          "locator": "Background, Results, Table 1",
+          "availability_and_independence": "Original PDF read; ochre and silcrete specimens differ, one author shared with the earlier study."
+        },
+        {
+          "id": "mazza-2006-campitello-birch-tar",
+          "url": "https://www.academia.edu/6091863/A_new_Palaeolithic_discovery_tar_hafted_stone_tools_in_a_European_Mid_Pleistocene_bone_bearing_bed",
+          "locator": "sections 3, 5, 7–8",
+          "availability_and_independence": "Original indexed text read; Niekus review relies on same Campitello objects, not independent replication."
+        },
+        {
+          "id": "shackley-sahle-2017-gademotta-obsidian",
+          "url": "https://www.researchgate.net/publication/305043087_Geochemical_Characterization_of_Four_Quaternary_Obsidian_Sources_and_Provenance_of_Obsidian_Artifacts_from_the_Middle_Stone_Age_Site_of_Gademotta_Main_Ethiopian_Rift",
+          "locator": "Abstract and Table II",
+          "availability_and_independence": "Original author-uploaded text read; separate formation-wide sample, shared author, no point-level pairing."
+        },
+        {
+          "id": "yellen-1995-katanda-worked-bone",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/7725100/",
+          "locator": "Abstract",
+          "availability_and_independence": "Primary abstract only, original article not accessed; later review describes contested chronology."
+        },
+        {
+          "id": "clarkson-2020-dhaba-levallois",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7042215/",
+          "locator": "Results, lithic assemblage",
+          "availability_and_independence": "Original text read; same excavation study supplies both early and later Dhaba strata."
+        },
+        {
+          "id": "sahle-2013-earliest-stone-tipped",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0078092",
+          "locator": "Abstract, Results",
+          "availability_and_independence": "Original text and 2015 published equation correction inspected; weapon discussion limited to provenance."
+        },
+        {
+          "id": "berna-2012-wonderwerk-fire",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3356665/",
+          "locator": "Abstract and Discussion",
+          "availability_and_independence": "Original paper read; stratum 10 analysis differs from later microfauna, some investigators shared."
+        }
+      ],
+      "duplicate_screen": "Reviewed existing site events and assigned roster; Nyayanga procurement differs from flaking, Dhaba later strata differ from Dhaba 1, Wonderwerk Stratum 11 differs from Stratum 10. Same-concept Gona records distinct EG10/EG12 events from Nyayanga and Bokol Dora.",
+      "issues": [
+        "Represent both acknowledged Stratum 10 age correlations (~1.0 and ~0.75 Ma) in structured date and label, preserving them as alternatives, instead of a single 1.0 Ma coordinate.",
+        "Correct all stale Campitello statements that the original was inaccessible or cited only via the 2019 comparison, in event caveats, earliest_record rationale and community_entry caveats."
+      ],
+      "unknowns": [
+        "No direct or established inter-community transmission from Katanda to later harpoons, or among Oldowan sites, is asserted.",
+        "Unchanged toggling-harpoon summary claims independent origins while its events do not establish them; separate baseline issue, not silently approved.",
+        "Unchanged Gademotta summary states archaeological interpretation as fact; flagged separately.",
+        "Yellen full paper and Mourre full original inaccessible; consulted abstracts and existing direct full-text source reports."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py",
+        "result": "passed: 907 discoveries, 1517 events, 243 links, 1679 sources; no problems found",
+        "diff_check": "git diff --check base..proposal passed"
+      },
+      "history": []
+    }
+  ]
+}

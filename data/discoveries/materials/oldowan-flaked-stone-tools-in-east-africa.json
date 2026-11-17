@@ -10,7 +10,7 @@
     "reach": 3,
     "depth": 3,
     "generativity": 3,
-    "note": "Scored on the general view, not on the cited papers, that the East African Oldowan is the root from which later stone technology everywhere descends: every later human population lived by cutting tools, which changed how hominins fed themselves, and woodworking, butchery and all later toolmaking rest on it."
+    "note": "The site evidence documents production of sharp-edged stone tools and tool-assisted processing of plant and animal tissues. Later stone tool traditions span many contexts, with transmission among the early sites still unresolved."
   },
   "grain": "capability",
   "advance": [
@@ -55,8 +55,14 @@
           "source": "plummer-2023-expanded-geographic-distribution",
           "supports": "The 3.032-2.581 Ma Oldowan sites from Nyayanga evidence hippo butchery, plant processing, and the first Paranthropus from SW Kenya.",
           "locator": "One-sentence summary, title page"
+        },
+        {
+          "source": "finestone-2025-nyayanga-stone-transport",
+          "locator": "Results, Stone transport behavior and Figure 6; Discussion",
+          "supports": "Multiple artifact classes indicate on-site tool manufacture, including the reduction of nonlocal stone."
         }
-      ]
+      ],
+      "scope": "Nyayanga, Homa Peninsula, upper part of bed NY-1."
     },
     {
       "id": "archaeological-evidence-2578050bce",
@@ -103,7 +109,8 @@
       "origin": "sourced",
       "concept": "recalled",
       "places": "sourced",
-      "known_from": "sourced"
+      "known_from": "sourced",
+      "links": "sourced"
     },
     "unresolved": [
       {
@@ -124,13 +131,42 @@
       },
       {
         "about": "open question",
-        "note": "The dataset already holds 'Gona core-and-flake stone technology' (gona-flaked-stone-cutting, concept stone-core-and-flake-knapping, 2.6-2.5 million years ago); the two concepts mean the same thing and should be joined."
+        "note": "The Ledi-Geraru coordinates are an approximate point for the research area, entered from memory; the Nyayanga coordinates are given in the paper (0 deg 23.909' S, 34 deg 27.115' E)."
       },
       {
-        "about": "open question",
-        "note": "The Ledi-Geraru coordinates are an approximate point for the research area, entered from memory; the Nyayanga coordinates are given in the paper (0 deg 23.909' S, 34 deg 27.115' E)."
+        "about": "Regional transmission",
+        "note": "East Gona, Ledi-Geraru and Nyayanga record Oldowan assemblages with overlapping age ranges. They do not identify a route, population movement or direction of influence among the communities."
       }
     ],
     "note": "Braun et al. 2019 say systematic production of sharp-edged stone tools is unknown before the Oldowan, but the same paper notes more primitive, percussive stone tools reported from Lomekwi, Kenya, at 3.3 million years ago; the sources opened do not settle whether the Oldowan was the first flaking or a separate start."
-  }
+  },
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "nyayanga-nonlocal-stone-procurement",
+      "from_event": "nonlocal-cobbles-ny1",
+      "to_event": "archaeological-evidence-2579050bce",
+      "status": "established",
+      "statement": "Toolmakers at Nyayanga used stone brought from outside the Homa Peninsula. The assemblage contains early-stage flakes and cores made from nonlocal stone, which Finestone and colleagues interpret as evidence that toolmakers worked imported cobbles at the site.",
+      "scope": "The documented Nyayanga tool assemblage in bed NY-1.",
+      "caveats": "The ancient pickup sites and exact distances are inferred. Local rock also occurs in the assemblage.",
+      "evidence": [
+        {
+          "source": "finestone-2025-nyayanga-stone-transport",
+          "locator": "Results, Sources accessed by hominins and Stone transport distance, Figures 4–5",
+          "supports": "Artifact chemistry and comparisons with geological samples support a nonlocal origin for much of the stone."
+        },
+        {
+          "source": "finestone-2025-nyayanga-stone-transport",
+          "locator": "Results, Stone transport behavior and Figure 6; Discussion",
+          "supports": "Nonlocal cores and flakes occur at early reduction stages, supporting on-site toolmaking using the imported stone."
+        },
+        {
+          "source": "plummer-2023-expanded-geographic-distribution",
+          "locator": "Figure 2 and the lithic technology account, pp. 562–564",
+          "supports": "The original excavation report documents flaked tools, cores and detached pieces in the NY-1 assemblage later tested for geological provenance."
+        }
+      ]
+    }
+  ]
 }

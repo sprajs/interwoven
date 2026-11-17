@@ -1,0 +1,173 @@
+{
+  "lane": "olives",
+  "base": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "records": [
+    {
+      "id": "artificial-basin-irrigation-nile-valley",
+      "outcome": "deferred",
+      "finding": "Refined the existing Scorpion macehead witness with its original publication and the competing interpretation. Natural flood-recession cultivation is a plausible local precursor, but the read evidence does not date a specific precursor practice tied to the carved canal scene. It identifies neither a constructed basin system at c. 3100 BCE nor conveyance from Mesopotamia. Regional canal parallels are out of scope as ancestry.",
+      "sources": [
+        {
+          "url": "https://petrieproject.com/book/hierakonpolis-part-i",
+          "locator": "pp. 9–10, note to Pl. XXVIc, drawing and photo plate",
+          "note": "Original object publication reads the carving as inauguration of an irrigation canal."
+        },
+        {
+          "url": "https://www.ashmolean.org/egypt-and-its-origins-gallery",
+          "locator": "AN1896-1908.E.3632, Mace-head of Scorpion King",
+          "note": "Holding museum reads an irrigation canal. This is another reading of the same carved evidence."
+        },
+        {
+          "url": "http://www.econ.yale.edu/~egcenter/manning-2012.pdf",
+          "locator": "Section 4, Irrigation",
+          "note": "Repository excerpt preserves the draft wording and approximate date. Live original was unavailable."
+        },
+        {
+          "url": "https://www.inlibra.com/document/download/pdf/uuid/486029aa-9cbf-38b8-83f4-dffa90a07aa9?page=1&toc=5723285",
+          "locator": "Section 1, pp. 259–260 and n. 12",
+          "note": "Discusses Schenkel's objection and cites a different witness, Niuserre's Fifth Dynasty scene. Authors differentiate local basins from later large systems."
+        }
+      ],
+      "next": "Find Willems (2012), The Physical and Cultic Landscape of the Northern Nile Delta according to Pyramid Texts Utterance 625, pp. 1101–1107, and identify the exact Niuserre relief or reconstruction. Seek archaeologically dated local flood works or cultivation with site-level stratigraphy.",
+      "connections": []
+    },
+    {
+      "id": "gesher-recurrent-fire-use",
+      "outcome": "candidate",
+      "finding": "Proposed a bounded Level 1 fuel procurement instance and a candidate uses_process relationship on the existing recurrent-fire event. Allué and colleagues interpret available lakeshore deadwood or driftwood as fuel. The newly measured charcoal and the earlier flint are different materials from one excavation horizon. The exact procurement mechanism and a site-wide inference remain open. Earlier Wonderwerk burning and later Barnham ignition indications provide chronologically distant comparisons without local transmission.",
+      "sources": [
+        {
+          "url": "https://www.researchgate.net/publication/405546157_Paleoenvironmental_and_behavioral_insights_into_firewood_selection_by_early_Middle_Pleistocene_hominins",
+          "locator": "Sections 2–4, Table 1 and Figs. 2–3, DOI 10.1016/j.quascirev.2026.109973",
+          "note": "266 charcoal fragments from Layer II-6 Level 1, 188 identified. Charcoal and unburnt wood have common ash and olive but differing distributions."
+        },
+        {
+          "url": "https://doi.org/10.1016/j.quascirev.2008.06.009",
+          "locator": "Table 1 and section 3",
+          "note": "Documents localized burnt flint in the eight horizons. Its Level 1 inventory is reused in the charcoal comparison."
+        },
+        {
+          "url": "https://doi.org/10.1038/s41586-025-09855-6",
+          "locator": "Introduction and Barnham site context",
+          "note": "Independent archaeology concerns fire-making at a different, later site. It supplies a comparison for evidence of ignition, with no claim about Gesher procurement."
+        }
+      ],
+      "next": "Independent analysis of the mapped charcoal, including adjacent horizons and unburnt controls, could distinguish fuel collected by hominins from spatially concentrated natural wood or transported charcoal.",
+      "connections": [
+        {
+          "from": "gesher-inferred-firewood-gathering",
+          "to": "gesher-recurrent-fire-use",
+          "type": "uses_process",
+          "decision": "new-candidate"
+        }
+      ]
+    },
+    {
+      "id": "gesher-fish-cooking-inference",
+      "outcome": "candidate",
+      "finding": "Retained the local fire-to-cooking candidate and added a narrow Level 1 evidence comparison. The separate charcoal data overlap with fish remains, while the earlier fish and burnt-flint inventories are shared. The new paper attributes the overlap to cooking, but provides neither an independent test of intentional heating nor cooking apparatus. No separate evidence identifies the fishing equipment or a later direct descendant.",
+      "sources": [
+        {
+          "url": "https://www.nature.com/articles/s41559-022-01910-z",
+          "locator": "Figs. 4–5 and Supplementary Texts D–E",
+          "note": "Experimental tooth alteration and contextual associations inform the original cooking inference."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/405546157_Paleoenvironmental_and_behavioral_insights_into_firewood_selection_by_early_Middle_Pleistocene_hominins",
+          "locator": "Fig. 2B–C and section 4, p. 6",
+          "note": "New charcoal measurements are physically distinct. Fish and flint data are from earlier studies. The exact charcoal/flint locations differ and the fish association concerns Level 1 only."
+        }
+      ],
+      "next": "Test site-unit-level charcoal, tooth heat signatures and burnt versus unburnt flint under a shared sampling model. An independent cyprinid experiment comparing incidental reheating with intentional cooking would inform interpretation.",
+      "connections": [
+        {
+          "from": "gesher-recurrent-fire-use",
+          "to": "gesher-fish-cooking-inference",
+          "type": "uses_process",
+          "decision": "existing-candidate"
+        }
+      ]
+    },
+    {
+      "id": "hishuley-carmel-preserved-olives",
+      "outcome": "deferred",
+      "finding": "Expanded the existing occurrence with the two structures, experimental feasibility of seawater fermentation and the alternate dry-salt interpretation. Kfar Samir oil residues serve as a different processing comparison. The proposed Nahal Mearot salt basins are about 12 km away and have neither a directly associated date nor a secure salt signature or supply link. The study considers plot-and-berm agriculture as an alternative. The role of local wild trees or cultivation remains open.",
+      "sources": [
+        {
+          "url": "https://www.researchgate.net/publication/348790332_Early_production_of_table_olives_at_a_mid-7th_millennium_BP_submerged_site_off_the_Carmel_coast_Israel",
+          "locator": "Results, Figs. 6 and 8; Discussion, function of the Hishuley Carmel structures",
+          "note": "Excavated deposits, pit fragmentation and experimental feasibility. Natural coastal pools and seawater are possibilities. Comparative structures at Kfar Samir differ."
+        },
+        {
+          "url": "https://www.mdpi.com/2073-4395/11/11/2187",
+          "locator": "Sections 2.1 and 5 and Fig. 7",
+          "note": "New geometric analysis spans shapes similar to wild and modern cultivated fruit. Same excavated site and some shared authors."
+        },
+        {
+          "url": "https://www.mdpi.com/2077-1312/14/15/1422",
+          "locator": "Sections 5.3–5.4 and 6, Fig. 13",
+          "note": "A new nearby assemblage with lead investigator in common. Date is conditional on paleo-shoreline inference and assumed purpose. Initial sediment analyses gave no definitive salt-production indicator."
+        }
+      ],
+      "next": "Target intact basins and adjacent deposits at Nahal Mearot for secure dating, controls for post-submergence salts and evidence for function. A shared distribution context or direct compositional tracer would be needed to test supply to Hishuley Carmel.",
+      "connections": []
+    },
+    {
+      "id": "kfar-samir-olive-oil-extraction",
+      "outcome": "candidate",
+      "finding": "Linked the original assemblage report to the existing oil-extraction event and proposed a distinct basketry node and a candidate companion_of relationship asking whether KS 2 was part of the local oil-processing equipment. The observed alternate pair-twining, olive-bearing pit and site dating are separate evidence from the inferred processing function. Neither pit 6's loose reed or straw nor the basket analogy fixes the processing sequence or demonstrates that this particular basket extracted oil. Ein Zippori vessel residues independently support regional early oil use but do not trace production to Kfar Samir. Later Levantine rock-cut installations do not establish descent.",
+      "sources": [
+        {
+          "url": "https://www.researchgate.net/publication/248578882_Evidence_for_Earliest_OliveOil_Production_in_Submerged_Settlements_off_the_Carmel_Coast_Israel",
+          "locator": "The archaeological findings and Discussion, pp. 1143–1147, Figs. 1–2, 5 and 7",
+          "note": "Original excavation contexts, olive pulp and fragmented stones, possible strainers and analogies. DOI 10.1006/jasc.1997.0193."
+        },
+        {
+          "url": "https://www.mdpi.com/1999-4907/14/12/2373",
+          "locator": "Section 3.2, KS 2, Fig. 7 and Table 1",
+          "note": "Technical documentation of three basket fragments and associated olive stones. Original oil-processing analogy cites Galili et al. 1997. Site chronology only."
+        },
+        {
+          "url": "https://www.tandfonline.com/doi/abs/10.1080/07929978.2014.960733",
+          "locator": "Abstract and methods",
+          "note": "Separate residue study at Ein Zippori. Addresses oil in vessel ceramics, not a Kfar Samir source or basket use."
+        }
+      ],
+      "next": "Establish whether the Fig. 5 object and catalogued KS 2 can be securely matched in the field records. Seek contextual dating of the basket and fibre-level traces or residues that would distinguish oil processing from storage and discard.",
+      "connections": [
+        {
+          "from": "kfar-samir-pair-twined-basketry",
+          "to": "kfar-samir-olive-oil-extraction",
+          "type": "companion_of",
+          "decision": "new-candidate"
+        }
+      ]
+    },
+    {
+      "id": "olive-and-fig-horticulture-in-the-jordan-valley",
+      "outcome": "deferred",
+      "finding": "Added a direct assay of the young Area C olive branch to the existing Tel Tsaf occurrence. It is a new sample-level date supporting the same local horticulture interpretation. The 2024 synthesis's proposed source areas on the Carmel coast or Galilee do not identify a source orchard. The Hishuley sample is younger and Kfar Samir oil waste does not establish cultivation or transfer to Tel Tsaf. Pella provides separate regional evidence of olive exploitation and processing.",
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9076912/",
+          "locator": "Abstract and Discussion",
+          "note": "Original charcoal identification and inferred cultivation outside the olive's wild range. The pruning link is an interpretation of twig age."
+        },
+        {
+          "url": "https://www.academia.edu/121002056/The_core_area_of_fruit_tree_cultivation_central_Jordan_Valley_Levant_ca_7000_BP_Langgut_2024_PALYNOLOGY",
+          "locator": "Section 3.1, Table 2 and Fig. 3",
+          "note": "Same lead author's synthesis adds the direct olive branch date and repeats the 2022 fig twig date. Regional transfer is hypothesized. DOI 10.1080/01916122.2024.2347905."
+        },
+        {
+          "url": "https://research-repository.uwa.edu.au/en/publications/bronze-age-olive-domestication-in-the-north-jordan-valley-new-mor/",
+          "locator": "Abstract",
+          "note": "Independent Pella project reports olive exploitation and possible pressing evidence at another Jordan Valley site. Abstract provides regional comparison without an exchange or transmission route."
+        }
+      ],
+      "next": "Compare contemporaneous coastal and inland assemblages with direct dates and multiple independent indicators of cultivation. Test whether young olive wood and local natural range make imported fuel or transported branches distinguishable from local orchards.",
+      "connections": []
+    }
+  ]
+}

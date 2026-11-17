@@ -1,0 +1,913 @@
+{
+  "schema_version": 1,
+  "lane": "herds",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "76651980d32045782daaca4d6d6b548efd43050b",
+  "worker_commit": "76651980d32045782daaca4d6d6b548efd43050b",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent reviewer",
+    "independence": "Distinct from proposing gpt-6.2-sol high execution"
+  },
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/food/asikli-caprine-management.json",
+      "sha256": "d72f2f3340a8b3ddf63fc0239484e3ae34b6bc55fee0639b1f5ec1355e4bba5d"
+    },
+    {
+      "path": "data/discoveries/food/dairying-at-barc-n-hoyuk-north-western-anatolia.json",
+      "sha256": "fd2b8185ea4a9414946aefc2654b7beb5be55cf896abd8ded56ee7f5f92c6513"
+    },
+    {
+      "path": "data/discoveries/food/dog-domestication-late-pleistocene-eurasia.json",
+      "sha256": "adb5d692fe1733f6eb018cdc4875ea152a51b61289a0b5ad799dbdd1d1fe0dca"
+    },
+    {
+      "path": "data/discoveries/food/kujawia-dairy-straining.json",
+      "sha256": "afdc14f6b46a93ff5c1c542d9f7a902f4d3c0eea059ef06759ed109fa0f45b58"
+    },
+    {
+      "path": "data/discoveries/food/ludwinowo-7-cattle-husbandry.json",
+      "sha256": "9cad574725f0f766fe557120e7fcb0e17ef2ed2d687d222a40f8a57400cd73b5"
+    },
+    {
+      "path": "data/discoveries/food/takarkori-early-dairying.json",
+      "sha256": "93ea424642486db72fd00e216934c59ede2b0591da58d339a674a86674b98f0b"
+    },
+    {
+      "path": "data/discoveries/food/taurine-cattle-domestication-in-the-upper-euphrates-valley.json",
+      "sha256": "48de1f5875f2261dadc3c5cdd9d68e9277d189ab060f4d4dc7c5369162bdd3eb"
+    },
+    {
+      "path": "data/discoveries/food/turkana-early-pastoralism.json",
+      "sha256": "8b3128b9f0e0e62ee905f4e95f823c68ab0083d0d8e0a2129d7f71ff049a05c3"
+    },
+    {
+      "path": "data/discoveries/food/zebu-cattle-domestication-in-the-indus-valley.json",
+      "sha256": "97d73d1da084857c278d94fbbd70a04516e985dd10cf2b7d5889c9f81ac1db43"
+    },
+    {
+      "path": "data/sources/a/abell-2019-asikli-urine-salts.json",
+      "sha256": "cbb5f0c93399b3908d74699059f7a1defbf897dbb1a51e07c00354e9f2de7081"
+    },
+    {
+      "path": "data/sources/d/di-lernia-2021-takarkori-herding.json",
+      "sha256": "8b1e8ac2dbc6cb0ccd86f0476ba4e96a3bf4a267e34aba21558469e38336ab95"
+    },
+    {
+      "path": "data/sources/d/dunne-2012-takarkori-milk-lipids.json",
+      "sha256": "fa442fb8ef48e8e99c98738198a2a167e953f2076bc6b8e19f3eb3417f372004"
+    },
+    {
+      "path": "data/sources/g/grillo-2020-turkana-dairy-lipids.json",
+      "sha256": "add4d930da7ad6ad36b1a18963d2a135daf73e95231156f2b26b50559529760b"
+    },
+    {
+      "path": "data/sources/h/helmer-2005-euphrates-cattle-dimorphism.json",
+      "sha256": "17db80a28bece0824f6a879119ca8265565350c8daf353616a540d3e7c4107fd"
+    },
+    {
+      "path": "data/sources/m/marsh-2026-palaeolithic-dogs.json",
+      "sha256": "67327b7d045778098e5e0a3e698b774b34b3a985ddcea8240e69a6050cb0cbfb"
+    },
+    {
+      "path": "data/sources/m/meadow-1991-mehrgarh-cattle-bones.json",
+      "sha256": "ca8fccf9b03b7b63d4ca931d491f758ffbc164829ac3a4249738c467d44fc645"
+    },
+    {
+      "path": "data/sources/m/mutin-2025-mehrgarh-period-i-radiocarbon.json",
+      "sha256": "ed6cfc21b5c9fd0270ebce4cac352d8165ac9465e6979357075f3aded5b5ad6b"
+    },
+    {
+      "path": "data/sources/o/osypinska-2019-ludwinowo-fauna.json",
+      "sha256": "56d4fef4659ea0cefa9b7d4b2d6695f31a811e85d337488cb718e757c4804305"
+    },
+    {
+      "path": "data/sources/r/roffet-salque-2019-ludwinowo-vessels.json",
+      "sha256": "33ae210cd2958959c763efdc3c10a379c7320c8008988621e8c89bcb2bcf6f9a"
+    },
+    {
+      "path": "data/sources/s/smyth-2023-ludwinowo-husbandry.json",
+      "sha256": "18edcf1b5aaa543e3ba42682fe48a286c9094f7056f5644a8bb8a79a072f6fb2"
+    },
+    {
+      "path": "data/sources/s/stiner-2022-asikli-herding-sequence.json",
+      "sha256": "15120f88972ad64e58e68d51eb08ddfd2b3637fa8090baeab40400009b5685e3"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/herds.json",
+      "sha256": "8d55cb56f778e865102a65eef7b046ef8451975d45410be1157f4c4168edb95b"
+    },
+    {
+      "path": "evidence/a/abell-2019-asikli-urine-salts.pdf.cache.json",
+      "sha256": "1b4f20a856ba90fd9b5bf2b5d663bb7b70588d52773d7e58f0ab198737129bf2"
+    },
+    {
+      "path": "evidence/m/marsh-2026-palaeolithic-dogs.pdf.cache.json",
+      "sha256": "922d3da1a8f44bf791827029997ef47d6cd22257350d3cea1c13e0a66ba6d72a"
+    },
+    {
+      "path": "evidence/m/mutin-2025-mehrgarh-period-i-radiocarbon-prehistory-notes.txt",
+      "sha256": "9b820083c3c32d73b8829753b8340f87f2778101e6246f16794abe915827f87c"
+    },
+    {
+      "path": "evidence/o/osypinska-2019-ludwinowo-fauna.pdf.cache.json",
+      "sha256": "9f061c9ac492ecce3168bd2ac74e984050eb4f1d5b075e64229a5385fd05fd5a"
+    },
+    {
+      "path": "evidence/r/roffet-salque-2019-ludwinowo-vessels.pdf.cache.json",
+      "sha256": "18e56bd58704fa77df00b5110173cb5804bd44e1c00722246ac172009eee006e"
+    },
+    {
+      "path": "evidence/s/smyth-2023-ludwinowo-husbandry.pdf.cache.json",
+      "sha256": "d03658719b0f0d55383f15ceaacc4793eefc20cabec4c0ceba7af4323f656d27"
+    }
+  ],
+  "records": [
+    {
+      "id": "takarkori-early-dairying",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "events.documented-evidence.evidence/caveats",
+          "decision": "accept",
+          "rationale": "Dunne 2012 abstract and Figs. 1–3 and Dunne 2018 §1.7 support Middle Pastoral ruminant milk residues; 2018 repeats earlier samples, not independent confirmation. Species and preparation not identified."
+        },
+        {
+          "path": "research.unresolved",
+          "decision": "accept",
+          "rationale": "Di Lernia 2021 abstract and caprine map site 30 support earlier herding; chronology alone does not identify milk species or transmission."
+        }
+      ]
+    },
+    {
+      "id": "turkana-early-pastoralism",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "events.dongodien-dairy-residue",
+          "decision": "accept",
+          "rationale": "Grillo 2020 Table 1 and Meat and milk report one of five interpretable samples in dairy range; context 5000–4500 cal BP converts correctly, species and preparation unresolved."
+        },
+        {
+          "path": "research.unresolved",
+          "decision": "accept",
+          "rationale": "Neither Grillo 2020 nor Prendergast 2019 establishes transmission from Takarkori; appropriate deferral."
+        }
+      ]
+    },
+    {
+      "id": "asikli-caprine-management",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "impact.note",
+          "decision": "accept",
+          "rationale": "Stiner 2022 and 2014 establish local management sequence, not direct descent of other herds."
+        },
+        {
+          "path": "events.initial-level-5-management.statement/caveats",
+          "decision": "accept",
+          "rationale": "Stiner 2022 abstract infers small-scale capture and rearing; Abell 2019 pp. 1–3 and 6–7 provides a separate sediment proxy with mixed human and animal inputs."
+        },
+        {
+          "path": "events.initial-level-5-management.date/earliest_record",
+          "decision": "accept",
+          "rationale": "Stiner 2022 abstract dates initial management approximately 8400 cal BCE; century precision and approximate status now avoid an unsupported by-date bound. The revised global caveat distinguishes the later Level 4 by-date."
+        },
+        {
+          "path": "research.unresolved",
+          "decision": "accept",
+          "rationale": "Local management evidence does not identify direct transfer to Barcın or prove dairying at Aşıklı."
+        }
+      ]
+    },
+    {
+      "id": "dairying-at-barc-n-hoyuk-north-western-anatolia",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "description/origin",
+          "decision": "accept",
+          "rationale": "Özbal 2024 Discussion and Conclusion describes local dairy residues, interpreted specialized four-lugged vessels, and prior knowhow as the authors’ inference; source community unknown."
+        },
+        {
+          "path": "events.archaeological-evidence-6400bce.evidence/caveats",
+          "decision": "accept",
+          "rationale": "Özbal 2024 faunal discussion supports mixed use without identifying milk species of individual residues."
+        },
+        {
+          "path": "research.unresolved/note",
+          "decision": "accept",
+          "rationale": "Specific transmission from Aşıklı or to Kuyavia is unestablished."
+        }
+      ]
+    },
+    {
+      "id": "taurine-cattle-domestication-in-the-upper-euphrates-valley",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "events.archaeological-evidence-8000bce.date.basis/evidence/caveats",
+          "decision": "accept",
+          "rationale": "Helmer 2005 pp. 88–92 and Table 3 assign Dja’de 8800–8300 and infer domestication; skeletal indicators differ. Arbuckle 2021 Traditional Narrative and Table 1 uses 8500–8000 comparison bin, reanalysing same bones."
+        },
+        {
+          "path": "research.unresolved",
+          "decision": "accept",
+          "rationale": "Direct dating and ancestry are needed to link Dja’de cattle to founder populations."
+        }
+      ]
+    },
+    {
+      "id": "zebu-cattle-domestication-in-the-indus-valley",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "summary/description",
+          "decision": "accept",
+          "rationale": "Meadow 1991 pp. 90–94 Figs. 7.1–7.2 compares cattle bone sizes; Chen 2023 introduction cites older date; Mutin 2025 human enamel cemetery model challenges site chronology, without directly dating cattle."
+        },
+        {
+          "path": "events.archaeological-evidence-6050bce",
+          "decision": "accept",
+          "rationale": "Attributed older estimate is explicitly disputed and dated_assertion identifies its reporting source; the human cemetery is not a cattle measurement."
+        },
+        {
+          "path": "earliest_record/research.unresolved/caveats",
+          "decision": "accept",
+          "rationale": "Null anchor and request for direct dating acknowledge uncertainty; later dispersal is unchanged baseline."
+        }
+      ]
+    },
+    {
+      "id": "dog-domestication-late-pleistocene-eurasia",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "summary/description/origin",
+          "decision": "accept",
+          "rationale": "Janssens 2018 reports Bonn burial and interprets illness and care; earlier dogs and initial domestication place remain unresolved, so first_known was appropriately removed."
+        },
+        {
+          "path": "earliest_record/research.note/caveats",
+          "decision": "accept",
+          "rationale": "Bonn events remain scoped locally; Marsh 2026 pp. 996–997 supports comparative Pınarbaşı and Gough date ranges."
+        },
+        {
+          "path": "research.unresolved.Origin and direction of spread",
+          "decision": "accept",
+          "rationale": "Marsh 2026 pp. 996–997 and Fig. 1d place Bonn, Pınarbaşı and Gough specimens in mitochondrial clade C5; the revised text accurately reports this while leaving direct transfer between human communities unresolved."
+        }
+      ]
+    },
+    {
+      "id": "kujawia-dairy-straining",
+      "verdict": "accept",
+      "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+      "claim_reviews": [
+        {
+          "path": "events.ludwinowo-phases-iib-iii-sieves",
+          "decision": "accept",
+          "rationale": "Roffet-Salque 2019 §9.3.3.3 and §9.3.4 and Fig. 9.6 report dairy-bearing sieves in both phases. Smyth 2023 §2.2 supplies 68% context ranges, not direct dates of sherds."
+        },
+        {
+          "path": "links[0]",
+          "decision": "accept",
+          "rationale": "Established uses_process from Ludwinowo cattle husbandry to site dairy straining is supported as a local, probabilistic milk-source inference: Osypińska 2019 cattle remains, Roffet-Salque 2019 sieve lipids, Smyth 2023 §§3.3, 3.5, 4 cattle teeth. These are complementary material streams; Smyth repeats prior sieve measurements. The link direction and local phase context are appropriate; individual milk species remains uncertain. No transmission asserted."
+        }
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "ludwinowo-7-cattle-husbandry",
+      "verdict": "accept",
+      "rationale": "A distinct local husbandry practice from sieve processing; no duplicate discovered.",
+      "claim_reviews": [
+        {
+          "path": "identity/name/description/kind/domain/grain/concept",
+          "decision": "accept",
+          "rationale": "Osypińska 2019 §7.1.4 and Smyth 2023 §§3.3–3.5 and 4 support predominantly cattle, interpreted mixed meat and milk economy, seasonal calving and phase III older-animal retention."
+        },
+        {
+          "path": "places/known_from/events/earliest_record/research.basis",
+          "decision": "accept",
+          "rationale": "Smyth 2023 §§2.2–2.4 and 3.3–3.5 dates the site and phases and identifies isotopic and mortality evidence. 68% phase bounds and unknown individual sex and use are acknowledged."
+        }
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "abell-2019-asikli-urine-salts",
+      "url": "https://doi.org/10.1126/sciadv.aaw0038",
+      "locators": [
+        "pp. 1–3 and 6–7; Figs. 4 and 5"
+      ],
+      "independence": "Primary soil and sediment chemistry from the site, a different set of measurements than the zooarchaeological counts and ages. Some excavation-team authors overlap.",
+      "representation": "full_source",
+      "sha256": "24e5c6978a1378396a4cee1a6dd1a3897179778f36c9c87ad15795096bc44b38",
+      "hash_verified": true
+    },
+    {
+      "id": "di-lernia-2021-takarkori-herding",
+      "url": "https://link.springer.com/article/10.1007/s10963-021-09162-8",
+      "locators": [
+        "Abstract and caption of early cattle and caprine distribution maps, panel b"
+      ],
+      "independence": "Primary report on direct bones and regional synthesis. Publication preview allowed access to the abstract and figure captions."
+    },
+    {
+      "id": "dunne-2012-takarkori-milk-lipids",
+      "url": "https://www.nature.com/articles/nature11186",
+      "locators": [
+        "Abstract; Figs. 1–3"
+      ],
+      "independence": "Original pottery lipid analyses. The 2018 Dunne et al. synthesis incorporates the same Takarkori material."
+    },
+    {
+      "id": "grillo-2020-turkana-dairy-lipids",
+      "url": "https://research-information.bris.ac.uk/ws/portalfiles/portal/222877573/Grillo_Dunne_et_al._revised_manuscript_3_methods_update_1_.pdf",
+      "locators": [
+        "Table 1; Lipid residue results, Meat and milk"
+      ],
+      "independence": "Primary lipid analyses. Site ages and broad subsistence descriptions also draw on previously published archaeology."
+    },
+    {
+      "id": "helmer-2005-euphrates-cattle-dimorphism",
+      "url": "https://www.researchgate.net/publication/263331527",
+      "locators": [
+        "pp. 88–91, Fig. 3, Tables 1–3"
+      ],
+      "independence": "Primary measurements of cattle bones, previously cited indirectly through Arbuckle and Kassebaum."
+    },
+    {
+      "id": "marsh-2026-palaeolithic-dogs",
+      "url": "https://www.nature.com/articles/s41586-026-10170-x",
+      "locators": [
+        "pp. 996–997, Dogs were widespread during the Palaeolithic; Fig. 1"
+      ],
+      "independence": "Primary direct specimen dates and nuclear genomes from Pınarbaşı and Gough’s Cave, distinct from the Bonn-Oberkassel material.",
+      "representation": "full_source",
+      "sha256": "f63e3eb4b5533b6d0514317b0a210a1e3f1ae786dfe4ef95a86571fb98c8aed9",
+      "hash_verified": true
+    },
+    {
+      "id": "meadow-1991-mehrgarh-cattle-bones",
+      "url": "https://www.harappa.com/sites/default/files/pdf/Harappa1986-90_07_Meadow-Fauna_0_1.pdf",
+      "locators": [
+        "pp. 90–94, Figs. 7.1–7.2 and text on Bos"
+      ],
+      "independence": "Chapter compares original faunal measurements from Mehrgarh, Nausharo and Harappa. The quoted chronological framework predates the new Mehrgarh enamel dates."
+    },
+    {
+      "id": "mutin-2025-mehrgarh-period-i-radiocarbon",
+      "url": "https://www.nature.com/articles/s41598-025-92621-5.pdf",
+      "locators": [
+        "pp. 3–4, Fig. 2 and Discussion: The dating and duration of Mehrgarh Period I"
+      ],
+      "independence": "New radiocarbon measurements on human dental enamel from the Period I cemetery and a Bayesian analysis. The tooth samples are independent of the material examined by Moulherat and colleagues.",
+      "representation": "research notes",
+      "sha256": "9b820083c3c32d73b8829753b8340f87f2778101e6246f16794abe915827f87c",
+      "hash_verified": true
+    },
+    {
+      "id": "osypinska-2019-ludwinowo-fauna",
+      "url": "https://www.profil-archeo.pl/wp-content/uploads/2020/02/Ludwinowo_rozdz_7_1_Osypinska_zmniejszony.pdf",
+      "locators": [
+        "Chapter 7.1, §§7.1.1, 7.1.4 and 7.1.5"
+      ],
+      "independence": "Original zooarchaeological report on bones and teeth, distinct specimens and authors from the sherd lipid study.",
+      "representation": "full_source",
+      "sha256": "4fbf8dff947b8d294556fd708d2b78fd820ec7605269a62beca94079c121ae5e",
+      "hash_verified": true
+    },
+    {
+      "id": "roffet-salque-2019-ludwinowo-vessels",
+      "url": "https://www.profil-archeo.pl/wp-content/uploads/2020/02/Ludwinowo_rozdz_9_Roffet_Salque_zmniejszony.pdf",
+      "locators": [
+        "§§9.3.3.3 and 9.3.4; Fig. 9.6"
+      ],
+      "independence": "Site-specific organic-residue analysis. Reuses Salque et al. 2013 measurements for sieves and adds new analyses mostly from other vessel forms; distinct evidence stream from the bones.",
+      "representation": "full_source",
+      "sha256": "6396e0856e21ab9b1f95947a47f12200cab3fecf163b154c3290b664ecc075dd",
+      "hash_verified": true
+    },
+    {
+      "id": "smyth-2023-ludwinowo-husbandry",
+      "url": "https://www.frontiersin.org/journals/environmental-archaeology/articles/10.3389/fearc.2023.1187087/full",
+      "locators": [
+        "Sections 2.1–2.4, 3.1, 3.3–3.5 and 4; Figs. 3 and 6–9"
+      ],
+      "independence": "Integrated analysis combines cattle mortality profiles and tooth isotopes with ceramics. The tooth isotopes build on Kendall et al. 2019, and the sherd results include Salque et al. 2013 and the expanded 2019 assemblage.",
+      "representation": "full_source",
+      "sha256": "4ed6ad515bdd3f548284776235d4d2572fdafebffc0d706d73a1b9247da85a8d",
+      "hash_verified": true
+    },
+    {
+      "id": "stiner-2022-asikli-herding-sequence",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8795544/",
+      "locators": [
+        "Abstract; Results; Discussion, The Domesticatory Process at Aşıklı Höyük"
+      ],
+      "independence": "Expanded faunal study of the Aşıklı sequence with excavator overlap with the 2014 study. Includes Level 5 and reassesses caprine management through time."
+    }
+  ],
+  "access_limits": [
+    "Dunne 2012 original abstract and figure descriptions available; full subscription text inaccessible. Dunne 2018 repeats the same samples.",
+    "Di Lernia 2021 abstract and caprine map accessible; full text unavailable.",
+    "Helmer 2005 original pp. 88–92 read via https://www.academia.edu/8794173/2005_Helmer_et_al_Durham; ResearchGate blocked.",
+    "Meadow 1991 original chapter inspected at alternate https://www.harappa.com/sites/default/files/pdf/Harappa1986-90_07_Meadow-Fauna_0.pdf; no byte-identity claim against the cited scan.",
+    "Stiner 2022 original abstract indexed; PMC full text blocked on reopen.",
+    "Grillo 2020 indexed original article text was accessible but PMC full page temporarily blocked.",
+    "Mutin 2025 original publication PDF inspected online, independent of researcher-authored notes."
+  ],
+  "duplicate_screen": "Compared baseline event arrays and matched endpoints: Aşıklı initial Level 5 estimate is distinct from prior upper Level 4 event; Dongodien dairy adds a distinct site observation to regional herding; Ludwinowo sieve episode refines site and phases of broad Kuyavia event. New Ludwinowo husbandry is a separate local practice from straining, with no duplicate in discovery search.",
+  "issues": [],
+  "unknowns": [
+    "Milk species for individual sieves and regional transmission pathways remain unresolved.",
+    "The 68% Ludwinowo ranges are phase models, not direct dates for each object.",
+    "Unchanged recalled impact scores and baseline claims are not reapproved."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py and git diff --check BASE PROPOSAL",
+    "result": "pass on final proposal; 907 discoveries, 1518 events, 243 links, 1684 sources; no diff errors."
+  },
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "herds",
+      "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+      "proposal_commit": "3b3c3cf1d35d94f20c1ba19242e3c2714036b154",
+      "worker_commit": "3b3c3cf1d35d94f20c1ba19242e3c2714036b154",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "separate independent reviewer",
+        "independence": "Distinct from proposing gpt-6.2-sol high execution"
+      },
+      "overall_verdict": "changes_requested",
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/food/asikli-caprine-management.json",
+          "sha256": "1f1f2a9b8c966687044e3c7a9d37599d118a89bf8efa0eaf865f67f0e6a6aa72"
+        },
+        {
+          "path": "data/discoveries/food/dairying-at-barc-n-hoyuk-north-western-anatolia.json",
+          "sha256": "fd2b8185ea4a9414946aefc2654b7beb5be55cf896abd8ded56ee7f5f92c6513"
+        },
+        {
+          "path": "data/discoveries/food/dog-domestication-late-pleistocene-eurasia.json",
+          "sha256": "38db4c629a9e7a134775e91f319c59f541a71d03728812ea13ec6f1969bd393a"
+        },
+        {
+          "path": "data/discoveries/food/kujawia-dairy-straining.json",
+          "sha256": "afdc14f6b46a93ff5c1c542d9f7a902f4d3c0eea059ef06759ed109fa0f45b58"
+        },
+        {
+          "path": "data/discoveries/food/ludwinowo-7-cattle-husbandry.json",
+          "sha256": "9cad574725f0f766fe557120e7fcb0e17ef2ed2d687d222a40f8a57400cd73b5"
+        },
+        {
+          "path": "data/discoveries/food/takarkori-early-dairying.json",
+          "sha256": "93ea424642486db72fd00e216934c59ede2b0591da58d339a674a86674b98f0b"
+        },
+        {
+          "path": "data/discoveries/food/taurine-cattle-domestication-in-the-upper-euphrates-valley.json",
+          "sha256": "48de1f5875f2261dadc3c5cdd9d68e9277d189ab060f4d4dc7c5369162bdd3eb"
+        },
+        {
+          "path": "data/discoveries/food/turkana-early-pastoralism.json",
+          "sha256": "8b3128b9f0e0e62ee905f4e95f823c68ab0083d0d8e0a2129d7f71ff049a05c3"
+        },
+        {
+          "path": "data/discoveries/food/zebu-cattle-domestication-in-the-indus-valley.json",
+          "sha256": "97d73d1da084857c278d94fbbd70a04516e985dd10cf2b7d5889c9f81ac1db43"
+        },
+        {
+          "path": "data/sources/a/abell-2019-asikli-urine-salts.json",
+          "sha256": "cbb5f0c93399b3908d74699059f7a1defbf897dbb1a51e07c00354e9f2de7081"
+        },
+        {
+          "path": "data/sources/d/di-lernia-2021-takarkori-herding.json",
+          "sha256": "8b1e8ac2dbc6cb0ccd86f0476ba4e96a3bf4a267e34aba21558469e38336ab95"
+        },
+        {
+          "path": "data/sources/d/dunne-2012-takarkori-milk-lipids.json",
+          "sha256": "fa442fb8ef48e8e99c98738198a2a167e953f2076bc6b8e19f3eb3417f372004"
+        },
+        {
+          "path": "data/sources/g/grillo-2020-turkana-dairy-lipids.json",
+          "sha256": "add4d930da7ad6ad36b1a18963d2a135daf73e95231156f2b26b50559529760b"
+        },
+        {
+          "path": "data/sources/h/helmer-2005-euphrates-cattle-dimorphism.json",
+          "sha256": "17db80a28bece0824f6a879119ca8265565350c8daf353616a540d3e7c4107fd"
+        },
+        {
+          "path": "data/sources/m/marsh-2026-palaeolithic-dogs.json",
+          "sha256": "67327b7d045778098e5e0a3e698b774b34b3a985ddcea8240e69a6050cb0cbfb"
+        },
+        {
+          "path": "data/sources/m/meadow-1991-mehrgarh-cattle-bones.json",
+          "sha256": "ca8fccf9b03b7b63d4ca931d491f758ffbc164829ac3a4249738c467d44fc645"
+        },
+        {
+          "path": "data/sources/m/mutin-2025-mehrgarh-period-i-radiocarbon.json",
+          "sha256": "ed6cfc21b5c9fd0270ebce4cac352d8165ac9465e6979357075f3aded5b5ad6b"
+        },
+        {
+          "path": "data/sources/o/osypinska-2019-ludwinowo-fauna.json",
+          "sha256": "56d4fef4659ea0cefa9b7d4b2d6695f31a811e85d337488cb718e757c4804305"
+        },
+        {
+          "path": "data/sources/r/roffet-salque-2019-ludwinowo-vessels.json",
+          "sha256": "33ae210cd2958959c763efdc3c10a379c7320c8008988621e8c89bcb2bcf6f9a"
+        },
+        {
+          "path": "data/sources/s/smyth-2023-ludwinowo-husbandry.json",
+          "sha256": "18edcf1b5aaa543e3ba42682fe48a286c9094f7056f5644a8bb8a79a072f6fb2"
+        },
+        {
+          "path": "data/sources/s/stiner-2022-asikli-herding-sequence.json",
+          "sha256": "15120f88972ad64e58e68d51eb08ddfd2b3637fa8090baeab40400009b5685e3"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-prehistory/lanes/herds.json",
+          "sha256": "91246c700c356fb730d79511d440312870ae309a7a0c7703472ef7122093a44c"
+        },
+        {
+          "path": "evidence/a/abell-2019-asikli-urine-salts.pdf.cache.json",
+          "sha256": "1b4f20a856ba90fd9b5bf2b5d663bb7b70588d52773d7e58f0ab198737129bf2"
+        },
+        {
+          "path": "evidence/m/marsh-2026-palaeolithic-dogs.pdf.cache.json",
+          "sha256": "922d3da1a8f44bf791827029997ef47d6cd22257350d3cea1c13e0a66ba6d72a"
+        },
+        {
+          "path": "evidence/m/mutin-2025-mehrgarh-period-i-radiocarbon-prehistory-notes.txt",
+          "sha256": "9b820083c3c32d73b8829753b8340f87f2778101e6246f16794abe915827f87c"
+        },
+        {
+          "path": "evidence/o/osypinska-2019-ludwinowo-fauna.pdf.cache.json",
+          "sha256": "9f061c9ac492ecce3168bd2ac74e984050eb4f1d5b075e64229a5385fd05fd5a"
+        },
+        {
+          "path": "evidence/r/roffet-salque-2019-ludwinowo-vessels.pdf.cache.json",
+          "sha256": "18e56bd58704fa77df00b5110173cb5804bd44e1c00722246ac172009eee006e"
+        },
+        {
+          "path": "evidence/s/smyth-2023-ludwinowo-husbandry.pdf.cache.json",
+          "sha256": "d03658719b0f0d55383f15ceaacc4793eefc20cabec4c0ceba7af4323f656d27"
+        }
+      ],
+      "records": [
+        {
+          "id": "takarkori-early-dairying",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "events.documented-evidence.evidence/caveats",
+              "decision": "accept",
+              "rationale": "Dunne 2012 abstract and Figs. 1–3 and Dunne 2018 §1.7 support Middle Pastoral ruminant milk residues; 2018 repeats earlier samples, not independent confirmation. Species and preparation not identified."
+            },
+            {
+              "path": "research.unresolved",
+              "decision": "accept",
+              "rationale": "Di Lernia 2021 abstract and caprine map site 30 support earlier herding; chronology alone does not identify milk species or transmission."
+            }
+          ]
+        },
+        {
+          "id": "turkana-early-pastoralism",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "events.dongodien-dairy-residue",
+              "decision": "accept",
+              "rationale": "Grillo 2020 Table 1 and Meat and milk report one of five interpretable samples in dairy range; context 5000–4500 cal BP converts correctly, species and preparation unresolved."
+            },
+            {
+              "path": "research.unresolved",
+              "decision": "accept",
+              "rationale": "Neither Grillo 2020 nor Prendergast 2019 establishes transmission from Takarkori; appropriate deferral."
+            }
+          ]
+        },
+        {
+          "id": "asikli-caprine-management",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "impact.note",
+              "decision": "accept",
+              "rationale": "Stiner 2022 and 2014 establish local management sequence, not direct descent of other herds."
+            },
+            {
+              "path": "events.initial-level-5-management.statement/caveats",
+              "decision": "accept",
+              "rationale": "Stiner 2022 abstract infers small-scale capture and rearing; Abell 2019 pp. 1–3 and 6–7 provides a separate sediment proxy with mixed human and animal inputs."
+            },
+            {
+              "path": "events.initial-level-5-management.date/earliest_record",
+              "decision": "accept",
+              "rationale": "Stiner 2022 abstract dates initial management approximately 8400 cal BCE; century precision and approximate status now avoid an unsupported by-date bound. The revised global caveat distinguishes the later Level 4 by-date."
+            },
+            {
+              "path": "research.unresolved",
+              "decision": "accept",
+              "rationale": "Local management evidence does not identify direct transfer to Barcın or prove dairying at Aşıklı."
+            }
+          ]
+        },
+        {
+          "id": "dairying-at-barc-n-hoyuk-north-western-anatolia",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "description/origin",
+              "decision": "accept",
+              "rationale": "Özbal 2024 Discussion and Conclusion describes local dairy residues, interpreted specialized four-lugged vessels, and prior knowhow as the authors’ inference; source community unknown."
+            },
+            {
+              "path": "events.archaeological-evidence-6400bce.evidence/caveats",
+              "decision": "accept",
+              "rationale": "Özbal 2024 faunal discussion supports mixed use without identifying milk species of individual residues."
+            },
+            {
+              "path": "research.unresolved/note",
+              "decision": "accept",
+              "rationale": "Specific transmission from Aşıklı or to Kuyavia is unestablished."
+            }
+          ]
+        },
+        {
+          "id": "taurine-cattle-domestication-in-the-upper-euphrates-valley",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "events.archaeological-evidence-8000bce.date.basis/evidence/caveats",
+              "decision": "accept",
+              "rationale": "Helmer 2005 pp. 88–92 and Table 3 assign Dja’de 8800–8300 and infer domestication; skeletal indicators differ. Arbuckle 2021 Traditional Narrative and Table 1 uses 8500–8000 comparison bin, reanalysing same bones."
+            },
+            {
+              "path": "research.unresolved",
+              "decision": "accept",
+              "rationale": "Direct dating and ancestry are needed to link Dja’de cattle to founder populations."
+            }
+          ]
+        },
+        {
+          "id": "zebu-cattle-domestication-in-the-indus-valley",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "summary/description",
+              "decision": "accept",
+              "rationale": "Meadow 1991 pp. 90–94 Figs. 7.1–7.2 compares cattle bone sizes; Chen 2023 introduction cites older date; Mutin 2025 human enamel cemetery model challenges site chronology, without directly dating cattle."
+            },
+            {
+              "path": "events.archaeological-evidence-6050bce",
+              "decision": "accept",
+              "rationale": "Attributed older estimate is explicitly disputed and dated_assertion identifies its reporting source; the human cemetery is not a cattle measurement."
+            },
+            {
+              "path": "earliest_record/research.unresolved/caveats",
+              "decision": "accept",
+              "rationale": "Null anchor and request for direct dating acknowledge uncertainty; later dispersal is unchanged baseline."
+            }
+          ]
+        },
+        {
+          "id": "dog-domestication-late-pleistocene-eurasia",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "summary/description/origin",
+              "decision": "accept",
+              "rationale": "Janssens 2018 reports Bonn burial and interprets illness and care; earlier dogs and initial domestication place remain unresolved, so first_known was appropriately removed."
+            },
+            {
+              "path": "earliest_record/research.note/caveats",
+              "decision": "accept",
+              "rationale": "Bonn events remain scoped locally; Marsh 2026 pp. 996–997 supports comparative Pınarbaşı and Gough date ranges."
+            },
+            {
+              "path": "research.unresolved.Origin and direction of spread",
+              "decision": "accept",
+              "rationale": "Marsh 2026 pp. 996–997 and Fig. 1d place Bonn, Pınarbaşı and Gough specimens in mitochondrial clade C5; the revised text accurately reports this while leaving direct transfer between human communities unresolved."
+            }
+          ]
+        },
+        {
+          "id": "kujawia-dairy-straining",
+          "verdict": "accept",
+          "rationale": "Disposition applies to changed claims only; unchanged baseline facts are not silently reapproved.",
+          "claim_reviews": [
+            {
+              "path": "events.ludwinowo-phases-iib-iii-sieves",
+              "decision": "accept",
+              "rationale": "Roffet-Salque 2019 §9.3.3.3 and §9.3.4 and Fig. 9.6 report dairy-bearing sieves in both phases. Smyth 2023 §2.2 supplies 68% context ranges, not direct dates of sherds."
+            },
+            {
+              "path": "links[0]",
+              "decision": "accept",
+              "rationale": "Established uses_process from Ludwinowo cattle husbandry to site dairy straining is supported as a local, probabilistic milk-source inference: Osypińska 2019 cattle remains, Roffet-Salque 2019 sieve lipids, Smyth 2023 §§3.3, 3.5, 4 cattle teeth. These are complementary material streams; Smyth repeats prior sieve measurements. The link direction and local phase context are appropriate; individual milk species remains uncertain. No transmission asserted."
+            }
+          ]
+        }
+      ],
+      "additional_records": [
+        {
+          "id": "ludwinowo-7-cattle-husbandry",
+          "verdict": "accept",
+          "rationale": "A distinct local husbandry practice from sieve processing; no duplicate discovered.",
+          "claim_reviews": [
+            {
+              "path": "identity/name/description/kind/domain/grain/concept",
+              "decision": "accept",
+              "rationale": "Osypińska 2019 §7.1.4 and Smyth 2023 §§3.3–3.5 and 4 support predominantly cattle, interpreted mixed meat and milk economy, seasonal calving and phase III older-animal retention."
+            },
+            {
+              "path": "places/known_from/events/earliest_record/research.basis",
+              "decision": "accept",
+              "rationale": "Smyth 2023 §§2.2–2.4 and 3.3–3.5 dates the site and phases and identifies isotopic and mortality evidence. 68% phase bounds and unknown individual sex and use are acknowledged."
+            }
+          ]
+        }
+      ],
+      "source_checks": [
+        {
+          "id": "abell-2019-asikli-urine-salts",
+          "url": "https://doi.org/10.1126/sciadv.aaw0038",
+          "locators": [
+            "pp. 1–3 and 6–7; Figs. 4 and 5"
+          ],
+          "independence": "Primary soil and sediment chemistry from the site, a different set of measurements than the zooarchaeological counts and ages. Some excavation-team authors overlap.",
+          "representation": "full_source",
+          "sha256": "24e5c6978a1378396a4cee1a6dd1a3897179778f36c9c87ad15795096bc44b38",
+          "hash_verified": true
+        },
+        {
+          "id": "di-lernia-2021-takarkori-herding",
+          "url": "https://link.springer.com/article/10.1007/s10963-021-09162-8",
+          "locators": [
+            "Abstract and caption of early cattle and caprine distribution maps, panel b"
+          ],
+          "independence": "Primary report on direct bones and regional synthesis. Publication preview allowed access to the abstract and figure captions."
+        },
+        {
+          "id": "dunne-2012-takarkori-milk-lipids",
+          "url": "https://www.nature.com/articles/nature11186",
+          "locators": [
+            "Abstract; Figs. 1–3"
+          ],
+          "independence": "Original pottery lipid analyses. The 2018 Dunne et al. synthesis incorporates the same Takarkori material."
+        },
+        {
+          "id": "grillo-2020-turkana-dairy-lipids",
+          "url": "https://research-information.bris.ac.uk/ws/portalfiles/portal/222877573/Grillo_Dunne_et_al._revised_manuscript_3_methods_update_1_.pdf",
+          "locators": [
+            "Table 1; Lipid residue results, Meat and milk"
+          ],
+          "independence": "Primary lipid analyses. Site ages and broad subsistence descriptions also draw on previously published archaeology."
+        },
+        {
+          "id": "helmer-2005-euphrates-cattle-dimorphism",
+          "url": "https://www.researchgate.net/publication/263331527",
+          "locators": [
+            "pp. 88–91, Fig. 3, Tables 1–3"
+          ],
+          "independence": "Primary measurements of cattle bones, previously cited indirectly through Arbuckle and Kassebaum."
+        },
+        {
+          "id": "marsh-2026-palaeolithic-dogs",
+          "url": "https://www.nature.com/articles/s41586-026-10170-x",
+          "locators": [
+            "pp. 996–997, Dogs were widespread during the Palaeolithic; Fig. 1"
+          ],
+          "independence": "Primary direct specimen dates and nuclear genomes from Pınarbaşı and Gough’s Cave, distinct from the Bonn-Oberkassel material.",
+          "representation": "full_source",
+          "sha256": "f63e3eb4b5533b6d0514317b0a210a1e3f1ae786dfe4ef95a86571fb98c8aed9",
+          "hash_verified": true
+        },
+        {
+          "id": "meadow-1991-mehrgarh-cattle-bones",
+          "url": "https://www.harappa.com/sites/default/files/pdf/Harappa1986-90_07_Meadow-Fauna_0_1.pdf",
+          "locators": [
+            "pp. 90–94, Figs. 7.1–7.2 and text on Bos"
+          ],
+          "independence": "Chapter compares original faunal measurements from Mehrgarh, Nausharo and Harappa. The quoted chronological framework predates the new Mehrgarh enamel dates."
+        },
+        {
+          "id": "mutin-2025-mehrgarh-period-i-radiocarbon",
+          "url": "https://www.nature.com/articles/s41598-025-92621-5.pdf",
+          "locators": [
+            "pp. 3–4, Fig. 2 and Discussion: The dating and duration of Mehrgarh Period I"
+          ],
+          "independence": "New radiocarbon measurements on human dental enamel from the Period I cemetery and a Bayesian analysis. The tooth samples are independent of the material examined by Moulherat and colleagues.",
+          "representation": "research notes",
+          "sha256": "9b820083c3c32d73b8829753b8340f87f2778101e6246f16794abe915827f87c",
+          "hash_verified": true
+        },
+        {
+          "id": "osypinska-2019-ludwinowo-fauna",
+          "url": "https://www.profil-archeo.pl/wp-content/uploads/2020/02/Ludwinowo_rozdz_7_1_Osypinska_zmniejszony.pdf",
+          "locators": [
+            "Chapter 7.1, §§7.1.1, 7.1.4 and 7.1.5"
+          ],
+          "independence": "Original zooarchaeological report on bones and teeth, distinct specimens and authors from the sherd lipid study.",
+          "representation": "full_source",
+          "sha256": "4fbf8dff947b8d294556fd708d2b78fd820ec7605269a62beca94079c121ae5e",
+          "hash_verified": true
+        },
+        {
+          "id": "roffet-salque-2019-ludwinowo-vessels",
+          "url": "https://www.profil-archeo.pl/wp-content/uploads/2020/02/Ludwinowo_rozdz_9_Roffet_Salque_zmniejszony.pdf",
+          "locators": [
+            "§§9.3.3.3 and 9.3.4; Fig. 9.6"
+          ],
+          "independence": "Site-specific organic-residue analysis. Reuses Salque et al. 2013 measurements for sieves and adds new analyses mostly from other vessel forms; distinct evidence stream from the bones.",
+          "representation": "full_source",
+          "sha256": "6396e0856e21ab9b1f95947a47f12200cab3fecf163b154c3290b664ecc075dd",
+          "hash_verified": true
+        },
+        {
+          "id": "smyth-2023-ludwinowo-husbandry",
+          "url": "https://www.frontiersin.org/journals/environmental-archaeology/articles/10.3389/fearc.2023.1187087/full",
+          "locators": [
+            "Sections 2.1–2.4, 3.1, 3.3–3.5 and 4; Figs. 3 and 6–9"
+          ],
+          "independence": "Integrated analysis combines cattle mortality profiles and tooth isotopes with ceramics. The tooth isotopes build on Kendall et al. 2019, and the sherd results include Salque et al. 2013 and the expanded 2019 assemblage.",
+          "representation": "full_source",
+          "sha256": "4ed6ad515bdd3f548284776235d4d2572fdafebffc0d706d73a1b9247da85a8d",
+          "hash_verified": true
+        },
+        {
+          "id": "stiner-2022-asikli-herding-sequence",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8795544/",
+          "locators": [
+            "Abstract; Results; Discussion, The Domesticatory Process at Aşıklı Höyük"
+          ],
+          "independence": "Expanded faunal study of the Aşıklı sequence with excavator overlap with the 2014 study. Includes Level 5 and reassesses caprine management through time."
+        }
+      ],
+      "access_limits": [
+        "Dunne 2012 original abstract and figure descriptions available; full subscription text inaccessible. Dunne 2018 repeats the same samples.",
+        "Di Lernia 2021 abstract and caprine map accessible; full text unavailable.",
+        "Helmer 2005 original pp. 88–92 read via https://www.academia.edu/8794173/2005_Helmer_et_al_Durham; ResearchGate blocked.",
+        "Meadow 1991 original chapter inspected at alternate https://www.harappa.com/sites/default/files/pdf/Harappa1986-90_07_Meadow-Fauna_0.pdf; no byte-identity claim against the cited scan.",
+        "Stiner 2022 original abstract indexed; PMC full text blocked on reopen.",
+        "Grillo 2020 indexed original article text was accessible but PMC full page temporarily blocked.",
+        "Mutin 2025 original publication PDF inspected online, independent of researcher-authored notes."
+      ],
+      "duplicate_screen": "Compared baseline event arrays and matched endpoints: Aşıklı initial Level 5 estimate is distinct from prior upper Level 4 event; Dongodien dairy adds a distinct site observation to regional herding; Ludwinowo sieve episode refines site and phases of broad Kuyavia event. New Ludwinowo husbandry is a separate local practice from straining, with no duplicate in discovery search.",
+      "issues": [
+        "Represent Aşıklı approximately 8400 without unsupported by-date bound.",
+        "Qualify dog connection wording to distinguish shared mitochondrial lineage from direct transmission between human communities."
+      ],
+      "unknowns": [
+        "Milk species for individual sieves and regional transmission pathways remain unresolved.",
+        "The 68% Ludwinowo ranges are phase models, not direct dates for each object.",
+        "Unchanged recalled impact scores and baseline claims are not reapproved."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py and git diff --check BASE PROPOSAL",
+        "result": "pass; 907 discoveries, 1518 events, 243 links, 1684 sources; no diff errors."
+      },
+      "history": []
+    }
+  ],
+  "vocabulary_attestation": {
+    "verdict": "valid",
+    "type": "uses_process",
+    "definition": "The other is the process that made this production possible.",
+    "source": "data/vocab.json, link types and contributions",
+    "from": "ludwinowo-7-cattle-husbandry",
+    "from_kind": "practice",
+    "from_grain": "instance",
+    "to": "kujawia-dairy-straining",
+    "to_kind": "technology",
+    "to_grain": "instance",
+    "rationale": "The upstream endpoint is a local livestock-husbandry practice, not a vessel or mere material object. The downstream endpoint is dairy processing, a production activity. The asserted contribution is the milk generated by local husbandry (supplied_material); cattle as the principal source is an inference from complementary faunal, isotope and residue evidence, and the link expressly retains the possibility of milk from other ruminants. The relation is scoped to the same site and phases, without claiming geographic transmission."
+  }
+}

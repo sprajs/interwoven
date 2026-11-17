@@ -40,6 +40,35 @@
       "places": [
         "poland"
       ]
+    },
+    {
+      "id": "ludwinowo-phases-iib-iii-sieves",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -5230
+        },
+        "latest": {
+          "year": -5025
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Ludwinowo 7 phases IIB and III, c. 5230–5025 cal BCE",
+        "basis": "Outer bounds of the two modelled phase ranges cited by Smyth et al. §2.2 at 68% probability. These are context ages."
+      },
+      "statement": "Ruminant dairy fats occur in perforated ceramic vessels from phases IIB and III at Ludwinowo 7.",
+      "places": [
+        "poland"
+      ],
+      "place_note": "Ludwinowo 7, Kuyavia.",
+      "caveats": "The vessel forms and residues support dairy straining. The species and recipe cannot be identified from sieve fats alone.",
+      "evidence": [
+        {
+          "source": "roffet-salque-2019-ludwinowo-vessels",
+          "locator": "§§9.3.3.3 and 9.3.4, Fig. 9.6",
+          "supports": "Reports ruminant dairy fats in perforated fragments from LBK phases IIB and III at Ludwinowo."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -51,12 +80,13 @@
     "status": "sourced",
     "basis": {
       "domain": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "sourced",
       "places": "reviewed",
       "concept": "sourced",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     },
     "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats."
   },
@@ -65,5 +95,39 @@
       "place": "poland"
     }
   ],
-  "concept": "dairy-curd-straining"
+  "concept": "dairy-curd-straining",
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "ludwinowo-7-cattle-husbandry",
+      "from_event": "ludwinowo-phases-iib-iii-cattle",
+      "to_event": "ludwinowo-phases-iib-iii-sieves",
+      "status": "established",
+      "statement": "At Ludwinowo 7, the community’s livestock supplied milk for its dairy processing, with cattle the most likely main source. Ruminant dairy fats occur in sieves from the same occupation phases as the cattle husbandry evidence.",
+      "scope": "Ludwinowo 7 phases IIB and III in Kuyavia.",
+      "contribution": [
+        "supplied_material"
+      ],
+      "influence": "contributing",
+      "confidence": "medium",
+      "caveats": "Lipid residues identify ruminant dairy. Some milk may have come from sheep or goats, and the relative contributions to individual sieves remain unknown.",
+      "evidence": [
+        {
+          "source": "osypinska-2019-ludwinowo-fauna",
+          "locator": "§§7.1.4–7.1.5",
+          "supports": "Numbers of identified remains and age data show cattle predominance in the domestic herd; the authors infer meat and secondary-product use."
+        },
+        {
+          "source": "roffet-salque-2019-ludwinowo-vessels",
+          "locator": "§§9.3.3.3 and 9.3.4, Fig. 9.6",
+          "supports": "Reports ruminant dairy fats in perforated fragments from LBK phases IIB and III at Ludwinowo."
+        },
+        {
+          "source": "smyth-2023-ludwinowo-husbandry",
+          "locator": "§§3.3, 3.5 and 4",
+          "supports": "The authors identify the local cattle herd as the most likely principal source of milk based on bones, age profiles and compatibility of enamel and pottery lipid isotope values."
+        }
+      ]
+    }
+  ]
 }

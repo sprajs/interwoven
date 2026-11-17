@@ -1,8 +1,8 @@
 {
   "id": "cotton-thread-making-at-neolithic-mehrgarh",
   "name": "Cotton thread making at Neolithic Mehrgarh",
-  "summary": "People at Neolithic Mehrgarh in Balochistan were using cotton thread in the sixth millennium BCE, the oldest cotton known in the Indian subcontinent.",
-  "description": "Several threads preserved by mineralisation inside a copper bead from a Neolithic burial at Mehrgarh were identified as cotton, genus Gossypium, by reflected-light and scanning electron microscopy. The find shows cotton fibre being worked into thread in the sixth millennium BCE; it does not show woven cloth, and the authors could not tell whether the cotton was already domesticated. They take the evidence from Balochistan and the Indus valley to support a South Asian origin for one of the Old World cottons.",
+  "summary": "Mineralised cotton threads survive in a copper bead from a Neolithic burial at Mehrgarh, Balochistan.",
+  "description": "Researchers identified mineralised threads inside a copper bead from grave MR.84.03.158 as cotton using reflected-light and scanning electron microscopy. Copper corrosion preserved the threads. Their structure identifies the genus Gossypium; the cotton species, whether it was domesticated and the spinning implement remain unknown.",
   "kind": "technology",
   "domain": "materials.textiles",
   "tier": 1,
@@ -17,7 +17,7 @@
     "material",
     "craft_practice"
   ],
-  "origin": "first_known",
+  "origin": "unknown",
   "concept": "cotton-textiles",
   "places": [
     {
@@ -34,32 +34,38 @@
       "type": "archaeological_evidence",
       "date": {
         "earliest": {
-          "year": -6000
+          "year": -5250
         },
         "latest": {
-          "year": -5000
+          "year": -4650
         },
-        "precision": "millennium",
-        "status": "bounded",
-        "label": "6th millennium BCE",
-        "basis": "As the cited source gives it."
+        "precision": "range",
+        "status": "approximate",
+        "label": "c. 5250–4650 cal BCE (Mehrgarh Period I context)",
+        "basis": "Moulherat et al. placed grave MR.84.03.158 in Period I and used the then-current first-half sixth-millennium BCE estimate. Mutin et al. dated the Period I sequence to about 5250–4650 cal BCE from human teeth in the cemetery."
       },
-      "statement": "Threads preserved by mineralisation in a copper bead from a Neolithic burial at Mehrgarh, dated to the 6th millennium BCE, were identified as cotton.",
+      "statement": "Researchers identified cotton threads preserved within a copper bead from aceramic Neolithic grave MR.84.03.158 at Mehrgarh.",
       "places": [
         "mehrgarh"
       ],
       "evidence": [
         {
           "source": "moulherat-2002-first-evidence-cotton",
-          "supports": "several threads preserved by mineralization in a copper bead from a Neolithic burial (6th millennium) at Mehrgarh, Pakistan, were subject to rigorous metallurgical analysis. Under this new microscopic procedure, the fibres were identiﬁed as cotton (genus Gossypium ).",
-          "locator": "Second paragraph of the page's summary of Moulherat et al. 2002"
+          "locator": "pp. 1393–1396, Introduction and Description of the Beads, Figs. 2, 4, 7–9; pp. 1398–1400",
+          "supports": "Identifies bead MR.84.03.158.01b and grave MR.84.03.158, assigns the burial to the aceramic Neolithic Period I and reports Gossypium threads."
+        },
+        {
+          "source": "mutin-2025-mehrgarh-period-i-radiocarbon",
+          "locator": "pp. 3–4, Fig. 2 and Discussion: The dating and duration of Mehrgarh Period I",
+          "supports": "The newer cemetery model estimates about 5250–4650 cal BCE for Period I on the basis of enamel measurements on other archaeological material from the cemetery."
         }
-      ]
+      ],
+      "caveats": "The range dates the Period I context. The bead and thread have no reported direct date, and grave 158 has not been securely matched to a dated tooth. No woven cloth survives in the bead."
     }
   ],
   "earliest_record": {
     "event": "archaeological-evidence-5000bce",
-    "rationale": "The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists."
+    "rationale": "The bead is the dated contextual witness to cotton thread at Mehrgarh. The displayed range reflects the Period I chronology."
   },
   "research": {
     "status": "sourced",
@@ -71,7 +77,7 @@
       "grain": "recalled",
       "events": "sourced",
       "advance": "recalled",
-      "origin": "sourced",
+      "origin": "unknown",
       "concept": "recalled",
       "places": "sourced",
       "known_from": "sourced",
@@ -79,26 +85,18 @@
     },
     "unresolved": [
       {
-        "about": "open question",
-        "note": "Check the 2002 Journal of Archaeological Science article itself for the date and wording; this card uses Harappa.com's summary with extracts, and the publisher's page could not be opened."
+        "about": "burial dating",
+        "note": "Match grave MR.84.03.158 to the cemetery stratigraphic levels or an independently dated sample to narrow the artefact context within Period I."
       },
       {
-        "about": "open question",
-        "note": "No source opened dates woven cotton cloth at Mohenjo-daro or Harappa; find one and add it as a later event."
+        "about": "cotton source and preparation",
+        "note": "The cotton species, wild or domesticated status, spinning tools and geographic source of the thread remain unestablished."
       },
       {
-        "about": "open question",
-        "note": "Huaca Prieta cotton textiles of about 6,200 years ago (ScienceDaily, 2016) are a separate origin and need their own record."
-      },
-      {
-        "about": "open question",
-        "note": "The page mentions cotton string at Shahi Tump (4th millennium) and woven cotton at Dhuweila in Jordan (4th millennium), not yet followed up."
-      },
-      {
-        "about": "open question",
-        "note": "The Mehrgarh coordinates are recalled and should be checked against an archaeological source."
+        "about": "transmission",
+        "note": "The Shahi Tump string, Mohenjo-daro cloth and Tel Tsaf and Dhuweila fibre finds are distinct witnesses. A Mehrgarh connection needs evidence of material provenance or a shared technical sequence."
       }
     ],
-    "note": "The page calls this the oldest known cotton in the Indian subcontinent and an earlier use of cotton than was known before; the oldest New World cotton textile opened for comparison (Huaca Prieta, Peru, about 6,200 years old, in a 2016 George Washington University release on ScienceDaily) is at least several centuries later. No source opened says outright that it is the oldest in the world, and cotton was domesticated separately in the Americas."
+    "note": "The original 2002 paper supplies the grave, bead and fibre identification. The 2025 enamel study revises the contextual phase chronology. The copper bead was made from rolled sheet; the later Mehrgarh lost-wax amulet is a different product and method."
   }
 }
