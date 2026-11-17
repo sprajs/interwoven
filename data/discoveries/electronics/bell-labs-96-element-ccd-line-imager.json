@@ -1,0 +1,114 @@
+{
+  "id": "bell-labs-96-element-ccd-line-imager",
+  "name": "Bell Labs 96-element CCD line imager",
+  "description": "Bell Labs researchers fabricated a 96-element silicon CCD that integrated light as charge packets and shifted them to produce an analog video signal. Mechanical movement supplied the second scan axis for reproducing printed text and a grayscale photograph.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    }
+  ],
+  "events": [
+    {
+      "id": "line-imaging-trade-report-1971",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 7
+        },
+        "latest": {
+          "year": 1971,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1971-07",
+        "basis": "Issue date of Popular Electronics."
+      },
+      "statement": "Popular Electronics described Bell Labs’ operating 96-element CCD scanner and the use of mechanical motion to scan documents.",
+      "evidence": [
+        {
+          "source": "d2-sensor-garner-1971-bell-line-imager",
+          "locator": "pp. 79–80 and Figure 1",
+          "supports": "The contemporary account describes operation of the prototype, its 96 sensing elements and the optical scan setup."
+        }
+      ]
+    },
+    {
+      "id": "line-imaging-report-1971",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 11
+        },
+        "latest": {
+          "year": 1971,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1971-11",
+        "basis": "Issue date of IEEE Transactions on Electron Devices 18(11)."
+      },
+      "statement": "Tompsett and colleagues published results from a 96-element CCD that reproduced printed type and a grayscale image by line scanning.",
+      "caveats": "The tests used a linear sensor and mechanical scanning. The paper sketches an area imager as a possible further design.",
+      "evidence": [
+        {
+          "source": "d2-sensor-tompsett-et-al-1971-line-imaging",
+          "locator": "pp. 992–995, abstract, affiliation and Figures 4–5",
+          "supports": "The authors report operating an imager, with reproduced images and details of the line scan."
+        },
+        {
+          "source": "d2-sensor-boornard-1972-sensor-arrays",
+          "locator": "pp. 45–46, CCD photosensor arrays",
+          "supports": "Independent RCA account describes the 96-element Bell array and its scan method."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "line-imaging-trade-report-1971",
+    "rationale": "The July account documents the 96-element scanner before the researchers’ detailed November paper."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "boyle-smith-charge-coupled-device-concept",
+      "from_event": "concept-paper-1970",
+      "to_event": "line-imaging-report-1971",
+      "status": "established",
+      "statement": "The line imager implemented Boyle and Smith’s charge-coupled readout, collecting photo-generated carriers and clocking them along a single row to an output diode.",
+      "caveats": "The reported apparatus admitted light through gaps between front electrodes. The original concept paper proposed illumination from the substrate side.",
+      "evidence": [
+        {
+          "source": "boyle-smith-1970-ccd-wave10",
+          "locator": "p. 592, applications",
+          "supports": "Proposes integrating photo-generated charge in potential wells and shifting it out through a register."
+        },
+        {
+          "source": "d2-sensor-tompsett-et-al-1971-line-imaging",
+          "locator": "pp. 992–994, §§II–III and Figures 1, 4–5",
+          "supports": "The experiment implements clocked transfer to read out an optical scan."
+        },
+        {
+          "source": "d2-sensor-boornard-1972-sensor-arrays",
+          "locator": "pp. 45–46 and references 5 and 7",
+          "supports": "An independent RCA engineer explicitly attributes the original three-phase structure to Boyle and Smith and describes the Bell group’s operating line imager."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "organizations": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}

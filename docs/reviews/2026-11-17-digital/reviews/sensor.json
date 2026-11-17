@@ -1,0 +1,80 @@
+{
+  "lane": "sensor",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "proposal": "b8f9c35656cd510bc920f025605ef48df0cef6eb",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/bell-labs-96-element-ccd-line-imager.json": "fe5700fa16232c809d213c50cdd286016053fdcf10aec22e734f828823f347a2",
+    "data/discoveries/electronics/bell-labs-buried-channel-ccd.json": "fa781f97ba79c5d4898d4d824d959d53bfe38faff0f4f7daa8634fc7cd14aa26",
+    "data/discoveries/electronics/boyle-smith-charge-coupled-device-concept.json": "4ebb99cca4f2a7cfeb681f29c98d2d23a5248be273a89b8be2b5956c9c9f61f5",
+    "data/discoveries/electronics/charge-coupled-image-sensor.json": "7da7543ef5b7bfe26f9436b676db4ffa1fbe313d1be71bc04baa90b5f23591a3",
+    "data/sources/d/d2-sensor-amelio-tompsett-smith-1970-verification.json": "86399cfe2758656ad237da06da3d735761e8bab7792d04990bf8333cb4ddc34e",
+    "data/sources/d/d2-sensor-boornard-1972-sensor-arrays.json": "86d53323324dd057483593673966193bb89f2d46fd47eba91cda805836fe13d8",
+    "data/sources/d/d2-sensor-early-1999-fairchild-ccd-oral-history.json": "4a00aa5faaf05ac75c83a6d7b5bf5d416363fdb582878b978d2574ff5f6ad7e3",
+    "data/sources/d/d2-sensor-electronics-1972-fairchild-500-element-prototype.json": "08c8f7408d99d531cd240d6b321e1e0b56f9b88dc7b951df9b270176d60bb3d2",
+    "data/sources/d/d2-sensor-electronics-1973-fairchild-500-element-test-bed.json": "465b0a93a16afd2d3e2ccbda7911a66945bdd63b7f22b940e279a694e151cda3",
+    "data/sources/d/d2-sensor-electronics-1973-fairchild-launch-plan.json": "e37c03c34df84724b723c005c3e7c173fd6a853090f3256ba3787985637b4976",
+    "data/sources/d/d2-sensor-garner-1971-bell-line-imager.json": "ca0180bf8107c0dde07741b3a63495486c30b729e5abcbdb1088426a53c7f218",
+    "data/sources/d/d2-sensor-kim-1973-fairchild-buried-channel.json": "365aac5c00a4c472c725dd34e23acb7d629dd61ded4a5f9678f277329987e8c6",
+    "data/sources/d/d2-sensor-krambeck-1971-buried-channel-filing.json": "a2c9c9add905db387799ee6c3ea23b7073aeee57e5c4eaff9e95e69cafc2eb9c",
+    "data/sources/d/d2-sensor-smith-2001-ccd-oral-history.json": "2343c09a8e5cc02cc9d65d874830a89782c2bc9dfb7025220d86c4be68d5108e",
+    "data/sources/d/d2-sensor-tompsett-et-al-1971-line-imaging.json": "07d0a2bf89429c9c5a65c240801dab4e2e63198cb3c35e91dcbc1fa5bf4f7105",
+    "data/sources/d/d2-sensor-walden-et-al-1972-buried-channel.json": "952395110a4e31305d10afdb68af39ffe668b2d4e3a2d4135d582032df956c94",
+    "docs/reviews/2026-11-17-digital/lanes/sensor.json": "68599477e07781fd95dce34b8f4eac30d910a3a5287b8c18944b3174c63fcdd5"
+  },
+  "claims": [
+    {
+      "path": "boyle-smith-charge-coupled-device-concept.events.experimental-verification",
+      "decision": "accept extension",
+      "reason": "Amelio, Tompsett and Smith, Experimental Verification (1970), p. 593 abstract, report measured charge transfer exceeding 98% for transfer times below 100 ns; Boornard, Visible and infrared sensor arrays (1972), p. 45 and reference 6, independently discusses this test. Existing event was revised, not duplicated; optical imaging is separate."
+    },
+    {
+      "path": "bell-labs-96-element-ccd-line-imager identity, description, organization and events",
+      "decision": "accept",
+      "reason": "Garner, Popular Electronics July 1971 pp. 79–80 describes the 96-element/288-electrode line scanner and mechanical second axis; Tompsett et al., Charge-Coupled Imaging Devices: Experimental Results, November 1971 pp. 992–995 and figures 4–5 report actual reproduction of text and grayscale photograph; Boornard p. 46 independently describes this array. July dates the report, not a precise invention date. It is distinct from the existing Fairchild 500-element product."
+    },
+    {
+      "path": "bell-labs-96-element-ccd-line-imager.links.adapts",
+      "decision": "accept",
+      "reason": "Boyle and Smith, Charge Coupled Semiconductor Devices (1970), p. 592 proposes charge storage/readout and optical use; Tompsett et al. 1971 pp. 992–995 reports this imager; independent RCA engineer Boornard 1972 pp. 45–46 cites both and identifies original structure and later working array. The link is directed from the imager to the concept."
+    },
+    {
+      "path": "bell-labs-buried-channel-ccd identity, description, organization and events",
+      "decision": "accept",
+      "reason": "Krambeck US 3,739,240 front page and figure 5 document a Bell Labs filing dated 6 April 1971 describing subsurface charge; Walden et al. The Buried Channel Charge Coupled Device (1972), pp. 1638–1639, report conductance tests and explicitly state those structures failed as CCDs. The event preserves the failure qualification."
+    },
+    {
+      "path": "bell-labs-buried-channel-ccd.links.adapts",
+      "decision": "accept",
+      "reason": "Krambeck background and Walden et al. 1972 pp. 1635–1636 cite original surface CCD and explain the buried design; independent Fairchild investigator Kim, Design and Operation of Buried Channel CCDs (1973), pp. 7–10, compares surface and subsurface mechanisms and reports device behavior. Relation is design adaptation, not a claim of prior working CCD operation."
+    },
+    {
+      "path": "charge-coupled-image-sensor identity, description, earliest_record, events and existing facets",
+      "decision": "accept extension",
+      "reason": "Electronics 22 May 1972 pp. 29–31 reports a Fairchild Palo Alto 500-element buried-channel device; Electronics 15 February 1973 p. 31 references that device as a test bed; 29 March 1973 p. 25 explicitly cross-references the February report for the planned first 500-element product. Fairchild CCD101 advertisement 24 May 1973 pp. 43–45 supports named offer and architecture. The broadened record distinguishes prototype and named commercial offer, and does not assert unchanged specimen identity."
+    },
+    {
+      "path": "charge-coupled-image-sensor.links.builds_on",
+      "decision": "accept",
+      "reason": "Early oral history 1999, buried channel section and preceding exchange, recalls Bell discussion and visit, and recruitment of Amelio; Smith oral history 17 January 2001, Bell stops CCD research, independently recalls Amelio’s early Bell experiment and Fairchild role; Electronics May 1972 p.29 describes Fairchild clocked transfer. This supports general CCD concept uptake, not a specific buried-channel transfer."
+    },
+    {
+      "path": "charge-coupled-image-sensor.links.same_principle",
+      "decision": "accept",
+      "reason": "Walden et al. 1972 pp. 1635–1636 describes Bell subsurface charge storage and Kim 1973 pp. 7–10 independently describes Fairchild subsurface storage; CCD101 advertisement pp. 43–45 describes the buried channel. The affinity claim is architectural, not a transmission claim; Early’s account and caveat preserve uncertainty about direct transfer."
+    },
+    {
+      "path": "all added source metadata and lane disposition",
+      "decision": "accept",
+      "reason": "Inspected originals and retained source locators: Boyle–Smith and Amelio–Tompsett–Smith 1970; Tompsett et al. 1971; Garner 1971; Boornard 1972; Krambeck 1971 filing; Walden 1972; Kim 1973; contemporary Electronics reports and advertisement; Early 1999 and Smith 2001 oral histories. Lane is bounded and distinguishes analogy from transmission, 1972 test structure from functioning CCD, and report date from invention."
+    }
+  ],
+  "corrections": [
+    "Researcher removed unsourced Murray Hill experiment location; corrected Smith interview from 2000 to 2001; supplied explicit dated cross-references for Fairchild development-to-product sequence and broadened record identity; added independently checked July 1971 scanner report."
+  ],
+  "deferred": [
+    "Physical identity and engineering revisions between the 1972 Fairchild prototype and CCD101 production; specific transfer of Bell buried-channel design; exact Fairchild CCD used in Kodak prototype; earlier imaging and source of original CCD imaging idea."
+  ]
+}

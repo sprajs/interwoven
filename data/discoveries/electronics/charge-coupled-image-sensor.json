@@ -1,8 +1,8 @@
 {
   "id": "charge-coupled-image-sensor",
-  "name": "Charge-coupled image sensor",
-  "summary": "The charge-coupled image sensor captures light as electric charge and shifts it step by step to an output; Fairchild offered its 500-element CCD101 in 1973.",
-  "description": "A solid-state imaging sensor in which accumulated light-generated charge is shifted through coupled potential wells for sequential readout.",
+  "name": "Fairchild 500-element linear CCD",
+  "summary": "Fairchild demonstrated a 500-element linear CCD design by May 1972 and offered the CCD101 for prototyping in May 1973.",
+  "description": "Fairchild’s 500-element linear sensor captures light in a row of photosensitive elements, then shifts the charge through two shielded registers for sequential readout. Its buried channel reduces loss of charge to traps at the silicon–oxide interface.",
   "kind": "technology",
   "domain": "electronics.semiconductors",
   "fields": [
@@ -74,6 +74,55 @@
   },
   "events": [
     {
+      "id": "linear-prototype-report-1972",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1972,
+          "month": 5,
+          "day": 22
+        },
+        "latest": {
+          "year": 1972,
+          "month": 5,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1972-05-22",
+        "basis": "Date of the contemporary Electronics report."
+      },
+      "statement": "Electronics reported and illustrated a working 500-element buried-channel linear sensor built at Fairchild’s Palo Alto research center.",
+      "scope": "Precommercial design that Fairchild planned to market as its first commercial 500-element CCD.",
+      "places": [
+        "california"
+      ],
+      "place_note": "Fairchild research center, Palo Alto.",
+      "caveats": "The 1972 prototype was reported without a model name. The prototype-to-product sequence is traced through Fairchild’s reported launch plan. The original prototype’s physical identity and any design revisions remain unresolved.",
+      "evidence": [
+        {
+          "source": "d2-sensor-electronics-1972-fairchild-500-element-prototype",
+          "locator": "pp. 29, 31, diagram and photograph",
+          "supports": "Specifies and illustrates the laboratory sensor, its architecture and an image from its camera."
+        },
+        {
+          "source": "d2-sensor-electronics-1973-fairchild-500-element-test-bed",
+          "locator": "Opening columns",
+          "supports": "Explicitly identifies the May 1972 array as a 500-element development test bed."
+        },
+        {
+          "source": "d2-sensor-electronics-1973-fairchild-launch-plan",
+          "locator": "p. 25, Fairchild to launch CCD image sensor in April",
+          "supports": "The announced commercial 500-element buried-channel array is explicitly cross-referenced to the February account of the 1972 development test bed."
+        },
+        {
+          "source": "semiconductor-1973-ccd101-linear-image",
+          "locator": "pp. 43–45, sensor diagram and product offering",
+          "supports": "The CCD101 was advertised as a buried-channel linear sensor with the same 500-element, two-register organization."
+        }
+      ]
+    },
+    {
       "id": "commercial-availability-1973",
       "type": "commercial_availability",
       "date": {
@@ -115,8 +164,8 @@
     }
   ],
   "earliest_record": {
-    "event": "commercial-availability-1973",
-    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Latest supported use or availability; the first worldwide entry is not established. MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown. This is the earliest supported record currently established here, not certification of absolute priority."
+    "event": "linear-prototype-report-1972",
+    "rationale": "A dated report establishes the 500-element development prototype. A reported launch plan connects that work to the later commercial design, named CCD101 in the May 1973 offer."
   },
   "community_entry": {
     "event": "commercial-availability-1973",
@@ -128,7 +177,7 @@
   },
   "caveats": "MOS photodiode imaging arrays were already available, and earlier bucket-brigade devices used clocked transistor-and-capacitor charge transfer with a proposed imaging application. This is a distinct architecture, not the first electronic image sensor or a claim of universal superiority. The first actual sale is unknown.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -144,9 +193,10 @@
       "known_from": "sourced",
       "fate": "recalled",
       "market": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "impact": "recalled",
-      "grain": "recalled"
+      "grain": "recalled",
+      "links": "sourced"
     },
     "unresolved": [
       {
@@ -172,5 +222,62 @@
       }
     ],
     "note": "Candidate historical and lifecycle assertions await independent review."
-  }
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "boyle-smith-charge-coupled-device-concept",
+      "from_event": "concept-paper-1970",
+      "to_event": "linear-prototype-report-1972",
+      "status": "established",
+      "statement": "Fairchild used the Bell Labs concept of clocked charge transfer to build a linear imager. Fairchild staff learned about Bell’s CCD work through direct contact and recruited one of its early experimenters.",
+      "caveats": "The relation concerns the overall CCD readout principle and program. The origin of Fairchild’s specific buried-channel structure is less certain.",
+      "evidence": [
+        {
+          "source": "d2-sensor-early-1999-fairchild-ccd-oral-history",
+          "locator": "Interview exchange before Buried channel charge-coupled devices, and the section itself",
+          "supports": "The Fairchild director recalls the Bell Labs discussion and visit before establishing the Fairchild program and recruiting Amelio."
+        },
+        {
+          "source": "d2-sensor-smith-2001-ccd-oral-history",
+          "locator": "Manufacturing and picture phone market; Bell stops CCD research",
+          "supports": "Smith corroborates Amelio’s involvement in the early Bell experiment, move to Fairchild and role in its CCD effort."
+        },
+        {
+          "source": "d2-sensor-electronics-1972-fairchild-500-element-prototype",
+          "locator": "p. 29, Going through channels",
+          "supports": "Fairchild’s working device reads out light-generated charge with the clocked charge-transfer principle."
+        }
+      ]
+    },
+    {
+      "type": "same_principle",
+      "from": "bell-labs-buried-channel-ccd",
+      "status": "established",
+      "statement": "Fairchild’s 500-element imager and the Bell Labs buried-channel design both placed the charge-transfer path inside the silicon, reducing loss to traps at the silicon–oxide boundary.",
+      "caveats": "Early recalled conceiving a buried-channel design before learning of Bell’s earlier work. Kim’s later citation establishes awareness by 1973. A direct transfer of the specific Bell design into the CCD101 is unresolved.",
+      "evidence": [
+        {
+          "source": "d2-sensor-walden-et-al-1972-buried-channel",
+          "locator": "pp. 1635–1636, introduction and Figure 1",
+          "supports": "Bell Labs describes the subsurface storage and transport path and its effect on interface trapping."
+        },
+        {
+          "source": "d2-sensor-kim-1973-fairchild-buried-channel",
+          "locator": "pp. 7–10, Introduction, CCD operation, Figure 6 and reference 1",
+          "supports": "The Fairchild comparison documents the subsurface path and observed performance of 500-element devices, and cites the Bell paper."
+        },
+        {
+          "source": "semiconductor-1973-ccd101-linear-image",
+          "locator": "pp. 43–45, transfer efficiency and CCD imaging advantages",
+          "supports": "Specifies the buried N-channel in the CCD101."
+        },
+        {
+          "source": "d2-sensor-early-1999-fairchild-ccd-oral-history",
+          "locator": "Buried channel charge-coupled devices",
+          "supports": "Distinguishes Early’s recollected buried-channel conception from Fairchild’s broader contact with Bell CCD research."
+        }
+      ]
+    }
+  ]
 }
