@@ -1,0 +1,76 @@
+{
+  "id": "siemens-somatom-definition-dual-source-ct",
+  "name": "SOMATOM Definition dual-source CT",
+  "description": "Siemens combined two X-ray tubes and their corresponding detector arrays on a rotating CT gantry. The arrangement was demonstrated for faster cardiac imaging and also supported dual-energy acquisition.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "events": [
+    {
+      "id": "described-2005",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 2005,
+          "month": 12,
+          "day": 10
+        },
+        "latest": {
+          "year": 2005,
+          "month": 12,
+          "day": 10
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2005-12-10",
+        "basis": "Online publication date of the evaluation."
+      },
+      "statement": "Flohr and colleagues reported the dual-source scanner’s geometry, phantom tests and initial patient imaging.",
+      "evidence": [
+        {
+          "source": "flohr-2005-dual-source-ct-performance",
+          "locator": "Abstract",
+          "supports": "Reports the rotating pair of tube-detector systems and initial patient and dual-energy images."
+        },
+        {
+          "source": "siemens-dual-source-ct-ten-years",
+          "locator": "SOMATOM Definition section",
+          "supports": "Names the 2005 Siemens dual-source scanner SOMATOM Definition."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "described-2005",
+    "rationale": "The dated performance paper documents a working system. Its date does not date the first scan."
+  },
+  "links": [
+    {
+      "from": "clinical-x-ray-computed-tomography",
+      "type": "same_principle",
+      "status": "established",
+      "statement": "The Siemens scanner retains computer reconstruction from X-ray transmission projections taken at different angles, the imaging principle used in the earlier clinical brain scanner.",
+      "scope": "Shared reconstruction principle across different instruments.",
+      "caveats": "No specific transfer of EMI apparatus or detector design to SOMATOM Definition is established.",
+      "evidence": [
+        {
+          "source": "flohr-2005-dual-source-ct-performance",
+          "locator": "Abstract",
+          "supports": "Describes reconstruction of cross sections from a rotating X-ray CT system for clinical imaging."
+        },
+        {
+          "source": "hounsfield-1979-computed-medical-imaging",
+          "locator": "Printed pp. 568–572",
+          "supports": "Describes the earlier computer reconstruction of clinical slices from X-ray transmission measurements."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}

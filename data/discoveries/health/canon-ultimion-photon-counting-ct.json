@@ -1,0 +1,100 @@
+{
+  "id": "canon-ultimion-photon-counting-ct",
+  "name": "Canon Ultimion photon-counting CT",
+  "description": "Canon developed a general-purpose CT scanner with a cadmium zinc telluride photon-counting detector for simultaneous high-resolution and spectral imaging.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "events": [
+    {
+      "id": "chiba-research-2026",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 3
+        },
+        "latest": {
+          "year": 2026,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2026-03",
+        "basis": "Canon dates the start of joint research using Ultimion to March 2026."
+      },
+      "statement": "Canon began joint clinical research using Ultimion with National Cancer Center Japan facilities in Chiba.",
+      "places": [
+        "japan"
+      ],
+      "place_note": "Chiba Prefecture, Japan.",
+      "caveats": "The manufacturer reports research activity. This statement does not establish routine clinical scans.",
+      "evidence": [
+        {
+          "source": "canon-2026-ultimion-japan-launch",
+          "locator": "Opening, clinical collaboration paragraph",
+          "supports": "Identifies the Ultimion model and the National Cancer Center Hospital East and related research centre."
+        }
+      ]
+    },
+    {
+      "id": "japan-market-2026",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 4,
+          "day": 17
+        },
+        "latest": {
+          "year": 2026,
+          "month": 4,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2026-04-17",
+        "basis": "Canon announced the 17 April start of Japanese sales, and its later chronology says the April launch occurred."
+      },
+      "statement": "Canon made Ultimion commercially available in Japan.",
+      "places": [
+        "japan"
+      ],
+      "market": "Japan",
+      "evidence": [
+        {
+          "source": "canon-2026-ultimion-japan-launch",
+          "locator": "Opening and sales footnote",
+          "supports": "Gives 17 April as the Japanese launch and restricts sales to Japan."
+        },
+        {
+          "source": "canon-ct-product-chronology-ultimion",
+          "locator": "2026年, Ultimion entry",
+          "supports": "Reports the April release in Japan as completed."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "chiba-research-2026",
+    "rationale": "The manufacturer first attests to research with the commercial model in March. The 2023 operator announcement concerns a preceding research system."
+  },
+  "community_entry": {
+    "event": "japan-market-2026",
+    "community": "Japanese CT market",
+    "basis": "commercial_availability",
+    "strength": "direct"
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Commercial deployment",
+        "note": "Named routine-care installations and the technical design changes from the earlier research platform remain open."
+      }
+    ]
+  }
+}
