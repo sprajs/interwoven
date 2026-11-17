@@ -62,7 +62,7 @@
     {
       "title": "Bind project IDs and query metered use",
       "action": "Get the market operator’s BM Unit reference table and match the exact asset name, legal lead party and fuel. Check the official dataset schema for signed actual MWh, settlement period and revision status. Query the dataset with each matched BM Unit as a repeated parameter and a fixed run type. In the lead-up window, check one row per day, period and unit. Save exact URLs, original-response hashes and selected rows, then read signed volumes from the same settlement period on a second date after commissioning.",
-      "result": "Elexon maps T_EAAO-1 and T_EAAO-2 to East Anglia One Limited, with EICs 48W000000EAAO-1R and 48W000000EAAO-2P. The 1–12 September 2019 B1610 DF stream contains 1,152 unique unit-period rows. First positive in that window is 0.043 MWh for T_EAAO-1 on 2 September at period 25. A separately retained query for 2 September at period 30 gives +2.075 and −0.006 MWh. The retained 1 December 2020 period 25 query gives +101.936 and +105.154 MWh, for +207.090 MWh across both units. These are settlement volumes for a half-hour. The measurement cannot identify E19, an individual circuit, gross turbine production or total annual energy. Scheduled output and aggregate wind-fuel data fail the plant-meter check. Contains BMRS data © Elexon Limited copyright and database right 2026.",
+      "result": "Elexon maps T_EAAO-1 and T_EAAO-2 to East Anglia One Limited, with EICs 48W000000EAAO-1R and 48W000000EAAO-2P. The 1–12 September 2019 B1610 Post-Final Settlement Run (DF) stream contains 1,152 unique unit-period rows. First positive in that window is 0.043 MWh for T_EAAO-1 on 2 September at period 25. A separately retained query for 2 September at period 30 gives +2.075 and −0.006 MWh. The retained 1 December 2020 period 25 query gives +101.936 and +105.154 MWh, for +207.090 MWh across both units. These are settlement volumes for a half-hour. The measurement cannot identify E19, an individual circuit, gross turbine production or total annual energy. Scheduled output and aggregate wind-fuel data fail the plant-meter check. Contains BMRS data © Elexon Limited copyright and database right 2026.",
       "sources": [
         {
           "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
@@ -93,6 +93,11 @@
           "title": "BMRS data copyright licence",
           "url": "https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/",
           "locator": "Data reuse and attribution"
+        },
+        {
+          "title": "Elexon Trading Disputes Process",
+          "url": "https://bscdocs.elexon.co.uk/bsc-module/guidance-notes/trading-disputes-process/v-10-0/id-6810ef8d51436753585bbbf8",
+          "locator": "Post-Final Settlement Run (DF)"
         }
       ]
     },
