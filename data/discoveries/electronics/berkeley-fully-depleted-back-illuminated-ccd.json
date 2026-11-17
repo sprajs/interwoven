@@ -109,7 +109,7 @@
       "to_event": "iedm-prototype-report",
       "status": "candidate",
       "statement": "Did the specific high-resistivity silicon fabrication process documented in the 1988 preprint and 1989 article provide the CCD's backside-gettering approach?",
-      "finding": "The 1996 prototype paper credits earlier p-i-n detector work and cites the 1989 article. The 1997 paper repeats this attribution with overlapping authorship. Independent corroboration identifying the specific process remains open.",
+      "finding": "The 1996 prototype paper and 1997 Lick characterization cite Holland's 1989 process. The 1997 workshop paper specifies phosphorus-doped backside polysilicon in the CCD design. Holland's patent ties the 1989 method to the gettering step before a transparent backside contact. Spieler corroborates the broader particle-detector and photodiode ancestry, citing later demonstrations. Independent confirmation of the exact gettering process on the December 1996 prototype remains open.",
       "evidence": [
         {
           "source": "holland-1996-fully-depleted-ccd",
@@ -120,6 +120,21 @@
           "source": "stover-1997-fully-depleted-ccd-characterization",
           "locator": "§2 and references [1]–[2]",
           "supports": "The Lick characterization traces the CCD to Berkeley p-i-n work, identifies backside gettering in the device, and separately cites the same 1989 fabrication article."
+        },
+        {
+          "source": "d2-berkeley-holland-1997-ccd-workshop",
+          "locator": "§1, first paragraph",
+          "supports": "Specifies phosphorus-doped backside polysilicon in the 300 μm CCD design. Authors overlap with the prototype report."
+        },
+        {
+          "source": "d2-berkeley-holland-2000-transparent-window-patent",
+          "locator": "Example 1, Fabrication of Back Window",
+          "supports": "Attributes gettering before deposition of the transparent window to Holland's own 1989 method."
+        },
+        {
+          "source": "d2-berkeley-spieler-2005-detector-systems",
+          "locator": "§8.9.2, pp. 366–368",
+          "supports": "Traces the CCD to high-resistivity detector integration and the optically transparent backside contact developed for photodiode arrays."
         }
       ]
     },

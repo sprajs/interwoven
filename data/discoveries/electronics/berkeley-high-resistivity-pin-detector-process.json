@@ -82,8 +82,38 @@
       "domain": "sourced",
       "places": "sourced",
       "events": "sourced",
-      "prompted_by": "sourced"
+      "prompted_by": "sourced",
+      "links": "sourced"
     },
     "note": "Proposal awaiting independent review."
-  }
+  },
+  "links": [
+    {
+      "type": "same_principle",
+      "from": "ibm-backside-polysilicon-gettering",
+      "from_event": "patent-grant",
+      "to_event": "laboratory-report",
+      "status": "established",
+      "statement": "The Berkeley detector process and Hu's earlier IBM process both used deposited backside polysilicon as an impurity sink. Berkeley doped the layer with phosphorus and used it as the diode's back contact.",
+      "scope": "Deposited polysilicon as an extrinsic getter during fabrication.",
+      "caveats": "Holland cites Hu when explaining polysilicon gettering. The influence of Hu's individual process on Berkeley's full fabrication sequence remains unresolved.",
+      "evidence": [
+        {
+          "source": "holland-1989-high-resistivity-detectors",
+          "locator": "pp. 538 and 541, §§2–3 and refs. [14], [18]–[20]",
+          "supports": "Cites Hu for backside polysilicon and describes the Berkeley process using a phosphorus-doped layer for both gettering and the diode's back contact."
+        },
+        {
+          "source": "d2-berkeley-hu-1977-polysilicon-gettering",
+          "locator": "Abstract and Fig. 1",
+          "supports": "Hu describes deposited backside polysilicon as an impurity sink in integrated circuit processing."
+        },
+        {
+          "source": "d2-berkeley-chen-silvestri-1982-polysilicon-gettering",
+          "locator": "Abstract, summary and ref. [4]",
+          "supports": "Different experiments also tested the use of a backside polysilicon impurity sink and place Hu's earlier patent in the same technique family."
+        }
+      ]
+    }
+  ]
 }
