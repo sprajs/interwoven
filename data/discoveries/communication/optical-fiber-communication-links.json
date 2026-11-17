@@ -221,6 +221,147 @@
           "supports": "The contemporary IEEE account dates Rediffusion use to March 1976."
         }
       ]
+    },
+    {
+      "id": "chicago-1977-cable-installation",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1977,
+          "month": 2
+        },
+        "latest": {
+          "year": 1977,
+          "month": 2
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "February 1977",
+        "basis": "The project engineering account gives the installation month."
+      },
+      "statement": "The Bell System installed two-ribbon optical cables for a trial between two downtown Chicago telephone exchanges and the Brunswick Building.",
+      "places": [
+        "chicago"
+      ],
+      "scope": "Installed fiber cables on the Franklin–Wabash and Franklin–Brunswick legs of the Chicago Lightwave Communications Project.",
+      "population": "Bell System installers and Illinois Bell Telephone Company",
+      "caveats": "This is the installation month. The traffic cutover is separately dated.",
+      "evidence": [
+        {
+          "source": "schwartz-1978-chicago-lightwave-project",
+          "locator": "Printed p. 1881 / PDF p. 165, §I",
+          "supports": "The project team dates installation of the two-ribbon Chicago cables to February 1977."
+        },
+        {
+          "source": "schwartz-1978-chicago-lightwave-project",
+          "locator": "Printed pp. 1882–1885 / PDF pp. 166–169, §III and Figs. 3–5",
+          "supports": "The Chicago project team explicitly identifies the design as the Atlanta cable with a two-ribbon core in place of the original twelve-ribbon stack."
+        },
+        {
+          "source": "buckler-miller-1978-lightguide-crosstalk",
+          "locator": "Printed pp. 1765–1768 / PDF pp. 49–52, §IV",
+          "supports": "The separate installed-system measurements specify two twelve-fiber ribbons and a set of connectorized segments on the named Chicago links."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "bell-labs",
+          "role": "manufacturer",
+          "resource": "New two-ribbon lightguide cables",
+          "evidence": [
+            {
+              "source": "schwartz-1978-chicago-lightwave-project",
+              "locator": "Printed pp. 1882–1885 / PDF pp. 166–169, §III and Figs. 3–5",
+              "supports": "The project account describes cable manufacture by Bell Laboratories for Chicago."
+            }
+          ]
+        },
+        {
+          "group": "Western Electric and Illinois Bell Telephone personnel",
+          "role": "infrastructure_provider",
+          "resource": "Installed cables from the Franklin central office vault to its equipment bay",
+          "evidence": [
+            {
+              "source": "schwartz-1978-chicago-lightwave-project",
+              "locator": "Printed pp. 1885–1886 / PDF pp. 169–170, §IV and Fig. 6",
+              "supports": "The Chicago engineers credit WE and IBT personnel for installing those intra-office cables."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chicago-1977-traffic-cutover",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1977,
+          "month": 5,
+          "day": 11
+        },
+        "latest": {
+          "year": 1977,
+          "month": 5,
+          "day": 11
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "11 May 1977",
+        "basis": "The project team dates full cutover to this day, also reported in the trade press. AT&T confirms commercial service in May."
+      },
+      "statement": "Illinois Bell fully cut over its downtown Chicago trial link, carrying interoffice telephone traffic and customer voice, data and Picturephone Meeting Service.",
+      "places": [
+        "chicago"
+      ],
+      "scope": "The Illinois Bell Chicago Lightwave trial at the Franklin and Wabash exchanges and the Brunswick Building, with optical links at 44.7 Mb/s.",
+      "applications": [
+        "Telephone trunk service",
+        "Customer voice and data",
+        "Picturephone Meeting Service"
+      ],
+      "population": "Illinois Bell Telephone Company and participating downtown Chicago customers",
+      "caveats": "This is the full cutover in the trial. The exact character of earlier April traffic remains unresolved. No counts of subscribers or evidence of a general service offer are available in these records.",
+      "evidence": [
+        {
+          "source": "schwartz-1978-chicago-lightwave-project",
+          "locator": "Printed pp. 1887–1888 / PDF pp. 171–172, §§V–VI and Fig. 7",
+          "supports": "The project engineers date full commercial trial cutover to 11 May 1977 and describe the transmitted services."
+        },
+        {
+          "source": "schwartz-1978-chicago-lightwave-project",
+          "locator": "Printed pp. 1882–1883 / PDF pp. 166–167, §II and Fig. 1",
+          "supports": "The terminal diagram and description identify the services and DS3 bit rate."
+        },
+        {
+          "source": "att-1978-annual-report-1977",
+          "locator": "Printed p. 10 / PDF p. 12, High-capacity transmission systems evaluated",
+          "supports": "AT&T identifies May 1977 commercial service for the Chicago lightwave link during ongoing evaluation."
+        },
+        {
+          "source": "electronic-design-1977-modern-media",
+          "locator": "Printed p. 107 / PDF p. 121, Optical Communications subsection",
+          "supports": "Contemporary trade coverage reports the 11 May service evaluation, the link endpoints and voice, data and video on the fibers."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Illinois Bell Telephone Company",
+          "role": "operator",
+          "resource": "Experimental lightwave service in downtown Chicago",
+          "evidence": [
+            {
+              "source": "att-1978-annual-report-1977",
+              "locator": "Printed p. 15 / PDF p. 17, statement by Charles Marshall, Illinois Bell Telephone Company",
+              "supports": "The Illinois Bell executive describes this installation on behalf of the operating company."
+            },
+            {
+              "source": "electronic-design-1977-modern-media",
+              "locator": "Printed p. 107 / PDF p. 121, Optical Communications subsection",
+              "supports": "Contemporary trade coverage reports the 11 May service evaluation, the link endpoints and voice, data and video on the fibers."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -238,7 +379,7 @@
   },
   "caveats": "Electronic Design reports six stations, but a contemporaneous U.S. Naval Institute account says five; the count or system may have changed. Installation is dated 1973 in the NASA report; the exact operating start and call records are not documented. The 1976 article separately captions a Corning cable but does not attribute its attenuation to the ship. Prior guided-light demonstrations and imaging fibers predate this service.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -250,9 +391,10 @@
       "societies": "sourced",
       "known_from": "sourced",
       "fate": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     },
     "unresolved": [
       {
@@ -280,9 +422,79 @@
             "supports": "The Navy Institute account describes five stations, differing from the April report’s six."
           }
         ]
+      },
+      {
+        "about": "chicago-april-1977-traffic",
+        "note": "The engineering account describes initial commercial traffic on 1 April. Hecht describes that day as the first test signals. The operator report places commercial service in May, and the engineering account and trade press agree on 11 May full cutover. An operator cutover record or traffic log could resolve what ran in April.",
+        "evidence": [
+          {
+            "source": "schwartz-1978-chicago-lightwave-project",
+            "locator": "Printed p. 1881 / PDF p. 165, §I",
+            "supports": "The introductory paragraph distinguishes 1 April initial traffic from 11 May full cutover."
+          },
+          {
+            "source": "hecht-1999-city-light-story",
+            "locator": "Printed pp. 181–182, Atlanta and Chicago account",
+            "supports": "Hecht describes 1 April as test signals and dates regular traffic to 11 May."
+          },
+          {
+            "source": "att-1978-annual-report-1977",
+            "locator": "Printed p. 10 / PDF p. 12, High-capacity transmission systems evaluated",
+            "supports": "AT&T identifies May 1977 commercial service for the Chicago lightwave link during ongoing evaluation."
+          },
+          {
+            "source": "electronic-design-1977-modern-media",
+            "locator": "Printed p. 107 / PDF p. 121, Optical Communications subsection",
+            "supports": "Contemporary trade coverage reports the 11 May service evaluation, the link endpoints and voice, data and video on the fibers."
+          }
+        ]
       }
     ],
     "note": "Candidate historical and lifecycle assertions await independent review."
   },
-  "grain": "capability"
+  "grain": "capability",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "atlanta-adhesive-ribbon-optical-cable",
+      "from_event": "atlanta-1976-wired-test",
+      "to_event": "chicago-1977-cable-installation",
+      "status": "established",
+      "statement": "The Chicago Lightwave trial adapted the Atlanta cable design by retaining its stacked twelve-fiber ribbons and reducing the core from twelve ribbons to two.",
+      "scope": "Bell Laboratories Atlanta cable tested on 13 January 1976 to the two-ribbon lightguide cables installed for the Illinois Bell Chicago Lightwave trial in February 1977.",
+      "confidence": "high",
+      "influence": "contributing",
+      "carrier": [
+        "institutional"
+      ],
+      "contribution": [
+        "supplied_theory_or_design_rule"
+      ],
+      "alternatives": "Other low-loss fiber cables could support optical telephony. The design attribution applies to these two Bell projects.",
+      "caveats": "Chicago used newly manufactured cables. The evidence concerns the cable design and connectorized segments, with separate terminal changes.",
+      "timing": "Atlanta’s end-to-end prototype test was in January 1976, Chicago cable manufacture is dated 1976, and Chicago installation and full cutover followed in 1977.",
+      "evidence": [
+        {
+          "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
+          "locator": "Printed pp. 1745–1747 / PDF pp. 29–31, §§II–III and Figs. 1–2",
+          "supports": "The fabrication report describes the Atlanta experiment cable as a stack of twelve ribbons with twelve fibers per ribbon, selected to facilitate group splicing."
+        },
+        {
+          "source": "schwartz-1978-chicago-lightwave-project",
+          "locator": "Printed pp. 1882–1885 / PDF pp. 166–169, §III and Figs. 3–5",
+          "supports": "The Chicago project team explicitly identifies the design as the Atlanta cable with a two-ribbon core in place of the original twelve-ribbon stack."
+        },
+        {
+          "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
+          "locator": "Printed p. 1756 / PDF p. 40, §VII",
+          "supports": "The manufacturing team explicitly calls the Chicago cable a smaller two-ribbon version and identifies its use with live traffic."
+        },
+        {
+          "source": "buckler-miller-1978-lightguide-crosstalk",
+          "locator": "Printed pp. 1765–1768 / PDF pp. 49–52, §IV",
+          "supports": "The separate installed-system measurements specify two twelve-fiber ribbons and a set of connectorized segments on the named Chicago links."
+        }
+      ]
+    }
+  ]
 }
