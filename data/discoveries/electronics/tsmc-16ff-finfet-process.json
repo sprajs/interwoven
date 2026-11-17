@@ -1,0 +1,78 @@
+{
+  "id": "tsmc-16ff-finfet-process",
+  "name": "TSMC’s 16FF FinFET process",
+  "description": "TSMC developed its original 16 nm FinFET foundry process and produced working customer silicon, including a HiSilicon processor designed for networking equipment.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "16ff-risk-production",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2013,
+          "month": 11
+        },
+        "latest": {
+          "year": 2013,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "November 2013",
+        "basis": "TSMC’s October 2014 earnings call dates the start of original 16FF risk production to the preceding November."
+      },
+      "statement": "TSMC began risk production on its original 16FF process.",
+      "scope": "Pilot manufacturing ahead of high-volume production.",
+      "evidence": [
+        {
+          "source": "d3-kirin-tsmc-2014-q3-16ff-risk",
+          "locator": "Printed p. 5, C. C. Wei’s remarks on the 16 nm ramp",
+          "supports": "Separates the variants and dates base 16FF risk production to November 2013."
+        }
+      ]
+    },
+    {
+      "id": "16ff-functional-networking-chip",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2014,
+          "month": 9,
+          "day": 25
+        },
+        "latest": {
+          "year": 2014,
+          "month": 9,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "25 September 2014",
+        "basis": "The date is the release date of the public disclosure."
+      },
+      "statement": "TSMC announced that it had made a functioning 32-core HiSilicon networking processor with 16FF logic dies.",
+      "scope": "A customer networking processor. TSMC reports a separate 28 nm I/O die in the package.",
+      "evidence": [
+        {
+          "source": "d3-kirin-tsmc-2014-16ff-networking-silicon",
+          "locator": "Main release, paragraphs 1–7",
+          "supports": "Identifies the application, logic process, and working customer silicon."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "16ff-risk-production",
+    "rationale": "The foundry dates the distinct 16FF risk-production milestone to November 2013."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    }
+  }
+}

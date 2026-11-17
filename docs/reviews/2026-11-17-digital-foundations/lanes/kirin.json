@@ -1,0 +1,91 @@
+{
+  "lane": "kirin",
+  "title": "TSMC 16FF+ and the HiSilicon Kirin 950 in the Huawei Mate 8",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "c626bdb6cd241a7b6a4889a88ab25b4f9b576432",
+  "outcome": "HiSilicon’s specifications and TechInsights’ physical analysis establish use of TSMC 16FF+ in the Kirin 950 installed in the Huawei Mate 8. TSMC’s records and independent die analyses distinguish the enhanced process from base 16FF.",
+  "findings": [
+    "TSMC dates base 16FF risk production to November 2013 and reported a functional HiSilicon 32-core networking chip on that process in September 2014. This was a different product from the Kirin 950.",
+    "TSMC described 16FF+ pilot manufacturing by 16 October 2014 and dates volume production to mid-2015. The annual report dates the cost-oriented 16FFC variant’s volume start to Q1 2016.",
+    "Huawei presented the Kirin 950 in Beijing on 5 November 2015 and unveiled the Mate 8 in Shanghai on 26 November. Huawei states that the handset went on sale in China on 9 December.",
+    "A 24 December 2015 disassembly identified the Kirin 950 package in a Mate 8. A separate, later TechInsights analysis identifies the process of its Mate 8 specimen at die level.",
+    "TechInsights’ independently extracted Mate 8 sample contains a Hi3650 made on TSMC’s 16FF+ high-k metal gate FinFET CMOS process. Its public synopsis identifies the phone model and leaves its regional SKU unspecified.",
+    "TSMC’s engineering paper reports second-generation transistors and lower-capacitance interconnect in an enhanced 16 nm process, comparing results with its 2013 work. The paper leaves the commercial label unspecified. Independent physical analyses corroborate the 16FF and 16FF+ variant identities. They give limited evidence about specific fabrication steps carried forward from 16FF or planar 20SoC."
+  ],
+  "records": [
+    "tsmc-16ff-finfet-process",
+    "tsmc-16ff-plus-finfet-process",
+    "hisilicon-kirin-950-soc"
+  ],
+  "frontier": [
+    "Compare TechInsights SCE-1510-801 and SCE-1608-801 cross-sections and interconnect measurements with the 2014 IEDM paper to test the scope of 16FF-to-16FF+ process reuse.",
+    "Seek foundry mask and interconnect documentation, paired with independent 20SoC and 16FF+ stack analysis, to determine which manufacturing steps carried forward from planar 20SoC.",
+    "A teardown intake record that gives the Huawei Mate 8 SKU and an original HiSilicon manufacturing chronology would refine sample provenance and chip-specific production dates.",
+    "Determine which, if any, Berkeley device or process work reached the TSMC production programme through named people, agreements or engineering records."
+  ],
+  "sources": [
+    {
+      "title": "TSMC Third-Quarter 2014 Earnings Conference Call",
+      "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/english/2014/Q3/TSMC%203Q14%20transcript.pdf",
+      "locator": "Printed p. 5, C. C. Wei’s remarks on the 16 nm ramp"
+    },
+    {
+      "title": "TSMC Delivers First Fully Functional 16FinFET Networking Processor",
+      "url": "https://pr.tsmc.com/english/news/1826",
+      "locator": "Main release, paragraphs 1–7"
+    },
+    {
+      "title": "TSMC 16FinFET Plus Process Achieves Risk Production Milestone",
+      "url": "https://pr.tsmc.com/english/news/1835",
+      "locator": "Main release, paragraphs 1–6"
+    },
+    {
+      "title": "An Enhanced 16nm CMOS Technology Featuring 2nd Generation FinFET Transistors and Advanced Cu/Low-k Interconnect for Low Power and High Performance Applications",
+      "url": "https://picture.iczhiku.com/resource/ieee/WYkrKURTtQrOiXcV.pdf",
+      "locator": "Paper 3.1.1, Abstract, Process Architecture, Transistor Performance, and reference [1]"
+    },
+    {
+      "title": "TSMC 2015 Annual Report, Market/Business Summary",
+      "url": "https://investor.tsmc.com/static/annualReports/2015/english/e_2_2.html",
+      "locator": "Technology development highlights and Long-term Business Development Plan"
+    },
+    {
+      "title": "Apple A9 APL1022 Application Processor TSMC 16FF 9-Track GPU Library Standard Cell Essentials",
+      "url": "https://www.techinsights.com/products/sce-1510-801",
+      "locator": "Metadata and report synopsis"
+    },
+    {
+      "title": "麒麟950芯片 [Kirin 950 chipset]",
+      "url": "https://www.hisilicon.com/cn/products/kirin/kirin-flagship-chips/kirin-950",
+      "locator": "关键特性 [Key specifications], Process, CPU, GPU and Modem"
+    },
+    {
+      "title": "HiSilicon Hi3650 (Kirin 950) Application Processor TSMC 16FF+ 9-Track CPU Library Standard Cell Essentials",
+      "url": "https://www.techinsights.com/products/sce-1608-801",
+      "locator": "Metadata and report synopsis"
+    },
+    {
+      "title": "ARM Mali-T880 MP4 與 16nm FinFET+ 製程，Huawei Kirin 950 來了",
+      "url": "https://benchlife.info/huawei-kirin-950-soc-announce-with-tsmc-16nm-finfet-plus-process-11052015/",
+      "locator": "Dated byline, opening paragraphs and paragraph on the reference platform"
+    },
+    {
+      "title": "华为手机放言一两年超过苹果：“情怀不能当饭吃”",
+      "url": "https://www.thepaper.cn/newsDetail_forward_1401805",
+      "locator": "Opening photograph caption and event account; discussion of the Kirin 950"
+    },
+    {
+      "title": "华为Mate 8月销破百万台，CES抢滩海外市场 [Huawei Mate 8 sales and overseas launch at CES]",
+      "url": "https://www.huawei.com/cn/news/2016/1/huawei-mate8-yue-xiao-chao-bai-wan-tai",
+      "locator": "Opening paragraph on 9 December sales; paragraph comparing Chinese and overseas configurations"
+    },
+    {
+      "title": "Huawei Mate 8 Teardown",
+      "url": "https://www.myfixguide.com/manual/huawei-mate-8-teardown/",
+      "locator": "Date byline and motherboard disassembly"
+    }
+  ],
+  "screen": "Searched discovery IDs, aliases, descriptions, events, links, leads and source records for Kirin 950, Hi3650, HiSilicon, Mate 8, 16FF, FinFET Plus, 16FFC, 20SoC, and the wider FinFET family. Existing records for N7+, the Kirin 990 5G application, and the Berkeley prototype concern different technology or deployment scope.",
+  "limits": "The proposed graph distinguishes confirmed die fabrication and variant family from detailed process genealogy. Worldwide priority, exact wafer lot, fabrication site, and device-to-Berkeley transfer remain unresolved. The supporting TechInsights read used the public synopsis of the physical analysis, and the November chip briefing was checked against contemporary reporting."
+}

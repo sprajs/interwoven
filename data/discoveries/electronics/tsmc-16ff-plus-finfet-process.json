@@ -1,0 +1,148 @@
+{
+  "id": "tsmc-16ff-plus-finfet-process",
+  "name": "TSMC’s 16FF+ FinFET process",
+  "description": "TSMC developed 16FF+ as an enhanced variant of its original 16 nm FinFET foundry process and brought it into volume production.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "16ff-plus-risk-production",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2014,
+          "month": 10,
+          "day": 7
+        },
+        "latest": {
+          "year": 2014,
+          "month": 10,
+          "day": 16
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "7–16 October 2014",
+        "basis": "On 16 October, TSMC said risk production had begun since a qualification milestone on 7 October."
+      },
+      "statement": "TSMC began risk production on its 16FF+ process.",
+      "scope": "Pilot manufacturing in the lead-up to full qualification.",
+      "evidence": [
+        {
+          "source": "d3-kirin-tsmc-2014-q3-16ff-risk",
+          "locator": "Printed p. 5, C. C. Wei’s remarks on the 16 nm ramp",
+          "supports": "Bounds when risk production began for this specific variant."
+        },
+        {
+          "source": "d3-kirin-tsmc-2014-16ff-plus-risk",
+          "locator": "Main release, paragraphs 1–6",
+          "supports": "The November foundry announcement confirms risk production was underway and treats volume manufacture as a future milestone."
+        }
+      ]
+    },
+    {
+      "id": "16ff-plus-volume-production",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 2015
+        },
+        "latest": {
+          "year": 2015
+        },
+        "precision": "year",
+        "status": "approximate",
+        "label": "mid-2015",
+        "basis": "TSMC’s annual report says mid-2015 for 16FF+. It gives no variant-specific start month."
+      },
+      "statement": "TSMC began volume manufacturing on the 16FF+ process.",
+      "evidence": [
+        {
+          "source": "d3-kirin-tsmc-2015-annual-report-16ff-plus",
+          "locator": "Technology development highlights and Long-term Business Development Plan",
+          "supports": "Specifically names and dates 16FF+ volume production. The same account dates subsequent 16FFC volume production to Q1 2016."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "16ff-plus-risk-production",
+    "rationale": "The October call gives the earliest bounded manufacturing stage in the retained sources."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "20SoC manufacturing inheritance",
+        "note": "TSMC reports process similarity and yield learning from planar 20SoC. Which layers and steps carried forward into production 16FF+ remains open."
+      },
+      {
+        "about": "Berkeley device-programme lineage",
+        "note": "The bulk FinFET structure and the earlier Berkeley prototype share a fin-based device principle. Identifying a specific design or manufacturing transfer requires evidence beyond that resemblance."
+      }
+    ]
+  },
+  "links": [
+    {
+      "from": "tsmc-16ff-finfet-process",
+      "type": "same_family",
+      "status": "established",
+      "statement": "16FF and 16FF+ were successive versions of TSMC’s 16 nm FinFET process family.",
+      "scope": "Foundry variant identity and independent physical identification in finished chips.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "d3-kirin-tsmc-2014-16ff-plus-risk",
+          "locator": "Main release, paragraphs 1–6",
+          "supports": "TSMC names 16FF+ as the enhancement to original 16FF."
+        },
+        {
+          "source": "d3-kirin-techinsights-2016-apple-a9-16ff-analysis",
+          "locator": "Metadata and report synopsis",
+          "supports": "Independent die analysts identify original 16FF in the Apple A9 APL1022."
+        },
+        {
+          "source": "d3-kirin-techinsights-2017-kirin-950-analysis",
+          "locator": "Metadata and report synopsis",
+          "supports": "The independent analysts identify the 16FF+ variant in the HiSilicon Hi3650."
+        }
+      ]
+    },
+    {
+      "from": "tsmc-16ff-finfet-process",
+      "type": "builds_on",
+      "status": "candidate",
+      "statement": "Which original 16FF process steps and design rules carried forward into TSMC’s 16FF+ volume flow?",
+      "scope": "Within TSMC’s 16 nm process family, changes to FinFET devices and interconnect.",
+      "finding": "The engineering paper compares enhancements to 16 nm FinFET transistors and interconnect with TSMC’s 2013 platform. The paper leaves the commercial variant unnamed. The public die analyses identify the two production variants, with detailed process comparison unavailable in their synopses.",
+      "evidence": [
+        {
+          "source": "d3-kirin-wu-2014-iedm-16ff-plus",
+          "locator": "Paper 3.1.1, Abstract, Process Architecture, Transistor Performance, and reference [1]",
+          "supports": "The foundry engineers reference their 2013 work and describe revised devices and interconnect in an enhanced 16 nm engineering process."
+        },
+        {
+          "source": "d3-kirin-tsmc-2014-16ff-plus-risk",
+          "locator": "Main release, paragraphs 1–6",
+          "supports": "The foundry describes the named successor relationship."
+        },
+        {
+          "source": "d3-kirin-techinsights-2016-apple-a9-16ff-analysis",
+          "locator": "Metadata and report synopsis",
+          "supports": "Public synopsis identifies the base variant and notes that interconnect was analysed."
+        },
+        {
+          "source": "d3-kirin-techinsights-2017-kirin-950-analysis",
+          "locator": "Metadata and report synopsis",
+          "supports": "Public synopsis identifies the Plus variant and notes that interconnect was analysed."
+        }
+      ]
+    }
+  ]
+}
