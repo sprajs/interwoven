@@ -10,12 +10,33 @@
       "role": "host"
     }
   ],
-  "places": [
-    {
-      "place": "bell-labs-murray-hill"
-    }
-  ],
   "events": [
+    {
+      "id": "line-imaging-trade-report-1971",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 7
+        },
+        "latest": {
+          "year": 1971,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1971-07",
+        "basis": "Issue date of Popular Electronics."
+      },
+      "statement": "Popular Electronics described Bell Labs’ operating 96-element CCD scanner and the use of mechanical motion to scan documents.",
+      "evidence": [
+        {
+          "source": "d2-sensor-garner-1971-bell-line-imager",
+          "locator": "pp. 79–80 and Figure 1",
+          "supports": "The contemporary account describes operation of the prototype, its 96 sensing elements and the optical scan setup."
+        }
+      ]
+    },
     {
       "id": "line-imaging-report-1971",
       "type": "publication",
@@ -34,9 +55,6 @@
         "basis": "Issue date of IEEE Transactions on Electron Devices 18(11)."
       },
       "statement": "Tompsett and colleagues published results from a 96-element CCD that reproduced printed type and a grayscale image by line scanning.",
-      "places": [
-        "bell-labs-murray-hill"
-      ],
       "caveats": "The tests used a linear sensor and mechanical scanning. The paper sketches an area imager as a possible further design.",
       "evidence": [
         {
@@ -53,8 +71,8 @@
     }
   ],
   "earliest_record": {
-    "event": "line-imaging-report-1971",
-    "rationale": "Dated publication documents working optical line imaging in this configuration."
+    "event": "line-imaging-trade-report-1971",
+    "rationale": "The July account documents the 96-element scanner before the researchers’ detailed November paper."
   },
   "links": [
     {
@@ -89,7 +107,6 @@
     "basis": {
       "domain": "sourced",
       "organizations": "sourced",
-      "places": "sourced",
       "events": "sourced",
       "links": "sourced"
     }

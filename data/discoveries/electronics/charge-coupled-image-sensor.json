@@ -1,6 +1,6 @@
 {
   "id": "charge-coupled-image-sensor",
-  "name": "Fairchild CCD101 linear image sensor",
+  "name": "Fairchild 500-element linear CCD",
   "summary": "Fairchild demonstrated a 500-element linear CCD design by May 1972 and offered the CCD101 for prototyping in May 1973.",
   "description": "Fairchild’s 500-element linear sensor captures light in a row of photosensitive elements, then shifts the charge through two shielded registers for sequential readout. Its buried channel reduces loss of charge to traps at the silicon–oxide interface.",
   "kind": "technology",
@@ -93,12 +93,12 @@
         "basis": "Date of the contemporary Electronics report."
       },
       "statement": "Electronics reported and illustrated a working 500-element buried-channel linear sensor built at Fairchild’s Palo Alto research center.",
-      "scope": "Precommercial 500-element design with two shielded readout registers.",
+      "scope": "Precommercial design that Fairchild planned to market as its first commercial 500-element CCD.",
       "places": [
         "california"
       ],
       "place_note": "Fairchild research center, Palo Alto.",
-      "caveats": "The report documents the predecessor design. It does not use the CCD101 model designation or trace the prototype specimen to a commercial unit.",
+      "caveats": "The 1972 prototype was reported without a model name. The prototype-to-product sequence is traced through Fairchild’s reported launch plan. The original prototype’s physical identity and any design revisions remain unresolved.",
       "evidence": [
         {
           "source": "d2-sensor-electronics-1972-fairchild-500-element-prototype",
@@ -111,9 +111,14 @@
           "supports": "Explicitly identifies the May 1972 array as a 500-element development test bed."
         },
         {
+          "source": "d2-sensor-electronics-1973-fairchild-launch-plan",
+          "locator": "p. 25, Fairchild to launch CCD image sensor in April",
+          "supports": "The announced commercial 500-element buried-channel array is explicitly cross-referenced to the February account of the 1972 development test bed."
+        },
+        {
           "source": "semiconductor-1973-ccd101-linear-image",
           "locator": "pp. 43–45, sensor diagram and product offering",
-          "supports": "The later CCD101 was sold as a buried-channel linear sensor with the same 500-element, two-register organization."
+          "supports": "The CCD101 was advertised as a buried-channel linear sensor with the same 500-element, two-register organization."
         }
       ]
     },
@@ -160,7 +165,7 @@
   ],
   "earliest_record": {
     "event": "linear-prototype-report-1972",
-    "rationale": "A dated report establishes the 500-element development design. The first retained named commercial offer is separately dated May 1973."
+    "rationale": "A dated report establishes the 500-element development prototype. A reported launch plan connects that work to the later commercial design, named CCD101 in the May 1973 offer."
   },
   "community_entry": {
     "event": "commercial-availability-1973",
@@ -234,7 +239,7 @@
           "supports": "The Fairchild director recalls the Bell Labs discussion and visit before establishing the Fairchild program and recruiting Amelio."
         },
         {
-          "source": "d2-sensor-smith-2000-ccd-oral-history",
+          "source": "d2-sensor-smith-2001-ccd-oral-history",
           "locator": "Manufacturing and picture phone market; Bell stops CCD research",
           "supports": "Smith corroborates Amelio’s involvement in the early Bell experiment, move to Fairchild and role in its CCD effort."
         },
