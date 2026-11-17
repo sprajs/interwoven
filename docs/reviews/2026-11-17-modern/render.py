@@ -275,7 +275,21 @@ def main() -> None:
     data = Dataset.load()
     lanes = read_lanes(args.lanes_dir)
     changed = changed_discoveries(args.base, args.changes) & data.discoveries.keys()
-    seeds = find_seeds(lanes, data, changed, args.lane_record)
+    # The review files identify wave-owned discoveries even when a second investigation
+    # pushed to main between the baseline and publication.
+    review_dir = args.lanes_dir.parent / "reviews"
+    record_assignments = list(args.lane_record)
+    if review_dir.is_dir() and not args.changes:
+        reviewed_ids = set()
+        for lane in lanes:
+            review = read_json(review_dir / (lane["lane"] + ".json"))
+            for path in review["files"]:
+                if path.startswith("data/discoveries/"):
+                    record_id = Path(path).stem
+                    reviewed_ids.add(record_id)
+                    record_assignments.append(f'{lane["lane"]}={record_id}')
+        changed = reviewed_ids
+    seeds = find_seeds(lanes, data, changed, record_assignments)
     nodes, edges = graph(data, seeds, args.repo_url.rstrip("/"))
     payload = {
         "lanes": lanes,
