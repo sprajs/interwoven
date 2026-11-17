@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "lane": "gesher",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "5cc66c38e1bf4b179d18d6ccd7849af7c72c5259",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent reviewer execution",
+    "independence": "Separate from proposing gpt-6.2-sol high execution; both are model-based readings."
+  },
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/energy/gesher-recurrent-fire-use.json",
+      "sha256": "74ad1a3aacca88130a11aa58fe0a366b6bde1b726d32e35adc7801380aa0fd28"
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json",
+      "sha256": "f60cfbb658c4e2bac5b7dbc8bb447c1e9e2b42562001d196bea0f9fd06e882c0"
+    },
+    {
+      "path": "data/sources/a/alperson-afil-2008-gesher-fire-levels.json",
+      "sha256": "8aa7b0fb7be51bdbd9dca0388618a67e441f4d8aa57c3e3a8b3ac222db325207"
+    },
+    {
+      "path": "data/sources/a/alperson-afil-2017-gesher-level-two-thermoluminescence.json",
+      "sha256": "ae9f685c70db446d0dd17a807544d7cc88403e51a3cfa8edd8c7a42cc89862b5"
+    },
+    {
+      "path": "data/sources/z/zohar-2022-gesher-fish-cooking.json",
+      "sha256": "3d83f874b8709ee63e9437783b553a57d7c0e567f5abdf01cad5216b3867e574"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/gesher.md",
+      "sha256": "b983a624ef038580958aaf921625258ec1453f23f95fb1c38ae0c8a4ef383555"
+    },
+    {
+      "path": "evidence/a/alperson-afil-2008-gesher-fire-levels.txt",
+      "sha256": "1493eec2b8eaaea8da5a3364a8d88a3dc3b419d1c5962017b93afd03f9fe091d"
+    },
+    {
+      "path": "evidence/z/zohar-2022-gesher-fish-cooking-notes.txt",
+      "sha256": "d13367d9d264b66e0027d094f3b48cd429a42a549dcd334b61cb541766d7c8de"
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "alperson-afil-2008-gesher-fire-levels",
+      "url": "https://www.academia.edu/12695463/Alperson_Afil_2008_QuaternaryScienceReview",
+      "locator": "pp. 1735–1738 Table 1 and sections 3–5",
+      "availability": "author-copy transcription independently read",
+      "independence": "Same excavation and partly same burnt-flint evidence as 2022 study.",
+      "saved_excerpt_sha256": "1493eec2b8eaaea8da5a3364a8d88a3dc3b419d1c5962017b93afd03f9fe091d"
+    },
+    {
+      "id": "alperson-afil-2017-gesher-level-two-thermoluminescence",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188091",
+      "locator": "Abstract, methods, Results, Table 3, Fig. 4",
+      "availability": "publisher full text read",
+      "independence": "New TL measurements on same flint horizon; shared authors; not independent fire-to-fish corroboration."
+    },
+    {
+      "id": "plos-2018-correction",
+      "url": "https://doi.org/10.1371/journal.pone.0190804",
+      "locator": "Correction and replacement Fig. 4",
+      "availability": "publisher correction read",
+      "independence": "Correction of same 2017 article, not a separate study."
+    },
+    {
+      "id": "zohar-2022-gesher-fish-cooking",
+      "url": "https://www.nature.com/articles/s41559-022-01910-z",
+      "alternate_url": "https://www.researchgate.net/publication/365369121_Evidence_for_the_cooking_of_fish_780000_years_ago_at_Gesher_Benot_Ya%27aqov_Israel",
+      "locator": "abstract, Results, Figs. 1, 4–5, Discussion",
+      "availability": "publisher preview and author-distributed full-article transcription read",
+      "independence": "Publisher and ResearchGate texts are the same study; shared flint excavation data and authors with 2008/2017.",
+      "saved_notes_sha256": "d13367d9d264b66e0027d094f3b48cd429a42a549dcd334b61cb541766d7c8de"
+    },
+    {
+      "id": "zohar-2022-supplement",
+      "url": "https://static-content.springer.com/esm/art:10.1038%2Fs41559-022-01910-z/MediaObjects/41559_2022_1910_MOESM1_ESM.pdf",
+      "locator": "Supplementary Texts D–E and Figs. 1–2",
+      "availability": "publisher PDF accessed by stream and text extracted",
+      "sha256": "9022ee54b0e9e7969ef6641e61981cef70a0d1b33b71228ad16a3035a3729e14",
+      "independence": "Supplement to same fish study."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/energy/gesher-recurrent-fire-use.json#/events/0/statement",
+      "decision": "accept",
+      "extends": "gesher-recurrent-fire-use:fire-traces",
+      "source_ids": [
+        "alperson-afil-2008-gesher-fire-levels",
+        "alperson-afil-2017-gesher-level-two-thermoluminescence"
+      ],
+      "locators": [
+        "2008 Table 1 and sections 3–4",
+        "2017 abstract, Results, Table 3; corrected Fig. 4"
+      ],
+      "rationale": "The 2008 analysis identifies dense burnt-flint clusters in each of eight Layer II-6 horizons and interprets recurrent anthropogenic fire; 2017 reports stronger heating near the centre in a small Level 2 transect. The latter is a trend in sampled flints, not proof that every fire or horizon had that profile."
+    },
+    {
+      "path": "data/discoveries/energy/gesher-recurrent-fire-use.json#/events/0/caveats",
+      "decision": "accept",
+      "source_ids": [
+        "alperson-afil-2008-gesher-fire-levels",
+        "alperson-afil-2017-gesher-level-two-thermoluminescence"
+      ],
+      "locators": [
+        "2008 sections 3–5",
+        "2017 methods and results"
+      ],
+      "rationale": "Hearths are reconstructed from spatially clustered burnt flint; the sample is Level 2 only, and repeated fire use does not establish the method of acquisition or ignition."
+    },
+    {
+      "path": "data/discoveries/energy/gesher-recurrent-fire-use.json#/events/0/evidence",
+      "decision": "changes_requested",
+      "source_ids": [
+        "alperson-afil-2017-gesher-level-two-thermoluminescence"
+      ],
+      "locators": [
+        "2017 Table 3 and Fig. 4",
+        "2018 correction DOI 10.1371/journal.pone.0190804"
+      ],
+      "rationale": "The publisher reports the original Fig. 4 was incorrect and supplies a replacement. Identify the corrected figure in the locator and source metadata. Table 3 and abstract support the qualitative statement independently of the figure correction."
+    },
+    {
+      "path": "data/discoveries/energy/gesher-recurrent-fire-use.json#/research",
+      "decision": "accept",
+      "source_ids": [
+        "alperson-afil-2008-gesher-fire-levels",
+        "alperson-afil-2017-gesher-level-two-thermoluminescence"
+      ],
+      "locators": [
+        "2008 Table 1 and section 3",
+        "2017 results"
+      ],
+      "rationale": "Changed event basis is downgraded to sourced; note accurately identifies evidence scope without claiming this independent review already happened."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/description",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "abstract, Results and Discussion"
+      ],
+      "rationale": "The original study reports freshwater fish teeth, compares selected teeth to experimental heating and infers cooking from convergent evidence and association with burnt flint. Both heating and cooking are appropriately qualified."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/events/0/statement",
+      "decision": "accept",
+      "extends": "gesher-fish-cooking-inference:documented-evidence",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "abstract; Results, fish remains and XRD; Fig. 5; Supplementary Text E, Fig. 1"
+      ],
+      "rationale": "Eight Area B levels include L4b; teeth predominate and mapped remains overlap flint clusters. The diffraction comparison supports moderate heating for some specimens; cooking is the authors’ inference, not a directly observed act. The tested tooth sample is not a sample of every horizon."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/events/0/evidence",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "abstract and Results; Figs. 1, 4, 5; Supplementary Texts D–E"
+      ],
+      "rationale": "Referenced source discusses contrasting assemblages, XRD comparison and density maps; the abstract reports the approximate site age. Source copy and supplement belong to the same study, not independent corroboration."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/events/0/caveats",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "Discussion"
+      ],
+      "rationale": "Intentional cooking remains an inference; the authors state that no cooking apparatus was preserved and their earth-oven proposal is hypothetical."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/caveats",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "abstract and Discussion"
+      ],
+      "rationale": "The approximate age refers to the site and the technique is unresolved."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/research",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "abstract, Results, Discussion, Supplementary Text E"
+      ],
+      "rationale": "Changed event basis is sourced and link explicitly remains a question. Previous reviewed facets are unchanged."
+    },
+    {
+      "path": "data/discoveries/food/gesher-fish-cooking-inference.json#/links/0",
+      "decision": "accept",
+      "source_ids": [
+        "alperson-afil-2008-gesher-fire-levels",
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "2008 Table 1 and section 3",
+        "2022 Fig. 5, Discussion and Supplementary Text E"
+      ],
+      "relation": "uses_process",
+      "direction": "fish cooking event asks whether it used fire represented by fire-traces",
+      "context": "Area B, Layer II-6 L1–L7 including L4b",
+      "status": "candidate",
+      "established_history": false,
+      "independent_corroboration": "Not established. These analyses share excavated burnt-flint data and authors; tooth analyses add observations but are not an independent confirmation of the process link.",
+      "rationale": "The shared horizon and spatial/thermal observations support asking the question. The article rejects disposal directly in a hot fire, but later incidental heating near fire remains an alternative. Supplement describes recording precision, assigned plotting positions, and within-fish hotspot analysis. The causal relation and deliberate cooking remain unresolved."
+    },
+    {
+      "path": "data/sources/a/alperson-afil-2008-gesher-fire-levels.json",
+      "decision": "accept",
+      "source_ids": [
+        "alperson-afil-2008-gesher-fire-levels"
+      ],
+      "locators": [
+        "author copy pp. 1735–1738"
+      ],
+      "rationale": "Title, author, date, quotation, table and interpretation correspond to the accessible published author copy; do not treat it as independent of the later study’s reused fire dataset."
+    },
+    {
+      "path": "data/sources/a/alperson-afil-2017-gesher-level-two-thermoluminescence.json",
+      "decision": "changes_requested",
+      "source_ids": [
+        "alperson-afil-2017-gesher-level-two-thermoluminescence"
+      ],
+      "locators": [
+        "2017 Table 3 and Fig. 4",
+        "2018 correction DOI 10.1371/journal.pone.0190804"
+      ],
+      "rationale": "Publisher provides a corrected Fig. 4. Add correction URL and explicitly identify the corrected figure in version or passage; interpret the table and corrected illustration together."
+    },
+    {
+      "path": "data/sources/z/zohar-2022-gesher-fish-cooking.json",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "publisher abstract and figures; full-text Results and Discussion; Supplementary Texts D–E"
+      ],
+      "rationale": "Bibliographic metadata, named correction, quoted caveat and research passages match available originals; publisher and ResearchGate copies and supplement are one study. Experimental classes overlap and selected tooth heating is inferential."
+    },
+    {
+      "path": "evidence/a/alperson-afil-2008-gesher-fire-levels.txt",
+      "decision": "accept",
+      "source_ids": [
+        "alperson-afil-2008-gesher-fire-levels"
+      ],
+      "locators": [
+        "2008 Table 1 and sections 3–5"
+      ],
+      "rationale": "Short quotation and notes describe original counts, spatial distributions and inferred hearths; actual ability to make fire is not established by recurrent use."
+    },
+    {
+      "path": "evidence/z/zohar-2022-gesher-fish-cooking-notes.txt",
+      "decision": "accept",
+      "source_ids": [
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "2022 Discussion and Supplementary Texts D–E"
+      ],
+      "rationale": "Text and supplement support notes, qualifications and brief quotation; downloaded supplement stream hash matches retained hash."
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/gesher.md",
+      "decision": "changes_requested",
+      "source_ids": [
+        "alperson-afil-2017-gesher-level-two-thermoluminescence",
+        "zohar-2022-gesher-fish-cooking"
+      ],
+      "locators": [
+        "2017 Results and Table 3; 2018 correction",
+        "2022 Discussion and Supplementary Text E"
+      ],
+      "rationale": "Main evidence and shared-data caution are supported; add the 2018 PLOS figure correction to provenance where 2017 Fig. 4 is cited. Independent context sources were not independently assessed as they do not establish the proposed relationship; leave their role as contextual."
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Searched all discovery files and leads for Gesher and Benot Ya’aqov and inspected both exact endpoints and base diff.",
+    "result": "Both records already exist with corresponding archaeological-evidence events; proposal refines those events rather than adding a duplicate. Fire-use and fish-cooking inference are distinct scopes. No new event or discovery is proposed."
+  },
+  "issues": [
+    "2017 PLOS figure 4 was replaced by a 2018 publisher correction; source metadata, event locator and lane note must identify corrected figure before integration."
+  ],
+  "unknowns": [
+    "Fire acquisition and ignition, mechanism and timing of fish heating, cooking apparatus and technique remain unresolved.",
+    "No independent direct corroboration of the causal fire-to-fish relation was established.",
+    "The independent contextual studies cited in the lane note were not read here and are not needed to accept the candidate question."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass",
+    "output": "902 discoveries, 1496 events, 238 links, 1624 sources; No problems found."
+  },
+  "history": []
+}
