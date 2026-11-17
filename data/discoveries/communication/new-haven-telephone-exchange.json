@@ -50,9 +50,9 @@
     "united-states"
   ],
   "known_from": [
+    "contemporary_text",
     "later_text"
   ],
-  "reception": "immediate",
   "fate": "superseded",
   "end_reason": [
     "better_substitute"
@@ -161,6 +161,38 @@
           "supports": "Reports a night operator’s monthly salary and hours."
         }
       ]
+    },
+    {
+      "id": "subscriber-sheet-1878",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1878,
+          "month": 2,
+          "day": 21
+        },
+        "latest": {
+          "year": 1878,
+          "month": 2,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "21 February 1878",
+        "basis": "The date is printed on the New Haven District Telephone Company broadside."
+      },
+      "statement": "The New Haven District Telephone Company listed subscribers by name and gave the opening hours of its 219 Chapel Street office.",
+      "places": [
+        "new-haven"
+      ],
+      "caveats": "The listing includes organizations and names repeated for different premises. It gives no connection or billing status for individual listings. The prospect of all-night opening after 1 March is announced in the footer.",
+      "evidence": [
+        {
+          "source": "new-haven-district-telephone-1878-subscriber-sheet",
+          "locator": "Single sheet, heading, both listing columns and office-hours footer",
+          "supports": "The dated broadside identifies the publisher and office, enumerates listed names or locations and gives hours of 6 a.m. to 2 a.m."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -177,7 +209,7 @@
   },
   "caveats": "Accounts differ on the first service date and subscriber count: NPS reports 21 subscribers with the 28 January start, while De Land reports approximately 30 for initial service on 21 January and a 28 January formal opening. The record establishes availability by 28 January, not an undisputed first day or headcount.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "reviewed",
       "domain": "sourced",
@@ -193,15 +225,14 @@
       "organizations": "sourced",
       "societies": "sourced",
       "known_from": "sourced",
-      "reception": "recalled",
       "fate": "recalled",
       "market": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "recalled",
-      "measures": "reviewed",
+      "measures": "sourced",
       "impact": "recalled"
     },
-    "note": "Proposed distinct configuration and community entry; requires independent review. Independent reader checked the two early opening accounts and both source-scoped price and pay measures. The differing launch counts remain unresolved; affordability is not established.",
+    "note": "Proposed distinct configuration and community entry; requires independent review. Independent reader checked the two early opening accounts and both source-scoped price and pay measures. The differing launch counts remain unresolved; affordability is not established. The 21 February broadside adds source-scoped listing counts and stated hours.",
     "unresolved": [
       {
         "about": "opening subscriber count",
@@ -216,6 +247,38 @@
             "source": "de-land-1907-notes-development-telephone",
             "locator": "Section VI, first service and formal opening",
             "supports": "Reports about 30 subscribers at first service on 21 January and formal opening on 28 January."
+          }
+        ]
+      },
+      {
+        "about": "call routing and logged use at a February listing",
+        "note": "A local newspaper independently reports a telephone notification to the police office in March 1880. The office appears on the February 1878 company sheet. The 1880 report leaves the sender's premises, provider and switchboard route unstated.",
+        "evidence": [
+          {
+            "source": "new-haven-district-telephone-1878-subscriber-sheet",
+            "locator": "Single sheet, Miscellaneous, Police Office",
+            "supports": "A police office listing appears on the 1878 company sheet."
+          },
+          {
+            "source": "new-haven-journal-and-courier-1880-mcgrail-telephone",
+            "locator": "23 March 1880, p. 1, Owen McGrail’s Body Found",
+            "supports": "Reports telephone notification to the police office during the recovery of McGrail’s body."
+          }
+        ]
+      },
+      {
+        "about": "pace of early adoption",
+        "note": "The launch reports give different counts and dates. The February broadside counts listed names or locations. A like-for-like series of dated paying accounts or active connections would be needed to measure early adoption.",
+        "evidence": [
+          {
+            "source": "new-haven-district-telephone-1878-subscriber-sheet",
+            "locator": "Both listing columns",
+            "supports": "The dated publication supplies a listing count only."
+          },
+          {
+            "source": "de-land-1907-notes-development-telephone",
+            "locator": "Section VI, initial service and February to April listings",
+            "supports": "The retrospective distinguishes the approximate initial service count from successive printed lists, whose units it describes as stations or subscribers."
           }
         ]
       }
@@ -258,6 +321,40 @@
       "currency": "USD",
       "money_context": "Nominal 1878 pay reported retrospectively.",
       "conditions": "Specific night-operator role; shift reported as 5 p.m. to 8 a.m.; not a general wage or disposable-income estimate."
+    },
+    {
+      "quantity": "printed directory entries",
+      "value": 50,
+      "unit": "printed listings",
+      "event": "subscriber-sheet-1878",
+      "subject": "February subscriber sheet",
+      "status": "derived",
+      "method": "Count the 11 residence, 3 physician, 2 dentist, 8 miscellaneous, 20 store and factory, 4 market, and 2 stable rows. Include separate location rows printed with ditto marks.",
+      "conditions": "M. F. Tyler appears twice and New Haven Flour Co. occupies four rows. The tally gives the number of printed listings. Unique people, paying accounts, connected stations, lines and completed calls are unmeasured.",
+      "evidence": [
+        {
+          "source": "new-haven-district-telephone-1878-subscriber-sheet",
+          "locator": "Single sheet, all seven listing headings and their rows",
+          "supports": "Visual row tally of the complete sheet."
+        }
+      ]
+    },
+    {
+      "quantity": "directory entries under Residences",
+      "value": 11,
+      "unit": "printed listings",
+      "event": "subscriber-sheet-1878",
+      "subject": "February subscriber sheet",
+      "status": "derived",
+      "method": "Count each row after Residences up to the Physicians heading.",
+      "conditions": "The directory supplies names in this section. Household identity, occupancy, line status and an eligible household denominator are unknown.",
+      "evidence": [
+        {
+          "source": "new-haven-district-telephone-1878-subscriber-sheet",
+          "locator": "Single sheet, left column, Residences heading",
+          "supports": "Eleven printed entries appear under Residences."
+        }
+      ]
     }
   ]
 }
