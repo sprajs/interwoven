@@ -1,8 +1,8 @@
 {
   "id": "hook-and-line-and-open-sea-fishing-in-timor-and-alor",
-  "name": "Hook-and-line and open-sea fishing in Timor and Alor",
-  "summary": "People at Jerimalai in Timor-Leste caught open-sea fish about 42,000 years ago, and a shell fishhook there lay in deposits 23,000 to 16,000 years old.",
-  "description": "Fish remains from Jerimalai shelter (now also called Asitau Kuru) at the eastern tip of Timor include pelagic species such as tuna and date to 42,000 years before the present; the excavators argue that catching them needed planning and complex maritime technology, though how the earliest fish were caught is not established. A single-piece shell fishhook from the same shelter comes from a deposit dated between about 23,000 and 16,000 calibrated years ago, and five shell hooks buried with a woman at Tron Bon Lei on Alor Island include one directly dated to about 11,300–11,100 calibrated years ago. A hook of 23,000–20,000 calibrated years ago from Okinawa is described by the same excavators as the oldest known.",
+  "name": "Pleistocene marine fishing and shell hooks in Timor and Alor",
+  "summary": "Jerimalai's earliest marine fish remains date to about 42,000 years ago. Shell fishhooks occur much later in dated deposits on Timor and in a burial on Alor.",
+  "description": "At Jerimalai shelter, also called Asitau Kuru, deposits from about 42,000 years ago contain marine fish, including bones assigned to Scombridae, the tuna and mackerel family. The excavators interpreted some fish as caught offshore. Anderson's comparison with regional fish habitats supports a possible inshore catch. A later Jerimalai shell fishhook fragment comes from a deposit dated to about 23,000–16,000 cal BP. One shell hook from a burial at Tron Bon Lei on Alor has a direct date of 11,310–11,075 cal BP.",
   "kind": "technology",
   "domain": "food.fishing",
   "tier": 2,
@@ -10,7 +10,7 @@
     "reach": 1,
     "depth": 2,
     "generativity": 0,
-    "note": "Hook-and-line and offshore fishing was a new capability for island communities in Wallacea; reach stays regional and generativity is 0 because no source read shows later fishing elsewhere descending from it."
+    "note": "Marine fishing and later shell fishhooks are documented at different dates in Wallacea. Their exact relation is unresolved."
   },
   "grain": "capability",
   "advance": [
@@ -46,17 +46,23 @@
         "label": "c. 42,000 years ago (c. 40,050 BCE)",
         "basis": "As the cited source gives it."
       },
-      "statement": "Remains of pelagic and other fish from Jerimalai shelter in East Timor date to 42,000 years before the present (about 40,050 BCE).",
+      "statement": "Jerimalai shelter in East Timor preserves fish remains, including scombrids, in its earliest dated occupation deposits.",
       "places": [
         "jerimalai-shelter"
       ],
       "evidence": [
         {
           "source": "oconnor-2011-pelagic-fishing-years",
-          "supports": "remains of a variety of pelagic and other fish species dating to 42,000 years before the present from Jerimalai shelter in East Timor",
-          "locator": "Abstract"
+          "locator": "pp. 1117–1120, table 3",
+          "supports": "Reports the marine assemblage in Square B. The initial phase includes Scombridae identified at the family level."
+        },
+        {
+          "source": "anderson-2013-jerimalai-inshore-debate",
+          "locator": "pp. 879–883 and O’Connor and Ono's reply",
+          "supports": "Compares the local range of neritic and oceanic taxa. The presence of scombrids leaves capture zone and equipment unresolved."
         }
-      ]
+      ],
+      "caveats": "In the 2011 analysis, Scombridae is a family-level identification. The bones do not by themselves identify where the fish were caught or whether people used boats or hooks."
     },
     {
       "id": "archaeological-evidence-14050bce",
@@ -82,6 +88,11 @@
           "source": "oconnor-2017-fishing-life-death",
           "supports": "Another shell hook from Jerimalai Shelter in Timor-Leste is of a comparable age to the Okinawa find, in a deposit context dated to between c. 23000 and 16000 cal BP",
           "locator": "Introduction"
+        },
+        {
+          "source": "oconnor-2011-pelagic-fishing-years",
+          "locator": "p. 1120, fig. 3 (Square A, spit 29)",
+          "supports": "Illustrates a broken shell fishhook and reports the stratigraphic age bracket of about 23–16 ka. The bracket dates associated sediment context."
         }
       ]
     },
@@ -118,7 +129,7 @@
     "rationale": "The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists."
   },
   "research": {
-    "status": "sourced",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -133,10 +144,6 @@
       "known_from": "sourced"
     },
     "unresolved": [
-      {
-        "about": "open question",
-        "note": "The 2011 Science paper was read only as an abstract; the Jerimalai hook's context and dates are taken from the excavators' 2017 summary of it and should be checked in the original."
-      },
       {
         "about": "open question",
         "note": "Whether the fish caught 42,000 years ago were taken with hooks, nets or lures is not settled by the abstract."
