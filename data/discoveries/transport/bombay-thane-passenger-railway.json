@@ -82,11 +82,73 @@
         }
       ],
       "caveats": "The announcement is evidence of an offer, not actual transactions or proof of service on that day."
+    },
+    {
+      "id": "recorded-public-opening-1853",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1853,
+          "month": 4,
+          "day": 18
+        },
+        "latest": {
+          "year": 1853,
+          "month": 4,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1853-04-18",
+        "basis": "Date of the opening for traffic as recorded in Danvers’s section table. The company’s first revenue period starts the same day. A contemporary press summary gives 17 April."
+      },
+      "statement": "The Government Director’s report records 18 April as the date the Bombay–Tannah section opened for traffic.",
+      "evidence": [
+        {
+          "source": "danvers-1860-indian-railways-through-1859",
+          "locator": "Printed p. 13, §41 (scan page 15)",
+          "supports": "The Government Director’s section-opening table dates Bombay to Tannah to 18 April 1853 in a row grouped with the Mahim branch and lists Tannah to Callian separately on 1 May 1854."
+        },
+        {
+          "source": "gipr-1858-receipts-working-expenses",
+          "locator": "Appendix No. 1, printed p. 292 (scan page 318), statement signed 15 June 1858",
+          "supports": "The signed company revenue account begins its first period on 18 April 1853 and closes it on 30 June 1854, recording receipts, working expenses and net profits paid to the East India Company against interest advanced."
+        },
+        {
+          "source": "economist-1853-gipr-eighth-report",
+          "locator": "5 November 1853, vol. 11, no. 532, printed p. 1260 (scan page 24), Great Indian Peninsula",
+          "supports": "The contemporary newspaper summary of the company directors’ eighth half-yearly report gives 17 April for opening Bombay to Tannah and reports two trains running daily thereafter. The directors’ original report was not inspected."
+        },
+        {
+          "source": "times-india-2013-rail-advert-wave11",
+          "locator": "Archives and 8 April 1853 notice",
+          "supports": "The reproduced advertisement set Monday 18 April as the planned start of daily passenger service."
+        }
+      ],
+      "caveats": "The 8 April advertisement proposed daily passenger service from 18 April. The November 1853 press summary gives 17 April and reports daily trains thereafter. Company receipts cover a period that includes the Callian extension. The date of the first ordinary passenger train or ticket remains unresolved.",
+      "contributions": [
+        {
+          "group": "Great Indian Peninsula Railway Company",
+          "role": "operator",
+          "evidence": [
+            {
+              "source": "danvers-1860-indian-railways-through-1859",
+              "locator": "Printed p. 13, §41 (scan page 15)",
+              "supports": "The official opening table identifies the Bombay to Tannah section under the Great Indian Peninsula Railway."
+            },
+            {
+              "source": "gipr-1858-receipts-working-expenses",
+              "locator": "Appendix No. 1, printed p. 292 (scan page 318), statement signed 15 June 1858",
+              "supports": "The signed company revenue account begins its first period on 18 April 1853 and closes it on 30 June 1854, recording receipts, working expenses and net profits paid to the East India Company against interest advanced."
+            }
+          ]
+        }
+      ]
     }
   ],
   "earliest_record": {
     "event": "public-timetable-offer-1853",
-    "rationale": "The 8 April prospective offer is the earliest dated public documentation here; it does not establish actual passenger service before the 16 April inaugural trip."
+    "rationale": "The 8 April advertisement is the earliest dated public documentation here and gives the terms offered. The invitation run on 16 April and the reported opening for traffic on 18 April have separate events."
   },
   "research": {
     "status": "draft",
@@ -95,12 +157,12 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "measures": "reviewed",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Source-backed admission; independent review pending. Independent reader checked cited dated events and measures against accessible sources; retrospective scope and inferences are retained.",
+    "note": "Independent review checked the previously recorded offer, inaugural event and measures. The reported traffic opening and operator contribution await review of the revised wording.",
     "unresolved": [
       {
         "about": "transmission",

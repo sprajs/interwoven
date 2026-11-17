@@ -1,7 +1,7 @@
 {
   "id": "north-river-steamboat-passenger-service",
   "name": "North River steamboat passenger service",
-  "description": "A steam-powered Hudson River passenger service advertised fares from Paule’s Hook toward Albany.",
+  "description": "The North River Steamboat carried passengers between New York and Albany on the Hudson. Robert Fulton identified its engine as the one Boulton & Watt made for him in 1804.",
   "kind": "technology",
   "domain": "transport.watercraft",
   "tier": 1,
@@ -42,12 +42,50 @@
       "statement": "A September advertisement offered a scheduled North River steamboat passage to Albany for seven dollars.",
       "evidence": [
         {
+          "source": "american-citizen-1807-north-river-advertisement",
+          "locator": "2 September 1807, The North River Steam Boat advertisement, New York State Library BOX 409",
+          "supports": "The printed advertisement offers an Albany passage from Paulas Hook ferry on Friday, 4 September, and lists a fare of seven dollars for Albany."
+        },
+        {
           "source": "picture-1846-hudson-steamboats-wave8",
           "locator": "pp. 104–105, extracts dated September and October 1807",
           "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
         }
       ],
-      "caveats": "The fare is an offer reproduced in a later guide, not an observed payment."
+      "caveats": "The seven dollars was an advertised fare. The notice gives the planned itinerary. A separately documented passenger account records the actual passage."
+    },
+    {
+      "id": "first-packet-passage-1807",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1807,
+          "month": 9,
+          "day": 4
+        },
+        "latest": {
+          "year": 1807,
+          "month": 9,
+          "day": 5
+        },
+        "precision": "range",
+        "status": "known",
+        "label": "4–5 September 1807",
+        "basis": "The passenger statement describes Friday departure and is dated at Albany on 5 September. Wilson’s account identifies the Friday as 4 September."
+      },
+      "statement": "The North River Steamboat carried passengers from New York to Albany on its first packet passage. Passengers signed an account of the completed voyage.",
+      "scope": "First advertised packet passage from New York to Albany",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "munsell-1855-north-river-passengers",
+          "locator": "Vol. VI, pp. 23 and 25, Wilson’s account and passenger statement dated 5 September 1807",
+          "supports": "Passenger John Q. Wilson places the opening packet on Friday, 4 September. His account reprints the signed passenger statement, dated at Albany on 5 September, which records a Friday departure from New York and arrival at Albany."
+        }
+      ],
+      "caveats": "The 1807 statement survives here in an 1855 reprint. The account documents travel and arrival. It gives no fare collected from a named passenger."
     },
     {
       "id": "passengers-1807",
@@ -77,6 +115,44 @@
         }
       ],
       "caveats": "The source reports departure, not confirmed arrival or the fare paid by each passenger."
+    },
+    {
+      "id": "fulton-accounts-for-engine-1810",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1810,
+          "month": 9,
+          "day": 15
+        },
+        "latest": {
+          "year": 1810,
+          "month": 9,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "15 September 1810",
+        "basis": "Date of Fulton’s letter to Boulton & Watt."
+      },
+      "statement": "In a letter to Boulton & Watt, Robert Fulton identified their 1804 engine as powering his New York–Albany passenger boat. He described it by its 24-inch cylinder and four-foot stroke.",
+      "places": [
+        "united-states"
+      ],
+      "scope": "Fulton’s retrospective identification of the engine used in the Hudson passenger service",
+      "evidence": [
+        {
+          "source": "dickinson-1913-fulton-north-river-documents",
+          "locator": "pp. 230–231, Fulton to Boulton & Watt, 15 September 1810 (MS 3147/3/496, item 15)",
+          "supports": "Fulton identifies the engine made for him in 1804, with a 24-inch cylinder and four-foot stroke, as powering a boat carrying passengers between New York and Albany. He separately orders another engine."
+        },
+        {
+          "source": "dickinson-1913-fulton-north-river-documents",
+          "locator": "pp. 177–178, Boulton & Watt account of 17 January and letter of 21 February 1805",
+          "supports": "The account names Robert Fulton and specifies engine materials for a 24-inch cylinder and four-foot stroke. Boulton & Watt’s letter says the goods were forwarded for delivery to his London address."
+        }
+      ],
+      "caveats": "The date is that of the letter. The manufacturer’s engine code and the transatlantic freight entry remain unverified."
     }
   ],
   "earliest_record": {
@@ -90,21 +166,26 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed",
-      "measures": "reviewed",
+      "events": "sourced",
+      "measures": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Source-backed admission; independent review pending.",
+    "note": "The passenger account, newspaper facsimile and engine correspondence are proposed additions for independent review.",
     "unresolved": [
       {
-        "about": "transmission",
-        "note": "The reproduced historical note identifies a Boulton and Watt engine but does not identify it with a particular represented Soho engine.",
+        "about": "Manufacturer’s engine code and overseas delivery",
+        "note": "The maker’s account and Fulton’s service letter match by customer, engine dimensions and order history. The order-book folio, engine code, transatlantic shipping record and installation handover remain unverified. The records support supply to the Hudson service. Any identity with another named Soho installation in the catalogue remains unverified.",
         "evidence": [
           {
-            "source": "picture-1846-hudson-steamboats-wave8",
-            "locator": "pp. 104–105, extracts dated September and October 1807",
-            "supports": "The guide reproduces a September 1807 advertisement for the North River steamboat listing a seven-dollar Paule’s Hook–Albany fare, and an October 2 report of a departure with ninety passengers; these are reported offer and passenger counts."
+            "source": "dickinson-1913-fulton-north-river-documents",
+            "locator": "pp. 177–178, Boulton & Watt account of 17 January and letter of 21 February 1805",
+            "supports": "The account names Robert Fulton and specifies engine materials for a 24-inch cylinder and four-foot stroke. Boulton & Watt’s letter says the goods were forwarded for delivery to his London address."
+          },
+          {
+            "source": "dickinson-1913-fulton-north-river-documents",
+            "locator": "pp. 230–231, Fulton to Boulton & Watt, 15 September 1810 (MS 3147/3/496, item 15)",
+            "supports": "Fulton identifies the engine made for him in 1804, with a 24-inch cylinder and four-foot stroke, as powering a boat carrying passengers between New York and Albany. He separately orders another engine."
           }
         ]
       }
@@ -120,6 +201,11 @@
       "conditions": "September 1807 nominal fare; not adjusted for inflation and no ticket sale asserted.",
       "status": "claimed",
       "evidence": [
+        {
+          "source": "american-citizen-1807-north-river-advertisement",
+          "locator": "2 September 1807, The North River Steam Boat advertisement, New York State Library BOX 409",
+          "supports": "The printed advertisement offers an Albany passage from Paulas Hook ferry on Friday, 4 September, and lists a fare of seven dollars for Albany."
+        },
         {
           "source": "picture-1846-hudson-steamboats-wave8",
           "locator": "pp. 104–105, extracts dated September and October 1807",

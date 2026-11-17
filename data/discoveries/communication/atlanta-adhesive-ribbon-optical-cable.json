@@ -1,0 +1,160 @@
+{
+  "id": "atlanta-adhesive-ribbon-optical-cable",
+  "name": "Atlanta stacked-ribbon optical cable",
+  "summary": "Bell Laboratories packaged optical fibers in stacked adhesive-backed ribbons for group handling and splicing in the Atlanta Fiber System Experiment.",
+  "description": "The cable stacked twelve ribbons of twelve Western Electric graded-index glass fibers inside a protective sheath. Each ribbon held its fibers in a line so workers could prepare and join multiple fibers together.",
+  "kind": "technology",
+  "grain": "improvement",
+  "domain": "communication.telecommunication",
+  "fields": [
+    "materials.glass"
+  ],
+  "tier": 1,
+  "tier_reason": "This record covers the particular Bell Laboratories Atlanta cable configuration demonstrated in 1976.",
+  "advance": [
+    "device_or_configuration",
+    "manufacturing_process"
+  ],
+  "setting": [
+    "firm"
+  ],
+  "places": [
+    {
+      "place": "united-states"
+    }
+  ],
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "maker"
+    }
+  ],
+  "societies": [
+    "united-states"
+  ],
+  "known_from": [
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "atlanta-cable-built-by-1976-test",
+      "type": "prototype",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1976,
+          "month": 1,
+          "day": 13
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 13 January 1976",
+        "basis": "The manufacture report identifies the cable installed for Atlanta. The complete test system transmitted across it by 13 January 1976."
+      },
+      "statement": "Bell Laboratories had made a twelve-ribbon optical cable for the Atlanta experiment by 13 January 1976.",
+      "places": [
+        "united-states"
+      ],
+      "scope": "The cable assembled for the Atlanta Fiber System Experiment. The exact fabrication date remains unknown.",
+      "evidence": [
+        {
+          "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
+          "locator": "Printed pp. 1745–1747 / PDF pp. 29–31, §§II–III and Figs. 1–2",
+          "supports": "The fabrication report describes the Atlanta experiment cable as a stack of twelve ribbons with twelve fibers per ribbon, selected to facilitate group splicing."
+        },
+        {
+          "source": "jacobs-1978-atlanta-fiber-system-overview",
+          "locator": "Printed p. 1717 / PDF p. 1, opening and experiment objectives",
+          "supports": "The experiment transmitted at 44.7 Mb/s over the complete system on 13 January 1976 under simulated plant conditions."
+        }
+      ],
+      "contributions": [
+        {
+          "organization": "bell-labs",
+          "role": "manufacturer",
+          "resource": "Atlanta adhesive-sandwich ribbon cable",
+          "evidence": [
+            {
+              "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
+              "locator": "Printed pp. 1745–1747 / PDF pp. 29–31, §§II–III and Figs. 1–2",
+              "supports": "The fabrication report describes the Atlanta experiment cable as a stack of twelve ribbons with twelve fibers per ribbon, selected to facilitate group splicing."
+            }
+          ]
+        },
+        {
+          "group": "Western Electric",
+          "role": "supplier",
+          "resource": "Graded-index optical glass fibers",
+          "evidence": [
+            {
+              "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
+              "locator": "Printed pp. 1745–1747 / PDF pp. 29–31, §§II–III and Figs. 1–2",
+              "supports": "Section II specifies Western Electric’s supplied fibers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atlanta-1976-wired-test",
+      "type": "experimental_confirmation",
+      "date": {
+        "earliest": {
+          "year": 1976,
+          "month": 1,
+          "day": 13
+        },
+        "latest": {
+          "year": 1976,
+          "month": 1,
+          "day": 13
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "13 January 1976",
+        "basis": "The experiment’s overview dates the full-system transmission test to this day."
+      },
+      "statement": "The Atlanta Fiber System Experiment sent 44.7 Mb/s test signals over a complete optical system fitted with the stacked-ribbon cable.",
+      "places": [
+        "united-states"
+      ],
+      "place_note": "Joint Bell Laboratories and Western Electric facility in the Atlanta area, Georgia.",
+      "scope": "Simulated telephone plant around the Atlanta research and manufacturing facility.",
+      "caveats": "The field-like ducts belonged to an experimental facility. The twelve nominal fibers per ribbon give 144 positions, and manufacturing breaks reduced the number of transmitting fibers.",
+      "evidence": [
+        {
+          "source": "jacobs-1978-atlanta-fiber-system-overview",
+          "locator": "Printed p. 1717 / PDF p. 1, opening and experiment objectives",
+          "supports": "The experiment transmitted at 44.7 Mb/s over the complete system on 13 January 1976 under simulated plant conditions."
+        },
+        {
+          "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
+          "locator": "Printed pp. 1745–1747 / PDF pp. 29–31, §§II–III and Figs. 1–2",
+          "supports": "The fabrication report describes the Atlanta experiment cable as a stack of twelve ribbons with twelve fibers per ribbon, selected to facilitate group splicing."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "atlanta-cable-built-by-1976-test",
+    "rationale": "The manufactured configuration is documented by the complete system test. Fig. 5 of the later Chicago report labels the loss series Atlanta Experiment – 1975 without specifying the fabrication date."
+  },
+  "caveats": "The record concerns the specific adhesive-sandwich stack adopted for Atlanta. The engineers cite earlier ribbon concepts and earlier work on group splicing.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "summary": "sourced",
+      "grain": "sourced",
+      "domain": "sourced",
+      "tier": "sourced",
+      "advance": "sourced",
+      "setting": "sourced",
+      "places": "sourced",
+      "organizations": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "sourced"
+    },
+    "note": "Buckler, Santana and Saunders identify the cable and manufacturing practice. Jacobs dates the complete system test that bounds manufacture. The scope-based tier is an editorial classification."
+  }
+}
