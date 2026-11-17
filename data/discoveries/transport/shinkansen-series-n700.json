@@ -1,0 +1,144 @@
+{
+  "id": "shinkansen-series-n700",
+  "name": "Series N700 Shinkansen",
+  "description": "The N700 developed the Series 700 high-speed train design. Air-spring body tilt addressed speed through existing Tōkaidō curves, while improved streamlining and more regenerative braking helped reduce energy use.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "japan"
+    }
+  ],
+  "events": [
+    {
+      "id": "public-description-2005",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2005
+        },
+        "latest": {
+          "year": 2005
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2005",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "Hitachi engineers described the Series N700 pre-production design and its body tilting system.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "wajima-2005-shinkansen-n700-systems",
+          "locator": "pp. 163–164, Series N700 and Figure 4",
+          "supports": "Publication describes the train and its tilt system before commercial service."
+        }
+      ]
+    },
+    {
+      "id": "service-2007",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2007,
+          "month": 7,
+          "day": 1
+        },
+        "latest": {
+          "year": 2007,
+          "month": 7,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1 July 2007",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "The Series N700 entered commercial service. JR Central introduced it to Nozomi.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "usui-ueno-tori-series-n700-development",
+          "locator": "Sections 1 and 3",
+          "supports": "Gives the day on which passenger operations commenced."
+        },
+        {
+          "source": "jr-central-company-history-rail-fleet",
+          "locator": "July 2007 entry",
+          "supports": "Identifies Nozomi service."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "public-description-2005",
+    "rationale": "Earliest dated milestone retained here for this design or deployment."
+  },
+  "community_entry": {
+    "event": "service-2007",
+    "community": "JR Central",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The Series N700 entered commercial service. JR Central introduced it to Nozomi."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "shinkansen-series-700",
+      "status": "established",
+      "statement": "The Series 700 supplied the design basis. The N700 extended semi-active vibration control from selected Series 700 cars to every car.",
+      "evidence": [
+        {
+          "source": "jr-central-2015-guide-tokaido-rolling-stock",
+          "locator": "pp. 8–9, Series N700 and N700A",
+          "supports": "The operator explicitly identifies Series 700 as the design basis."
+        },
+        {
+          "source": "wajima-2005-shinkansen-n700-systems",
+          "locator": "p. 164, Riding Comfort Considerations",
+          "supports": "Hitachi describes extension of the earlier vibration-control arrangement."
+        }
+      ]
+    },
+    {
+      "type": "requires",
+      "from": "tokaido-shinkansen-2006-train-control",
+      "status": "established",
+      "statement": "On the Tōkaidō Shinkansen, the N700 body tilting system relied on precise location information from the new automatic train control system.",
+      "scope": "Applies to the N700 tilt implementation on the Tōkaidō line.",
+      "evidence": [
+        {
+          "source": "usui-ueno-tori-series-n700-development",
+          "locator": "Figure 2 and §2.1",
+          "supports": "The designers identify the position data from new ATC that the tilt system uses."
+        },
+        {
+          "source": "wajima-2005-shinkansen-n700-systems",
+          "locator": "pp. 163–164, Figure 4",
+          "supports": "Hitachi independently describes how train-control information feeds the tilt system."
+        },
+        {
+          "source": "ueno-2009-tokaido-shinkansen-new-atc",
+          "locator": "Abstract",
+          "supports": "Identifies the March 2006 deployment of new ATC on the Tōkaidō line."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "note": "Proposal for independent admission review."
+  }
+}
