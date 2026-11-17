@@ -1,0 +1,106 @@
+{
+  "lane": "tofu",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "proposal": "eaedeeaa3581fd511030edc431e20a01436ec54d",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/fujitsu-sparc64-viiifx.json": "12581bfffed8d4299c992a1a6b67122fc135586e9d406033ebf0452ef2dab274",
+    "data/discoveries/electronics/fujitsu-tofu-interconnect-2.json": "c1e3bc12f6936ad87e55bac8279533576507ad6fdf4af6da54f5cad41c8297b2",
+    "data/discoveries/electronics/fujitsu-tofu-interconnect.json": "8dbc806dd224ef4edcbc2e5eed9877c7b9528ead62728dae75ec44f75868d855",
+    "data/discoveries/electronics/riken-fujitsu-k-computer.json": "4fecedb7754fb45d6bf776c7b520b5b8649e4ec6d173331238abeb6595d5bba8",
+    "data/discoveries/electronics/sparc-v9-instruction-set.json": "8b60ebcd2f35741e0d366561572b55b3bcf6241a746eed6c84d4c7c836e2f553",
+    "data/sources/d/d2-tofu-ajima-2009.json": "8fbf87358c77969949f8ddb5cf3d14e8a9d28bb5e9d90a308ae8e89b49316068",
+    "data/sources/d/d2-tofu-ajima-2012.json": "f3b484bcd674602364cabf61ec3f8bb13d8eb01f86e25a9e4f55c00df1e5654e",
+    "data/sources/d/d2-tofu-fujitsu-2009-debut.json": "2b3dd08a4712d256a6780ea6f9f05e56b067d0f6f695d8572e32b3f95f551aaa",
+    "data/sources/d/d2-tofu-ishikawa-k-port.json": "47dd40a08dbf9b4b429c4df99ef55f0412a3e1079d8e58aed2c2a4b6b675cd5e",
+    "data/sources/d/d2-tofu-jaxa-jss2.json": "77413ffae7a990ba179cff787aec83f6c44d1081e0525df725a321d6e2a463f6",
+    "data/sources/d/d2-tofu-jps1-commonality.json": "a63250f1d2fb594d8b3484abded2cbe4047d90570e97ec5bbc8d983f99a22b6b",
+    "data/sources/d/d2-tofu-maruyama-2009.json": "6d24252762c5ddb0121b9ead6c3b5533c780af52c1f3c29e6f7acc9eb541861e",
+    "data/sources/d/d2-tofu-oakleaf-fx10.json": "e48b5c8d00178af65dbea0b615cef8966b2bbb24e3a584bbeca9ee747783a5c5",
+    "data/sources/d/d2-tofu-riken-2015-mpi.json": "66bf3ff538fc650795794e52f84fd4f6395f2c28fd925624d252e8ee3272bd18",
+    "data/sources/d/d2-tofu-sparc-v9-errata.json": "409f51cfa233e8e9232f7f0ae9f50a14c9f69a0c6164b712fedcfff7b4de52e0",
+    "data/sources/d/d2-tofu-sparc-v9-manual.json": "4c433aa91a909098eacee19772a07a87239671fb9f11f5f2b95ce9e2389e3afc",
+    "data/sources/d/d2-tofu-takaki-sora-ma.json": "a02ad11999b2d40eefcab523406a3b2fab18091d763023001e005338d4e39711",
+    "data/sources/d/d2-tofu-ueno-2017-k-bfs.json": "e24a2f9417550e08d620970fd7ab9900945bd305e45ffcc7199601817a21b08a",
+    "docs/reviews/2026-11-17-digital/lanes/tofu.json": "eb4e5fc2d26a4ff10524b889b26d0b2f9040c9a49312e2110cf8954a27f9625b"
+  },
+  "claims": [
+    {
+      "subject": "fujitsu-tofu-interconnect identity, topology, rank mapping, places, grain",
+      "decision": "accept",
+      "reason": "Ajima et al., Tofu: Interconnect for the K computer (2012), pp. 280–282, §§1–3.4, describes the controller, six-dimensional topology, and 3D rank mapping; University of Tokyo Oakleaf notice p. 1 independently identifies deployed 6D Tofu and Kashiwa."
+    },
+    {
+      "subject": "original Tofu 2009 publication event",
+      "decision": "accept",
+      "reason": "Ajima, Sumimoto and Shimizu, Computer 42(11), November 2009, abstract states six-dimensional topology and three-phase routing. Only the abstract was accessible; no broader article claims are admitted."
+    },
+    {
+      "subject": "original Tofu K 2011 deployment and Oakleaf 2012 adoption events",
+      "decision": "accept",
+      "reason": "TOP500 K system entry and 06/2011 row document benchmarked Tofu system. University of Tokyo 2 April 2012 operator notice, p. 1, dates Oakleaf operation and specifies 4,800 compute nodes connected by 6D Tofu."
+    },
+    {
+      "subject": "fujitsu-tofu-interconnect-2 JAXA April 2015 adoption and Japan place extension",
+      "decision": "accept",
+      "reason": "JAXA Japanese operator chronology, JSS2 overview, 第2期, explicitly dates the start of operation of part of SORA-MA to April 2015; Takaki, SORA-MA evaluation, p. 53, §2, identifies deployed FX100 and Tofu2. This is distinct from existing June NIFS event."
+    },
+    {
+      "subject": "Tofu2 adapts original Tofu",
+      "decision": "accept",
+      "reason": "Ajima Hot Interconnects 2014 slides 1, 4 and 7 explicitly compare generations, controller integration and six axes; the Tokyo FX10 operator notice p. 1 and JAXA operator Takaki p. 53 independently describe each operational generation, while Takaki explicitly states FX100 inherits K and FX10 system architecture. The accepted relation is limited to topology and integration; application measurements do not isolate network inheritance."
+    },
+    {
+      "subject": "Tofu2 candidate from K",
+      "decision": "accept",
+      "reason": "Narrowed question preserves unresolved routing, hardware barrier and rank-mapping internals; neither Takaki p. 53 nor RIKEN FY2015 §1.3.1 proves exact implementation inheritance. Its status remains candidate."
+    },
+    {
+      "subject": "K requires original Tofu",
+      "decision": "accept",
+      "reason": "Ajima 2012 pp. 280–282 describes K interconnect; TOP500 K entry and June 2011 row identify configuration; Ueno et al. 2017 §§5.1–5.2, 6.2 evaluate topology-aware work on operating K. Scope is the actual built configuration, not a universal statement about all possible supercomputers."
+    },
+    {
+      "subject": "K requires VIIIfx",
+      "decision": "accept",
+      "reason": "TOP500 K system and June 2011 row identify SPARC64 VIIIfx; Ishikawa and Kanamori, Porting DDalphaAMG solver to K computer, §§3–4, describe measured SIMD use by independent users on K. Scope is the built K configuration."
+    },
+    {
+      "subject": "fujitsu-sparc64-viiifx identity, description, aliases, grain, event May 2009",
+      "decision": "accept",
+      "reason": "PC Watch first-hand report dated 14 May 2009 records VIIIfx/Venus package publicly displayed at Fujitsu Forum in Tokyo. Bounded date avoids claiming event start; Maruyama, Hot Chips 2009 slides 4–7 and 13, describes HPC-ACE extensions and eight-core processor."
+    },
+    {
+      "subject": "VIIIfx Hot Chips presentation event",
+      "decision": "accept",
+      "reason": "Maruyama dated original author slides 25 August 2009, slides 1, 3–7, 12–17 and 20, specify the processor and include hardware-measured results."
+    },
+    {
+      "subject": "sparc-v9 identity, compatibility, publication event",
+      "decision": "accept",
+      "reason": "SPARC International Architecture Manual Version 9, preface and §§1, 1.2.1, 3, documents 64-bit architecture and qualified user ABI compatibility; its errata identifies the first 1994 printing. Inspected manual mirror is a later revision and is identified as such."
+    },
+    {
+      "subject": "VIIIfx adapts SPARC V9",
+      "decision": "accept",
+      "reason": "SPARC V9 manual and Fujitsu/Sun JPS1 Commonality §1 and §3.1 document specification relationship; Maruyama Hot Chips 2009 slides 4–7 and 13 identify SPARC-V9/JPS plus HPC-ACE, including SIMD and extended registers. This is an instruction-architecture relationship, not proof of reused processor hardware."
+    },
+    {
+      "subject": "lane report and new source metadata",
+      "decision": "accept",
+      "reason": "Report records exact scope, independent experimental use, source limitations and unresolved AP1000/AP3000 and lower-level interconnect lineage. Reviewed source locators match claims; 2009 Tofu full paper remains abstract-only and performance comparisons retain their stated system and software conditions."
+    }
+  ],
+  "corrections": [
+    "JAXA English chronology merely said added in April; revised to Japanese operator original explicitly stating start of operation.",
+    "Replaced dead Fujitsu source URLs with working original conference, operator, joint-specification and coauthor-hosted copies; bounded VIIIfx exhibition to a 14 May eyewitness report.",
+    "Corrected source locators and avoided overreading 3D rank mapping."
+  ],
+  "deferred": [
+    "No AP1000 or AP3000 to Tofu inheritance admitted: shared torus topology, vendor and personnel do not prove transmission. IPSJ Computer Museum AP1000 and AP3000 entries and Tridgell ANU thesis appendix B.1 establish historical comparators.",
+    "Specific Tofu2 routing, hardware barrier and rank-mapping internals and VIIIfx microarchitectural reuse remain candidate research.",
+    "Full 2009 Tofu article unavailable; only its author abstract and journal metadata support the bounded 2009 event."
+  ]
+}

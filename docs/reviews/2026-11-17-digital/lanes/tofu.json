@@ -1,0 +1,182 @@
+{
+  "lane": "tofu",
+  "title": "Original Tofu, Tofu2 and the K computer’s processor",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "questions": [
+    {
+      "child": "fujitsu-tofu-interconnect-2",
+      "parent": "riken-fujitsu-k-computer",
+      "initial_status": "candidate",
+      "decision": "narrowed",
+      "reason": "The K deployment identifies the original Tofu. The established scope moves to the design-to-design edge, with the original candidate retained for implementation-level routing, hardware-barrier and rank-mapping details.",
+      "sources": [
+        "https://old.hoti.org/hoti22/slides/Tofu2.pdf",
+        "https://www.researchgate.net/publication/265227674_Tofu_Interconnect_for_the_K_computer",
+        "https://jaxa.repo.nii.ac.jp/record/3632/files/AA1630005007.pdf",
+        "https://aics.riken.jp/en/wp-content/uploads/sites/2/2017/06/aics_annualreport_fy2015.pdf"
+      ]
+    },
+    {
+      "child": "fujitsu-tofu-interconnect-2",
+      "parent": "fujitsu-tofu-interconnect",
+      "initial_status": "unrecorded",
+      "decision": "established",
+      "reason": "The designers explicitly identify succession and retain the six-dimensional topology. The independent FX10 and FX100 operators verify the deployed generations, and JAXA explicitly describes FX100 architecture inheritance from K and FX10. The supported claim names the mesh/torus and the move to integration.",
+      "sources": [
+        "https://old.hoti.org/hoti22/slides/Tofu2.pdf",
+        "https://www.cc.u-tokyo.ac.jp/supercomputer/fx10/ITC-2012APR02-E.pdf",
+        "https://jaxa.repo.nii.ac.jp/record/3632/files/AA1630005007.pdf"
+      ]
+    },
+    {
+      "child": "riken-fujitsu-k-computer",
+      "parent": "fujitsu-tofu-interconnect",
+      "initial_status": "unrecorded",
+      "decision": "established",
+      "reason": "Designer documentation, benchmark configuration and topology-dependent application experiments identify the concrete K interconnect.",
+      "sources": [
+        "https://www.researchgate.net/publication/265227674_Tofu_Interconnect_for_the_K_computer",
+        "https://link.springer.com/article/10.1007/s41019-016-0024-y",
+        "https://www.top500.org/system/177232/"
+      ]
+    },
+    {
+      "child": "riken-fujitsu-k-computer",
+      "parent": "fujitsu-sparc64-viiifx",
+      "initial_status": "unrecorded",
+      "decision": "established",
+      "reason": "The contemporary system listing identifies the processor. An independent Hiroshima University solver port implements and benchmarks VIIIfx SIMD use on K.",
+      "sources": [
+        "https://www.top500.org/system/177232/",
+        "https://old.hotchips.org/wp-content/uploads/hc_archives/hc21/3_tues/HC21.25.500.ComputingAccelerators-Epub/HC21.25.51A.Maruyama-Fujitsu-Octo-Core-VIIIfx.pdf",
+        "https://arxiv.org/pdf/1811.00355"
+      ]
+    },
+    {
+      "child": "fujitsu-sparc64-viiifx",
+      "parent": "sparc-v9-instruction-set",
+      "initial_status": "unrecorded",
+      "decision": "established",
+      "reason": "Maruyama names SPARC V9 and JPS as the implemented architecture. The V9 standard and the jointly issued JPS1 spell out the base architecture and direct derivation. The Hot Chips slides explain the register and SIMD extensions.",
+      "sources": [
+        "https://www.cs.utexas.edu/~novak/sparcv9.pdf",
+        "https://www.ece.lsu.edu/ee4720/doc/JPS1-R1.0.4-Common-pub.pdf",
+        "https://old.hotchips.org/wp-content/uploads/hc_archives/hc21/3_tues/HC21.25.500.ComputingAccelerators-Epub/HC21.25.51A.Maruyama-Fujitsu-Octo-Core-VIIIfx.pdf"
+      ]
+    },
+    {
+      "child": "fujitsu-tofu-interconnect-2",
+      "parent": "fujitsu-tofu-interconnect-2",
+      "initial_status": "unrecorded",
+      "decision": "extension",
+      "reason": "The first JAXA SORA-MA configuration used Tofu2 in April 2015, a distinct deployment from the existing June 2015 NIFS event.",
+      "sources": [
+        "https://www.jss.jaxa.jp/jss2portaltop/",
+        "https://jaxa.repo.nii.ac.jp/record/3632/files/AA1630005007.pdf"
+      ]
+    }
+  ],
+  "findings": [
+    "Original Tofu has a November 2009 design publication, a June 2011 operating K benchmark and a 2 April 2012 Oakleaf-FX adoption event. The K machine and the deployed interconnect have separate referents.",
+    "RIKEN’s system software team tested 1,000 shared MPI lock and unlock calls using Tofu2 atomic RDMA on FX100 against generic Open MPI on FX10. Its FY2015 report, §1.3.1 and Figure 1.1, verifies the new capability in use and compares different hardware and software together.",
+    "Takaki’s UPACS-Lite tests on FX1, FX10 and FX100, §3.2 and Figure 5, are cross-machine application measurements. The six-dimensional topology and on-chip controller are stated separately in the operator’s hardware description on p. 53.",
+    "VIIIfx added HPC-ACE above the V9/JPS1 baseline. Independent Hiroshima University users implemented and measured a solver port using VIIIfx SIMD on K, arXiv:1811.00355v2 §3."
+  ],
+  "records": [
+    "fujitsu-tofu-interconnect",
+    "fujitsu-tofu-interconnect-2",
+    "riken-fujitsu-k-computer",
+    "fujitsu-sparc64-viiifx",
+    "sparc-v9-instruction-set"
+  ],
+  "frontier": [
+    "Tofu to Tofu2 exact implementation inheritance. Compare Ajima et al., HOTI 2011, DOI 10.1109/HOTI.2011.21, and ISC 2014, DOI 10.1007/978-3-319-07518-1_35, against an operator's low-level routing or topology and barrier measurements across both generations.",
+    "Pre-Tofu network history. AP1000 and AP3000 are concrete Fujitsu comparators. The IPSJ Computer Museum AP1000 and AP3000 entries and Andrew Tridgell's ANU thesis appendix B.1 document predecessor machines and torus operation. Look for an original design cross-reference, IP record or implementation comparison that ties a specified AP-series contribution to Tofu.",
+    "VIIIfx hardware lineage. Compare Maruyama’s Hot Chips 2009 slides 14–16 with SPARC64 VII implementation documents and JAXA FX1 studies for independently corroborated block-level reuse. The V9-to-VIIIfx link describes instruction-set continuity only."
+  ],
+  "sources": [
+    {
+      "title": "Tofu: A 6D Mesh/Torus Interconnect for Exascale Computers",
+      "url": "https://www.researchgate.net/publication/220477439_Tofu_A_6D_MeshTorus_Interconnect_for_Exascale_Computers",
+      "locator": "Journal metadata and article abstract"
+    },
+    {
+      "title": "Tofu: Interconnect for the K computer",
+      "url": "https://www.researchgate.net/publication/265227674_Tofu_Interconnect_for_the_K_computer",
+      "locator": "Pp. 280–282, §§1–3.4 and Figures 1–3"
+    },
+    {
+      "title": "FX10 Supercomputer System (Oakleaf-FX) with 1.13 PFLOPS started operation at the University of Tokyo",
+      "url": "https://www.cc.u-tokyo.ac.jp/supercomputer/fx10/ITC-2012APR02-E.pdf",
+      "locator": "P. 1, opening paragraphs and system diagram"
+    },
+    {
+      "title": "Efficient Breadth-First Search on Massively Parallel and Distributed-Memory Machines",
+      "url": "https://link.springer.com/article/10.1007/s41019-016-0024-y",
+      "locator": "§§5.1–5.2 and §6.2, topology-aware mapping and results on K"
+    },
+    {
+      "title": "Performance Evaluation of the JAXA’s New Supercomputer System: SORA-MA",
+      "url": "https://jaxa.repo.nii.ac.jp/record/3632/files/AA1630005007.pdf",
+      "locator": "P. 53, §§1–2; pp. 55–57, §3.2 and Figure 5"
+    },
+    {
+      "title": "Overview of JSS2 (JSS2の概要)",
+      "url": "https://www.jss.jaxa.jp/jss2portaltop/",
+      "locator": "JSS2の概要, phase 2 (第2期) and phase 3 (第3期)"
+    },
+    {
+      "title": "RIKEN AICS Annual Report FY2015, Chapter 1: System Software Research Team",
+      "url": "https://aics.riken.jp/en/wp-content/uploads/sites/2/2017/06/aics_annualreport_fy2015.pdf",
+      "locator": "Pp. 3–4, §1.3.1 and Figure 1.1"
+    },
+    {
+      "title": "The SPARC Architecture Manual, Version 9",
+      "url": "https://www.cs.utexas.edu/~novak/sparcv9.pdf",
+      "locator": "Preface; pp. 1, 7 and 15, §§1, 1.2.1 and 3"
+    },
+    {
+      "title": "Errata for The SPARC Architecture Manual, Version 9",
+      "url": "https://sparc.org/errata-for-v9/",
+      "locator": "Opening paragraph"
+    },
+    {
+      "title": "Fujitsu exhibits its SPARC64 VIIIfx (PC Watch field report)",
+      "url": "https://pc.watch.impress.co.jp/docs/news/168533.html",
+      "locator": "Opening paragraphs, processor package photo and publication date"
+    },
+    {
+      "title": "SPARC64 VIIIfx: Fujitsu’s New Generation Octo Core Processor for PETA Scale Computing",
+      "url": "https://old.hotchips.org/wp-content/uploads/hc_archives/hc21/3_tues/HC21.25.500.ComputingAccelerators-Epub/HC21.25.51A.Maruyama-Fujitsu-Octo-Core-VIIIfx.pdf",
+      "locator": "Slides 1, 3–7, 12–17 and 20"
+    },
+    {
+      "title": "SPARC Joint Programming Specification 1: Commonality",
+      "url": "https://www.ece.lsu.edu/ee4720/doc/JPS1-R1.0.4-Common-pub.pdf",
+      "locator": "P. 1, Chapter 1, and p. 19, §3.1"
+    },
+    {
+      "title": "Porting DDalphaAMG solver to K computer",
+      "url": "https://arxiv.org/pdf/1811.00355",
+      "locator": "Abstract, §3 and §4"
+    },
+    {
+      "title": "The Tofu Interconnect 2",
+      "url": "https://old.hoti.org/hoti22/slides/Tofu2.pdf",
+      "locator": "Printed slides 1, 4–7 and 23"
+    },
+    {
+      "title": "K computer TOP500 listing",
+      "url": "https://www.top500.org/system/177232/",
+      "locator": "System header and 06/2011 row"
+    }
+  ],
+  "screen": "Compared canonical discovery names, IDs and events, source IDs and leads for K/Kei, Tofu/Torus Fusion, FX10/Oakleaf, FX100/SORA-MA and NIFS, SPARC, HPC-ACE and JPS1. The original Tofu appeared in K's description and Tofu2’s candidate, without a standalone design record. SORA-MA differs from the documented NIFS deployment. No matching VIIIfx, V9 or JPS1 node or lead was located.",
+  "limits": [
+    "The 2009 Tofu article was inspected at abstract level, with date checked in J-GLOBAL. The revised SPARC V9 manual is paired with first-printing metadata to avoid treating the available copy as the original date.",
+    "The architecture link is limited to the six-dimensional topology and controller change. Operator and client evidence does not establish inheritance of RTL, low-level protocols, barrier internals or an earlier torus design.",
+    "The source trail was sampled through 17 November 2026. Current operational status of historical operator installations was outside the lane."
+  ]
+}

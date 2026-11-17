@@ -1,0 +1,118 @@
+{
+  "id": "fujitsu-sparc64-viiifx",
+  "name": "Fujitsu SPARC64 VIIIfx with HPC-ACE",
+  "description": "Fujitsu built an eight-core processor for the K computer. Its HPC-ACE extensions to SPARC V9 added operations for parallel floating-point arithmetic and a larger register set for scientific workloads.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "fujitsu-forum-debut-2009",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2009,
+          "month": 5,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2009-05-14",
+        "basis": "The report from Fujitsu Forum is dated 14 May 2009 and documents the display."
+      },
+      "statement": "Fujitsu displayed the SPARC64 VIIIfx processor package, code-named Venus, at Fujitsu Forum in Tokyo.",
+      "evidence": [
+        {
+          "source": "d2-tofu-fujitsu-2009-debut",
+          "locator": "Opening paragraphs, processor package photo and publication date",
+          "supports": "The journalist reports and photographs the VIIIfx package on display."
+        }
+      ]
+    },
+    {
+      "id": "hot-chips-2009",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2009,
+          "month": 8,
+          "day": 25
+        },
+        "latest": {
+          "year": 2009,
+          "month": 8,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2009-08-25",
+        "basis": "The Hot Chips presentation is dated 25 August."
+      },
+      "statement": "Fujitsu presented the eight-core VIIIfx, its HPC-ACE instructions and hardware results from a working chip.",
+      "evidence": [
+        {
+          "source": "d2-tofu-maruyama-2009",
+          "locator": "Slides 1, 3–7, 12–17 and 20",
+          "supports": "Names the chip, describes HPC-ACE and presents results measured on hardware."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "fujitsu-forum-debut-2009",
+    "rationale": "A contemporary report documents the publicly exhibited VIIIfx package by 14 May 2009. The August conference presentation documents the implementation and hardware results."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "SPARC64 VII hardware reuse",
+        "note": "Maruyama identifies SPARC64 VII design reuse as a development target and contrasts the pipelines. Which microarchitectural blocks can be traced to VII with independently informative evidence?"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "sparc-v9-instruction-set",
+      "status": "established",
+      "statement": "The SPARC64 VIIIfx implements the SPARC V9 instruction architecture through JPS1 Commonality. Fujitsu’s HPC-ACE adds floating-point SIMD and extends the register set for scientific computing.",
+      "scope": "Instruction-set lineage, via JPS1, for the processor used in K.",
+      "evidence": [
+        {
+          "source": "d2-tofu-sparc-v9-manual",
+          "locator": "Preface; pp. 1, 7 and 15, §§1, 1.2.1 and 3",
+          "supports": "Specifies the base SPARC V9 instruction and register architecture."
+        },
+        {
+          "source": "d2-tofu-jps1-commonality",
+          "locator": "P. 1, Chapter 1, and p. 19, §3.1",
+          "supports": "The separately issued joint common specification directly derives from the SPARC V9 manual."
+        },
+        {
+          "source": "d2-tofu-maruyama-2009",
+          "locator": "Slides 4–7",
+          "supports": "The designer identifies V9 and JPS compliance and describes the HPC-ACE register and SIMD additions."
+        }
+      ],
+      "contribution": [
+        "implemented",
+        "supplied_theory_or_design_rule"
+      ],
+      "carrier": [
+        "publication"
+      ],
+      "from_event": "v9-manual-1994"
+    }
+  ],
+  "aliases": [
+    "Venus"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "sparc-v9-instruction-set",
+  "name": "SPARC Version 9 instruction set architecture",
+  "description": "The SPARC Architecture Committee defined a 64-bit version of SPARC, specifying instructions, registers, virtual addressing, traps and the memory model. It retained binary compatibility for nonprivileged applications conforming to the 32-bit SPARC V8 application binary interface.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "v9-manual-1994",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1994
+        },
+        "latest": {
+          "year": 1994
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1994",
+        "basis": "SPARC International's errata identifies the first printing as 1994."
+      },
+      "statement": "SPARC International published the Version 9 architecture manual for the 64-bit specification.",
+      "evidence": [
+        {
+          "source": "d2-tofu-sparc-v9-manual",
+          "locator": "Preface; pp. 1, 7 and 15, §§1, 1.2.1 and 3",
+          "supports": "Defines the architecture and the scope of backward compatibility."
+        },
+        {
+          "source": "d2-tofu-sparc-v9-errata",
+          "locator": "Opening paragraph",
+          "supports": "Identifies the 1994 first printing."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "v9-manual-1994",
+    "rationale": "The first printing provides a dated publication of the specification. Earlier proposal or release dates remain to be checked."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    }
+  }
+}
