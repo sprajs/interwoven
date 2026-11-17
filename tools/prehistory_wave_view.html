@@ -12,11 +12,11 @@
   <h2>Prehistory research wave</h2>
   <div class="viz-controls">
     <label class="form-label">Research lane<select data-lane class="form-select"><option value="">All lanes</option></select></label>
-    <label class="form-label">Research outcome<select data-outcome class="form-select">
-      <option value="">All outcomes</option>
-      <option value="established">Established</option>
-      <option value="candidate">Candidate</option>
-      <option value="deferred">Deferred</option>
+    <label class="form-label">Graph outcome<select data-outcome class="form-select">
+      <option value="">All graph outcomes</option>
+      <option value="established">Established link</option>
+      <option value="candidate">Candidate only</option>
+      <option value="open">Open</option>
     </select></label>
     <label class="form-label">Find a discovery<input data-search class="form-control" type="search" placeholder="Name or ID"></label>
   </div>
@@ -24,6 +24,7 @@
     <figcaption>Anchors with established dependence or transmission</figcaption>
     <div class="wave-bar">Before <div class="progress" data-bar="before" role="progressbar" aria-label="Linked before" aria-valuemin="0"><div class="progress-bar"></div></div><span data-total="before" class="tabular-nums"></span></div>
     <div class="wave-bar">After <div class="progress" data-bar="after" role="progressbar" aria-label="Linked after" aria-valuemin="0"><div class="progress-bar"></div></div><span data-total="after" class="tabular-nums"></span></div>
+    <div data-graph-summary class="text-small"></div>
   </figure>
   <label class="form-label" data-record-field><span aria-live="polite" data-match-count>Discovery</span><select data-record class="form-select"></select></label>
   <article data-detail aria-live="polite"></article>
@@ -41,6 +42,7 @@
     const byId = new Map(records.map(row => [row.id, row]));
     const title = value => value ? value[0].toUpperCase() + value.slice(1) : '';
     const label = value => value.replaceAll('_', ' ').replaceAll('-', ' ');
+    const graphLabels = { established: 'Established link', candidate: 'Candidate only', open: 'Open' };
     for (const [key, name] of Object.entries(lanes)) lane.add(new Option(name, key));
 
     function element(tag, value, className) {
@@ -73,13 +75,14 @@
       return line;
     }
 
-    function connection(mention) {
+    function connection(mention, anchorId = '') {
       const node = element('li');
       const start = names[mention.from] || mention.from;
       const end = names[mention.to] || mention.to;
       node.append(element('div', `${start} → ${end}`));
-      node.append(element('div', `${label(mention.type)} · ${layers[mention.type]} · ${label(mention.decision)}`, 'text-small'));
-      for (const edge of mention.edges) {
+      const basis = anchorId ? (mention.from === anchorId ? 'outgoing' : 'incoming') : label(mention.decision);
+      node.append(element('div', `${label(mention.type)} · ${layers[mention.type]} · ${basis}`, 'text-small'));
+      for (const edge of mention.edges ?? [mention]) {
         const scope = [edge.from_event, edge.to_event].filter(Boolean).join(' → ');
         const status = `${edge.before} → ${edge.after}`;
         node.append(element('div', scope ? `${status} · ${scope}` : status, 'text-small'));
@@ -102,18 +105,26 @@
       if (!row) return;
       const after = Object.entries(row.after).map(([kind, n]) => `${n} ${label(kind)}`).join(', ');
       const context = [row.id, row.date || 'Undated', label(row.region), label(row.domain)].filter(Boolean).join(' · ');
+      const insufficient = row.incident_causal_edges.filter(edge => edge.after === 'insufficient').length;
       detail.append(element('h3', row.name), element('div', context, 'text-small'),
-        element('div', `${title(row.outcome)} · ${after || 'No established dependence or transmission'}`, 'text-small'),
-        element('p', row.finding));
+        element('div', `Graph outcome · ${graphLabels[row.graph_status]}${after ? ` · ${after}` : ''}`));
+      if (insufficient) detail.append(element('div', `Insufficient assessments · ${insufficient}`, 'text-small'));
       if (row.frozen_date !== row.date) detail.append(element('div', `Frozen date · ${row.frozen_date || 'Undated'}`, 'text-small'));
+      detail.append(element('div', `Researcher’s assessment · ${title(row.outcome)}`),
+        element('div', 'May concern a dated find or an affinity relationship.', 'text-small'), element('p', row.finding));
       if (row.next) detail.append(element('div', 'Next evidence'), element('p', row.next));
       const citations = element('ul');
       for (const item of row.sources) citations.append(source(item));
       detail.append(disclosure(`Source passages (${row.sources.length})`, citations));
+      if (row.incident_causal_edges.length) {
+        const links = element('ul');
+        for (const edge of row.incident_causal_edges) links.append(connection(edge, row.id));
+        detail.append(disclosure(`Dependence and transmission (${row.incident_causal_edges.length})`, links));
+      }
       if (row.connections.length) {
         const links = element('ul');
         for (const mention of row.connections) links.append(connection(mention));
-        detail.append(disclosure(`Assessed relationships (${row.connections.length})`, links));
+        detail.append(disclosure(`Research ledger comparisons (${row.connections.length})`, links));
       }
       detail.append(disclosure(`Independent review · ${label(row.verdict)}`, element('p', row.rationale)));
     }
@@ -121,14 +132,15 @@
     function filter(selected = record.value) {
       const query = search.value.trim().toLowerCase();
       const matches = records.filter(row => (!lane.value || lane.value === row.lane)
-        && (!outcome.value || outcome.value === row.outcome)
+        && (!outcome.value || outcome.value === row.graph_status)
         && `${row.name} ${row.id}`.toLowerCase().includes(query));
       count.textContent = `${matches.length} of ${records.length} discoveries`;
       record.replaceChildren(...matches.map(row => new Option(row.name, row.id)));
       record.disabled = !matches.length;
       if (matches.some(row => row.id === selected)) record.value = selected;
       for (const period of ['before', 'after']) {
-        const n = matches.filter(row => Object.keys(row[period]).length > 0).length;
+        const status = period === 'before' ? 'graph_status_before' : 'graph_status';
+        const n = matches.filter(row => row[status] === 'established').length;
         const bar = root.querySelector(`[data-bar="${period}"]`);
         bar.setAttribute('aria-valuemax', Math.max(matches.length, 1));
         bar.setAttribute('aria-valuenow', n);
@@ -136,6 +148,9 @@
         bar.firstElementChild.style.width = `${matches.length ? 100 * n / matches.length : 0}%`;
         root.querySelector(`[data-total="${period}"]`).textContent = `${n} / ${matches.length}`;
       }
+      const outcomes = Object.entries(graphLabels).map(([status, label]) =>
+        `${matches.filter(row => row.graph_status === status).length} ${label.toLowerCase()}`);
+      root.querySelector('[data-graph-summary]').textContent = outcomes.join(' · ');
       show();
     }
 

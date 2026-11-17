@@ -22,6 +22,7 @@ EARLY_ERA = "before 3000 BCE"
 EDGE_FIELDS = ("from", "to", "type", "from_event", "to_event")
 DECISIONS = {"new-established", "existing-established", "new-candidate", "existing-candidate", "deferred"}
 CAUSAL_LAYERS = ("dependence", "transmission")
+GRAPH_OUTCOMES = ("established", "candidate", "open")
 LANE_NAMES = {"eastasia": "East Asia", "ferment": "Fermentation", "herds": "Herding"}
 
 
@@ -149,14 +150,29 @@ def edge_transition(key: tuple, old: dict, new: dict) -> dict:
             **{field: link[field] for field in ("statement", "scope", "caveats", "evidence") if field in link}}
 
 
-def connection_counts(edges: dict, layers: dict) -> dict[str, Counter]:
-    totals = defaultdict(Counter)
-    for (origin, receiver, kind, *_), edge in edges.items():
-        layer = layers[kind]
-        if layer in CAUSAL_LAYERS and edge["status"] == "established":
-            totals[receiver][f"incoming_{layer}"] += 1
-            totals[origin][f"outgoing_{layer}"] += 1
-    return totals
+def causal_incidence(edges: dict, layers: dict) -> dict[str, list[tuple]]:
+    incident = defaultdict(list)
+    for edge in sorted(edges):
+        origin, receiver, kind, *_ = edge
+        if layers[kind] in CAUSAL_LAYERS:
+            incident[origin].append(edge)
+            incident[receiver].append(edge)
+    return incident
+
+
+def graph_status(edges: list[tuple], graph: dict) -> str:
+    statuses = {graph[key]["status"] for key in edges}
+    return next((status for status in GRAPH_OUTCOMES[:2] if status in statuses), "open")
+
+
+def established_counts(anchor: str, edges: list[tuple], graph: dict, layers: dict) -> dict:
+    totals = Counter()
+    for key in edges:
+        origin, _, kind, *_ = key
+        if graph[key]["status"] == "established":
+            direction = "outgoing" if origin == anchor else "incoming"
+            totals[f"{direction}_{layers[kind]}"] += 1
+    return dict(totals)
 
 
 def typed_changes(old: dict, new: dict) -> list[dict]:
@@ -173,10 +189,16 @@ def typed_changes(old: dict, new: dict) -> list[dict]:
 
 
 def summary(records: list[dict]) -> dict:
-    return {"records": len(records), "outcomes": dict(Counter(r["outcome"] for r in records)),
-            "linked_before": sum(bool(r["before"]) for r in records),
-            "linked_after": sum(bool(r["after"]) for r in records),
-            "newly_reached": sum(not r["before"] and bool(r["after"]) for r in records)}
+    before = Counter(row["graph_status_before"] for row in records)
+    after = Counter(row["graph_status"] for row in records)
+    return {"records": len(records), "graph_outcomes_before": {status: before[status] for status in GRAPH_OUTCOMES},
+            "graph_outcomes": {status: after[status] for status in GRAPH_OUTCOMES},
+            "researcher_outcomes": dict(Counter(r["outcome"] for r in records)),
+            "with_insufficient": sum(any(edge["after"] == "insufficient" for edge in row["incident_causal_edges"])
+                                     for row in records),
+            "linked_before": before["established"], "linked_after": after["established"],
+            "newly_reached": sum(row["graph_status_before"] != "established" and row["graph_status"] == "established"
+                                 for row in records)}
 
 
 def current_date_label(record: dict) -> str:
@@ -249,7 +271,7 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
 
     old = graph(baseline)
     new = graph(wave_records)
-    old_counts, new_counts = connection_counts(old, layers), connection_counts(new, layers)
+    old_incident, new_incident = causal_incidence(old, layers), causal_incidence(new, layers)
     changed_keys = sorted(key for key in old.keys() | new.keys()
                           if connection_status(old.get(key)) != connection_status(new.get(key)))
     changed = [edge_transition(key, old, new) for key in changed_keys]
@@ -263,7 +285,8 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
             require(row["outcome"] in {"established", "candidate", "deferred"}
                     and isinstance(row["sources"], list) and bool(row["sources"]),
                     f"invalid outcome or missing citations for {key}")
-            require(frozen[key]["established_connectivity"] == "isolated" and not old_counts[key],
+            before_status = graph_status(old_incident[key], old)
+            require(frozen[key]["established_connectivity"] == "isolated" and before_status != "established",
                     f"{key} is not isolated in the frozen graph")
             connections, row_claimed = check_connections(row["connections"], old, new)
             claimed.update(row_claimed)
@@ -275,7 +298,10 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
                               "path": frozen[key]["record_path"], "region": frozen[key]["primary_region"],
                               "domain": frozen[key]["primary_domain"], "date": current_date_label(current_record),
                               "frozen_date": frozen[key]["earliest_record_date_label"],
-                              "before": dict(old_counts[key]), "after": dict(new_counts[key]),
+                              "graph_status_before": before_status, "graph_status": graph_status(new_incident[key], new),
+                              "before": established_counts(key, old_incident[key], old, layers),
+                              "after": established_counts(key, new_incident[key], new, layers),
+                              "incident_causal_edges": [edge_transition(edge, old, new) for edge in new_incident[key]],
                               "review": reviewed[key]})
         info.update(summary(lane_rows))
         rows.extend(lane_rows)
@@ -295,13 +321,14 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
         for event_id in sorted(previous.keys() - present.keys()):
             removed_events.append({"discovery": key, "event": previous[event_id]})
 
-    endpoints = {key for edge in (set(changed_keys) | claimed) for key in edge[:2]}
-    evidence_ids = {entry["source"] for row in rows for mention in row["connections"]
-                    for edge in mention["edges"] for entry in edge.get("evidence", [])}
+    relevant_edges = [*changed, *(edge for row in rows for edge in row["incident_causal_edges"]),
+                      *(edge for row in rows for mention in row["connections"] for edge in mention["edges"])]
+    endpoints = {key for edge in relevant_edges for key in (edge["from"], edge["to"])}
+    evidence_ids = {entry["source"] for edge in relevant_edges for entry in edge.get("evidence", [])}
     for source_id in sorted(evidence_ids - sources.keys()):
         path = f"data/sources/{source_id[0]}/{source_id}.json"
         sources[source_id] = json.loads(blob(base, path))
-    return {"schema_version": 1, "base_commit": base, "after_commit": after, "frozen_frontier": FRONTIER,
+    return {"schema_version": 2, "base_commit": base, "after_commit": after, "frozen_frontier": FRONTIER,
             "summary": summary(rows), "lanes": lanes, "records": rows, "new_discoveries": list(additions.values()),
             "removed_discoveries": list(removals.values()), "removed_events_on_existing_records": removed_events,
             "new_events_on_existing_records": new_events, "revised_events_on_existing_records": revised_events,
@@ -322,6 +349,7 @@ def quantity(number: int, noun: str) -> str:
 
 def markdown(result: dict) -> str:
     totals = result["summary"]
+    outcomes = totals["graph_outcomes"]
     established = new_status(result, "established")
     directed = [edge for edge in result["typed_direction_changes"]
                 if "established" in edge["after"] and "established" not in edge["before"]]
@@ -330,13 +358,14 @@ def markdown(result: dict) -> str:
     promoted = sum(edge["before"] == "candidate" for edge in established)
     lines = ["# Prehistory research wave", "",
              f"{totals['newly_reached']} of {totals['records']} previously isolated discoveries gained an established "
-             "dependence or transmission relationship. The reviewed wave added or promoted "
+             f"dependence or transmission relationship. After review, {outcomes['candidate']} had a candidate as their "
+             f"strongest relationship in those layers and {outcomes['open']} remained open. The wave added or promoted "
              f"{quantity(causal, 'distinct directed relationship')} in those layers and "
              f"{quantity(len(directed) - causal, 'relationship')} in other layers.", "",
              "[Evidence reader](view.html) · [Machine-readable results](results.json) · [Frozen frontier]"
              "(../2026-11-17-all-eras/frontier/research-frontier.csv) · [Roster](roster.json)", "",
-             "![Established dependence and transmission coverage by research lane](graph-coverage.svg)", "",
-             "## Outcomes", "",
+             "![Dependence and transmission outcomes by research lane](graph-coverage.svg)", "",
+             "## Graph outcomes", "",
              f"The graph gained {quantity(len(result['new_discoveries']), 'discovery record')} and removed "
              f"{quantity(len(result['removed_discoveries']), 'record')}. On existing records, the wave added "
              f"{quantity(len(result['new_events_on_existing_records']), 'event')}, revised "
@@ -346,14 +375,16 @@ def markdown(result: dict) -> str:
              f"The review promoted {quantity(promoted, 'scoped candidate')} to established status. "
              f"{len(new_status(result, 'candidate'))} relationships newly have candidate status, and "
              f"{len(result['retained_candidates'])} assessed candidates retained their status.", "",
-             "| Research lane | Records | Established outcome | Candidate outcome | Deferred outcome | Newly linked anchors |",
+             "| Research lane | Records | Established link | Candidate only | Open | With an insufficient assessment |",
              "| --- | ---: | ---: | ---: | ---: | ---: |"]
     for lane, stats in result["lanes"].items():
-        outcomes = [stats['outcomes'].get(key, 0) for key in ('established', 'candidate', 'deferred')]
-        lines.append(f"| [{stats['name']}](lanes/{lane}.json) | {stats['records']} | {outcomes[0]} | {outcomes[1]} | "
-                     f"{outcomes[2]} | {stats['newly_reached']} |")
-    lines.extend(["", "An outcome labels the strongest result in the lane ledger for that anchor. The final column counts "
-                   "anchors reached by an established dependence or transmission edge in either direction.", "",
+        established_count, candidate_count, open_count = (stats['graph_outcomes'][key] for key in GRAPH_OUTCOMES)
+        lines.append(f"| [{stats['name']}](lanes/{lane}.json) | {stats['records']} | {established_count} | {candidate_count} | "
+                     f"{open_count} | {stats['with_insufficient']} |")
+    lines.extend(["", "Each anchor counts once under its strongest dependence or transmission status in either direction. "
+                   "Open means there is no established or candidate edge in those layers. Insufficient assessments are listed "
+                   "separately and can overlap any outcome. The evidence reader also shows the researcher's original assessment, "
+                   "which may concern a dated find or an affinity relationship.", "",
                   "## Established relationship changes", ""])
     if established:
         lines.extend(["| Recorded direction | Type | Layer | Previous status |", "| --- | --- | --- | --- |"])
@@ -382,31 +413,45 @@ def markdown(result: dict) -> str:
 
 def coverage_svg(result: dict) -> str:
     lanes = result["lanes"]
-    height = 118 + 32 * len(lanes)
+    height = 140 + 32 * len(lanes)
     maximum = max(lane["records"] for lane in lanes.values())
     totals = result["summary"]
-    description = f"{totals['linked_before']} linked before the wave and {totals['linked_after']} after review."
+    before = totals["graph_outcomes_before"]
+    after = totals["graph_outcomes"]
+    labels = ("Established", "Candidate only", "Open")
+    colors = ("#25695f", "#a66324", "#dbded8")
+    before_text = " · ".join(f"{before[status]} {label.lower()}" for status, label in zip(GRAPH_OUTCOMES, labels))
+    after_text = " · ".join(f"{after[status]} {label.lower()}" for status, label in zip(GRAPH_OUTCOMES, labels))
+    description = f"Before review, {before_text}. After review, {after_text}."
     head = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 {height}" width="760" height="{height}" role="img">',
-            '<title>Established dependence and transmission coverage</title>', f'<desc>{description}</desc>',
+            '<title>Dependence and transmission outcomes</title>', f'<desc>{description}</desc>',
             '<rect width="100%" height="100%" fill="#f9f8f3"/>',
             '<g font-family="DejaVu Sans, sans-serif" font-size="16" fill="#25302e">',
-            '<text x="24" y="36" font-size="21" font-weight="600">Established dependence and transmission</text>',
-            f'<text x="24" y="61">{description}</text>',
-            '<text x="730" y="90" text-anchor="end" font-size="14">Linked anchors / reviewed anchors</text>']
+            '<text x="24" y="36" font-size="21" font-weight="600">Dependence and transmission outcomes</text>',
+            f'<text x="24" y="62">Before review · {before_text}</text>',
+            f'<text x="24" y="86">After review · {after_text}</text>']
+    for x, label, color in zip((175, 310, 465), labels, colors):
+        head.extend([f'<rect x="{x}" y="106" width="12" height="12" fill="{color}"/>',
+                     f'<text x="{x+20}" y="117" font-size="14">{label}</text>'])
     for index, (lane, values) in enumerate(lanes.items()):
-        y = 106 + 32 * index
-        shown, total = values["linked_after"], values["records"]
-        head.extend([f'<text x="24" y="{y+14}">{escape(values["name"])}</text>',
-                     f'<rect x="175" y="{y}" width="{420 * total / maximum:.3f}" height="16" fill="#dbded8"/>',
-                     f'<rect x="175" y="{y}" width="{420 * shown / maximum:.3f}" height="16" fill="#25695f"/>',
-                     f'<text x="730" y="{y+14}" text-anchor="end">{shown} / {total}</text>'])
+        y = 136 + 32 * index
+        head.append(f'<text x="24" y="{y+14}">{escape(values["name"])}</text>')
+        x = 175
+        outcomes = values["graph_outcomes"]
+        for status, color in zip(GRAPH_OUTCOMES, colors):
+            width = 420 * outcomes[status] / maximum
+            head.append(f'<rect x="{x:.3f}" y="{y}" width="{width:.3f}" height="16" fill="{color}"/>')
+            x += width
+        values_text = " / ".join(str(outcomes[status]) for status in GRAPH_OUTCOMES)
+        head.append(f'<text x="730" y="{y+14}" text-anchor="end">{values_text}</text>')
     return "\n".join([*head, '</g></svg>', ''])
 
 
 def html_fragment(result: dict) -> str:
     template = (Path(__file__).with_name("prehistory_wave_view.html")).read_text(encoding="utf-8")
     records = [{key: row[key] for key in ("id", "name", "date", "frozen_date", "lane", "region", "domain", "outcome", "finding",
-                                         "next", "sources", "before", "after", "connections")}
+                                         "next", "sources", "graph_status_before", "graph_status", "after", "connections",
+                                         "incident_causal_edges")}
                | {"rationale": row["review"]["rationale"], "verdict": row["review"]["verdict"]}
                for row in result["records"]]
     sources = {key: {field: value[field] for field in ("title", "url") if field in value}

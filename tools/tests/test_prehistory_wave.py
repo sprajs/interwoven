@@ -43,36 +43,40 @@ class PrehistoryWaveTest(unittest.TestCase):
         discovery("older")
         discovery("alpha", [old_candidate])
         discovery("beta", [old_candidate], [{"id": "duplicate-event"}])
+        discovery("delta")
+        discovery("gamma", [{"from": "outside", "type": "uses_process", "status": "insufficient"}])
         discovery("outside")
         base = commit()
 
         discovery("alpha", [{**old_candidate, "status": "established"}])
         discovery("beta", [old_candidate, {"from": "outside", "type": "companion_of", "status": "established"}])
-        discovery("new", [{"from": "alpha", "type": "uses_process", "status": "candidate"}], [{"id": "new-event"}])
+        discovery("new", [{"from": "delta", "type": "uses_process", "status": "candidate"}], [{"id": "new-event"}])
         # Another thread added an established edge to beta. Its file is absent from this wave's manifest.
         discovery("outside", [{"from": "beta", "type": "uses_process", "status": "established"}])
         lane_dir, review_dir = root / WAVE / "lanes", root / WAVE / "reviews"
         first = {"from": "older", "to": "alpha", "type": "uses_process", "decision": "new-established"}
         retained = {"from": "older", "to": "beta", "type": "uses_process", "decision": "existing-candidate"}
         affinity = {"from": "outside", "to": "beta", "type": "companion_of", "decision": "new-established"}
-        proposed = {"from": "alpha", "to": "new", "type": "uses_process", "decision": "new-candidate"}
+        proposed = {"from": "delta", "to": "new", "type": "uses_process", "decision": "new-candidate"}
 
         def assessment(key, connections):
             return {"id": key, "outcome": "established", "finding": "A literal </script> marker.", "next": "Named follow-up",
                     "sources": [{"url": "https://example.com/", "locator": "p. 2"}], "connections": connections}
 
         lane = {"lane": "test", "base": base, "researcher": "gpt-6.2-sol", "effort": "high",
-                "records": [assessment("alpha", [first, proposed]), assessment("beta", [retained, affinity])]}
+                "records": [assessment("alpha", [first, proposed]), assessment("beta", [retained, affinity]),
+                            assessment("delta", []), assessment("gamma", [])]}
         write_json(lane_dir / "test.json", lane)
         reviewed = [f"{WAVE}/lanes/test.json", *[f"data/discoveries/food/{key}.json" for key in ("alpha", "beta", "new")]]
         refs = {path: "SHA256:" + sha256((root / path).read_bytes()).hexdigest().upper() for path in reviewed}
         after = commit()
         review = {"lane": "test", "base_commit": base, "overall_decision": "accept", "worker_commit": after,
                   "reviewer": {"model": "gpt-6.1-terra", "effort": "high"}, "files": refs,
-                  "records": [{"id": key, "verdict": "accept", "rationale": "Checked."} for key in ("alpha", "beta")],
+                  "records": [{"id": key, "verdict": "accept", "rationale": "Checked."}
+                              for key in ("alpha", "beta", "delta", "gamma")],
                   "additional_records": [{"id": "new", "verdict": "accept"}]}
         write_json(review_dir / "test.json", review)
-        roster = {"test": ["alpha", "beta"]}
+        roster = {"test": ["alpha", "beta", "delta", "gamma"]}
         frontier = StringIO()
         writer = csv.writer(frontier)
         writer.writerow(["id", "era", "established_connectivity", "record_path", "primary_region", "primary_domain",
@@ -82,8 +86,17 @@ class PrehistoryWaveTest(unittest.TestCase):
 
         result = compile_wave(base, after, roster, frontier.getvalue(), lane_dir, review_dir)
         self.assertEqual(result["summary"]["newly_reached"], 1)
+        self.assertEqual(result["summary"]["graph_outcomes"], {"established": 1, "candidate": 2, "open": 1})
+        self.assertEqual(result["summary"]["graph_outcomes_before"], {"established": 0, "candidate": 2, "open": 2})
+        self.assertEqual(result["summary"]["researcher_outcomes"], {"established": 4})
+        self.assertEqual(result["summary"]["with_insufficient"], 1)
         self.assertEqual(result["records"][0]["after"], {"incoming_dependence": 1})
         self.assertEqual(result["records"][1]["after"], {})
+        delta = result["records"][2]
+        self.assertEqual(delta["graph_status"], "candidate")
+        self.assertEqual(delta["connections"], [])
+        self.assertEqual(delta["incident_causal_edges"][0]["from"], "delta")
+        self.assertEqual(result["records"][3]["graph_status"], "open")
         self.assertEqual(len(result["changed_edges"]), 3)
         self.assertEqual(len(result["retained_candidates"]), 1)
         self.assertEqual([record["id"] for record in result["new_discoveries"]], ["new"])
