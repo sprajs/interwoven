@@ -362,7 +362,7 @@ def markdown(result: dict) -> str:
              f"strongest relationship in those layers and {outcomes['open']} remained open. The wave added or promoted "
              f"{quantity(causal, 'distinct directed relationship')} in those layers and "
              f"{quantity(len(directed) - causal, 'relationship')} in other layers.", "",
-             "[Evidence reader](view.html) · [Machine-readable results](results.json) · [Frozen frontier]"
+             "[Research priorities](research-priorities.md) · [Evidence reader](view.html) · [Machine-readable results](results.json) · [Frozen frontier]"
              "(../2026-11-17-all-eras/frontier/research-frontier.csv) · [Roster](roster.json)", "",
              "![Dependence and transmission outcomes by research lane](graph-coverage.svg)", "",
              "## Graph outcomes", "",
