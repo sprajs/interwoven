@@ -1,0 +1,154 @@
+{
+  "id": "rubin-lsst-camera",
+  "name": "Rubin Legacy Survey of Space and Time Camera",
+  "description": "The 3.2-gigapixel imaging camera installed on the Simonyi Survey Telescope at Cerro Pachón, Chile, was built for repeated wide-field imaging in the Legacy Survey of Space and Time.",
+  "kind": "technology",
+  "domain": "measurement.optical-instruments",
+  "places": [
+    {
+      "place": "california",
+      "role": "origin",
+      "note": "DOE SLAC National Accelerator Laboratory, where the camera was assembled."
+    },
+    {
+      "place": "chile",
+      "role": "use",
+      "note": "Simonyi Survey Telescope on Cerro Pachón."
+    }
+  ],
+  "events": [
+    {
+      "id": "camera-completed",
+      "type": "invention",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2024,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 2024-04",
+        "basis": "Camera complete by the April 2024 public announcement. Exact completion day unresolved."
+      },
+      "statement": "SLAC completed construction of the 3.2-gigapixel LSST Camera before its transport to Chile.",
+      "evidence": [
+        {
+          "source": "rubin-2025-lsst-camera-installation",
+          "locator": "Paragraphs on completed camera and optical system",
+          "supports": "The operator dates completion and describes the camera that was later shipped and installed."
+        }
+      ]
+    },
+    {
+      "id": "onsky-commissioning",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 4,
+          "day": 15
+        },
+        "latest": {
+          "year": 2025,
+          "month": 4,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2025-04-15",
+        "basis": "The operator dates first on-sky engineering imagery to this day."
+      },
+      "statement": "Rubin's installed LSST Camera acquired its first on-sky engineering images.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "Cerro Pachón.",
+      "evidence": [
+        {
+          "source": "rubin-2025-lsst-camera-commissioning-recap",
+          "locator": "§3, On-sky commissioning began with LSST Camera",
+          "supports": "Dates the first images with the installed LSST Camera and identifies the commissioning scope."
+        }
+      ]
+    },
+    {
+      "id": "first-look-release",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 6,
+          "day": 23
+        },
+        "latest": {
+          "year": 2025,
+          "month": 6,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2025-06-23",
+        "basis": "Date of the public press event."
+      },
+      "statement": "Rubin publicly released First Look images from commissioning observations.",
+      "places": [
+        "washington-dc"
+      ],
+      "place_note": "Release venue for imagery obtained at Cerro Pachón in Chile.",
+      "evidence": [
+        {
+          "source": "rubin-2025-first-look-imagery",
+          "locator": "Opening paragraphs",
+          "supports": "Dates the public event and identifies the data as test imagery."
+        }
+      ]
+    },
+    {
+      "id": "lsst-survey-start",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 6,
+          "day": 29
+        },
+        "latest": {
+          "year": 2026,
+          "month": 6,
+          "day": 29
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2026-06-29",
+        "basis": "Official start date given by the observatory's science page."
+      },
+      "statement": "Rubin began the formal Legacy Survey of Space and Time with its installed camera.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "Cerro Pachón.",
+      "evidence": [
+        {
+          "source": "rubin-2026-lsst-survey-start",
+          "locator": "The LSST has started",
+          "supports": "The operator's science page dates actual survey start."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "camera-completed",
+    "rationale": "Dates the completed instrument. The first observations and formal survey use are distinct milestones."
+  },
+  "caveats": "The 144-megapixel Commissioning Camera was a separate test instrument used in 2024. The February 2026 alert stream preceded the formal survey.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "events": "sourced"
+    },
+    "note": "Proposal awaiting independent review."
+  }
+}

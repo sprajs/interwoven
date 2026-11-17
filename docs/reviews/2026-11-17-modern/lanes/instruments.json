@@ -1,0 +1,214 @@
+{
+  "lane": "instruments",
+  "title": "Wide-field astronomical cameras in Chile",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "as_of": "2026-11-17",
+  "inventory": [
+    {
+      "name": "Rubin LSST Camera",
+      "region": "Cerro Pachón, Chile",
+      "status": "in service",
+      "date": "2026-11-12",
+      "claim": "Rubin reported 3,313 science visits for 6–12 November, including 3,106 main-survey visits, after resuming early survey operations following a storm and planned maintenance.",
+      "limit": "Engineering work continued alongside survey observations. The count ends on 12 November and does not establish subsequent nightly uptime.",
+      "sources": [
+        {
+          "url": "https://www.rubin.community/t/lsst-weekly-update-week-ending-2026-11-13/12946",
+          "title": "LSST Weekly Update (week ending 2026-11-13)",
+          "date": "2026-11-14",
+          "locator": "Updates from the summit and Survey progress, nights 2026-11-06 to 2026-11-12"
+        },
+        {
+          "url": "https://www.rubin.community/t/rubin-is-back-to-the-lsst/12927",
+          "title": "Rubin is back to the LSST",
+          "date": "2026-11-09",
+          "locator": "Bob Blum's first post"
+        }
+      ],
+      "records": [
+        "rubin-lsst-camera"
+      ]
+    },
+    {
+      "name": "Dark Energy Camera (DECam)",
+      "region": "Cerro Tololo, Chile",
+      "status": "in service",
+      "date": "2026-11-09",
+      "claim": "Observers reported using DECam on the Blanco 4 m telescope to image a gamma-ray burst field on 9 November 2026.",
+      "limit": "This was a separate observing programme. The original Dark Energy Survey collected its final campaign data in January 2019. The circular does not establish nightly uptime.",
+      "sources": [
+        {
+          "url": "https://gcn.nasa.gov/circulars/46211",
+          "title": "GRB 261108D: DECam optical detection of candidate afterglow",
+          "date": "2026-11-10",
+          "locator": "First observation paragraph"
+        },
+        {
+          "url": "https://www.darkenergysurvey.org/desendofnights/",
+          "title": "#DESendofnights",
+          "date": "n.d.",
+          "locator": "Opening heading"
+        }
+      ],
+      "records": [
+        "dark-energy-camera"
+      ]
+    },
+    {
+      "name": "VISTA InfraRed CAMera (VIRCAM)",
+      "region": "Paranal, Chile",
+      "status": "retired",
+      "date": "2023-03-06",
+      "claim": "ESO decommissioned the wide-field near-infrared imaging camera on 6 March 2023. VISTA was adapted for the 4MOST spectrograph, which obtained first light on 18 October 2025.",
+      "limit": "VIRCAM's retirement is an instrument event. The 4MOST consortium still described its survey start as imminent on 12 November 2026.",
+      "sources": [
+        {
+          "url": "https://www.eso.org/observing/dfo/quality/index_vircam.html",
+          "title": "VIRCAM Quality Control",
+          "date": "n.d.",
+          "locator": "Decommissioning notice and instrument description"
+        },
+        {
+          "url": "https://www.eso.org/public/unitedkingdom/announcements/ann25007/",
+          "title": "Thousands of eyes on the sky: 4MOST sees first light",
+          "date": "2025-10-21",
+          "locator": "First light and VIRCAM replacement paragraphs"
+        },
+        {
+          "url": "https://cdn3.eso.org/sci/facilities/paranal/instruments/4most/news.html",
+          "title": "ESO 4MOST instrument news",
+          "date": "2026-10-11",
+          "locator": "Announcements, 18 October 2025 first light and 30 September 2026 readiness review"
+        },
+        {
+          "url": "https://www.4most.eu/cms/news/",
+          "title": "4MOST consortium news",
+          "date": "2026-11-12",
+          "locator": "You can now help 4MOST find Strange Galaxies, final paragraph"
+        }
+      ],
+      "records": []
+    }
+  ],
+  "trace": [
+    "Rubin: the separate 144-megapixel Commissioning Camera acquired test observations in late 2024. LSSTCam captured engineering images on 15 April 2025. Public First Look followed on 23 June 2025 and live science alerts by 24 February 2026. The formal survey began 29 June 2026 and was announced on 30 June. Proposed record rubin-lsst-camera covers the full instrument and its own milestones.",
+    "DECam: official first light on 12 September 2012 preceded science verification in 2012–13 and the formal DES start on 31 August 2013. Proposed record dark-energy-camera links to berkeley-fully-depleted-back-illuminated-ccd through the documented later LBNL design generation and delivery of devices for the focal plane.",
+    "Berkeley detector line: the 1996 high-resistivity silicon CCD paper explicitly cites the 1989 p-i-n detector fabrication work. A June 1988 Berkeley report already describes the p-i-n process, and a 4 December 1996 trial at Lick demonstrated the CCD on sky. The 1997 Lick-led characterization cites both publications and shares authors with the 1996 paper. Proposed berkeley-fully-depleted-back-illuminated-ccd retains a candidate link to berkeley-high-resistivity-pin-detector-process pending independent corroboration of the specific process and an established affinity to boyle-smith-charge-coupled-device-concept on their shared clocked charge-transfer principle.",
+    "The DECam instrument paper groups DECam and LSST among very large imagers. For Rubin, the technical team documents 189 science CCDs supplied by ITL and e2v and arranged in 21 rafts. Thick, fully depleted back-illuminated detectors are a shared design approach. A DECam-to-Rubin dependence link was deferred pending design-transfer evidence."
+  ],
+  "alternatives": [
+    "VIRCAM used a near-infrared imaging array at Paranal and has retired. Its successor in that instrument position, 4MOST, uses optical multi-object spectroscopy. ESO documents first light, validation and readiness milestones. The 12 November 2026 consortium notice supports imminent survey operations without confirming a start."
+  ],
+  "frontier": [
+    "Look for independent evidence identifying the specific 1988–89 p-i-n process as the source of the 1996 CCD fabrication method. The prototype developers' contemporary attribution is retained as a candidate link.",
+    "Check an ESO or 4MOST survey observing log for the first completed programme exposure after readiness review.",
+    "Inspect LSST sensor procurement and prototype acceptance documents to trace the installed ITL and e2v CCDs to their own prior detector generations."
+  ],
+  "screen": "Searched discovery, source and lead IDs and text for CCD, charge-coupled, DECam, Rubin/LSST, VISTA, telescope and diode aliases. Existing Boyle–Smith concept includes April 1970 concept and verification publications. Existing charge-coupled-image-sensor is scoped to Fairchild CCD101 availability and kodak-sasson-digital-camera-prototype to an early Kodak system. No instrument or Berkeley detector duplicates were identified. The Kodak exact-component and consumer-access leads stay open. No shared lead was promoted.",
+  "coverage": "Three sites on selected operator and participant evidence through 17 November 2026. Actual observing is documented through 12 November for Rubin and 9 November for DECam. No comprehensive Chilean instrument census, first-ever CCD priority, or Rubin vendor ancestry is claimed.",
+  "trace_sources": [
+    {
+      "url": "https://rubinobservatory.org/slideshows/2025-in-review",
+      "title": "2025 in Review: Highlights from an exciting year",
+      "date": "n.d.",
+      "locator": "§1, First image from Rubin's engineering test camera; §3, On-sky commissioning began with LSST Camera"
+    },
+    {
+      "url": "https://rubinobservatory.org/news/first-imagery-rubin",
+      "title": "Ever-changing Universe Revealed in First Imagery From NSF–DOE Vera C. Rubin Observatory",
+      "date": "2025-06-23",
+      "locator": "Opening paragraphs"
+    },
+    {
+      "url": "https://rubinobservatory.org/for-scientists/data-products/recent-data-releases",
+      "title": "Recent data releases",
+      "date": "2026-07-27",
+      "locator": "Alerts; Early Data Preview 2 and Data Preview 1"
+    },
+    {
+      "url": "https://rubinobservatory.org/for-scientists",
+      "title": "For Scientists",
+      "date": "n.d.",
+      "locator": "The LSST has started"
+    },
+    {
+      "url": "https://rubinobservatory.org/news/action-rubin-lsst-begins",
+      "title": "Action! NSF–DOE Vera C. Rubin Observatory Begins Capturing the Greatest Cosmic Movie Ever Made",
+      "date": "2026-06-30",
+      "locator": "Opening and milestone paragraphs"
+    },
+    {
+      "url": "https://www.darkenergysurvey.org/the-des-project/instrument/",
+      "title": "Instrument",
+      "date": "n.d.",
+      "locator": "First Light"
+    },
+    {
+      "url": "https://news.fnal.gov/2019/01/dark-energy-survey-completes-six-year-mission/",
+      "title": "Dark Energy Survey completes six-year mission",
+      "date": "2019-01-08",
+      "locator": "Opening paragraphs"
+    },
+    {
+      "url": "https://pure.port.ac.uk/ws/portalfiles/portal/7639739/The_dark_energy_camera.pdf",
+      "title": "The Dark Energy Camera",
+      "date": "2015-11",
+      "locator": "Abstract; §§3 and 3.1; §9.3, Installation and Commissioning; §10, Summary"
+    },
+    {
+      "url": "https://newscenter.lbl.gov/2012/09/17/first-light-decam/",
+      "title": "Berkeley Lab Sensors Enable First Light for the Dark Energy Camera",
+      "date": "2012-09-17",
+      "locator": "Paragraphs beginning ‘Early in the planning’, ‘Manufacture’, and ‘The DECam chips’"
+    },
+    {
+      "url": "https://noirlab.edu/science/sites/default/files/media/archives/presentations/scipresentation0863-en.pdf",
+      "title": "From High Energy to Dark Energy: the Creation of DECam",
+      "date": "2022-09-12",
+      "locator": "Slide 12, Key features of early project development"
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/asna.20230072",
+      "title": "Fully depleted charge-coupled device design and technology development",
+      "date": "2023-05-24",
+      "locator": "§2, Fully depleted CCDs for DOE dark energy experiments; Figure 1"
+    },
+    {
+      "url": "https://www.osti.gov/servlets/purl/6840495-RtPqmj/",
+      "title": "Fabrication of Detectors and Transistors on High-Resistivity Silicon",
+      "date": "1988-06",
+      "locator": "Abstract and §§1, 4"
+    },
+    {
+      "url": "https://dhkah.wordpress.com/wp-content/uploads/2010/08/holland_nuclear-instruments-and-methods-in-physics-research-section-a_1989.pdf",
+      "title": "Fabrication of detectors and transistors on high-resistivity silicon",
+      "date": "1989-03-01",
+      "locator": "p. 537, abstract and §1"
+    },
+    {
+      "url": "https://www-supernova.lbl.gov/public/papers/ccd_ieee.ps",
+      "title": "A 200 × 200 CCD Image Sensor Fabricated on High-Resistivity Silicon",
+      "date": "1996-12",
+      "locator": "PostScript p. 1, abstract and §§1–2; PostScript p. 4, conclusions and reference [2]"
+    },
+    {
+      "url": "https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon",
+      "title": "Characterization of a fully depleted CCD on high-resistivity silicon",
+      "date": "1997-04",
+      "locator": "Abstract, §2 and references [1]–[2]; §4, Observatory Testing"
+    },
+    {
+      "url": "https://lsstcam.lsst.io/",
+      "title": "The LSST Camera (LSSTCam)",
+      "date": "2025",
+      "locator": "Focal plane and sensor vendors"
+    },
+    {
+      "url": "https://arxiv.org/abs/2101.01281",
+      "title": "Laboratory Measurements of Instrumental Signatures of the LSST Camera Focal Plane",
+      "date": "2021-01-04",
+      "locator": "§1, Introduction, in author manuscript dated October 2020"
+    }
+  ]
+}
