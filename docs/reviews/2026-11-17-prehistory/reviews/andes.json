@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "lane": "andes",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "868f9ae3e3d64a97fa3329b5cd8f48a08da8a789",
+  "worker_commit": "868f9ae3e3d64a97fa3329b5cd8f48a08da8a789",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent reviewer execution",
+    "independence": "distinct from gpt-6.2-sol high researcher"
+  },
+  "overall_verdict": "changes_requested",
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/construction/adobe-brick-building-on-the-north-coast-of-peru.json",
+      "sha256": "f0addbe738c170657de2651843d83d2d12c4012d8a559acaf98b59fe4d5a9af9"
+    },
+    {
+      "path": "data/discoveries/food/cacao-use-at-santa-ana-la-florida-upper-amazon.json",
+      "sha256": "56b73028b47dc82098dbed15c67839d119ef0ca64894556d2f890dba358f8191"
+    },
+    {
+      "path": "data/discoveries/food/domesticated-maize.json",
+      "sha256": "d59961dbf40b61dbe7d4e5144a3e7a25316da8be381e96fe7497fa41c4dff0d3"
+    },
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json",
+      "sha256": "e98d2159a57ee818bb6a642783df4839dfa341670c630086d3293afbd10270dc"
+    },
+    {
+      "path": "data/discoveries/food/manioc-and-squash-cultivation-in-the-llanos-de-moxos.json",
+      "sha256": "abdf570a8f2ee5179f6469159d46b33868dad86221f89d18c0ce49fd697c10a3"
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json",
+      "sha256": "97b8c6744ab2eb0cf3e4f6047ca8a68f96cb3f40a2c770a8a11110093b41b233"
+    },
+    {
+      "path": "data/discoveries/food/telarmachay-camelid-herding.json",
+      "sha256": "ebd106fd31b080b8f3479f010b1be753e957e519fe84e36c48e9a2aa2b3e4493"
+    },
+    {
+      "path": "data/discoveries/materials/cotton-yarn-making-at-huaca-prieta.json",
+      "sha256": "2f8da2ea1422085c6134ff4fa72ecde18a4b227dd20b1d2cce0e5c5ef7fc3b3d"
+    },
+    {
+      "path": "data/discoveries/materials/indigo-dyeing-on-the-north-coast-of-peru.json",
+      "sha256": "1f917613fc2683802eef71da4569cad3a94e2c020fc8cf9adaf9818bc223fb21"
+    },
+    {
+      "path": "data/discoveries/materials/lower-amazon-shell-midden-pottery.json",
+      "sha256": "7772e0fefb5c2b57559c0d2385aec62d0bf8ffb066ea99854aa020a5c5084cad"
+    },
+    {
+      "path": "data/discoveries/materials/plant-fibre-fabrics-and-cordage-among-early-andean-foragers.json",
+      "sha256": "1a3b24e5a8aef8fc2fe3de3f71b6e17dfab7cbe0b4cfdfc800eb2718c0b4e9b3"
+    },
+    {
+      "path": "data/sources/d/dillehay-2012-huaca-prieta-chronology.json",
+      "sha256": "2319a265766daa1cbb31c74111cd47bdccc5481ca18dcd41d9ce5034c3fde53b"
+    },
+    {
+      "path": "data/sources/j/jolie-2011-guitarrero-fibre.json",
+      "sha256": "9a80761e1492174ff83057858795f30956ae7c9baf0b1e9ea490249d16934c74"
+    },
+    {
+      "path": "data/sources/k/kistler-2018-maize-dispersal.json",
+      "sha256": "ff57d0f902ff04f1cac8311701b09f98534f64e8d08c9d0eddb463339865f395"
+    },
+    {
+      "path": "data/sources/l/lanaud-2024-archaeogenomic-cacao.json",
+      "sha256": "cd9ff4b8be1805d888f1d506208cd01249e144362994d5fe77b4d19203e09a38"
+    },
+    {
+      "path": "data/sources/l/lavallee-1988-telarmachay.json",
+      "sha256": "855a0214c79454c7d048de15c7cfa0dbc334e7359d2c0ab909e73feba8b0f3c1"
+    },
+    {
+      "path": "data/sources/l/le-neun-2026-telarmachay-camelids.json",
+      "sha256": "250e993b39395400a35b9e9ee0dd7086eff63c6c058fbd5ddcbf5221aea69f1e"
+    },
+    {
+      "path": "data/sources/l/lombardo-2020-early-holocene-crop.json",
+      "sha256": "1f3c9d3398ba91237b309af0a5cdbfe4c607715509fd80befd3372da15dacc7c"
+    },
+    {
+      "path": "data/sources/r/roosevelt-1991-lower-amazon-pottery.json",
+      "sha256": "99a17653751743c8752cbacb928532db586ae12ce6298476cebc9eef7a134f13"
+    },
+    {
+      "path": "data/sources/s/splitstoser-2017-huaca-prieta-textiles.json",
+      "sha256": "56aded8c0a8fc4e2aff90cef50c2c37eb93d897e72ef54bea4a75353e9b66fd2"
+    },
+    {
+      "path": "data/sources/v/valdez-2014-palanda-field-report.json",
+      "sha256": "9f89faf2fab3bca47f352bd4519effda9c6763346a6cb8afa6f2e26a3c6392d7"
+    },
+    {
+      "path": "data/sources/v/vallebueno-estrada-2023-paredones-maize.json",
+      "sha256": "777688c4f7cfc37c7ea140bd393890f24aaffe116caf25d9ea4763e105b3a3e6"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/andes.json",
+      "sha256": "73541f6fd1a8d59f3975ed60588de46d5ff85a87494a827d4abd10b429d3d984"
+    },
+    {
+      "path": "evidence/d/dillehay-2012-huaca-prieta-chronology.pdf.cache.json",
+      "sha256": "537a2d7ff60a388505eefb4771d5b7903f1cfc6709c3afc1446f62c99f458b27"
+    },
+    {
+      "path": "evidence/j/jolie-2011-guitarrero-fibre-prehistory-notes.txt",
+      "sha256": "468919999478023d57a34fd1166569618c9647cf3c4306babead6375314e9c20"
+    },
+    {
+      "path": "evidence/k/kistler-2018-maize-dispersal.pdf.cache.json",
+      "sha256": "6622b65a34ba3741bc5cde4145f01088f0468c4fb29f98e56b1a66a120cd4441"
+    },
+    {
+      "path": "evidence/l/lanaud-2024-archaeogenomic-cacao-prehistory-notes.txt",
+      "sha256": "43cd8a8befa5c70afc2768495758dc5c4db21c089ddebef7fd0b1af8e3a9ec91"
+    },
+    {
+      "path": "evidence/l/lavallee-1988-telarmachay.pdf.cache.json",
+      "sha256": "a616276e12de5e463a1dd4393d66b37367d767ae93d2c7b78c0ba60d7853f57a"
+    },
+    {
+      "path": "evidence/l/le-neun-2026-telarmachay-camelids-prehistory-notes.txt",
+      "sha256": "b8ff9b8a81d9c9e7c32d04f432df0ec4586dee98173d6b2bd62417a6299a7145"
+    },
+    {
+      "path": "evidence/l/lombardo-2020-early-holocene-crop-prehistory-notes.txt",
+      "sha256": "f934925906341372a2dee0e385414d9b5cb95bf0cf7cc12d4d0fa55b02c7c4cc"
+    },
+    {
+      "path": "evidence/r/roosevelt-1991-lower-amazon-pottery.pdf.cache.json",
+      "sha256": "f27be9d36cca848a81f35a279ce888165d02804b7d590804468f9e2a36ecf19d"
+    },
+    {
+      "path": "evidence/s/splitstoser-2017-huaca-prieta-textiles-prehistory-notes.txt",
+      "sha256": "f77414b085c62751057477b26aec80a64a2bdf0f1a2d2e800a132a131a9265f1"
+    },
+    {
+      "path": "evidence/v/valdez-2014-palanda-field-report-prehistory-notes.txt",
+      "sha256": "49f808eea81d1b462c0d31bf9b2d26bec99e70e615a163c5c770cabdc9044606"
+    },
+    {
+      "path": "evidence/v/vallebueno-estrada-2023-paredones-maize-prehistory-notes.txt",
+      "sha256": "a23644c8a321a9dfbae8da78df7bf4ae2c0bef3098defb090eb697143a83aaf0"
+    }
+  ],
+  "records": [
+    {
+      "id": "domesticated-maize",
+      "verdict": "accept",
+      "rationale": "The new Paredones transmission event is an attestation bound, not a date or route for the journey. Vallebueno-Estrada 2023 Table 1 dates husk/shank attached to Par_N1 to 6775–6504 cal BP and analyzes the same cob; independent Kistler genomes support general southward crop history, not a particular Xihuatoxtla donor. The separate Nahua and Wari supplies remain unresolved.",
+      "claim_reviews": [
+        {
+          "paths": "events/crop-dispersal-paredones; research.unresolved",
+          "decision": "accept",
+          "rationale": "The new Paredones transmission event is an attestation bound, not a date or route for the journey. Vallebueno-Estrada 2023 Table 1 dates husk/shank attached to Par_N1 to 6775–6504 cal BP and analyzes the same cob; independent Kistler genomes support general southward crop history, not a particular Xihuatoxtla donor. The separate Nahua and Wari supplies remain unresolved.",
+          "sources": [
+            "vallebueno-estrada-2023-paredones-maize Table 1, Fig. 3",
+            "kistler-2018-maize-dispersal Figs. 1–3"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "candidate",
+      "connections": [
+        {
+          "from": "domesticated-maize",
+          "to": "alkaline-cooking-of-maize",
+          "type": "requires",
+          "decision": "existing-candidate"
+        },
+        {
+          "from": "domesticated-maize",
+          "to": "wari-state-brewing-of-chicha-at-cerro-baul",
+          "type": "requires",
+          "decision": "deferred"
+        }
+      ]
+    },
+    {
+      "id": "adobe-brick-building-on-the-north-coast-of-peru",
+      "verdict": "accept",
+      "rationale": "Mauricio et al. place room use at 5500–5100 cal BP by stratigraphy and closure offerings; laminated bricks and flood deposits suggest cut natural clay, without proving source. Earlier clay surfaces are not proven ancestral. Existing unsupported statements on Old World contact and global precedence are baseline and should be separately reconsidered.",
+      "claim_reviews": [
+        {
+          "paths": "summary; description; events/0 statement/evidence/caveats; research.unresolved",
+          "decision": "accept",
+          "rationale": "Mauricio et al. place room use at 5500–5100 cal BP by stratigraphy and closure offerings; laminated bricks and flood deposits suggest cut natural clay, without proving source. Earlier clay surfaces are not proven ancestral. Existing unsupported statements on Old World contact and global precedence are baseline and should be separately reconsidered.",
+          "sources": [
+            "mauricio-2021-earliest-adobe-monumental The Adobes of Los Morteros, Table 1, Figs. 1–4"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "deferred",
+      "connections": [
+        {
+          "from": "adobe-brick-building-on-the-north-coast-of-peru",
+          "to": "platform-mounds-with-sunken-circular-plazas-on-the-peruvian-coast",
+          "type": "builds_on",
+          "decision": "deferred"
+        }
+      ]
+    },
+    {
+      "id": "cacao-use-at-santa-ana-la-florida-upper-amazon",
+      "verdict": "changes_requested",
+      "rationale": "Separate c. 5300 BP early cacao residue from later funerary bottles in summary and event evidence. Zarrillo Table 1 places positive effigy and doughnut bottles at 4146–3932 and 4090–3980 cal BP; PLD-005 residue at 5440–5310. The summary and the event reference risk transferring the early age to the later contexts. The 2018 original supports broader mortuary context, but Valdez primary report was inaccessible to reviewer. Unknown origin and broad phase priority uncertainty are justified; samples and authors overlap.",
+      "claim_reviews": [
+        {
+          "paths": "summary; description; origin; events/0 evidence; research.unresolved and note",
+          "decision": "changes_requested",
+          "rationale": "Separate c. 5300 BP early cacao residue from later funerary bottles in summary and event evidence. Zarrillo Table 1 places positive effigy and doughnut bottles at 4146–3932 and 4090–3980 cal BP; PLD-005 residue at 5440–5310. The summary and the event reference risk transferring the early age to the later contexts. The 2018 original supports broader mortuary context, but Valdez primary report was inaccessible to reviewer. Unknown origin and broad phase priority uncertainty are justified; samples and authors overlap.",
+          "sources": [
+            "zarrillo-2018-use-domestication-theobroma Table 1 and Discussion",
+            "lanaud-2024-archaeogenomic-cacao Table 1 and Discussion",
+            "valdez-2014-palanda-field-report §8.2.5, inaccessible to reviewer"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "deferred",
+      "connections": []
+    },
+    {
+      "id": "gravity-canals-upper-zana-valley-northern-peru",
+      "verdict": "accept",
+      "rationale": "Dillehay et al. 2005 pp. 17242–44 present conditional same-field hydraulic calculations and a probable field on the lower bench, not a traced and dated outlet. Deferral of field linkage is justified.",
+      "claim_reviews": [
+        {
+          "paths": "research.unresolved/Hydraulic and archaeological fit",
+          "decision": "accept",
+          "rationale": "Dillehay et al. 2005 pp. 17242–44 present conditional same-field hydraulic calculations and a probable field on the lower bench, not a traced and dated outlet. Deferral of field linkage is justified.",
+          "sources": [
+            "dillehay-2005-preceramic-irrigation-canals pp. 17242–44, Figs. 1–3"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "candidate",
+      "connections": [
+        {
+          "from": "gravity-canals-upper-zana-valley-northern-peru",
+          "to": "nanchoc-early-crop-system",
+          "type": "uses_process",
+          "decision": "existing-candidate"
+        }
+      ]
+    },
+    {
+      "id": "manioc-and-squash-cultivation-in-the-llanos-de-moxos",
+      "verdict": "accept",
+      "rationale": "Lombardo manuscript identifies one Manihot phytolith and squash-rind phytoliths in dated Isla Manechi layers; authors infer cultivation and island gardens and allow either local or imported domesticated squash. Local origin and contacts remain open.",
+      "claim_reviews": [
+        {
+          "paths": "summary; description; events/0–1 statements/evidence; research.unresolved and note",
+          "decision": "accept",
+          "rationale": "Lombardo manuscript identifies one Manihot phytolith and squash-rind phytoliths in dated Isla Manechi layers; authors infer cultivation and island gardens and allow either local or imported domesticated squash. Local origin and contacts remain open.",
+          "sources": [
+            "lombardo-2020-early-holocene-crop Evidence of early plant cultivation, Figs. 2–3 and Extended Data Table 2"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "deferred",
+      "connections": [
+        {
+          "from": "manioc-and-squash-cultivation-in-the-llanos-de-moxos",
+          "to": "real-alto-manioc-processing",
+          "type": "transmitted_from",
+          "decision": "deferred"
+        }
+      ]
+    },
+    {
+      "id": "nanchoc-early-crop-system",
+      "verdict": "accept",
+      "rationale": "The revised finding correctly labels the lower-bench destination a model; an undated field and untraced outlet do not demonstrate the candidate relation. Earlier dental samples and later household cotton cannot identify the field crop.",
+      "claim_reviews": [
+        {
+          "paths": "links/0/finding",
+          "decision": "accept",
+          "rationale": "The revised finding correctly labels the lower-bench destination a model; an undated field and untraced outlet do not demonstrate the candidate relation. Earlier dental samples and later household cotton cannot identify the field crop.",
+          "sources": [
+            "dillehay-2005-preceramic-irrigation-canals pp. 17242–44",
+            "piperno-2008-nanchoc-crop-diet site context and Table 1"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "candidate",
+      "connections": [
+        {
+          "from": "gravity-canals-upper-zana-valley-northern-peru",
+          "to": "nanchoc-early-crop-system",
+          "type": "uses_process",
+          "decision": "existing-candidate"
+        }
+      ]
+    },
+    {
+      "id": "telarmachay-camelid-herding",
+      "verdict": "accept",
+      "rationale": "Le Neün 2026 abstract and analysis interpret altered vicuña-like talus shapes as potential management intensification, without alpaca/llama phenotypic divergence; outer phase bounds 6400–4500 cal BP retain uncertainty. Lavallée 1988 pp. 275–281 presents earlier mortality and tooth-based domestication interpretation; overlapping site corpus and Wheeler authorship are not independent replication.",
+      "claim_reviews": [
+        {
+          "paths": "description; events/0 date/statement/caveats/evidence; earliest_record; caveats; research",
+          "decision": "accept",
+          "rationale": "Le Neün 2026 abstract and analysis interpret altered vicuña-like talus shapes as potential management intensification, without alpaca/llama phenotypic divergence; outer phase bounds 6400–4500 cal BP retain uncertainty. Lavallée 1988 pp. 275–281 presents earlier mortality and tooth-based domestication interpretation; overlapping site corpus and Wheeler authorship are not independent replication.",
+          "sources": [
+            "le-neun-2026-telarmachay-camelids §2.2 Table 1, §4, Figs. 5, 7–8",
+            "lavallee-1988-telarmachay pp. 275–281"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "deferred",
+      "connections": [
+        {
+          "from": "telarmachay-camelid-herding",
+          "to": "cotahuasi-llama-salt-caravan-2007",
+          "type": "requires",
+          "decision": "deferred"
+        }
+      ]
+    },
+    {
+      "id": "indigo-dyeing-on-the-north-coast-of-peru",
+      "verdict": "changes_requested",
+      "rationale": "Splitstoser 2016 Introduction and Table 1 support plied cotton warp and indigoid detection in stratum 44 specimen, dated by surrounding strata, with unresolved plant, dyeing order and production site. However the proposed established requires edge points from the separate earlier stratum 52 yarn instance to this later cloth. That artifact is not a demonstrated contributor; the same 2016/2017 lead analyst and broader chronology do not independently corroborate this specific connection. Scope the process endpoint and relation to the actual later sample with independent corroboration, or use candidate status. Indigo dyeing generally does not require plied yarn.",
+      "claim_reviews": [
+        {
+          "paths": "description; events/0; research; links/0",
+          "decision": "changes_requested",
+          "rationale": "Splitstoser 2016 Introduction and Table 1 support plied cotton warp and indigoid detection in stratum 44 specimen, dated by surrounding strata, with unresolved plant, dyeing order and production site. However the proposed established requires edge points from the separate earlier stratum 52 yarn instance to this later cloth. That artifact is not a demonstrated contributor; the same 2016/2017 lead analyst and broader chronology do not independently corroborate this specific connection. Scope the process endpoint and relation to the actual later sample with independent corroboration, or use candidate status. Indigo dyeing generally does not require plied yarn.",
+          "sources": [
+            "splitstoser-2016-early-pre-hispanic Introduction, Fig. 1 and Table 1",
+            "dillehay-2012-huaca-prieta-chronology Table 1",
+            "splitstoser-2017-huaca-prieta-textiles Fig. 12.1d, Table 12.5"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "established",
+      "connections": [
+        {
+          "from": "cotton-yarn-making-at-huaca-prieta",
+          "to": "indigo-dyeing-on-the-north-coast-of-peru",
+          "type": "requires",
+          "decision": "new-established"
+        }
+      ]
+    },
+    {
+      "id": "lower-amazon-shell-midden-pottery",
+      "verdict": "accept",
+      "rationale": "Roosevelt Table 1 identifies 7600–7280 cal BP reduced-carbon assay OxA-2431 from level 12-base sherd; same sherd has separate humic fraction and TL assay, not independent artifacts. Bowl fragments are grit tempered; fauna indicate aquatic foraging, and paper warns possible carbon contamination.",
+      "claim_reviews": [
+        {
+          "paths": "name; description; events/0 date/statement/evidence/caveats; earliest_record; caveats; research",
+          "decision": "accept",
+          "rationale": "Roosevelt Table 1 identifies 7600–7280 cal BP reduced-carbon assay OxA-2431 from level 12-base sherd; same sherd has separate humic fraction and TL assay, not independent artifacts. Bowl fragments are grit tempered; fauna indicate aquatic foraging, and paper warns possible carbon contamination.",
+          "sources": [
+            "roosevelt-1991-lower-amazon-pottery pp. 1622–23, Tables 1–2 and Figs. 5–6"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "deferred",
+      "connections": []
+    },
+    {
+      "id": "plant-fibre-fabrics-and-cordage-among-early-andean-foragers",
+      "verdict": "accept",
+      "rationale": "Jolie Table 2 separately dates two-ply cord 12130–11800, close twining 11330–11100 and open twining 11280–11080 cal BP; spiral interlinking is later. Coils support but do not prove manufacture onsite. Functions and transmission remain hypotheses.",
+      "claim_reviews": [
+        {
+          "paths": "summary; description; events/0 date/statement/evidence/caveats; earliest_record; research",
+          "decision": "accept",
+          "rationale": "Jolie Table 2 separately dates two-ply cord 12130–11800, close twining 11330–11100 and open twining 11280–11080 cal BP; spiral interlinking is later. Coils support but do not prove manufacture onsite. Functions and transmission remain hypotheses.",
+          "sources": [
+            "jolie-2011-guitarrero-fibre pp. 289–292, Table 2, Figs. 2–4"
+          ]
+        }
+      ],
+      "proposed_research_outcome": "deferred",
+      "connections": [
+        {
+          "from": "plant-fibre-fabrics-and-cordage-among-early-andean-foragers",
+          "to": "cotton-yarn-making-at-huaca-prieta",
+          "type": "transmitted_from",
+          "decision": "deferred"
+        }
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "cotton-yarn-making-at-huaca-prieta",
+      "verdict": "accept",
+      "rationale": "Dillehay 2012 Table 1 directly dates a cotton yarn in stratum 52 to 6882–6657 cal BP; Splitstoser 2016 introduction confirms the same assay. The sample is distinct from the indigo-bearing textile, and production site is unknown. Broader yarn structures from 2017 source are not independently verified and should remain deferred pending original access.",
+      "claim_reviews": [
+        {
+          "paths": "id; name; summary; kind; domain; grain; origin; places; known_from; events/0; earliest_record; research",
+          "decision": "accept",
+          "sources": [
+            "dillehay-2012-huaca-prieta-chronology p. 56 Table 1",
+            "splitstoser-2016-early-pre-hispanic Introduction"
+          ]
+        },
+        {
+          "paths": "description/second sentence",
+          "decision": "defer",
+          "rationale": "Separate 2017 catalogue assertion needs independent reading of original chapter, unavailable in this review.",
+          "sources": [
+            "splitstoser-2017-huaca-prieta-textiles pp. 474–476"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "mauricio-2021-earliest-adobe-monumental",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8640935/",
+      "locator": "The Adobes of Los Morteros, Table 1, Figs. 1–4",
+      "availability": "full original web article read",
+      "independence": "site study; comparisons with modern sediments"
+    },
+    {
+      "source": "zarrillo-2018-use-domestication-theobroma",
+      "url": "https://www.tonylutz.net/images/ebooks/Yajnavalkya/pdf/chapter-16/Theobroma-cacao.pdf",
+      "locator": "Table 1, discussion",
+      "availability": "original full PDF rendering read",
+      "independence": "multiple analytical methods on same site materials; not independent sites"
+    },
+    {
+      "source": "valdez-2014-palanda-field-report",
+      "url": "https://horizon.documentation.ird.fr/exl-doc/pleins_textes/divers17-07/010067276.pdf",
+      "locator": "§8.2.5 and Fig. 213",
+      "availability": "unavailable: institutional site under maintenance; original not independently read",
+      "independence": "same excavation and overlapping investigators; 2018 original supports mortuary contexts broadly"
+    },
+    {
+      "source": "lanaud-2024-archaeogenomic-cacao",
+      "url": "https://www.academia.edu/116011418/A_revisited_history_of_cacao_domestication_in_pre_Columbian_times_revealed_by_archaeogenomic_approaches",
+      "locator": "Table 1 and discussion",
+      "availability": "original article rendering read",
+      "independence": "some investigators overlap Zarrillo; phase chronologies do not date individual positive samples"
+    },
+    {
+      "source": "dillehay-2005-preceramic-irrigation-canals",
+      "url": "https://www.academia.edu/27205762/Preceramic_irrigation_canals_in_the_Peruvian_Andes_By_Tom_D_Dillehay_Herbert_H_Eling_Jr_and_Jack_Rossen",
+      "locator": "pp. 17242–44, Figs. 1–3",
+      "availability": "original rendering read",
+      "independence": "hydraulic modeling and field inference same excavation"
+    },
+    {
+      "source": "piperno-2008-nanchoc-crop-diet",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2604935/",
+      "locator": "context and Table 1",
+      "availability": "full original web article read",
+      "independence": "dental samples from related project, not field-specific irrigation evidence"
+    },
+    {
+      "source": "lombardo-2020-early-holocene-crop",
+      "url": "https://boris-portal.unibe.ch/bitstreams/861b1237-b57e-4ae5-9777-b95d8fb2ca6d/download",
+      "locator": "Figs. 2–3, cultivation discussion and Extended Data Table 2",
+      "availability": "original accepted manuscript read",
+      "independence": "one site sequence; no demonstrated intersite transfer"
+    },
+    {
+      "source": "lavallee-1988-telarmachay",
+      "url": "https://cuevasdelperu.org/publicaciones/peru/1988_CRAIBL_Lavallee.pdf",
+      "locator": "pp. 275–281",
+      "availability": "original PDF independently inspected",
+      "independence": "original field report; overlaps Le Neün in collection and Wheeler",
+      "sha256": "0b8deef28f876c09251712ec1bf417541faac31f2b6c3712d6127240d58b36b5"
+    },
+    {
+      "source": "le-neun-2026-telarmachay-camelids",
+      "url": "https://www.academia.edu/166211372/New_insights_into_the_domestication_process_of_south_American_camelids_at_Telarmachay_Peru_from_9_000_to_4_500_years_before_present_BP",
+      "locator": "abstract, §2.2, Table 1, §4",
+      "availability": "author article rendering read",
+      "independence": "same excavated faunal assemblage; different analytical methods"
+    },
+    {
+      "source": "roosevelt-1991-lower-amazon-pottery",
+      "url": "https://img1.wsimg.com/blobby/go/e83108cd-3865-44bd-b08b-d8bebe078aba/downloads/d022eba4-7b3f-4ade-b3bc-08622cc44cac/roosevelt1991emp%20%282%29.pdf?ver=1758828852255",
+      "locator": "pp. 1622–23, Tables 1–2, Figs. 5–6",
+      "availability": "original PDF read",
+      "independence": "multiple assays same sherd; shell and charcoal distinct materials",
+      "sha256": "57e3436bc1ad76976139918c81b1a34a7f783bdadb6bc72b710d28c0c7813c42"
+    },
+    {
+      "source": "jolie-2011-guitarrero-fibre",
+      "url": "https://www.scribd.com/document/931517465/Jolie-Et-Al-2011",
+      "locator": "pp. 289–292, Table 2, Figs. 2–4",
+      "availability": "original article rendering read",
+      "independence": "same collection as earlier Lynch dating; distinct determinations"
+    },
+    {
+      "source": "splitstoser-2016-early-pre-hispanic",
+      "url": "https://www.talkingaboutthescience.com/studies/Splitstoser2016.pdf",
+      "locator": "Introduction, Fig. 1 and Table 1",
+      "availability": "original PDF read",
+      "independence": "yarn structure and dye chemistry on same specimen; related to later 2017 analysis"
+    },
+    {
+      "source": "dillehay-2012-huaca-prieta-chronology",
+      "url": "https://tiffinytung.com/wp-content/uploads/2019/07/2012dillehay_etal_chronologymound-buildinghuacaprieta_antiqty-1.pdf",
+      "locator": "p. 56, Table 1, AA82121, AA86948",
+      "availability": "original PDF independently inspected",
+      "independence": "dating of separate yarn and charcoal; no proof they supplied later indigo textile",
+      "sha256": "1122a55040afb66ef11d6df0b86731c4b31707369c8ac36224f7dc7cc4ea114c"
+    },
+    {
+      "source": "splitstoser-2017-huaca-prieta-textiles",
+      "url": "https://www.researchgate.net/publication/355029465_Huaca_Prieta_Twined_and_Woven_Artifacts_Part_1_Textiles",
+      "locator": "Table 12.5, Fig. 12.1d",
+      "availability": "researcher notes only; original rendering not independently confirmed",
+      "independence": "same lead analyst and excavated collection as 2016, not independent replication"
+    },
+    {
+      "source": "vallebueno-estrada-2023-paredones-maize",
+      "url": "https://elifesciences.org/articles/83149.pdf",
+      "locator": "Table 1, Fig. 3 and Discussion",
+      "availability": "original PDF rendering read",
+      "independence": "Par_N1 is same sample as earlier archaeological report; genetics independently informative about ancestry"
+    },
+    {
+      "source": "kistler-2018-maize-dispersal",
+      "url": "https://eprints.whiterose.ac.uk/140081/1/aav0207_ArticleContent_resub2_compiled.pdf",
+      "locator": "Abstract and Figs. 1–3",
+      "availability": "accepted manuscript local PDF hash verified",
+      "independence": "independent ancient genetic samples, not direct Xihuatoxtla or Par_N1 ancestry",
+      "sha256": "80b91df88b662cf9bf26aee185c8745144470146c00e5e90190023154732eed4"
+    }
+  ],
+  "relation_reviews": [
+    {
+      "from": "cotton-yarn-making-at-huaca-prieta",
+      "to": "indigo-dyeing-on-the-north-coast-of-peru",
+      "status": "established proposed; changes requested",
+      "relation": "requires supplied material",
+      "direction": "early stratum 52 yarn instance → later stratum 44 dyed textile",
+      "context": "different dated and dye-bearing artifacts; dyed cloth contains plied cotton yarn, but that does not show the earlier artifact supplied it",
+      "independent_corroboration": "2016/2017 share lead analyst and material; chronology dates distinct sample. Specific proposed dependency not independently corroborated.",
+      "established_history": false
+    },
+    {
+      "from": "gravity-canals-upper-zana-valley-northern-peru",
+      "to": "nanchoc-early-crop-system",
+      "status": "existing candidate retained",
+      "relation": "possible irrigation use",
+      "direction": "Canal 3 → Tierra Blanca field",
+      "context": "probable lower-bench field inferred from topography and model; field undated, no traced outlet",
+      "independent_corroboration": "none for specific connection",
+      "established_history": false
+    },
+    {
+      "from": "domesticated-maize",
+      "to": "alkaline-cooking-of-maize",
+      "status": "existing candidate",
+      "relation": "possible supply",
+      "direction": "Xihuatoxtla crop witness → Nahua use",
+      "context": "broad crop ancestry does not identify source or historical supply",
+      "independent_corroboration": "none for specific connection",
+      "established_history": false
+    }
+  ],
+  "duplicate_screen": {
+    "outcome": "All ten assigned roster IDs examined against base; maize Paredones is a distinct date and location from the Xihuatoxtla events and is an extension. Cotton yarn stratum 52 is a distinct evidence instance from the younger dyed textile, but do not infer direct material contribution between them. Guitarrero and Huaca Prieta shared techniques do not establish transmission."
+  },
+  "issues": [
+    "Cacao summary and event evidence must distinguish later funerary bottles from the early 5300 BP residue and avoid transferring dates.",
+    "Change the established yarn-to-indigo dependency or establish a genuinely matching endpoint and independent corroboration; the directly dated earlier yarn is a separate instance.",
+    "Defer or independently source the new cotton record description sentence about the 2017 broader yarn catalogue."
+  ],
+  "unknowns": [
+    "Valdez 2014 and Splitstoser 2017 originals not independently accessible in this execution.",
+    "Specific maize donor, route and date of movement remain unresolved.",
+    "Lower-bench field date and connection to Canal 3 unresolved.",
+    "Telarmachay management method and descent unresolved.",
+    "Potential sherd carbon contamination and sample chronology persist."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 907 discoveries, 1516 events, 243 links, 1681 sources; no problems found",
+    "diff_check": "pass"
+  },
+  "history": []
+}
