@@ -2,24 +2,24 @@
   "schema_version": 1,
   "lane": "grain",
   "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
-  "proposal_commit": "642902b8ea9f4b907dd0f593e7ab9f0a4b72b0db",
-  "worker_commit": "642902b8ea9f4b907dd0f593e7ab9f0a4b72b0db",
+  "proposal_commit": "109fd506e4c91806cd1fd8096248c1b4482d70d3",
+  "worker_commit": "109fd506e4c91806cd1fd8096248c1b4482d70d3",
   "reviewer": {
     "model": "gpt-6.1-terra",
     "effort": "high",
     "execution": "separate independent review",
     "independence": "Separate from gpt-6.2-sol high researcher; originals read independently"
   },
-  "overall_verdict": "changes_requested",
-  "overall_decision": "changes_requested",
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
   "files": [
     {
       "path": "data/discoveries/food/chogha-golan-emmer-cultivation.json",
-      "sha256": "ad8c57825ca0b34c153674c3979c0165733ace6e6c0b584137c9d28f737200e9"
+      "sha256": "e75e6fa70e60b7a37d683aee71b023b35d24ba68461b298456a35062a83d4a95"
     },
     {
       "path": "data/discoveries/food/dhra-raised-floor-granary.json",
-      "sha256": "c6e71c3c85639411663742de015ed34a4642663065ecbc70ddb2ab3ba2ca1b46"
+      "sha256": "a1b65c5e6a55e9ae30fe8514ae4f914a1f0155749c1ebe0cac10d5e4950f0480"
     },
     {
       "path": "data/discoveries/food/ohalo-hafted-blade-cereal-harvesting.json",
@@ -89,13 +89,13 @@
   "records": [
     {
       "id": "chogha-golan-emmer-cultivation",
-      "verdict": "changes_requested",
-      "rationale": "Emmer occurrence retained and earlier plant management unresolved; same Weide support was inserted twice.",
+      "verdict": "accept",
+      "rationale": "Emmer occurrence retained and earlier plant management unresolved; same Weide support was inserted twice. Repair removes duplicates; final bytes checked.",
       "claim_reviews": [
         {
           "path": "data/discoveries/food/chogha-golan-emmer-cultivation.json#/events/documented-evidence/evidence",
-          "decision": "changes_requested",
-          "rationale": "2018 study reports wild grasses diminished when domestic-type emmer became prominent and declines to infer cultivation for earlier plants. Remove duplicate Weide citation; the two are not independent support.",
+          "decision": "accept",
+          "rationale": "2018 study reports wild grasses diminished when domestic-type emmer became prominent and declines to infer cultivation for earlier plants. Remove duplicate Weide citation; the two are not independent support. Duplicates removed in final bytes.",
           "sources": [
             "weide-2018-chogha-golan-wild-grasses: Chogha Golan, conclusion"
           ]
@@ -114,13 +114,13 @@
     },
     {
       "id": "dhra-raised-floor-granary",
-      "verdict": "changes_requested",
-      "rationale": "Source-backed caveat and plant evidence duplicated in final bytes.",
+      "verdict": "accept",
+      "rationale": "Source-backed caveat and plant evidence duplicated in final bytes. Repair removes duplicates; final bytes checked.",
       "claim_reviews": [
         {
           "path": "data/discoveries/food/dhra-raised-floor-granary.json#/events/documented-evidence/evidence",
-          "decision": "changes_requested",
-          "rationale": "The 2009 preliminary floor phytoliths and the separate 2018 context 2134 flotation sample support interpretation, not proof of the complete contents. Delete repeated Kuijt and repeated Colledge entries.",
+          "decision": "accept",
+          "rationale": "The 2009 preliminary floor phytoliths and the separate 2018 context 2134 flotation sample support interpretation, not proof of the complete contents. Delete repeated Kuijt and repeated Colledge entries. Duplicates removed in final bytes.",
           "sources": [
             "kuijt-2009-dhra-granaries: p. 10967",
             "colledge-2018-dhra-plant-remains: methods, cereal densities, table 5"
@@ -128,8 +128,8 @@
         },
         {
           "path": "data/discoveries/food/dhra-raised-floor-granary.json#/caveats and events/documented-evidence/caveats",
-          "decision": "changes_requested",
-          "rationale": "Remove duplicate repeated sentences in both caveat fields. Sample lies between floor and collapse and does not securely date use or amount stored.",
+          "decision": "accept",
+          "rationale": "Remove duplicate repeated sentences in both caveat fields. Sample lies between floor and collapse and does not securely date use or amount stored. Duplicates removed in final bytes.",
           "sources": [
             "colledge-2018-dhra-plant-remains: context 2134, table 5"
           ]
@@ -313,10 +313,7 @@
       "independence": "same researcher and partially overlapping samples as earlier Aswad study; secure-context reanalysis"
     }
   ],
-  "issues": [
-    "Remove duplicated Weide evidence entry from Chogha Golan event.",
-    "Remove duplicated Kuijt and Colledge evidence entries and repeated caveat sentences in both Dhra caveat fields."
-  ],
+  "issues": [],
   "unknowns": [
     "Chogha Golan prior cultivation and emmer origin.",
     "Dhra sample use date, stored quantity and actual contents.",
@@ -326,11 +323,352 @@
   ],
   "validation": {
     "command": "python3 tools/validate.py",
-    "result": "pass; 908 discoveries, 1516 events, 244 links, 1677 sources; no problems found"
+    "result": "pass after repair; 908 discoveries, 1516 events, 244 links, 1677 sources; no problems found"
   },
   "diff_check": {
-    "command": "git diff --check 71326e01a105da21decb1587195a81bd5b596b8c 642902b8ea9f4b907dd0f593e7ab9f0a4b72b0db",
+    "command": "git diff --check 71326e01a105da21decb1587195a81bd5b596b8c 109fd506e4c91806cd1fd8096248c1b4482d70d3",
     "result": "pass"
   },
-  "history": []
+  "history": [
+    {
+      "review_commit": "582dd48",
+      "superseded_review": {
+        "schema_version": 1,
+        "lane": "grain",
+        "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+        "proposal_commit": "642902b8ea9f4b907dd0f593e7ab9f0a4b72b0db",
+        "worker_commit": "642902b8ea9f4b907dd0f593e7ab9f0a4b72b0db",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "separate independent review",
+          "independence": "Separate from gpt-6.2-sol high researcher; originals read independently"
+        },
+        "overall_verdict": "changes_requested",
+        "overall_decision": "changes_requested",
+        "files": [
+          {
+            "path": "data/discoveries/food/chogha-golan-emmer-cultivation.json",
+            "sha256": "ad8c57825ca0b34c153674c3979c0165733ace6e6c0b584137c9d28f737200e9"
+          },
+          {
+            "path": "data/discoveries/food/dhra-raised-floor-granary.json",
+            "sha256": "c6e71c3c85639411663742de015ed34a4642663065ecbc70ddb2ab3ba2ca1b46"
+          },
+          {
+            "path": "data/discoveries/food/ohalo-hafted-blade-cereal-harvesting.json",
+            "sha256": "a28a448a3c2baad9e047d063400106e51b03c0437949c68e370a4ea19e94e54f"
+          },
+          {
+            "path": "data/discoveries/food/ohalo-wild-grain-gathering-and-grinding.json",
+            "sha256": "36e2a386d812ac672d40e8cdb557e7b4428c46aaf23d546ed5d57cb34160636a"
+          },
+          {
+            "path": "data/discoveries/food/shubayqa-bread-like-food.json",
+            "sha256": "b63acd30400b208a77260b7eac71fcef8d0af132a0dcf9bc88107db8fb95d783"
+          },
+          {
+            "path": "data/discoveries/food/shubayqa-early-natufian-grinding-and-pounding.json",
+            "sha256": "3d1941061018c26d1faeb4681b067448e854671b9950192951160f97c13b9592"
+          },
+          {
+            "path": "data/discoveries/food/tell-aswad-domestic-barley.json",
+            "sha256": "6ae4bafe201cdcc521f1647394f5712d01808945569d731933899a4ff2ba387c"
+          },
+          {
+            "path": "data/sources/c/colledge-2018-dhra-plant-remains.json",
+            "sha256": "70576d5f7c813d8c067885e46ef349bf702b052ef079d95cf34f2982530ce03d"
+          },
+          {
+            "path": "data/sources/d/douche-willcox-2018-aswad-barley.json",
+            "sha256": "3f53b8189a54e68dd317ed9620688ccfb69036d968979da8a43eb26f7320352a"
+          },
+          {
+            "path": "data/sources/g/groman-yaroslavski-2016-ohalo-harvesting.json",
+            "sha256": "4e2751081e1b5f8c3b881c79cadfc89c724551700ec391b3fcd972136fef3188"
+          },
+          {
+            "path": "data/sources/p/pedersen-2026-shubayqa-ground-stone.json",
+            "sha256": "d6e32f58206d0adecb99ce9d8ff1caf6d333c59645d4fe318f9d93c3d089ce95"
+          },
+          {
+            "path": "data/sources/w/weide-2018-chogha-golan-wild-grasses.json",
+            "sha256": "907e3aa5156fa3a02ebba5187a8d7c1538d42d3e15983c071fbab44d95cee8f4"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-prehistory/lanes/grain.json",
+            "sha256": "0065eae917ad801b7e7824606501d75ea931835cfa0d383e04bf8ffe6191db3c"
+          },
+          {
+            "path": "evidence/c/colledge-2018-dhra-plant-remains-notes.txt",
+            "sha256": "f8510231238de1fe1faebf268f2661d2d2cc7bdff14ad92f9b3e3f7d3287d635"
+          },
+          {
+            "path": "evidence/d/douche-willcox-2018-aswad-barley.pdf.cache.json",
+            "sha256": "002a0535743f20a330288eb0bd243010f884e7d949b7c67d4bf3cef3f130b0e8"
+          },
+          {
+            "path": "evidence/g/groman-yaroslavski-2016-ohalo-harvesting.pdf.cache.json",
+            "sha256": "2ccf6c7adc5b3f3248fdb3ac85779564c39a83aeb4d2f879c5cef13b6e2b6fe3"
+          },
+          {
+            "path": "evidence/p/pedersen-2026-shubayqa-ground-stone-notes.txt",
+            "sha256": "512157d7d37df4dab375c6f8002dbe780d0e0751c5905e41d291b65e0a0fd2fb"
+          },
+          {
+            "path": "evidence/w/weide-2018-chogha-golan-wild-grasses-notes.txt",
+            "sha256": "e2f0837e08d4a5ad5ab24e28dc72cab5e88946c19a41f4ce8bcfd9e396f27e15"
+          }
+        ],
+        "records": [
+          {
+            "id": "chogha-golan-emmer-cultivation",
+            "verdict": "changes_requested",
+            "rationale": "Emmer occurrence retained and earlier plant management unresolved; same Weide support was inserted twice.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/chogha-golan-emmer-cultivation.json#/events/documented-evidence/evidence",
+                "decision": "changes_requested",
+                "rationale": "2018 study reports wild grasses diminished when domestic-type emmer became prominent and declines to infer cultivation for earlier plants. Remove duplicate Weide citation; the two are not independent support.",
+                "sources": [
+                  "weide-2018-chogha-golan-wild-grasses: Chogha Golan, conclusion"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/chogha-golan-emmer-cultivation.json#/caveats and earliest_record",
+                "decision": "accept",
+                "rationale": "Occurence at about 9800 cal BP is supported; development location and earlier cultivation remain unresolved.",
+                "sources": [
+                  "riehl-2013-chogha-golan-emmer: abstract",
+                  "weide-2018-chogha-golan-wild-grasses: conclusion"
+                ]
+              }
+            ],
+            "duplicate_screen": "Existing emmer record extended; no separate node or transmission asserted."
+          },
+          {
+            "id": "dhra-raised-floor-granary",
+            "verdict": "changes_requested",
+            "rationale": "Source-backed caveat and plant evidence duplicated in final bytes.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/dhra-raised-floor-granary.json#/events/documented-evidence/evidence",
+                "decision": "changes_requested",
+                "rationale": "The 2009 preliminary floor phytoliths and the separate 2018 context 2134 flotation sample support interpretation, not proof of the complete contents. Delete repeated Kuijt and repeated Colledge entries.",
+                "sources": [
+                  "kuijt-2009-dhra-granaries: p. 10967",
+                  "colledge-2018-dhra-plant-remains: methods, cereal densities, table 5"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/dhra-raised-floor-granary.json#/caveats and events/documented-evidence/caveats",
+                "decision": "changes_requested",
+                "rationale": "Remove duplicate repeated sentences in both caveat fields. Sample lies between floor and collapse and does not securely date use or amount stored.",
+                "sources": [
+                  "colledge-2018-dhra-plant-remains: context 2134, table 5"
+                ]
+              }
+            ],
+            "duplicate_screen": "Existing Structure 4 event extended, not a new structure."
+          },
+          {
+            "id": "ohalo-wild-grain-gathering-and-grinding",
+            "verdict": "accept",
+            "rationale": "The proposed connection remains a candidate for local relation, not historical transmission.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/ohalo-wild-grain-gathering-and-grinding.json#/links/0",
+                "decision": "accept",
+                "rationale": "Direction harvest to processing and scope are sensible as a question: blade wear and grains near slab concern distinct material; most recovered grains ripe whereas wear resembles near-ripe cereal cutting. No specific batch linkage proven; candidate status appropriately retains question.",
+                "sources": [
+                  "groman-yaroslavski-2016-ohalo-harvesting: Results and Discussion",
+                  "weiss-2004-ohalo-wild-grasses: plant remains"
+                ]
+              }
+            ],
+            "relation": {
+              "from": "ohalo-hafted-blade-cereal-harvesting",
+              "to": "ohalo-wild-grain-gathering-and-grinding",
+              "type": "uses_process",
+              "status": "candidate",
+              "context": "Ohalo II only",
+              "established_history": false,
+              "independence": "Distinct blades, grains and slab; partly overlapping teams; no batch-level corroboration."
+            },
+            "duplicate_screen": "The new hafted cutting node concerns distinct blades from existing ground-stone and grains; no duplicated dated event."
+          },
+          {
+            "id": "shubayqa-bread-like-food",
+            "verdict": "accept",
+            "rationale": "Local ingredient reduction is supported by complementary food microstructure and contemporaneous ground-stone wear; no tool-specific attribution or transmission claimed.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/shubayqa-bread-like-food.json#/links/0",
+                "decision": "accept",
+                "rationale": "2018 food particles suggest repeated milling, sieving and/or winnowing and 2026 analysis identifies plausible plant-working use-wear on Early Natufian tools. The directional local processing-to-food relation is supported at practice level; exact tools, preparation sequence and residues remain unresolved.",
+                "sources": [
+                  "arranz-otaegui-2018-shubayqa-bread: chaîne opératoire",
+                  "pedersen-2026-shubayqa-ground-stone: sections 3.1, 4.1 and fig. 4"
+                ]
+              }
+            ],
+            "relation": {
+              "from": "shubayqa-early-natufian-grinding-and-pounding",
+              "to": "shubayqa-bread-like-food",
+              "type": "uses_process",
+              "status": "established",
+              "context": "Early Natufian Shubayqa 1, occupation scale",
+              "established_history": true,
+              "independence": "Distinct tool wear and bread fragments provide informative independent observations, but same excavation with two shared authors; no individual-tool linkage."
+            },
+            "duplicate_screen": "Existing food event remains intact; added local processing on separate objects; no Ohalo or Giza transmission inferred."
+          },
+          {
+            "id": "tell-aswad-domestic-barley",
+            "verdict": "accept",
+            "rationale": "The secure-context reanalysis revises older chronology and proportion, with wild types predominant and no origin claim.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/tell-aswad-domestic-barley.json#/description and events/documented-evidence",
+                "decision": "accept",
+                "rationale": "Douché and Willcox table 1 dates AW2 8200–7500 cal BC; p. 48 and p. 54 give first substantial domestic barley spikelet frequencies at phase 2, 26%, with wild type predominant. Revised sample selection and stratigraphy are not independent of prior Willcox work.",
+                "sources": [
+                  "douche-willcox-2018-aswad-barley: pp. 47–50, 54, table 1 and fig. 5"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/tell-aswad-domestic-barley.json#/caveats and earliest_record",
+                "decision": "accept",
+                "rationale": "Confines event to first substantial representation in revised study, preserves unresolved origin of domestication.",
+                "sources": [
+                  "douche-willcox-2018-aswad-barley: Results and Discussion"
+                ]
+              }
+            ],
+            "duplicate_screen": "Revises existing event on same site using secure reanalysis, does not add new record or event."
+          }
+        ],
+        "additional_records": [
+          {
+            "id": "ohalo-hafted-blade-cereal-harvesting",
+            "verdict": "accept",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/ohalo-hafted-blade-cereal-harvesting.json",
+                "decision": "accept",
+                "rationale": "2016 original results and figures 5–6 report two blades with inferred haft wear and near-ripe cereal wear. Site context around 23,000 cal BP; caveats appropriately qualify inference, insert count and connection to other grains. Name, description, practice/food foraging, site place, event, date, earliest record, basis, caveats and note supported within stated bounds.",
+                "sources": [
+                  "groman-yaroslavski-2016-ohalo-harvesting: abstract, Results and Discussion"
+                ]
+              }
+            ],
+            "duplicate_screen": "Different objects and functional practice from Ohalo grinding record; open lead concerns stronger multi-insert claim."
+          },
+          {
+            "id": "shubayqa-early-natufian-grinding-and-pounding",
+            "verdict": "accept",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/shubayqa-early-natufian-grinding-and-pounding.json",
+                "decision": "accept",
+                "rationale": "2026 analysis reports Early Natufian phase 4–7 context 14800–14100 cal BP at 68.2% IntCal20; small tool sample gives seed/cereal and tuber-like use-wear interpretations. Identity, practice, food processing, Jordan, event, dates, earliest record, basis and caveats fit observed contextual and interpretive limits.",
+                "sources": [
+                  "pedersen-2026-shubayqa-ground-stone: sections 3.1, 4.1, fig. 4"
+                ]
+              }
+            ],
+            "duplicate_screen": "Ground stone artifacts constitute a distinct practice from charred food remains; same local occupation, not inferred continuity."
+          }
+        ],
+        "source_checks": [
+          {
+            "id": "riehl-2013-chogha-golan-emmer",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/23828939/",
+            "locator": "abstract",
+            "access": "original abstract read",
+            "independence": "same excavation as Weide"
+          },
+          {
+            "id": "weide-2018-chogha-golan-wild-grasses",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0189811",
+            "locator": "Chogha Golan and conclusion",
+            "access": "publisher full text read",
+            "independence": "same site, overlapping team; earlier samples added"
+          },
+          {
+            "id": "kuijt-2009-dhra-granaries",
+            "url": "https://doi.org/10.1073/pnas.0812764106",
+            "locator": "Granaries at Dhra, p.10967",
+            "access": "publisher full text read",
+            "independence": "same excavation as Colledge; architecture/phytolith distinct from macroremain sample"
+          },
+          {
+            "id": "colledge-2018-dhra-plant-remains",
+            "url": "https://www.researchgate.net/publication/322562142_New_insights_on_plant_domestication_production_intensification_and_food_storage_the_archaeobotanical_evidence_from_PPNA_Dhra",
+            "locator": "methods, context 2134, cereal densities, table 5",
+            "access": "author-uploaded full text independently read",
+            "independence": "separate macroremains from same excavation; no independent observation of structural date"
+          },
+          {
+            "id": "groman-yaroslavski-2016-ohalo-harvesting",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+            "locator": "abstract, Results figs 5–6, Discussion",
+            "access": "cached original PDF read",
+            "sha256": "f4b549dd52848f4e0365d89b1d3b46247c8bad01a7989b78b76007506e7e0ecd",
+            "independence": "blades distinct from grain and slab; overlapping Ohalo research team"
+          },
+          {
+            "id": "weiss-2004-ohalo-wild-grasses",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC470712/",
+            "locator": "plant remains, discussion",
+            "access": "original full text read",
+            "independence": "distinct grain spatial analysis; overlapping research team"
+          },
+          {
+            "id": "arranz-otaegui-2018-shubayqa-bread",
+            "url": "https://doi.org/10.1073/pnas.1801071115",
+            "locator": "plant ingredients and chaîne opératoire",
+            "access": "publisher full text read",
+            "independence": "food fragments distinct from tools, overlapping team with Pedersen"
+          },
+          {
+            "id": "pedersen-2026-shubayqa-ground-stone",
+            "url": "https://www.researchgate.net/publication/405124317_From_Stone_to_Food_Foodways_and_Ground_Stone_Tools_During_the_Natufian_and_Early_Neolithic_of_Eastern_Jordan",
+            "locator": "sections 3.1, 4.1, table 2 and fig.4",
+            "access": "publisher article hosted on ResearchGate independently read",
+            "independence": "different tool specimens; shared excavation and two authors; small sample and ambiguous wear"
+          },
+          {
+            "id": "douche-willcox-2018-aswad-barley",
+            "url": "https://www.willcoxpages.fr/pdf/WillcoxDouchePaleorient2018.pdf",
+            "locator": "pp. 47–50, 54, table 1 and fig. 5",
+            "access": "cached original PDF independently read",
+            "sha256": "187b2d87b3f8bb15d90e05f6d4468cfc00d1ff52fbb4a24a9454c5777686905a",
+            "independence": "same researcher and partially overlapping samples as earlier Aswad study; secure-context reanalysis"
+          }
+        ],
+        "issues": [
+          "Remove duplicated Weide evidence entry from Chogha Golan event.",
+          "Remove duplicated Kuijt and Colledge evidence entries and repeated caveat sentences in both Dhra caveat fields."
+        ],
+        "unknowns": [
+          "Chogha Golan prior cultivation and emmer origin.",
+          "Dhra sample use date, stored quantity and actual contents.",
+          "Specific Ohalo harvested grains associated with processing.",
+          "Specific Shubayqa tools used for particular food fragments and transmission beyond site.",
+          "Aswad domestication origin and exact selection or sowing practice."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py",
+          "result": "pass; 908 discoveries, 1516 events, 244 links, 1677 sources; no problems found"
+        },
+        "diff_check": {
+          "command": "git diff --check 71326e01a105da21decb1587195a81bd5b596b8c 642902b8ea9f4b907dd0f593e7ab9f0a4b72b0db",
+          "result": "pass"
+        },
+        "history": []
+      },
+      "resolution": "Proposal 109fd506 removes the duplicate source entries and repeated caveat sentences; all other non-review proposal bytes unchanged."
+    }
+  ]
 }
