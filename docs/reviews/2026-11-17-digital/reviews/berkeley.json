@@ -1,0 +1,60 @@
+{
+  "lane": "berkeley",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "proposal": "91b737fd75350cda0cbf6db6c56ccebe9e551fee",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/berkeley-fully-depleted-back-illuminated-ccd.json": "5a4b47d7dbd199c1e3c7c3eeed741776f0a636a16f1e0b96fbb4c478c4fd260e",
+    "data/discoveries/electronics/berkeley-high-resistivity-pin-detector-process.json": "f9a3e9e3ccb4118bc3e64dd89c2d471664dad603ea7ff31755458fee047268b2",
+    "data/discoveries/electronics/ibm-backside-polysilicon-gettering.json": "5326ce2fd229744a5d0f80723a7a966341a4802b7a2db9d17dc73777f985c31f",
+    "data/discoveries/measurement/lick-ccd-data-acquisition-system.json": "41e8ed20e1493c855f7c486ae89c05b323e9fa43990561a9ae06bc9b5baa3756",
+    "data/sources/d/d2-berkeley-chen-silvestri-1982-polysilicon-gettering.json": "b9c2279669ce9c222e4c0b3be6e1de33d8bc9b77409a95c5570b5293c5b7ad6e",
+    "data/sources/d/d2-berkeley-holland-1997-ccd-workshop.json": "c66d0f452779a260ecae26bc5ebb048ff48f80a1905798abd2e762a6d645ffc9",
+    "data/sources/d/d2-berkeley-holland-2000-transparent-window-patent.json": "8a842726aa4205012248ed1a03dba16806ac16d1413116b9c5137e6773ee4354",
+    "data/sources/d/d2-berkeley-hu-1977-polysilicon-gettering.json": "f54affcfb24b2a8c9c909f5e2f836d70ca904feb75e7b5e678966a2fb080381e",
+    "data/sources/d/d2-berkeley-robinson-1987-lick-ccd-acquisition.json": "026132660892277e782e592806755df33a2c8363613fd659c726f7fe93176d8e",
+    "data/sources/d/d2-berkeley-spieler-2005-detector-systems.json": "3df5073c110bf5692ee58998a955252e0cf26232822eb6e67f174d62d60c4d72",
+    "data/sources/d/d2-berkeley-stover-allen-1987-lick-ccd-photometer.json": "70aac9e23b0d064dfe27120dc6d673e43996c53e75f6d3ad902635d0d88c27a5",
+    "docs/reviews/2026-11-17-digital/lanes/berkeley.json": "3c404d578da383eafe24b4dc1b90190a52fc2a5e64975fe4a81036185de578ec"
+  },
+  "claims": [
+    {
+      "path": "ibm-backside-polysilicon-gettering identity, description, classification, 1977 patent event and earliest_record",
+      "decision": "accept",
+      "reason": "Hu US4053335A abstract, Fig. 1 and Examples 1 and 7 describe backside polysilicon impurity sink and comparative electrical tests; US grant/publication 11 October 1977 is the inspected public record, not the 1976 filing. IBM is identified as assignee rather than inferred host. No absolute priority asserted. https://patents.google.com/patent/US4053335A/en"
+    },
+    {
+      "path": "berkeley-high-resistivity-pin-detector-process links: same_principle from ibm-backside-polysilicon-gettering",
+      "decision": "accept",
+      "reason": "Hu US4053335A abstract and Examples 1 and 7 and Holland 1989 pp. 538, 541 §§2–3 and refs 14, 18–20 each describe backside polysilicon impurity sinks. Holland specifies phosphorus doping and the additional back-contact role. Chen and Silvestri 1982 abstract and experiments provide an independently performed later test in a different process, but one author was at IBM and Hu was acknowledged. Shared principle does not assert transfer or identical full processes. https://dhkah.wordpress.com/wp-content/uploads/2010/08/holland_nuclear-instruments-and-methods-in-physics-research-section-a_1989.pdf ; https://ir.lib.nycu.edu.tw/bitstream/11536/4954/1/A1982NS83700036.pdf"
+    },
+    {
+      "path": "berkeley-fully-depleted-back-illuminated-ccd candidate from detector process and added evidence",
+      "decision": "accept",
+      "reason": "Holland et al. 1997 §1 names phosphorus-doped backside polysilicon getter; Holland US6025585A Example 1 explicitly describes a thick getter according to 1989 process, etched off before a thin optical back window. Neither establishes independent confirmation for the specific December 1996 prototype. Spieler §8.8 pp. 366–367 discusses broader high-resistivity integration and photodiode lineage, and was a participant in the 1990 integration work. Candidate appropriately remains open. https://www.imagesensors.org/Past%20Workshops/1997%20Workshop/1997%20Papers/40%20Holland%20et%20al.pdf ; https://patents.google.com/patent/US6025585A/en ; https://www-physics.lbl.gov/~spieler/misc_stuff/text/sent_02jul05/text_pdf/Semiconductor_Detector_Systems.pdf"
+    },
+    {
+      "path": "lick-ccd-data-acquisition-system identity, description, location, 1987 publication and earliest_record",
+      "decision": "accept",
+      "reason": "Robinson et al. 1987 original abstract and publication metadata identify Lick, programmable controllers, serial link, UNIX acquisition/analysis, several CCDs and observing instruments. Stover and Allen 1987 pp. 877–879, Table I and Fig. 1 report a working photometer with most components of the standard Lick system, corroborating the hardware configuration but with overlapping authors. Initial operation is not dated. https://ntrs.nasa.gov/citations/19870065201 ; https://adsabs.harvard.edu/pdf/1987PASP...99..877S"
+    },
+    {
+      "path": "berkeley-fully-depleted-back-illuminated-ccd uses_instrument from lick-ccd-data-acquisition-system",
+      "decision": "accept",
+      "reason": "Stover et al. 1997 §3.2 and ref. 3 directly identify the standard Lick system in the laboratory characterization of packaged CCDs and cite Robinson et al. 1987; controller amplified and digitized output. Robinson abstract and Stover/Allen 1987 describe the named apparatus. The 1987 sources overlap the 1997 author Stover and do not independently confirm its 1997 use. Accept only as a directly observed narrow instrument-use fact, not a consequential innovation, transfer or on-sky-use claim. https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon ; https://ntrs.nasa.gov/citations/19870065201 ; https://adsabs.harvard.edu/pdf/1987PASP...99..877S"
+    },
+    {
+      "path": "source records and lane report",
+      "decision": "accept",
+      "reason": "Checked cited original accessible passages and metadata; the Robinson full paper was not available, so its abstract and independently accessible 1987 photometer report support only the claims stated. Lane correctly records source overlap, candidate status, and frontier."
+    }
+  ],
+  "corrections": [
+    "Changed Spieler locator from §8.9.2 to §8.8 pp. 366–367 and acknowledged his earlier collaboration; removed IBM host assertion based solely on patent assignment."
+  ],
+  "deferred": [
+    "Independent confirmation of the precise 1988/1989 gettering method on the 1996 prototype and direct transfer of Hu’s full process to Berkeley remain unresolved. Earlier Lick PDP-8 system continuity to the UNIX system is not established. The 1987 and 1997 Lick papers share Stover; later use has not been independently repeated."
+  ]
+}

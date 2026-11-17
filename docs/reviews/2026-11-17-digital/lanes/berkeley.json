@@ -1,0 +1,123 @@
+{
+  "lane": "berkeley",
+  "title": "Berkeley fully depleted CCD fabrication and characterization",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "questions": [
+    {
+      "child": "berkeley-fully-depleted-back-illuminated-ccd",
+      "parent": "berkeley-high-resistivity-pin-detector-process",
+      "initial_status": "candidate",
+      "decision": "still candidate",
+      "reason": "The designers explicitly credit earlier p-i-n work. Specifications in overlapping 1996–1997 accounts and Holland's patent match backside phosphorus-doped polysilicon gettering and document its later adaptation for an optical window. Spieler participated in the 1990 preamplifier work and discusses the broader lineage. Independent confirmation of the precise 1988/1989 process on the 1996 prototype is still missing.",
+      "sources": [
+        "https://www-supernova.lbl.gov/public/papers/ccd_ieee.ps",
+        "https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon",
+        "https://www.imagesensors.org/Past%20Workshops/1997%20Workshop/1997%20Papers/40%20Holland%20et%20al.pdf",
+        "https://patents.google.com/patent/US6025585A/en",
+        "https://www-physics.lbl.gov/~spieler/misc_stuff/text/sent_02jul05/text_pdf/Semiconductor_Detector_Systems.pdf"
+      ]
+    },
+    {
+      "child": "berkeley-high-resistivity-pin-detector-process",
+      "parent": "ibm-backside-polysilicon-gettering",
+      "initial_status": "unrecorded",
+      "decision": "established",
+      "reason": "Holland cites Hu and describes the same deposited backside polysilicon impurity sink, with in-situ phosphorus doping and an additional electrical role. The link records a shared principle. Direct influence of IBM's specific process remains unresolved.",
+      "sources": [
+        "https://dhkah.wordpress.com/wp-content/uploads/2010/08/holland_nuclear-instruments-and-methods-in-physics-research-section-a_1989.pdf",
+        "https://patents.google.com/patent/US4053335A/en",
+        "https://ir.lib.nycu.edu.tw/bitstream/11536/4954/1/A1982NS83700036.pdf"
+      ]
+    },
+    {
+      "child": "berkeley-fully-depleted-back-illuminated-ccd",
+      "parent": "lick-ccd-data-acquisition-system",
+      "initial_status": "unrecorded",
+      "decision": "established",
+      "reason": "Stover's characterization names the standard Lick data acquisition system and cites the 1987 design report. The original design abstract and a separate 1987 photometer report document the named system's readout arrangement. The laboratory tests provide the scope of this link.",
+      "sources": [
+        "https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon",
+        "https://ntrs.nasa.gov/citations/19870065201",
+        "https://adsabs.harvard.edu/pdf/1987PASP...99..877S"
+      ]
+    }
+  ],
+  "findings": [
+    "Hu's 1977 IBM-assigned patent reports experiments on integrated circuit test structures with a deposited backside polysilicon impurity sink. Holland's 1989 article cites Hu and describes the same principle in high-resistivity silicon p-i-n diodes.",
+    "Chen and Silvestri report a separate experiment using backside polysilicon after epitaxial growth. They cite Hu and acknowledge discussions with him. This supports the technique family and has the IBM affiliation in common.",
+    "The 1997 Lick paper attributes low CCD leakage to phosphorus-doped backside polysilicon and names the 1989 fabrication article. The inventor's later patent describes the 1989 gettering process followed by removal of the thick getter and deposition of a thin optical window.",
+    "Stover's 1997 paper §3.2 and ref. [3] name the earlier Lick data acquisition system used to characterize Berkeley detector packages. Its controller used double-correlated amplification and 16-bit digitization."
+  ],
+  "records": [
+    "berkeley-fully-depleted-back-illuminated-ccd",
+    "berkeley-high-resistivity-pin-detector-process",
+    "ibm-backside-polysilicon-gettering",
+    "lick-ccd-data-acquisition-system"
+  ],
+  "frontier": [
+    "Find the 1996 prototype's fabrication traveler or Microsystems Laboratory process sheets to identify which getter steps were run and when the thick layer was replaced by the transparent contact.",
+    "Trace Spieler's two intermediate steps using Holland and Spieler's LBL-28667 report, Holland's 1992 IEEE paper on high-resistivity CMOS and the laboratory records behind the 1997 Holland, Wang and Moses photodiode paper.",
+    "Compare Lauer's 1981 PDP-8 manual and the 1987 UNIX system paper against instrument installation notes and dated Lick manuals to identify the earlier system components that survived the computer/software transition."
+  ],
+  "sources": [
+    {
+      "title": "Fabrication of Detectors and Transistors on High-Resistivity Silicon",
+      "url": "https://dhkah.wordpress.com/wp-content/uploads/2010/08/holland_nuclear-instruments-and-methods-in-physics-research-section-a_1989.pdf",
+      "locator": "pp. 538 and 541, §§2–3, refs. [14], [18]–[20]"
+    },
+    {
+      "title": "Method of gettering using backside polycrystalline silicon",
+      "url": "https://patents.google.com/patent/US4053335A/en",
+      "locator": "Front page, Fig. 1 and Examples 1 and 7"
+    },
+    {
+      "title": "Post-Epitaxial Polysilicon and Si₃N₄ Gettering in Silicon",
+      "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/4954/1/A1982NS83700036.pdf",
+      "locator": "Abstract, experimental procedure, summary and ref. [4]"
+    },
+    {
+      "title": "A 200 × 200 CCD Image Sensor Fabricated on High-Resistivity Silicon",
+      "url": "https://www-supernova.lbl.gov/public/papers/ccd_ieee.ps",
+      "locator": "PostScript p. 1, §1 and p. 4, ref. [2]"
+    },
+    {
+      "title": "Characterization of a fully depleted CCD on high-resistivity silicon",
+      "url": "https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon",
+      "locator": "§§2, 3.2 and refs. [2]–[3]"
+    },
+    {
+      "title": "Development of Back-Illuminated, Fully-Depleted CCD Image Sensors for Use in Astronomy and Astrophysics",
+      "url": "https://www.imagesensors.org/Past%20Workshops/1997%20Workshop/1997%20Papers/40%20Holland%20et%20al.pdf",
+      "locator": "§1, first paragraph"
+    },
+    {
+      "title": "Low-resistivity photon-transparent window attached to photo-sensitive silicon detector",
+      "url": "https://patents.google.com/patent/US6025585A/en",
+      "locator": "Example 1"
+    },
+    {
+      "title": "Semiconductor Detector Systems",
+      "url": "https://www-physics.lbl.gov/~spieler/misc_stuff/text/sent_02jul05/text_pdf/Semiconductor_Detector_Systems.pdf",
+      "locator": "§8.8, pp. 366–367"
+    },
+    {
+      "title": "Lick Observatory Charge-Coupled-Device Data Acquisition System",
+      "url": "https://ntrs.nasa.gov/citations/19870065201",
+      "locator": "Abstract and publication metadata"
+    },
+    {
+      "title": "A High-Speed CCD Photometer",
+      "url": "https://adsabs.harvard.edu/pdf/1987PASP...99..877S",
+      "locator": "pp. 877–879, Table I and Fig. 1"
+    },
+    {
+      "title": "The C.C.D. Data-Taking System",
+      "url": "https://mthamilton.ucolick.org/techdocs/LOTR/LOTR28.pdf",
+      "locator": "Title page and Introduction"
+    }
+  ],
+  "screen": "Searched discovery and source text, lead IDs and record aliases for Lick readout, CCD data acquisition, Hu, gettering, high-resistivity silicon and diode fabrication. Extended the existing Berkeley records. The IBM process and UNIX-era Lick system have no matching records or leads. The earlier Lauer PDP-8 configuration is a frontier question.",
+  "limits": "Robinson's 1987 paper was accessible as its abstract and publication metadata. The system link is confined to lab characterization. The IBM patent gives a dated disclosure and test descriptions. Absolute priority and direct transfer to Berkeley remain unresolved."
+}
