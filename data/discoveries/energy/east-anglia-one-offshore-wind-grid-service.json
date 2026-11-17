@@ -1,0 +1,201 @@
+{
+  "id": "east-anglia-one-offshore-wind-grid-service",
+  "name": "East Anglia ONE offshore wind grid service",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "description": "The East Anglia ONE offshore wind farm connected Siemens Gamesa turbines in the southern North Sea to the British grid through a 220 kV alternating-current offshore export system and the grid connection near Bramford, Suffolk.",
+  "grain": "instance",
+  "concept": "grid-connected-wind-generation",
+  "places": [
+    {
+      "place": "north-sea",
+      "note": "Southern North Sea off Suffolk. This regional place does not encode the wind farm’s position."
+    }
+  ],
+  "events": [
+    {
+      "id": "metered-export-by-september-2019",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2019,
+          "month": 9,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 2 September 2019",
+        "basis": "Upper bound from a positive project settlement meter reading on 2 September. The sampled stream begins on 1 September."
+      },
+      "statement": "East Anglia ONE was delivering metered electricity by 2 September 2019. The developer announced first power on 12 September and identified E19 as its first generating turbine.",
+      "evidence": [
+        {
+          "source": "elexon-east-anglia-one-settlement-evidence",
+          "locator": "DF, 2019-09-02 SP30 and BM Unit reference",
+          "supports": "T_EAAO-1 recorded +2.075 MWh during the sampled half-hour. The current registry identifies both project units."
+        },
+        {
+          "source": "scottishpower-2019-east-anglia-one-first-power",
+          "locator": "12 September 2019 announcement, opening and first-turbine paragraph",
+          "supports": "Reports power from the first generating turbine E19 flowing to the onshore substation at Burstall, near Bramford."
+        },
+        {
+          "source": "nget-east-anglia-one-interface-statement",
+          "locator": "September 2023 examination exhibit 8.3.6.3, §§2.1.2 and 2.2.1–2.2.2",
+          "supports": "Identifies the transmission connection near Bramford, reports power flowing from the turbines from September 2019 and records the later transfer of the transmission assets."
+        },
+        {
+          "source": "ofgem-2022-east-anglia-one-transmission-cost-assessment",
+          "locator": "§§3.1–3.5 and technical-description footnote, §§3.23–3.24 and §§3.76–3.79",
+          "supports": "Describes two subsea 220 kV AC export cable circuits from the offshore substation. Forensic cost review distinguishes Nexans offshore export cables from the Prysmian onshore package and discusses energisation and readiness."
+        },
+        {
+          "source": "nexans-2020-east-anglia-one-export-order",
+          "locator": "p. 104, §3.1.2.3, 2016 UK offshore connection contracts (East Anglia One and Beatrice)",
+          "supports": "Names East Anglia One as a UK offshore grid-connection contract won in 2016 and reports completion in 2020."
+        }
+      ],
+      "caveats": "The meter rows identify plant balancing units. The earliest export outside the searched window and the turbine or individual circuit behind the meter readings remain unverified."
+    },
+    {
+      "id": "turbine-installation-complete",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2020,
+          "month": 4,
+          "day": 29
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 29 April 2020",
+        "basis": "The developer had announced completion of physical turbine installation by 29 April."
+      },
+      "statement": "Installation of all 102 Siemens Gamesa SWT-7.0-154 turbines was complete by the developer’s announcement on 29 April 2020.",
+      "evidence": [
+        {
+          "source": "siemens-2016-east-anglia-one-turbine-order",
+          "locator": "9 June 2016 investor presentation, slide 16, right column, Major offshore order in Wind Power",
+          "supports": "Names the East Anglia ONE order, ScottishPower Renewables as customer, the SWT-7.0-154 direct-drive model and the proposed 714 MW project."
+        },
+        {
+          "source": "scottishpower-2020-east-anglia-one-turbine-installation",
+          "locator": "29 April 2020 announcement, opening paragraphs and installation account",
+          "supports": "Reports installation of 102 Siemens Gamesa SWT-7.0-154 turbines, beginning in June 2019 and finishing by the announcement."
+        }
+      ]
+    },
+    {
+      "id": "full-turbine-operation",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2020,
+          "month": 7,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 27 July 2020",
+        "basis": "The developer had announced full turbine operation by 27 July."
+      },
+      "statement": "By 27 July 2020 the developer reported all 102 turbines fully operational.",
+      "scope": "Full turbine operation at the 714 MW wind farm.",
+      "evidence": [
+        {
+          "source": "scottishpower-2020-east-anglia-one-full-operation",
+          "locator": "27 July 2020 announcement, opening paragraphs and Keith Anderson statement",
+          "supports": "Reports all 102 turbines in operation and gives a 714 MW project rating."
+        }
+      ]
+    },
+    {
+      "id": "metered-grid-output-december-2020",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 12,
+          "day": 1
+        },
+        "latest": {
+          "year": 2020,
+          "month": 12,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1 December 2020",
+        "basis": "Calendar date and settlement period in the cited Elexon data."
+      },
+      "statement": "The two East Anglia ONE balancing units recorded a combined positive metered volume of 207.090 MWh during settlement period 25 on 1 December 2020.",
+      "scope": "One half-hour in the DF settlement run.",
+      "evidence": [
+        {
+          "source": "elexon-east-anglia-one-settlement-evidence",
+          "locator": "DF, 2020-12-01 SP25 and BM Unit reference",
+          "supports": "The two project units report signed metered volumes of +101.936 and +105.154 MWh during the same half-hour."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "metered-export-by-september-2019",
+    "rationale": "Earliest directly witnessed grid service for this scoped project in the inspected meter window."
+  },
+  "measures": [
+    {
+      "quantity": "rated generating power",
+      "value": 714,
+      "unit": "MW",
+      "event": "full-turbine-operation",
+      "subject": "East Anglia ONE",
+      "status": "claimed",
+      "conditions": "Rated project capacity for 102 turbines rated at 7 MW each.",
+      "evidence": [
+        {
+          "source": "scottishpower-2020-east-anglia-one-full-operation",
+          "locator": "27 July 2020 announcement, opening paragraphs and Keith Anderson statement",
+          "supports": "Reports all 102 turbines in operation and gives a 714 MW project rating."
+        },
+        {
+          "source": "siemens-2016-east-anglia-one-turbine-order",
+          "locator": "9 June 2016 investor presentation, slide 16, right column, Major offshore order in Wind Power",
+          "supports": "Names the East Anglia ONE order, ScottishPower Renewables as customer, the SWT-7.0-154 direct-drive model and the proposed 714 MW project."
+        }
+      ]
+    },
+    {
+      "quantity": "combined metered settlement energy",
+      "value": 207.09,
+      "unit": "MWh",
+      "event": "metered-grid-output-december-2020",
+      "subject": "T_EAAO-1 and T_EAAO-2",
+      "status": "derived",
+      "conditions": "DF settlement period 25 on 1 December 2020. One half-hour at the BM Unit measurement boundary.",
+      "method": "Add the two signed Elexon B1610 quantity fields for the same half-hour, 101.936 + 105.154 MWh.",
+      "evidence": [
+        {
+          "source": "elexon-east-anglia-one-settlement-evidence",
+          "locator": "DF, 2020-12-01 SP25 and BM Unit reference",
+          "supports": "The two project units report signed metered volumes of +101.936 and +105.154 MWh during the same half-hour."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Project-level regional deployment. Operational dependency on the installed AC export system was tested with the supplier’s project report, Ofgem’s contract review, the grid interface statement and Elexon settlement records. Full test and phase boundaries are in the electricity provenance lane."
+  }
+}

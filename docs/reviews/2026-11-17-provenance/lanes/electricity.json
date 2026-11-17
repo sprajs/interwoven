@@ -1,0 +1,147 @@
+{
+  "lane": "electricity",
+  "kind": "workflow",
+  "title": "Trace offshore wind procurement to metered grid service",
+  "question": "Can supplier, developer, regulator and settlement records link the installed East Anglia ONE equipment and export connection to actual electricity delivered to the British grid?",
+  "summary": "The workflow joins the ordered SWT-7.0-154 model to the installed fleet and tests the wind farm’s operational dependence on its 220 kV AC offshore export link. The receiving-side record and Elexon meter volumes confirm grid service in September 2019. The developer reported full turbine operation by 27 July 2020, and two December balancing-unit meter readings sum to 207.090 MWh in one half-hour.",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "base": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "inputs": [
+    "Project name and aliases",
+    "Developer legal entity and grid interface",
+    "Candidate equipment model or package and supplier",
+    "Claimed first-power and commissioning window",
+    "Market operator asset IDs and official metering endpoint"
+  ],
+  "steps": [
+    {
+      "title": "Resolve the procurement and deployment identities",
+      "action": "Search the repo discovery, source and review paths for the plant aliases, equipment string and unit IDs. Search the supplier’s investor events, results and product archives for the project plus the order, model or package. Search the developer’s construction and commissioning releases for the same project and installed model. Record the supplier name used at each date, installed count and capacity scope.",
+      "result": "Searches for East Anglia ONE, East Anglia 1, T_EAAO and SWT-7.0-154 found no prior case. Earlier Bogø and Gedser records cover distinct installations. Siemens’s June 2016 order report pairs the SWT-7.0-154 with ScottishPower Renewables’ East Anglia ONE project. The developer reports all 102 Siemens Gamesa SWT-7.0-154 units installed by 29 April 2020.",
+      "sources": [
+        {
+          "title": "Execution of Vision 2020 fully on track",
+          "url": "https://assets.new.siemens.com/siemens/assets/api/uuid:44871707-b477-4e4b-ab45-bc7867f99e79/160609-presentation-jp-morgan-conference.pdf",
+          "locator": "9 June 2016 investor presentation, slide 16, right column, Major offshore order in Wind Power"
+        },
+        {
+          "title": "Turbine installation complete on East Anglia ONE offshore windfarm",
+          "url": "https://www.scottishpowerrenewables.com/w/turbine-installation-complete-on-east-anglia-one-offshore-windfarm",
+          "locator": "29 April 2020 announcement, opening paragraphs and installation account"
+        }
+      ]
+    },
+    {
+      "title": "Test the installed export dependency at both ends",
+      "action": "Find the supplier’s named export contract in its original project or investor record. Search the transmission regulator’s project cost assessment for the contractor, cable scope, circuit configuration and energisation. In the planning inspectorate register or transmission-owner interface records, find a project-specific grid interface record and trace the route from generator bus to receiving grid.",
+      "result": "Nexans names its East Anglia One connection contract. Ofgem’s forensic review allocates the subsea export package to Nexans and the onshore package to Prysmian. The technical description supplied by the developer traces 66 kV array collection, offshore step-up, two 220 kV AC export circuits and connection at Bramford to the 400 kV network. National Grid’s published draft grid-interface statement corroborates power reaching the substation near Bramford during September 2019. Grid export at that destination depended on the installed export path from the offshore substation. The public material does not identify the individual circuit carrying the earliest measured output. The actual AC route excludes inference from the earlier Gotland HVDC record or from East Anglia ONE’s optional HVDC consent.",
+      "sources": [
+        {
+          "title": "2020 Universal Registration Document",
+          "url": "https://www.nexans.com/app/uploads/2024/02/2020-nexans-universal-registration-document.pdf",
+          "locator": "p. 104, §3.1.2.3, 2016 UK offshore connection contracts (East Anglia One and Beatrice)"
+        },
+        {
+          "title": "Cost Assessment Report for East Anglia One Offshore Transmission Assets",
+          "url": "https://www.ofgem.gov.uk/sites/default/files/2022-12/EA1_CAR_Report%20Final%20Dec.pdf",
+          "locator": "§§3.1–3.5 and technical-description footnote, §§3.23–3.24 and §§3.76–3.79"
+        },
+        {
+          "title": "Bramford to Twinstead Reinforcement. Draft Statement of Common Ground TC East Anglia ONE OFTO Limited, Final Issue A",
+          "url": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN020002-000831-National%20Grid%20Electricity%20Transmission%20-%20Additional%20and%20any%20updated%20Statements%20of%20Common%20Ground%20%28SoCG%29%20%28see%20PD1%20in%20Annex%20F%20of%20the%20Rule%206%20letter%29..pdf",
+          "locator": "September 2023 examination exhibit 8.3.6.3, §§2.1.2 and 2.2.1–2.2.2"
+        },
+        {
+          "title": "East Anglia ONE non-material change report",
+          "url": "https://assets.publishing.service.gov.uk/media/61b20b04e90e0704478a9e87/EA1-CON-F-GBE-242081_NMC_Report_FINAL.pdf",
+          "locator": "EA1-CON-F-GBE-242081, pp. 4–5 §§4–6; developer elected HVAC in 2016"
+        }
+      ]
+    },
+    {
+      "title": "Bind project IDs and query metered use",
+      "action": "Get the market operator’s BM Unit reference table and match the exact asset name, legal lead party and fuel. Check the official dataset schema for signed actual MWh, settlement period and revision status. Query the dataset with each matched BM Unit as a repeated parameter and a fixed run type. In the lead-up window, check one row per day, period and unit. Save exact URLs, original-response hashes and selected rows, then read signed volumes from the same settlement period on a second date after commissioning.",
+      "result": "Elexon maps T_EAAO-1 and T_EAAO-2 to East Anglia One Limited, with EICs 48W000000EAAO-1R and 48W000000EAAO-2P. The 1–12 September 2019 B1610 Post-Final Settlement Run (DF) stream contains 1,152 unique unit-period rows. First positive in that window is 0.043 MWh for T_EAAO-1 on 2 September at period 25. A separately retained query for 2 September at period 30 gives +2.075 and −0.006 MWh. The retained 1 December 2020 period 25 query gives +101.936 and +105.154 MWh, for +207.090 MWh across both units. These are settlement volumes for a half-hour. The measurement cannot identify E19, an individual circuit, gross turbine production or total annual energy. Scheduled output and aggregate wind-fuel data fail the plant-meter check. Contains BMRS data © Elexon Limited copyright and database right 2026.",
+      "sources": [
+        {
+          "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
+          "url": "https://data.elexon.co.uk/swagger/v1/swagger.json",
+          "locator": "OpenAPI GET /datasets/B1610 and GET /datasets/B1610/stream, actual metered volumes by period"
+        },
+        {
+          "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
+          "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/bmunits/all",
+          "locator": "Current reference rows T_EAAO-1 and T_EAAO-2"
+        },
+        {
+          "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
+          "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610/stream?settlementDateFrom=2019-09-01&settlementDateTo=2019-09-12&settlementPeriodFrom=1&settlementPeriodTo=48&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+          "locator": "DF bounded early window, 1–12 September 2019, periods 1–48"
+        },
+        {
+          "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
+          "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610?settlementDate=2019-09-02&settlementPeriod=30&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+          "locator": "DF 2 September 2019, settlement period 30, both project units"
+        },
+        {
+          "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
+          "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610?settlementDate=2020-12-01&settlementPeriod=25&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+          "locator": "DF 1 December 2020, settlement period 25, both project units"
+        },
+        {
+          "title": "BMRS data copyright licence",
+          "url": "https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/",
+          "locator": "Data reuse and attribution"
+        },
+        {
+          "title": "Elexon Trading Disputes Process",
+          "url": "https://bscdocs.elexon.co.uk/bsc-module/guidance-notes/trading-disputes-process/v-10-0/id-6810ef8d51436753585bbbf8",
+          "locator": "Post-Final Settlement Run (DF)"
+        }
+      ]
+    },
+    {
+      "title": "Reconcile first export, full operation and acceptance",
+      "action": "Order contemporaneous commissioning announcements, independent metering, contract acceptance and network-transfer records. Write separate dated claims for each verified scope. Compare project-nameplate MW with actually observed and appropriately aggregated MWh. Preserve any disagreement in time or boundary and identify the source for each milestone.",
+      "result": "The developer announced E19 as its first generating turbine on 12 September 2019. Elexon proves plant-level metered output by 2 September. Installation was complete by the 29 April 2020 announcement and all 102 turbines were reported operational by the 27 July announcement. The Low Carbon Contracts Company records the phase 3 CfD start in May 2020 and the Final Installed Capacity milestone in February 2021. The later offshore works completion in October 2020 and transmission asset transfer in December 2022 refer to other milestones. The operator’s 714 MW fleet rating is a capacity figure. Elexon gives 207.090 MWh in a specific half-hour.",
+      "sources": [
+        {
+          "title": "First power generated at East Anglia’s largest offshore windfarm",
+          "url": "https://www.scottishpower.com/w/first_power_generated_at_east_anglia_s_largest_offshore_windfarm",
+          "locator": "12 September 2019 announcement, opening and first-turbine paragraph"
+        },
+        {
+          "title": "Turbine installation complete on East Anglia ONE offshore windfarm",
+          "url": "https://www.scottishpowerrenewables.com/w/turbine-installation-complete-on-east-anglia-one-offshore-windfarm",
+          "locator": "29 April 2020 announcement, opening paragraphs and installation account"
+        },
+        {
+          "title": "East Anglia reaches major milestone with windfarm completion",
+          "url": "https://www.scottishpowerrenewables.com/w/east-anglia-reaches-major-milestone-with-windfarm-completion",
+          "locator": "27 July 2020 announcement, opening paragraphs and Keith Anderson statement"
+        },
+        {
+          "title": "Low Carbon Contracts Company annual report and accounts 2020–2021",
+          "url": "https://www.lowcarboncontracts.uk/documents/18/LCCC_Annual_Report_and_Accounts_2020-2021_interactive_pdf_9.pdf",
+          "locator": "Performance against Strategy, CfD Management, A year of firsts"
+        },
+        {
+          "title": "East Anglia ONE non-material change report",
+          "url": "https://assets.publishing.service.gov.uk/media/61b20b04e90e0704478a9e87/EA1-CON-F-GBE-242081_NMC_Report_FINAL.pdf",
+          "locator": "EA1-CON-F-GBE-242081, pp. 4–5 §§4–6, October 2020 completion of offshore works"
+        },
+        {
+          "title": "Transmission Capital East Anglia One project",
+          "url": "https://transmissioncapital.com/projects/11/",
+          "locator": "Project overview, acquisition of transmission assets on 20 December 2022"
+        }
+      ]
+    }
+  ],
+  "decision": "Propose one project-level grid service record for independent review. The model match and actually installed AC export dependency are supported at the project level, with practical service independently witnessed by Elexon. The public evidence supports neither a first instant of export nor a dependency on an earlier project’s design.",
+  "reject_if": "Reject a claimed supplier-to-service dependency if supplier and receiving-side records identify different projects, packages or technology, if the order remains proposed, or if the only operational evidence is a planned capacity or output schedule.",
+  "stop_when": "Stop after confirming the same installed package at both ends, checking project-specific actual use and preserving the separate milestone dates. Leave an exact first interval, turbine or individual circuit unresolved when the provenance for that join is missing.",
+  "next_anchor": "Beatrice Offshore Wind Farm, the second UK offshore connection contract in Nexans’s 2020 registration document.",
+  "next": "Repeat the contract–receiver–meter comparison for Beatrice, starting with its distinct supplier package. Exclude component or circuit assignments without a matching project record."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "elexon-east-anglia-one-settlement-evidence",
+  "title": "Elexon Insights B1610 settlement output and BM Unit reference for East Anglia One",
+  "authors": [
+    "Elexon"
+  ],
+  "url": "https://data.elexon.co.uk/swagger/v1/swagger.json",
+  "access": "partial-text",
+  "accessed": "2026-11-17",
+  "passages": [
+    {
+      "locator": "OpenAPI GET /datasets/B1610 and /reference/bmunits/all",
+      "note": "B1610 defines signed actual metered volumes in MWh for each BM Unit and settlement period. Current registration ties T_EAAO-1 and T_EAAO-2 to East Anglia One Limited."
+    },
+    {
+      "locator": "DF, 2019-09-02 SP30, T_EAAO-1 and T_EAAO-2",
+      "note": "Two original response rows give +2.075 and −0.006 MWh, respectively. The bounded 1–12 September stream also shows +0.043 MWh in SP25 on 2 September."
+    },
+    {
+      "locator": "DF, 2020-12-01 SP25, T_EAAO-1 and T_EAAO-2",
+      "note": "Two original response rows give +101.936 and +105.154 MWh, respectively. Their signed sum is +207.090 MWh for the sampled half-hour."
+    }
+  ],
+  "year": 2026,
+  "version": "Insights API v1 B1610, Post-Final Settlement Run (DF), with current BM Unit reference on 17 November 2026",
+  "lineage": "Contains BMRS data © Elexon Limited copyright and database right 2026. Cache includes exact request URLs and response hashes. The DF run code is documented in Elexon’s Trading Disputes Process, Post-Final Settlement Run, https://bscdocs.elexon.co.uk/bsc-module/guidance-notes/trading-disputes-process/v-10-0/id-6810ef8d51436753585bbbf8.",
+  "file": {
+    "path": "evidence/e/elexon-east-anglia-one-settlement-evidence.json",
+    "sha256": "b5dcc40ce4608990bed04892c6a5e39b87ee7a3d2501f273ab1f0f697f049660",
+    "representation": "Two exact UTF-8 API response payloads encapsulated in JSON, selected BM Unit reference fields and a bounded stream check"
+  }
+}

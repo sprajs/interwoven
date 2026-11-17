@@ -1,0 +1,146 @@
+<div id="provenance-source-reader">
+  <style>
+    #provenance-source-reader, #provenance-source-reader article { display: grid; gap: var(--font-size-base); overflow-wrap: anywhere }
+    #provenance-source-reader .evidence-section { display: grid; gap: calc(var(--font-size-base)*.4) }
+    #provenance-source-reader label { min-width: 0 }
+    #provenance-source-reader select { max-width: 100% }
+    #provenance-source-reader ul, #provenance-source-reader ol, #provenance-source-reader dl { margin: 0 }
+    #provenance-source-reader ul, #provenance-source-reader ol { padding-inline-start: calc(var(--font-size-base)*1.5) }
+    #provenance-source-reader li + li, #provenance-source-reader dt:not(:first-child) { margin-top: calc(var(--font-size-base)*.45) }
+    #provenance-source-reader dd { margin-inline-start: calc(var(--font-size-base)*.75) }
+    #provenance-source-reader summary { margin-bottom: calc(var(--font-size-base)*.45) }
+  </style>
+  <h2>Original-source evidence</h2>
+  <div class="viz-controls">
+    <label class="form-label">Case<select data-case class="form-select"></select></label>
+    <label class="form-label">Evidence step<select data-step class="form-select"></select></label>
+  </div>
+  <article aria-live="polite" data-detail></article>
+  <script type="application/json" data-cases>@@CASE_DATA@@</script>
+  <script>
+  (() => {
+    const root = document.getElementById('provenance-source-reader');
+    const cases = JSON.parse(root.querySelector('[data-cases]').textContent);
+    const picker = root.querySelector('[data-case]');
+    const stepPicker = root.querySelector('[data-step]');
+    const detail = root.querySelector('[data-detail]');
+    const byId = new Map(cases.map(entry => [entry.lane, entry]));
+    for (const kind of ['artifact', 'workflow']) {
+      const group = document.createElement('optgroup');
+      group.label = kind === 'artifact' ? 'Artifact traces' : 'Worked workflows';
+      for (const entry of cases.filter(item => item.kind === kind)) group.append(new Option(entry.title, entry.lane));
+      picker.append(group);
+    }
+
+    function element(tag, text, classes = '') {
+      const item = document.createElement(tag);
+      if (text !== undefined) item.textContent = text;
+      if (classes) item.className = classes;
+      return item;
+    }
+
+    function link(url, title) {
+      if (!/^https?:\/\//i.test(url)) return element('span', title);
+      const anchor = element('a', title);
+      anchor.href = url;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+      return anchor;
+    }
+
+    function section(heading, value) {
+      const block = element('section', undefined, 'evidence-section');
+      block.append(element('h3', heading), typeof value === 'string' ? element('p', value) : value);
+      return block;
+    }
+
+    function disclosure(heading, ...children) {
+      const item = element('details');
+      item.append(element('summary', heading), ...children);
+      return item;
+    }
+
+    function list(items, render, ordered = false) {
+      const output = element(ordered ? 'ol' : 'ul');
+      for (const item of items) {
+        const row = element('li');
+        row.append(render(item));
+        output.append(row);
+      }
+      return output;
+    }
+
+    function source(entry) {
+      const block = element('div');
+      block.append(link(entry.url, entry.title), element('div', entry.locator));
+      if (entry.role) block.append(element('div', entry.role, 'text-small'));
+      if (entry.note) block.append(element('p', entry.note, 'text-small'));
+      return block;
+    }
+
+    function reviewDetail(value) {
+      if (Array.isArray(value)) return list(value, reviewDetail);
+      if (value && typeof value === 'object') {
+        const definitions = element('dl');
+        for (const [key, content] of Object.entries(value)) {
+          if (content == null || content === '' || (Array.isArray(content) && !content.length)) continue;
+          const term = element('dt', key.replaceAll('_', ' ').replaceAll('-', ' '), 'text-small');
+          const description = element('dd');
+          description.append(reviewDetail(content));
+          definitions.append(term, description);
+        }
+        return definitions;
+      }
+      const text = String(value ?? '');
+      return /^https?:\/\/[^\s]+$/i.test(text) ? link(text, text) : element('span', text);
+    }
+
+    function show() {
+      const entry = byId.get(picker.value);
+      const step = entry.steps[Number(stepPicker.value)];
+      const label = entry.kind === 'artifact' ? 'Artifact trace' : 'Worked example';
+      detail.replaceChildren(section(entry.title, entry.question), element('div', `${label} · ${entry.lane}`, 'text-small'));
+      if (stepPicker.value && step) {
+        detail.append(section(step.title, step.action), section('Observed result', step.result),
+          section('Original sources', list(step.sources, source)));
+      } else {
+        detail.append(element('p', entry.summary));
+        const chain = list(entry.steps, item => disclosure(item.title, element('p', item.result), list(item.sources, source)), true);
+        detail.append(section(entry.kind === 'artifact' ? 'Artifact chain' : 'Pilot steps', chain));
+        if (entry.kind === 'workflow') {
+          const criteria = element('div', undefined, 'evidence-section');
+          criteria.append(section('Required inputs', list(entry.inputs, item => element('span', item))),
+            section('Rejection criterion', entry.reject_if), section('Stopping rule', entry.stop_when),
+            section('Try the workflow on', entry.next_anchor));
+          detail.append(disclosure('Reuse this workflow', criteria));
+        }
+      }
+      detail.append(section('Decision', entry.decision), section('Next test', entry.next));
+      const {reviewer, overall_decision, worker_commit, verified_commit, files_checked, ...review} = entry.review;
+      const provenance = {reviewer, overall_decision, worker_commit, checked_at_revision: verified_commit, files_checked};
+      detail.append(disclosure(`Independent review · ${reviewer.model} ${reviewer.effort}`,
+        reviewDetail(provenance), reviewDetail(review)));
+    }
+
+    function select(lane, step) {
+      if (byId.has(lane)) picker.value = lane;
+      const entry = byId.get(picker.value);
+      stepPicker.replaceChildren(new Option('Case overview', ''),
+        ...entry.steps.map((item, number) => new Option(item.title, String(number))));
+      if (step !== undefined && [...stepPicker.options].some(option => option.value === step)) stepPicker.value = step;
+      show();
+    }
+
+    function save() {
+      const state = {case: picker.value, step: stepPicker.value};
+      window.openai?.setWidgetState?.({modelContent: state, privateContent: state})?.catch(() => {});
+    }
+
+    function restore(state) { select(state?.case, state?.step); }
+    picker.addEventListener('change', () => { select(picker.value); save(); });
+    stepPicker.addEventListener('change', () => { show(); save(); });
+    restore(window.openai?.widgetState?.privateContent);
+    window.addEventListener('openai:set_globals', event => restore(event.detail?.globals?.widgetState?.privateContent));
+  })();
+  </script>
+</div>
