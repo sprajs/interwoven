@@ -37,25 +37,25 @@
   ],
   "events": [
     {
-      "id": "atlanta-1975-cable-manufacture",
+      "id": "atlanta-cable-built-by-1976-test",
       "type": "prototype",
       "date": {
-        "earliest": {
-          "year": 1975
-        },
+        "earliest": null,
         "latest": {
-          "year": 1975
+          "year": 1976,
+          "month": 1,
+          "day": 13
         },
-        "precision": "year",
-        "status": "known",
-        "label": "1975",
-        "basis": "Figure 5 of the Chicago project report labels the measured Atlanta cable 1975."
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 13 January 1976",
+        "basis": "The manufacture report identifies the cable installed for Atlanta. The complete test system transmitted across it by 13 January 1976."
       },
-      "statement": "Bell Laboratories made a twelve-ribbon optical cable for the Atlanta experiment in 1975.",
+      "statement": "Bell Laboratories had made a twelve-ribbon optical cable for the Atlanta experiment by 13 January 1976.",
       "places": [
         "united-states"
       ],
-      "scope": "The cable assembled for the Atlanta Fiber System Experiment. The comparison labels the cable year. The fabrication day is unrecorded.",
+      "scope": "The cable assembled for the Atlanta Fiber System Experiment. The exact fabrication date remains unknown.",
       "evidence": [
         {
           "source": "buckler-1978-atlanta-lightguide-cable-manufacture",
@@ -63,9 +63,9 @@
           "supports": "The fabrication report describes the Atlanta experiment cable as a stack of twelve ribbons with twelve fibers per ribbon, selected to facilitate group splicing."
         },
         {
-          "source": "schwartz-1978-chicago-lightwave-project",
-          "locator": "Printed p. 1885 / PDF p. 169, Fig. 5",
-          "supports": "The project team's loss comparison labels the Atlanta experimental cable 1975 and the Chicago project cables 1976."
+          "source": "jacobs-1978-atlanta-fiber-system-overview",
+          "locator": "Printed p. 1717 / PDF p. 1, opening and experiment objectives",
+          "supports": "The experiment transmitted at 44.7 Mb/s over the complete system on 13 January 1976 under simulated plant conditions."
         }
       ],
       "contributions": [
@@ -136,8 +136,8 @@
     }
   ],
   "earliest_record": {
-    "event": "atlanta-1975-cable-manufacture",
-    "rationale": "The dated 1975 cable in the engineering comparison is an earlier witness to the manufactured configuration than the dated 1976 system test."
+    "event": "atlanta-cable-built-by-1976-test",
+    "rationale": "The manufactured configuration is documented by the complete system test. Fig. 5 of the later Chicago report labels the loss series Atlanta Experiment – 1975 without specifying the fabrication date."
   },
   "caveats": "The record concerns the specific adhesive-sandwich stack adopted for Atlanta. The engineers cite earlier ribbon concepts and earlier work on group splicing.",
   "research": {
@@ -155,6 +155,6 @@
       "known_from": "sourced",
       "events": "sourced"
     },
-    "note": "Buckler, Santana and Saunders identify the cable and manufacturing practice. Jacobs dates its tested system and Schwartz and colleagues date the cable comparison. The scope-based tier is an editorial classification."
+    "note": "Buckler, Santana and Saunders identify the cable and manufacturing practice. Jacobs dates the complete system test that bounds manufacture. The scope-based tier is an editorial classification."
   }
 }

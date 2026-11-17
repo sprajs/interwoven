@@ -3,7 +3,7 @@
   "kind": "workflow",
   "title": "Trace a fiber-optic prototype into live telephone service",
   "question": "Which design tested at Bell’s Atlanta facility went into Illinois Bell’s Chicago Lightwave trial, and when did the installation carry customer traffic?",
-  "summary": "Bell Laboratories manufactured the Atlanta cable in 1975 and demonstrated it in an end-to-end system test on 13 January 1976. The Chicago team kept its stacked twelve-fiber ribbon design but made fresh cables using two ribbons instead of twelve. It installed the cables in February 1977. Illinois Bell fully cut over the system for a trial with customer traffic on 11 May 1977.",
+  "summary": "Bell Laboratories’ stacked-ribbon cable was ready for its complete Atlanta system test on 13 January 1976. Bell engineering reports describe the Chicago cable as a two-ribbon adaptation of Atlanta’s twelve-ribbon design. Independent confirmation of that design transfer is still open. Chicago’s cables were installed in February 1977. Illinois Bell fully cut over the trial system for customer traffic on 11 May 1977.",
   "inputs": [
     "Prototype name and maker, technology designation and approximate year",
     "Receiving operator, site, route endpoints and suspected operating window",
@@ -35,8 +35,8 @@
     },
     {
       "title": "Identify the demonstrated configuration",
-      "action": "In the prototype papers search for fabricated, test, demonstration, turn-up, interface and the model names. Read manufacturing and systems papers separately. Record the physical design, material supplier, test date, conditions and carried test signal. Inspect labelled cross sections and any comparison figure that independently dates fabrication.",
-      "result": "Manufacturing drawings show twelve adhesive-sandwich ribbons of twelve Western Electric graded-index glass fibers in the protected core. The linear arrays supported group handling and splicing. The 1975 cable in the loss comparison predates Atlanta’s 13 January 1976 transmission of 44.7 Mb/s test signals through the complete simulated-plant system. The M13 multiplex and D3 channel bank appear in the prototype report. The 144 nominal fiber positions exceeded the number of working fibers.",
+      "action": "In the prototype papers search for fabricated, test, demonstration, turn-up, interface and the model names. Read manufacturing and systems papers separately. Record the physical design, material supplier, test date, conditions and carried test signal. Inspect labelled cross sections and dated figures. Check what each date refers to before using it to date manufacture.",
+      "result": "Manufacturing drawings show twelve adhesive-sandwich ribbons of twelve Western Electric graded-index glass fibers in the protected core. The linear arrays supported group handling and splicing. Atlanta transmitted 44.7 Mb/s test signals through the complete simulated-plant system on 13 January 1976, bounding the cable’s manufacture. The loss comparison’s Atlanta Experiment – 1975 label does not identify a fabrication date. The M13 multiplex and D3 channel bank appear in the prototype report. The 144 nominal fiber positions exceeded the number of working fibers.",
       "sources": [
         {
           "title": "Buckler, Santana and Saunders, Atlanta cable manufacture",
@@ -63,7 +63,7 @@
     {
       "title": "Match the installed cable and terminals",
       "action": "In the receiving operator’s engineering publication search the destination and prototype names alongside installation, splice, cable and the interface or terminal identifier. Match parts, alterations, date and route to drawings. Look for field measurements at the named route endpoints and note which parts were actually transferred, newly manufactured or never specified.",
-      "result": "The receiving paper explicitly traces the Chicago cable design to Atlanta and identifies its two-ribbon core. Bell Laboratories made the new cables in 1976 and they were installed on the Franklin–Wabash and Franklin–Brunswick legs in February 1977. The route and installed-medium measurements, plus a separate crosstalk study at the distributing frames, confirm actual installation of connectorized cable segments. The Chicago terminal diagram shows M13 multiplexes carrying DS3 at 44.7 Mb/s, with standard T1 input on the interoffice leg, SLC-40 customer terminals on the Brunswick leg, and added video encoding and decoding. The account describes shipment of much Atlanta equipment after modification, replacement or repackaging and supplies no component-by-component transfer list.",
+      "result": "The receiving paper explicitly traces the Chicago cable design to Atlanta and identifies its two-ribbon core. The new Bell Laboratories cables were installed on the Franklin–Wabash and Franklin–Brunswick legs in February 1977. The route and installed-medium measurements, plus a separate crosstalk study at the distributing frames, confirm actual installation of connectorized cable segments. The Chicago terminal diagram shows M13 multiplexes carrying DS3 at 44.7 Mb/s, with standard T1 input on the interoffice leg, SLC-40 customer terminals on the Brunswick leg, and added video encoding and decoding. The account describes shipment of much Atlanta equipment after modification, replacement or repackaging and supplies no component-by-component transfer list.",
       "sources": [
         {
           "title": "Schwartz et al., Chicago Lightwave Communications Project",
@@ -136,8 +136,8 @@
     },
     {
       "title": "Test the relationship against competing explanations",
-      "action": "Require explicit recipient attribution or a part-level match between maker and as-built installation, with chronology and distinct observation at both ends. Classify the supported change using the dataset link vocabulary. Use witnesses appropriate to each event, and keep any contradicted milestones or missing evidence out of established time anchors.",
-      "result": "The manufacturer and Chicago engineering team explicitly identify the reduction from twelve ribbons to two. The crosstalk paper checks the installed configuration, but shares an author with the manufacturing report. The annual report gives an operator-side service witness from within the Bell System. The outside trade account corroborates the cutover, with underlying reporting sources unknown. Similar attainment of low optical loss, chronological succession or the shared DS3 rate alone would not identify the originating design. The Chicago report identifies Western Electric’s fibers and Bell Laboratories’ cable construction. Its as-built two-ribbon cable cannot establish that Corning supplied this installation or that the original Atlanta cable was moved intact.",
+      "action": "Require explicit recipient attribution or a part-level match between maker and as-built installation, with chronology and distinct observations at both ends. Search contemporary trade archives, technical surveys and museum or company catalogues for both route names and the distinctive construction or part designation. Determine whether they document plans, reproduce the maker’s account or add an independent observation of the design that was installed. Classify the relationship using the dataset link vocabulary.",
+      "result": "Bell’s manufacturer and Chicago engineering reports describe the reduction from twelve ribbons to two. The crosstalk measurements record the installed configuration and share an author with the manufacturing report. A Canadian technical survey describes the planned Chicago ribbons as the same form as Atlanta’s. Radio-Electronics likewise describes a planned two-ribbon cable and names the earlier Atlanta test. These outside accounts leave the as-built design transfer unverified. Electronic Design corroborates service timing and the installed 24 fibers, with underlying reporting sources unknown. Similar optical loss, chronological succession and a shared DS3 rate alone would not identify the design origin.",
       "sources": [
         {
           "title": "Buckler, Santana and Saunders, Atlanta cable manufacture",
@@ -168,14 +168,24 @@
           "title": "Electronic Design, Modern Media",
           "url": "https://www.worldradiohistory.com/Archive-Electronic-Design/1977/Electronic-Design-V25-N18-1977-0901.pdf#page=121",
           "locator": "Printed p. 107 / PDF p. 121, Optical Communications subsection"
+        },
+        {
+          "title": "Bell-Northern Research, A Systems Study of Fiber Optics for Broadband Communications, Activity No. 1",
+          "url": "https://publications.gc.ca/collections/collection_2022/isde-ised/co24/Co24-566-1978-1-eng.pdf#page=134",
+          "locator": "Revised April 1977, PDF p. 134, item 10, AT&T Chicago plans"
+        },
+        {
+          "title": "Radio-Electronics, Lightguide telephone system evaluated",
+          "url": "https://www.worldradiohistory.com/Archive-Radio-Electronics/70s/1977/Radio-Electronics-1977-05.pdf",
+          "locator": "May 1977, printed p. 32, opening paragraphs and lightguide photograph caption"
         }
       ]
     }
   ],
-  "decision": "Propose an event-scoped adapts link from the tested Atlanta stacked-ribbon optical cable (13 January 1976) to installation of the smaller Chicago Lightwave cable (February 1977). Record separate Illinois Bell live trial use at full cutover on 11 May 1977. Leave the character of April traffic unresolved. The evidence establishes one design transfer within the Bell System and one urban trial milestone.",
-  "next": "Search Illinois Bell engineering or operations records for the Chicago project’s April 1977 traffic authorization, trunk cutover sheet or circuit logs before refining its first-live-traffic date. No public circuit log was located in the inspected sources.",
+  "decision": "Keep a candidate adapts link from the tested Atlanta stacked-ribbon cable (13 January 1976) to the Chicago two-ribbon cable installation (February 1977), pending independent evidence of the as-built design transfer. Record Illinois Bell’s live trial use at full cutover on 11 May 1977. The character of the April traffic remains unresolved.",
+  "next": "Look for a contemporary inspection or a catalogued Chicago cable sample with a construction record tied to the installed route. Search Illinois Bell engineering or operations records for April 1977 traffic authorization, a trunk cutover sheet or circuit logs before refining the first-live-traffic date.",
   "reject_if": "Reject a design transfer inferred only from shared materials, line rate, chronological proximity, a photograph or planned deployment. An announced test or installation without dated customer traffic does not establish live service. An annual report and a trade article repeating a project account are not automatically separate observations.",
-  "stop_when": "Record a scoped link when maker and installed-system evidence name the matched design and change, then record live use only when a named operator or reliable contemporary witness identifies the service and its date or bounded window. Keep a specifically named unknown if the necessary part identity or traffic record remains missing.",
+  "stop_when": "Record an established link only when the maker and installed-system evidence identify the design and change and independent informative evidence corroborates the as-built transfer. If those sources are unavailable, retain a specific candidate and name the missing evidence. Record live use separately when a named operator or reliable contemporary witness identifies the service and its date or bounded window.",
   "next_anchor": "Apply this workflow to General Telephone of California’s Artesia–Long Beach link. Electronic Design, 1 September 1977, p. 107 names the GTE Laboratories developer, a T1 configuration and an April operating claim. Check the GTE engineering report and operating records independently, including whether publicity about another bit rate concerns that route and phase.",
   "researcher": "gpt-6.2-sol",
   "effort": "high",
