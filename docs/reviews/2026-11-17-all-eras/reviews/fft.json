@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "lane": "fft",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "051293f4076c7af579026d576a751f173099a34f",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review execution",
+    "independence": "Separate from proposing researcher gpt-6.2-sol high; original sources read."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json",
+      "sha256": "178f71aa0c2eba7ace91bf98f36cbd68785d4210e7338b3d4c3b918080bc7b2a"
+    },
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json",
+      "sha256": "c46d2f080b7e07cd38111c4fdac2920be20f5f04d5786ba2bd18ee41f7ec4312"
+    },
+    {
+      "path": "data/sources/b/banks-1996-conversation-good.json",
+      "sha256": "0cc6363be33f8c11611e82ff01fcc56cd7aca3763f384c3ec75d4941b943f533"
+    },
+    {
+      "path": "data/sources/c/cooley-tukey-1993-origin-fft-paper.json",
+      "sha256": "fbc0415a8c740d34004827741e92ed712b208fba835e3145bbaad8c8b2dac262"
+    },
+    {
+      "path": "data/sources/g/good-1958-interaction-analysis-wave12.json",
+      "sha256": "36f51cd6a6c97dc366acc4b7d9fe4098ee24c47715588d1e9fa1e36104a96289"
+    },
+    {
+      "path": "data/sources/g/good-1960-interaction-algorithm-addendum.json",
+      "sha256": "7b8161439f79ec91fbae57c70c85e8fa58ee0a46867ee4822253ada71e409d6a"
+    },
+    {
+      "path": "data/sources/h/heideman-johnson-burrus-1985-fft-history.json",
+      "sha256": "4d14007a0e43420fb1e87364f2e88cad6c70acb3ef9197369ab0b5d321ff88b3"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/fft.md",
+      "sha256": "85fdc42fcd297e6589a563cfe2aa0fe700866e4fe44bf9b23b4cf175fa9c64f3"
+    },
+    {
+      "path": "evidence/b/banks-1996-conversation-good.pdf.cache.json",
+      "sha256": "2e471a4b40db3a4e194bc0d4f15567d3ceadbd67b29165d6d217da500106605a"
+    },
+    {
+      "path": "evidence/c/cooley-tukey-1993-origin-fft-paper.pdf.cache.json",
+      "sha256": "40c07fbfbbb6a55ecd081688fb2a57c3d53bc7416a52b01fbfc3f3ae4c22c25a"
+    },
+    {
+      "path": "evidence/g/good-1958-interaction-analysis-wave12-notes.txt",
+      "sha256": "547b5610f4d808c48f54d6e14834b6eab55ba1e4eb1fdf5dcb5df42c1a63ecc9"
+    },
+    {
+      "path": "evidence/g/good-1960-interaction-algorithm-addendum-notes.txt",
+      "sha256": "429ac522d6ffd69bd929c858e75a7eaaf391f3a2cdf1ab16413d1e7609010a30"
+    },
+    {
+      "path": "evidence/h/heideman-johnson-burrus-1985-fft-history.pdf.cache.json",
+      "sha256": "86d3975035b44673f6185c5c6dea709699643f16bf47372f7664ccf11305f9dd"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "good-1958-interaction-analysis-wave12",
+      "url": "https://academic.oup.com/jrsssb/article/20/2/361/7027226",
+      "locator": "pp. 361–364, 367–371, §§1–4, 9–13; Wiley issue metadata",
+      "availability": "Original indexed publisher PDF text independently read; landing page failed to load directly. Research note SHA-256 547b5610f4d808c48f54d6e14834b6eab55ba1e4eb1fdf5dcb5df42c1a63ecc9; original PDF bytes not independently obtained.",
+      "independence": "Original 1958 author paper; publisher metadata is same publication."
+    },
+    {
+      "source": "good-1960-interaction-algorithm-addendum",
+      "url": "https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/j.2517-6161.1960.tb00384.x",
+      "locator": "publisher issue metadata and author Summary",
+      "availability": "Original summary and metadata independently read; full text unavailable, research note SHA-256 429ac522d6ffd69bd929c858e75a7eaaf391f3a2cdf1ab16413d1e7609010a30.",
+      "independence": "Original addendum author summary; no independent corroboration claimed."
+    },
+    {
+      "source": "cooley-tukey-1965-fourier-wave11",
+      "url": "https://www.cs.jhu.edu/~misha/ReadingSeminar/Papers/Cooley65.pdf",
+      "locator": "pp. 297–301; indexed original p. 297 at https://www.ece.ucdavis.edu/~bbaas/281/papers/CooleyTukey.1965.pdf",
+      "availability": "Original p. 297 indexed text independently read, original PDF reference reports SHA-256 8fe5d32dcf08c01f9168a71e3fea746308ba465d0b4d0ef95e7f4f2af300e282.",
+      "independence": "Original paper; alternate PDF is same publication, not independent corroboration."
+    },
+    {
+      "source": "cooley-tukey-1993-origin-fft-paper",
+      "url": "https://garfield.library.upenn.edu/classics1993/A1993MJ84400001.pdf",
+      "locator": "pp. 8–9",
+      "sha256": "f401100669ea868470a2c197e8238df16fc755ddaaaf3165fe750953185e0453",
+      "availability": "Original PDF indexed text independently read.",
+      "independence": "Retrospective by same authors as 1965 paper, not an independent witness."
+    },
+    {
+      "source": "banks-1996-conversation-good",
+      "url": "https://www.stat.vt.edu/content/dam/stat_vt_edu/graphics-and-pdfs/emeritus-interviews-and-papers/Good/Conversation-with-IJGood.pdf",
+      "locator": "pp. 15–16",
+      "sha256": "32c2c947b55fc6b18ed8e54385cd1eabd0d11d479a8478b7dce575d47bf3d83c",
+      "availability": "Original interview indexed text independently read.",
+      "independence": "Different participant’s retrospective, decades later; independent account of recollection, not corroboration of its occurrence or of technical influence."
+    },
+    {
+      "source": "heideman-johnson-burrus-1985-fft-history",
+      "url": "https://faculty.washington.edu/seattle/physics541/%202010-Fourier-transforms/history-3.pdf",
+      "locator": "p. 265 introduction",
+      "sha256": "3a2a5eabe0d0f28bdf86c295ccdb6b3ca860c0b41d019ae505bdc46ba62c51e5",
+      "availability": "Original article indexed text independently read.",
+      "independence": "Separate historians distinguish algorithms; their statement of influence interprets the 1965 paper, not an independent witness of development."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/description",
+      "decision": "accept",
+      "sources": [
+        "good-1958-interaction-analysis-wave12 pp. 361–364, 367–371 §§9–12"
+      ],
+      "rationale": "Original gives successive sparse matrix calculations and the coprime one-dimensional to multidimensional conversion using the Chinese remainder problem."
+    },
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/kind",
+      "decision": "accept",
+      "sources": [
+        "good-1958-interaction-analysis-wave12 §§1–4, 9–12"
+      ],
+      "rationale": "Mathematics classification matches the algorithmic contribution."
+    },
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/events/paper-1958/statement,evidence,caveats",
+      "decision": "accept",
+      "sources": [
+        "good-1958-interaction-analysis-wave12 July 1958 metadata, pp. 361–364, 367–371",
+        "heideman-johnson-burrus-1985-fft-history p. 265"
+      ],
+      "rationale": "Publication and stated techniques supported; §12 explicitly attributes the reverse multidimensional-to-one-dimensional identification to Good 1951 and applies the converse to reduce operations. Independent history distinguishes methods."
+    },
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/events/addendum-1960",
+      "decision": "accept",
+      "extends": "good-interaction-and-fourier-analysis-1958",
+      "sources": [
+        "good-1960-interaction-algorithm-addendum July 1960 metadata and Summary"
+      ],
+      "rationale": "Original summary describes correction to earlier Yates self-inverse statement and the Poisson analogue relating yields and interactions; month is publication, not invention. Detailed formulas remain unverified."
+    },
+    {
+      "path": "data/discoveries/electronics/good-interaction-and-fourier-analysis-1958.json#/research/unresolved",
+      "decision": "accept",
+      "sources": [
+        "good-1958-interaction-analysis-wave12 p. 370 §12",
+        "good-1960-interaction-algorithm-addendum Summary"
+      ],
+      "rationale": "Appropriately retains the earlier 1951 technical scope and detailed 1960 formulas as questions."
+    },
+    {
+      "path": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/events/paper-1965/statement,evidence,caveats",
+      "decision": "accept",
+      "sources": [
+        "cooley-tukey-1965-fourier-wave11 p. 297 and pp. 300–301",
+        "crossref-1965-cooley-fourier-wave11 metadata"
+      ],
+      "rationale": "Authors discuss Good’s general sparse-factor methods, derive their algorithm in a different form and report IBM 7094 timings. Publication acknowledgement does not itself establish historical direction of mathematical development."
+    },
+    {
+      "path": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/research/unresolved/Good’s influence before publication",
+      "decision": "accept",
+      "sources": [
+        "banks-1996-conversation-good pp. 15–16",
+        "cooley-tukey-1993-origin-fft-paper pp. 8–9"
+      ],
+      "rationale": "Separately attributes each participant recollection and correctly leaves technical content and actual influence unresolved."
+    },
+    {
+      "path": "data/discoveries/electronics/cooley-tukey-fast-fourier-transform-1965.json#/links/0",
+      "decision": "accept",
+      "sources": [
+        "good-1958-interaction-analysis-wave12 pp. 370–371",
+        "cooley-tukey-1965-fourier-wave11 p. 297",
+        "cooley-tukey-1993-origin-fft-paper pp. 8–9",
+        "banks-1996-conversation-good pp. 15–16",
+        "heideman-johnson-burrus-1985-fft-history p. 265"
+      ],
+      "relation": "Question whether Good informed Tukey or the published derivation; direction Good toward Cooley–Tukey, with early conversation and later publication kept distinct.",
+      "status": "candidate",
+      "independent_corroboration": "Good and Cooley–Tukey offer separate retrospective accounts, but not independent corroboration of actual technical transfer. 1985 influence attribution relies on 1965 text.",
+      "established_history_or_question": "Retained question, not established edge. The 1965 text expressly applies methods as attributed to Good but does not uniquely establish the development sequence."
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Inspected both full endpoint records and searched discovery records for Fourier, interaction algorithm and Good–Thomas.",
+    "result": "No new node. Good existing paper-1958 event differs in subject, type and date from new July 1960 addendum publication; the extension is not a duplicate. Cooley–Tukey is a separate existing algorithm record; candidate relation is not a new established graph edge."
+  },
+  "issues": [],
+  "unknowns": [
+    "1951 original scope and detailed 1960 formulas not verified.",
+    "Causal technical influence and contact details remain unresolved; indexed 1958 publisher PDF was available, but retrievable original PDF bytes were not independently verified."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 902 discoveries, 1497 events, 237 links, 1626 sources; No problems found."
+  },
+  "history": []
+}
