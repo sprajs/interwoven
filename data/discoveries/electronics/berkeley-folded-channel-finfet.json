@@ -1,0 +1,135 @@
+{
+  "id": "berkeley-folded-channel-finfet",
+  "name": "Berkeley collaboration’s self-aligned double-gate FinFET",
+  "description": "A UC Berkeley-led collaboration demonstrated a MOS transistor with a short, thin silicon fin, self-aligned side gates, and raised source and drain. Gate control from both sides helped suppress short-channel effects. The collaboration reported the initial device as a folded-channel MOSFET and later reported a p-channel FinFET.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "aliases": [
+    "Folded-channel MOSFET"
+  ],
+  "advance": [
+    "device_or_configuration"
+  ],
+  "links": [
+    {
+      "from": "hitachi-delta-fin-transistor",
+      "type": "builds_on",
+      "status": "established",
+      "from_event": "iedm-delta-report",
+      "to_event": "folded-channel-report",
+      "statement": "The collaboration built its demonstrated double-gate FinFET on the DELTA structure, reducing the height of the fin to make the device using a quasi-planar process.",
+      "scope": "Device design and fabrication of the Berkeley collaboration’s prototype.",
+      "contribution": [
+        "supplied_theory_or_design_rule"
+      ],
+      "carrier": [
+        "same_actor_or_team"
+      ],
+      "influence": "contributing",
+      "confidence": "high",
+      "alternatives": "Hu recalled independently sketching a fin-shaped concept during the initial proposal. Hisamoto joined the project shortly after that proposal and contributed to building the devices.",
+      "evidence": [
+        {
+          "source": "d2-finfet-hisamoto-1998-folded-channel",
+          "locator": "Printed p. 1032, structure, measurements and reference [1]; p. 1033, Fig. 1",
+          "supports": "The research report describes the shortened fin, aligned side gates and elevated source and drain, and includes measurements from fabricated devices."
+        },
+        {
+          "source": "d2-finfet-hisamoto-2000-finfet",
+          "locator": "Printed p. 2320, Introduction and Device Fabrication",
+          "supports": "The project authors explicitly identify DELTA as the design basis and describe the reduction in vertical feature height for quasi-planar fabrication."
+        },
+        {
+          "source": "d2-finfet-oreagan-fleming-2018-finfet-interviews",
+          "locator": "Printed pp. 263–266 and interview notes 25–31",
+          "supports": "Independent interviews corroborate that DELTA developer Hisamoto joined on leave from Hitachi and worked on the concept and fabrication. The authors also record Hu’s account of a separately sketched fin concept."
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "folded-channel-report",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1998
+        },
+        "latest": {
+          "year": 1998
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1998",
+        "basis": "The 1998 IEDM proceedings contain the prototype measurements."
+      },
+      "statement": "The collaboration reported measurements from its folded-channel silicon transistor at IEDM.",
+      "evidence": [
+        {
+          "source": "d2-finfet-hisamoto-1998-folded-channel",
+          "locator": "Printed p. 1032, structure, measurements and reference [1]; p. 1033, Fig. 1",
+          "supports": "The research report describes the shortened fin, aligned side gates and elevated source and drain, and includes measurements from fabricated devices."
+        },
+        {
+          "source": "d2-finfet-hisamoto-2000-finfet",
+          "locator": "Printed p. 2320, Introduction and Device Fabrication",
+          "supports": "The project authors explicitly identify DELTA as the design basis and describe the reduction in vertical feature height for quasi-planar fabrication."
+        },
+        {
+          "source": "d2-finfet-oreagan-fleming-2018-finfet-interviews",
+          "locator": "Printed pp. 263–266 and interview notes 25–31",
+          "supports": "Independent interviews corroborate that DELTA developer Hisamoto joined on leave from Hitachi and worked on the concept and fabrication. The authors also record Hu’s account of a separately sketched fin concept."
+        }
+      ]
+    },
+    {
+      "id": "p-channel-finfet-report",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1999
+        },
+        "latest": {
+          "year": 1999
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1999",
+        "basis": "The 1999 IEDM proceedings report the fabricated p-channel devices."
+      },
+      "statement": "The collaboration reported p-channel FinFETs with measured devices down to 18 nm gate length.",
+      "evidence": [
+        {
+          "source": "d2-finfet-huang-1999-p-channel-finfet",
+          "locator": "Printed p. 67, Abstract and Introduction",
+          "supports": "The report separates fabricated p-channel devices from simulated scaling."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "folded-channel-report",
+    "rationale": "The 1998 proceedings paper records the already fabricated folded-channel prototype. The 1999 report documents the p-channel adaptation."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "initial FinFET concept",
+        "note": "The interviews differ on who first proposed the fin geometry for the project. The design link concerns the demonstrated device."
+      },
+      {
+        "about": "foundry uptake",
+        "note": "The sources here leave open which Berkeley process steps or design choices transferred to specific production foundry processes."
+      }
+    ]
+  }
+}

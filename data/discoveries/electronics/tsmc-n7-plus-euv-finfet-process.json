@@ -66,6 +66,34 @@
           "supports": "The release describes customer products already reaching the market."
         }
       ]
+    },
+    {
+      "id": "kirin-990-5g-shipments",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 11,
+          "day": 1
+        },
+        "latest": {
+          "year": 2019,
+          "month": 11,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2019-11-01",
+        "basis": "TechInsights dates the start of shipments of the 5G models in China to 1 November."
+      },
+      "statement": "Huawei began shipping Mate 30 5G and Mate 30 Pro 5G phones with the HiSilicon Kirin 990 5G made on N7+ in China.",
+      "evidence": [
+        {
+          "source": "d2-finfet-techinsights-2019-mate30-teardown",
+          "locator": "Introducing the Kirin 990 5G; Kirin 990 5G: 5G Application Processor/Modem",
+          "supports": "The analysts identify N7+ in the Kirin 990 5G found in the Huawei Mate 30 Pro 5G and date shipment of the 5G models in China to 1 November."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -111,9 +139,35 @@
           "source": "yen-2021-euv-saves-moores-law",
           "locator": "Opening paragraphs",
           "supports": "The programme participant reports the enhanced 7 nm process and EUV insertion, citing the foundry’s 2019 research presentations."
+        },
+        {
+          "source": "d2-finfet-tsmc-2017-q3-n7-design-rules",
+          "locator": "Q&A, C. C. Wei response on the transition from N7 to N7+",
+          "supports": "TSMC describes retention of many design rules and a new tape-out for customers seeking the N7+ density benefit."
         }
       ],
-      "caveats": "TSMC explicitly describes the baseline relationship. The sources checked independently corroborate EUV use on N7+ without tracing the internal process lineage."
+      "caveats": "The public teardown identifies the two processes in finished chips. It does not trace reuse of specific fabrication steps, layouts or equipment.",
+      "finding": "The foundry reports carrying forward design rules and much equipment while substituting EUV for selected immersion layers. TechInsights independently identifies shipped devices using each variant and describes them as successive generations."
+    },
+    {
+      "from": "tsmc-n7-immersion-finfet-process",
+      "type": "same_family",
+      "status": "established",
+      "statement": "Base N7 and N7+ are consecutive FinFET variants in TSMC’s 7 nm family. TechInsights identified base N7 in the Kirin 990 4G and N7+ with EUV in the Kirin 990 5G.",
+      "scope": "Identification of process variants in shipped chips.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "tsmc-2019-n7-plus-euv-volume-production",
+          "locator": "Main announcement, paragraphs 1–3",
+          "supports": "TSMC names its base N7 and its N7+ EUV variant."
+        },
+        {
+          "source": "d2-finfet-techinsights-2019-mate30-teardown",
+          "locator": "Introducing the Kirin 990 5G, paragraphs 1–3",
+          "supports": "The analysts identify the first and second generations of the 7 nm FinFET family in the 4G and 5G Kirin 990 derivatives, respectively."
+        }
+      ]
     }
   ]
 }

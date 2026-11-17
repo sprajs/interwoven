@@ -1,0 +1,83 @@
+{
+  "lane": "finfet",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "proposal": "7b15aceda225c94fb12c5722da83d61635183633",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/berkeley-folded-channel-finfet.json": "937457437bc010b7a5280efa48d15c9203ee10102ee7a53a9058e31b756a202a",
+    "data/discoveries/electronics/hitachi-delta-fin-transistor.json": "6a88def179102e4eb95b72622ebd98a22dd83c9c735210bcc9ccd9212f0598d9",
+    "data/discoveries/electronics/tsmc-n7-plus-euv-finfet-process.json": "3851b2327a95395e25d7b48aebc0346d53fa69bb2dcd23dfb0c6305e9aeff3b5",
+    "data/sources/d/d2-finfet-hisamoto-1989-delta.json": "8267d0c89607dae55dc8aba30d695eaef23e46cf744bf7d9b220b1ad2dd0d8ca",
+    "data/sources/d/d2-finfet-hisamoto-1990-delta.json": "3107630c36497964d10f1f0c24a187678634d5217732b7a69ee68fe84c2a0fe7",
+    "data/sources/d/d2-finfet-hisamoto-1998-folded-channel.json": "c067b675bdccd51754ddd382f6296715eaef8b81bae5142c1911f36df547cd9c",
+    "data/sources/d/d2-finfet-hisamoto-2000-finfet.json": "e3b22eabcc3a460ed3072d1bdaf92eafc3d8e65b1f84658540e84a6da0ec5c2d",
+    "data/sources/d/d2-finfet-huang-1999-p-channel-finfet.json": "bc1b9dac7fe2748023be24b497fd15b62d61695358f8b0fdeb65555939dbc1e5",
+    "data/sources/d/d2-finfet-oreagan-fleming-2018-finfet-interviews.json": "cb5b07fd362c71baaba0cc36b0c9cb8f98be8626b15eb449e6c96bde8aa3dd2c",
+    "data/sources/d/d2-finfet-techinsights-2019-mate30-teardown.json": "2a9526d274a14e66b4e5ef305675c7bd7959cfbfafb68edabe13cdd5ed63bafd",
+    "data/sources/d/d2-finfet-tsmc-2017-q3-n7-design-rules.json": "1a4141a108046846b7211590d42a7d4b9b303e1020e2778684b219620701a23d",
+    "docs/reviews/2026-11-17-digital/lanes/finfet.json": "52d74178cc65b2b28285ad0e3ba965e0610b72743c41291da04cff025060fba6"
+  },
+  "claims": [
+    {
+      "path": "hitachi-delta-fin-transistor identity, description, kind, domain, grain, aliases and advance",
+      "decision": "accept",
+      "reason": "Hisamoto et al., 1989 IEDM pp. 833–835, and 1990 Electron Device Letters pp. 36–37 report the Hitachi Kokubunji vertical ultrathin SOI DELTA structure, both-side gate control, fabricated device and measurements; no priority claim is made."
+    },
+    {
+      "path": "hitachi-delta-fin-transistor.events.iedm-delta-report and earliest_record",
+      "decision": "accept",
+      "reason": "The 1989 IEDM proceedings original pp. 833–835 report measurements; 1989 is the report year, not an invented fabrication date. The 1990 paper is the same author group and is not independent corroboration."
+    },
+    {
+      "path": "berkeley-folded-channel-finfet identity, description, kind, domain, grain, aliases and advance",
+      "decision": "accept",
+      "reason": "Hisamoto et al. 1998 IEDM pp. 1032–1034 report a short fin, self-aligned gates and raised source/drain; Huang et al. 1999 p. 67 report a subsequent p-channel variant. The 1998 and 1999 results are bounded to the same collaborative research programme."
+    },
+    {
+      "path": "berkeley-folded-channel-finfet.events.folded-channel-report and earliest_record",
+      "decision": "accept",
+      "reason": "Hisamoto et al. 1998 pp. 1032–1034 present fabricated and measured folded-channel structures; earliest_record uses the conference report year."
+    },
+    {
+      "path": "berkeley-folded-channel-finfet.events.p-channel-finfet-report",
+      "decision": "accept",
+      "reason": "Huang et al. 1999 pp. 67–68 report measured p-channel devices to 18 nm gate length; the separate 10 nm figure is a simulation and is not admitted."
+    },
+    {
+      "path": "berkeley-folded-channel-finfet.links.hitachi-delta-fin-transistor",
+      "decision": "accept",
+      "reason": "Hisamoto et al. 1998 p. 1032 cite Hisamoto et al. 1991 DELTA among vertical double-gate predecessors; Hisamoto et al. 2000 p. 2320 explicitly identify DELTA as the basis and reduced vertical feature height. O’Reagan and Fleming 2018 pp. 263–266 report independent interviews documenting Hisamoto joining from Hitachi and contributing to fabrication, and Hu’s differing account of initial conception. Accepted only for the realized collaborative device, not sole conceptual origin."
+    },
+    {
+      "path": "tsmc-n7-plus-euv-finfet-process.events.kirin-990-5g-shipments",
+      "decision": "accept",
+      "reason": "TechInsights, Introducing the Kirin 990 5G, published 7 November 2019, identifies N7+ in the 5G models and states both models began shipping in China on 1 November. This product-specific event extends, rather than duplicates, the broader earlier TSMC shipment event."
+    },
+    {
+      "path": "tsmc-n7-plus-euv-finfet-process.links.tsmc-n7-immersion-finfet-process builds_on",
+      "decision": "accept",
+      "reason": "Candidate preserved. TSMC Q1 2018 transcript pp. 3–4 states planned EUV substitution and >90% shared equipment with N7 and N10; Q3 2017 transcript p. 13 describes reused design rules. TechInsights identifies N7 and N7+ generation labels in products but its open teardown does not independently establish specific fabrication-step inheritance."
+    },
+    {
+      "path": "tsmc-n7-plus-euv-finfet-process.links.tsmc-n7-immersion-finfet-process same_family",
+      "decision": "accept",
+      "reason": "TSMC 2019 N7+ announcement and TechInsights 7 November 2019 introduction independently identify N7 and N7+ as first and second TSMC 7 nm FinFET generations. Affinity is limited to process-family identification and does not assert specific inherited process steps."
+    },
+    {
+      "path": "lane report and source metadata",
+      "decision": "accept",
+      "reason": "Checked source titles, authors, dates, locators and claims against 1989, 1990, 1998, 1999 and 2000 original papers, O’Reagan and Fleming 2018 pp. 263–266, TSMC 2017 and 2018 transcripts, and TechInsights 2019 teardown. No duplicate DELTA or Berkeley record existed in the named baseline. The O’Reagan source is independently informative interviews and history, not independent replication of the engineering experiments."
+    }
+  ],
+  "corrections": [
+    "Advised retaining the N7-to-N7+ builds_on as a candidate absent independent corroboration of process-step inheritance.",
+    "Required the demonstrated-device DELTA relationship to preserve Hu’s alternative account of the initial fin concept; inventor retrospectives are not independent corroboration."
+  ],
+  "deferred": [
+    "Exact N7-to-N7+ layer, equipment and process inheritance pending independently informative detailed process-flow comparison.",
+    "Berkeley-to-specific-commercial-foundry device and process transfer.",
+    "Sole initial conceptual origin of fin geometry and earlier DELTA antecedents."
+  ]
+}

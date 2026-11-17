@@ -1,0 +1,97 @@
+{
+  "lane": "finfet",
+  "title": "DELTA, the Berkeley FinFET and the N7 production family",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "questions": [
+    {
+      "child": "tsmc-n7-plus-euv-finfet-process",
+      "parent": "tsmc-n7-immersion-finfet-process",
+      "initial_status": "candidate",
+      "decision": "narrowed",
+      "reason": "The original builds_on question remains a candidate. TSMC describes selected substitution and extensions to an N7 baseline. TechInsights’s independent teardown supports the narrower successive-family relation and the named N7+ deployment, without independently tracing tool or process-step reuse.",
+      "sources": [
+        "https://pr.tsmc.com/english/news/2010",
+        "https://investor.tsmc.com/japanese/encrypt/files/encrypt_file/english/2017/Q3/TSMC%203Q17%20transcript.pdf",
+        "https://techinsights.com/zh-tw/node/30828"
+      ]
+    },
+    {
+      "child": "berkeley-folded-channel-finfet",
+      "parent": "hitachi-delta-fin-transistor",
+      "initial_status": "unrepresented",
+      "decision": "established",
+      "reason": "The 1998 paper calls the measured device a variant of vertical double-gate SOI MOSFETs and cites the DELTA work. The 2000 paper names DELTA as the design basis. O’Reagan and Fleming independently document Hisamoto’s move from Hitachi and prototype contribution through interviews; Hu recalled sketching a fin concept before Hisamoto joined.",
+      "sources": [
+        "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1517476/download-documents?artifactId=zXSsHjhjKlTPLl_HaTWZ2oovNkQfyBe4LkOCxILQHXjCCME_SjKf-gQ",
+        "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1558711/download-documents?artifactId=BDV2BZyLzeP3hk7cV83fQ1anWraNzk8G2sLS__GXHjbCou_o01kbc4E",
+        "https://escholarship.org/content/qt8wq302v2/qt8wq302v2_noSplash_b2d02d917d85f44a83b2c653bebd30fc.pdf?t=pc0aod"
+      ]
+    }
+  ],
+  "findings": [
+    "The 1989 IEDM report and 1990 journal paper establish Hitachi’s fabricated DELTA device and gate control on both sides of the vertical silicon channel.",
+    "The 1998 folded-channel paper describes the tested prototype. The 1999 IEDM paper adds measured p-channel devices within the same research programme, so the p-channel result is an event on the Berkeley FinFET record.",
+    "The November 2019 teardown gives a named retail use of N7+ in the Kirin 990 5G and independently distinguishes it from base N7 in the 4G Kirin. The 5G shipment date is later than TSMC’s broad October announcement."
+  ],
+  "records": [
+    "hitachi-delta-fin-transistor",
+    "berkeley-folded-channel-finfet",
+    "tsmc-n7-plus-euv-finfet-process"
+  ],
+  "frontier": [
+    "Inspect detailed TechInsights N7 and N7+ process-flow and floorplan reports for measured layer, contact and device comparisons. The open 4G/5G teardown and DFR-1911-801 synopsis do not give a manufacturing genealogy.",
+    "Trace which design or fabrication choices passed from the Berkeley research programme into specific commercial FinFET processes. For example, compare Wu et al., SSDM 2014, pp. 844–845, with a product cross-section and a contemporaneous technology transfer account.",
+    "Trace documented antecedents to DELTA through the 1989 proceedings references and compare the earlier trench-gate proposal discussed in O’Reagan and Fleming, p. 263."
+  ],
+  "sources": [
+    {
+      "title": "A Fully Depleted Lean-Channel Transistor (DELTA) — A Novel Vertical Ultra Thin SOI MOSFET",
+      "url": "https://www.scribd.com/document/1071112773/depletedSOI-MOS-Ist-dble-gate-explained-1989",
+      "locator": "Printed pp. 833–835, Abstract, Introduction and Figs. 1–3"
+    },
+    {
+      "title": "A Fully Depleted Lean-Channel Transistor (DELTA) — A Novel Vertical Ultrathin SOI MOSFET",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1502894/download-documents?artifactId=yQOWJ3me1Hwj-X5Vwpoeb59TCfucTPcJg8IRhr3OdJbmdvFC3gy176U",
+      "locator": "Printed pp. 36–37, Abstract, Introduction and Device Characteristics"
+    },
+    {
+      "title": "A Folded-Channel MOSFET for Deep-Sub-Tenth Micron Era",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1517476/download-documents?artifactId=zXSsHjhjKlTPLl_HaTWZ2oovNkQfyBe4LkOCxILQHXjCCME_SjKf-gQ",
+      "locator": "Printed p. 1032, structure, features, measurements and reference [1]; p. 1033, Fig. 1"
+    },
+    {
+      "title": "Sub 50-nm FinFET: PMOS",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1484495/download-documents?artifactId=HVBzL7kneQzAF6SeLaf_lE_ijMKJVYORpYlf6yCCxRN034XmpE8Jek4",
+      "locator": "Printed p. 67, Abstract and Introduction"
+    },
+    {
+      "title": "FinFET — A Self-Aligned Double-Gate MOSFET Scalable to 20 nm",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1558711/download-documents?artifactId=BDV2BZyLzeP3hk7cV83fQ1anWraNzk8G2sLS__GXHjbCou_o01kbc4E",
+      "locator": "Printed p. 2320, Introduction, Fig. 1 and Device Fabrication; p. 2325, references [9]–[11]"
+    },
+    {
+      "title": "The FinFET Breakthrough and Networks of Innovation in the Semiconductor Industry, 1980–2005",
+      "url": "https://escholarship.org/content/qt8wq302v2/qt8wq302v2_noSplash_b2d02d917d85f44a83b2c653bebd30fc.pdf?t=pc0aod",
+      "locator": "Printed pp. 263–264 and 265–266, discussion and interview notes 24–31; Printed p. 266, paragraph following the interview evidence"
+    },
+    {
+      "title": "Huawei Mate 30 Pro 5G Teardown",
+      "url": "https://techinsights.com/zh-tw/node/30828",
+      "locator": "Introducing the Kirin 990 5G; Kirin 990 5G: 5G Application Processor/Modem"
+    },
+    {
+      "title": "TSMC Third-Quarter 2017 Earnings Call Transcript",
+      "url": "https://investor.tsmc.com/japanese/encrypt/files/encrypt_file/english/2017/Q3/TSMC%203Q17%20transcript.pdf",
+      "locator": "Q&A, C. C. Wei response on the transition from N7 to N7+"
+    },
+    {
+      "title": "TSMC N7+ volume-production announcement",
+      "url": "https://pr.tsmc.com/english/news/2010",
+      "locator": "Main announcement, paragraphs 1–3"
+    }
+  ],
+  "screen": "Checked canonical discovery IDs, descriptions, links, events and leads for FinFET, DELTA, folded-channel devices, named TSMC process labels and MOSFET. The existing Bell Labs MOS transistor documents a different planar device. The 1999 p-channel paper extends the Berkeley prototype record. The named 2019 shipment is a later, product-specific event on N7+.",
+  "limits": "Selected contemporaneous engineering papers, firsthand recollections, original interview and patent-network research, and an independent product teardown checked through 17 November 2026. No fab-to-fab transfer, global invention priority or production layer map is inferred."
+}
