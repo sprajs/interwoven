@@ -34,9 +34,9 @@
       "name": "Digital Earth Africa Water Observations from Space",
       "region": "Africa",
       "status": "in service",
-      "date": "2021-09",
-      "claim": "Digital Earth Africa released its continental surface-water classification service and its historical observations in September 2021. Service specifications document the public data products and access endpoints.",
-      "limit": "The 15 July 2026 operational notice covers the platform. It does not independently establish every WOfS update through 17 November 2026. Clouds, mixed land–water pixels and other conditions can obscure detections.",
+      "date": "2026-11-16",
+      "claim": "Digital Earth Africa released this continental surface-water classification service in September 2021. Its public catalogue records a Landsat 9 observation from 15 November 2026 with a derived WOfS scene created on 16 November. The associated classification file was publicly reachable on 17 November.",
+      "limit": "The November check establishes production and access for one scene. Clouds, mixed land–water pixels and other conditions can obscure detections.",
       "sources": [
         {
           "url": "https://digitalearthafrica.org/wp-content/uploads/DE-Africa-Quarterly-Report_-Jul-Sep-2021.pdf",
@@ -51,10 +51,10 @@
           "locator": "Service overview, Access, and Interpreting WOfS"
         },
         {
-          "url": "https://docs.digitalearthafrica.org/en/latest/service_status/index.html",
-          "title": "Service Status and Tech Alerts",
-          "date": "2026-07-15",
-          "locator": "Overview and Current Alerts"
+          "title": "Digital Earth Africa WOfS scene 196055, 15 November 2026",
+          "url": "https://explorer.digitalearth.africa/stac/collections/wofs_ls/items/fa9b7581-8e3c-5c7b-af64-5f4920036c5b",
+          "date": "2026-11-16",
+          "locator": "Item fa9b7581-8e3c-5c7b-af64-5f4920036c5b; properties.datetime, properties.created, properties.platform, collection and assets.water"
         }
       ],
       "records": [
@@ -91,7 +91,7 @@
     "Established design lineage: earth-observing-1-advanced-land-imager demonstrated a pushbroom imager in November 2000. Its focal-plane modules informed landsat-8-operational-land-imager, which acquired its first-light image in March 2013.",
     "Established data link: OLI imagery supplies the Landsat 8 reflectance component of landsat-collection-2-global-level-2. Landsat 8 TIRS is a distinct instrument supplying the corresponding temperature component.",
     "Established data branch: openet-field-scale-evapotranspiration makes field-scale water-use estimates. Its documented v2.0 SSEBop implementation uses Level-2 Landsat temperatures and accepts Landsat 8 scenes containing both reflectance and temperature bands.",
-    "Established data branch: digital-earth-africa-water-observations-from-space uses the Level-2 reflectance stream from landsat-collection-2-global-level-2 for surface-water classification, not thermal estimates of evapotranspiration.",
+    "Established data branch: digital-earth-africa-water-observations-from-space uses the Level-2 reflectance stream from landsat-collection-2-global-level-2 to classify the presence of surface water.",
     "Established transfer: geoscience-australia-water-observations-from-space independently anchors the classifier lineage. The 2014 Australian product primarily used Landsat 5 and 7 imagery. Digital Earth Africa reused its decision tree on a new continental archive with African regional validation."
   ],
   "alternatives": [
@@ -101,7 +101,7 @@
   "frontier": [
     "Locate a versioned input manifest for the original October 2021 OpenET public release, by model, before attaching Collection 2 to that launch event.",
     "Trace the Landsat 5/7 Australian archive and the Australian Geoscience Data Cube as separately bounded upstream achievements. Determine which component moved or was redeveloped for Digital Earth Africa.",
-    "Link an operator-stamped 2026 African WOfS update or a version-pinned scene record to verify product-level recency independently of the platform status page."
+    "Check how reliably annual WOfS summaries and scenes from other sensors or regions are updated. The November 2026 sample establishes one Landsat 9 processing result."
   ],
   "screen": "Searched discovery and source text, concepts, organisations, places, existing links and leads for Landsat, EO-1, ALI/OLI, Landsat Collection 2, WOfS, Digital Earth Africa, surface-water classification and OpenET. The existing Landsat mention in Majuro cross-swell observations concerns a separate achievement. No matching named canonical nodes or promotion of a lead.",
   "coverage": "A bounded instrument-to-product trace with two operational applications and one technology demonstrator that later retired. Searched for releases, coverage updates and disruptions through 17 November 2026. Distinguishes data capture dates, first public products, published methods, completed geographic expansion and dated operational evidence."
