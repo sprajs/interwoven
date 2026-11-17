@@ -1,0 +1,464 @@
+{
+  "schema_version": 1,
+  "lane": "ferment",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "a8e41a0da845699af90f1a94a34d887cf34911fb",
+  "worker_commit": "a8e41a0da845699af90f1a94a34d887cf34911fb",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review execution",
+    "independence": "Separate from gpt-6.2-sol high proposing researcher; read original sources and site endpoints."
+  },
+  "overall_verdict": "changes_requested",
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/food/beer-brewing-late-uruk-godin-tepe-central-zagros.json",
+      "sha256": "fb157995947d7c85c65cae72e1d9abb3b9b8a2c7f0b0bf61ac6fbaee1c2bdf03"
+    },
+    {
+      "path": "data/discoveries/food/grape-wine-making-kvemo-kartli-georgia.json",
+      "sha256": "b75c583bc9b715ba495c843787c54714cc165b82d798e3e21b86e12e5d28976a"
+    },
+    {
+      "path": "data/discoveries/food/jiahu-fermented-beverage.json",
+      "sha256": "c488951674b906c77aa7a224c67a2dec0c9d84f6b2db8c9dbf236a78d03ffcb1"
+    },
+    {
+      "path": "data/discoveries/food/mould-starter-qu-fermentation-in-early-neolithic-north-china.json",
+      "sha256": "55aa41d14527e14dd65dec402fa8fc5e41ec7e09cea750eb2086787bc2f844f0"
+    },
+    {
+      "path": "data/discoveries/food/ruminant-dairy-use-in-pottery-at-tell-sabi-abyad.json",
+      "sha256": "1c4dfb2fe04ae095744061a7fe3a9f00e7de48bbe470be27de9437db395c2d60"
+    },
+    {
+      "path": "data/discoveries/materials/ounjougou-ravin-de-la-mouche-pottery.json",
+      "sha256": "41a4ab621710e9029c06d36aa3451c92885a398c92edafbe7ff49fbbb06dcc73"
+    },
+    {
+      "path": "data/discoveries/materials/possible-potting-turntable-at-tell-feres.json",
+      "sha256": "1d2343cdeea94ce421524a8a7e33bbb34880932565d092e07a563f66a7c3d0af"
+    },
+    {
+      "path": "data/discoveries/materials/potters-wheel-in-mesopotamia.json",
+      "sha256": "7ea791ce0089b18901cbbe188e7f592e0f43b55ac66364ed2263bee775bb6036"
+    },
+    {
+      "path": "data/discoveries/materials/pottery-in-neolithic-upper-mesopotamia-and-the-northern-levant.json",
+      "sha256": "90ab1a0d35c23bbe2a6080084b907f14c74b96db843254b8761696b529fcb80d"
+    },
+    {
+      "path": "data/discoveries/materials/xianrendong-early-pottery.json",
+      "sha256": "32945ad813f8a289ac4d402210825c8edfc5e6645de1a056b02dc07bc186d7da"
+    },
+    {
+      "path": "data/sources/a/arpin-2017-xianrendong-formation-and-pottery.json",
+      "sha256": "10734cf1a21aa2fab0f362a43721ed16458ce9b8f5e7ab833f842b3aeedb8d9e"
+    },
+    {
+      "path": "data/sources/b/baldi-2014-ceramic-workshops-tell-feres.json",
+      "sha256": "303f4757e9570f9f14b374c399af9f1b1da62ada423c240f11c6cad93a0b93db"
+    },
+    {
+      "path": "data/sources/b/baldi-roux-2016-wheel-coiling-comparison.json",
+      "sha256": "ee67b2ff823a54b1d50de0bab0d9906e9545d8acc36b9c42ae4b5c485c982414"
+    },
+    {
+      "path": "data/sources/c/craig-2021-prehistoric-fermentation-markers.json",
+      "sha256": "060e3e4214737918d64aa7064d96a17496f9cd2aea97b0bd48b58aadd3d4e3b4"
+    },
+    {
+      "path": "data/sources/d/drieu-2020-context-and-specificity-wine-biomarkers.json",
+      "sha256": "82e824feefe0b6c1671a408eb7865f82fbc2889efe44ef9e1f9baed49e952b52"
+    },
+    {
+      "path": "data/sources/g/gopnik-2016-godin-ceramic-provenance.json",
+      "sha256": "951e55bf58331a9f2a91ecf9bbb0bd452c26400c9cda4aa48fe3419fb659b843"
+    },
+    {
+      "path": "data/sources/h/huysecom-2009-ounjougou-first-pottery.json",
+      "sha256": "e5c6e4e40bc794ea34a74114eb3d338de3c89a5fb057549e09026cf6b7736aae"
+    },
+    {
+      "path": "data/sources/l/liu-2024-shangshan-rice-beer-microfossils.json",
+      "sha256": "bf802487da55375a28cd960be4f16ba1b32dc896d8a19e16b67474b84801e7d9"
+    },
+    {
+      "path": "data/sources/l/liu-2026-jiahu-brewing-microfossils.json",
+      "sha256": "d688cade701f0d92cff2fa948493a613cf4af3eae0bc8caa4d988d697b8dfdf0"
+    },
+    {
+      "path": "data/sources/m/michel-mcgovern-badler-1993-godin-beer.json",
+      "sha256": "ceb3a08e9773cfcb3cce9ddd23be666fbc8995bb8a4992fc695b9644e9c287fc"
+    },
+    {
+      "path": "data/sources/n/nieuwenhuyse-2010-earliest-tell-sabi-abyad-pottery.json",
+      "sha256": "3d2c8ef70952180fc07f47dc2cb900413e99c7593a6f3ad6621110b8cbd6c29a"
+    },
+    {
+      "path": "data/sources/n/nieuwenhuyse-2015-tell-sabi-abyad-pottery-lipids.json",
+      "sha256": "56053e77517ef011af41d196408dd03fc955b391309301d180495f10fc84ea89"
+    },
+    {
+      "path": "data/sources/v/van-der-plicht-2012-tell-sabi-abyad-faunal-isotopes.json",
+      "sha256": "ee4f391224844ce4f1a4b9250cf4f739af194f0619636aaf0887c20174a45ce8"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/ferment.json",
+      "sha256": "284912cbae0acc0f223ffced80f4a589dc4a4422584cb9ce22303dbc6a2903b4"
+    },
+    {
+      "path": "evidence/b/baldi-roux-2016-wheel-coiling-comparison.pdf.cache.json",
+      "sha256": "a413471ffbff86c3248caa80cc63a5efc3e4645a7b237ebb532a3b8b46f6839a"
+    },
+    {
+      "path": "evidence/h/huysecom-2009-ounjougou-first-pottery.pdf.cache.json",
+      "sha256": "6c414d8aa5afccfb21a81ad9e600d1e8d00b6cee8dbc9a7ed493cd8b21b392f0"
+    },
+    {
+      "path": "evidence/l/liu-2026-jiahu-brewing-microfossils.pdf.cache.json",
+      "sha256": "1844fa32e7a4f1a038c0cdc16741a9b5753089a69997fc0d012744c0eb484ae2"
+    },
+    {
+      "path": "evidence/m/michel-mcgovern-badler-1993-godin-beer-notes.txt",
+      "sha256": "99b3c19e3b4706e96ce5698e0e6c8846bc8c2cbf79a253422ed546545c8a3e98"
+    },
+    {
+      "path": "evidence/n/nieuwenhuyse-2010-earliest-tell-sabi-abyad-pottery.pdf.cache.json",
+      "sha256": "3e24a60a2cd19efae8fa93d6f410e1910e8eed28decd7c27d9dd1fb64576bda7"
+    },
+    {
+      "path": "evidence/n/nieuwenhuyse-2015-tell-sabi-abyad-pottery-lipids.pdf.cache.json",
+      "sha256": "803ae0ccb872ed71512448c3ee44d2bb916b4094c295c0b8ada3485e6a1a320d"
+    }
+  ],
+  "source_checks": [
+    {
+      "path": "data/sources/a/arpin-2017-xianrendong-formation-and-pottery.json",
+      "id": "arpin-2017-xianrendong-formation-and-pottery",
+      "url": "https://open.bu.edu/bitstreams/28ad71f1-7307-4af3-9b9a-2e72ea36c6cc/download",
+      "locator": "pp. 148–150 and Fig. 4-5",
+      "availability": "partial-text",
+      "independence": "Dissertation includes detailed original geoarchaeological observations. Arpin coauthored Wu et al. 2012. The techniques describe the same excavation research and earlier ceramic assemblage reports.",
+      "source_file_sha256": "10734cf1a21aa2fab0f362a43721ed16458ce9b8f5e7ab833f842b3aeedb8d9e"
+    },
+    {
+      "path": "data/sources/b/baldi-2014-ceramic-workshops-tell-feres.json",
+      "id": "baldi-2014-ceramic-workshops-tell-feres",
+      "url": "https://www.academia.edu/9024676/Ceramic_production_and_management_of_the_fire_between_late_Ubaid_and_LC1_The_potter_s_kilns_of_Tell_Feres_al_Sharqi",
+      "locator": "pp. 189–190, Level 10 workshop and Fig. 3",
+      "availability": "partial-text",
+      "independence": "Original workshop account by a co-investigator in the later wheel study, with the same excavation underlying both accounts.",
+      "source_file_sha256": "303f4757e9570f9f14b374c399af9f1b1da62ada423c240f11c6cad93a0b93db"
+    },
+    {
+      "path": "data/sources/b/baldi-roux-2016-wheel-coiling-comparison.json",
+      "id": "baldi-roux-2016-wheel-coiling-comparison",
+      "url": "https://artefacts-discovery.researcher.life/full_text/DA-2/7b/7bbe026bf8b0336b8cb87069f18f5ccf/full_text/0364c4085d24d66881580f4bf2ec0c3c.pdf",
+      "locator": "The potter’s wheel in northern Mesopotamia: a view from Tell Feres al-Sharqi; Fig. 2; Comparison and Conclusion",
+      "availability": "partial-text",
+      "independence": "Publisher-formatted original case study of excavated ceramics. Shares Baldi and part of the Tell Feres assemblage with the 2021 study.",
+      "source_file_sha256": "ee67b2ff823a54b1d50de0bab0d9906e9545d8acc36b9c42ae4b5c485c982414",
+      "evidence_sha256": "6572032ae3fd9f732b3cdc920973af218c6db03800b90c086df2fbdd4f502b13"
+    },
+    {
+      "path": "data/sources/c/craig-2021-prehistoric-fermentation-markers.json",
+      "id": "craig-2021-prehistoric-fermentation-markers",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/716610",
+      "locator": "Direct Evidence for Prehistoric Fermented Beverages",
+      "availability": "partial-text",
+      "independence": "Independent methodological assessment in the publisher’s article. It does not re-assay the Godin or Georgian sherds.",
+      "source_file_sha256": "060e3e4214737918d64aa7064d96a17496f9cd2aea97b0bd48b58aadd3d4e3b4"
+    },
+    {
+      "path": "data/sources/d/drieu-2020-context-and-specificity-wine-biomarkers.json",
+      "id": "drieu-2020-context-and-specificity-wine-biomarkers",
+      "url": "https://doi.org/10.1080/20548923.2020.1738728",
+      "locator": "Tartaric acid and Zamostje 2 controls",
+      "availability": "partial-text",
+      "independence": "Independent methodological assessment and original analyses of separate Zamostje 2 samples.",
+      "source_file_sha256": "82e824feefe0b6c1671a408eb7865f82fbc2889efe44ef9e1f9baed49e952b52"
+    },
+    {
+      "path": "data/sources/g/gopnik-2016-godin-ceramic-provenance.json",
+      "id": "gopnik-2016-godin-ceramic-provenance",
+      "url": "https://www.academia.edu/26539639/A_view_from_the_east_The_Godin_VI_Oval_and_the_Uruk_Sphere",
+      "locator": "Fig. 5, p. 840; §7, p. 843; pp. 842–846, ceramic provenance and conclusions",
+      "availability": "partial-text",
+      "independence": "Full publisher-formatted article displayed by author on Academia. Independent ceramic provenance measurements, not replication of the residue test.",
+      "source_file_sha256": "951e55bf58331a9f2a91ecf9bbb0bd452c26400c9cda4aa48fe3419fb659b843"
+    },
+    {
+      "path": "data/sources/h/huysecom-2009-ounjougou-first-pottery.json",
+      "id": "huysecom-2009-ounjougou-first-pottery",
+      "url": "https://access.archive-ouverte.unige.ch/access/metadata/ca1d70c2-47ed-48cf-a5c4-2986b072acb8/download",
+      "locator": "pp. 909–911, HA1 formation and assemblage; Figs. 1 and 3; pp. 913–915, regional comparisons and conclusion",
+      "availability": "partial-text",
+      "independence": "University of Geneva scan of the original field study. The 2020 synthesis discusses the same HA1 finds.",
+      "source_file_sha256": "e5c6e4e40bc794ea34a74114eb3d338de3c89a5fb057549e09026cf6b7736aae",
+      "evidence_sha256": "aff229d492ba3636de9ddb78853661bbb21294dad7cc5abee5e79663c6361e47"
+    },
+    {
+      "path": "data/sources/l/liu-2024-shangshan-rice-beer-microfossils.json",
+      "id": "liu-2024-shangshan-rice-beer-microfossils",
+      "url": "https://www.pnas.org/doi/pdf/10.1073/pnas.2412274121",
+      "locator": "Abstract; Results; Table 1",
+      "availability": "partial-text",
+      "independence": "Original study with a partially overlapping research group and a distinct site and specimen assemblage.",
+      "source_file_sha256": "bf802487da55375a28cd960be4f16ba1b32dc896d8a19e16b67474b84801e7d9"
+    },
+    {
+      "path": "data/sources/l/liu-2026-jiahu-brewing-microfossils.json",
+      "id": "liu-2026-jiahu-brewing-microfossils",
+      "url": "https://mdpi-res.com/d_attachment/heritage/heritage-09-00335/article_deploy/heritage-09-00335.pdf",
+      "locator": "§§2.2, 3.1, 5.1–5.3; Tables 3–4; Supplementary Table S2",
+      "availability": "partial-text",
+      "independence": "Publisher’s original open-access PDF. Supplement PDF extracted from publisher ZIP https://mdpi-res.com/d_attachment/heritage/heritage-09-00335/article_deploy/heritage-09-00335-s001.zip (ZIP SHA-256 aa664f5aed29cdcde7f534b549704d297a02efef8e2d9c9e2c5e2fca8ea938a0). Juzhong Zhang also coauthored the 2004 study. Different assays, a shared find context and unverified overlap of individual sherds.",
+      "source_file_sha256": "d688cade701f0d92cff2fa948493a613cf4af3eae0bc8caa4d988d697b8dfdf0",
+      "evidence_sha256": "49cf9ff698895f1d6238244e3c6653f5612816983bf4e05a31e11a9bed196593"
+    },
+    {
+      "path": "data/sources/m/michel-mcgovern-badler-1993-godin-beer.json",
+      "id": "michel-mcgovern-badler-1993-godin-beer",
+      "url": "https://www.biomolecular-archaeology.com/wp-content/uploads/2010/04/firstwinebeeranalytchem.pdf",
+      "locator": "p. 409A, early Godin context; pp. 412A–413A, Another Fermented Beverage",
+      "availability": "partial-text",
+      "independence": "Authors’ project site displays scan of publisher article. Read through the web index. Direct download failed. The same authors published the initial 1992 Nature letter.",
+      "source_file_sha256": "ceb3a08e9773cfcb3cce9ddd23be666fbc8995bb8a4992fc695b9644e9c287fc",
+      "evidence_sha256": "99b3c19e3b4706e96ce5698e0e6c8846bc8c2cbf79a253422ed546545c8a3e98"
+    },
+    {
+      "path": "data/sources/n/nieuwenhuyse-2010-earliest-tell-sabi-abyad-pottery.json",
+      "id": "nieuwenhuyse-2010-earliest-tell-sabi-abyad-pottery",
+      "url": "https://pure.rug.nl/ws/portalfiles/portal/2558823/2010AntiquityNieuwenhuyse.pdf",
+      "locator": "Abstract; early phases and ceramics discussion",
+      "availability": "partial-text",
+      "independence": "Original excavated assemblage and chronology, in the university repository. Later histories reuse these excavation results.",
+      "source_file_sha256": "3d2c8ef70952180fc07f47dc2cb900413e99c7593a6f3ad6621110b8cbd6c29a",
+      "evidence_sha256": "bdacc1d175cefccc54da9abbb2d29775686d5bb7d61148198a5240626e182f04"
+    },
+    {
+      "path": "data/sources/n/nieuwenhuyse-2015-tell-sabi-abyad-pottery-lipids.json",
+      "id": "nieuwenhuyse-2015-tell-sabi-abyad-pottery-lipids",
+      "url": "https://research-information.bris.ac.uk/ws/files/53678841/1_s2.0_S0305440315002769_main.pdf",
+      "locator": "Table 2, p. 61, and §4.4; §§4.4–4.5, comparison with archaeozoological record",
+      "availability": "partial-text",
+      "independence": "Original vessel lipid assays, distinct from the stratigraphic study of earliest pottery and from faunal observations. Evershed et al. 2008 and the 2018 chapter partly report this same sample series.",
+      "source_file_sha256": "56053e77517ef011af41d196408dd03fc955b391309301d180495f10fc84ea89",
+      "evidence_sha256": "3d55c4e2df0b865a21996c2a32b909f74ceca198e57dfef9b66707fda8350bf2"
+    },
+    {
+      "path": "data/sources/v/van-der-plicht-2012-tell-sabi-abyad-faunal-isotopes.json",
+      "id": "van-der-plicht-2012-tell-sabi-abyad-faunal-isotopes",
+      "url": "https://www.cambridge.org/core/journals/radiocarbon/article/tell-sabi-abyad-syria-an-interpretation-of-stable-isotope-values-of-faunal-bone-collagen/9EABC7B7159BFEE28BE5F8D5171B9A90",
+      "locator": "Introduction and Abstract",
+      "availability": "partial-text",
+      "independence": "Original faunal specimens and measurements, with overlapping site investigators. A separate observational line about herd management, not a duplicate sherd assay.",
+      "source_file_sha256": "ee4f391224844ce4f1a4b9250cf4f739af194f0619636aaf0887c20174a45ce8"
+    }
+  ],
+  "original_access": "Independent reading includes publisher or author original full text for 2009, 2015, 2016, 2017, 2019, 2026 studies and indexed 1993 paper. 1992 Nature letter remains inaccessible; source files identify further original representations and hashes. Overlapping sites, authors and samples are noted in each source lineage; method critiques are not re-assays.",
+  "records": [
+    {
+      "id": "ounjougou-ravin-de-la-mouche-pottery",
+      "verdict": "accept",
+      "rationale": "Original Huysecom 2009 pp. 909–911 describes three HA1 sherds, redeposited before the overlying dated units, bowl form and sparse evidence; function and diffusion appropriately unresolved. The 2020 synthesis is the same excavation, not an independent sample.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/ounjougou-ravin-de-la-mouche-pottery.json changed fields",
+          "decision": "accept",
+          "rationale": "Original Huysecom 2009 pp. 909–911 describes three HA1 sherds, redeposited before the overlying dated units, bowl form and sparse evidence; function and diffusion appropriately unresolved. The 2020 synthesis is the same excavation, not an independent sample.",
+          "sources": [
+            "huysecom-2009-ounjougou-first-pottery pp. 909–911, 913–915",
+            "huysecom-2020-african-ceramic-emergence p. 7"
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "beer-brewing-late-uruk-godin-tepe-central-zagros",
+      "verdict": "accept",
+      "rationale": "1993 original pp. 409A, 412A–413A gives period V range, oxalate positive, controls and contextual barley inference; independent Craig warns oxalate and spot test are nonspecific. Local-clay GOT_20 is a different specimen, so no wheel manufacture or local brewing identified.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/beer-brewing-late-uruk-godin-tepe-central-zagros.json changed fields",
+          "decision": "accept",
+          "rationale": "1993 original pp. 409A, 412A–413A gives period V range, oxalate positive, controls and contextual barley inference; independent Craig warns oxalate and spot test are nonspecific. Local-clay GOT_20 is a different specimen, so no wheel manufacture or local brewing identified.",
+          "sources": [
+            "michel-mcgovern-badler-1993-godin-beer pp. 409A, 412A–413A",
+            "craig-2021-prehistoric-fermentation-markers direct evidence",
+            "gopnik-2016-godin-ceramic-provenance Fig. 5 and §7"
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "grape-wine-making-kvemo-kartli-georgia",
+      "verdict": "accept",
+      "rationale": "McGovern 2017 tests pottery and controls in two sites, interprets organic acids with environmental context as wine; Drieu on other samples questions tartaric-acid specificity. Wording now keeps fermentation and individual use uncertain; no unsupported transmission edge.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/grape-wine-making-kvemo-kartli-georgia.json changed fields",
+          "decision": "accept",
+          "rationale": "McGovern 2017 tests pottery and controls in two sites, interprets organic acids with environmental context as wine; Drieu on other samples questions tartaric-acid specificity. Wording now keeps fermentation and individual use uncertain; no unsupported transmission edge.",
+          "sources": [
+            "mcgovern-2017-early-neolithic-wine Results and Discussion",
+            "drieu-2020-context-and-specificity-wine-biomarkers Zamostje controls"
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "jiahu-fermented-beverage",
+      "verdict": "accept",
+      "rationale": "McGovern 2004 provides chemical interpretation. Liu 2026 §§2–3,5 and supplementary Table S2 provides separate microfossil study and context dates; shared author and context mean individual sherd independence is unresolved. Site location and qualified event are supported; no continuity edge.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/jiahu-fermented-beverage.json changed fields",
+          "decision": "accept",
+          "rationale": "McGovern 2004 provides chemical interpretation. Liu 2026 §§2–3,5 and supplementary Table S2 provides separate microfossil study and context dates; shared author and context mean individual sherd independence is unresolved. Site location and qualified event are supported; no continuity edge.",
+          "sources": [
+            "mcgovern-2004-jiahu-fermentation Methods and note 10",
+            "liu-2026-jiahu-brewing-microfossils §§2–3,5; Table S2"
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "mould-starter-qu-fermentation-in-early-neolithic-north-china",
+      "verdict": "changes_requested",
+      "rationale": "Origin changed to unknown and earlier site comparisons are valid, but unchanged summary asserts earliest known evidence and definitive fermentation, contrary to the new note and interpreted identification. The impact note also implies local line to later tradition without a demonstrated connection.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/mould-starter-qu-fermentation-in-early-neolithic-north-china.json changed fields",
+          "decision": "changes_requested",
+          "rationale": "Origin changed to unknown and earlier site comparisons are valid, but unchanged summary asserts earliest known evidence and definitive fermentation, contrary to the new note and interpreted identification. The impact note also implies local line to later tradition without a demonstrated connection.",
+          "sources": [
+            "liu-2019-origins-specialized-pottery discussion",
+            "liu-2024-shangshan-rice-beer-microfossils abstract",
+            "liu-2026-jiahu-brewing-microfossils §5.3"
+          ]
+        }
+      ],
+      "issues": [
+        "Replace summary priority and definitive claim with attribution to interpreted Guantaoyuan evidence. Qualify impact note to avoid implying this local record gave rise to later East Asian brewing."
+      ]
+    },
+    {
+      "id": "potters-wheel-in-mesopotamia",
+      "verdict": "accept",
+      "rationale": "Baldi and Roux 2016 Tell Feres case documents late Ubaid possible pivoted disc and much later LC2 wheel-coiled bowls. Candidate builds_on question preserves the gap and does not assert causal continuity. Baldi 2021 shares author and data and is not independent evidence of that causal relation.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/potters-wheel-in-mesopotamia.json changed fields",
+          "decision": "accept",
+          "rationale": "Baldi and Roux 2016 Tell Feres case documents late Ubaid possible pivoted disc and much later LC2 wheel-coiled bowls. Candidate builds_on question preserves the gap and does not assert causal continuity. Baldi 2021 shares author and data and is not independent evidence of that causal relation.",
+          "sources": [
+            "baldi-roux-2016-wheel-coiling-comparison pp. 237–239",
+            "baldi-2021-how-uruk-potters pp. 193–196"
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "pottery-in-neolithic-upper-mesopotamia-and-the-northern-levant",
+      "verdict": "accept",
+      "rationale": "Nieuwenhuyse 2010 original early Tell Sabi Abyad assemblage supports small well-made pottery and unresolved local or imported origin; Bartl 2023 supports Shir and regional date with site variability. New separate dairy record identifies much later local pottery contact rather than transmission from an early ware.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/pottery-in-neolithic-upper-mesopotamia-and-the-northern-levant.json changed fields",
+          "decision": "accept",
+          "rationale": "Nieuwenhuyse 2010 original early Tell Sabi Abyad assemblage supports small well-made pottery and unresolved local or imported origin; Bartl 2023 supports Shir and regional date with site variability. New separate dairy record identifies much later local pottery contact rather than transmission from an early ware.",
+          "sources": [
+            "nieuwenhuyse-2010-earliest-tell-sabi-abyad-pottery pp. 74–80",
+            "during-2023-style-society-prehistory ch.10 pp.163–167",
+            "nieuwenhuyse-2015-tell-sabi-abyad-pottery-lipids Table 2, §4.4"
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "xianrendong-early-pottery",
+      "verdict": "changes_requested",
+      "rationale": "Wu 2012 documents date of contexts, foragers and possible use. Arpin 2017 pp.148–150 describes slab joined and striped earliest western sherds and a later different technique, with no proof of community descent. Legacy impact note newly contradicts explicit unresolved transmission and should be corrected.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/*/xianrendong-early-pottery.json changed fields",
+          "decision": "changes_requested",
+          "rationale": "Wu 2012 documents date of contexts, foragers and possible use. Arpin 2017 pp.148–150 describes slab joined and striped earliest western sherds and a later different technique, with no proof of community descent. Legacy impact note newly contradicts explicit unresolved transmission and should be corrected.",
+          "sources": [
+            "wu-2012-xianrendong-pottery abstract",
+            "arpin-2017-xianrendong-formation-and-pottery pp.148–150"
+          ]
+        }
+      ],
+      "issues": [
+        "Remove unsubstantiated later southern Chinese tradition descending from this community from impact.note; retain any supported local context without implying a continuity."
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "possible-potting-turntable-at-tell-feres",
+      "verdict": "accept",
+      "claim_reviews": [
+        {
+          "path": "entire record",
+          "decision": "accept",
+          "rationale": "Baldi and Roux original comparison §Tell Feres gives ca. 4700 BCE workshop clay disc about 26 cm with possible pivot socket; later rotary forming marks around 3900 BCE. Dating is context not invention; function and continuity properly tentative. 2014 is same excavation lineage, not independent corroboration.",
+          "sources": [
+            "baldi-roux-2016-wheel-coiling-comparison Tell Feres, Fig. 2",
+            "baldi-2014-ceramic-workshops-tell-feres pp.189–190"
+          ]
+        }
+      ],
+      "duplicate_screen": "Separate dated workshop object from later wheel-coiling capability; no matching object record found."
+    },
+    {
+      "id": "ruminant-dairy-use-in-pottery-at-tell-sabi-abyad",
+      "verdict": "accept",
+      "claim_reviews": [
+        {
+          "path": "identity, description, classification, origin, places, earliest_record, events and caveats",
+          "decision": "accept",
+          "rationale": "Original lipid study Table 2 and §4.4 reports SAB263 GBW 6400–6330 and SAB2, SAB173, SAB214 in 6000–5900 contexts as ruminant dairy; sample identifies vessel contact, not species or processing method. Classification is bounded site practice.",
+          "sources": [
+            "nieuwenhuyse-2015-tell-sabi-abyad-pottery-lipids Table 2 and §4.4"
+          ]
+        },
+        {
+          "path": "links/0",
+          "decision": "accept",
+          "relation": "uses_instrument; pottery at Tell Sabi Abyad to dairy use at same site, specifically SAB263; no claim of adoption from earliest pottery phase or external transmission",
+          "status": "established",
+          "independent_corroboration": "2010 excavation provides separate evidence of local pottery; 2015 isotopes directly identify contact in a later sherd. Same site investigators overlap, and these are not independent replicate assays. For this narrow material use, the sherd itself is direct evidence, corroborated by independently excavated early pottery assemblage; no causal transmission is asserted.",
+          "rationale": "Dairy isotope residue is measured in the pottery instrument itself; description limits use to contact."
+        }
+      ],
+      "duplicate_screen": "Distinct local dairy contact with pottery; no Sabi Abyad dairy record in current snapshot; dates and community differ from other dairy nodes."
+    }
+  ],
+  "duplicate_screen": "Searched all discovery records for each site and both new record names; distinguish neighboring communities, event dates and material uses. New Jiahu event uses separate analytic approach; possible overlapping context is disclosed, not claimed as independent sherd.",
+  "issues": [
+    "Correct Guantaoyuan summary and unsupported impact connection to later traditions.",
+    "Correct Xianrendong impact descent speculation."
+  ],
+  "unknowns": [
+    "No causal transmission from Xianrendong or Jiahu to other sites, from Feres disc to wheel, or from Levantine pottery to Georgia established.",
+    "Godin local brewing, contents, vessel origin of tested specimen and molecular specificity unresolved.",
+    "Dairy assays and additional site pottery are separate observations, not independent replication of dairy residues."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py; git diff --check BASE PROPOSAL",
+    "result": "Both passed; 908 discoveries, 1518 events, 244 links and 1685 sources."
+  },
+  "history": []
+}
