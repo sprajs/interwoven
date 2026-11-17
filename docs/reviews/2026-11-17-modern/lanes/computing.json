@@ -1,0 +1,114 @@
+{
+  "lane": "computing",
+  "title": "Research supercomputing from K to Fugaku",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "as_of": "2026-11-17",
+  "inventory": [
+    {
+      "name": "Fugaku",
+      "region": "RIKEN Center for Computational Science, Kobe, Japan",
+      "status": "suspended",
+      "date": "2026-11-14",
+      "claim": "RIKEN suspended Fugaku operations and external access on 14 November, confirmed in its 17 November notice. Shared use had begun in March 2021.",
+      "limit": "As of 17 November the operator gave no restart date. November TOP500 lists rank 9 and carries the 442.01 PFlop/s HPL result first published in November 2020.",
+      "sources": [
+        {
+          "url": "https://www.riken.jp/en/news_pubs/news/2026/20261116_2/index.html",
+          "title": "RIKEN notice on Fugaku and RIKYU",
+          "date": "2026-11-17",
+          "locator": "§1 Timeline, §4 RIKEN’s response, and §5 Future actions"
+        },
+        {
+          "url": "https://www.riken.jp/en/news_pubs/news/2021/20210309_2/index.html",
+          "title": "Shared use of Fugaku begins",
+          "date": "2021-03-09",
+          "locator": "Opening paragraphs"
+        },
+        {
+          "url": "https://top500.org/system/179807/",
+          "title": "TOP500 Fugaku system history",
+          "date": "2026-11",
+          "locator": "11/2026 and 11/2020 rows, Rmax"
+        }
+      ],
+      "records": [
+        "riken-fujitsu-fugaku"
+      ]
+    },
+    {
+      "name": "JUPITER Booster",
+      "region": "Jülich Supercomputing Centre, Jülich, Germany",
+      "status": "in service",
+      "date": "2026-11-17",
+      "claim": "Jülich reported that more than 500 projects had received JUPITER compute time since installation in 2025 and identified results already produced on the system. The Booster retained 1.000 EFlop/s measured HPL at rank 5 in November 2026.",
+      "limit": "Status refers to evidenced allocated research access on the Booster. JSC user documentation describes early access and the separate CPU Cluster module remained in phased rollout.",
+      "sources": [
+        {
+          "url": "https://www.fz-juelich.de/de/aktuelles/news/meldungen/2026/jupiter-weiter-unter-den-fuenf-schnellsten-supercomputern",
+          "title": "JUPITER weiter unter den fünf schnellsten Supercomputern",
+          "date": "2026-11-17",
+          "locator": "Paragraphs on TOP500, allocated compute time and Cluster expansion"
+        },
+        {
+          "url": "https://www.top500.org/news/top500-leadership-holds-steady-new-system-turnover-falls-historic-low/",
+          "title": "TOP500 Leadership Holds Steady as New System Turnover Falls to a Historic Low",
+          "date": "2026-11-16",
+          "locator": "Top 10 table, JUPITER Booster"
+        },
+        {
+          "url": "https://apps.fz-juelich.de/jsc/hps/jupiter/maintenance.html",
+          "title": "JSC JUPITER maintenance and access phase",
+          "date": "n.d.",
+          "locator": "Early-Access warning and dated August 2026 maintenance entry"
+        }
+      ],
+      "records": []
+    },
+    {
+      "name": "FugakuNEXT",
+      "region": "Planned adjacent to RIKEN's Kobe site, Japan",
+      "status": "proposed",
+      "date": "2026-05-29",
+      "claim": "RIKEN released the FugakuNEXT basic design report prepared with Fujitsu and NVIDIA. Operation is targeted around 2030.",
+      "limit": "The report describes a design and schedule. Installed-system benchmarks and a firm opening date remain undocumented in the sources checked.",
+      "sources": [
+        {
+          "url": "https://www.r-ccs.riken.jp/en/outreach/topics/20260529-1/index.html",
+          "title": "Release of the FugakuNEXT Basic Design Technical Report",
+          "date": "2026-05-29",
+          "locator": "Announcement body"
+        },
+        {
+          "url": "https://www.r-ccs.riken.jp/en/fugaku-next/index.html",
+          "title": "RIKEN FugakuNEXT project page",
+          "date": "n.d.",
+          "locator": "Location and operations target"
+        },
+        {
+          "url": "https://www.r-ccs.riken.jp/fugaku-next/fugakunext_basicdesign-technicalreport_en.pdf",
+          "title": "Basic Design Technical Report for the New Flagship System FugakuNEXT",
+          "date": "2026-05",
+          "locator": "§1.3, Figure 1-2, design and operations schedule"
+        }
+      ],
+      "records": []
+    }
+  ],
+  "trace": [
+    "riken-fujitsu-fugaku → fujitsu-tofu-interconnect-2: Proposed canonical adapts link. Fujitsu traces Fugaku's A64FX-integrated TofuD to Tofu2 in its 2019 FX1000 white paper, pp. 7–8. Dongarra’s 2020 technical report, pp. 7–8, independently compares the installed network generations. A narrower link bandwidth was one trade-off for TofuD's new dense node configuration.",
+    "fujitsu-tofu-interconnect-2 → riken-fujitsu-k-computer: Proposed canonical adapts link for the original Tofu design. Fujitsu’s 25 June 2014 ISC slides compare Tofu1 and Tofu2: the mesh/torus persists and the controller moves onto the processor chip. The original Tofu also appeared in FX10. Tofu2 was in operation in the FX100-based Plasma Simulator at NIFS in Toki on 1 June 2015. That deployment is an event on the Tofu2 record.",
+    "riken-fujitsu-k-computer: RIKEN and Fujitsu reported 10.51 PFlop/s measured LINPACK in 2011. RIKEN began shared use in September 2012 and concluded that service on 16 August 2019, preparing the site for Fugaku’s installation."
+  ],
+  "alternatives": [
+    "JUPITER Booster uses Grace Hopper CPU–GPU superchips and InfiniBand NDR with a DragonFly+ topology. This is an implemented alternative to Fugaku's A64FX and TofuD configuration. Jülich's June 2026 technical overview documents its measured FP64 HPL result and the separate CPU module. https://www.fz-juelich.de/en/jsc/jupiter/tech/",
+    "The original Tofu design also reached commercial Fujitsu FX10 systems, as the Tofu2 presentation and Ajima et al. §II A record. The separate FX10 installation history remains a lead. https://www.fujitsu.com/downloads/SUPER/ieee/08514929.pdf"
+  ],
+  "frontier": [
+    "Compare original K/Tofu design documents with non-Fujitsu network design studies to test whether an earlier topology or routing design was explicitly borrowed.",
+    "Find a dated Jülich service declaration for the transition from early access to general production for each JUPITER module, with tested user availability.",
+    "Check RIKEN’s next operating notice for a verified Fugaku restart and the scope of restored external research access."
+  ],
+  "screen": "Searched current discoveries, source IDs and leads for K computer, Kei, Fugaku/post-K, Tofu, FX100/PRIMEHPC, and JUPITER Booster. No matching canonical machine or Tofu design record or lead was found. Ethernet and CUDA are different referents. No processor fabrication link was inferred.",
+  "coverage": "Three installations or plans in Japan and Germany, with a single bounded Japanese interconnect lineage. Evidence checked against the 17 November 2026 cutoff. Benchmark results, allocated access, and incident-driven interruption carry separate scopes. The independent technical report corroborates the deployed interconnect configurations and comparison. Fujitsu supplies the explicit inheritance account."
+}
