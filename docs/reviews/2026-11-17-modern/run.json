@@ -1,0 +1,421 @@
+{
+  "as_of_utc": "2026-11-17T21:58:34+00:00",
+  "base": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "reviewed_data": "cf9d08d5f73a2dce66f05ae7bd81a665dc18d29b",
+  "coordinator": {
+    "model": "gpt-6.2-astra",
+    "effort": "xhigh"
+  },
+  "scope": "Latest cumulative usage counters for the twelve researchers, twelve reviewers and one reader implementation agent. Repeated prompt context and cached inputs are included in input tokens. Reasoning output tokens are a subset of output tokens. Coordinator and billing are excluded.",
+  "workers": [
+    {
+      "execution": "agriculture",
+      "id": "01a1eb74-555e-7092-97a6-229083f5a1b8",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:40:32.248Z",
+      "usage_as_of_utc": "2026-11-17T21:54:42.606Z",
+      "metered_usage": {
+        "input_tokens": 12236389,
+        "cached_input_tokens": 11984896,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25210,
+        "reasoning_output_tokens": 3492,
+        "total_tokens": 12261599
+      }
+    },
+    {
+      "execution": "chips",
+      "id": "01a1eb73-4bb9-7530-a278-85fe6b6aae37",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:39:24.285Z",
+      "usage_as_of_utc": "2026-11-17T21:52:29.466Z",
+      "metered_usage": {
+        "input_tokens": 10378608,
+        "cached_input_tokens": 9988096,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23972,
+        "reasoning_output_tokens": 2433,
+        "total_tokens": 10402580
+      }
+    },
+    {
+      "execution": "communications",
+      "id": "01a1eb73-9e5c-78e2-bd05-6cda34351b59",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:39:45.407Z",
+      "usage_as_of_utc": "2026-11-17T21:51:03.875Z",
+      "metered_usage": {
+        "input_tokens": 8577343,
+        "cached_input_tokens": 8224384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 20606,
+        "reasoning_output_tokens": 2511,
+        "total_tokens": 8597949
+      }
+    },
+    {
+      "execution": "computing",
+      "id": "01a1eb73-6662-7793-8813-08798757838f",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:39:31.062Z",
+      "usage_as_of_utc": "2026-11-17T21:56:00.222Z",
+      "metered_usage": {
+        "input_tokens": 8092220,
+        "cached_input_tokens": 7729024,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 20848,
+        "reasoning_output_tokens": 2965,
+        "total_tokens": 8113068
+      }
+    },
+    {
+      "execution": "energy",
+      "id": "01a1eb78-b37d-7731-81f0-58d5b40ee2d2",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:45:18.538Z",
+      "usage_as_of_utc": "2026-11-17T21:53:17.279Z",
+      "metered_usage": {
+        "input_tokens": 5907494,
+        "cached_input_tokens": 5528448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17489,
+        "reasoning_output_tokens": 1555,
+        "total_tokens": 5924983
+      }
+    },
+    {
+      "execution": "grid",
+      "id": "01a1eb73-b9dc-78c2-9880-1db0fe32625c",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:39:52.428Z",
+      "usage_as_of_utc": "2026-11-17T21:47:46.218Z",
+      "metered_usage": {
+        "input_tokens": 5482887,
+        "cached_input_tokens": 5289856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15785,
+        "reasoning_output_tokens": 2287,
+        "total_tokens": 5498672
+      }
+    },
+    {
+      "execution": "health",
+      "id": "01a1eb74-a847-7bc3-bd8e-4d22c1ce2538",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:40:53.466Z",
+      "usage_as_of_utc": "2026-11-17T21:51:59.633Z",
+      "metered_usage": {
+        "input_tokens": 7317449,
+        "cached_input_tokens": 7120128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21468,
+        "reasoning_output_tokens": 2402,
+        "total_tokens": 7338917
+      }
+    },
+    {
+      "execution": "instruments",
+      "id": "01a1eb74-3568-7721-bb9f-666b107a2e3c",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:40:24.076Z",
+      "usage_as_of_utc": "2026-11-17T21:51:43.833Z",
+      "metered_usage": {
+        "input_tokens": 9454248,
+        "cached_input_tokens": 9042816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21043,
+        "reasoning_output_tokens": 1913,
+        "total_tokens": 9475291
+      }
+    },
+    {
+      "execution": "land",
+      "id": "01a1eb78-8772-7770-98c6-1dff7cc94cec",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:45:07.484Z",
+      "usage_as_of_utc": "2026-11-17T21:55:59.007Z",
+      "metered_usage": {
+        "input_tokens": 6452564,
+        "cached_input_tokens": 6289792,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 20815,
+        "reasoning_output_tokens": 2786,
+        "total_tokens": 6473379
+      }
+    },
+    {
+      "execution": "manufacturing",
+      "id": "01a1eb73-e2e0-7ed1-9ede-45eedf635bae",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:40:02.945Z",
+      "usage_as_of_utc": "2026-11-17T21:52:01.015Z",
+      "metered_usage": {
+        "input_tokens": 10956050,
+        "cached_input_tokens": 10528640,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22983,
+        "reasoning_output_tokens": 2993,
+        "total_tokens": 10979033
+      }
+    },
+    {
+      "execution": "r_agriculture",
+      "id": "01a1eb77-71fe-7110-b02f-e882ce6f716f",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:56.182Z",
+      "usage_as_of_utc": "2026-11-17T21:52:34.900Z",
+      "metered_usage": {
+        "input_tokens": 5502961,
+        "cached_input_tokens": 5389952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7982,
+        "reasoning_output_tokens": 971,
+        "total_tokens": 5510943
+      }
+    },
+    {
+      "execution": "r_chips",
+      "id": "01a1eb76-b981-7912-8557-8566aeb6fb91",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:09.003Z",
+      "usage_as_of_utc": "2026-11-17T21:50:47.384Z",
+      "metered_usage": {
+        "input_tokens": 5767387,
+        "cached_input_tokens": 5615104,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8960,
+        "reasoning_output_tokens": 1283,
+        "total_tokens": 5776347
+      }
+    },
+    {
+      "execution": "r_communications",
+      "id": "01a1eb76-e678-7772-83d0-7002b0fa4a35",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:20.458Z",
+      "usage_as_of_utc": "2026-11-17T21:50:10.934Z",
+      "metered_usage": {
+        "input_tokens": 4443557,
+        "cached_input_tokens": 4330752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7675,
+        "reasoning_output_tokens": 570,
+        "total_tokens": 4451232
+      }
+    },
+    {
+      "execution": "r_computing",
+      "id": "01a1eb76-d27b-7412-b991-4a202fa43ea3",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:15.345Z",
+      "usage_as_of_utc": "2026-11-17T21:55:56.392Z",
+      "metered_usage": {
+        "input_tokens": 6153673,
+        "cached_input_tokens": 6036864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8468,
+        "reasoning_output_tokens": 862,
+        "total_tokens": 6162141
+      }
+    },
+    {
+      "execution": "r_energy",
+      "id": "01a1eb78-ea7f-7360-80fa-0c2b6073562e",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:45:32.562Z",
+      "usage_as_of_utc": "2026-11-17T21:53:50.701Z",
+      "metered_usage": {
+        "input_tokens": 4955732,
+        "cached_input_tokens": 4851584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7675,
+        "reasoning_output_tokens": 768,
+        "total_tokens": 4963407
+      }
+    },
+    {
+      "execution": "r_grid",
+      "id": "01a1eb76-fac5-7f41-ac70-4fa3d6bf0792",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:25.655Z",
+      "usage_as_of_utc": "2026-11-17T21:48:12.985Z",
+      "metered_usage": {
+        "input_tokens": 3107656,
+        "cached_input_tokens": 3004416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6683,
+        "reasoning_output_tokens": 571,
+        "total_tokens": 3114339
+      }
+    },
+    {
+      "execution": "r_health",
+      "id": "01a1eb77-9f3d-7ec0-9b45-0306cb58afe7",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:44:07.772Z",
+      "usage_as_of_utc": "2026-11-17T21:51:55.012Z",
+      "metered_usage": {
+        "input_tokens": 4751437,
+        "cached_input_tokens": 4642176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7615,
+        "reasoning_output_tokens": 800,
+        "total_tokens": 4759052
+      }
+    },
+    {
+      "execution": "r_instruments",
+      "id": "01a1eb77-5e50-72e2-be5c-078c068ec5be",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:51.166Z",
+      "usage_as_of_utc": "2026-11-17T21:50:50.218Z",
+      "metered_usage": {
+        "input_tokens": 6002874,
+        "cached_input_tokens": 5877376,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8619,
+        "reasoning_output_tokens": 829,
+        "total_tokens": 6011493
+      }
+    },
+    {
+      "execution": "r_land",
+      "id": "01a1eb78-cd15-78e2-817d-fbf7c6d4cd82",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:45:25.035Z",
+      "usage_as_of_utc": "2026-11-17T21:53:57.619Z",
+      "metered_usage": {
+        "input_tokens": 4662050,
+        "cached_input_tokens": 4535168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6596,
+        "reasoning_output_tokens": 678,
+        "total_tokens": 4668646
+      }
+    },
+    {
+      "execution": "r_manufacturing",
+      "id": "01a1eb77-1af1-7681-9070-d3f12f55506d",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:33.942Z",
+      "usage_as_of_utc": "2026-11-17T21:51:44.116Z",
+      "metered_usage": {
+        "input_tokens": 6443157,
+        "cached_input_tokens": 6317312,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9053,
+        "reasoning_output_tokens": 1160,
+        "total_tokens": 6452210
+      }
+    },
+    {
+      "execution": "r_transport",
+      "id": "01a1eb77-352c-7280-958f-290bf34c79ef",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:43:40.641Z",
+      "usage_as_of_utc": "2026-11-17T21:51:24.266Z",
+      "metered_usage": {
+        "input_tokens": 3815932,
+        "cached_input_tokens": 3712512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8238,
+        "reasoning_output_tokens": 768,
+        "total_tokens": 3824170
+      }
+    },
+    {
+      "execution": "r_water",
+      "id": "01a1eb77-86c7-7082-bce1-ce6aaeb4571c",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:44:01.564Z",
+      "usage_as_of_utc": "2026-11-17T21:49:47.826Z",
+      "metered_usage": {
+        "input_tokens": 2901304,
+        "cached_input_tokens": 2815488,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6327,
+        "reasoning_output_tokens": 596,
+        "total_tokens": 2907631
+      }
+    },
+    {
+      "execution": "reader",
+      "id": "01a1eb75-00fb-7ee1-97c8-2da7178337a0",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:41:16.180Z",
+      "usage_as_of_utc": "2026-11-17T21:50:44.322Z",
+      "metered_usage": {
+        "input_tokens": 2415109,
+        "cached_input_tokens": 2352640,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22876,
+        "reasoning_output_tokens": 3445,
+        "total_tokens": 2437985
+      }
+    },
+    {
+      "execution": "transport",
+      "id": "01a1eb74-0c2b-7453-b7d6-ee9045a31769",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:40:13.501Z",
+      "usage_as_of_utc": "2026-11-17T21:51:25.931Z",
+      "metered_usage": {
+        "input_tokens": 9302519,
+        "cached_input_tokens": 8904448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22574,
+        "reasoning_output_tokens": 3288,
+        "total_tokens": 9325093
+      }
+    },
+    {
+      "execution": "water",
+      "id": "01a1eb74-74b6-7662-9a76-3a388e4d3b22",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T21:40:40.306Z",
+      "usage_as_of_utc": "2026-11-17T21:50:12.307Z",
+      "metered_usage": {
+        "input_tokens": 5961661,
+        "cached_input_tokens": 5624448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18369,
+        "reasoning_output_tokens": 2622,
+        "total_tokens": 5980030
+      }
+    }
+  ],
+  "worker_total": {
+    "input_tokens": 161042261,
+    "cached_input_tokens": 155736320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 367929,
+    "reasoning_output_tokens": 44548,
+    "total_tokens": 161410190
+  },
+  "billing": null
+}
