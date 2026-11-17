@@ -1,0 +1,65 @@
+{
+  "id": "lick-ccd-data-acquisition-system",
+  "name": "Lick Observatory CCD data acquisition system",
+  "description": "Lick Observatory used a programmable controller to operate several types of charge-coupled detector. The controller digitized signals near the detector and sent the data over a serial link to a UNIX computer for acquisition and online analysis.",
+  "kind": "technology",
+  "domain": "measurement.optical-instruments",
+  "places": [
+    {
+      "place": "california",
+      "role": "origin",
+      "note": "Lick Observatory, University of California, Santa Cruz."
+    }
+  ],
+  "events": [
+    {
+      "id": "standard-system-report",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1987,
+          "month": 8
+        },
+        "latest": {
+          "year": 1987,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1987-08",
+        "basis": "Month of the Optical Engineering issue. The components had already been put into use."
+      },
+      "statement": "Robinson and colleagues published the design and observational uses of the standard Lick CCD data acquisition system. A separate photometer paper reported use of much of the same hardware.",
+      "evidence": [
+        {
+          "source": "d2-berkeley-robinson-1987-lick-ccd-acquisition",
+          "locator": "Abstract and publication metadata",
+          "supports": "Names the observatory, describes the system and reports operation with three instruments."
+        },
+        {
+          "source": "d2-berkeley-stover-allen-1987-lick-ccd-photometer",
+          "locator": "pp. 877–879, Table I and Fig. 1",
+          "supports": "Identifies components drawn from the standard Lick system and documents a working installation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "standard-system-report",
+    "rationale": "The 1987 publication documents the UNIX-based system later cited in Berkeley's detector characterization. The date of initial operation is unresolved."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "events": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Earlier data-taking system",
+        "note": "Tod Lauer's August 1981 report documents a PDP-8 system at Lick. The extent of hardware or software retained by the UNIX system described in 1987 needs further source work."
+      }
+    ]
+  }
+}

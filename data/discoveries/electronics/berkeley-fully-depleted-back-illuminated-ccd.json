@@ -109,7 +109,7 @@
       "to_event": "iedm-prototype-report",
       "status": "candidate",
       "statement": "Did the specific high-resistivity silicon fabrication process documented in the 1988 preprint and 1989 article provide the CCD's backside-gettering approach?",
-      "finding": "The 1996 prototype paper and 1997 Lick characterization cite Holland's 1989 process. The 1997 workshop paper specifies phosphorus-doped backside polysilicon in the CCD design. Holland's patent ties the 1989 method to the gettering step before a transparent backside contact. Spieler corroborates the broader particle-detector and photodiode ancestry, citing later demonstrations. Independent confirmation of the exact gettering process on the December 1996 prototype remains open.",
+      "finding": "The 1996 prototype paper and 1997 Lick characterization cite Holland's 1989 process. The 1997 workshop paper specifies phosphorus-doped backside polysilicon in the CCD design. Holland's patent ties the 1989 method to the gettering step before a transparent backside contact. Spieler, who coauthored earlier Berkeley integration experiments, traces the broader particle-detector and photodiode ancestry. Independent confirmation of the exact gettering process on the December 1996 prototype remains open.",
       "evidence": [
         {
           "source": "holland-1996-fully-depleted-ccd",
@@ -133,7 +133,7 @@
         },
         {
           "source": "d2-berkeley-spieler-2005-detector-systems",
-          "locator": "§8.9.2, pp. 366–368",
+          "locator": "§8.8, pp. 366–367",
           "supports": "Traces the CCD to high-resistivity detector integration and the optically transparent backside contact developed for photodiode arrays."
         }
       ]
@@ -154,6 +154,32 @@
           "source": "stover-1997-fully-depleted-ccd-characterization",
           "locator": "§3.2, Device characterization and Tables 1–2",
           "supports": "The prototype transfers collected charge under clocked drive; the paper measures its charge-transfer performance."
+        }
+      ]
+    },
+    {
+      "type": "uses_instrument",
+      "from": "lick-ccd-data-acquisition-system",
+      "from_event": "standard-system-report",
+      "to_event": "lick-characterization-report",
+      "status": "established",
+      "statement": "Lick Observatory used its standard CCD data acquisition system to characterize packaged Berkeley CCD prototypes in the laboratory. The controller amplified and digitized the CCD output.",
+      "scope": "Laboratory characterization reported in April 1997.",
+      "evidence": [
+        {
+          "source": "stover-1997-fully-depleted-ccd-characterization",
+          "locator": "§3.2, Table 1 and ref. [3]",
+          "supports": "The observing team explicitly identifies the system used in the laboratory, gives controller settings, and cites the 1987 design paper."
+        },
+        {
+          "source": "d2-berkeley-robinson-1987-lick-ccd-acquisition",
+          "locator": "Abstract",
+          "supports": "Documents the named system and the controller and computer roles."
+        },
+        {
+          "source": "d2-berkeley-stover-allen-1987-lick-ccd-photometer",
+          "locator": "pp. 878–879, Table I and Fig. 1",
+          "supports": "A separate instrument report identifies components of the standard Lick CCD system and describes the data path."
         }
       ]
     }
