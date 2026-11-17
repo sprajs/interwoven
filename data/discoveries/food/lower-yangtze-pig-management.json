@@ -56,7 +56,8 @@
       "places": "reviewed",
       "concept": "sourced",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     },
     "note": "Independent review of marked source facets on 2026-11-09; archaeological and historical interpretations retain the stated limitations."
   },
@@ -65,5 +66,36 @@
       "place": "china"
     }
   ],
-  "concept": "livestock-herding"
+  "concept": "livestock-herding",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "kuahuqiao-wetland-rice-cultivation",
+      "from_event": "wetland-cultivation-horizon",
+      "to_event": "documented-evidence",
+      "status": "candidate",
+      "statement": "Did wetland rice cultivation at Kuahuqiao contribute to the more sustained pig management inferred for that settlement?",
+      "scope": "Kuahuqiao only. The receiving event also covers Jingtoushan.",
+      "finding": "Independent rice-grain and sediment observations support local cultivation. Residues in pig teeth show access to rice and other plant foods. The pig study associates more intensive rice cultivation with closer pig management, but the evidence does not trace the rice to cultivated plants or establish a role in managed feeding.",
+      "alternatives": "Free-ranging pigs could have eaten wild rice or scavenged settlement refuse. Other foods and the wider settlement ecology could have supported closer management.",
+      "timing": "Zong and colleagues’ 7700–7550 cal BP sequence overlaps the broader Kuahuqiao occupation used by Wang and colleagues. It does not date the diet of each pig specimen.",
+      "evidence": [
+        {
+          "source": "zong-2007-kuahuqiao-wetland-cultivation",
+          "locator": "pp. 459–461, Table 1 and Fig. 2",
+          "supports": "Supports cultivation at Kuahuqiao in the studied wetland sequence."
+        },
+        {
+          "source": "zheng-2007-kuahuqiao-rice-rachillae",
+          "locator": "pp. 1655–1657, Fig. 2 and Table 1",
+          "supports": "Provides a separate dataset of rice plant remains supporting cultivation at Kuahuqiao."
+        },
+        {
+          "source": "wang-2025-yangtze-pig-management",
+          "locator": "Phytolith analysis, Fig. 3; Discussion of intersite differences; SI Appendix, Table S3",
+          "supports": "Rice phytoliths occur in three Kuahuqiao pig specimens. The authors associate stronger management at Kuahuqiao with its more intensive rice cultivation and distinguish provisioning from scavenging as possible explanations."
+        }
+      ]
+    }
+  ]
 }
