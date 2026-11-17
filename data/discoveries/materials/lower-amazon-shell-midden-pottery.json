@@ -1,7 +1,7 @@
 {
   "id": "lower-amazon-shell-midden-pottery",
-  "name": "Lower Amazon fishing-community pottery",
-  "description": "A shell midden near Santarém preserves pottery from a site described as an early fishing village.",
+  "name": "Grit-tempered pottery at Taperinha",
+  "description": "Excavators recovered fragile, grit-tempered bowl fragments from the Taperinha riverine shell midden near Santarém. Fish, turtle and especially freshwater mussel remains in the midden indicate intensive riverine foraging.",
   "kind": "technology",
   "domain": "materials.ceramics",
   "tier": 2,
@@ -25,43 +25,51 @@
       "type": "archaeological_evidence",
       "date": {
         "earliest": {
-          "year": -6050
+          "year": -5650
         },
         "latest": {
-          "year": -5050
+          "year": -5330
         },
         "precision": "range",
         "status": "approximate",
-        "label": "Approximately 8000–7000 years BP",
-        "basis": "Rounded conversion using BP=1950; the abstract describes site dates, not a precise manufacture interval. Radiocarbon results are reported as calibrated; the thermoluminescence result is a separate dating method."
+        "label": "7600–7280 cal BP (c. 5650–5330 BCE)",
+        "basis": "Roosevelt et al. Table 1 reports this 95% range for reduced carbon from sherd OxA-2431 in the base of level 12. The paper gives an older age for some associated charcoal and shell."
       },
-      "statement": "The abstract reports calibrated radiocarbon dates and a thermoluminescence date from the site spanning approximately 8000–7000 years BP.",
+      "statement": "A grit-tempered sherd from the base of level 12 in Test 1 yielded a reduced-carbon AMS date. Another piece of the same sherd yielded a much less precise thermoluminescence age.",
       "places": [
         "brazil"
       ],
       "evidence": [
         {
           "source": "roosevelt-1991-lower-amazon-pottery",
-          "locator": "Abstract",
-          "supports": "Dates and locality."
+          "locator": "pp. 1622–1623, Fig. 5 and Tables 1–2",
+          "supports": "Table 1 identifies the dated sherd and carbon fractions. Table 2 and Fig. 5 show their excavation context."
+        },
+        {
+          "source": "roosevelt-1991-lower-amazon-pottery",
+          "locator": "pp. 1623–1624, Fig. 6 and discussion",
+          "supports": "Reports grit-tempered pottery, the TL assay on part of the same sherd, and possible dating biases."
         }
-      ]
+      ],
+      "place_note": "Taperinha shell midden near Santarém, Pará",
+      "caveats": "The two carbon fractions and the thermoluminescence measurement come from one sherd. The authors discuss potential contamination and uncertain environmental parameters.",
+      "type_provisional": true
     }
   ],
   "earliest_record": {
     "event": "ceramic-context-eight-seven-ka",
-    "rationale": "Reported range; no current global-priority claim."
+    "rationale": "This anchor uses the ceramic-specific reduced-carbon determination. Older shell and charcoal dates characterize other levels or deposits."
   },
-  "caveats": "Abstract-only review. Individual sample associations, calibration details, stratigraphy and actual vessel use await full-text review.",
+  "caveats": "The dated sherd and associated sediments use different dating materials and methods. The contents and uses of the vessels remain uncertain.",
   "research": {
-    "status": "draft",
+    "status": "sourced",
     "basis": {
       "domain": "reviewed",
       "grain": "recalled",
       "concept": "sourced",
       "origin": "unknown",
       "places": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
@@ -71,6 +79,6 @@
         "note": "The inspected abstract does not settle independent invention versus transmission."
       }
     ],
-    "note": "Independent review checked the published abstract: its dates are for site samples, while a particular use of the pottery is not established there."
+    "note": "The original excavation and full dating tables were read. The deposit supports aquatic-resource use but does not establish what the pottery held."
   }
 }

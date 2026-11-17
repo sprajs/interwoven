@@ -1,7 +1,7 @@
 {
   "id": "telarmachay-camelid-herding",
   "name": "Telarmachay camelid management",
-  "description": "At Telarmachay, faunal changes including neonatal mortality and tooth form have been interpreted as evidence of early managed camelids.",
+  "description": "At the Telarmachay rock shelter, changes in camelid age at death and incisor form first led excavators to infer early management. A later study of the same excavated assemblage identifies ankle-bone shape changes in vicuña-like animals consistent with intensified management of mobility, with no equivalent shift to a recognizably domestic alpaca or llama form.",
   "kind": "practice",
   "domain": "food.livestock",
   "tier": 1,
@@ -18,19 +18,34 @@
       "type": "archaeological_evidence",
       "date": {
         "earliest": {
-          "year": -4050
+          "year": -4450
         },
         "latest": {
-          "year": -4050
+          "year": -2550
         },
-        "precision": "year",
+        "precision": "range",
         "status": "approximate",
-        "label": "Approximately 6000 cal BP (4050 BCE), proposed",
-        "basis": "Source-reported period or approximate chronology; where calibrated BP is stated, converted using the 1950 reference epoch."
+        "label": "Layer IV, modeled between 6.4–6.0 and 5.8–4.5 ka BP",
+        "basis": "The deposit phase has separate age intervals for its onset and end. The outer bounds here use the oldest and youngest limits of the Le Neün et al. phase estimates, converted from cal BP using the 1950 convention."
       },
-      "statement": "At Telarmachay, faunal changes including neonatal mortality and tooth form have been interpreted as evidence of early managed camelids.",
-      "caveats": "The date and managed status are archaeological interpretations reported by a later synthesis; hunting and herding are difficult to separate, and distinct domestication centers remain possible.",
+      "statement": "Layer IV at Telarmachay contains vicuña-like ankle bones with a distinct joint shape. Researchers interpret the change as possible intensification of management affecting camelid movement.",
+      "caveats": "Possible management is inferred from morphology and mortality. The original excavators interpreted human confinement and domestication, while the later comparison permits less restrictive herding and does not identify fully domestic phenotypes.",
       "evidence": [
+        {
+          "source": "le-neun-2026-telarmachay-camelids",
+          "locator": "§4, Fig. 5 and Conclusions",
+          "supports": "Compares layer IV with earlier layers and interprets shape change as stronger management of camelid mobility."
+        },
+        {
+          "source": "le-neun-2026-telarmachay-camelids",
+          "locator": "§3.2, Figs. 7–8",
+          "supports": "Isotope measurements indicate relatively stable camelid diets and environments across the layers analysed."
+        },
+        {
+          "source": "lavallee-1988-telarmachay",
+          "locator": "pp. 275–281, De la chasse à la domestication",
+          "supports": "Original excavation synthesis reports elevated neonatal mortality and alpaca-like incisor forms and interprets these as early domestication."
+        },
         {
           "source": "noe-2025-andean-herding",
           "locator": "Discussion, comparison with Telarmachay",
@@ -44,21 +59,27 @@
   ],
   "earliest_record": {
     "event": "documented-evidence",
-    "rationale": "Earliest source-supported dated event for this scoped record; not a global priority claim. The date and managed status are archaeological interpretations reported by a later synthesis; hunting and herding are difficult to separate, and distinct domestication centers remain possible."
+    "rationale": "The later analysis localizes the strongest mobility-management inference to layer IV. Older dental and mortality patterns document an earlier history of intensified exploitation with uncertain management."
   },
-  "caveats": "The date and managed status are archaeological interpretations reported by a later synthesis; hunting and herding are difficult to separate, and distinct domestication centers remain possible.",
+  "caveats": "The bone evidence supports an interpretation of increasing management. It does not identify the first domestication, demonstrate corralling or trace descent to later Andean herds.",
   "research": {
     "status": "sourced",
     "basis": {
       "domain": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "sourced",
       "places": "reviewed",
       "concept": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats."
+    "note": "The excavation report and later morphometric and isotope analysis draw on the same site assemblage and overlap in investigators. The findings use different traits and disagree about how strongly they identify a domesticated phenotype.",
+    "unresolved": [
+      {
+        "about": "Early herd practice and descendants",
+        "note": "Species-level ancient DNA and independent evidence for mobility control could distinguish early management from selective hunting and identify any contribution to later domestic herds."
+      }
+    ]
   },
   "places": [
     {

@@ -2,7 +2,7 @@
   "id": "indigo-dyeing-on-the-north-coast-of-peru",
   "name": "Indigo dyeing on the north coast of Peru",
   "summary": "Cotton cloth at Huaca Prieta on Peru's north coast was dyed blue with indigo about 6,000 years ago, the earliest chemically identified use of indigo anywhere.",
-  "description": "Twined cotton fabrics from the Preceramic mound of Huaca Prieta on the north coast of Peru carry warp stripes of blue-dyed yarn. Chromatography identified the blue as an indigoid dye (indigotin with indirubin) in five of eight samples; the oldest, from stratum 44, are about 6200 to 6000 years old. The source was most likely a native Indigofera plant, and how the dye was prepared is not established.",
+  "description": "At Huaca Prieta, indigoid dye coloured cotton warp yarns used to make striped, weft-twined fabric. Chromatography detected indigoid components in five of eight sampled textiles, including specimen 2009.052.01.B&C from stratum 44. The dye plant and preparation method remain uncertain.",
   "kind": "technology",
   "domain": "materials.adhesives-pigments",
   "tier": 2,
@@ -43,17 +43,29 @@
         "label": "about 6200 to 6000 years ago",
         "basis": "As the cited source gives it."
       },
-      "statement": "Two textiles from stratum 44 at Huaca Prieta are estimated at about 6200 to 6000 years old, about 4250 to 4050 BCE counting back from 1950; the next radiocarbon-dated level, stratum 35, is 5848-5585 cal BP.",
+      "statement": "Two weft-twined, blue-striped textiles were recovered from stratum 44. Chromatography on specimen 2009.052.01.B&C identified indigotin and indirubin in its blue yarn.",
       "places": [
         "huaca-prieta"
       ],
       "evidence": [
         {
           "source": "splitstoser-2016-early-pre-hispanic",
-          "supports": "The next radiocarbon-dated level is stratum 35 at 5848–5585 cal BP (sample AA86948 on charcoal from an intact hearth), suggesting that the two textiles from stratum 44 are about 6200 to 6000 years old.",
-          "locator": "Introduction"
+          "locator": "Introduction, Fig. 1 and Table 1, specimen 2009.052.01.B&C",
+          "supports": "The textile was made with plied warp yarns, including blue cotton stripes. Chromatography identified indigoid compounds on a yarn sample."
+        },
+        {
+          "source": "dillehay-2012-huaca-prieta-chronology",
+          "locator": "p. 56, Table 1, HP-3 strata 35 and 52",
+          "supports": "The dated contexts above and below stratum 44 provide a stratigraphic age estimate for the early indigo specimen."
+        },
+        {
+          "source": "splitstoser-2017-huaca-prieta-textiles",
+          "locator": "Fig. 12.1d and Color, Pigment, and Dye",
+          "supports": "Illustrates the same inspected indigo specimen and identifies its excavation stratum."
         }
-      ]
+      ],
+      "scope": "Production of indigo-striped cotton fabric, evidenced by the stratum 44 textile assemblage.",
+      "caveats": "The age comes from stratum 44’s position between dated levels. The publications assign different phase labels to the specimen and agree on its stratum and identity."
     },
     {
       "id": "archaeological-evidence-4050bce-2",
@@ -100,7 +112,8 @@
       "origin": "sourced",
       "concept": "recalled",
       "places": "sourced",
-      "known_from": "sourced"
+      "known_from": "sourced",
+      "links": "sourced"
     },
     "unresolved": [
       {
@@ -118,8 +131,44 @@
       {
         "about": "open question",
         "note": "The Huaca Prieta coordinates were entered from memory (the mound lies in the El Brujo complex near the mouth of the Chicama river) and should be checked against a gazetteer."
+      },
+      {
+        "about": "Sequence of fibre preparation and colouring",
+        "note": "The striped fabric incorporates plied cotton yarn with indigo. The archaeological study does not identify the dyeing stage relative to spinning or the source of the yarn in this specimen."
       }
     ],
     "note": "The paper states that the Huaca Prieta fabrics are the earliest known use of indigo in the world, about 1,500 years before the earliest reported Old World use in Fifth Dynasty Egypt; it counts chemically confirmed examples only."
-  }
+  },
+  "links": [
+    {
+      "type": "requires",
+      "from": "cotton-yarn-making-at-huaca-prieta",
+      "to_event": "archaeological-evidence-4050bce",
+      "status": "established",
+      "statement": "Making the indigo-striped cloth from stratum 44 required plied cotton yarn for the striped warp.",
+      "scope": "The use of yarn in one identified textile, specimen 2009.052.01.B&C.",
+      "contribution": [
+        "supplied_material"
+      ],
+      "influence": "essential",
+      "caveats": "The direct date is for the earlier stratum 52 yarn, which is a separate artifact. The fibres’ source and the order of dyeing relative to spinning remain open.",
+      "evidence": [
+        {
+          "source": "splitstoser-2016-early-pre-hispanic",
+          "locator": "Introduction, Fig. 1 and Table 1, specimen 2009.052.01.B&C",
+          "supports": "Documents plied yarns in the warps and identifies an indigoid dye in the blue yarn sampled from the cloth."
+        },
+        {
+          "source": "dillehay-2012-huaca-prieta-chronology",
+          "locator": "p. 56, Table 1, AA82121",
+          "supports": "Radiocarbon analysis independently dates an earlier cotton yarn from the same site and trench."
+        },
+        {
+          "source": "splitstoser-2017-huaca-prieta-textiles",
+          "locator": "Table 12.5 and Fig. 12.1d",
+          "supports": "Documents varieties of yarn in the broader textile assemblage and illustrates the identified indigo specimen."
+        }
+      ]
+    }
+  ]
 }
