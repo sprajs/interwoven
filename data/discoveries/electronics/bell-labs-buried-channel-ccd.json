@@ -1,0 +1,111 @@
+{
+  "id": "bell-labs-buried-channel-ccd",
+  "name": "Bell Labs buried-channel CCD design",
+  "description": "Bell Labs developed a CCD design that stores and moves signal charge below the silicon–oxide interface to reduce the charge lost to surface traps. In 1972 it reported experimental verification of the buried channel in test structures.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    }
+  ],
+  "events": [
+    {
+      "id": "buried-channel-filing-1971",
+      "type": "patent",
+      "date": {
+        "earliest": {
+          "year": 1971,
+          "month": 4,
+          "day": 6
+        },
+        "latest": {
+          "year": 1971,
+          "month": 4,
+          "day": 6
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1971-04-06",
+        "basis": "Filing date printed on US patent 3,739,240."
+      },
+      "statement": "Krambeck filed a Bell Labs patent application describing storage and transfer of signal charge inside the silicon.",
+      "scope": "The filed design, with a silicon storage-layer embodiment.",
+      "evidence": [
+        {
+          "source": "d2-sensor-krambeck-1971-buried-channel-filing",
+          "locator": "Front page and Figure 5",
+          "supports": "The filing date and illustrated subsurface charge-storage layer are documented in the patent."
+        }
+      ]
+    },
+    {
+      "id": "channel-test-report-1972",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1972,
+          "month": 9
+        },
+        "latest": {
+          "year": 1972,
+          "month": 9
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1972-09",
+        "basis": "Issue date of the Bell System Technical Journal 51(7)."
+      },
+      "statement": "Walden and colleagues reported test structures that verified a buried channel through conductance measurements.",
+      "caveats": "The test structures verified the channel using the electrodes as a common gate. Gaps between the electrodes prevented the structures from functioning as charge-coupled registers.",
+      "evidence": [
+        {
+          "source": "d2-sensor-walden-et-al-1972-buried-channel",
+          "locator": "pp. 1638–1639 and Figure 5",
+          "supports": "The authors report channel conductance measurements and state why the structures did not work as CCDs."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "buried-channel-filing-1971",
+    "rationale": "The filing dates a documented Bell Labs buried-channel design. The later journal paper reports the channel experiment."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "boyle-smith-charge-coupled-device-concept",
+      "from_event": "concept-paper-1970",
+      "to_event": "buried-channel-filing-1971",
+      "status": "established",
+      "statement": "Bell Labs adapted the surface-channel CCD by shifting its charge storage and transfer into the silicon to reduce losses from traps at the oxide interface.",
+      "evidence": [
+        {
+          "source": "d2-sensor-krambeck-1971-buried-channel-filing",
+          "locator": "Background of the invention and Figure 5",
+          "supports": "The application starts from the original CCD application and explains how moving charge into the bulk addresses surface trapping."
+        },
+        {
+          "source": "d2-sensor-walden-et-al-1972-buried-channel",
+          "locator": "pp. 1635–1636 and refs. 1 and 5",
+          "supports": "The Bell team identifies both the original surface-channel design and its subsequent modification."
+        },
+        {
+          "source": "d2-sensor-kim-1973-fairchild-buried-channel",
+          "locator": "Introduction and Figure 6",
+          "supports": "A separate Fairchild study independently compares the two architectures and demonstrates the effect of interface trapping on image reproduction."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "organizations": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}
