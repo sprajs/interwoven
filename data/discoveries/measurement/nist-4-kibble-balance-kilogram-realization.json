@@ -1,0 +1,173 @@
+{
+  "id": "nist-4-kibble-balance-kilogram-realization",
+  "name": "Realization of the revised kilogram with NIST-4",
+  "description": "The U.S. National Institute of Standards and Technology used its NIST-4 Kibble balance to determine the masses of two travelling platinum-iridium standards from the fixed numerical value of the Planck constant.",
+  "kind": "practice",
+  "domain": "measurement.units",
+  "grain": "instance",
+  "places": [
+    {
+      "place": "united-states",
+      "note": "National Institute of Standards and Technology"
+    }
+  ],
+  "events": [
+    {
+      "id": "ccm-m-k8-2019-nist-4",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 9
+        },
+        "latest": {
+          "year": 2019,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "September–October 2019",
+        "basis": "The NIST section of the final report dates the laboratory’s two series of measurements for each mass to these months."
+      },
+      "statement": "NIST used its fourth-generation Kibble balance in vacuum to determine the masses of travelling standards 85 and 104 for comparison CCM.M-K8.2019.",
+      "scope": "Direct mass determinations after the new definition took effect. The BIPM made its own comparator measurements for the comparison.",
+      "places": [
+        "united-states"
+      ],
+      "contributions": [
+        {
+          "group": "National Institute of Standards and Technology (NIST)",
+          "role": "operator",
+          "resource": "NIST-4 mass determinations on the two travelling standards.",
+          "evidence": [
+            {
+              "source": "stock-2020-kilogram-realizations-ccm-m-k8-2019",
+              "locator": "Table 2, p. 6 and §4.4, p. 8",
+              "supports": "The report identifies masses 85 and 104 and records their direct NIST-4 weighings in vacuum in September and October 2019."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "stock-2020-kilogram-realizations-ccm-m-k8-2019",
+          "locator": "Table 2, p. 6 and §4.4, p. 8",
+          "supports": "The report identifies masses 85 and 104 and records their direct NIST-4 weighings in vacuum in September and October 2019."
+        },
+        {
+          "source": "stock-2020-kilogram-realizations-ccm-m-k8-2019",
+          "locator": "§2, pp. 4–5 and Table 4, p. 13",
+          "supports": "The protocol uses the SI’s exact h, and Table 4 reports measured masses and standard uncertainties."
+        }
+      ]
+    },
+    {
+      "id": "ccm-m-k8-2024-nist-4",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 1,
+          "day": 17
+        },
+        "latest": {
+          "year": 2025,
+          "month": 2,
+          "day": 3
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "17 January–3 February 2025",
+        "basis": "The section reports 17–27 January for K85 and 28 January–3 February for K104."
+      },
+      "statement": "NIST again determined the masses of K85 and K104 in vacuum with NIST-4. These measurements contributed to comparison CCM.M-K8.2024.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "stock-2026-kilogram-realizations-ccm-m-k8-2024",
+          "locator": "Table 2 p. 6, §4.6 p. 9 and Table 5 p. 18",
+          "supports": "NIST identified and measured K85 and K104 directly in vacuum with NIST-4 in January and February 2025. Table 5 reports the resulting values."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "ccm-m-k8-2019-nist-4",
+    "rationale": "The earliest dated post-redefinition series for this implementation examined in the cited original operator and comparison records."
+  },
+  "links": [
+    {
+      "type": "requires",
+      "from": "si-kilogram-definition-by-planck-constant",
+      "from_event": "revised-kilogram-takes-effect",
+      "to_event": "ccm-m-k8-2019-nist-4",
+      "status": "established",
+      "statement": "The CCM.M-K8.2019 protocol used the revised SI’s fixed value of h to assign mass values from the NIST-4 realization measurements.",
+      "scope": "The numerical input for the 2019 determinations of mass values on NIST-4. Construction of the balance and its earlier measurements of h are separate.",
+      "contribution": [
+        "supplied_theory_or_design_rule"
+      ],
+      "influence": "essential",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "cgpm-2018-proceedings-si-vote",
+          "locator": "Resolution 1, English pp. 472–474, decision and Appendices 1–3",
+          "supports": "The revised definition took effect from 20 May 2019, replacing the IPK definition and fixing h exactly."
+        },
+        {
+          "source": "stock-2020-kilogram-realizations-ccm-m-k8-2019",
+          "locator": "§2 pp. 4–5, §4.4 p. 8 and Table 4 p. 13",
+          "supports": "The comparison protocol specifies the exact fixed value and the report identifies the NIST-4 realization and which mass values it produced."
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "quantity": "NIST-4 mass offset from 1 kg",
+      "value": -0.7679,
+      "unit": "mg",
+      "event": "ccm-m-k8-2019-nist-4",
+      "subject": "Travelling standard 85",
+      "status": "measured",
+      "conditions": "Measured under vacuum using the fixed Planck constant. Standard uncertainty 0.027 mg.",
+      "evidence": [
+        {
+          "source": "stock-2020-kilogram-realizations-ccm-m-k8-2019",
+          "locator": "Table 4, p. 13, row NIST 85, NMI realization columns",
+          "supports": "Reports a mass offset of -0.7679 mg and standard uncertainty 0.027 mg."
+        }
+      ]
+    },
+    {
+      "quantity": "NIST-4 mass offset from 1 kg",
+      "value": 0.398,
+      "unit": "mg",
+      "event": "ccm-m-k8-2019-nist-4",
+      "subject": "Travelling standard 104",
+      "status": "measured",
+      "conditions": "Measured under vacuum using the fixed Planck constant. Standard uncertainty 0.0273 mg.",
+      "evidence": [
+        {
+          "source": "stock-2020-kilogram-realizations-ccm-m-k8-2019",
+          "locator": "Table 4, p. 13, row NIST 104, NMI realization columns",
+          "supports": "Reports a mass offset of 0.398 mg and standard uncertainty 0.0273 mg."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "measures": "sourced"
+    }
+  }
+}

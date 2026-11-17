@@ -1,0 +1,112 @@
+{
+  "id": "si-kilogram-definition-by-planck-constant",
+  "name": "Definition of the SI kilogram by fixing the Planck constant",
+  "description": "The CGPM fixed the numerical value of the Planck constant at 6.626 070 15 × 10⁻³⁴ joule seconds as part of the revised SI. Together with the definitions of the metre and second, this defines the kilogram.",
+  "kind": "practice",
+  "domain": "measurement.units",
+  "grain": "instance",
+  "events": [
+    {
+      "id": "resolution-1-adopted",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2018,
+          "month": 11,
+          "day": 16
+        },
+        "latest": {
+          "year": 2018,
+          "month": 11,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "16 November 2018",
+        "basis": "The official proceedings date the vote on Resolution 1 to the seventh session."
+      },
+      "statement": "The 26th CGPM unanimously adopted Resolution 1 on the revised SI, including the fixed numerical value of the Planck constant.",
+      "evidence": [
+        {
+          "source": "cgpm-2018-proceedings-si-vote",
+          "locator": "16 November 2018, item 54, French p. 204 and English p. 465",
+          "supports": "The CGPM voted to adopt Draft Resolution A as Resolution 1 on this date."
+        },
+        {
+          "source": "cgpm-2018-proceedings-si-vote",
+          "locator": "Resolution 1, English pp. 472–474, decision and Appendices 1–3",
+          "supports": "The revised definition took effect from 20 May 2019, replacing the IPK definition and fixing h exactly."
+        }
+      ]
+    },
+    {
+      "id": "revised-kilogram-takes-effect",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 5,
+          "day": 20
+        },
+        "latest": {
+          "year": 2019,
+          "month": 5,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "20 May 2019",
+        "basis": "Resolution 1 specifies when the revised SI definitions take effect."
+      },
+      "statement": "The fixed-constant definition of the kilogram took effect and the definition based on the International Prototype of the Kilogram was abrogated.",
+      "scope": "The operative SI definition. National laboratory realization and dissemination have their own records and dates.",
+      "evidence": [
+        {
+          "source": "cgpm-2018-proceedings-si-vote",
+          "locator": "Resolution 1, English pp. 472–474, decision and Appendices 1–3",
+          "supports": "The revised definition took effect from 20 May 2019, replacing the IPK definition and fixing h exactly."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "resolution-1-adopted",
+    "rationale": "The CGPM adopted the definite rule at the recorded vote. Its effective date followed in 2019."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "metre-convention-international-metrology",
+      "from_event": "documented-episode",
+      "to_event": "resolution-1-adopted",
+      "status": "established",
+      "statement": "Member-state delegates revised the SI through the General Conference on Weights and Measures created under the Metre Convention.",
+      "scope": "The institutional authority and international decision process for this definition.",
+      "carrier": [
+        "institutional"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "bipm-metre-convention-articles",
+          "locator": "Convention Art. 3 and Annexed Regulations Art. 7",
+          "supports": "Article 3 establishes the CGPM’s authority. The Annex states its mandate to develop the metric system and approve new metrological determinations."
+        },
+        {
+          "source": "cgpm-2018-proceedings-si-vote",
+          "locator": "16 November 2018, item 54, French p. 204 and English p. 465",
+          "supports": "The CGPM voted to adopt Draft Resolution A as Resolution 1 on this date."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}
