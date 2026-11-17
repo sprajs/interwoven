@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "lane": "building",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "19a2519a50558b8db8d47a81ba6d69e7bb581a61",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review execution",
+    "independence": "Separate from researcher gpt-6.2-sol high; source readings independently checked."
+  },
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/construction/pantheon-graded-concrete-dome.json",
+      "sha256": "0d5024c01b9e8592d1567697eae28bb695556613fbe57245b37f23de3c7da6e6"
+    },
+    {
+      "path": "data/discoveries/construction/roman-lightweight-stone-in-concrete-vaults.json",
+      "sha256": "bc570b81111eccade3370d91f833c4f51d3cad90fe1594b20b3e15172c20bd92"
+    },
+    {
+      "path": "data/sources/b/bianchi-2011-basilica-ulpia-vaults.json",
+      "sha256": "ba130882a49967db92faf69839b2c4d1798c856e4bdcdf7ea350e424acd45be7"
+    },
+    {
+      "path": "data/sources/l/lancaster-2011-roman-vault-scoria.json",
+      "sha256": "6a52984b9634332fdd4101a932ec5643b4ae698df6e793693a644a9e721864e8"
+    },
+    {
+      "path": "data/sources/m/mark-hutchinson-1986-pantheon-structure.json",
+      "sha256": "fab59792f3b8762a3c53ba7d5f5a8becf594520f3a3fdf63e0608227c79998f4"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/building.md",
+      "sha256": "e748d268cccaec57d0058c081b495c953cd997de7f2d32c0bb370b8c9f268818"
+    },
+    {
+      "path": "evidence/b/bianchi-2011-basilica-ulpia-vaults-notes.txt",
+      "sha256": "89a43240c9d8c039f6c9d072a314ec54c55906aa6cb3b7caadfb4d656c42e538"
+    },
+    {
+      "path": "evidence/l/lancaster-2011-roman-vault-scoria-notes.txt",
+      "sha256": "3644a95f41cd354b835a8a2fdfe6bc3a1540dba941e9f78d8185db1403f4b76c"
+    },
+    {
+      "path": "evidence/m/mark-hutchinson-1986-pantheon-structure-notes.txt",
+      "sha256": "067d9e53cd27cae243871151adb0cf40edbdca7ef20d0bf8d5057a8f5d155f96"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "lancaster-2011-roman-vault-scoria",
+      "url": "https://www.rilievoarcheologico.it/home-articoli-li_g000027.pdf",
+      "locators": "pp. 707–713, 724–725, figs. 2 and 3",
+      "availability": "Full original PDF read through web text",
+      "original_sha256": "22b50da4c673f7b75729c613db8fafdbf8289e419972890bc02940137ba477c3 (researcher recorded; not independently recomputed)",
+      "independence": "Original study of samples, but Pantheon comparison relies on earlier observations; shares coauthor and site material with Bianchi."
+    },
+    {
+      "source": "bianchi-2011-basilica-ulpia-vaults",
+      "url": "https://www.academia.edu/804852/Archaeological_structural_and_compositional_observations_of_the_concrete_architecture_of_the_Basilica_Ulpia_and_Trajan_s_Forum",
+      "locators": "pp. 73–74, 82, fragment 10",
+      "availability": "Original article text read",
+      "independence": "Complementary archaeological observation, with overlapping coauthor and same site; does not independently corroborate Pantheon connection."
+    },
+    {
+      "source": "mark-hutchinson-1986-pantheon-structure",
+      "url": "https://www.academia.edu/35359357/On_the_Structure_of_the_Pantheon",
+      "locators": "pp. 26–30, models 5–6 and table",
+      "availability": "Original article text read; cited PDF host timed out",
+      "independence": "Independent numerical study but material grading is sourced to De Fine Licht; neither Pantheon material provenance nor transfer independently established."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/construction/roman-lightweight-stone-in-concrete-vaults.json#identity-description-kind-domain-places-origin",
+      "decision": "accept",
+      "rationale": "Lancaster pp. 707–709 describes Roman caementa hand laid in mortar and use of light volcanic rock for vaults; pp. 711–713 document Rome cases including scoria and tuff. Origin unknown avoids priority claim.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria"
+      ]
+    },
+    {
+      "path": "data/discoveries/construction/roman-lightweight-stone-in-concrete-vaults.json#events/forum-of-caesar-room-vault",
+      "decision": "accept",
+      "rationale": "Lancaster p. 711 sample 021 states scoria, vault of a room facing the forum portico and date 46–44 BCE; date represents authors’ room context rather than a demonstrated invention date.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria"
+      ]
+    },
+    {
+      "path": "data/discoveries/construction/roman-lightweight-stone-in-concrete-vaults.json#events/basilica-ulpia-aisle-vault",
+      "decision": "accept",
+      "rationale": "Lancaster pp. 712–713 reports a north aisle fragment, alternating material, building date AD 112; Bianchi p. 82 separately describes fragment 10, with aisle attribution qualified as probable. By-112 bound reflects the building dedication, not an independent sample date.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria",
+        "bianchi-2011-basilica-ulpia-vaults"
+      ]
+    },
+    {
+      "path": "data/discoveries/construction/roman-lightweight-stone-in-concrete-vaults.json#events/baths-of-diocletian-frigidarium",
+      "decision": "accept",
+      "rationale": "Lancaster pp. 713 and 724–725 identifies sample 05, frigidarium buttressing arches, building context 298–305 CE and trace-element match to Campi Flegrei. District inference is analytical, not a named quarry.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria"
+      ]
+    },
+    {
+      "path": "data/discoveries/construction/roman-lightweight-stone-in-concrete-vaults.json#earliest_record-caveats-research",
+      "decision": "accept",
+      "rationale": "Earliest is explicitly limited to the sampled cases in this record; Lancaster pp. 707–709 distinguishes large caementa from fine mortar aggregate and pp. 711, 725 leave phasing and reasons for source change open.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria"
+      ]
+    },
+    {
+      "path": "data/discoveries/construction/pantheon-graded-concrete-dome.json#research.unresolved",
+      "decision": "accept",
+      "rationale": "Lancaster pp. 708–710 discusses historic dome petrography and the later study’s sample selection; no Pantheon quarry or carrier is established. This retains an explicit evidence question.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria"
+      ]
+    },
+    {
+      "path": "data/discoveries/construction/pantheon-graded-concrete-dome.json#links/0",
+      "decision": "changes_requested",
+      "rationale": "Lancaster p. 713 supports the Pantheon–Ulpia material comparison; Mark and Hutchinson pp. 26–30 model lower uncracked hoop stress in their density configurations, not a demonstrated transmission or the effect of scoria alone. Bianchi documents the Ulpia fragment, not a Pantheon relationship. Remove or defer the established edge and its supplied_method/contributing/high-confidence attributes unless independent informative evidence supports the causal process relation. A carefully scoped non-causal comparison and model result may be retained with attribution; do not infer a transfer.",
+      "sources": [
+        "lancaster-2011-roman-vault-scoria",
+        "bianchi-2011-basilica-ulpia-vaults",
+        "mark-hutchinson-1986-pantheon-structure"
+      ],
+      "relation_attestation": {
+        "relation": "shared coarse aggregate and general weight reduction supported; supplied method and contributing causal connection not established",
+        "direction": "older Ulpia and later Pantheon cases are dated; direction of influence not demonstrated",
+        "context": "Rome vaults and Pantheon crown; Lancaster relies on earlier Pantheon findings",
+        "status": "established rejected; candidate or retained question appropriate",
+        "independent_corroboration": "absent for transfer; Bianchi shares team/site, model is not independent transmission evidence",
+        "historical_or_question": "shared materials observation is supported; transmission/method supply remains question"
+      }
+    }
+  ],
+  "duplicate_screen": {
+    "decision": "distinct bounded new record",
+    "rationale": "Searched discoveries and leads for Pantheon, Roman concrete, scoria and Basilica Ulpia. Pantheon existing record is a specific graded dome with a 125–128 CE event, not the earlier Forum and Ulpia uses or the later Baths instance; the new record groups a Rome practice and its separate dated deployments. No matched event duplicate identified."
+  },
+  "issues": [
+    "Established link implies that the new node supplied a method and contributed to the Pantheon; current citations show similar material and do not establish causal transfer with independent informative corroboration."
+  ],
+  "unknowns": [
+    "Actual transfer, builders, supply route and quarry remain unresolved. Forum room date relies on reported context; Bianchi qualifies the exact aisle attribution and form of vault. Pantheon crown material comparison is secondary in Lancaster; De Angelis d’Ossat original not independently checked."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 903 discoveries, 1499 events, 238 links, 1625 sources; no problems found"
+  },
+  "history": []
+}
