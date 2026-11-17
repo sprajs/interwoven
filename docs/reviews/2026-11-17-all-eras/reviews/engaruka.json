@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "lane": "engaruka",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "1633b663bfdec40751978fba8281010a5b3899ad",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review execution",
+    "independence": "Separate from gpt-6.2-sol high researcher; original PDFs independently inspected"
+  },
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json",
+      "sha256": "278da2b19a87b4fe636c4f2b01e9171b6d6641b3a169f349f5018dfba358e25e"
+    },
+    {
+      "path": "data/sources/s/stump-2024-engaruka-sediment-capture.json",
+      "sha256": "02bc7d53b913121316c3b38224cc15bad929ca2bfcbce420d3e5cf476c0ca46c"
+    },
+    {
+      "path": "data/sources/s/sutton-1983-engaruka-survey.json",
+      "sha256": "3be8cbc944ce85f9c4c121bff594be4f92267353db8f07685556a766681d197a"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/engaruka.md",
+      "sha256": "435f4c9ef1659bd6ed66dfd7cbccf0729ee8686df2d6faf2e0338f399eac1203"
+    },
+    {
+      "path": "evidence/s/stump-2024-engaruka-sediment-capture.pdf.cache.json",
+      "sha256": "aebeb6a4d1d88795da9cde19532bd6f2b2593bcd0e2d2529024f121ed4c0dbae"
+    },
+    {
+      "path": "evidence/s/sutton-1983-engaruka-survey.pdf.cache.json",
+      "sha256": "600c78890750eea1ff51213508156c6cb5555b30b68b559ca653cc3794b9dada"
+    },
+    {
+      "path": "evidence/w/w12-lang-stump-engaruka.pdf.cache.json",
+      "sha256": "8d7ad47da397243e259fcbb19cf73f432a1bdc1fe9d0e12002f1be4a9b1efbe0"
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "w12-lang-stump-engaruka",
+      "url": "https://eprints.whiterose.ac.uk/id/eprint/123774/1/QUA1700054PRF.pdf",
+      "path": "evidence/w/w12-lang-stump-engaruka.pdf",
+      "sha256": "f48cd6bf105560777cc02d769f3d053b952a8127d0572f765b42432070c5603b",
+      "availability": "local cached accepted-version PDF read",
+      "locators": [
+        "Abstract",
+        "Results, Stratigraphy, section 11 and Fig. 4",
+        "Discussion, implications and conclusions"
+      ],
+      "independence": "Same study as Cambridge publication, not independent; same author Stump as 2024 abstract."
+    },
+    {
+      "id": "stump-2024-engaruka-sediment-capture",
+      "url": "https://biaa.ac.uk/wp-content/uploads/2024/03/BIRIWaterConference_Abstract_book_v3.pdf",
+      "path": "evidence/s/stump-2024-engaruka-sediment-capture.pdf",
+      "sha256": "e438f665bfac52731068847a1135da94712f6304fe8a5640d134f7330e7a295d",
+      "availability": "local cached original PDF read",
+      "locators": [
+        "p. 16 abstract, third paragraph"
+      ],
+      "independence": "Synthesis by same researcher as 2017; not independent corroboration of precise cessation date."
+    },
+    {
+      "id": "sutton-1983-engaruka-survey",
+      "url": "https://static1.squarespace.com/static/5bd0e66f8d97400eb0099556/t/5bd8fb9b4d7a9cf0e8da6f6e/1540946862530/Nyame%2BAkuma%2BIssue%2B022.pdf",
+      "path": "evidence/s/sutton-1983-engaruka-survey.pdf",
+      "sha256": "0cf46a82f013ff4f41ff8e47f4dc76a8253c9023b07797428bd4b1945231a38f",
+      "availability": "local cached scanned issue text read",
+      "locators": [
+        "pp. 35–36 introduction and Engaruka"
+      ],
+      "independence": "Separate field survey; corroborates old system abandoned and channel layout, not timing of sediment-capture cessation or Section 11 sequence."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/description",
+      "decision": "accept",
+      "rationale": "Lang and Stump section 11 interpret lower wall courses as predating a canal which uses the wall as its upslope side. Restricted to one section; no dated phase or wider prevalence inferred.",
+      "sources": [
+        "w12-lang-stump-engaruka: Results, Stratigraphy, section 11 and fig. 4"
+      ],
+      "extends": "engaruka-terraced-irrigation-and-sediment-capture"
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/events/documented-case/evidence/sutton-1983-engaruka-survey",
+      "decision": "accept",
+      "rationale": "Sutton describes stone-sided artery and branch furrows, sub-furrows along contours and groups of stone-divided cultivation plots. Does not independently date the contextual interval.",
+      "sources": [
+        "sutton-1983-engaruka-survey: p. 36"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/events/abandonment-of-sediment-capture",
+      "decision": "accept",
+      "rationale": "Stump 2024 explicitly associates first abandonment and cessation with likely eighteenth or early nineteenth century and reports present irrigation. The range is a broad approximate operational interpretation, not a precise source boundary; Sutton independently confirms old system abandoned by his survey, not the specific date or cessation. Scope and caveats confine the event to historical sediment capture.",
+      "sources": [
+        "stump-2024-engaruka-sediment-capture: p. 16",
+        "sutton-1983-engaruka-survey: pp. 35–36"
+      ],
+      "extends": "engaruka-terraced-irrigation-and-sediment-capture"
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/events/landscape-analysis-2017",
+      "decision": "accept",
+      "rationale": "The 2017 paper estimates over 1,000 ha and interprets section 11 wall 4005 as later used alongside canal 4247, whose fill was cut for narrower canal 4050. Layers 4041 and 4048 are interpreted as deliberate accumulations after abandonment of the later canal. The date is publication, not construction.",
+      "sources": [
+        "w12-lang-stump-engaruka: Abstract; Results, Stratigraphy, Fig. 4; Discussion"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/caveats",
+      "decision": "accept",
+      "rationale": "The paper contextualizes the landscape as 15th–18th century, describes a relative stratigraphic sequence and asks for better absolute dates; identity and causes are not fixed by these sources.",
+      "sources": [
+        "w12-lang-stump-engaruka: Introduction, Results and Discussion"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/research/unresolved",
+      "decision": "accept",
+      "rationale": "Relative chronology, field-date limitations and unsettled causes are clearly described as open questions; proposed evidence is future research rather than a historical assertion.",
+      "sources": [
+        "w12-lang-stump-engaruka: Results and Discussion"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/engaruka-terraced-irrigation-and-sediment-capture.json#/fate",
+      "decision": "changes_requested",
+      "rationale": "The unqualified discovery-wide value abandoned covers the named combined irrigation and sediment-capture practice. Stump says irrigation continues, although deliberate sediment capture ceased at first abandonment. Remove fate and research.basis.fate; keep the specifically scoped abandonment event and caveat. A discovery-wide fate may be reconsidered if the record is explicitly narrowed with adequate evidence.",
+      "sources": [
+        "stump-2024-engaruka-sediment-capture: p. 16"
+      ]
+    }
+  ],
+  "links_review": {
+    "decision": "none proposed",
+    "rationale": "No new edge or prerequisite node; local wall reuse is an interpretation within the same archaeological sequence rather than an established independent prerequisite or transmission."
+  },
+  "duplicate_screen": {
+    "result": "extend existing record",
+    "rationale": "Base record has archaeological contextual event and 2017 publication event but no abandonment event. The proposed local excavation detail extends that publication event; the scoped abandonment event is new. The Engaruka irrigation lead overlaps and remains open; no additional discovery or independent origin asserted."
+  },
+  "issues": [
+    "Remove the unqualified discovery-wide fate abandoned and corresponding basis, because irrigation remains in use; retain the narrowly scoped historical sediment-capture event."
+  ],
+  "unknowns": [
+    "Absolute dates and broader prevalence of Section 11 wall/canal reuse.",
+    "Precise cessation date and cause; Stump 2024 is the sole dated cessation source inspected, and Sutton does not date it.",
+    "Identity of builders and transmission."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass; 902 discoveries, 1497 events, 237 links, 1624 sources; no problems found"
+  },
+  "history": []
+}
