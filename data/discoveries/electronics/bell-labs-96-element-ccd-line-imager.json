@@ -106,9 +106,9 @@
       "from": "bell-labs-eight-bit-ccd-shift-register",
       "from_event": "eight-bit-ccd-report-1970",
       "to_event": "line-imaging-report-1971",
-      "status": "established",
-      "statement": "The 96-element CCD reused the eight-bit register’s way of connecting electrodes for three-phase operation, with metal connections and a diffused path under the surface.",
-      "caveats": "This is continuity of the electrode connections in the later design. The papers describe separately fabricated devices.",
+      "status": "candidate",
+      "statement": "Did Bell Labs carry the eight-bit register’s three-phase electrode connections into the 96-element imager?",
+      "caveats": "The later Bell Labs authors explicitly compare their metallization and diffused crossunder with the eight-bit device. Independent RCA coverage verifies the 96-element scanner’s three-phase operation. Independent documentation linking the specific electrode connections across the two devices remains outstanding.",
       "evidence": [
         {
           "source": "d2-sensor-tompsett-et-al-1971-line-imaging",
@@ -125,7 +125,8 @@
           "locator": "pp. 45–46, CCD photosensor arrays and Figures 11–12",
           "supports": "Independent RCA technical coverage confirms the three-phase 96-element Bell scanner in operation."
         }
-      ]
+      ],
+      "confidence": "medium"
     }
   ],
   "research": {
