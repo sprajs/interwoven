@@ -1,0 +1,168 @@
+{
+  "id": "lulea-hybrit-hydrogen-direct-reduction",
+  "name": "HYBRIT hydrogen-reduced iron pilot at Luleå",
+  "description": "HYBRIT Development and its partners operated a shaft-furnace pilot at Luleå, Sweden. Following natural-gas reference runs, the team demonstrated direct reduction of ore pellets using hydrogen made by electrolysis with fossil-free electricity. The solid product was sponge iron for steelmaking trials.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "grain": "improvement",
+  "advance": [
+    "manufacturing_process",
+    "system_integration"
+  ],
+  "events": [
+    {
+      "id": "lulea-hydrogen-iron-2021",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2021,
+          "month": 6,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2021-06-21",
+        "basis": "The partners announced completed hydrogen reduction tests on 21 June 2021. The actual date of the first successful run is not specified."
+      },
+      "statement": "By 21 June 2021 the Luleå pilot had produced around 100 tonnes of hydrogen-reduced sponge iron using hydrogen made with fossil-free electricity.",
+      "evidence": [
+        {
+          "source": "ssab-2021-hybrit-hydrogen-reduced-sponge-iron",
+          "locator": "Lead, production paragraphs and Fossil-free electricity and hydrogen storage",
+          "supports": "Reports test output at Luleå and the source of hydrogen."
+        },
+        {
+          "source": "riksrevisionen-2025-lkab-new-value-chain",
+          "locator": "§2.3.3 Hybrit Development AB",
+          "supports": "Independent audit confirms the distinct 2020 pilot opening and 2021 hydrogen-reduced product."
+        }
+      ],
+      "places": [
+        "sweden"
+      ],
+      "place_note": "Luleå"
+    },
+    {
+      "id": "lulea-pilot-natural-gas-2020",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 8,
+          "day": 31
+        },
+        "latest": {
+          "year": 2020,
+          "month": 8,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2020-08-31",
+        "basis": "The contemporaneous announcement dates pilot start-up; the Commission profile identifies natural gas as the initial operating feed."
+      },
+      "statement": "The Luleå test plant began operation. Initial natural-gas runs gave the project reference material for later hydrogen campaigns.",
+      "evidence": [
+        {
+          "source": "ssab-2021-hybrit-hydrogen-reduced-sponge-iron",
+          "locator": "FACTS/HYBRIT initiative, first bullet",
+          "supports": "Dates pilot operation to 31 August 2020."
+        },
+        {
+          "source": "ec-jrc-incite-nd-hybrit-technical-assessment",
+          "locator": "Direct reduction with fossil-free hydrogen, first two bullets",
+          "supports": "Identifies natural gas as the commissioning and initial reference mode."
+        }
+      ],
+      "places": [
+        "sweden"
+      ],
+      "place_note": "Luleå",
+      "caveats": "This event dates the pilot equipment in its initial reference mode. The scoped hydrogen achievement is placed at the 2021 demonstration."
+    },
+    {
+      "id": "lulea-cumulative-pilot-output-2024",
+      "type": "production",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2024,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "by 2024-08",
+        "basis": "The dated project summary gives cumulative output by its August 2024 publication."
+      },
+      "statement": "The project reported more than 5,000 tonnes of sponge iron made under the fossil-free pilot process across test campaigns.",
+      "evidence": [
+        {
+          "source": "hybrit-2024-fossil-free-steel-industrialisation",
+          "locator": "From iron ore pellets to iron with hydrogen, Pilot trials for direct reduction",
+          "supports": "Reports more than 5,000 tonnes as cumulative pilot output."
+        }
+      ],
+      "places": [
+        "sweden"
+      ],
+      "place_note": "Luleå",
+      "caveats": "A pilot campaign total. It gives no annual commercial throughput or later operating status."
+    }
+  ],
+  "earliest_record": {
+    "event": "lulea-hydrogen-iron-2021",
+    "rationale": "The partners announced completed hydrogen reduction tests on 21 June 2021. The actual date of the first successful run is not specified."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "monterrey-hyl-zero-reformer",
+      "from_event": "monterrey-4m-operation-1998",
+      "to_event": "lulea-hydrogen-iron-2021",
+      "status": "established",
+      "statement": "HYBRIT used the ENERGIRON variant of the HYL Zero Reformer shaft process for its Luleå pilot. It tested natural gas before demonstrating a hydrogen-only mode.",
+      "scope": "Transferred HYL-derived shaft-furnace architecture and its adaptation at pilot scale.",
+      "contribution": [
+        "supplied_method"
+      ],
+      "evidence": [
+        {
+          "source": "tenova-2024-energiron-lkab-hybrit",
+          "locator": "Second paragraph of 12 February 2024 announcement",
+          "supports": "The supplier names successful ENERGIRON use in the Luleå full-hydrogen pilot."
+        },
+        {
+          "source": "ec-jrc-incite-nd-hybrit-technical-assessment",
+          "locator": "Direct reduction with fossil-free hydrogen, first three bullets",
+          "supports": "Explains the installed ENERGIRON-type plant, initial natural-gas runs and hydrogen campaigns."
+        },
+        {
+          "source": "zulli-2022-port-kembla-renewables-emissions",
+          "locator": "pp. 135–136, Table 1 and HYL/ENERGIRON",
+          "supports": "Classifies HYBRIT as an HYL-ZR hydrogen pilot and explains this named technology generation."
+        }
+      ],
+      "confidence": "high",
+      "caveats": "The link tracks the HYL Zero Reformer method, with the Monterrey 4M facility serving as an earlier dated industrial instance. The sources establish process lineage at this scope."
+    }
+  ],
+  "origin": "derived",
+  "known_from": [
+    "contemporary_text",
+    "administrative_record",
+    "scientific_publication"
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "advance": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "origin": "sourced",
+      "known_from": "sourced"
+    }
+  }
+}
