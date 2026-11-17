@@ -1,0 +1,108 @@
+{
+  "lane": "land",
+  "title": "Landsat data and operational water services",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "as_of": "2026-11-17",
+  "inventory": [
+    {
+      "name": "OpenET",
+      "region": "48 contiguous U.S. states",
+      "status": "in service",
+      "date": "2025-12-15",
+      "claim": "OpenET extended field-scale evapotranspiration estimates to all 48 contiguous states across its tools. USGS described OpenET as providing this service in September 2026.",
+      "limit": "Coverage excludes Alaska and Hawaii. Estimates describe water transferred to the atmosphere, with model and observation limits. The cited update does not establish completeness of every current field or day.",
+      "sources": [
+        {
+          "url": "https://science.nasa.gov/blogs/science-news/2025/12/16/expanding-crucial-water-tracking/",
+          "title": "NASA and Partners Expand Crucial Water Tracking Program",
+          "date": "2025-12-16",
+          "locator": "Coverage history"
+        },
+        {
+          "url": "https://www.usgs.gov/landsat-missions/news/landsat-product-supports-water-management-worldwide",
+          "title": "Landsat Product Supports Water Management Worldwide",
+          "date": "2026-09-21",
+          "locator": "Discussion of OpenET and the on-demand global product"
+        }
+      ],
+      "records": [
+        "openet-field-scale-evapotranspiration"
+      ]
+    },
+    {
+      "name": "Digital Earth Africa Water Observations from Space",
+      "region": "Africa",
+      "status": "in service",
+      "date": "2021-09",
+      "claim": "Digital Earth Africa released its continental surface-water classification service and its historical observations in September 2021. Service specifications document the public data products and access endpoints.",
+      "limit": "The 15 July 2026 operational notice covers the platform. It does not independently establish every WOfS update through 17 November 2026. Clouds, mixed land–water pixels and other conditions can obscure detections.",
+      "sources": [
+        {
+          "url": "https://digitalearthafrica.org/wp-content/uploads/DE-Africa-Quarterly-Report_-Jul-Sep-2021.pdf",
+          "title": "Digital Earth Africa Quarterly Report – July–September 2021",
+          "date": "2021",
+          "locator": "p. 12, Operational WOFs"
+        },
+        {
+          "url": "https://docs.digitalearthafrica.org/en/latest/data_specs/Landsat_WOfS_specs.html",
+          "title": "Water Observations from Space",
+          "date": "2024-11-01",
+          "locator": "Service overview, Access, and Interpreting WOfS"
+        },
+        {
+          "url": "https://docs.digitalearthafrica.org/en/latest/service_status/index.html",
+          "title": "Service Status and Tech Alerts",
+          "date": "2026-07-15",
+          "locator": "Overview and Current Alerts"
+        }
+      ],
+      "records": [
+        "digital-earth-africa-water-observations-from-space"
+      ]
+    },
+    {
+      "name": "Advanced Land Imager on Earth Observing-1",
+      "region": "U.S.-led orbital mission",
+      "status": "retired",
+      "date": "2017",
+      "claim": "EO-1 ended operations after its extended mission. USGS retained access to the Advanced Land Imager's historical observations.",
+      "limit": "January imaging wind-down and spacecraft shutdown were distinct milestones. The design contribution survives in operational Landsat hardware.",
+      "sources": [
+        {
+          "url": "https://www.ll.mit.edu/news/earth-observing-1-satellite-retired-leaving-legacy-spectacular-imagery",
+          "title": "Earth Observing–1 satellite is retired, leaving a legacy of spectacular imagery",
+          "date": "2017-04-12",
+          "locator": "Instrument design and transfer discussion; Farewell"
+        },
+        {
+          "url": "https://www.usgs.gov/centers/eros/science/earth-observing-1-eo-1?id=23",
+          "title": "Earth Observing 1 (EO-1)",
+          "date": "n.d.",
+          "locator": "Overview; January 2017 notices"
+        }
+      ],
+      "records": [
+        "earth-observing-1-advanced-land-imager"
+      ]
+    }
+  ],
+  "trace": [
+    "Established design lineage: earth-observing-1-advanced-land-imager demonstrated a pushbroom imager in November 2000. Its focal-plane modules informed landsat-8-operational-land-imager, which acquired its first-light image in March 2013.",
+    "Established data link: OLI imagery supplies the Landsat 8 reflectance component of landsat-collection-2-global-level-2. Landsat 8 TIRS is a distinct instrument supplying the corresponding temperature component.",
+    "Established data branch: openet-field-scale-evapotranspiration makes field-scale water-use estimates. Its documented v2.0 SSEBop implementation uses Level-2 Landsat temperatures and accepts Landsat 8 scenes containing both reflectance and temperature bands.",
+    "Established data branch: digital-earth-africa-water-observations-from-space uses the Level-2 reflectance stream from landsat-collection-2-global-level-2 for surface-water classification, not thermal estimates of evapotranspiration.",
+    "Established transfer: geoscience-australia-water-observations-from-space independently anchors the classifier lineage. The 2014 Australian product primarily used Landsat 5 and 7 imagery. Digital Earth Africa reused its decision tree on a new continental archive with African regional validation."
+  ],
+  "alternatives": [
+    "A 2026 San Joaquin Valley comparison applied a separate USGS VIIRS-based SSEBop product alongside OpenET SSEBop. The common model family can be implemented with another sensor input. The comparison assesses one regional case and does not show that the VIIRS product offers OpenET's service or field detail. https://www.frontiersin.org/journals/water/articles/10.3389/frwa.2026.1879797/full",
+    "USGS separately offers a provisional on-demand Landsat evapotranspiration product with global scenes. It is a different service and output from OpenET's multi-model time-series estimates. https://www.usgs.gov/landsat-missions/news/landsat-product-supports-water-management-worldwide"
+  ],
+  "frontier": [
+    "Locate a versioned input manifest for the original October 2021 OpenET public release, by model, before attaching Collection 2 to that launch event.",
+    "Trace the Landsat 5/7 Australian archive and the Australian Geoscience Data Cube as separately bounded upstream achievements. Determine which component moved or was redeveloped for Digital Earth Africa.",
+    "Link an operator-stamped 2026 African WOfS update or a version-pinned scene record to verify product-level recency independently of the platform status page."
+  ],
+  "screen": "Searched discovery and source text, concepts, organisations, places, existing links and leads for Landsat, EO-1, ALI/OLI, Landsat Collection 2, WOfS, Digital Earth Africa, surface-water classification and OpenET. The existing Landsat mention in Majuro cross-swell observations concerns a separate achievement. No matching named canonical nodes or promotion of a lead.",
+  "coverage": "A bounded instrument-to-product trace with two operational applications and one technology demonstrator that later retired. Searched for releases, coverage updates and disruptions through 17 November 2026. Distinguishes data capture dates, first public products, published methods, completed geographic expansion and dated operational evidence."
+}

@@ -1,0 +1,132 @@
+{
+  "id": "openet-field-scale-evapotranspiration",
+  "name": "OpenET field-scale evapotranspiration service",
+  "description": "The OpenET consortium built a public platform that estimates evapotranspiration at field scale. It makes individual and combined results from six models available using Landsat observations and other inputs. Its initial coverage of 17 western states expanded to all 48 contiguous states in 2025.",
+  "kind": "technology",
+  "domain": "physical-sciences.earth",
+  "fields": [
+    "food.irrigation"
+  ],
+  "advance": [
+    "dataset",
+    "system_integration"
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The consortium sought to give water managers and farmers accessible field-scale evapotranspiration estimates as drought and other pressures tightened available water supplies in the western United States.",
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "landsat-collection-2-global-level-2",
+      "status": "established",
+      "statement": "The deployed OpenET Collection 2.0 SSEBop model uses Landsat Collection 2 Level-2 land surface temperature. Its image implementation accepts Landsat 8 Level-2 scenes with both reflectance and temperature bands.",
+      "scope": "OpenET Collection 2.0 SSEBop. Other ensemble models have distinct input requirements.",
+      "influence": "major",
+      "contribution": [
+        "supplied_data"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "openet-collection2-methods-and-inputs",
+          "locator": "OpenET Collection 2.0; SSEBop model description",
+          "supports": "OpenET records operational use of the USGS science product in this model."
+        },
+        {
+          "source": "openet-ssebop-earth-engine-inputs",
+          "locator": "Input Collections; Landsat Collection 2 SR/ST Input Image; Example",
+          "supports": "The code interface and example identify the explicit Landsat 8 scenes and bands."
+        },
+        {
+          "source": "san-joaquin-2026-openet-viirs-comparison",
+          "locator": "Section 2.3, Input data",
+          "supports": "An independent applied study uses OpenET SSEBop and identifies the specific Level-2 temperature input."
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "western-public-launch",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 10,
+          "day": 21
+        },
+        "latest": {
+          "year": 2021,
+          "month": 10,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "21 October 2021",
+        "basis": "The USGS launch report specifies the opening day and the 17 states."
+      },
+      "statement": "OpenET opened to the public with field-scale evapotranspiration estimates covering 17 western U.S. states.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "usgs-openet-2021-public-launch",
+          "locator": "Opening; Six Models Add Up to One Ensemble; Landsat and Cloud Computing Are Essential",
+          "supports": "Dates the public opening, lists states and documents the modelling programme."
+        },
+        {
+          "source": "nasa-openet-2025-conus-expansion",
+          "locator": "Opening paragraphs and coverage history",
+          "supports": "Confirms the original Data Explorer coverage and year."
+        }
+      ]
+    },
+    {
+      "id": "contiguous-us-expansion",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 12,
+          "day": 15
+        },
+        "latest": {
+          "year": 2025,
+          "month": 12,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "15 December 2025",
+        "basis": "NASA's 16 December report names 15 December as the date data became available."
+      },
+      "statement": "OpenET made data for all 48 contiguous states available across its tools.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "nasa-openet-2025-conus-expansion",
+          "locator": "Opening paragraphs and coverage history",
+          "supports": "Confirms completed coverage expansion and gives the date."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "western-public-launch",
+    "rationale": "The public launch dates the delivered regional service, distinct from earlier consortium development."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "prompted_by": "sourced",
+      "links": "sourced"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "landsat-collection-2-global-level-2",
+  "name": "Landsat Collection 2 global Level-2 science products",
+  "description": "The USGS reprocessed the Landsat archive and released global Level-2 science products for surface reflectance and land surface temperature. For Landsat 8, the reflectance comes from the Operational Land Imager and the surface temperature is derived from separate Thermal Infrared Sensor observations.",
+  "kind": "technology",
+  "domain": "physical-sciences.earth",
+  "fields": [
+    "transport.space"
+  ],
+  "advance": [
+    "dataset"
+  ],
+  "links": [
+    {
+      "type": "uses_instrument",
+      "from": "landsat-8-operational-land-imager",
+      "status": "established",
+      "statement": "Landsat 8 Collection 2 Level-2 surface reflectance is derived from Level-1 measurements from its Operational Land Imager.",
+      "scope": "Landsat 8 surface reflectance portion of the global collection.",
+      "to_event": "global-level-2-release",
+      "influence": "contributing",
+      "contribution": [
+        "supplied_data"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "usgs-lsds1619-landsat8-level2-v2",
+          "locator": "LSDS-1619 v2.0, Executive Summary, p. iii",
+          "supports": "Identifies OLI as the source of Landsat 8 surface reflectance and TIRS as the source of surface temperature."
+        },
+        {
+          "source": "google-earth-engine-lc08-c2-level2",
+          "locator": "Description; Bands table",
+          "supports": "The independent hosting platform lists OLI/TIRS as sources and distinguishes the reflectance and temperature outputs."
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "global-level-2-release",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 12
+        },
+        "latest": {
+          "year": 2020,
+          "month": 12
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "December 2020",
+        "basis": "The USGS EROS announcement identifies December as the release month."
+      },
+      "statement": "The USGS released Collection 2, including global Level-2 science products with historical scenes dating back to 1982.",
+      "evidence": [
+        {
+          "source": "usgs-eros-landsat-collection2-release",
+          "locator": "Opening announcement and Level-2 products discussion",
+          "supports": "Reports the December archive release and new global surface reflectance and surface temperature products."
+        },
+        {
+          "source": "usgs-lsds1619-landsat8-level2-v2",
+          "locator": "LSDS-1619 v2.0, Executive Summary, p. iii",
+          "supports": "Specifies what was included in the Landsat 8 Level-2 science product."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "global-level-2-release",
+    "rationale": "The December release is the first dated public availability retained here. The product guide and dates of source imagery describe different milestones."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "links": "sourced"
+    }
+  }
+}
