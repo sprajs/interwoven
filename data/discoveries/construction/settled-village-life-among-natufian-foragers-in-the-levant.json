@@ -2,7 +2,7 @@
   "id": "settled-village-life-among-natufian-foragers-in-the-levant",
   "name": "Settled village life among Natufian foragers in the Levant",
   "summary": "Natufian hunter-gatherers in the Levant built stone houses and stayed in one place for long periods, among the first settled villages, before there was any farming.",
-  "description": "From about 15,000 years ago Natufian hunter-gatherers in the southern Levant lived in long-term settlements. At Ain Mallaha (Eynan) in the Hula Basin, the Early Natufian levels hold a cluster of relatively large stone structures with walls preserved up to 1 m high, burials apparently placed below floors, and house mice that had replaced the wild mouse. Occupation was not continuous: in the Late Natufian the structures were smaller and the wild mouse returned, which is read as a shift to a more mobile life, and the degree of Natufian sedentism is still debated.",
+  "description": "From about 15,000 years ago Natufian hunter-gatherers in the southern Levant lived in long-term settlements. At Ain Mallaha (Eynan) in the Hula Basin, the Early Natufian levels hold a cluster of relatively large stone structures with walls preserved up to 1 m high, burials apparently placed below floors, and house mice that had replaced the wild mouse. Occupation was not continuous: in the Late Natufian the structures were smaller and the wild mouse returned, which is read as a shift to a more mobile life, and the degree of Natufian sedentism is still debated. A built feature at Eynan has evidence of burnt-lime plaster.",
   "kind": "practice",
   "domain": "construction.settlements",
   "tier": 1,
@@ -106,7 +106,8 @@
       "concept": "recalled",
       "places": "sourced",
       "societies": "recalled",
-      "known_from": "sourced"
+      "known_from": "sourced",
+      "links": "sourced"
     },
     "unresolved": [
       {
@@ -127,5 +128,29 @@
       }
     ],
     "note": "Weissbrod and colleagues call these 'the first long-term hunter-gatherer settlements' and date them to 15,000 years ago, and the excavation project says Ain Mallaha is 'often described as one of the first villages'; the dataset holds no earlier settled village. The claim is the common view rather than a tested one: how permanent the occupation was is debated, and other foragers who settled (Jomon Japan, coastal Peru) are not yet recorded."
-  }
+  },
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant",
+      "from_event": "eynan-early-natufian-built-feature",
+      "to_event": "archaeological-evidence-9750bce",
+      "status": "established",
+      "statement": "Early Natufian builders at Eynan used burnt-lime plaster on a bench-like built feature within the settlement.",
+      "scope": "Early Natufian architectural plaster at Eynan (Ain Mallaha).",
+      "caveats": "The link concerns construction of one feature. Its function and the exact locus number of laboratory sample 86-1 remain unresolved.",
+      "evidence": [
+        {
+          "source": "kingery-1988-eynan-lime-plaster",
+          "locator": "p. 224, table 1, sample 86-1, and p. 226, Eynan discussion",
+          "supports": "Microscopy and energy-dispersive X-ray analysis support the identification of incompletely calcined lime plaster in Eynan sample 86-1 from a bench-like built feature."
+        },
+        {
+          "source": "haklay-gopher-2015-eynan-shelters",
+          "locator": "The Early Natufian architectural remains, fig. 1",
+          "supports": "The architectural study describes a plastered bench in Early Natufian Shelter 1 (Layer II) and discusses its debated function."
+        }
+      ]
+    }
+  ]
 }
