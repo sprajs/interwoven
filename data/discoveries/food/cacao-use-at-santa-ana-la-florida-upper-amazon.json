@@ -1,8 +1,8 @@
 {
   "id": "cacao-use-at-santa-ana-la-florida-upper-amazon",
   "name": "Cacao use at Santa Ana-La Florida, upper Amazon",
-  "summary": "Cacao residues at Santa Ana-La Florida in southeast Ecuador document use about 5,300 years ago, including cacao in funerary vessel contexts.",
-  "description": "Starch grains, theobromine residues and ancient DNA on artifacts attest to cacao use at Santa Ana-La Florida in southeast Ecuador. The excavation report describes cacao starch recovered from ceramic bottles associated with funerary offerings. The form of the drink and the manner in which the plant was obtained remain uncertain.",
+  "summary": "A directly dated residue documents cacao use at Santa Ana-La Florida in southeast Ecuador about 5,300 years ago. Later funerary bottles at the site also contained cacao residues.",
+  "description": "Charred residue on sherd PLD-005 attests to early cacao use at Santa Ana-La Florida in southeast Ecuador. Researchers identified cacao in separate funerary stirrup-spout bottles dating to contexts around 4,000 cal BP. The form of any preparation and the manner in which the plant was obtained remain uncertain.",
   "kind": "practice",
   "domain": "food.fermentation",
   "tier": 2,
@@ -33,37 +33,33 @@
       "type": "archaeological_evidence",
       "date": {
         "earliest": {
-          "year": -3350
+          "year": -3490
         },
         "latest": {
-          "year": -3350
+          "year": -3360
         },
-        "precision": "century",
+        "precision": "range",
         "status": "approximate",
-        "label": "c. 3350 BCE",
-        "basis": "As the cited source gives it."
+        "label": "5440–5310 cal BP (c. 3490–3360 BCE)",
+        "basis": "Zarrillo et al. Table 1 gives the calibrated range for directly dated charred residue PLD-005, Beta-312078."
       },
-      "statement": "Cacao use at Santa Ana-La Florida, Ecuador, is dated to about 5,300 years ago, which is about 3350 BCE by the 1950 convention.",
+      "statement": "In charred residue from ceramic sherd PLD-005, researchers identified Theobroma starch, theobromine and a DNA signal specific to T. cacao. They radiocarbon dated the bulk charred residue.",
       "places": [
         "palanda"
       ],
       "evidence": [
         {
           "source": "zarrillo-2018-use-domestication-theobroma",
-          "supports": "dating from approximately 5,300 years ago recovered from the Santa Ana-La Florida (SALF) site in southeast Ecuador",
-          "locator": "Abstract"
-        },
-        {
-          "source": "valdez-2014-palanda-field-report",
-          "locator": "§8.2.5, Fig. 213 and English text before §8.2.6",
-          "supports": "Reports cacao starch in ceramic bottles and cacao markers across ceramic and stone vessels, including funerary contexts."
+          "locator": "p. 1881, Table 1, PLD-005 and note a, and Fig. 2d",
+          "supports": "Gives the calibrated age of the bulk residue and distinguishes DNA capture evidence for T. cacao from starch identifiable as Theobroma."
         }
-      ]
+      ],
+      "caveats": "The range applies to the residue on PLD-005. The cacao-positive stirrup-spout bottles came from later tomb contexts."
     }
   ],
   "earliest_record": {
     "event": "archaeological-evidence-3350bce",
-    "rationale": "The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists."
+    "rationale": "The charred residue PLD-005 gives the earliest directly dated cacao evidence described at this site."
   },
   "research": {
     "status": "sourced",
@@ -104,8 +100,24 @@
             "supports": "Sampled San Jacinto and Valdivia items are assigned to broad cultural intervals. The study reports multiple genetic affinities in coastal assemblages."
           }
         ]
+      },
+      {
+        "about": "Contents of later funerary bottles",
+        "note": "Cacao-positive residues in the later stirrup-spout bottles support an association with funerary offerings. The residues leave the recipe and use of fermentation open.",
+        "evidence": [
+          {
+            "source": "zarrillo-2018-use-domestication-theobroma",
+            "locator": "pp. 1880–1882, Fig. 2, Table 1 and the DNA capture discussion",
+            "supports": "PLD-001 and PLD-002 are positive bottles from tombs. The contextual date estimates are around 4,000 cal BP."
+          },
+          {
+            "source": "valdez-2014-palanda-field-report",
+            "locator": "§8.2.5 and Fig. 213",
+            "supports": "The excavation report discusses cacao residues in vessels in the context of funerary offerings."
+          }
+        ]
       }
     ],
-    "note": "The 2018 study gives several independent analytical proxies within the same site assemblage. The excavator’s earlier report supplies vessel context. Relative priority among contemporary or earlier reported occurrences requires sample-level dating."
+    "note": "Zarrillo et al. used several analytical methods on material from this site. The early sherd residue was dated directly. The two later bottles date to their tomb contexts. Site-to-site priority requires sample-level dating."
   }
 }
