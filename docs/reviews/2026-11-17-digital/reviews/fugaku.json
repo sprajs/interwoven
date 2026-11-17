@@ -3,22 +3,26 @@
   "reviewer": "gpt-6.1-terra",
   "effort": "high",
   "base": "da459259a134eae431d4e45991dc050fa25a83d6",
-  "proposal": "69161628d1b67ca6e1011115d64a24dddc6989b7",
+  "proposal": "bc0fb9c3b72eab4b56f0f820925a6dc25ec8beae",
   "decision": "accept",
   "files": {
-    "data/discoveries/electronics/arm-scalable-vector-extension.json": "18aed45591a57709389620afa0fbcaf0d82dbb43679004515b74f9470442ee49",
+    "data/discoveries/electronics/arm-scalable-vector-extension.json": "11ad00a63e4f990f6792d57d1a4ffecfbcd7a5690e0423214f4599a4d77ff11e",
+    "data/discoveries/electronics/armv8-a-64-bit-architecture.json": "0083620ab42abd9979860656fee3345f70c3c6a8b2ce4939a06fc306a4036211",
     "data/discoveries/electronics/fujitsu-a64fx.json": "11809ca87bfa71f879d27aa88309404dcb44638dfb9b215b3076fa157ed8e674",
     "data/discoveries/electronics/riken-fujitsu-fugaku.json": "74d2608a925b9cf3fff1d6461176d8dd88665bac761f6fee541f64f19b192923",
     "data/sources/d/d2-fugaku-alappat-2021-a64fx.json": "f89b652c4b016a01b9dad9d4442c8eda81d07a197e24098493217b94f18e5972",
+    "data/sources/d/d2-fugaku-arm-2011-a64-overview.json": "dcffe102e2a6effcace022103522897e8ee3537a89db9e1fb8efbb4a50147b7d",
+    "data/sources/d/d2-fugaku-arm-2014-armv8a-history.json": "fb178b2534640e0e044162b868e60977a45f4a1bf5c286e0232bcee7be5f8077",
     "data/sources/d/d2-fugaku-diehl-2023-octo-tiger.json": "87016d05c562c0e7b08ab6b99f776a9885eacab405716f89025de4ed3d8c49cf",
     "data/sources/d/d2-fugaku-hot-chips-30-programme.json": "b73cc80fbf8c5afbd009e98ca4dd5c4a38b79258d11f341899901721908cf113",
     "data/sources/d/d2-fugaku-riken-2019-prototype.json": "82256fecf1c6ed3c363e9daca825bf8629fe73501ed9e1818e9f918679747e49",
     "data/sources/d/d2-fugaku-riken-about-fugaku.json": "78d8cff7601ff5945e3d192086d76d1b5637a1f59fba0c9a167f3bc720e90427",
+    "data/sources/d/d2-fugaku-stephens-2016-a64-sve-encoding.json": "e57c59b944e1239c8c4c5ca2577d80689643bd8cb259cff40d64e2a14dfda771",
     "data/sources/d/d2-fugaku-stephens-2016-sve.json": "d1cb5c109f2bb3b20e09633044ecddc1a55437f8b258bc609e5583147b83217a",
     "data/sources/d/d2-fugaku-stephens-2017-sve-paper.json": "40d04bb53f40a822b535f12fb07ea3771c40f1f59d1091e7eeb95f770d2c3364",
     "data/sources/d/d2-fugaku-watanabe-2024-tofud-benchmarks.json": "a9d6341bc7c59067fb01a4c88369559a9157965e0442fa1404e47f02dee9dd4e",
     "data/sources/d/d2-fugaku-yoshida-2018-a64fx.json": "2387fc1794dbd965962d018c77bf2283f93719f4da477f21841e34e9a803b2d3",
-    "docs/reviews/2026-11-17-digital/lanes/fugaku.json": "8798ac6e2b2aecc856e27369f2c3b567fbbced423780be0837d2571f35131a86"
+    "docs/reviews/2026-11-17-digital/lanes/fugaku.json": "2f9166c331b3991032a509ac58cadb9455f19e436d6b81c1cf6a0f565764db41"
   },
   "claims": [
     {
@@ -55,12 +59,28 @@
       "path": "docs/reviews/2026-11-17-digital/lanes/fugaku.json and source descriptions",
       "decision": "accept",
       "reason": "Independently checked original Stephens and Yoshida presentations; 2019 RIKEN prototype report; conference programme; RIKEN operator description; TOP500 system record; Alappat instruction measurements; Diehl application tests; Watanabe communication experiments; Fujitsu TofuD white paper. Source notes and lane findings reflect their different scope and do not treat tests as proof of Tofu2 inheritance. Search of baseline records found existing Fugaku/Tofu2, no separate A64FX or SVE record."
+    },
+    {
+      "path": "armv8-a-64-bit-architecture: identity, description, domain, grain, preview and publication events, dates, earliest_record",
+      "decision": "accept",
+      "reason": "Arm Architecture Group, ARMv8 Instruction Set Overview issue 15.0 (https://www.cs.princeton.edu/courses/archive/fall22/cos217/reading/ArmInstructionSetOverview.pdf), cover, §1.1.2, §§2–3, is dated 11 November 2011, identifies first non-confidential issue and details AArch64, A64 fixed-width 32-bit instruction encodings and 64-bit registers. Arm’s David Brash (https://developer.arm.com/community/arm-community-blogs/b/architectures-and-processors-blog/posts/the-armv8-a-architecture-and-its-ongoing-development) opening dates the initial public preview to October 2011. Neither date implies first silicon."
+    },
+    {
+      "path": "arm-scalable-vector-extension: builds_on from armv8-a-64-bit-architecture",
+      "decision": "accept",
+      "reason": "Stephens 2016 https://developer.arm.com/community/arm-community-blogs/b/servers-and-cloud-computing-blog/posts/technology-update-the-scalable-vector-extension-sve-for-the-armv8-a-architecture explicitly targets AArch64 execution and allocates SVE in A64 encoding space. His Hot Chips deck p.3 explicitly distinguishes SVE from Advanced SIMD. Alappat et al. https://doi.org/10.1002/cpe.6512 §§2, 3.1, Tables 1–2 independently execute SVE instruction microbenchmarks on Armv8.2-A A64FX, corroborating deployed combination rather than independently proving 2011 design history. The relation is correctly directed from SVE to its substrate."
+    },
+    {
+      "path": "follow-on source records and lane report additions",
+      "decision": "accept",
+      "reason": "Independently read the 2011 overview, Brash 2014 opening, Stephens 2016 encoding account, and Alappat methods and instruction measurements. The lane confines architecture history to a dated preview and non-confidential specification, and does not claim transfer from Advanced SIMD or working silicon in 2011."
     }
   ],
   "corrections": [
     "Original Fujitsu deck link redirected to homepage. Researcher replaced it with independently checked Hot Chips original archive at 69161628d1b67ca6e1011115d64a24dddc6989b7."
   ],
   "deferred": [
-    "The specific Tofu2 to TofuD design inheritance remains candidate; Watanabe tests TofuD rather than transfer. Further SVE antecedents need a separate bounded review."
+    "The specific Tofu2 to TofuD design inheritance remains candidate; Watanabe tests TofuD rather than transfer. Further SVE antecedents need a separate bounded review.",
+    "Prior Armv7-A compatibility and any earlier design ancestry of AArch64 remain separate questions."
   ]
 }

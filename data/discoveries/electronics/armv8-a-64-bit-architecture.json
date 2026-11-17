@@ -1,0 +1,80 @@
+{
+  "id": "armv8-a-64-bit-architecture",
+  "name": "Armv8-A 64-bit architecture",
+  "aliases": [
+    "Armv8-A"
+  ],
+  "description": "Arm added a 64-bit execution state, AArch64, to its application processor architecture alongside the 32-bit AArch32 state. AArch64 introduced the A64 instruction set, with fixed 32-bit instruction encodings and 64-bit general-purpose registers.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "armv8-a-public-preview-2011",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2011,
+          "month": 10
+        },
+        "latest": {
+          "year": 2011,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2011-10",
+        "basis": "Arm dates the first public preview to October 2011."
+      },
+      "statement": "Arm publicly previewed the Armv8-A architecture.",
+      "evidence": [
+        {
+          "source": "d2-fugaku-arm-2014-armv8a-history",
+          "locator": "Opening paragraph",
+          "supports": "Dates the public architecture preview."
+        }
+      ]
+    },
+    {
+      "id": "a64-instruction-set-overview-2011",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2011,
+          "month": 11,
+          "day": 11
+        },
+        "latest": {
+          "year": 2011,
+          "month": 11,
+          "day": 11
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2011-11-11",
+        "basis": "The cover and revision history date issue 15.0 to 11 November 2011."
+      },
+      "statement": "Arm issued its first non-confidential instruction-set overview, including A64 for AArch64 execution.",
+      "evidence": [
+        {
+          "source": "d2-fugaku-arm-2011-a64-overview",
+          "locator": "Title page, § 1.1.2 and §§ 2–3",
+          "supports": "Dates the public issue and documents the 64-bit execution state and A64 encoding."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "armv8-a-public-preview-2011",
+    "rationale": "Arm's account dates the public architecture preview to October 2011. The November beta describes the instruction set at a separate dated stage."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "note": "The linked dependency concerns the AArch64 execution state and A64 instruction set within the original Armv8-A profile."
+  }
+}

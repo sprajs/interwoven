@@ -55,8 +55,42 @@
     "basis": {
       "domain": "sourced",
       "grain": "sourced",
-      "events": "sourced"
+      "events": "sourced",
+      "links": "sourced"
     },
     "note": "The extension was initially presented for high-performance computing. Arm's account links its design to wider vectors and compiler vectorization for those workloads."
-  }
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "armv8-a-64-bit-architecture",
+      "status": "established",
+      "to_event": "hot-chips-sve-presentation-2016",
+      "statement": "Arm designed SVE for the AArch64 execution state and allocated SVE instructions within the existing A64 encoding space.",
+      "scope": "The base architecture for the SVE instruction encoding.",
+      "contribution": [
+        "supplied_platform",
+        "supplied_theory_or_design_rule"
+      ],
+      "influence": "essential",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "d2-fugaku-arm-2011-a64-overview",
+          "locator": "§§ 2–3",
+          "supports": "Defines A64 as the fixed-width instruction set of AArch64 before the SVE extension."
+        },
+        {
+          "source": "d2-fugaku-stephens-2016-a64-sve-encoding",
+          "locator": "Paragraph beginning “SVE is targeted”",
+          "supports": "Arm's ISA architect explicitly places SVE in AArch64 and identifies its share of the A64 encoding space."
+        },
+        {
+          "source": "d2-fugaku-alappat-2021-a64fx",
+          "locator": "§§ 2, 3.1 and Tables 1–2",
+          "supports": "Independent university researchers build with the Armv8.2-A plus SVE target and execute SVE instructions on A64FX hardware."
+        }
+      ]
+    }
+  ]
 }
