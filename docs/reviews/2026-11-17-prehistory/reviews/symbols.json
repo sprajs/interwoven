@@ -2,20 +2,20 @@
   "schema_version": 1,
   "lane": "symbols",
   "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
-  "proposal_commit": "3adad32f1791f9cf08e164ac27ea1251c2d72d81",
-  "worker_commit": "3adad32f1791f9cf08e164ac27ea1251c2d72d81",
+  "proposal_commit": "9c69950c10d6721eea09e790b7f4ed89de60012b",
+  "worker_commit": "9c69950c10d6721eea09e790b7f4ed89de60012b",
   "reviewer": {
     "model": "gpt-6.1-terra",
     "effort": "high",
     "execution": "independent symbols review",
     "independence": "separate execution from gpt-6.2-sol high researcher"
   },
-  "overall_verdict": "changes_requested",
-  "overall_decision": "changes_requested",
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
   "files": [
     {
       "path": "data/discoveries/communication/egyptian-hieroglyphic-writing.json",
-      "sha256": "f4616ebb15210fae1655ccd97fcba732aa25b4ce8f436310065a6b75bde8645b"
+      "sha256": "0a27f49f13d7b5811e10a4916facd045d750b7518a2bc88c4eb042e0ffaed830"
     },
     {
       "path": "data/discoveries/communication/proto-sinaitic-writing-at-serabit-el-khadim.json",
@@ -54,16 +54,12 @@
       "sha256": "5f5ffb66e72ae18c67c677600eed3d02fb2e7cce020b46c2176714f60971a7b2"
     },
     {
-      "path": "data/sources/r/regulski-2016-origins-egyptian-writing.json",
-      "sha256": "8ce606413b182a46742c89beb55ea4f56d2bcec392987fce2c185779eff97e60"
-    },
-    {
       "path": "data/sources/t/tallet-2014-wadi-el-jarf-papyri.json",
       "sha256": "9c8f9f05b4307052b59feceb632612c246a27e6afd44c691650e2b5a7b2a17e1"
     },
     {
-      "path": "data/sources/t/tallet-2026-wadi-el-jarf-archive.json",
-      "sha256": "aed2e539f9c0a329bb0c97e42cfe73d7faab43c57d00a61d99776f1d2a158b2d"
+      "path": "data/sources/t/tallet-2017-merer-logbooks-extract.json",
+      "sha256": "786692319535f80a293d103844443422d0858015f234a12a0c87bd6d8662eda2"
     },
     {
       "path": "data/sources/v/verhoeven-2023-hieratic.json",
@@ -75,7 +71,7 @@
     },
     {
       "path": "docs/reviews/2026-11-17-prehistory/lanes/symbols.json",
-      "sha256": "17df8ccf9c05c698073fdb3a016f795f8f57813dcb2f72c46e02955b93db2d8b"
+      "sha256": "8a3e1faec43fa3cc8180a25cb419b072e44e6312622855dbd58d52d46c8beac2"
     },
     {
       "path": "evidence/d/dreyer-2011-abydos-tomb-uj.pdf.cache.json",
@@ -94,6 +90,10 @@
       "sha256": "9707b4af28adbbaad88a8c796c97a512c4748b301480a83b76df98c528e01dd3"
     },
     {
+      "path": "evidence/t/tallet-2017-merer-logbooks-extract.pdf.cache.json",
+      "sha256": "d48d47f6da1228ce47116c21fcfb4a7374db76ba265ab3e98b3fa9773d475f21"
+    },
+    {
       "path": "evidence/w/wilson-wright-2013-sinai-345.pdf.cache.json",
       "sha256": "a86ff4cfed122166858665a2dd6e0744b10233ba473f3a36f0c8194fcd64abf3"
     }
@@ -101,8 +101,8 @@
   "records": [
     {
       "id": "egyptian-hieroglyphic-writing",
-      "verdict": "changes_requested",
-      "rationale": "The Abydos witness and Wadi el-Jarf papyrus use are useful extensions; the linked papyrus endpoint is a particular earlier roll, so essential dependence on it is not established. The full text of two cited works needs reviewer access.",
+      "verdict": "accept",
+      "rationale": "The dated Abydos witness and Jarf hieratic papyrus use extend the record; the unsupported edge to the separate Hemaka roll was removed.",
       "claim_reviews": [
         {
           "path": "description",
@@ -123,11 +123,11 @@
         },
         {
           "path": "events.abydos-uj-inscribed-tags.date",
-          "decision": "defer",
-          "rationale": "Görsdorf et al. p. 644 estimate phase in mid-34th century using samples including tomb wood; U-j wood sample ranges are separate and broad. Regulski 2016 c. 3250 endpoint was not accessible to this reviewer; provide original for review or revise to date supported by accessible originals while preserving uncertainty.",
+          "decision": "accept",
+          "rationale": "Görsdorf et al. pp. 641–644 assign the tomb to Naqada IIIa2 by archaeology and estimate that phase near mid-34th century BCE from samples including two wood specimens. The century is clearly an index of the approximate phase estimate, not direct dating of tags or a claimed hard interval. Different estimates remain possible.",
           "sources": [
             "gorsdorf-dreyer-hartung-1998-abydos-radiocarbon pp. 641–644",
-            "regulski-2016-origins-egyptian-writing Early Attestations"
+            "dreyer-2011-abydos-tomb-uj p. 128"
           ]
         },
         {
@@ -140,12 +140,12 @@
         },
         {
           "path": "events.practical-use-wadi-el-jarf-logbooks",
-          "decision": "defer",
-          "rationale": "Verhoeven p. 6 independently identifies Khufu-era Merer fragment BIV as hieratic papyrus; Tallet 2014 p. 25 supplies approximate reign date. Tallet 2026 original inaccessible in reviewer session; inspect its §§3–3.1 to verify A/B scope and daily-work wording before accepting.",
+          "decision": "accept",
+          "rationale": "Tallet 2017 PDF p. 2 identifies two late Khufu papyrus logbooks in hieratic with daily activities of Merer’s team; English Annex I translates the A and B daily entries. Verhoeven p. 6 discusses fragment BIV as old hieratic. Tallet 2014 p. 25 gives the approximate whole reign bounds.",
           "sources": [
+            "tallet-2017-merer-logbooks-extract PDF pp. 2, 5–8, 16",
             "verhoeven-2023-hieratic p. 6",
-            "tallet-2014-wadi-el-jarf-papyri p. 25",
-            "tallet-2026-wadi-el-jarf-archive §§3–3.1"
+            "tallet-2014-wadi-el-jarf-papyri p. 25"
           ]
         },
         {
@@ -159,11 +159,11 @@
         },
         {
           "path": "links.egyptian-papyrus-sheet-roll",
-          "decision": "changes_requested",
-          "rationale": "Direction points from existing papyrus record to logbooks, and Verhoeven p. 6 shows actual local papyrus use. But the endpoint has grain instance and earliest_record specifies the Hemaka tomb roll, a different surviving artifact: no evidence Merer used that object. Scope or create a source-backed generic sheet-making capability endpoint, or remove/defer this edge while retaining local use. Distinct fragment Verhoeven uses Tallet’s edition; not fully independent provenance.",
+          "decision": "defer",
+          "rationale": "Proposed requires link was removed. Vocabulary requires function the other provides; current endpoint is the distinct Hemaka roll, not the Jarf sheets. Local papyrus use is directly supported and retained as an event, not denied. A generic capability endpoint would need separate evidence and review.",
           "sources": [
-            "verhoeven-2023-hieratic p. 6",
-            "tallet-2026-wadi-el-jarf-archive §§3–3.1"
+            "tallet-2017-merer-logbooks-extract PDF pp. 2, 5–8",
+            "verhoeven-2023-hieratic p. 6"
           ]
         }
       ],
@@ -440,18 +440,17 @@
       "url": "https://www.metmuseum.org/fr/essays/egyptian-faience-technology-and-production",
       "access": "original online essay",
       "independence": "museum synthesis; no separate early sample analysis"
-    }
-  ],
-  "issues": [
-    {
-      "path": "egyptian-hieroglyphic-writing.links.egyptian-papyrus-sheet-roll",
-      "required": "Current endpoint is explicitly an instance—the Hemaka roll—not the sheets used by Merer. Use a correctly scoped source-backed generic capability endpoint or remove/defer the edge while retaining documented local papyrus use."
     },
     {
-      "path": "egyptian-hieroglyphic-writing.events.abydos-uj-inscribed-tags.date and events.practical-use-wadi-el-jarf-logbooks",
-      "required": "Make original Regulski 2016 and Tallet 2026 available for independent review of precise cited claims, or replace/defer the unsupported portions using accessible originals."
+      "source": "tallet-2017-merer-logbooks-extract",
+      "url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/RedSea/WadiJarf-Tallet2017.pdf",
+      "path": "evidence/t/tallet-2017-merer-logbooks-extract.pdf",
+      "sha256": "a6d1fa42d890eeee702066c0a5f34a7b1f5cb68ffe26a3393bfc5025aa8f3a44",
+      "access": "Original publisher extract read PDF pp. 2, 5–8 and 16; not full edition",
+      "independence": "Primary edition, Verhoeven cites this edition for BIV; separate fragment and analyst, shared interpretive lineage."
     }
   ],
+  "issues": [],
   "unknowns": [
     "Distinct sign variants, alphabet origin and routes are unsettled.",
     "Bizmoune chronology and baseline priority require further work.",
@@ -459,7 +458,511 @@
   ],
   "validation": {
     "command": "python3 tools/validate.py; git diff --check BASE PROPOSAL",
-    "result": "Both passed; 907 discoveries, 1517 events, 245 links, no problems."
+    "result": "Both passed; 907 discoveries, 1517 events, 244 links, no problems."
   },
-  "history": []
+  "history": [
+    {
+      "status": "superseded",
+      "review_commit": "36f386e",
+      "review": {
+        "schema_version": 1,
+        "lane": "symbols",
+        "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+        "proposal_commit": "3adad32f1791f9cf08e164ac27ea1251c2d72d81",
+        "worker_commit": "3adad32f1791f9cf08e164ac27ea1251c2d72d81",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "independent symbols review",
+          "independence": "separate execution from gpt-6.2-sol high researcher"
+        },
+        "overall_verdict": "changes_requested",
+        "overall_decision": "changes_requested",
+        "files": [
+          {
+            "path": "data/discoveries/communication/egyptian-hieroglyphic-writing.json",
+            "sha256": "f4616ebb15210fae1655ccd97fcba732aa25b4ce8f436310065a6b75bde8645b"
+          },
+          {
+            "path": "data/discoveries/communication/proto-sinaitic-writing-at-serabit-el-khadim.json",
+            "sha256": "4730ec62d80ca3e954f66fee0e47a0da915e46b1864820d4297b9227bdb414ee"
+          },
+          {
+            "path": "data/discoveries/materials/gerzeh-meteoritic-iron-beads.json",
+            "sha256": "4f32f6ba8b6b0583345fbfb5b26cee9aafadab597becdacb8b45cdd158d42ee4"
+          },
+          {
+            "path": "data/sources/d/dreyer-2011-abydos-tomb-uj.json",
+            "sha256": "fa02fcedb833ff35a1945fe8473c0f138686c6e139b8f9b2f116bd509546926c"
+          },
+          {
+            "path": "data/sources/g/goldwasser-2006-egyptian-sign-models.json",
+            "sha256": "e0cc751a55cfb6a625e5099b17e6779ddf6945c5130bedfbaa9e87a9780b8c28"
+          },
+          {
+            "path": "data/sources/g/gorsdorf-dreyer-hartung-1998-abydos-radiocarbon.json",
+            "sha256": "f9b98326a19651ba0478c6422a8048625ccd455add90c085aafc1dc0c5fcdf51"
+          },
+          {
+            "path": "data/sources/h/hoflmayer-2021-lachish-alphabet.json",
+            "sha256": "c064bbb6e6699688f7bf5ea7c1767e12dccf480b4542f4bbfee0c45529354f5a"
+          },
+          {
+            "path": "data/sources/j/johnson-2013-gerzeh-iron-bead.json",
+            "sha256": "ae79af03b9027405c617e146caad63995a67085654230030ea6126371bf23511"
+          },
+          {
+            "path": "data/sources/o/ozdogan-1999-early-metallurgy-cayonu.json",
+            "sha256": "d85c9d5370a240fa958871f95a4a17b1fa38cf16fcb11cce3c41f15a3581c419"
+          },
+          {
+            "path": "data/sources/p/parker-2022-serabit-chronology.json",
+            "sha256": "5f5ffb66e72ae18c67c677600eed3d02fb2e7cce020b46c2176714f60971a7b2"
+          },
+          {
+            "path": "data/sources/r/regulski-2016-origins-egyptian-writing.json",
+            "sha256": "8ce606413b182a46742c89beb55ea4f56d2bcec392987fce2c185779eff97e60"
+          },
+          {
+            "path": "data/sources/t/tallet-2014-wadi-el-jarf-papyri.json",
+            "sha256": "9c8f9f05b4307052b59feceb632612c246a27e6afd44c691650e2b5a7b2a17e1"
+          },
+          {
+            "path": "data/sources/t/tallet-2026-wadi-el-jarf-archive.json",
+            "sha256": "aed2e539f9c0a329bb0c97e42cfe73d7faab43c57d00a61d99776f1d2a158b2d"
+          },
+          {
+            "path": "data/sources/v/verhoeven-2023-hieratic.json",
+            "sha256": "2c35c66fbd2288e6d437579de616bf29b63607b8251f15e9cb955c6e3b998bc7"
+          },
+          {
+            "path": "data/sources/w/wilson-wright-2013-sinai-345.json",
+            "sha256": "e4a9b95e5a89c4ca9018d3bd08c0416641dc5db56e75778e737d5118c6058c0d"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-prehistory/lanes/symbols.json",
+            "sha256": "17df8ccf9c05c698073fdb3a016f795f8f57813dcb2f72c46e02955b93db2d8b"
+          },
+          {
+            "path": "evidence/d/dreyer-2011-abydos-tomb-uj.pdf.cache.json",
+            "sha256": "676a074069474e94b0506050ef8158a26276654f396332230f0f4aebfd453fca"
+          },
+          {
+            "path": "evidence/g/goldwasser-2006-egyptian-sign-models.pdf.cache.json",
+            "sha256": "233acf039658c027ea756c77f33b17ce745fc43ab70880ef878d8c3fb0df978f"
+          },
+          {
+            "path": "evidence/g/gorsdorf-dreyer-hartung-1998-abydos-radiocarbon.pdf.cache.json",
+            "sha256": "1a1b83c3aa4b38d151648849747b04ef8851389528baebac3f7804a284442996"
+          },
+          {
+            "path": "evidence/o/ozdogan-1999-early-metallurgy-cayonu-notes.txt",
+            "sha256": "9707b4af28adbbaad88a8c796c97a512c4748b301480a83b76df98c528e01dd3"
+          },
+          {
+            "path": "evidence/w/wilson-wright-2013-sinai-345.pdf.cache.json",
+            "sha256": "a86ff4cfed122166858665a2dd6e0744b10233ba473f3a36f0c8194fcd64abf3"
+          }
+        ],
+        "records": [
+          {
+            "id": "egyptian-hieroglyphic-writing",
+            "verdict": "accept",
+            "rationale": "The dated Abydos witness and Jarf hieratic papyrus use extend the record; the unsupported edge to the separate Hemaka roll was removed.",
+            "claim_reviews": [
+              {
+                "path": "description",
+                "decision": "accept",
+                "rationale": "Dreyer pp. 134–135 describes incised tags; Verhoeven p. 6 identifies old hieratic papyrus from Merer’s log.",
+                "sources": [
+                  "dreyer-2011-abydos-tomb-uj pp. 134–135",
+                  "verhoeven-2023-hieratic p. 6"
+                ]
+              },
+              {
+                "path": "events.abydos-uj-inscribed-tags.statement",
+                "decision": "accept",
+                "rationale": "Dreyer pp. 134–135 describes bone and ivory tags and drill holes; his reading and use are interpretive, as reflected in the statement and caveats.",
+                "sources": [
+                  "dreyer-2011-abydos-tomb-uj pp. 134–135"
+                ]
+              },
+              {
+                "path": "events.abydos-uj-inscribed-tags.date",
+                "decision": "accept",
+                "rationale": "Görsdorf et al. pp. 641–644 assign the tomb to Naqada IIIa2 by archaeology and estimate that phase near mid-34th century BCE from samples including two wood specimens. The century is clearly an index of the approximate phase estimate, not direct dating of tags or a claimed hard interval. Different estimates remain possible.",
+                "sources": [
+                  "gorsdorf-dreyer-hartung-1998-abydos-radiocarbon pp. 641–644",
+                  "dreyer-2011-abydos-tomb-uj p. 128"
+                ]
+              },
+              {
+                "path": "events.early-writing-3250bce.caveats",
+                "decision": "accept",
+                "rationale": "Refers to added named witness without treating the museum estimate as a precise date.",
+                "sources": [
+                  "dreyer-2011-abydos-tomb-uj pp. 127–135"
+                ]
+              },
+              {
+                "path": "events.practical-use-wadi-el-jarf-logbooks",
+                "decision": "accept",
+                "rationale": "Tallet 2017 PDF p. 2 identifies two late Khufu papyrus logbooks in hieratic with daily activities of Merer’s team; English Annex I translates the A and B daily entries. Verhoeven p. 6 discusses fragment BIV as old hieratic. Tallet 2014 p. 25 gives the approximate whole reign bounds.",
+                "sources": [
+                  "tallet-2017-merer-logbooks-extract PDF pp. 2, 5–8, 16",
+                  "verhoeven-2023-hieratic p. 6",
+                  "tallet-2014-wadi-el-jarf-papyri p. 25"
+                ]
+              },
+              {
+                "path": "earliest_record, caveats, research",
+                "decision": "accept",
+                "rationale": "The new named event precedes the later archive in the given approximate chronology; the status is sourced and early readings remain debated.",
+                "sources": [
+                  "gorsdorf-dreyer-hartung-1998-abydos-radiocarbon p. 644",
+                  "verhoeven-2023-hieratic p. 6"
+                ]
+              },
+              {
+                "path": "links.egyptian-papyrus-sheet-roll",
+                "decision": "defer",
+                "rationale": "Proposed requires link was removed. Vocabulary requires function the other provides; current endpoint is the distinct Hemaka roll, not the Jarf sheets. Local papyrus use is directly supported and retained as an event, not denied. A generic capability endpoint would need separate evidence and review.",
+                "sources": [
+                  "tallet-2017-merer-logbooks-extract PDF pp. 2, 5–8",
+                  "verhoeven-2023-hieratic p. 6"
+                ]
+              }
+            ],
+            "duplicate_screen": "Existing event is a museum estimate, not a named Abydos archaeological event; named witness is an extension. Existing papyrus record is the earlier Hemaka roll, distinct from Jarf papyri."
+          },
+          {
+            "id": "bizmoune-cave-perforated-shells",
+            "verdict": "defer",
+            "rationale": "No changed record. Sehasseh et al. pp. 3–5 support local wear interpretations; conflicting 4c luminescence and U-series prevent firm dating, and later Moroccan assemblage alone does not prove transmission. Deferred edge is not a negative historical conclusion. Existing impact claim of earliest witness should be independently revisited against the conditional chronology.",
+            "claim_reviews": [
+              {
+                "path": "deferred transmission",
+                "decision": "defer",
+                "rationale": "Similar shells do not document direct lineage or carrier.",
+                "sources": [
+                  "w5-sehasseh-2021-bizmoune-shells pp. 3–5"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "blombos-cave-shell-beads",
+            "verdict": "defer",
+            "rationale": "No changed record. Henshilwood et al. 2004 p. 404 reports 39 M1 specimens and possible ochre on shells or contact material; it does not establish that the earlier M3 mixture was applied.",
+            "claim_reviews": [
+              {
+                "path": "deferred uses_process",
+                "decision": "defer",
+                "rationale": "Different deposits and uncertain pigment transfer do not demonstrate use of that specific earlier mixture.",
+                "sources": [
+                  "Henshilwood et al. 2004 p. 404",
+                  "henshilwood-2011-blombos-ochre pp. 219–221"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "blombos-ochre-mixture",
+            "verdict": "defer",
+            "rationale": "No changed record. Henshilwood et al. 2011 identifies two M3 processing kits and unknown final use; later drawing and separate site are not evidence of use or transmission from this mixture.",
+            "claim_reviews": [
+              {
+                "path": "deferred connection",
+                "decision": "defer",
+                "rationale": "Specific final application and a historical predecessor remain unknown.",
+                "sources": [
+                  "henshilwood-2011-blombos-ochre pp. 219–221"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "gerzeh-meteoritic-iron-beads",
+            "verdict": "accept",
+            "rationale": "The iron and copper evidence supports a narrowly scoped shared fabrication principle, not a historical transmission.",
+            "claim_reviews": [
+              {
+                "path": "events.archaeological-evidence-3100bce.caveats and evidence",
+                "decision": "accept",
+                "rationale": "Rehren pp. 4788–4791 infers rolling and heating; Johnson Results and Fig. 6 examines Manchester 5303 separately and infers a cold-worked meteorite and sheet seam. Thermal histories do not have to be identical.",
+                "sources": [
+                  "rehren-2013-years-old-egyptian pp. 4788–4791",
+                  "johnson-2013-gerzeh-iron-bead abstract and Results"
+                ]
+              },
+              {
+                "path": "caveats, research",
+                "decision": "accept",
+                "rationale": "The revised caveats distinguish samples and retain uncertain complete thermal histories; no unsupported status upgrade.",
+                "sources": [
+                  "johnson-2013-gerzeh-iron-bead abstract and Results",
+                  "rehren-2013-years-old-egyptian pp. 4788–4791"
+                ]
+              },
+              {
+                "path": "links.native-copper-working-at-cayonu-tepesi",
+                "decision": "accept",
+                "rationale": "Özdoğan and Özdoğan Fig. 4 caption identifies hammered flat copper sheet rolled as a bead; Rehren Fig. 4 and Johnson Fig. 6 support worked iron tubes. Independent sites and artifacts; proposed relation is undirected affinity only, not causation or transmission. Both endpoints inspected; Çayönü baseline dates are separate unsettled issues.",
+                "sources": [
+                  "ozdogan-1999-early-metallurgy-cayonu p. 20 Fig. 4",
+                  "rehren-2013-years-old-egyptian pp. 4788–4791",
+                  "johnson-2013-gerzeh-iron-bead Results Fig. 6"
+                ]
+              }
+            ],
+            "duplicate_screen": "Extends existing Gerzeh event rather than adding a duplicate; Çayönü is a separate community and material."
+          },
+          {
+            "id": "leang-karampuang-figurative-scene",
+            "verdict": "defer",
+            "rationale": "No changed record. Oktaviana et al. 2024 Fig. 3 and extended data date overlying calcite, with a particular figure providing the oldest minimum. Other caves and motifs do not establish the pigment or historical transmission for this panel.",
+            "claim_reviews": [
+              {
+                "path": "deferred connection",
+                "decision": "defer",
+                "rationale": "No site-specific pigment recipe or documented predecessor established.",
+                "sources": [
+                  "oktaviana-2024-karampuang-scene Fig. 3 and extended data"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "faience-making-in-the-near-east-and-egypt",
+            "verdict": "defer",
+            "rationale": "No changed record. Glazed stone and synthetic quartz-body faience are distinct substrates; common burial with metal beads does not establish technique transfer. Baseline first_known and narrow converted chronology need independent specialist review, not reapproval.",
+            "claim_reviews": [
+              {
+                "path": "deferred connection",
+                "decision": "defer",
+                "rationale": "No demonstrated specific transmission or dependence.",
+                "sources": [
+                  "riccardelli-2017-egyptian-faience-technology introduction",
+                  "rehren-2013-years-old-egyptian p. 4786 Fig. 2"
+                ]
+              }
+            ]
+          }
+        ],
+        "additional_records": [
+          {
+            "id": "proto-sinaitic-writing-at-serabit-el-khadim",
+            "verdict": "accept",
+            "claim_reviews": [
+              {
+                "path": "identity, description, kind, domain, grain, concept, origin, places, known_from",
+                "decision": "accept",
+                "rationale": "Wilson-Wright p. 136 identifies sandstone sphinx, paired scripts, Semitic dedication and temple; Parker p. 269 identifies local consonantal writing. Origin unknown is appropriate.",
+                "sources": [
+                  "wilson-wright-2013-sinai-345 pp. 136–140",
+                  "parker-2022-serabit-chronology pp. 269–275"
+                ]
+              },
+              {
+                "path": "events.serabit-alphabetic-inscriptions.statement and date",
+                "decision": "accept",
+                "rationale": "Parker estimates local use c. 1850–1800 BCE, with typological placement of sphinx in Senwosret III reign; inscriptions are not directly dated, and broader scholarly disagreement is caveated. Wilson-Wright p. 136 reports both scripts, Hathor and the stable Baʿalat reading.",
+                "sources": [
+                  "parker-2022-serabit-chronology pp. 269–275",
+                  "wilson-wright-2013-sinai-345 pp. 136–140"
+                ]
+              },
+              {
+                "path": "earliest_record and research.unresolved",
+                "decision": "accept",
+                "rationale": "Identifies a named witness rather than the alphabet’s invention and leaves the origin and contact routes open.",
+                "sources": [
+                  "parker-2022-serabit-chronology pp. 269–275",
+                  "wilson-wright-2013-sinai-345 p. 136"
+                ]
+              },
+              {
+                "path": "links.egyptian-hieroglyphic-writing",
+                "decision": "accept",
+                "rationale": "Goldwasser pp. 130–132 and Table 13 compares Egyptian eye with Sinai signs; Höflmayer et al. p. 713 recognize eye D4 as source of ʿayin in independently excavated Lachish inscription, while citing overlapping prior comparative scholarship. The directed adaptation is graphic repertoire, not an identified transfer from an individual Abydos object or a specific carrier. Both endpoints inspected.",
+                "sources": [
+                  "goldwasser-2006-egyptian-sign-models pp. 130–132, Table 13",
+                  "hoflmayer-2021-lachish-alphabet pp. 711–714"
+                ]
+              }
+            ],
+            "duplicate_screen": "Search for Serabit, Proto-Sinaitic and early alphabet in discoveries returned only this proposed record. It is distinct from the Egyptian script source and localized to Serabit."
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "dreyer-2011-abydos-tomb-uj",
+            "path": "evidence/d/dreyer-2011-abydos-tomb-uj.pdf",
+            "sha256": "4368264ba2e62e1b682dcc75560623598e9af13695789f8a0e05fdc372991441",
+            "access": "local original full PDF pp. 127–135",
+            "independence": "excavator interpretation"
+          },
+          {
+            "source": "gorsdorf-dreyer-hartung-1998-abydos-radiocarbon",
+            "path": "evidence/g/gorsdorf-dreyer-hartung-1998-abydos-radiocarbon.pdf",
+            "sha256": "d62dc772f28736a7e1c3bb7097ab0cbddc5d421a4b511bda512a33d40e9cad76",
+            "access": "local original pp. 641–644",
+            "independence": "different dating method, same excavation and shared author Dreyer"
+          },
+          {
+            "source": "goldwasser-2006-egyptian-sign-models",
+            "path": "evidence/g/goldwasser-2006-egyptian-sign-models.pdf",
+            "sha256": "9dc8d52018858715707a7f17300c6faf9879ab0e9ac57d8832c381c3c5f94cf5",
+            "access": "local original pp. 130–132 and Table 13",
+            "independence": "separate comparison; overlapping cited scholarly genealogy with Lachish"
+          },
+          {
+            "source": "wilson-wright-2013-sinai-345",
+            "path": "evidence/w/wilson-wright-2013-sinai-345.pdf",
+            "sha256": "3585492f06bbb2b98a4d7c1162b157fad0824a3f1e6e3628df7ffc79b93f8f0e",
+            "access": "local original pp. 136–140",
+            "independence": "same sphinx, separate reading"
+          },
+          {
+            "source": "ozdogan-1999-early-metallurgy-cayonu",
+            "url": "https://ro.scribd.com/document/372776679/O-zdogan-1999-Archaeological-evidence-on-the-early-metallurgy-at-Cayonu-Tepesi",
+            "access": "original facsimile OCR Fig. 4 caption p. 20",
+            "independence": "distinct site and excavators from Gerzeh; research notes are not the original"
+          },
+          {
+            "source": "rehren-2013-years-old-egyptian",
+            "url": "https://arpi.unipi.it/retrieve/handle/11568/908268/345929/Arpi%20908268.pdf",
+            "access": "original online pp. 4785–4791",
+            "independence": "Petrie Museum samples; distinct analysis from Johnson"
+          },
+          {
+            "source": "johnson-2013-gerzeh-iron-bead",
+            "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/maps.12120",
+            "access": "original online abstract and Results",
+            "independence": "Manchester bead, separate group and laboratory"
+          },
+          {
+            "source": "parker-2022-serabit-chronology",
+            "url": "https://www.academia.edu/96844295/THE_PROTO_SINAITIC_INSCRIPTIONS_AT_SERABIT_EL_KHADIM_IN_THEIR_ARCHAEOLOGICAL_CONTEXT_DATE_AND_FUNCTION",
+            "access": "original online pp. 269–275",
+            "independence": "same sphinx, separate chronological assessment"
+          },
+          {
+            "source": "hoflmayer-2021-lachish-alphabet",
+            "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C73F769B7CF3A7E4E2607958A096B7D8/S0003598X2000157Xa.pdf/early-alphabetic-writing-in-the-ancient-near-east-the-missing-link-from-tel-lachish.pdf",
+            "access": "original online pp. 711–714",
+            "independence": "different excavated artifact, reliance on earlier comparative scholarship"
+          },
+          {
+            "source": "verhoeven-2023-hieratic",
+            "url": "https://escholarship.org/content/qt1fh2r94g/qt1fh2r94g.pdf?t=sevdo4",
+            "access": "original online pp. 4–6",
+            "independence": "different author, reproduces different fragment; relies on Tallet edition"
+          },
+          {
+            "source": "tallet-2014-wadi-el-jarf-papyri",
+            "url": "https://www.persee.fr/doc/bsfe_0037-9379_2014_num_188_1_1208",
+            "access": "p. 25 online",
+            "independence": "same excavator as 2026"
+          },
+          {
+            "source": "tallet-2026-wadi-el-jarf-archive",
+            "url": "https://uplopen.com/en/books/11807/files/ca85fd58-9241-4a16-b741-f7f525c92c56.pdf",
+            "access": "403, original unavailable to reviewer; requested local copy",
+            "independence": "original excavator"
+          },
+          {
+            "source": "regulski-2016-origins-egyptian-writing",
+            "url": "https://academic.oup.com/edited-volume/43506/chapter/364131674",
+            "access": "full original blocked; requested local copy",
+            "independence": "separate interpretation of same evidence"
+          },
+          {
+            "source": "w5-sehasseh-2021-bizmoune-shells",
+            "url": "https://pure.aber.ac.uk/ws/portalfiles/portal/50806584/sciadv.abi8620.pdf",
+            "access": "original online pp. 1–5",
+            "independence": "original assemblage"
+          },
+          {
+            "source": "Henshilwood et al. 2004",
+            "url": "https://in-africa.org/wp-content/uploads/2012/12/Henshilwood-et-al-2004-Science-Blombos-beads.pdf",
+            "access": "original online p. 404",
+            "independence": "different Blombos layer from 2011 study; overlapping authors"
+          },
+          {
+            "source": "henshilwood-2011-blombos-ochre",
+            "url": "https://icomos.ng/Publications/Henshilwood_et_al_2011_A_100ka_year_old_ochre_processing_workshop_at_Blombos_cave_SCIENCE.pdf",
+            "access": "original online pp. 219–221",
+            "independence": "different objects and level from beads, overlapping authors"
+          },
+          {
+            "source": "oktaviana-2024-karampuang-scene",
+            "url": "https://www.nature.com/articles/s41586-024-07541-7.pdf",
+            "access": "original online Fig. 3 and extended data",
+            "independence": "primary site and dating study"
+          },
+          {
+            "source": "riccardelli-2017-egyptian-faience-technology",
+            "url": "https://www.metmuseum.org/fr/essays/egyptian-faience-technology-and-production",
+            "access": "original online essay",
+            "independence": "museum synthesis; no separate early sample analysis"
+          },
+          {
+            "source": "tallet-2017-merer-logbooks-extract",
+            "url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/RedSea/WadiJarf-Tallet2017.pdf",
+            "path": "evidence/t/tallet-2017-merer-logbooks-extract.pdf",
+            "sha256": "a6d1fa42d890eeee702066c0a5f34a7b1f5cb68ffe26a3393bfc5025aa8f3a44",
+            "access": "Original publisher extract read PDF pp. 2, 5–8 and 16; not full edition",
+            "independence": "Primary edition, Verhoeven cites this edition for BIV; separate fragment and analyst, shared interpretive lineage."
+          }
+        ],
+        "issues": [
+          {
+            "path": "egyptian-hieroglyphic-writing.links.egyptian-papyrus-sheet-roll",
+            "required": "Current endpoint is explicitly an instance—the Hemaka roll—not the sheets used by Merer. Use a correctly scoped source-backed generic capability endpoint or remove/defer the edge while retaining documented local papyrus use."
+          },
+          {
+            "path": "egyptian-hieroglyphic-writing.events.abydos-uj-inscribed-tags.date and events.practical-use-wadi-el-jarf-logbooks",
+            "required": "Make original Regulski 2016 and Tallet 2026 available for independent review of precise cited claims, or replace/defer the unsupported portions using accessible originals."
+          }
+        ],
+        "unknowns": [
+          "Distinct sign variants, alphabet origin and routes are unsettled.",
+          "Bizmoune chronology and baseline priority require further work.",
+          "Several deferred cases lack evidence of specific transfer; that is not evidence transfer never occurred."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py; git diff --check BASE PROPOSAL",
+          "result": "Both passed; 907 discoveries, 1517 events, 245 links, no problems."
+        }
+      }
+    }
+  ],
+  "deleted_files": [
+    {
+      "path": "data/sources/r/regulski-2016-origins-egyptian-writing.json",
+      "status": "removed during repair; absent from final base diff"
+    },
+    {
+      "path": "data/sources/t/tallet-2026-wadi-el-jarf-archive.json",
+      "status": "removed during repair; absent from final base diff"
+    }
+  ],
+  "link_type_attestation": [
+    {
+      "type": "adapts",
+      "path": "proto-sinaitic-writing-at-serabit-el-khadim.links.egyptian-hieroglyphic-writing",
+      "judgment": "Vocabulary: modifies the other’s design. Record describes Egyptian sign repertoire and receiver is a local alphabetic writing practice; selected graphic forms modified with Semitic consonantal values fit. Graphic comparison is supported; no individual artifact, first location or carrier claimed."
+    },
+    {
+      "type": "same_principle",
+      "path": "gerzeh-meteoritic-iron-beads.links.native-copper-working-at-cayonu-tepesi",
+      "judgment": "Vocabulary: two rest on same documented principle. Instance and capability endpoints contain separately evidenced copper and iron beads formed by rolled hammered sheet. This is an affinity, not an asserted transmission or prerequisite."
+    },
+    {
+      "type": "requires",
+      "path": "egyptian-hieroglyphic-writing to egyptian-papyrus-sheet-roll",
+      "judgment": "Removed: vocabulary requires function of the other; Hemaka roll is a distinct instance. Jarf papyrus use remains sourced."
+    }
+  ]
 }
