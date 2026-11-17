@@ -30,7 +30,7 @@
     },
     {
       "id": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant",
-      "outcome": "established",
+      "outcome": "candidate",
       "finding": "Proposed a dated field description of the bench in Shelter 1, assigned to Early Natufian Layer II by Haklay and Gopher. The original laboratory identification of calcined plaster in a bench-like feature at the site remains undated and may concern a different feature. The new event adds architectural use to the existing adhesive, interpreted hearth and burial-plaster evidence.",
       "sources": [
         {
@@ -59,8 +59,8 @@
         {
           "from": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant",
           "to": "settled-village-life-among-natufian-foragers-in-the-levant",
-          "type": "uses_process",
-          "decision": "new-established"
+          "type": "companion_of",
+          "decision": "new-candidate"
         }
       ]
     },
@@ -159,8 +159,8 @@
     },
     {
       "id": "settled-village-life-among-natufian-foragers-in-the-levant",
-      "outcome": "established",
-      "finding": "Proposed a site-level uses_process link for a bench-like architectural feature at Eynan based on the direct laboratory identification of calcined plaster. The dated field description of the Shelter 1 bench is a separate observation. The link has no phase or event assignment. The sample's identity, the feature's function and any role of plaster in the transition to sedentary life remain unresolved.",
+      "outcome": "candidate",
+      "finding": "The evidence establishes burnt-lime plaster in a bench-like built feature at Eynan. The feature’s role in the settlement remains open. A companion_of candidate asks whether it was used in residential or communal life. The dated Shelter 1 field observation and undated sample 86-1 have no proven join.",
       "sources": [
         {
           "url": "https://repository.si.edu/server/api/core/bitstreams/90d7b2ae-44bf-4e69-909e-6315a31a861f/content",
@@ -183,13 +183,13 @@
           "note": "Original material analyses identify both anthropogenic burnt lime and natural calcium carbonate at different locations at Eynan. The paper does not identify a repeat test of the Eynan bench sample."
         }
       ],
-      "next": "Seek the Eynan collection documentation for sample 86-1 and test whether the named Shelter 1 can be identified as its source.",
+      "next": "Find the collection record for sample 86-1 and identify its original feature. Use the feature’s excavation and occupation sequence to test its function.",
       "connections": []
     },
     {
       "id": "altscherbitz-tenon-well-frame",
       "outcome": "established",
-      "finding": "Proposed a timber-preparation uses_process edge and a distinct regional production record. Altscherbitz preserved oak beams split radially and tangentially. Ostrov has separately excavated, earlier split oak planks from a grooved-post well, documenting the technique as a practice distinct from wedged tenon assembly. Tegel co-authored both studies, which examine different physical assemblages. The link is anchored to local beam use and does not assert transmission between sites.",
+      "finding": "The split-oak lining and its wedged-tenon supporting frame worked together in the same well assembly, as described in Tegel et al., Results and figs. 4–5. A companion_of relation now captures this observed arrangement. The authors explicitly describe a split basal frame for Eythra E1 in Text S1. At Altscherbitz their splitting analysis concerns the lining, leaving preparation of the four basal-frame members unresolved. The distinct Ostrov assemblage remains evidence of the earlier regional splitting process.",
       "sources": [
         {
           "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051374",
@@ -205,6 +205,11 @@
           "url": "https://af.exarc.net/issue-2015-2/ea/field-trials-neolithic-woodworking-relearning-use-early-neolithic-stone-adzes",
           "locator": "Field trials and Conclusions",
           "note": "Modern trials reconstruct log splitting and the Altscherbitz frame. They use the earlier excavation as a comparator, so they test feasibility without identifying the actual ancient tool."
+        },
+        {
+          "url": "https://doi.org/10.1371/journal.pone.0051374.s001",
+          "locator": "Text S1, The Well from Altscherbitz (A) and The Well from Eythra (E1)",
+          "note": "The supplement specifically identifies the split members of the Eythra E1 basal frame. It does not give an equivalent attribution for the four basal-frame timbers at Altscherbitz."
         }
       ],
       "next": "Find the basal-frame timber sample numbers and their grain orientations if a future claim needs to name which components were split in each direction.",
@@ -212,7 +217,7 @@
         {
           "from": "lbk-split-oak-well-timbers",
           "to": "altscherbitz-tenon-well-frame",
-          "type": "uses_process",
+          "type": "companion_of",
           "decision": "new-established"
         }
       ]
