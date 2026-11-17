@@ -1,7 +1,7 @@
 {
   "id": "asml-twinscan-early-193nm-immersion-scanners",
   "name": "ASML’s early TWINSCAN immersion scanners",
-  "description": "ASML adapted its dual-stage TWINSCAN optical lithography system for 193 nm water-immersion exposure. The prototype kept wafer measurement on a dry stage and projected the pattern through water on the exposure stage. The AT:1150i produced test patterns in 2003 and the related XT:1250i followed as a pre-production system.",
+  "description": "ASML adapted the dry TWINSCAN AT platform and a 193 nm AT:1150 projection lens for water-immersion exposure. The AT:1150i prototype retained measurement in air on one stage and used liquid handling to keep water in the exposure gap on the other. It produced test patterns in 2003. The XT:1250i followed as an early pre-production model.",
   "kind": "technology",
   "domain": "electronics.semiconductors",
   "grain": "improvement",
@@ -41,9 +41,100 @@
           "supports": "Identifies a test image of dense 90 nm lines and spaces and reports a depth-of-focus gain."
         },
         {
-          "source": "d2-immersion-gil-2005-immersion-microprocessors",
-          "locator": "Abstract",
-          "supports": "IBM independently confirms full-field 193 nm imaging capability in an early ASML immersion scanner through its own functional-chip experiment at Albany."
+          "source": "d3-dry-asml-2003-analyst-day",
+          "locator": "Exhibit 99.13, slides 30–39, AT:1150i imaging and proof of concept",
+          "supports": "ASML documents comparative dry and wet patterning on a modified AT platform with a converted 1150 lens."
+        }
+      ]
+    },
+    {
+      "id": "albany-research-installation",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2004,
+          "month": 8,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 2004-08-26",
+        "basis": "Albany NanoTech’s announcement reports that installation was already complete and qualification had begun."
+      },
+      "statement": "Albany NanoTech installed an AT:1150i in a 300 mm research cluster and began qualifying it.",
+      "scope": "An AT:1150i prototype at the University at Albany in New York.",
+      "evidence": [
+        {
+          "source": "d3-dry-albany-nanotech-2004-at1150i",
+          "locator": "Opening paragraph and paragraph beginning Under the program",
+          "supports": "The receiving research institute identifies the installed model, wafer size and intended research use."
+        },
+        {
+          "source": "d3-dry-lammers-2004-albany-scanner",
+          "locator": "Main text, paragraphs 1–4 and interview with IBM’s John Warlaumont",
+          "supports": "Contemporary reporting identifies the dry-scanner retrofit and IBM’s intended use for immersion defect studies."
+        }
+      ],
+      "places": [
+        "united-states"
+      ],
+      "place_note": "Albany NanoTech, Albany, New York."
+    },
+    {
+      "id": "preproduction-deliveries",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 2004,
+          "month": 7
+        },
+        "latest": {
+          "year": 2004,
+          "month": 12
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "Second half of 2004",
+        "basis": "ASML’s Form 20-F dates the group of pre-production deliveries to the second half of 2004."
+      },
+      "statement": "ASML delivered three pre-production immersion systems, two to research institutes and one to a commercial customer.",
+      "scope": "ASML-reported aggregate for pre-production system deliveries in the second half of 2004.",
+      "evidence": [
+        {
+          "source": "d3-dry-asml-2004-form-20f",
+          "locator": "Item 4.B, printed p. 14, Business Overview",
+          "supports": "Reports the count and recipient types and treats volume shipments as prospective."
+        }
+      ],
+      "caveats": "The aggregate leaves individual models and customers unassigned. It may include the Albany installation. Delivery and factory acceptance do not establish customer production use."
+    },
+    {
+      "id": "prototype-imaging-study",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2004,
+          "month": 12,
+          "day": 14
+        },
+        "latest": {
+          "year": 2004,
+          "month": 12,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2004-12-14",
+        "basis": "Publication date in IBM’s bibliographic record."
+      },
+      "statement": "An IBM-led collaboration reported that imaging tests on the 0.75-NA AT:1150i prototype confirmed a depth-of-focus gain with water immersion.",
+      "scope": "Imaging and defect assessment on the full-field 193 nm prototype.",
+      "evidence": [
+        {
+          "source": "d3-dry-gil-2004-immersion-imaging",
+          "locator": "Abstract and publication date",
+          "supports": "Names the model and test result. The published abstract does not give the magnitude of the gain."
         }
       ]
     }
@@ -57,8 +148,50 @@
     "basis": {
       "domain": "sourced",
       "grain": "sourced",
-      "events": "sourced"
+      "events": "sourced",
+      "links": "sourced"
     },
-    "note": "Covers the early AT/XT immersion programme. The prototype result and the later pre-production machine do not establish priority over other suppliers’ experiments or date volume production."
-  }
+    "note": "The early AT and XT models mark demonstrations, research deployment and pre-production shipments. The TSMC SRAM announcement identifies an ASML prototype but leaves the exact scanner model open."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "asml-twinscan-at1150-dry-arf-scanner",
+      "to_event": "prototype-imaging",
+      "status": "established",
+      "statement": "ASML converted an AT:1150 projection lens and adapted the dry TWINSCAN AT platform for the AT:1150i proof of concept. Separate stages kept wafer measurement in air and gave the exposure stage new liquid handling for scanning through water.",
+      "scope": "AT:1150i prototype optics, platform and measurement architecture.",
+      "contribution": [
+        "supplied_platform",
+        "supplied_component"
+      ],
+      "carrier": [
+        "institutional"
+      ],
+      "influence": "major",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "d3-dry-asml-2003-analyst-day",
+          "locator": "Exhibit 99.13, slides 38–39, and exhibit 99.2, Positive Immersion Program Results",
+          "supports": "The engineering presentation names the dry comparison instrument, converted 1150 lens and platform modifications. The release explains how the existing two stages divided wet exposure and dry measurement."
+        },
+        {
+          "source": "d2-immersion-asml-2004-immersion-development",
+          "locator": "Printed pp. 182–183, Immersion",
+          "supports": "ASML’s anniversary account describes the Veldhoven team’s adaptation of the AT:1150 lens and a TWINSCAN body."
+        },
+        {
+          "source": "d3-dry-lammers-2004-albany-scanner",
+          "locator": "Main text, paragraph 2 and interview with John Warlaumont",
+          "supports": "Independent contemporary reporting identifies the installed AT:1150i as a retrofit of the dry 1150, and IBM’s lithography director describes its role in investigating water-induced defects."
+        },
+        {
+          "source": "d3-dry-gil-2004-immersion-imaging",
+          "locator": "Abstract",
+          "supports": "Direct experiments led by a lithography user with supplier coauthors identify the AT:1150i prototype and confirm the imaging benefit. Optical component provenance comes from the other sources."
+        }
+      ]
+    }
+  ]
 }

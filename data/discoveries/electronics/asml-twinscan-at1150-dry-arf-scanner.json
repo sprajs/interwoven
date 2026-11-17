@@ -1,0 +1,95 @@
+{
+  "id": "asml-twinscan-at1150-dry-arf-scanner",
+  "name": "ASML’s dry 193 nm TWINSCAN AT:1150",
+  "description": "The dry TWINSCAN AT:1150 combined the TWINSCAN dual-stage layout with 193 nm argon fluoride projection optics. ASML listed it at a nominal 90 nm line width. Its optics and platform were later adapted for ASML’s AT:1150i immersion prototype.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "at1150-product-listing",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 2003,
+          "month": 3,
+          "day": 14
+        },
+        "latest": {
+          "year": 2003,
+          "month": 3,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2003-03-14",
+        "basis": "The SEC filing date for ASML’s fiscal 2002 Form 20-F."
+      },
+      "statement": "ASML’s product table listed the AT:1150 as a 193 nm ArF scanner for a nominal 90 nm line width.",
+      "scope": "Manufacturer’s product listing for the dry AT:1150.",
+      "evidence": [
+        {
+          "source": "d3-dry-asml-2002-form-20f",
+          "locator": "Item 4.B, printed p. 12, product portfolio table",
+          "supports": "Lists the AT:1150 and its nominal feature size and wavelength and identifies AT as TWINSCAN."
+        },
+        {
+          "source": "d3-dry-asml-2003-analyst-day",
+          "locator": "Exhibit 99.13, slides 38–39",
+          "supports": "Identifies the AT:1150 as the dry scanner and gives a dry-to-wet imaging comparison."
+        }
+      ],
+      "caveats": "The filing dates the documented specification. The exact introduction, first shipment and first production use remain unresolved."
+    }
+  ],
+  "earliest_record": {
+    "event": "at1150-product-listing",
+    "rationale": "The March 2003 filing is the earliest unambiguous AT:1150 product listing located in this research."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "note": "Distinguishes the AT:1150 from the PAS 5500/1150 listed alongside it. The 90 nm line width is a manufacturer specification."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "asml-twinscan-dual-wafer-stage",
+      "status": "established",
+      "statement": "The dry AT:1150 used the dual-stage TWINSCAN AT platform already shipped in the 248 nm AT:750. The platform provided the separation of wafer measurement and exposure for an ArF projection scanner.",
+      "scope": "Shared AT platform and division of wafer operations.",
+      "contribution": [
+        "supplied_platform"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "d3-dry-asml-2000-dual-stage-announcement",
+          "locator": "Exhibit p. 1, paragraph describing the launch models and the ArF roadmap",
+          "supports": "Identifies the AT:750 as a dual-stage KrF model and the platform plan for ArF."
+        },
+        {
+          "source": "d3-dry-asml-2002-form-20f",
+          "locator": "Item 4.B, printed p. 12, product portfolio table",
+          "supports": "Places AT:750 and AT:1150 in the same TWINSCAN product platform under distinct light sources."
+        },
+        {
+          "source": "d3-dry-asml-2003-analyst-day",
+          "locator": "Exhibit 99.2, Positive Immersion Program Results, and exhibit 99.13, slide 39",
+          "supports": "Describes separate measurement and exposure in the existing dual-stage platform and identifies the AT platform used for the later AT:1150 conversion."
+        },
+        {
+          "source": "d3-dry-edn-2001-at750-shipment",
+          "locator": "Main text, AT:750 and AT:1100 paragraphs",
+          "supports": "Contemporary coverage separately identifies the 248 nm model’s dual operations and the 193 nm AT:1100 implementation of that platform. It does not identify AT:1150 component ancestry."
+        }
+      ],
+      "caveats": "This is a platform relationship. Which AT:1100 or AT:750 components carried into the dry AT:1150 remains unresolved."
+    }
+  ]
+}

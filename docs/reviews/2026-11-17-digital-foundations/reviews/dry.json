@@ -1,0 +1,84 @@
+{
+  "lane": "dry",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "c626bdb6cd241a7b6a4889a88ab25b4f9b576432",
+  "proposal": "6c7a3a942bb4fae20deef81c25b687a3c9f49bf5",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/asml-twinscan-at1150-dry-arf-scanner.json": "e7ad0c8493d6b622cbf3c66d67ece631eb7be000b5661b3c78ff977e556effec",
+    "data/discoveries/electronics/asml-twinscan-dual-wafer-stage.json": "171453dcaf2e3a56ca1e0d4dc4cde705497cefcc619c405a524edf3828854413",
+    "data/discoveries/electronics/asml-twinscan-early-193nm-immersion-scanners.json": "2b059f44f4ef4a52b05c3a7f10c3c67727797802ae0a8b42026f3a55151ec915",
+    "data/sources/d/d3-dry-albany-nanotech-2004-at1150i.json": "984fe16072677996894d67f610d630efca91b9dd51da875f6c64f48ca9b1ee02",
+    "data/sources/d/d3-dry-asml-2000-dual-stage-announcement.json": "ece6488f0b93056d144585344d78562de1c7f470eb2856c65923adbcad765a5e",
+    "data/sources/d/d3-dry-asml-2001-at750-shipment.json": "abe1b47e992d49c682157c75c3bf1fe9c2116dcf54eb402e66925b2428808a43",
+    "data/sources/d/d3-dry-asml-2002-form-20f.json": "4b962b9cf3fc90e8006bde5c8a5c97bb2e983c43204a1e5dcc3149ddd3bfea11",
+    "data/sources/d/d3-dry-asml-2003-analyst-day.json": "61bf8889065580d6fcc50dad05c87b4a2026c641b80e3886a5b6ad79feba7724",
+    "data/sources/d/d3-dry-asml-2004-form-20f.json": "0abbcd71aecce2cb9808aeef2124298d9ba36136baf406ac92f144f6fccd6175",
+    "data/sources/d/d3-dry-edn-2001-at750-shipment.json": "b1d2b1da80c09b921ce055a3e48c3c3caa236abb2797131b3a17269d577d3a1c",
+    "data/sources/d/d3-dry-gil-2004-immersion-imaging.json": "0f4a982e184163c0cf78637a7393ed49cf0fe2ad067d9ab08d4bd8c277da1131",
+    "data/sources/d/d3-dry-lammers-2004-albany-scanner.json": "e3ba2da9004ff08429c2844449616b81c4456738d98d7dc4b22d359dbde0a009",
+    "docs/reviews/2026-11-17-digital-foundations/lanes/dry.json": "126fc0054940e00f660bcc03e2364a358148d36a99fb3c7710ad28914b5ef554"
+  },
+  "claims": [
+    {
+      "path": "asml-twinscan-dual-wafer-stage identity, description and events.dual-stage-disclosure",
+      "decision": "accept",
+      "reason": "Inspected original ASML 6 December 2000 Tokyo release preserved at Western Digital Exhibit 1016 p. 1, including AT:750 KrF and AT:400 i-line, stage exchange and future ArF; EDN 6 December reports the same announcement. Disclosure date does not date first operation."
+    },
+    {
+      "path": "asml-twinscan-dual-wafer-stage events.at750-production-unit-shipment",
+      "decision": "accept",
+      "reason": "ASML 16 September 2001 release indexed text reports shipment of an AT:750 to TSMC for planned Fab 12 installation; EDN 20 September independently reports that shipment while attributing details to ASML. Installation and production use of that model remain undated."
+    },
+    {
+      "path": "asml-twinscan-at1150-dry-arf-scanner identity and events.at1150-product-listing",
+      "decision": "accept",
+      "reason": "ASML 2002 Form 20-F, Item 4.B product table, p. 12, lists AT:1150 in the 193 nm ArF and 90 nm linewidth row. 2003 Analyst Day exhibit 99.13 slide 38 compares the dry AT:1150 with wet AT:1150i. This dates the product listing rather than first launch or use."
+    },
+    {
+      "path": "asml-twinscan-at1150-dry-arf-scanner links.asml-twinscan-dual-wafer-stage",
+      "decision": "accept",
+      "reason": "ASML 2000 release p. 1 defines the dual-stage platform; 2002 Form 20-F table places both named scanners in TWINSCAN AT family; ASML 2003 Analyst Day exhibit 99.13 slide 39 identifies the converted 1150 lens and AT platform. EDN 20 September 2001 independently identifies an ArF AT:1100 as dual-stage implementation. This is a platform relationship, not component-level descent from the AT:750 or AT:1100."
+    },
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners description and events.prototype-imaging extension",
+      "decision": "accept",
+      "reason": "ASML 2003 Analyst Day exhibit 99.13 slides 38–39 identifies the dry AT:1150 comparison, converted lens and AT platform; existing ASML anniversary chapter 6 pp. 182–183 gives modification and October 2003 demonstration. Existing SEC Semicon Japan slides 11–12 show 90 nm patterns."
+    },
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners events.albany-research-installation",
+      "decision": "accept",
+      "reason": "Albany NanoTech and ASML 26 August 2004 SEC exhibit 99.2 opening and Under the program paragraphs identify 300 mm installation and qualification of AT:1150i. Lammers, EDN 30 August, corroborates installation. Date is an upper bound, not the start of production."
+    },
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners events.preproduction-deliveries",
+      "decision": "accept",
+      "reason": "ASML fiscal 2004 Form 20-F Item 4.B p. 14 reports two pre-production systems delivered to research institutes and one to a commercial customer in second half of 2004. No assignment to models or recipients is made."
+    },
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners events.prototype-imaging-study",
+      "decision": "accept",
+      "reason": "Gil et al., 14 December 2004, IBM Research publication abstract directly reports experimental depth-of-focus improvement on the ASML 0.75-NA AT1150i; the team includes ASML coauthors. No numerical improvement is claimed."
+    },
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners links.asml-twinscan-at1150-dry-arf-scanner",
+      "decision": "accept",
+      "reason": "ASML 2003 Analyst Day exhibit 99.13 slides 38–39 specifies converted 1150 lens and AT platform, and exhibit 99.2 describes dual-stage dry measurement and wet exposure; chapter 6 pp. 182–183 gives the company account. Lammers EDN 30 August 2004 independently reports that the 1150 started dry and was converted for immersion; his retrofit statement is not attributed to the quoted IBM interviewee. IBM-led Gil abstract documents experimental use but does not establish component provenance. Established link is restricted to this prototype and modifications."
+    },
+    {
+      "path": "source records and lane report",
+      "decision": "accept",
+      "reason": "Inspected original USPTO-hosted manufacturer release via local PDF, ASML SEC filings and presentations, Albany NanoTech SEC release, Gil IBM abstract, Lammers and EDN shipment articles, and the indexed 2001 ASML text. Compared existing immersion discovery events and TSMC instrument link and searched baseline for matching AT:1150 and dry dual-stage nodes. New events extend the existing programme rather than duplicating the 2003 demonstration."
+    }
+  ],
+  "corrections": [
+    "The original 2000 release was independently inspected from a browser-agent download after the default request received 403; the exact 6 December date is scoped to the release.",
+    "Earlier source discussions distinguished the AT:700S single-stage platform from the dual-stage AT:750 and corrected possible reliance on the 2021 retrospective’s conflicting immersion chronology."
+  ],
+  "deferred": [
+    "Exact dry AT:1150 launch and shipment; inherited components from AT:1100 and PAS 5500.",
+    "Exact scanner model used in TSMC 2004 SRAM trial; production use following Albany installation.",
+    "Priority beyond the bounded ASML platform and specific component-level transfer."
+  ]
+}

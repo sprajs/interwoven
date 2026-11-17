@@ -1,0 +1,92 @@
+{
+  "id": "asml-twinscan-dual-wafer-stage",
+  "name": "ASML’s dual-stage TWINSCAN platform",
+  "description": "ASML built a lithography platform on which two wafer stages could work in parallel. One wafer was measured and aligned while the other was exposed. The stages then exchanged positions. Early models included the AT:750 for 248 nm krypton fluoride exposure and the AT:400 for i-line exposure.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "dual-stage-disclosure",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2000,
+          "month": 12,
+          "day": 6
+        },
+        "latest": {
+          "year": 2000,
+          "month": 12,
+          "day": 6
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2000-12-06",
+        "basis": "The date line of the manufacturer’s announcement."
+      },
+      "statement": "ASML announced the dual-wafer-stage configuration of TWINSCAN at SEMICON Japan.",
+      "scope": "Introduction of the AT:750 and AT:400 dual-stage configuration.",
+      "evidence": [
+        {
+          "source": "d3-dry-asml-2000-dual-stage-announcement",
+          "locator": "Exhibit p. 1, dateline and opening five paragraphs",
+          "supports": "Names the two dual-stage products, the two operations carried out in parallel, and the planned shipment window."
+        },
+        {
+          "source": "d3-dry-edn-2001-at750-shipment",
+          "locator": "Main text, description of SEMICON Japan",
+          "supports": "Contemporary trade reporting puts the earlier dual-stage disclosure in December 2000 and distinguishes the single-stage announcement earlier in 2000."
+        }
+      ]
+    },
+    {
+      "id": "at750-production-unit-shipment",
+      "type": "transmission",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2001,
+          "month": 9,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 2001-09-16",
+        "basis": "Date of ASML’s announcement of an already shipped unit."
+      },
+      "statement": "ASML shipped a production dual-stage AT:750 to TSMC for installation at Fab 12 in Hsinchu.",
+      "scope": "Shipment of an AT:750 production unit to Taiwan.",
+      "evidence": [
+        {
+          "source": "d3-dry-asml-2001-at750-shipment",
+          "locator": "Dateline and main text, paragraphs 1–4",
+          "supports": "Identifies the first production-model shipment, the recipient and the intended installation."
+        },
+        {
+          "source": "d3-dry-edn-2001-at750-shipment",
+          "locator": "Main text, opening and Fab 12 paragraphs",
+          "supports": "Reports the same shipment and intended site."
+        }
+      ],
+      "places": [
+        "taiwan"
+      ],
+      "place_note": "Fab 12, Hsinchu.",
+      "caveats": "The shipment announcement leaves the dates of installation and production use open."
+    }
+  ],
+  "earliest_record": {
+    "event": "dual-stage-disclosure",
+    "rationale": "The dated manufacturer disclosure documents the specific dual-stage arrangement."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "note": "The record concerns dual independent wafer stages. The earlier single-stage AT:700S belongs to the wider TWINSCAN family."
+  }
+}
