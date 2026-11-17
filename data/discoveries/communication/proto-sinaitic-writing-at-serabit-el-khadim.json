@@ -1,0 +1,117 @@
+{
+  "id": "proto-sinaitic-writing-at-serabit-el-khadim",
+  "name": "Proto-Sinaitic alphabetic writing at Serabit el-Khadim",
+  "description": "Inscriptions from Serabit el-Khadim use an early consonantal alphabet to write a Semitic language. They include alphabetic dedications on a sandstone sphinx that also bears an Egyptian hieroglyphic inscription.",
+  "kind": "practice",
+  "domain": "communication.language-writing",
+  "grain": "capability",
+  "concept": "writing",
+  "origin": "unknown",
+  "places": [
+    {
+      "place": "egypt",
+      "note": "Temple and mine inscriptions at Serabit el-Khadim in the Sinai Peninsula"
+    }
+  ],
+  "known_from": [
+    "archaeological_find",
+    "surviving_artifact"
+  ],
+  "events": [
+    {
+      "id": "serabit-alphabetic-inscriptions",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -1850
+        },
+        "latest": {
+          "year": -1800
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "c. 1850–1800 BCE (estimated local use)",
+        "basis": "Parker’s approximate range for local Proto-Sinaitic use rests on dated Egyptian associations and stylistic assessment. The British Museum dates the sphinx to about 1800 BCE."
+      },
+      "statement": "The sandstone sphinx Sinai 345 (British Museum EA41748) has a hieroglyphic inscription naming Hathor and inscriptions in an early Semitic alphabet. Scholars read a dedication to Baʿalat, ‘the Lady’, in the alphabetic text.",
+      "places": [
+        "egypt"
+      ],
+      "place_note": "Hathor temple at Serabit el-Khadim in southern Sinai",
+      "caveats": "The readings of some signs and the precise chronology remain disputed. The find documents local use of the script.",
+      "evidence": [
+        {
+          "source": "british-museum-2022-hieroglyphs-unlocking-ancient",
+          "locator": "printed pp. 101–102, sandstone sphinx EA41748",
+          "supports": "Identifies sandstone sphinx, findspot, the two scripts and approximate date."
+        },
+        {
+          "source": "wilson-wright-2013-sinai-345",
+          "locator": "pp. 136–140, figs. 1–4",
+          "supports": "Analyzes both scripts on Sinai 345 and preserves the stable reading of the dedication while proposing a new reading of the surrounding text."
+        },
+        {
+          "source": "parker-2022-serabit-chronology",
+          "locator": "pp. 269–275, figs. 1–4",
+          "supports": "Uses Egyptian comparanda and archaeological context to assess the date of the sphinx and related local inscriptions."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "serabit-alphabetic-inscriptions",
+    "rationale": "A named surviving witness to this local writing practice. The date is approximate and dates a witness of use."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "egyptian-hieroglyphic-writing",
+      "to_event": "serabit-alphabetic-inscriptions",
+      "status": "established",
+      "statement": "The early alphabet attested at Serabit adapted selected Egyptian sign forms to represent consonants in a Semitic language. Palaeographic comparisons identify the Egyptian eye sign as a model for the consonant ʿayin, from the Semitic word for ‘eye’.",
+      "scope": "Adaptation of selected sign forms in the early alphabet. The comparison concerns the Egyptian sign repertoire and has no identified individual exemplar.",
+      "timing": "The local witness is Middle Bronze Age. The place and date of the first adaptation are unresolved.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "goldwasser-2006-egyptian-sign-models",
+          "locator": "pp. 130–132, 140–141 and Table 13a–e (pp. 154–155)",
+          "supports": "Compares Egyptian eye D4 with Serabit examples of ʿayin and describes the reuse of shapes with new consonantal values. Some specific variant prototypes are uncertain."
+        },
+        {
+          "source": "wilson-wright-2013-sinai-345",
+          "locator": "pp. 136–141, figs. 1–5",
+          "supports": "Reads the consonantal dedication invoking Baʿalat on the sphinx alongside the Egyptian inscription invoking Hathor."
+        },
+        {
+          "source": "hoflmayer-2021-lachish-alphabet",
+          "locator": "pp. 711–714, Fig. 7 and first-line reading",
+          "supports": "Independently excavated, later sherd supplies a separate early alphabetic example of the eye-shaped consonant ʿayin linked to Egyptian D4 by the authors."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "places": "sourced",
+      "known_from": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "origin": "unknown"
+    },
+    "unresolved": [
+      {
+        "about": "open question",
+        "note": "Which, if any, of the Serabit and Wadi el-Hol inscriptions came first? Chronology, local adaptation and the place of origin require distinct evidence."
+      },
+      {
+        "about": "open question",
+        "note": "Which users adapted the Egyptian signs, which regional script forms did they encounter, and how did this practice move between communities? Evidence of a shared sign form leaves those steps open."
+      }
+    ]
+  }
+}
