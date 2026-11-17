@@ -17,3 +17,5 @@ The matching current record already describes the technique and has a contextual
 - Defer the calendar dates of Section 11, wider prevalence of this exact wall reuse, identities of builders, transmission, and the cause of abandonment. Securely associated dates and a stratigraphic link with other excavated fields could test the extent and timing of canal reuse and cessation.
 
 Validation passed. All 169 Python tool tests passed. The three cached PDFs matched their recorded hashes, and the browser data build exposed the revised Engaruka detail with the abandonment event.
+
+The first independent review requested removal of the discovery-wide abandonment facet. The abandonment event covers deliberate sediment capture, and Stump reports that irrigated farming continues today.
