@@ -1,0 +1,159 @@
+{
+  "lane": "grain",
+  "base": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "records": [
+    {
+      "id": "chogha-golan-emmer-cultivation",
+      "outcome": "deferred",
+      "finding": "The existing record matches the domestication-type emmer occurrence in horizon II at about 9800 cal BP. Added primary analysis of earlier wild grass assemblages and retained uncertainty about how those grasses were gathered or managed. Excavators’ interpretations differ over pre-domestication cultivation. No earlier site-level cultivation node, origin of the emmer, or transfer into later records such as Giza’s emmer bread is established.",
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23828939/",
+          "locator": "Riehl et al. 2013, Abstract",
+          "note": "Early publication of the 2009–2010 excavation results. Documents the approximate late appearance of domestic-type emmer."
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5749723/",
+          "locator": "Weide et al. 2018, Chogha Golan, Sampling and laboratory methods, Wild grasses in the subsistence of Chogha Golan, and Conclusion",
+          "note": "Adds 23 samples for horizons VII to III and reuses 15 previously analyzed horizon II samples. Earlier local wild grasses may have been harvested from naturally occurring or disturbed stands."
+        },
+        {
+          "url": "https://downloads.hindawi.com/journals/bmri/2015/532481.pdf",
+          "locator": "Riehl et al. 2015, Abstract and Discussion",
+          "note": "Uses ecological and stratigraphic evidence from the same site. Cultivation is one interpretation of the wild barley size and isotope pattern."
+        },
+        {
+          "url": "https://www.willcoxpages.fr/pdf/WillcoxDouchePaleorient2018.pdf",
+          "locator": "Douché and Willcox 2018, fig. 6",
+          "note": "An external comparison questions interpreting the percentage of domestic emmer bases as a domestication onset. Its plotted Chogha Golan figures are taken from the earlier study."
+        }
+      ],
+      "next": "Seek directly associated cultivation surfaces or calibrated seed-context series that discriminate locally sown wild cereals from harvesting natural stands, and geographically matched lineage evidence for arrival or onward transmission of the emmer.",
+      "connections": []
+    },
+    {
+      "id": "dhra-raised-floor-granary",
+      "outcome": "deferred",
+      "finding": "Kept one Structure 4 raised-floor record. Added independently informative plant remains from the same excavation to its interpretation. Floor phytoliths and charred barley above the floor support association with cereal storage, with the contents and quantity during use unresolved. The floor supports belong to the same architectural observation. A Dhra-to-Tell Aswad pathway or narrower proof that any particular harvest was stored here is unavailable.",
+      "sources": [
+        {
+          "url": "https://doi.org/10.1073/pnas.0812764106",
+          "locator": "Kuijt and Finlayson 2009, p. 10967, Granaries at Dhra′, figs. 2–3",
+          "note": "Original excavation report on the inferred floor supports and preliminary detection of barley husk phytoliths in the mud floor."
+        },
+        {
+          "url": "https://www.researchgate.net/publication/322562142_New_insights_on_plant_domestication_production_intensification_and_food_storage_the_archaeobotanical_evidence_from_PPNA_Dhra",
+          "locator": "Colledge and Conolly, 17 January 2018 online version, Dhra′ cereal densities, context 2134 and table 5",
+          "note": "Separate charred plant sample from above the floor within the same structure, not a repeat identification of the floor phytoliths. The hosted online text has the older title and two authors."
+        }
+      ],
+      "next": "Seek primary storage deposits associated with specific use surfaces, direct dates of their contents, and matching local crop or harvesting-tool evidence.",
+      "connections": []
+    },
+    {
+      "id": "ohalo-wild-grain-gathering-and-grinding",
+      "outcome": "candidate",
+      "finding": "Proposed a distinct site instance of hafted cereal cutting, based on blade wear. Existing Ohalo II gathering and grinding includes a separate in situ slab and wild grain assemblage. Near-ripe stem wear and predominantly ripe recovered grains leave the link from that harvesting method to the processed grains open. The catalogue’s open multi-insert sickle lead encompasses a stronger claim above the scope of the Ohalo evidence.",
+      "sources": [
+        {
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+          "locator": "Groman-Yaroslavski et al. 2016, Results, figs. 5–6, and Discussion",
+          "note": "Publisher PDF retained via checksum descriptor. Two blades show inferred hafting wear and other analyzed blades appear hand-held. Use-wear is from different specimens than starch or grain finds."
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC470712/",
+          "locator": "Weiss et al. 2004, Plant remains and discussion of the hut grinding stone",
+          "note": "Separate macrobotanical and spatial evidence for use of wild cereals. Overlapping team."
+        },
+        {
+          "url": "https://doi.org/10.1017/S0003598X00048201",
+          "locator": "Nadel et al. 2012, article extract",
+          "note": "Starch residues on the same grinding slab previously studied by Piperno et al. The characterization of routine processing is tempered by Dubreuil and Nadel’s separate 2015 wear analysis of that slab."
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4614720/",
+          "locator": "Dubreuil and Nadel 2015, Discussion and conclusion",
+          "note": "Use-wear indicates plant material processing. It is consistent with occasional rather than intensive flour production."
+        }
+      ],
+      "next": "Look for taxonomically diagnostic residues and secure contexts linking particular harvested batches to their processing. A separate sequence and carrier would be needed for any transmission to later Natufian practices.",
+      "connections": [
+        {
+          "from": "ohalo-hafted-blade-cereal-harvesting",
+          "to": "ohalo-wild-grain-gathering-and-grinding",
+          "type": "uses_process",
+          "decision": "new-candidate"
+        }
+      ]
+    },
+    {
+      "id": "shubayqa-bread-like-food",
+      "outcome": "established",
+      "finding": "Proposed the Early Natufian ground stone processing practice as a distinct instance and a scoped uses_process edge. The grinding and pounding wear on tools and the fine plant particles within charred foods make independent archaeological observations within the same excavation. Only the ingredient-reduction step is claimed. The specific tools used for individual pieces and the route to later baking traditions remain unresolved.",
+      "sources": [
+        {
+          "url": "https://www.researchgate.net/publication/405124317_From_Stone_to_Food_Foodways_and_Ground_Stone_Tools_During_the_Natufian_and_Early_Neolithic_of_Eastern_Jordan",
+          "locator": "Pedersen et al. 2026, §§3.1 and 4.1, table 2 and fig. 4",
+          "note": "Publisher-hosted article copy on ResearchGate. Early Natufian tool evidence identifies plausible contact materials from a small sample. The article compares wear on the tools with separate food fragments of the same broad occupation. Full residue results were pending."
+        },
+        {
+          "url": "https://doi.org/10.1073/pnas.1801071115",
+          "locator": "Arranz-Otaegui et al. 2018, The Chaîne Opératoire for the Production of Bread-Like Products in Shubayqa 1 and SI Appendix table S2",
+          "note": "Food-fragment microscopy and particle sizes support fine ingredient preparation. A shared excavation and two overlapping authors do not make the archaeological tools and food fragments the same sample."
+        },
+        {
+          "url": "https://journals.ed.ac.uk/lithicstudies/article/view/1647",
+          "locator": "Pedersen et al. 2016, Abstract and Conclusions",
+          "note": "Earlier tool study treated the Late Natufian phase. It was not suitable to establish exact contemporary tool use for the Early Natufian breads."
+        }
+      ],
+      "next": "Seek published residue results and tighter context-level dates to attribute material to particular tools. Direct transmission from Ohalo II or onward to Giza remains undocumented.",
+      "connections": [
+        {
+          "from": "shubayqa-early-natufian-grinding-and-pounding",
+          "to": "shubayqa-bread-like-food",
+          "type": "uses_process",
+          "decision": "new-established"
+        },
+        {
+          "from": "ohalo-wild-grain-gathering-and-grinding",
+          "to": "shubayqa-bread-like-food",
+          "type": "transmitted_from",
+          "decision": "deferred"
+        },
+        {
+          "from": "shubayqa-bread-like-food",
+          "to": "mould-baked-leavened-bread-at-old-kingdom-giza",
+          "type": "transmitted_from",
+          "decision": "deferred"
+        }
+      ]
+    },
+    {
+      "id": "tell-aswad-domestic-barley",
+      "outcome": "deferred",
+      "finding": "Amended the archaeological event to phase AW2, about 8200–7500 cal BCE, using the original secure-context reanalysis. Wild barley remains predominate. Removed the earlier general percentage from the evidence for the dated event because the older and revised phasing and sample selections differ. AW3 storage came later. No matched precursor harvest regime or transmission to Tell Aswad is established.",
+      "sources": [
+        {
+          "url": "https://www.willcoxpages.fr/pdf/WillcoxDouchePaleorient2018.pdf",
+          "locator": "Douché and Willcox 2018, pp. 47–50, table 1, Results and fig. 5",
+          "note": "Primary reanalysis with revised AW1 and AW2 phasing and secure context filter, partially overlapping the earlier samples and team."
+        },
+        {
+          "url": "https://www.willcoxpages.fr/pdf/WillcoxTannoVHA2012.pdf",
+          "locator": "Tanno and Willcox 2012, p. 113, Aswad and Ramad discussion",
+          "note": "Earlier estimate placed domestic forms in the earliest samples. The later study specifically revises the substantial domestic-type share from AW1 to AW2."
+        },
+        {
+          "url": "https://www.journals.uchicago.edu/doi/10.1086/659307",
+          "locator": "Zeder 2011, Cereals",
+          "note": "Older synthesis gives about 35% non-shattering barley across a rounded context span. It is not an independent sample or the scope of the revised AW2 result."
+        }
+      ],
+      "next": "Seek direct context-level co-occurrence of secure AW2 diagnostic rachises with a particular harvesting or sowing regime. Test seed exchange with dated assemblages and lineage evidence before assigning any place of domestication.",
+      "connections": []
+    }
+  ]
+}
