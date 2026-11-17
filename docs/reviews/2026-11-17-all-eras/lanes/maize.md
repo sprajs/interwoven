@@ -17,3 +17,7 @@ Base `612d88b398f13b6a74ae3126db6801ebabce3178`. Proposal research by `gpt-6.2-s
 Short attributed reading notes retain the visited source versions and passages for both Maya studies. The Matsuoka PDF uses a checksum-verified cache descriptor. The Johnson and Marston PDF fetched at the existing recorded hash.
 
 Checks passed in the lane: `python3 tools/validate.py`, `git diff --check`, PDF cache verification for Matsuoka and `python3 tools/build.py` to a temporary output directory. No application code changes.
+
+## Revision after independent review
+
+The San Bartolo anchor now dates the deposits that likely contain discarded cooking liquid. The precise site of preparation remains unknown. The Nahua entry is classified as a local instance, with the inherited broader Mesoamerican impact score and tier removed. The available sources leave the later history of this Nahua practice open. The Xihuatoxtla link remains a candidate.
