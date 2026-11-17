@@ -1,0 +1,76 @@
+{
+  "lane": "kirin",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "c626bdb6cd241a7b6a4889a88ab25b4f9b576432",
+  "proposal": "232e2ef34b480b43f83279bc55b6c503289d8379",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/hisilicon-kirin-950-soc.json": "bc3ee7672bad69462a95714c04534db9496a5fdf1df51dc9226b5a63a186b2d7",
+    "data/discoveries/electronics/tsmc-16ff-finfet-process.json": "3cd71597e52ef4a18cb786f1bfcfdc4e8f8f8d922fd08faabe0ff2bde154ba60",
+    "data/discoveries/electronics/tsmc-16ff-plus-finfet-process.json": "dd82597e9cf8daf7bbea970fa69f7111f63a0363fb7369d44c27646618f846ef",
+    "data/sources/d/d3-kirin-benchlife-2015-kirin-950-briefing.json": "c7427b7d02126b60c61a3b440d1786385358b131edbda965ff68c252cd83b224",
+    "data/sources/d/d3-kirin-hisilicon-kirin-950-specifications.json": "e547e756a9211f81167e64b158654ecc2ea81c8f1f97cf84e0194e939f180dc2",
+    "data/sources/d/d3-kirin-huawei-2016-mate-8-china-sales.json": "982b0ba11060d158d8abd08c7526057bd8611094bc81ef264298db0e1077e05b",
+    "data/sources/d/d3-kirin-myfixguide-2015-mate-8-disassembly.json": "52f7e7e7a7f77488ed01d87b493055aa34d460299c40632704061c39f7af60ec",
+    "data/sources/d/d3-kirin-techinsights-2016-apple-a9-16ff-analysis.json": "a03faf3d26919ef008552d434dd2839c55e409941edb238b26193a760176aca9",
+    "data/sources/d/d3-kirin-techinsights-2017-kirin-950-analysis.json": "2752d533127be2bce1b578f16db9de174c002ac7cc8359541bd77a319db66213",
+    "data/sources/d/d3-kirin-thepaper-2015-mate-8-shanghai-unveiling.json": "a51bc671df546839cb39fcaecba6d251f2aa49a7c11870e2562daef6064d9912",
+    "data/sources/d/d3-kirin-tsmc-2014-16ff-networking-silicon.json": "0551663e99fe6adba49dfdd3c4b497b5c5b035eb046de0f10883e2a2238facbc",
+    "data/sources/d/d3-kirin-tsmc-2014-16ff-plus-risk.json": "2f3fcd0a2bfc0bca55c26469f040a66096ae26d4c7291ef90420d0ae40f07a82",
+    "data/sources/d/d3-kirin-tsmc-2014-q3-16ff-risk.json": "b274f1c4df9e213d82080898bcfb765ab5ac610f3e015027632bc9f44c1fd2eb",
+    "data/sources/d/d3-kirin-tsmc-2015-annual-report-16ff-plus.json": "b8c8fb54598f36b15a951204b835dfea08db07b4b6dfe9952ef8a06dd6fe134a",
+    "data/sources/d/d3-kirin-wu-2014-iedm-16ff-plus.json": "bd5bbad16987172adb69525f1da31d1edf2f7c019b5914f85f60c9cbbdb32a24",
+    "docs/reviews/2026-11-17-digital-foundations/lanes/kirin.json": "b7a694b505b92a1ae4c22a7d02b2f37521a0c048c9eccff0ebb2fcfea39becb8"
+  },
+  "claims": [
+    {
+      "path": "tsmc-16ff-finfet-process identity and events",
+      "decision": "accept",
+      "reason": "TSMC Q3 2014 transcript p. 5 dates 16FF risk production November 2013; TSMC 25 September 2014 release reports functioning 32-core HiSilicon networking processor with 16FF logic and 28nm I/O. Event is disclosure, not claimed date of manufacture. The separate Kirin 950 is a mobile SoC, not that processor."
+    },
+    {
+      "path": "tsmc-16ff-plus-finfet-process identity and events",
+      "decision": "accept",
+      "reason": "TSMC transcript p. 5 says 16FF+ entered risk production since first-stage qualification on 7 October and by call date 16 October 2014. TSMC 2015 annual report Market/Business Summary, Long-term Business Development Plan dates volume production to mid-2015. TSMC 12 November 2014 release explicitly calls Plus an enhanced 16FF version."
+    },
+    {
+      "path": "tsmc-16ff-plus-finfet-process.links.same_family",
+      "decision": "accept",
+      "reason": "TSMC 12 November 2014 release names 16FF+ enhanced from 16FF. TechInsights SCE-1510-801 and SCE-1608-801 synopses separately identify 16FF in Apple A9 and 16FF+ in a Kirin 950 die; these support family identification but do not independently prove manufacturing-step inheritance."
+    },
+    {
+      "path": "tsmc-16ff-plus-finfet-process.links.builds_on",
+      "decision": "accept",
+      "reason": "Candidate remains a question. Wu et al. 2014 IEDM p. 3.1.1 abstract and process architecture describe an enhanced 16nm process and compare with 2013 work, but do not name the commercial variant. Public TechInsights synopses do not expose detailed process comparisons."
+    },
+    {
+      "path": "hisilicon-kirin-950-soc identity and presentation",
+      "decision": "accept",
+      "reason": "HiSilicon specifications list 16FF+, four A72 and four A53 cores, Mali-T880 MP4 and LTE; BenchLife 5 November 2015 states Beijing briefing and reference platform demonstration. The Paper 26 November 2015 reports Shanghai Expo Center unveiling and identifies Kirin 950. Earliest record is public presentation, not fabrication date."
+    },
+    {
+      "path": "hisilicon-kirin-950-soc.events.mate-8-china-availability",
+      "decision": "accept",
+      "reason": "Huawei 5 January 2016 release reports 9 December 2015 sales beginning; contemporary The Paper reports planned 9 December launch. MyFixGuide 24 December 2015 identifies a Kirin 950 package in a disassembled Mate 8. TechInsights later analysis concerns a separate specimen and does not date sales."
+    },
+    {
+      "path": "hisilicon-kirin-950-soc.links.uses_process",
+      "decision": "accept",
+      "reason": "HiSilicon specifications explicitly name TSMC 16nm FinFET+; independent TechInsights SCE-1608-801 synopsis reports physical analysis of Hi3650 extracted from a Mate 8 and identifies TSMC 16FF+ HKMG FinFET CMOS. Synopsis release is January 2017 and does not date the specimen to 2015. Direction runs from process to chip."
+    },
+    {
+      "path": "source metadata, baseline and lane report",
+      "decision": "accept",
+      "reason": "Checked original TSMC transcript and releases, annual report, Wu paper, HiSilicon specifications, TechInsights synopses, BenchLife, The Paper, Huawei release and MyFixGuide. In baseline, Berkeley FinFET and TSMC N7+ and Kirin 990 records differ in scope; no 16FF, 16FF+ or Kirin 950 record found. No independent full process analysis, wafer site, lot or priority is claimed."
+    }
+  ],
+  "corrections": [
+    "Narrowed commercial-availability scope to offer for sale; distinguished two physical specimens and avoided transferring the 2017 analysis date to the 2015 phone.",
+    "Removed attribution of Wu’s unnamed experimental process details to named 16FF+; kept process-step inheritance candidate. Replaced intermittent Huawei PDF URL with accessible contemporaneous onsite report."
+  ],
+  "deferred": [
+    "Specific 16FF to 16FF+ and 20SoC to 16FF+ process-step inheritance pending independent process comparison.",
+    "Actual TechInsights sample SKU, wafer lot and fabrication site; specific Berkeley-to-TSMC process transfer."
+  ]
+}

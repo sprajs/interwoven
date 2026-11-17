@@ -1,0 +1,172 @@
+{
+  "id": "hisilicon-kirin-950-soc",
+  "name": "HiSilicon Kirin 950 mobile system-on-chip",
+  "description": "HiSilicon combined four Arm Cortex-A72 and four Cortex-A53 cores, a Mali-T880 MP4 GPU and an LTE modem in its Kirin 950 (Hi3650) mobile system-on-chip. TSMC made the chip on 16FF+ for use in the Huawei Mate 8.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "kirin-950-presentation",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2015,
+          "month": 11,
+          "day": 5
+        },
+        "latest": {
+          "year": 2015,
+          "month": 11,
+          "day": 5
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "5 November 2015",
+        "basis": "Same-day coverage dates the public press presentation in Beijing."
+      },
+      "statement": "Huawei presented HiSilicon’s Kirin 950 at a press event in Beijing where it showed the chip running on a reference platform.",
+      "places": [
+        "china"
+      ],
+      "place_note": "Beijing press event.",
+      "scope": "SoC briefing and reference platform.",
+      "evidence": [
+        {
+          "source": "d3-kirin-benchlife-2015-kirin-950-briefing",
+          "locator": "Dated byline, opening paragraphs and paragraph on the reference platform",
+          "supports": "The report dates the briefing and describes the reference-platform demonstration."
+        },
+        {
+          "source": "d3-kirin-hisilicon-kirin-950-specifications",
+          "locator": "关键特性 [Key specifications], Process, CPU, GPU and Modem",
+          "supports": "The chip designer identifies the chip, its parts and its process."
+        }
+      ]
+    },
+    {
+      "id": "mate-8-unveiling",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2015,
+          "month": 11,
+          "day": 26
+        },
+        "latest": {
+          "year": 2015,
+          "month": 11,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "26 November 2015",
+        "basis": "The Paper’s contemporary on-site report dates the event to 26 November."
+      },
+      "statement": "Huawei presented the Mate 8 incorporating the Kirin 950 at the Shanghai World Expo Center.",
+      "places": [
+        "china"
+      ],
+      "place_note": "Shanghai World Expo Center.",
+      "scope": "Presentation of the handset with the SoC.",
+      "evidence": [
+        {
+          "source": "d3-kirin-thepaper-2015-mate-8-shanghai-unveiling",
+          "locator": "Opening photograph caption and event account; discussion of the Kirin 950",
+          "supports": "The event account dates and locates the unveiling. Huawei’s CEO identifies the Kirin 950 used in the phone."
+        }
+      ]
+    },
+    {
+      "id": "mate-8-china-availability",
+      "type": "commercial_availability",
+      "date": {
+        "earliest": {
+          "year": 2015,
+          "month": 12,
+          "day": 9
+        },
+        "latest": {
+          "year": 2015,
+          "month": 12,
+          "day": 9
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "9 December 2015",
+        "basis": "Huawei’s January 2016 release gives the date on which Chinese sales began."
+      },
+      "statement": "The Huawei Mate 8 went on sale in China with the Kirin 950.",
+      "places": [
+        "china"
+      ],
+      "market": "China",
+      "scope": "Handset offered for sale in China.",
+      "evidence": [
+        {
+          "source": "d3-kirin-huawei-2016-mate-8-china-sales",
+          "locator": "Opening paragraph on 9 December sales; paragraph comparing Chinese and overseas configurations",
+          "supports": "Gives the Chinese retail sale date and names the Kirin 950 in the handset."
+        },
+        {
+          "source": "d3-kirin-myfixguide-2015-mate-8-disassembly",
+          "locator": "Date byline and motherboard disassembly",
+          "supports": "The 24 December disassembly independently locates a Kirin 950 package in a Mate 8 handset."
+        },
+        {
+          "source": "d3-kirin-techinsights-2017-kirin-950-analysis",
+          "locator": "Metadata and report synopsis",
+          "supports": "Independently identifies the Hi3650 die in a Mate 8. The analysis report was published later and does not date the sale."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "kirin-950-presentation",
+    "rationale": "The first dated public product milestone retained is the 5 November press presentation."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Sample and production provenance",
+        "note": "The public physical-analysis synopsis identifies the Mate 8 model. Its regional SKU, wafer lot and fabrication site are unreported. The separately dated foundry ramp applies to the process as a whole."
+      }
+    ]
+  },
+  "links": [
+    {
+      "from": "tsmc-16ff-plus-finfet-process",
+      "type": "uses_process",
+      "status": "established",
+      "from_event": "16ff-plus-volume-production",
+      "to_event": "mate-8-china-availability",
+      "statement": "TSMC’s 16FF+ process fabricated the HiSilicon Kirin 950 used in the Huawei Mate 8.",
+      "scope": "The Hi3650 die in the Huawei Mate 8 model confirmed by physical analysis.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "d3-kirin-hisilicon-kirin-950-specifications",
+          "locator": "关键特性 [Key specifications], Process, CPU, GPU and Modem",
+          "supports": "HiSilicon explicitly specifies TSMC 16nm FF+ for the SoC."
+        },
+        {
+          "source": "d3-kirin-techinsights-2017-kirin-950-analysis",
+          "locator": "Metadata and report synopsis",
+          "supports": "TechInsights independently identifies TSMC 16FF+ FinFET CMOS in the extracted Hi3650 die."
+        },
+        {
+          "source": "d3-kirin-huawei-2016-mate-8-china-sales",
+          "locator": "Opening paragraph on 9 December sales; paragraph comparing Chinese and overseas configurations",
+          "supports": "Huawei identifies the Kirin 950 on FinFET+ in the commercially sold Mate 8."
+        }
+      ]
+    }
+  ]
+}
