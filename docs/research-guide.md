@@ -2,6 +2,8 @@
 
 How to add to the dataset and how to check it. `docs/data-model.md` describes the records themselves.
 
+For worked examples, see the [two excavation traces and eight industrial and contemporary workflows](reviews/2026-11-17-provenance/report.md). Each workflow can generate a blank worksheet for another discovery.
+
 ## What belongs
 
 **Everything people have discovered or invented, anywhere, at any time.** The aim is a tech tree of human civilisation, so the dataset covers farming, food, health, building, materials, tools, energy, transport, warfare, communication, computing, mathematics, the sciences, institutions, and arts and entertainment. `data/taxonomy.json` lists the domains and their fields.

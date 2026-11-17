@@ -17,7 +17,7 @@ Open [the evidence reader](view.html). Select one of the two artifact traces or 
 Regenerate from the reviewed integration revision containing the accepted ledgers and receipts.
 
 ```sh
-python3 tools/provenance.py --snapshot REVIEWED_REVISION render \
+python3 tools/provenance.py --snapshot b7bf3c66542faff7b3ed52ed5602b27d08839077 render \
   --output docs/reviews/2026-11-17-provenance
 ```
 
