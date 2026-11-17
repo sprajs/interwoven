@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "lane": "nanchoc",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "ff474cc7038bbe9e90d28cafdb8bff7245153b46",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent review",
+    "independence": "Distinct execution from gpt-6.2-sol high researcher; independently read original texts."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json",
+      "sha256": "830fae88238bbce8e9009a010f18cef5408e400e842ae1822b2a127036be0774"
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json",
+      "sha256": "bdc798098be8e58ab67832c92b1d6808933eac143a82c58af07b49aa84aecbdc"
+    },
+    {
+      "path": "data/sources/d/dillehay-2007-preceramic-crop-adoption.json",
+      "sha256": "67531abe5b0d76c19cadd4955c0e0d22f858f24a6a8aee7f874d2d6bcb6052be"
+    },
+    {
+      "path": "data/sources/r/rossen-2011-preceramic-plant-gathering-gardening-farming.json",
+      "sha256": "e1f072fb20c6d49f8e7ff1691183e70c3f92e2f0f9a8ffca02d1320294cf73b2"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/nanchoc.md",
+      "sha256": "0133564cbba64772d8cdb2c6e0cbf4bf74daebb2c1e47b974899db70cfbc3cf5"
+    },
+    {
+      "path": "evidence/d/dillehay-2007-preceramic-crop-adoption-notes.txt",
+      "sha256": "aadf3807e3cbfb69afa5a31effec0bd9959fb7032d6b4d52257284c145e9616b"
+    },
+    {
+      "path": "evidence/r/rossen-2011-preceramic-plant-gathering-gardening-farming-notes.txt",
+      "sha256": "1c7b9b276e91d1e115abc4aefe251281377ef4608e7449445decfd2668ff60a2"
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "dillehay-2005-preceramic-irrigation-canals",
+      "url": "https://www.researchgate.net/publication/7484696_Preceramic_irrigation_canals_in_the_Peruvian_Andes",
+      "locator": "pp. 17241–17244, stratigraphy, phase association, fill dates, field and Fig. 3",
+      "availability": "Original article facsimile and PMC search extract inspected; PMC direct open returned CAPTCHA.",
+      "independence": "Original excavation report; 2007 canal rows use same assays and subsequent summaries reuse project evidence."
+    },
+    {
+      "id": "dillehay-2007-preceramic-crop-adoption",
+      "url": "https://www.scribd.com/document/44077460/Dillehay-Et-Al-2007-Plantas-10000-aC",
+      "locator": "pp. 1890–1892, crop discussion, Fig. 5 and Table 1",
+      "availability": "Main article facsimile inspected; supplement unavailable. Cotton lab number/error differ between table and prose, but calibrated interval agrees.",
+      "independence": "Same project team; botanical remains informative but canal assays are not independent of 2005."
+    },
+    {
+      "id": "rossen-2011-preceramic-plant-gathering-gardening-farming",
+      "url": "https://www.cambridge.org/core/books/abs/from-foraging-to-farming-in-the-andes/preceramic-plant-gathering-gardening-and-farming/2908C7837DB4B7DEE35441A850955792",
+      "locator": "Chapter 9 public summary; introduction https://www.cambridge.org/core/books/abs/from-foraging-to-farming-in-the-andes/introduction/873ECC7D289069040CAA75CA933BBA13",
+      "availability": "Publisher public summaries inspected; full chapter not inspected. Introduction specifies dates are calibrated.",
+      "independence": "Project synthesis by excavation participant, not independent corroboration."
+    },
+    {
+      "id": "piperno-2008-nanchoc-crop-diet",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2604935/",
+      "locator": "pp. 19622–19623 site context and Table 1",
+      "availability": "Full text inspected.",
+      "independence": "Distinct dental analysis but includes same project investigator and repeats site context; not independent canal corroboration."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json#/summary and description",
+      "decision": "accept",
+      "rationale": "2005 report describes early partly stone-lined gravity canals at QSN-1, terrace, superimposed surface canal and fill charcoal. Phase affiliation and lower-bench use are attributed to excavators, not asserted as proven.",
+      "sources": [
+        "dillehay-2005: pp. 17241–17244"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json#/impact/note",
+      "decision": "accept",
+      "rationale": "2005 discusses seasonal streams, mixed economy and periodic rebuilding after burial; potential watering and uncertain later descent are qualified.",
+      "sources": [
+        "dillehay-2005: abstract and discussion"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json#/events/archaeological-evidence-3990bce",
+      "decision": "accept",
+      "rationale": "2005 reports Beta-154127 fill charcoal at 6310–5940 cal BP, c. 4360–3990 BCE; 2007 gives 6279–5936 cal BP for same assay. Context, attribution and construction-date caveat retained.",
+      "sources": [
+        "dillehay-2005: p. 17242 and Fig. 2",
+        "dillehay-2007: p. 1892 Table 1"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json#/events/archaeological-evidence-2910bce",
+      "decision": "accept",
+      "rationale": "2005 reports Beta-182966 fill charcoal at 5050–4860 cal BP, c. 3100–2910 BCE; 2007 gives 5038–4833 cal BP for same assay. Context, affiliation and construction-date caveat retained.",
+      "sources": [
+        "dillehay-2005: p. 17242 and Fig. 2",
+        "dillehay-2007: p. 1892 Table 1"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json#/research/unresolved/Lower-bench field association",
+      "decision": "accept",
+      "rationale": "2005 calls the lower-bench field undated; CA-09-27 and CA-09-52 furrows are separate and associated with earlier contexts.",
+      "sources": [
+        "dillehay-2005: pp. 17243–17244"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/gravity-canals-upper-zana-valley-northern-peru.json#/research/note",
+      "decision": "accept",
+      "rationale": "New wording distinguishes 2005 and 2007 calibrations of same assays and flags Canal 2 overlap with 2011 phase boundary. Unchanged priority/contact assertions are not reapproved.",
+      "sources": [
+        "dillehay-2007: Table 1",
+        "rossen-2011: chapter 9 summary"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json#/description",
+      "decision": "accept",
+      "rationale": "New sentence summarizes Rossen’s phase-level interpretation and places canals in the valley without assigning a specific field or crop to a specific canal.",
+      "sources": [
+        "rossen-2011: chapter 9 summary"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json#/events/tierra-blanca-field-cultivation",
+      "decision": "accept",
+      "rationale": "Rossen interprets a shift toward multifamily fields and canals in Tierra Blanca, 7800–5000 calibrated BP; 5850–3050 BCE translates the approximate whole phase, not a dated onset. Piperno reports plots, hoes and canals in Tierra Blanca and Las Pircas teeth. Dillehay 2007 reports Tierra Blanca peanuts, later chenopods and cotton dated from a house floor. The 2005 report calls the lower-bench field undated.",
+      "sources": [
+        "rossen-2011: chapter 9 and introduction summaries",
+        "piperno-2008: pp. 19622–19623",
+        "dillehay-2007: pp. 1890–1892, Fig. 5 and Table 1",
+        "dillehay-2005: pp. 17243–17244"
+      ],
+      "extends": "nanchoc-early-crop-system"
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json#/research/unresolved/Cultivated species on Tierra Blanca plots",
+      "decision": "accept",
+      "rationale": "Cotton sample is from a house floor and dental samples from Las Pircas; neither identifies crops of the undated field.",
+      "sources": [
+        "dillehay-2007: Fig. 5 and Table 1",
+        "piperno-2008: site context"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json#/links/0",
+      "decision": "accept",
+      "rationale": "The candidate precisely asks whether Canal 3 supplied lower-bench fields; excavators infer water use from topography and sediment, field remains undated.",
+      "sources": [
+        "dillehay-2005: pp. 17242–17244"
+      ],
+      "relation": "uses_process, canal record to crop-system event",
+      "direction": "Hypothesized Canal 3 supply to lower-bench field.",
+      "context": "Fill age in 2011 phase; field age open.",
+      "status": "candidate",
+      "independent_corroboration": "No independent evidence for specific field–Canal 3 association; same-project reports do not count.",
+      "established_history": false
+    },
+    {
+      "path": "data/discoveries/food/nanchoc-early-crop-system.json#/research/basis and note",
+      "decision": "accept",
+      "rationale": "New event and question remain sourced rather than self-reviewed; prior reviewed facets are not silently reapproved.",
+      "sources": [
+        "rossen-2011: chapter 9",
+        "dillehay-2005: field discussion"
+      ]
+    },
+    {
+      "path": "data/sources/d/dillehay-2007-preceramic-crop-adoption.json and evidence/d/dillehay-2007-preceramic-crop-adoption-notes.txt",
+      "decision": "accept",
+      "rationale": "Metadata, phase-specific peanuts and later chenopods, cotton context and table calibrations checked in facsimile; limitations disclosed. Notes are not independent evidence.",
+      "sources": [
+        "dillehay-2007: pp. 1890–1892"
+      ]
+    },
+    {
+      "path": "data/sources/r/rossen-2011-preceramic-plant-gathering-gardening-farming.json and evidence/r/rossen-2011-preceramic-plant-gathering-gardening-farming-notes.txt",
+      "decision": "accept",
+      "rationale": "Publisher chapter summary and introduction support metadata, quotation, phase interval and dating convention; partial access disclosed.",
+      "sources": [
+        "rossen-2011: chapter 9 and introduction summaries"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/nanchoc.md",
+      "decision": "accept",
+      "rationale": "Research note distinguishes same-assay reuse, broad phase and unresolved field connection. Build assertion not independently rerun.",
+      "sources": [
+        "dillehay-2005",
+        "dillehay-2007",
+        "rossen-2011",
+        "piperno-2008"
+      ]
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Searched discovery files and leads for Nanchoc, Ñanchoc and Tierra Blanca; compared both complete changed records and base events.",
+    "result": "The existing crop event describes earlier Las Pircas diet, not the later phase transition. Added event extends nanchoc-early-crop-system; canal changes revise existing events. Coca lead and adobe note differ in scope."
+  },
+  "issues": [],
+  "unknowns": [
+    "Lower-bench field age and crops, direct Canal 3 connection, construction and operation dates, later canal descent.",
+    "Full 2011 chapter and 2007 supplement inaccessible; public summaries and main article read.",
+    "Specific canal-to-field relationship lacks independent corroboration and remains a question."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 902 discoveries, 1497 events, 238 links, 1624 sources; no problems found."
+  },
+  "history": []
+}
