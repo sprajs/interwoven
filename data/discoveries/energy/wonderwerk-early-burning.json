@@ -1,7 +1,7 @@
 {
   "id": "wonderwerk-early-burning",
   "name": "Wonderwerk Cave early burning evidence",
-  "description": "Burned bone and ashed plants within early cave occupation sediments provide a southern African witness relevant to the history of hominin fire use.",
+  "description": "Burned bone and ashed plants from Stratum 10 and thermally altered small mammal bones from older Stratum 11 document early burning inside Wonderwerk Cave, in deposits associated with hominin occupation.",
   "kind": "practice",
   "domain": "energy.fire",
   "tier": 3,
@@ -9,7 +9,7 @@
     "reach": 0,
     "depth": 0,
     "generativity": 0,
-    "note": "One cave deposit that witnesses early burning; the record claims evidence rather than a changed way of life, and nothing later is known to descend from it."
+    "note": "Two cave occupation strata document early burning. The link to hominin behavior is an archaeological inference."
   },
   "grain": "instance",
   "concept": "hominin-fire-use",
@@ -20,6 +20,37 @@
     }
   ],
   "events": [
+    {
+      "id": "stratum-11-burned-microfauna",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -1788050
+        },
+        "latest": {
+          "year": -1068050
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "1.79–1.07 million years ago",
+        "basis": "Table 1 brackets the deposit between the Olduvai and Jaramillo subchrons. The fossils were not individually dated. Integer plot coordinates use the record's approximate before-1950 convention."
+      },
+      "statement": "Marin-Monfort and colleagues identified burned small mammal bones in Wonderwerk Cave Stratum 11, deep within the cave and associated with Acheulean artifacts.",
+      "scope": "Excavation 1, Stratum 11, lithostratigraphic unit 7.",
+      "caveats": "The investigators interpret the location and distribution as evidence consistent with repeated fire introduction by hominins. The source of ignition, use of a hearth and specific activities remain unresolved.",
+      "evidence": [
+        {
+          "source": "marin-monfort-2026-wonderwerk-strata-10-11",
+          "locator": "Wonderwerk Cave, Figure 1d and Table 1",
+          "supports": "Reports the sampled layer and its geological age bracket."
+        },
+        {
+          "source": "marin-monfort-2026-wonderwerk-strata-10-11",
+          "locator": "Results, Tables 2–3, and Conclusions",
+          "supports": "The study finds heating signatures on small mammal bones and reports their spatial distribution in the cave."
+        }
+      ]
+    },
     {
       "id": "burned-sediments",
       "type": "archaeological_evidence",
@@ -33,7 +64,7 @@
         "precision": "year",
         "status": "approximate",
         "label": "about 1 million years ago",
-        "basis": "Article reports approximately 1.0 million years ago; the numeric calendar year is only an approximate chart coordinate."
+        "basis": "Berna et al. estimate around 1.0 Ma. Marin-Monfort et al. (Table 1) report alternative paleomagnetic correlations of about 1.0 Ma or 0.75 Ma. The plotted year is the original estimate."
       },
       "statement": "Burned bone and ashed plant remains occur in early hominin occupation sediments inside Wonderwerk Cave.",
       "caveats": "Hominin involvement in burning is an archaeological inference, and the study did not identify constructed hearths; age and fire control are debated.",
@@ -42,15 +73,26 @@
           "source": "berna-2012-wonderwerk-fire",
           "locator": "Abstract and discussion",
           "supports": "Researchers report in situ burned materials in the early Acheulean occupation."
+        },
+        {
+          "source": "marin-monfort-2026-wonderwerk-strata-10-11",
+          "locator": "Wonderwerk Cave, Figure 1d and Table 1",
+          "supports": "Identifies Stratum 10 with lithostratigraphic unit 4a and reports alternative age correlations around 0.75 or 1.0 Ma."
+        },
+        {
+          "source": "marin-monfort-2026-wonderwerk-strata-10-11",
+          "locator": "Results, Tables 2–3, and Conclusions",
+          "supports": "Adds positive evidence for burning from a small mammal fossil sample within Stratum 10."
         }
-      ]
+      ],
+      "scope": "Excavation 1, Stratum 10."
     }
   ],
   "earliest_record": {
-    "event": "burned-sediments",
-    "rationale": "Earliest episode established by the cited evidence for this precisely scoped record; not a claim of global origin."
+    "event": "stratum-11-burned-microfauna",
+    "rationale": "The older Stratum 11 sample contains newly documented thermal alteration. The dated interval concerns the deposit."
   },
-  "caveats": "The researchers report fire in archaeological context; intentional ignition, routine use and any relation to other sites remain uncertain.",
+  "caveats": "Hominin introduction of fire is an archaeological interpretation. Evidence for ignition practices, specific uses and relationships to other cave sites remains open.",
   "research": {
     "status": "draft",
     "basis": {
@@ -62,6 +104,6 @@
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Initial evidence-backed admission; classifications and historical interpretations await independent review."
+    "note": "The retained studies report different evidence from two layers. The older event is a bounded deposit association, with the manner of fire use still under investigation."
   }
 }

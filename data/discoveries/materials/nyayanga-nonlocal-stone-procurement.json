@@ -1,0 +1,68 @@
+{
+  "id": "nyayanga-nonlocal-stone-procurement",
+  "name": "Nonlocal stone procurement at Nyayanga",
+  "description": "Toolmakers brought stone to Nyayanga from sources beyond the Homa Peninsula. Geological surveys and comparisons of artifact chemistry indicate that some quartzite likely came from the Awach Tende drainage, where the nearest matching sampled deposit is about 13 kilometres away.",
+  "kind": "practice",
+  "domain": "materials.stone",
+  "grain": "instance",
+  "places": [
+    {
+      "place": "nyayanga",
+      "role": "use"
+    }
+  ],
+  "events": [
+    {
+      "id": "nonlocal-cobbles-ny1",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -3038050
+        },
+        "latest": {
+          "year": -2579050
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "3.040–2.581 million years ago",
+        "basis": "Finestone et al. give these bounds for the NY-1 archaeological context. Plummer et al. give 3.032 Ma for the older limit in their final summary. The interval dates the deposit, with no direct date of collection."
+      },
+      "statement": "Geochemistry and geological field samples support the import of nonlocal stone preserved in the Nyayanga Oldowan assemblage.",
+      "places": [
+        "nyayanga"
+      ],
+      "scope": "Local and nonlocal raw material samples compared with artifacts from bed NY-1.",
+      "evidence": [
+        {
+          "source": "finestone-2025-nyayanga-stone-transport",
+          "locator": "Results, Sources accessed by hominins and Stone transport distance, Figures 4–5",
+          "supports": "No suitable quartzite cobbles occur in the sampled local deposits, and artifact quartzite most closely matches a sampled deposit around 13 km away."
+        },
+        {
+          "source": "finestone-2025-nyayanga-stone-transport",
+          "locator": "Results, Stone transport behavior and Figure 6; Discussion",
+          "supports": "Outer-surface retention and early-stage pieces support the transport of relatively little-worked stone."
+        },
+        {
+          "source": "finestone-2025-nyayanga-stone-transport",
+          "locator": "Materials and Methods, Nyayanga, Kenya",
+          "supports": "Dates the geological context that contains the specimens assessed for raw material provenance."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "nonlocal-cobbles-ny1",
+    "rationale": "The evidence pertains to a dated archaeological deposit. Exact collection dates remain unknown."
+  },
+  "caveats": "The study infers the scale of transport from surveyed sources. The ancient pickup sites, individual journeys and motives remain uncertain.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "places": "sourced"
+    }
+  }
+}
