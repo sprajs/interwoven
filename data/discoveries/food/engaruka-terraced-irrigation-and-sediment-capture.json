@@ -1,7 +1,7 @@
 {
   "id": "engaruka-terraced-irrigation-and-sediment-capture",
   "name": "Engaruka terraced irrigation and sediment capture",
-  "description": "At Engaruka in northern Tanzania, inhabitants built irrigated fields and phased check dams that captured alluvial sediment.",
+  "description": "At Engaruka in northern Tanzania, inhabitants built irrigated fields and phased check dams that captured alluvial sediment. In one excavated section of the South Fields, an existing check-dam wall also formed the uphill side of an irrigation canal.",
   "kind": "practice",
   "domain": "food.irrigation",
   "grain": "instance",
@@ -36,6 +36,11 @@
           "source": "w12-lang-stump-engaruka",
           "locator": "Introduction, stratigraphy, discussion and conclusions",
           "supports": "The researchers interpret check-dam construction and captured alluvial sediments at Engaruka, together with evidence for variable irrigation. They associate the wider landscape with the 15th–18th centuries; no exact construction date of each wall is established, and reasons for abandonment and climatic resilience remain uncertain."
+        },
+        {
+          "source": "sutton-1983-engaruka-survey",
+          "locator": "p. 36, Engaruka",
+          "supports": "Sutton’s survey records stone-sided irrigation channels and contour sub-furrows serving groups of stone-divided cultivation plots."
         }
       ],
       "caveats": "The interval is an archaeological estimate for the wider landscape, not a direct date for every wall. Soil and stratigraphic evidence supports the authors’ reconstruction; causes of abandonment, effects of climate change and the identities of individual builders remain uncertain.",
@@ -55,6 +60,40 @@
       ]
     },
     {
+      "id": "abandonment-of-sediment-capture",
+      "type": "abandonment",
+      "date": {
+        "earliest": {
+          "year": 1701
+        },
+        "latest": {
+          "year": 1850
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Likely 18th or early 19th century CE",
+        "basis": "Stump estimates the eighteenth or early nineteenth century for the first abandonment. The bounds cover the eighteenth century and the first half of the nineteenth as an approximate interval."
+      },
+      "scope": "Historic practice of deliberately trapping sediment to build agricultural plots at Engaruka",
+      "statement": "Deliberate sediment capture ceased when the historic field system was first abandoned.",
+      "places": [
+        "tanzania"
+      ],
+      "evidence": [
+        {
+          "source": "stump-2024-engaruka-sediment-capture",
+          "locator": "p. 16, third and fourth paragraphs",
+          "supports": "Stump dates the probable first abandonment to the eighteenth or early nineteenth century, identifies it with the end of deliberate sediment capture and reports present-day irrigation."
+        },
+        {
+          "source": "sutton-1983-engaruka-survey",
+          "locator": "pp. 35–36, introduction and Engaruka",
+          "supports": "An independent field survey records the old irrigation system as abandoned and describes its surviving stone-sided channels and cultivation plots."
+        }
+      ],
+      "caveats": "The precise date and cause remain uncertain. The abandonment refers to the historic sediment-capture system. Irrigated farming is practised in the area today."
+    },
+    {
       "id": "landscape-analysis-2017",
       "type": "publication",
       "date": {
@@ -69,25 +108,30 @@
         "label": "2017",
         "basis": "Date concerns this identified object, archaeological phase or documentary observation; it does not assert a global origin."
       },
-      "statement": "The published geoarchaeological study estimated more than 1,000 hectares of sediment-trap landscape.",
+      "statement": "The published geoarchaeological study estimated more than 1,000 hectares of sediment-trap landscape. In the South Fields it documented a check-dam wall reused as the uphill side of a canal whose fill was later cut to make a narrower channel.",
       "places": [
         "tanzania"
       ],
       "evidence": [
         {
           "source": "w12-lang-stump-engaruka",
-          "locator": "Introduction, stratigraphy, discussion and conclusions",
-          "supports": "The 2017 paper estimates more than 1,000 hectares of alluvial sediment traps in the landscape; this is an archaeological estimate, not cultivated area for a single year or a direct date for each field."
+          "locator": "Abstract",
+          "supports": "The paper estimates more than 1,000 hectares of alluvial sediment traps across Engaruka."
+        },
+        {
+          "source": "w12-lang-stump-engaruka",
+          "locator": "Results, Stratigraphy, section 11 and fig. 4, and Discussion, Stratigraphy",
+          "supports": "The lower courses of wall 4005 predate alluvial layer 4248. Canal 4247 was cut into that layer alongside wall 4005. A later cut through the canal fill formed narrower channel 4050. After the canals went out of use, layers 4041 and 4048 accumulated and were interpreted as renewed deliberate sediment capture."
         }
       ],
-      "caveats": "A landscape-level archaeological estimate, not directly dated land cultivated in a particular year or a measure of crop output."
+      "caveats": "Stratigraphy establishes the order of the local work. The publication gives no calendar dates for the individual canal or wall phases. The area is a landscape-level estimate. A measure of the area farmed in a particular year or of crop output would require different evidence."
     }
   ],
   "earliest_record": {
     "event": "documented-case",
     "rationale": "Date represents the scoped witness or contextual phase, not an origin claim."
   },
-  "caveats": "The interval is an archaeological estimate for the wider landscape, not a direct date for every wall. Soil and stratigraphic evidence supports the authors’ reconstruction; causes of abandonment, effects of climate change and the identities of individual builders remain uncertain.",
+  "caveats": "The fifteenth- to eighteenth-century interval gives the context of the wider landscape. The South Fields sequence establishes relative order. The timing and cause of abandonment and the identities of individual builders remain uncertain.",
   "research": {
     "status": "draft",
     "basis": {
@@ -95,8 +139,34 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "sourced"
+      "events": "sourced",
+      "fate": "sourced"
     },
-    "note": "Source-reading repair in paused batch 12; independent admission review is pending. See lane ledger for evidence and unresolved claims."
-  }
+    "note": "Draft from paused batch 12, extended with Section 11 stratigraphy and evidence for the abandonment of deliberate sediment capture. Independent admission review is pending.",
+    "unresolved": [
+      {
+        "about": "Absolute chronology and extent of the Section 11 sequence",
+        "note": "Dated, securely associated deposits between wall 4005 and the two canal cuts, or a stratigraphic tie to a securely dated section, could refine the chronology. The existing sequence supports a local example of reuse.",
+        "evidence": [
+          {
+            "source": "w12-lang-stump-engaruka",
+            "locator": "Results, Stratigraphy, fig. 4, and Discussion, Implications for the resilience and sustainability of agriculture at ancient Engaruka",
+            "supports": "The published stratigraphy gives relative order. Absolute dates for field construction and modification remained a research need."
+          }
+        ]
+      },
+      {
+        "about": "Cause of abandonment",
+        "note": "Published interpretations leave the cause unsettled. A dated sequence of the last sediment capture and occupation in different field sectors would help test their proposed timing against independent environmental and historical evidence.",
+        "evidence": [
+          {
+            "source": "w12-lang-stump-engaruka",
+            "locator": "Introduction and Discussion, Implications for the resilience and sustainability of agriculture at ancient Engaruka",
+            "supports": "The authors discuss several possible explanations and question whether the abandonment can be directly related to changes in water availability."
+          }
+        ]
+      }
+    ]
+  },
+  "fate": "abandoned"
 }
