@@ -56,7 +56,7 @@ The data publication is `cf9d08d5f73a2dce66f05ae7bd81a665dc18d29b`. Each review 
 ```sh
 wave=docs/reviews/2026-11-17-modern
 python3 "$wave/audit.py" --output "$wave/audit.json"
-python3 "$wave/render.py" --base 71326e0 --repo-url https://github.com/sprajs/big_idea/blob/cf9d08d5f73a2dce66f05ae7bd81a665dc18d29b
+python3 "$wave/render.py" --base 71326e0 --repo-url https://github.com/sprajs/interwoven/blob/cf9d08d5f73a2dce66f05ae7bd81a665dc18d29b
 python3 tools/validate.py
 npm test
 npm run build

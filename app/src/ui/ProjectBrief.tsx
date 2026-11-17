@@ -23,7 +23,7 @@ export function ProjectBrief() {
         <h3>Evidence and review</h3>
         <p>Open a discovery to inspect its sources and uncertainty. A description mentioning an event does not replace a supported dated event: researchers compare the actual event type, subject, date and scope before accepting or rejecting an extension.</p>
         <p>Routine admission review is a separate review by Terra High (<code>gpt-6.1-terra</code>, effort <code>high</code>) against original evidence; consequential unresolved disputes can receive targeted escalation. Uncertain claims remain explicit, and a researcher cannot approve their own additions.</p>
-        <a href="https://github.com/sprajs/big_idea/blob/main/docs/project-brief.md" target="_blank" rel="noreferrer">Read the full project brief ↗</a>
+        <a href="https://github.com/sprajs/interwoven/blob/main/docs/project-brief.md" target="_blank" rel="noreferrer">Read the full project brief ↗</a>
       </dialog>
     </>
   )

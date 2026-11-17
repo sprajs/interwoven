@@ -266,7 +266,7 @@ def main() -> None:
                         help="Use a wave manifest with a paths array in place of the Git diff")
     parser.add_argument("--lanes-dir", type=Path, default=HERE / "lanes")
     parser.add_argument("--output-dir", type=Path, default=HERE)
-    parser.add_argument("--repo-url", default="https://github.com/sprajs/big_idea/blob/main",
+    parser.add_argument("--repo-url", default="https://github.com/sprajs/interwoven/blob/main",
                         help="Browser path to the canonical repository tree")
     parser.add_argument("--lane-record", action="append", default=[], metavar="LANE=ID",
                         help="Assign an additional canonical discovery to a lane (repeatable)")
