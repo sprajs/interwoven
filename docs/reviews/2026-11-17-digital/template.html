@@ -1,0 +1,70 @@
+<div id="digital-reader">
+<style>
+#digital-reader {--dr-accent: light-dark(#075f54,#92ddd1); --dr-line: color-mix(in srgb,currentColor 24%,transparent); --dr-wash: color-mix(in srgb,var(--dr-accent) 8%,transparent); overflow-wrap:anywhere}
+#digital-reader h2,#digital-reader h3,#digital-reader h4,#digital-reader p {margin:0}
+#digital-reader h2 {font-size:clamp(1.375em,3vw,2em);line-height:1.15;letter-spacing:-.025em}
+#digital-reader h3 {font-size:1.2em;line-height:1.25}
+#digital-reader h4 {font-size:1em}
+#digital-reader small {display:block;font-size:.83em}
+#digital-reader a {color:var(--dr-accent)}
+#digital-reader summary {cursor:pointer}
+#digital-reader ul {padding-inline-start:1.3em;margin:.45em 0}
+#digital-reader li + li {margin-block-start:.45em}
+#digital-reader header,#digital-reader .dr-panel {display:grid;gap:.7em}
+#digital-reader [hidden] {display:none!important}
+#digital-reader .dr-meta {font-size:.86em}
+#digital-reader .dr-tag {width:fit-content;font-size:.78em;color:var(--dr-accent)}
+#digital-reader .dr-stats {display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.65em;margin:.25em 0 .65em}
+#digital-reader .dr-stats > div {padding:.65em .8em;border-block-start:2px solid var(--dr-accent);background:var(--dr-wash)}
+#digital-reader .dr-stats strong {font-size:1.4em;font-variant-numeric:tabular-nums}
+#digital-reader label {display:grid;gap:.25em;max-width:28em;font-weight:600}
+#digital-reader select {font:inherit;color:inherit;background:Canvas;border:1px solid var(--dr-line);border-radius:6px;padding:.45em;max-width:100%}
+#digital-reader .dr-panel {margin-block:1.35em}
+#digital-reader .dr-card {border:1px solid var(--dr-line);border-radius:8px;padding:.7em .85em}
+#digital-reader .dr-card > * + * {margin-block-start:.35em}
+#digital-reader details > .dr-card {margin-block:.55em}
+#digital-reader .dr-edge {display:grid;grid-template-columns:minmax(0,1fr) minmax(5em,auto) minmax(0,1fr);gap:.5em;align-items:center}
+#digital-reader .dr-edge > div:not(.dr-arrow) {background:var(--dr-wash);padding:.45em;font-weight:600}
+#digital-reader .dr-arrow {text-align:center;color:var(--dr-accent)}
+@media(max-width:490px) {
+ #digital-reader .dr-edge {grid-template-columns:minmax(0,1fr)}
+ #digital-reader .dr-arrow b {display:inline-block;transform:rotate(90deg)}
+}
+</style>
+<header>
+<h2>Digital technology evidence follow-up</h2>
+<p class="dr-meta">17 November 2026 · Six original research questions and their earlier generations</p>
+<div class="dr-stats"><!-- STATS --></div>
+<label hidden id="dr-selection">Research question or lane
+<select><!-- OPTIONS --></select></label>
+</header>
+<div><!-- PANELS --></div>
+<script>
+(() => {
+  const root = document.getElementById("digital-reader");
+  const label = root.querySelector("#dr-selection");
+  const select = label.querySelector("select");
+  const panels = Array.from(root.querySelectorAll(".dr-panel"));
+  const show = (id) => {
+    if (!panels.some(panel => panel.id === id)) return;
+    select.value = id;
+    select.setAttribute("aria-controls", id);
+    for (const panel of panels) panel.hidden = panel.id !== id;
+  };
+  select.addEventListener("change", () => {
+    show(select.value);
+    const result = window.openai?.setWidgetState?.({
+      modelContent: {researchLane: select.options[select.selectedIndex].text},
+      privateContent: {panel: select.value},
+    });
+    result?.catch?.(() => {});
+  });
+  window.addEventListener("openai:set_globals", (event) => {
+    show(event.detail?.globals?.widgetState?.privateContent?.panel);
+  });
+  show(select.value);
+  show(window.openai?.widgetState?.privateContent?.panel);
+  label.hidden = false;
+})();
+</script>
+</div>
