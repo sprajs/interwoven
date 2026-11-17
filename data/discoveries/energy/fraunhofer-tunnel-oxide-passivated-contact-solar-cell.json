@@ -1,0 +1,95 @@
+{
+  "id": "fraunhofer-tunnel-oxide-passivated-contact-solar-cell",
+  "name": "Fraunhofer n-type silicon solar cell with a tunnel oxide passivated contact",
+  "description": "Fraunhofer ISE reported a 24%-efficient n-type silicon solar cell whose full-area rear contact used a thin silicon layer and a tunnel oxide to limit carrier recombination while conducting charge.",
+  "kind": "technology",
+  "domain": "energy.renewables",
+  "grain": "improvement",
+  "concept": "silicon-photovoltaic-cells",
+  "places": [
+    {
+      "place": "germany",
+      "note": "Fraunhofer ISE, Freiburg im Breisgau.",
+      "role": "origin"
+    }
+  ],
+  "events": [
+    {
+      "id": "topcon-24-percent-demonstration",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2013,
+          "month": 11,
+          "day": 27
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "By 27 November 2013",
+        "basis": "The institute’s dated release reports a cell result already achieved."
+      },
+      "statement": "Fraunhofer ISE reported 24% conversion efficiency for a laboratory n-type silicon cell with a tunnel oxide passivated contact covering its rear surface.",
+      "places": [
+        "germany"
+      ],
+      "place_note": "Fraunhofer ISE, Freiburg im Breisgau, Germany.",
+      "scope": "The research cell announced in November. The paper presented in Paris earlier in 2013 addresses the same contact concept.",
+      "evidence": [
+        {
+          "source": "fraunhofer-ise-2013-topcon-24-percent-cell",
+          "locator": "pp. 1–2, description of the cell and research support",
+          "supports": "Reports the 24% result, continuous rear contact, location and federal research support."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "topcon-24-percent-demonstration",
+    "rationale": "The institute’s announcement establishes an upper bound on this prototype’s 24% result."
+  },
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "The research group targeted recombination losses at rear contacts and resistance losses from longer carrier paths in partial-contact structures. The German Federal Ministry for the Environment, Nature Conservation and Nuclear Safety supported the contact research.",
+  "measures": [
+    {
+      "quantity": "conversion efficiency",
+      "value": 24,
+      "unit": "percent",
+      "subject": "Fraunhofer ISE laboratory n-type silicon solar cell with full-area rear TOPCon",
+      "conditions": "Laboratory result announced by Fraunhofer ISE.",
+      "status": "claimed",
+      "event": "topcon-24-percent-demonstration",
+      "evidence": [
+        {
+          "source": "fraunhofer-ise-2013-topcon-24-percent-cell",
+          "locator": "pp. 1–2, description of the cell and research support",
+          "supports": "Reports the 24% result, continuous rear contact, location and federal research support."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "concept": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "prompted_by": "sourced",
+      "measures": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "industrial transfer",
+        "note": "Trace which prototype publications, licenses or process collaborations informed named TOPCon manufacturers before adding a transfer edge."
+      },
+      {
+        "about": "prior passivated contacts",
+        "note": "Trace the earlier passivated-contact experiments credited by Feldmann and coauthors to establish the dependencies of the Freiburg design."
+      }
+    ]
+  }
+}
