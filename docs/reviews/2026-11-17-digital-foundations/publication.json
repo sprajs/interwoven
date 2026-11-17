@@ -1,0 +1,133 @@
+{
+  "publications": [
+    {
+      "lane": "dry",
+      "proposal": "6c7a3a942bb4fae20deef81c25b687a3c9f49bf5",
+      "commit": "3be33d4603df2522c74e070f0e3ee4f74be0cdfa",
+      "pre": "1287076f0ecde2abb2a6eb578e0cc5127aa62785",
+      "time": "2026-11-17T22:49:16Z"
+    },
+    {
+      "lane": "kirin",
+      "proposal": "232e2ef34b480b43f83279bc55b6c503289d8379",
+      "commit": "930b90062e610c6f8cc61bd0fe09cfc9d145d7b6",
+      "pre": "3be33d4603df2522c74e070f0e3ee4f74be0cdfa",
+      "time": "2026-11-17T22:50:26Z"
+    },
+    {
+      "lane": "ccd",
+      "proposal": "19929aa37cc039dcd68ceec13a06eae9b66143d9",
+      "commit": "19cb29356f68ba7a244c9bf266a283ef7ffd34fc",
+      "pre": "930b90062e610c6f8cc61bd0fe09cfc9d145d7b6",
+      "time": "2026-11-17T22:51:28Z"
+    }
+  ],
+  "workers": [
+    {
+      "execution": "/root/d3_dry",
+      "id": "01a1ebad-39d5-7ac2-818d-c1cdf4e6906d",
+      "started_utc": "2026-11-17T22:42:41.007Z",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "usage_at_utc": "2026-11-17T22:49:27.503Z",
+      "usage": {
+        "input_tokens": 5191818,
+        "cached_input_tokens": 4982272,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13435,
+        "reasoning_output_tokens": 1456,
+        "total_tokens": 5205253
+      }
+    },
+    {
+      "execution": "/root/d3_kirin",
+      "id": "01a1ebad-64ef-7ac2-9f0c-05c5ab5772d7",
+      "started_utc": "2026-11-17T22:42:51.766Z",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "usage_at_utc": "2026-11-17T22:50:40.547Z",
+      "usage": {
+        "input_tokens": 6721066,
+        "cached_input_tokens": 6555648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14739,
+        "reasoning_output_tokens": 1449,
+        "total_tokens": 6735805
+      }
+    },
+    {
+      "execution": "/root/d3_ccd",
+      "id": "01a1ebad-adc6-7cd2-b82d-8f6509c6b017",
+      "started_utc": "2026-11-17T22:43:10.417Z",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "usage_at_utc": "2026-11-17T22:51:18.926Z",
+      "usage": {
+        "input_tokens": 8037250,
+        "cached_input_tokens": 7830912,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15404,
+        "reasoning_output_tokens": 2198,
+        "total_tokens": 8052654
+      }
+    },
+    {
+      "execution": "/root/d3r_dry",
+      "id": "01a1ebaf-335d-76d0-b0dc-e47ee20241bd",
+      "started_utc": "2026-11-17T22:44:50.366Z",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "usage_at_utc": "2026-11-17T22:49:20.169Z",
+      "usage": {
+        "input_tokens": 3020226,
+        "cached_input_tokens": 2910336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5724,
+        "reasoning_output_tokens": 355,
+        "total_tokens": 3025950
+      }
+    },
+    {
+      "execution": "/root/d3r_kirin",
+      "id": "01a1ebaf-48cf-7632-972c-217bdd531305",
+      "started_utc": "2026-11-17T22:44:55.637Z",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "usage_at_utc": "2026-11-17T22:50:29.089Z",
+      "usage": {
+        "input_tokens": 5391181,
+        "cached_input_tokens": 5165568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7167,
+        "reasoning_output_tokens": 875,
+        "total_tokens": 5398348
+      }
+    },
+    {
+      "execution": "/root/d3r_ccd",
+      "id": "01a1ebaf-5cb5-7e22-91d6-afd66b5f49b3",
+      "started_utc": "2026-11-17T22:45:00.730Z",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "usage_at_utc": "2026-11-17T22:51:29.858Z",
+      "usage": {
+        "input_tokens": 5295801,
+        "cached_input_tokens": 5182592,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6261,
+        "reasoning_output_tokens": 564,
+        "total_tokens": 5302062
+      }
+    }
+  ],
+  "worker_usage": {
+    "input_tokens": 33657342,
+    "cached_input_tokens": 32627328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 62730,
+    "reasoning_output_tokens": 6897,
+    "total_tokens": 33720072
+  },
+  "elapsed_seconds_first_worker_to_last_remote_verification": 527,
+  "scope": "Observed worker and reviewer counters include cached input and exclude the coordinator. No billing amount was observed."
+}
