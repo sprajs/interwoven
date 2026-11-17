@@ -1,0 +1,70 @@
+{
+  "lane": "immersion",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "proposal": "491b2432a4b68a0cad1dcc4946c27e0faf0db64c",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/asml-twinscan-early-193nm-immersion-scanners.json": "28ec0314cf9171174e598d2fe5a155155d08b76726d6a5886581fd2e198b4a48",
+    "data/discoveries/electronics/tsmc-193nm-immersion-lithography.json": "5672d702b68c136173a8a80b04449fd1fc27f152b05bf018d37298bb80a1edc0",
+    "data/discoveries/electronics/tsmc-n7-immersion-finfet-process.json": "fd12437165877cd4ef588244ce9d80b79f8aa21aff6f4d37aa09fea6c442e64d",
+    "data/sources/d/d2-immersion-asml-2003-semicon-japan-slides.json": "9b006769eb1cc6e3ee2f3732fa830d57666f547f3366b4bb32cb8a910a95fdf1",
+    "data/sources/d/d2-immersion-asml-2004-immersion-development.json": "047d6c5f9229c516136aef7bab163bdaf1095052cfaa41f4426d37e0a7bcf930",
+    "data/sources/d/d2-immersion-asml-2023-early-immersion.json": "344efbeef09095e6c9a44902cf2e9ff04efeb6fa29d5a8d7365f7718bea05b10",
+    "data/sources/d/d2-immersion-daiwa-2019-n7-arf-production.json": "f0a74fb65278392a13563359d344b43077e3af156f150fa3a6d3fc10a3b65db8",
+    "data/sources/d/d2-immersion-gil-2005-immersion-microprocessors.json": "e0d8cfdd304b8f4d1ceb1d242a6c5b0ac9efb8004dd6cf51cf7337e155c91fb3",
+    "data/sources/d/d2-immersion-lapedus-2018-foundry-immersion-production.json": "c792df039c4d6eb67e1ebe8d94f0eae675c9aec359397be61c8f93c7db75ec57",
+    "data/sources/d/d2-immersion-tsmc-2004-90nm-prototype-immersion.json": "f4e43f413d6c89bb0718524e9f6efa19830d814bd3916983506bfa76585cb606",
+    "data/sources/d/d2-immersion-tsmc-2007-45nm-immersion.json": "6acb4bbdba5418643a3ae7e704aa1cb87158656fe1e39c49cd7832b1f197cd68",
+    "data/sources/d/d2-immersion-tsmc-2015-7nm-immersion-development.json": "201c5698d87f6cb9b6bb04fcbd3a0d8d564be79fcb9292bdc415284bc31c58f9",
+    "docs/reviews/2026-11-17-digital/lanes/immersion.json": "403003df8a14977c2d893fd1197e137c23c797a835fd4b60c4e03bc4c50453ab"
+  },
+  "claims": [
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners identity, description, domain, grain",
+      "decision": "accept",
+      "reason": "ASML 20 Years of Innovation, ch. 6 pp. 182–183 describes modifying a TWINSCAN and AT:1150 lens, dry metrology and wet exposure; ASML SEMICON Japan 2003 slides 11–15 show AT:1150i imaging and XT:1250i follow-on. IBM Gil et al., First microprocessors with immersion lithography, abstract independently demonstrates an early ASML full-field 193 nm immersion scanner, though its rendering of the model name is ambiguous."
+    },
+    {
+      "path": "asml-twinscan-early-193nm-immersion-scanners events.prototype-imaging, date and place",
+      "decision": "accept",
+      "reason": "ASML 20 Years of Innovation ch. 6 pp. 182–183 identifies Veldhoven prototype team and October 2003 working AT:1150i imaging; SEMICON Japan 2003 slides 11–12 show the 90 nm test patterns. IBM describes a distinct subsequent Albany experiment; it does not independently date the October demonstration."
+    },
+    {
+      "path": "tsmc-193nm-immersion-lithography description and 90nm-feasibility",
+      "decision": "accept",
+      "reason": "TSMC 22 December 2004 release paragraphs 3–5 describes the ASML immersion-prototype critical exposure and completed functional 90 nm SRAM. The 2004 ASML results slides concern a separate microprocessor result and are now labelled as such."
+    },
+    {
+      "path": "tsmc-193nm-immersion-lithography events.45nm-low-power-qualification",
+      "decision": "accept",
+      "reason": "TSMC 2007 Annual Report p. 45 specifically dates N45LP qualification and delivery using 193 nm immersion to Q3 2007. This distinct milestone extends the baseline 2004 demonstration and Q4 2008 40 nm qualification events; it does not assert volume production."
+    },
+    {
+      "path": "tsmc-193nm-immersion-lithography links.asml-twinscan-early-193nm-immersion-scanners",
+      "decision": "accept",
+      "reason": "TSMC 2004 release paragraphs 3–5 identifies the ASML prototype as the exposure instrument; ASML 2003 SEMICON slides 11–15 document its early TWINSCAN immersion programme and TSMC collaboration, and ASML 2023 retrospective Controlling the pesky puddle corroborates the trial using early ASML immersion equipment. The link is scoped to the early line; neither the exact unit nor a specific 2003 prototype event is asserted."
+    },
+    {
+      "path": "tsmc-n7-immersion-finfet-process description and link to tsmc-193nm-immersion-lithography",
+      "decision": "accept",
+      "reason": "TSMC 2015 annual report R&D Lithography describes 7 nm development using immersion; Q1 2018 call pp. 3–4 reports N7 production and immersion-layer replacement in N7+. Daiwa Korea Semiconductors 2019 p. 6 independently reports production N7 as ArF immersion; LaPedus, Semiconductor Engineering, Leading-edge race (17 December 2018), independently reports 193 nm immersion with multiple patterning in TSMC production. The link represents method-family continuity, not a specific recipe, scanner or 40 nm-event inheritance."
+    },
+    {
+      "path": "all added source records and lane report",
+      "decision": "accept",
+      "reason": "Inspected ASML anniversary chapter and SEC slides; ASML retrospective; IBM Gil et al. abstract; TSMC 2004 release, 2007 and 2015 annual reports and 2018 Q1 call; Daiwa 2019 report; and LaPedus 2018 report. The SEC source version now identifies exhibit 99.5. The lane accurately distinguishes feasibility, qualification and production, and notes its scope limits."
+    }
+  ],
+  "corrections": [
+    "Removed specific prototype-imaging event binding from the ASML-to-TSMC edge because the recipient report does not identify the model.",
+    "Narrowed IBM support to an early ASML scanner because the abstract renders the model ambiguously.",
+    "Corrected SEC exhibit number and ASML publication date, distinguished the unrelated ASML slide result, and clarified event/source locators."
+  ],
+  "deferred": [
+    "Exact ASML scanner model and unit used in the 2004 TSMC trial.",
+    "Recipe, specific scanner models, layers, and 40 nm-to-N7 process inheritance.",
+    "Independent early-lithography priority and precise inheritance from the dry TWINSCAN platform."
+  ]
+}

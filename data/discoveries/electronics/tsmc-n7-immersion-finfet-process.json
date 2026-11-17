@@ -1,7 +1,7 @@
 {
   "id": "tsmc-n7-immersion-finfet-process",
   "name": "TSMC’s N7 immersion FinFET process",
-  "description": "TSMC introduced its original 7 nm FinFET foundry process with immersion lithography, before selectively inserting EUV in the N7+ variant.",
+  "description": "TSMC introduced its original 7 nm FinFET foundry process with 193 nm immersion lithography before selectively inserting EUV in the N7+ variant.",
   "kind": "technology",
   "domain": "electronics.semiconductors",
   "grain": "improvement",
@@ -56,24 +56,33 @@
     {
       "from": "tsmc-193nm-immersion-lithography",
       "type": "uses_process",
-      "status": "candidate",
-      "from_event": "40nm-customer-production",
+      "status": "established",
       "to_event": "n7-volume-production",
-      "statement": "Did base N7 use the same 193 nm immersion technique documented on earlier TSMC production processes?",
-      "scope": "Use of the immersion technique within TSMC’s process generations.",
+      "statement": "Base N7 extended TSMC’s use of 193 nm immersion lithography to its original 7 nm FinFET production process.",
+      "scope": "Continuity of the 193 nm immersion method across TSMC’s process generations.",
+      "caveats": "This establishes the lithography family. The precise inheritance of recipes, scanner models, and layers from any one preceding node remains unresolved.",
       "evidence": [
+        {
+          "source": "d2-immersion-tsmc-2015-7nm-immersion-development",
+          "locator": "R&D Accomplishments in 2015, Lithography",
+          "supports": "Identifies immersion patterning and changes to resist, masks, and scanners for 7 nm development."
+        },
         {
           "source": "tsmc-2018-q1-n7-n7-plus-process-remarks",
           "locator": "Printed pp. 3–4, C. C. Wei prepared remarks on N7 and N7+",
-          "supports": "TSMC identifies immersion layers and equipment carried over or changed from N7."
+          "supports": "Confirms the base N7 production ramp and identifies immersion as the baseline for selected layers replaced by EUV in N7+."
         },
         {
-          "source": "yen-2021-euv-saves-moores-law",
-          "locator": "EUV Saves Moore’s Law",
-          "supports": "The lithography lead identifies 193 nm immersion as the process family extended through the pre-EUV generations."
+          "source": "d2-immersion-daiwa-2019-n7-arf-production",
+          "locator": "Printed p. 6, EUV penetration milestones, 1) TSMC",
+          "supports": "Separately identifies production N7 as ArF immersion, the 193 nm optical family."
+        },
+        {
+          "source": "d2-immersion-lapedus-2018-foundry-immersion-production",
+          "locator": "Leading-edge race, TSMC and Samsung 7 nm production paragraphs",
+          "supports": "The trade report identifies 193 nm immersion and multiple patterning in 2018 base 7 nm production, separately from planned EUV use in the second variant."
         }
-      ],
-      "caveats": "TSMC describes immersion use and intended EUV substitution. A separately inspectable primary comparison is needed to close the link for the exact production technique."
+      ]
     }
   ]
 }
