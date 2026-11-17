@@ -209,14 +209,25 @@ def analyse(revision, economics):
     for a in (1720, 1820, 1920):
         members = [r for r in science if a <= r["year"] < a + 100]
         century_profiles.append({**period(a, a + 100), "fields": dict(Counter(r["domain"] for r in members)),
+                                 "physical_science_fields": dict(Counter(r["field"] for r in members
+                                                                        if r["domain"] == "physical-sciences")),
+                                 "electronics": sum(a <= r["year"] < a + 100 and r["domain"] == "electronics" for r in rows),
                                  "unique_anchor_years": len({int(r["year"]) for r in members})})
+    first, middle, last = century_profiles
+    per_person = "billion_person_years"
+    baseline = {"observed": last["science"],
+                "at_first_rate": last[per_person] * first["rates"][per_person],
+                "at_middle_rate": last[per_person] * middle["rates"][per_person],
+                "last_to_first_rate_ratio": last["rates"][per_person] / first["rates"][per_person],
+                "ordinary_95ci": fixed_interval([first["science"], last["science"]],
+                                                [first[per_person], last[per_person]])}
     return {"metadata": meta, "domains": sorted(domains), "science_count": len(science),
             "science_date_status": dict(Counter(r["date_status"] for r in science)),
             "science_unbounded": sum(r["earliest"] is None for r in science),
             "science_before_10000_bce": count(science_dates, -math.inf, -10000),
             "science_from_2020": count(science_dates, 2020, math.inf),
             "economics_sha256": hashlib.sha256((HERE / "economics.json").read_bytes()).hexdigest(),
-            "eras": old, "century_profiles": century_profiles,
+            "eras": old, "century_profiles": century_profiles, "per_person_baseline_comparison": baseline,
             "twenty_years": [period(y, y+20) for y in range(1500, END, 20)],
             "decade_rank_correlations": associations,
             "decade_change_rank_correlations": change_associations,
