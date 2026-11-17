@@ -1,0 +1,52 @@
+{
+  "retrieved": "2026-11-17",
+  "attribution": "Contains BMRS data © Elexon Limited copyright and database right 2026.",
+  "licence": "https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/",
+  "current_registry": {
+    "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/bmunits/all",
+    "original_sha256": "59f0e0a51748fc81f3d06a7e8d4a3d59c9f99b2fcc115c418dce262e303924ac",
+    "selected_fields": [
+      {
+        "elexonBmUnit": "T_EAAO-1",
+        "nationalGridBmUnit": "EAAO-1",
+        "eic": "48W000000EAAO-1R",
+        "bmUnitName": "East Anglia One Offshore 1",
+        "leadPartyName": "East Anglia One Limited",
+        "leadPartyId": "EAOWIND",
+        "fuelType": "WIND"
+      },
+      {
+        "elexonBmUnit": "T_EAAO-2",
+        "nationalGridBmUnit": "EAAO-2",
+        "eic": "48W000000EAAO-2P",
+        "bmUnitName": "East Anglia One Offshore 2",
+        "leadPartyName": "East Anglia One Limited",
+        "leadPartyId": "EAOWIND",
+        "fuelType": "WIND"
+      }
+    ]
+  },
+  "bounded_2019_window": {
+    "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610/stream?settlementDateFrom=2019-09-01&settlementDateTo=2019-09-12&settlementPeriodFrom=1&settlementPeriodTo=48&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+    "original_sha256": "afbd368074e7034f8ea13dc5e2a9ee75681dc087c60f46d484020d5953340678",
+    "unique_rows": 1152,
+    "first_positive_observed": {
+      "settlementDate": "2019-09-02",
+      "settlementPeriod": 25,
+      "bmUnit": "T_EAAO-1",
+      "quantity_mwh": "0.043"
+    }
+  },
+  "original_responses": [
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610?settlementDate=2019-09-02&settlementPeriod=30&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+      "sha256": "f9d912a7a00f85064bd9013c021133b84997f4f91641f8fd80b59bcf0ebfda95",
+      "utf8_payload": "{\"data\":[{\"dataset\":\"B1610\",\"psrType\":\"Generation\",\"bmUnit\":\"T_EAAO-1\",\"nationalGridBmUnitId\":\"EAAO-1\",\"settlementDate\":\"2019-09-02\",\"settlementPeriod\":30,\"halfHourEndTime\":\"2019-09-02T14:00:00\",\"settlementRunType\":\"DF\",\"publishTime\":null,\"quantity\":2.075},{\"dataset\":\"B1610\",\"psrType\":\"Generation\",\"bmUnit\":\"T_EAAO-2\",\"nationalGridBmUnitId\":\"EAAO-2\",\"settlementDate\":\"2019-09-02\",\"settlementPeriod\":30,\"halfHourEndTime\":\"2019-09-02T14:00:00\",\"settlementRunType\":\"DF\",\"publishTime\":null,\"quantity\":-0.006}]}"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610?settlementDate=2020-12-01&settlementPeriod=25&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+      "sha256": "382fef28630d640926b56cc53fae8c2c197037815ced59dfc9480081d886235a",
+      "utf8_payload": "{\"data\":[{\"dataset\":\"B1610\",\"psrType\":\"Generation\",\"bmUnit\":\"T_EAAO-1\",\"nationalGridBmUnitId\":\"EAAO-1\",\"settlementDate\":\"2020-12-01\",\"settlementPeriod\":25,\"halfHourEndTime\":\"2020-12-01T12:30:00\",\"settlementRunType\":\"DF\",\"publishTime\":null,\"quantity\":101.936},{\"dataset\":\"B1610\",\"psrType\":\"Generation\",\"bmUnit\":\"T_EAAO-2\",\"nationalGridBmUnitId\":\"EAAO-2\",\"settlementDate\":\"2020-12-01\",\"settlementPeriod\":25,\"halfHourEndTime\":\"2020-12-01T12:30:00\",\"settlementRunType\":\"DF\",\"publishTime\":null,\"quantity\":105.154}]}"
+    }
+  ]
+}
