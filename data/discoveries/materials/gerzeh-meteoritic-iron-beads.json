@@ -90,13 +90,18 @@
         "gerzeh"
       ],
       "place_note": "Lower Egypt",
-      "caveats": "Three museum beads were directly analyzed. The manufacturing sequence is inferred from their structure; no transmission to later iron smelting is asserted.",
+      "caveats": "Rehren and colleagues infer intermittent annealing for the Petrie Museum samples. Johnson and colleagues identify traces of cold working in a different bead, Manchester Museum accession 5303. The complete thermal histories are uncertain.",
       "type_provisional": true,
       "evidence": [
         {
           "source": "rehren-2013-years-old-egyptian",
           "locator": "pp. 4785–4787: abstract, archaeological background, materials; pp. 4790–4791: discussion/conclusions",
           "supports": "Burial chronology, analyzed beads, meteoritic origin and sheet-rolling manufacture."
+        },
+        {
+          "source": "johnson-2013-gerzeh-iron-bead",
+          "locator": "Sample and Results, Figs. 2–6; Abstract",
+          "supports": "Analysis of a separate bead from Tomb 67 supports meteoritic iron, formation from a bent sheet, and cold working."
         }
       ]
     }
@@ -114,9 +119,9 @@
     "proxy_reason": "The historical use is inferred from completed beads and their burial placement; the precise manufacture and lifetime of wear are unobserved.",
     "caveats": "The beads were deposited in a broad dated horizon; deposition bounds an earlier manufacturing/use claim but does not fix its first date or show wider trade."
   },
-  "caveats": "Three museum beads were directly analyzed. The manufacturing sequence is inferred from their structure; no transmission to later iron smelting is asserted.",
+  "caveats": "Rehren and colleagues infer intermittent annealing for the Petrie Museum samples. Johnson and colleagues identify traces of cold working in a different bead, Manchester Museum accession 5303. The complete thermal histories are uncertain.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -127,10 +132,40 @@
       "places": "sourced",
       "societies": "sourced",
       "known_from": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     }
   },
-  "grain": "instance"
+  "grain": "instance",
+  "links": [
+    {
+      "type": "same_principle",
+      "from": "native-copper-working-at-cayonu-tepesi",
+      "from_event": "archaeological-evidence-7500bce",
+      "to_event": "archaeological-evidence-3100bce",
+      "status": "established",
+      "statement": "At Çayönü and Gerzeh, craftspeople formed tubular beads by rolling hammered metal sheet. The Çayönü bead was copper and the Gerzeh examples were meteoritic iron.",
+      "scope": "Beads made from rolled hammered sheet. The working temperature and historical transmission are separate questions.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "ozdogan-1999-early-metallurgy-cayonu",
+          "locator": "p. 20, Fig. 4",
+          "supports": "Shows a Çayönü copper bead made by rolling a hammered flat sheet."
+        },
+        {
+          "source": "rehren-2013-years-old-egyptian",
+          "locator": "pp. 4788–4791, Fig. 4, discussion and conclusions",
+          "supports": "Seams in the Gerzeh beads support manufacture from hammered sheet rolled into tubes. The authors compare earlier native-metal beadmaking in Anatolia."
+        },
+        {
+          "source": "johnson-2013-gerzeh-iron-bead",
+          "locator": "Results, Fig. 6",
+          "supports": "CT of another Gerzeh bead shows bending and joining of a sheet."
+        }
+      ]
+    }
+  ]
 }

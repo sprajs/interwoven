@@ -1,11 +1,45 @@
 {
   "id": "egyptian-hieroglyphic-writing",
   "name": "Early Egyptian hieroglyphic writing",
-  "description": "An Egyptian writing tradition using pictorial signs for elements of language and meaning, attested early in Egyptian history.",
+  "description": "An Egyptian writing tradition using pictorial signs for elements of language and meaning. Incised tags at Abydos attest early forms and the Wadi el-Jarf papyri preserve later cursive use.",
   "kind": "practice",
   "domain": "communication.language-writing",
   "grain": "capability",
   "events": [
+    {
+      "id": "abydos-uj-inscribed-tags",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -3400
+        },
+        "latest": {
+          "year": -3301
+        },
+        "precision": "century",
+        "status": "approximate",
+        "label": "Middle of the 34th century BCE, Naqada IIIA2 (approximate)",
+        "basis": "The ceramics assign the tomb to Naqada IIIA2. Görsdorf and colleagues’ relative and radiocarbon chronology places this phase near the middle of the 34th century BCE. The displayed interval indexes the century of their estimate. The wood samples date material from the tomb rather than the inscribed tags."
+      },
+      "statement": "Excavators recovered small drilled bone and ivory tags with incised signs in Tomb U-j at Abydos. Dreyer reads some signs as early phonetic writing and interprets the tags as labels attached to goods.",
+      "places": [
+        "egypt"
+      ],
+      "place_note": "Tomb U-j, Cemetery U at Umm el-Qaab, Abydos",
+      "caveats": "The tags attest to early writing in a funerary context. Individual readings and the original uses of the tags are debated.",
+      "evidence": [
+        {
+          "source": "dreyer-2011-abydos-tomb-uj",
+          "locator": "pp. 127–128, 133–136, Figs. 14.16–14.18",
+          "supports": "Findspot, phase attribution, materials and drilled tags. The readings of phonetic signs and the use as labels are the excavator’s interpretations."
+        },
+        {
+          "source": "gorsdorf-dreyer-hartung-1998-abydos-radiocarbon",
+          "locator": "p. 641, Table 1 on pp. 642–644, conclusion on p. 644",
+          "supports": "The tomb was dated archaeologically to Naqada IIIA2. The phase estimate is based on dated material including wood from the tomb."
+        }
+      ]
+    },
     {
       "id": "early-writing-3250bce",
       "type": "dated_assertion",
@@ -25,7 +59,7 @@
       "places": [
         "egypt"
       ],
-      "caveats": "A broad retrospective date for the writing tradition, not a securely dated single witness or precise invention year. Relationships with Mesopotamian writing remain a research question.",
+      "caveats": "A retrospective estimate for the writing tradition. See the Tomb U-j event for the date and interpretation of a named archaeological witness.",
       "evidence": [
         {
           "source": "bm-egypt-hieroglyph-background",
@@ -33,11 +67,50 @@
           "supports": "The museum dates development approximately and identifies hieroglyphs as Egyptian writing."
         }
       ]
+    },
+    {
+      "id": "practical-use-wadi-el-jarf-logbooks",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": -2550
+        },
+        "latest": {
+          "year": -2520
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Late in Khufu’s reign (placed c. 2550–2520 BCE by Tallet)",
+        "basis": "The dated Wadi el-Jarf archive places the logs late in Khufu’s reign. The numerical range is Tallet’s approximate chronology of the reign as a whole."
+      },
+      "statement": "Scribes entered daily work reports in hieratic, a cursive form of the Egyptian hieroglyphic system, on the papyrus sheets of Merer’s logbooks.",
+      "places": [
+        "egypt"
+      ],
+      "place_note": "Wadi el-Jarf is the findspot. The logs document work at several locations.",
+      "scope": "Papyrus Jarf A and B, the logbooks concerning Inspector Merer’s team.",
+      "evidence": [
+        {
+          "source": "tallet-2017-merer-logbooks-extract",
+          "locator": "PDF pp. 2, 5–8, 16 (cover summary and Annex I)",
+          "supports": "The edition identifies the A and B fragments as two hieratic logbooks from late in Khufu’s reign. The translation preserves daily entries about Inspector Merer’s team."
+        },
+        {
+          "source": "verhoeven-2023-hieratic",
+          "locator": "Sources and Contexts of Inked Hieratic, subsection on the 2nd to 6th Dynasties, Fig. 1",
+          "supports": "Documents the handwriting and physical support of Papyrus Jarf BIV from the reign of Khufu and describes preserved entries within the ruled format."
+        },
+        {
+          "source": "tallet-2014-wadi-el-jarf-papyri",
+          "locator": "p. 25",
+          "supports": "Provides the approximate calendar range for Khufu’s reign."
+        }
+      ]
     }
   ],
   "earliest_record": {
-    "event": "early-writing-3250bce",
-    "rationale": "Earliest cited dated event for this scoped record; a surviving witness or publication is not itself the invention date."
+    "event": "abydos-uj-inscribed-tags",
+    "rationale": "The tags are the earliest named, archaeologically dated witness in this record. The chronology refers to deposition and its cultural phase."
   },
   "concept": "writing",
   "places": [
@@ -46,20 +119,20 @@
     }
   ],
   "origin": "unknown",
-  "caveats": "Its signs were not simply an alphabet. The museum estimate requires checking against dated archaeological contexts and specialist debate about early sign interpretation.",
+  "caveats": "The chronology of the earliest evidence and the reading of some signs remain debated. The Wadi el-Jarf documents use hieratic, the cursive form of the script.",
   "research": {
-    "status": "draft",
+    "status": "sourced",
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "concept": "sourced",
       "places": "reviewed",
       "origin": "unknown",
       "impact": "recalled",
       "tier": "recalled"
     },
-    "note": "Second reader inspected British Museum educational PDF. Its approximate tradition date is retained as a dated assertion, not a direct date for a named artefact; specialist archaeology remains open."
+    "note": "The Tomb U-j tags supply an archaeological witness. The later Wadi el-Jarf event documents use of papyrus in Egyptian cursive writing."
   },
   "impact": {
     "reach": 1,
