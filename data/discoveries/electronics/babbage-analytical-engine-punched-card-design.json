@@ -50,8 +50,8 @@
       "evidence": [
         {
           "source": "menabrea-lovelace-1843-analytical-engine",
-          "locator": "Article XXIX, pp. 666–731, especially pp. 677–678 and Note C, p. 706",
-          "supports": "Menabrea describes operation and variable cards. Lovelace’s Note C describes reversing the card-bearing prism and running the same cards forward again."
+          "locator": "Article XXIX, pp. 666–731, especially pp. 677–678 and Lovelace’s Note E, p. 720 (PDF p. 55)",
+          "supports": "Menabrea describes operation and variable cards. Lovelace’s Note E explains how the Engine’s prism would turn backward to move a group of cards back to its former position for another pass."
         }
       ]
     }
@@ -64,15 +64,14 @@
     {
       "type": "adapts",
       "from": "jacquard-punched-card-pattern-weaving",
-      "to_event": "sketch-13-1837",
       "status": "established",
-      "statement": "Babbage adapted the Jacquard loom’s method of using successive perforated cards to select mechanical actions. The Analytical Engine design used separate card sequences for arithmetic operations and for the columns from which quantities would be read or to which results would be sent.",
+      "statement": "Babbage adapted the Jacquard loom’s method of using successive perforated cards to select mechanical actions. In his Analytical Engine design, separate card strings specified the arithmetic operations and which columns would supply or receive numbers.",
       "scope": "Transfer of a control method from working looms into an engineering design for calculation.",
       "contribution": [
         "supplied_method",
         "applied_to_new_use"
       ],
-      "influence": "major",
+      "influence": "contributing",
       "confidence": "high",
       "evidence": [
         {
@@ -82,13 +81,18 @@
         },
         {
           "source": "menabrea-lovelace-1843-analytical-engine",
-          "locator": "Menabrea, pp. 677–678 and Lovelace, Note C, p. 706",
-          "supports": "Menabrea attributes the engine’s successive mechanical settings to Jacquard’s apparatus and sets out the two main card functions. Lovelace explains an extension to reuse groups of cards in the Engine."
+          "locator": "Menabrea, pp. 677–678, and Lovelace, Note E, p. 720",
+          "supports": "Menabrea credits Jacquard’s apparatus and explains the two card functions. Lovelace describes the Engine’s prism presenting cards to lever bundles and turning backward to reuse a sequence."
         },
         {
-          "source": "babbage-1837-analytical-engine-sketch-13",
-          "locator": "BAB/A/042, card mechanism at the left edge and catalogue description",
-          "supports": "Babbage’s own engineering drawing shows a punched-card mechanism in the calculating engine’s general arrangement."
+          "source": "collier-1970-babbage-engine-control",
+          "locator": "Chapter 3, chapter PDF pp. 5 and 18 (whole PDF pp. 27 and 40), especially nn. 31, 41–42",
+          "supports": "Collier’s examination of Babbage’s working notebooks and drawings traces the shift from studded drum control to the Jacquard card method, citing the earlier 1836 notes."
+        },
+        {
+          "source": "bromley-1982-analytical-engine-card-strings",
+          "locator": "pp. 197 and 214 (§12); p. 217 (§14 and acknowledgments)",
+          "supports": "Bromley identifies borrowing from the Jacquard loom and reconstructs the use of ribbon-linked card strings and the Engine’s distinct operation and variable card functions from the surviving designs."
         }
       ]
     }
