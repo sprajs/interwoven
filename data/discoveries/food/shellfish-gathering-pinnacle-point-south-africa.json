@@ -1,8 +1,8 @@
 {
   "id": "shellfish-gathering-pinnacle-point-south-africa",
   "name": "Shellfish gathering, Pinnacle Point, South Africa",
-  "summary": "People at Pinnacle Point on South Africa's south coast were eating shellfish and other sea foods about 164,000 years ago, the earliest well-dated case when reported.",
-  "description": "Excavations at cave 13B at Pinnacle Point, near Mossel Bay, show that by about 164,000 years ago (give or take 12,000 years) people on the south coast of South Africa had widened their diet to include shellfish and other marine foods, perhaps in response to harsh glacial conditions. The team called it the earliest dated observation of this behaviour, the earliest previous evidence being about 125,000 years old.",
+  "summary": "Middle Stone Age deposits at Pinnacle Point Cave 13B preserve evidence of shellfish gathering about 164,000 years ago.",
+  "description": "The oldest shell-bearing layers reported at Pinnacle Point Cave 13B near Mossel Bay are dated to about 164,000 ± 12,000 years ago. Brown mussels are prominent in the assemblage. The excavation team inferred collection on rocky shores and in tidal pools based on the habitats of the shellfish.",
   "kind": "practice",
   "domain": "food.foraging",
   "tier": 2,
@@ -16,7 +16,7 @@
   "advance": [
     "craft_practice"
   ],
-  "origin": "first_known",
+  "origin": "unknown",
   "concept": "coastal-shellfish-gathering",
   "places": [
     {
@@ -27,33 +27,6 @@
     "archaeological_find"
   ],
   "events": [
-    {
-      "id": "archaeological-evidence-162050bce",
-      "type": "archaeological_evidence",
-      "date": {
-        "earliest": {
-          "year": -162050
-        },
-        "latest": {
-          "year": -162050
-        },
-        "precision": "millennium",
-        "status": "approximate",
-        "label": "c. 164,000 years ago",
-        "basis": "As the cited source gives it."
-      },
-      "statement": "The excavation's leader states that at 164,000 years ago (about 162,050 BCE) people in coastal South Africa expanded their diet to include shellfish and other marine resources.",
-      "places": [
-        "pinnacle-point"
-      ],
-      "evidence": [
-        {
-          "source": "schwarz-2007-earliest-evidence-modern",
-          "supports": "Our findings show that at 164,000 years ago in coastal South Africa humans expanded their diet to include shellfish and other marine resources, perhaps as a response to harsh environmental conditions",
-          "locator": "News release"
-        }
-      ]
-    },
     {
       "id": "archaeological-evidence-150050bce",
       "type": "archaeological_evidence",
@@ -69,25 +42,25 @@
         "label": "c. 164,000 years ago (±12,000)",
         "basis": "As the cited source gives it."
       },
-      "statement": "Marean and colleagues date the widening of the diet at Pinnacle Point, on the south coast of South Africa, to include marine resources to about 164,000 years ago, with a stated error of 12,000 years either way (about 174,050–150,050 BCE).",
+      "statement": "The LC-MSA Lower at Pinnacle Point Cave 13B preserves an assemblage of marine shells interpreted as food remains, dated to about 164,000 ± 12,000 years ago.",
       "places": [
         "pinnacle-point"
       ],
       "evidence": [
         {
           "source": "marean-2007-early-human-use",
-          "supports": "Here we show that by ∼164 kyr ago (±12 kyr) at Pinnacle Point (on the south coast of South Africa) humans expanded their diet to include marine resources",
-          "locator": "Abstract"
+          "locator": "pp. 905–907; tables 1–2",
+          "supports": "Reports luminescence dating of the lower deposit and identifies Perna perna as the most abundant shellfish by minimum number of individuals in that layer. Uses living shellfish habitats to infer intertidal collection."
         }
       ]
     }
   ],
   "earliest_record": {
-    "event": "archaeological-evidence-162050bce",
-    "rationale": "The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists."
+    "event": "archaeological-evidence-150050bce",
+    "rationale": "The excavation report includes the dating uncertainty of the oldest shell-bearing deposits reviewed here."
   },
   "research": {
-    "status": "sourced",
+    "status": "draft",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -96,29 +69,39 @@
       "grain": "recalled",
       "events": "sourced",
       "advance": "recalled",
-      "origin": "sourced",
+      "origin": "unknown",
       "concept": "recalled",
       "places": "sourced",
       "known_from": "sourced"
     },
     "unresolved": [
       {
-        "about": "open question",
-        "note": "Only the abstract of the 2007 Nature paper was read; the full paper should be opened for the dated layers and the shellfish counts."
+        "about": "Collection timing",
+        "note": "Daily and spring low tides both expose the inferred rocky shore and pools. Exactly when foragers collected remains unresolved.",
+        "evidence": [
+          {
+            "source": "marean-2007-early-human-use",
+            "locator": "pp. 905–907; tables 1–2",
+            "supports": "Reports luminescence dating of the lower deposit and identifies Perna perna as the most abundant shellfish by minimum number of individuals in that layer. Uses living shellfish habitats to infer intertidal collection."
+          }
+        ]
       },
       {
-        "about": "open question",
-        "note": "Whether shellfish collection was timed to the spring tides was not checked."
-      },
-      {
-        "about": "open question",
-        "note": "Other early claims of shellfish use, such as Benzú rock shelter in North Africa, were not checked and bear on first_known."
+        "about": "Origin",
+        "note": "Bajondillo Cave independently records shellfish use around 150 ka. The locally reported age does not settle global priority.",
+        "evidence": [
+          {
+            "source": "cortes-sanchez-2011-bajondillo-shellfish",
+            "locator": "Results and Discussion; Conclusions",
+            "supports": "Reports separate shellfishing evidence at Bj19 roughly contemporaneous with Pinnacle Point."
+          }
+        ]
       },
       {
         "about": "open question",
         "note": "The coordinates are for the promontory and need checking against a gazetteer."
       }
     ],
-    "note": "The 2007 Nature report says the earliest previous evidence of marine resource use dated to about 125,000 years ago. A 2011 study of Bajondillo Cave, Spain, dates Neanderthal shellfish use to about 150,000 years ago and calls it almost contemporaneous with Pinnacle Point, where it says shellfishing is first documented, so the priority holds only within dating error."
+    "note": "The Nature excavation paper and its press release describe the same dated observation. The version with dating uncertainty is retained."
   }
 }

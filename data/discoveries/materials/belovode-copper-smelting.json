@@ -2,7 +2,7 @@
   "id": "belovode-copper-smelting",
   "name": "Belovode copper smelting",
   "summary": "Slag and slag-coated pottery at the Vinča settlement of Belovode show people extracting copper from ore around 5000 BCE, among Europe's early evidence of smelting.",
-  "description": "Copper-bearing slag and slagged ceramic sherds document extraction of copper from ore at a Vinča settlement.",
+  "description": "Copper-bearing slag and slagged ceramic sherds document local extraction of copper from ore at Belovode. A separately excavated cluster in Trench 18 supports the use of manganese-rich copper ores and suggests a pit with ceramic lining.",
   "kind": "technology",
   "domain": "materials.metallurgy",
   "fields": [
@@ -95,6 +95,40 @@
           "supports": "Smelting debris, date, and absence of confirmed furnace remains."
         }
       ]
+    },
+    {
+      "id": "trench-eighteen-smelting-debris",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -4724
+        },
+        "latest": {
+          "year": -4555
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "4724–4555 cal BCE, associated Feature 6 sample",
+        "basis": "Published 2σ radiocarbon range for the animal-bone sample MAMS23380 associated with Feature 6 in Trench 18."
+      },
+      "statement": "Slag and a slagged sherd were excavated around Feature 6 at Belovode. The analyses support the use of manganese-rich copper ore. The cluster of debris and a burnt, bowl-shaped feature suggest a pottery-lined smelting pit.",
+      "scope": "Trench 18, spit 5 and associated Feature 6.",
+      "places": [
+        "belovode"
+      ],
+      "caveats": "The sample dates the associated feature. The lining and precise use of Feature 6 remain archaeological inferences.",
+      "evidence": [
+        {
+          "source": "radivojevic-2021-belovode-metal-production",
+          "locator": "pp. 123–127, Figs. 2–3 and Tables 1–2",
+          "supports": "Distinct debris and an associated radiocarbon date in the 2012–2013 excavation."
+        },
+        {
+          "source": "radivojevic-2021-belovode-metal-production",
+          "locator": "pp. 133–138 and 149–151, sherd analysis and conclusion",
+          "supports": "Nearby slagged ceramics support the pit-lining interpretation and analyses corroborate the ore characteristics."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -110,9 +144,9 @@
     "proxy_reason": "The inference is from historical production residue to local metallurgical activity; the first act and community size are not directly observed.",
     "caveats": "Small samples and contextual dating constrain a horizon; no specific first use, furnace form, economic exchange or global priority is established."
   },
-  "caveats": "Small debris survives; convincing smelting installations were not identified. This node makes no sole-origin or universal-earliest claim.",
+  "caveats": "Trench 3 yielded small debris and no confirmed smelting installation. A later excavation at Trench 18 identified a possible pottery-lined pit. The geological source of the ore and the transmission of the technique remain unresolved.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -124,10 +158,23 @@
       "places": "sourced",
       "societies": "sourced",
       "known_from": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "recalled",
       "impact": "recalled"
-    }
+    },
+    "unresolved": [
+      {
+        "about": "Ore procurement and installation",
+        "note": "Seek a geologically matched, dated extraction context and in situ ceramic lining with diagnostic smelting residues before assigning a specific source or installation.",
+        "evidence": [
+          {
+            "source": "radivojevic-2021-belovode-metal-production",
+            "locator": "pp. 123–129, Features 6 and 35; pp. 149–151",
+            "supports": "Field contexts and distinct metallurgy samples support local smelting and narrow questions about the installation and ore."
+          }
+        ]
+      }
+    ]
   },
   "grain": "capability"
 }

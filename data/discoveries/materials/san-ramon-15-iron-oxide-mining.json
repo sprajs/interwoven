@@ -1,7 +1,7 @@
 {
   "id": "san-ramon-15-iron-oxide-mining",
   "name": "San Ramón 15 iron-oxide mining",
-  "description": "At San Ramón 15 on the northern Chilean coast, excavation found iron-oxide workings and stone hammerstones associated with Early Holocene deposits.",
+  "description": "At San Ramón 15 near Taltal, northern Chile, hunter-gatherer-fisher groups mined an iron-oxide vein. Two excavated units preserve tailings, battered vein material and stone hammerstones. Separate dated levels document early extraction and renewed mining in the Late Archaic.",
   "kind": "practice",
   "domain": "materials.mining",
   "tier": 3,
@@ -14,6 +14,36 @@
   "grain": "instance",
   "concept": "iron-oxide-extraction",
   "events": [
+    {
+      "id": "unit-two-early-mining-context",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -10494
+        },
+        "latest": {
+          "year": -10146
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "10,494–10,146 cal BCE, unit 2 layer 5 shell",
+        "basis": "Published calibrated bounds for shell sample Beta-280992 in unit 2 layer 5, with the article's local marine-reservoir correction."
+      },
+      "statement": "The central trench contains an early iron-oxide extraction deposit with rocks from the vein and stone mining tools.",
+      "scope": "Central trench, excavation unit 2 layer 5.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "San Ramón 15, near Taltal.",
+      "caveats": "The shell supplies a contextual date dependent on reservoir correction. The age of the first extraction and the dates of particular tools remain unresolved.",
+      "evidence": [
+        {
+          "source": "w11-salazar-san-ramon-iron-oxide",
+          "locator": "pp. 466–470, Figs. 3 and 6 and Table 1, Beta-280992",
+          "supports": "The dated early shell comes from unit 2 layer 5. Figures 3 and 6 show the extraction and deposit contexts, and the authors associate the date with early central-trench mining."
+        }
+      ]
+    },
     {
       "id": "documented-case",
       "type": "archaeological_evidence",
@@ -55,25 +85,55 @@
           ]
         }
       ]
+    },
+    {
+      "id": "unit-two-late-archaic-mining-context",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -2398
+        },
+        "latest": {
+          "year": -1954
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "2398–1954 cal BCE, unit 2 layer 3 charcoal",
+        "basis": "Published calibrated bounds for charcoal sample UGAMS 5443 in unit 2 layer 3."
+      },
+      "statement": "Late Archaic miners returned to the trench after sediment had accumulated over early workings. Unit 2 preserves Late Archaic deposits above the earlier mining levels.",
+      "scope": "Central trench, excavation unit 2 layer 3.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "San Ramón 15, near Taltal.",
+      "caveats": "The charcoal dates an associated mining deposit. The date applies to this excavated layer within a separately documented phase of extraction.",
+      "evidence": [
+        {
+          "source": "w11-salazar-san-ramon-iron-oxide",
+          "locator": "pp. 466–470, Figs. 3 and 6 and Table 1, UGAMS 5443",
+          "supports": "Late and early archaeological levels in the central trench are separated by a natural colluvial deposit. Charcoal from the later level dates to 2398–1954 cal BCE."
+        }
+      ]
     }
   ],
   "earliest_record": {
-    "event": "documented-case",
-    "rationale": "This dated witness represents the scoped case, not global priority."
+    "event": "unit-two-early-mining-context",
+    "rationale": "The earliest dated context interpreted as iron-oxide extraction in the excavators' report. The published adjusted marine-shell interval dates the deposit by association."
   },
-  "caveats": "The displayed dates are a calibrated charcoal sample from unit 1 layer 7, not a direct date of the entire mine or of every hammerstone. Other material indicates earlier and later use; similarities with other mines do not establish transmission or a single origin.",
+  "caveats": "Dates are from associated shell or charcoal. The early shell calibration includes a local marine-reservoir correction. Natural sediment separates the early and late deposits in unit 2. The times of first use and final abandonment remain open.",
   "research": {
     "status": "draft",
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
       "concept": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "places": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Independent review checked the event facet against the stated source; other facets retain their previous basis and the documented evidence limits."
+    "note": "The earlier review concerned the unit 1 layer 7 witness. The proposed additions use distinct unit 2 strata in the same excavation report."
   },
   "places": [
     {

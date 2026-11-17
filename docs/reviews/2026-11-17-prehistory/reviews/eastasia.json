@@ -1,0 +1,854 @@
+{
+  "schema_version": 1,
+  "lane": "eastasia",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "de638d7dfb257d8fe875a0d1894eac27742d23d6",
+  "worker_commit": "de638d7dfb257d8fe875a0d1894eac27742d23d6",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent original-source review",
+    "independence": "Separate execution from researcher gpt-6.2-sol high; reviewed originals, not only research notes."
+  },
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/food/common-carp-aquaculture-at-jiahu-henan.json",
+      "sha256": "1747dab90f5ca1dfdf3b96ddcda9603b6f6783a31e544a770a8ef8725e8a48e9"
+    },
+    {
+      "path": "data/discoveries/food/early-millet-exploitation-on-the-north-china-plain.json",
+      "sha256": "37985db89c4c61cb5b100bc366a69fcf790dd5775d79b505bb9d4340f6863bac"
+    },
+    {
+      "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json",
+      "sha256": "07ab55793482d1506405532b7a1803bb40bf51500f519f9190af5122e6e22a05"
+    },
+    {
+      "path": "data/discoveries/food/lower-yangtze-pig-management.json",
+      "sha256": "3da6b5de6b57d4fbc396e87335425b869f0b8426184eca010b85ec89a270709f"
+    },
+    {
+      "path": "data/discoveries/food/shangshan-rice-domestication-traits.json",
+      "sha256": "a366dff035c025b9ed9faf8670cc3ee3db143c41fc72a0bf284a3166c2383dfd"
+    },
+    {
+      "path": "data/discoveries/food/shimoyakebe-large-seeded-soybean.json",
+      "sha256": "fda82e25d5ac1bea87aa18b2e95486e6a6d6930a5439bf7a8d205338f5d5d70e"
+    },
+    {
+      "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json",
+      "sha256": "d166e3d5c416bb6b7b2bef59bb3d8b1232217118d336184eb5b7813254c70eaf"
+    },
+    {
+      "path": "data/sources/h/huang-2003-caoxieshan-paddy-pollen-phytoliths.json",
+      "sha256": "0a30cf58933e8c6001cceb55b02147c027435b69724d2d4ed92a838307d7d944"
+    },
+    {
+      "path": "data/sources/k/kudo-2010-shimoyakebe-plant-remains.json",
+      "sha256": "4bf7f70cd531c94abe94ca57ef86c3bc2d9e45816c41dc777870971167199e1f"
+    },
+    {
+      "path": "data/sources/n/nakajima-2019-common-carp-aquaculture.json",
+      "sha256": "0812cc9b3b08791166eb00854eb534792de3323fc57fb2885a0a7685e6d7359a"
+    },
+    {
+      "path": "data/sources/s/shu-2012-kuahuqiao-burning-interpretation.json",
+      "sha256": "b1ee52457d4dcddddd9d05b72f8edfd04ee6cf5d56186f416c9968fbcc9129f4"
+    },
+    {
+      "path": "data/sources/s/sterckx-2025-fish-farming-texts.json",
+      "sha256": "2b2f89d1c040214ca02947db05c5f4177f0e192dae88e7a915dc2471f40b8919"
+    },
+    {
+      "path": "data/sources/w/wang-2022-shangshan-stone-flake-rice-harvest.json",
+      "sha256": "52824fa4368dc57daa458e21e1e3055f1c7502579c69591be3c3d82ea9fe7943"
+    },
+    {
+      "path": "data/sources/z/zhao-2020-donghulin-flotation.json",
+      "sha256": "41cfcd73df221be616db5718528efea1871ce11316f390140cde9f3291df3483"
+    },
+    {
+      "path": "data/sources/z/zheng-2007-kuahuqiao-rice-rachillae.json",
+      "sha256": "ea38ee970140a843c556de39a2ae85998559abee1db998cec427a88db9f45b2f"
+    },
+    {
+      "path": "data/sources/z/zong-2007-kuahuqiao-wetland-cultivation.json",
+      "sha256": "469c83306339713e8a128f97aa09bfe98cb6e96abef2d5c5a653a46ef0f5cfd3"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/eastasia.json",
+      "sha256": "b8256e0e39797bdedc01f9807d2c37a386b96305a304ed7f719434f97617ed14"
+    },
+    {
+      "path": "evidence/h/huang-2003-caoxieshan-paddy-pollen-phytoliths-notes.txt",
+      "sha256": "e41cf88e68c2f5378c37eb908a2f5a200b8ea1556e8097dc4fc1a33c53bd9e86"
+    },
+    {
+      "path": "evidence/k/kudo-2010-shimoyakebe-plant-remains-notes.txt",
+      "sha256": "0797069ecba47683fbb18ccc05d3492a219480d900f33f9554b682f51c201f5f"
+    },
+    {
+      "path": "evidence/s/shu-2012-kuahuqiao-burning-interpretation-notes.txt",
+      "sha256": "fb9334077b677e6049085d22f355b676b403f23b9b64de2bf720cab0ba0a87c6"
+    },
+    {
+      "path": "evidence/s/sterckx-2025-fish-farming-texts-notes.txt",
+      "sha256": "3b3357fecdec0292759f6a400562f82d27574dcaea995f2c14a25897ca5a1ff2"
+    },
+    {
+      "path": "evidence/w/wang-2022-shangshan-stone-flake-rice-harvest-notes.txt",
+      "sha256": "ad34bce2c784d1f87cae5e77103e35b3778dbbfd02743c7e55be4ada68515728"
+    },
+    {
+      "path": "evidence/z/zhao-2020-donghulin-flotation-notes.txt",
+      "sha256": "e9b1ce4aac21d5740b9af02dc09379e524641d17982a86b1bef481c5c1dafc81"
+    },
+    {
+      "path": "evidence/z/zheng-2007-kuahuqiao-rice-rachillae-notes.txt",
+      "sha256": "36bcc265db7d19df63182005208b52d70215edf0f81685f08ad9fad2d0c2e196"
+    },
+    {
+      "path": "evidence/z/zong-2007-kuahuqiao-wetland-cultivation-notes.txt",
+      "sha256": "053dbd947e3f532380f5ee68e69ac5b46ae56c8c3c35a8a69f3ab22759a9732e"
+    }
+  ],
+  "records": [
+    {
+      "id": "common-carp-aquaculture-at-jiahu-henan",
+      "verdict": "accept",
+      "rationale": "Source-based correction refines existing event; no evidence of inter-community continuity.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/common-carp-aquaculture-at-jiahu-henan.json#summary,events/archaeological-evidence-6000bce/date,statement,caveats",
+          "verdict": "accept",
+          "rationale": "Period III is 6200–5700 BCE; bimodal size distribution and species proportions underpin the authors’ management interpretation. The locality or form of managed waters remains unknown.",
+          "sources": [
+            "nakajima-2019-common-carp-aquaculture, pp. 1415–1417 fig. 1"
+          ],
+          "extends": "common-carp-aquaculture-at-jiahu-henan"
+        },
+        {
+          "path": "data/discoveries/food/common-carp-aquaculture-at-jiahu-henan.json#research/unresolved",
+          "verdict": "accept",
+          "rationale": "Textual study identifies sixth-century surviving witness but does not establish its original date or its connection to Jiahu.",
+          "sources": [
+            "sterckx-2025-fish-farming-texts, pp. 366–369, 372–373",
+            "nakajima-2019-common-carp-aquaculture, pp. 1415–1417 fig. 1"
+          ]
+        }
+      ],
+      "unknowns": [
+        "Selective fishing and environmental influences remain alternatives; no excavated pond attributed to this episode."
+      ]
+    },
+    {
+      "id": "early-millet-exploitation-on-the-north-china-plain",
+      "verdict": "accept",
+      "rationale": "Distinct charcoal grain deposit complements earlier starch evidence without establishing cultivation continuity.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/early-millet-exploitation-on-the-north-china-plain.json#events/donghulin-foxtail-millet-charred-grains",
+          "verdict": "accept",
+          "rationale": "The authors report 14 morphologically assigned grains across four deposits; a cork-tree seed from one millet-bearing unit yielded BA07888, 8885±55 BP, 8240–7820 BCE at 95.4%. Grain displacement and indirect dating remain explicit.",
+          "sources": [
+            "zhao-2020-donghulin-flotation, Tables 2–4, pp. 103–104"
+          ],
+          "extends": "early-millet-exploitation-on-the-north-china-plain"
+        }
+      ],
+      "unknowns": [
+        "No direct date on the millet grains; author overlap with earlier study does not make different specimens independent excavation contexts."
+      ]
+    },
+    {
+      "id": "lower-yangtze-pig-management",
+      "verdict": "accept",
+      "rationale": "Candidate question concerns a possible local integrated crop and pig feeding arrangement, not a developmental descent or an established connection.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/lower-yangtze-pig-management.json#research/basis/links,links/0",
+          "verdict": "accept",
+          "rationale": "Rice cultivation is inferred from wetland sediment and excavated rice. Rice phytoliths in three Kuahuqiao pig specimens and cooked starch in suid calculus support exposure to rice and prepared foods, but neither the source of the rice nor deliberate feeding is demonstrated. The question and alternatives preserve those limits.",
+          "sources": [
+            "wang-2025-yangtze-pig-management, Fig. 3 and Discussion",
+            "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+            "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3"
+          ],
+          "relation": {
+            "type": "companion_of",
+            "vocabulary": "The two worked together as parts of one arrangement.",
+            "endpoint_kinds": "Both are practices; the pig record has capability grain and the rice record has no explicit grain.",
+            "direction": "kuahuqiao-wetland-rice-cultivation → lower-yangtze-pig-management",
+            "context": "The question explicitly asks if people fed managed pigs rice or rice-processing remains from local wetland cultivation at Kuahuqiao, an integrated feeding arrangement; the receiving record also includes Jingtoushan, which is excluded by scope.",
+            "status": "candidate: possible arrangement, not an established relation; dating overlaps but individual pig phases are unknown",
+            "corroboration": "Independent sediment, rachilla, and dental samples support components but do not establish deliberate feeding of cultivated rice.",
+            "alternatives": "Wild rice foraging, scavenging, other feeds and uncertain management."
+          }
+        }
+      ],
+      "unknowns": [
+        "Exact specimen phases and route from crop to pig diet remain unknown."
+      ]
+    },
+    {
+      "id": "shangshan-rice-domestication-traits",
+      "verdict": "accept",
+      "rationale": "The added question preserves a distinction between harvesting technology and inferred domestication traits.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/shangshan-rice-domestication-traits.json#research/unresolved/Local harvesting and domestication traits",
+          "verdict": "accept",
+          "rationale": "SS-10 striations and rice glume residue support interpreted panicle harvesting; independent material records Shangshan rachilla morphologies and bulliform measurements. Seed retention and contribution to particular silica traits are not demonstrated.",
+          "sources": [
+            "wang-2022-shangshan-stone-flake-rice-harvest, figs. 6–8 and discussion",
+            "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3",
+            "zuo-2017-shangshan-rice-phytoliths, pp. 6486–6491"
+          ]
+        }
+      ],
+      "unknowns": [
+        "Harvesting does not itself establish resowing, selection or causal contribution."
+      ]
+    },
+    {
+      "id": "shimoyakebe-large-seeded-soybean",
+      "verdict": "accept",
+      "rationale": "The same radiocarbon specimen has traceable original context; it is not independent corroboration of seed size.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/shimoyakebe-large-seeded-soybean.json#events/documented-case/date/basis,evidence",
+          "verdict": "accept",
+          "rationale": "Kudo Table 1 gives SY37/PLD-9088 4335±30 radiocarbon BP and Middle Jomon Glycine; the English summary puts the legumes around 4900 cal BP. Lee uses the same sample and interprets the assemblage at about 5000 cal BP.",
+          "sources": [
+            "kudo-2010-shimoyakebe-plant-remains, Table 1 SY37, English summary p. 26",
+            "w8-lee-2011-shimoyakebe-soybean, Methods and Results"
+          ]
+        },
+        {
+          "path": "data/discoveries/food/shimoyakebe-large-seeded-soybean.json#research/status,basis/events",
+          "verdict": "accept",
+          "rationale": "Sourced status avoids treating this new source addition as already reviewed.",
+          "sources": [
+            "kudo-2010-shimoyakebe-plant-remains, Table 1 SY37, English summary p. 26",
+            "w8-lee-2011-shimoyakebe-soybean, Methods and Results"
+          ]
+        }
+      ],
+      "unknowns": [
+        "Seed size and charring complications preclude proof of cultivation or descent."
+      ]
+    },
+    {
+      "id": "wet-rice-paddy-fields-lower-yangtze",
+      "verdict": "accept",
+      "rationale": "Local water-change explanation is properly attributed and no connection to earlier fields is claimed.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json#events/archaeological-evidence-4000bce/evidence",
+          "verdict": "accept",
+          "rationale": "Huang and Li contrast pit S13 with S′ and S15 using pollen, phytolith and excavation evidence; Fuller and Qin supply the Late Majiabang 4300–4000 BCE context. The studies refer to related excavation features, not two independent excavations.",
+          "sources": [
+            "huang-2003-caoxieshan-paddy-pollen-phytoliths, pp. 164–169",
+            "fuller-2009-water-management-labour, pp. 95–96"
+          ]
+        },
+        {
+          "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json#why,prompted_by,research/basis/prompted_by",
+          "verdict": "accept",
+          "rationale": "Huang and Li explicitly interpret pondweed decline as falling water and propose water scarcity prompted the change in field type; it is an attributed explanation, not direct proof.",
+          "sources": [
+            "huang-2003-caoxieshan-paddy-pollen-phytoliths, pp. 164–169"
+          ]
+        },
+        {
+          "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json#research/unresolved",
+          "verdict": "accept",
+          "rationale": "Zheng et al. 2009 describes Tianluoshan early fields 5000–4500 BCE and reports no irrigation in early and later phases; no transmission to Lake Tai is shown. Other unresolved notes retain hydrology and chronological questions.",
+          "sources": [
+            "Zheng et al. 2009, Rice fields and modes of rice cultivation, Table 1, pp. 2611–2615",
+            "huang-2003-caoxieshan-paddy-pollen-phytoliths, pp. 164–169"
+          ]
+        }
+      ],
+      "unknowns": [
+        "Matching Huang phase labels to the Late Majiabang record needs further stratigraphic work; modern study does not independently replicate original pit excavation."
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "kuahuqiao-wetland-rice-cultivation",
+      "verdict": "accept",
+      "rationale": "New local wetland cultivation evidence is a distinct site and context from later Lake Tai engineered fields and from Shangshan rice morphology.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json#id,name,summary,description,kind,domain,origin,places,known_from",
+          "verdict": "accept",
+          "rationale": "Zong describes a Kuahuqiao coastal wetland and associated rice and wild-food remains; Zheng examines rice morphology. Burning taxa are disputed by Shu and barrier construction remains a proposal.",
+          "sources": [
+            "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+            "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3",
+            "shu-2012-kuahuqiao-burning-interpretation, abstract"
+          ]
+        },
+        {
+          "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json#events/wetland-cultivation-horizon",
+          "verdict": "accept",
+          "rationale": "Zong dates cultural sediments in this specific sequence about 7700–7550 cal BP and interprets combined sediment indicators and rice remains as cultivation; Zheng supports cultivation using different rice specimens. Converted dates are correct and approximate.",
+          "sources": [
+            "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+            "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3"
+          ]
+        },
+        {
+          "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json#earliest_record,research/status,basis,unresolved",
+          "verdict": "accept",
+          "rationale": "Only the sampled sequence is dated. The contrasted oak/pine interpretation and unverified barrier are disclosed as unresolved.",
+          "sources": [
+            "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+            "shu-2012-kuahuqiao-burning-interpretation, abstract"
+          ]
+        }
+      ],
+      "unknowns": [
+        "The inferred wetland does not itself document an excavated field layout or transfer to later systems."
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "Nakajima 2019",
+      "url": "https://www.academia.edu/40412574/Common_carp_aquaculture_in_Neolithic_China_dates_back_8000_years",
+      "locator": "pp. 1415–1417 Fig. 1 and discussion",
+      "access": "Full author-paper text read online; same study as Nature DOI; not independent of it. Period II may reflect climate."
+    },
+    {
+      "source": "Sterckx 2025",
+      "url": "https://brill.com/view/journals/tpao/111/3-4/article-p353_4.pdf",
+      "locator": "pp. 366–369, 372–373",
+      "access": "Original PDF text read online; textual history is independent of carp remains, not proof of historical continuity."
+    },
+    {
+      "source": "Zhao 2020",
+      "url": "https://www.researchgate.net/publication/356299065_Plant_remains_unearthed_at_the_Donghulin_site_in_Beijing_discussion_on_results_of_flotation",
+      "locator": "Chinese original Tables 2–4 and pp. 103–104, BA07888",
+      "access": "Original Chinese text read online; separate flotation specimens from Yang starch study, authors and site partly overlap."
+    },
+    {
+      "source": "Wang 2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12184640/",
+      "locator": "Fig. 3 and Discussion",
+      "access": "Original study text read online; independent dental samples from rice sediment; authors overlap with Zheng. Rice identification does not distinguish source."
+    },
+    {
+      "source": "Zong 2007",
+      "url": "https://www.researchgate.net/publication/5945483_Fire_and_flood_management_of_coastal_swamp_enabled_first_rice_paddy_cultivation_in_east_China",
+      "locator": "pp. 459–461, Table 1 and Fig. 2",
+      "access": "Author-posted original article read online; sediment sequence and microfossils; dating an occupation sequence, not individual plants."
+    },
+    {
+      "source": "Zheng 2007",
+      "url": "https://www.academia.edu/26293579/Characteristics_of_the_short_rachillae_of_rice_from_archaeological_sites_dating_to_7000_years_ago",
+      "locator": "pp. 1655–1658, Table 1, Fig. 3",
+      "access": "Original paper text read online; 70 wild-type and 50 japonica-type Kuahuqiao rachillae; independent specimens from sediment samples though some team overlap."
+    },
+    {
+      "source": "Shu 2012",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1871174X12000042",
+      "locator": "abstract",
+      "access": "Abstract inspected; independent measurements in the same locality disagree over tree species. Full text not reviewed."
+    },
+    {
+      "source": "Wang 2022",
+      "url": "https://pdfs.semanticscholar.org/fe14/8ddf28e244326ddb363c702d18f38be4f78a.pdf",
+      "locator": "pp. 8–12 Figs. 6–8",
+      "access": "Original article read online; use-wear and phytoliths on same flakes are complementary, not separate assemblages."
+    },
+    {
+      "source": "Zuo 2017",
+      "url": "https://www.pnas.org/content/pnas/114/25/6486.full.pdf",
+      "locator": "pp. 6486–6491",
+      "access": "Original paper text reviewed online. Phytoliths measure different traits and samples than rachilla and flakes; team overlaps."
+    },
+    {
+      "source": "Kudo 2010",
+      "url": "https://rekihaku.repo.nii.ac.jp/record/1828/files/kenkyuhokoku_158_01.pdf",
+      "locator": "Table 1 SY37, p. 26",
+      "sha256": "6523a5b9000d8ccd732fed24eef2e945b904b3a86022b0b77b9e8d1ca08b1eba",
+      "access": "Downloaded original local PDF supplied by researcher and read; shared specimen PLD-9088 in Lee is not independent."
+    },
+    {
+      "source": "Lee 2011",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0026720&type=printable",
+      "locator": "Methods and Results, figs. 1, 7, 10",
+      "access": "Original paper read online. Overlapping specimen with Kudo, broader comparative measurements."
+    },
+    {
+      "source": "Huang and Li 2003",
+      "url": "https://openresearch-repository.anu.edu.au/bitstream/1885/127433/1/TA_19.pdf",
+      "locator": "pp. 164–169 and conclusion",
+      "access": "Web-cached original book PDF text read; preliminary local observations and interpretation, with archaeological excavation shared with later accounts."
+    },
+    {
+      "source": "Fuller and Qin 2009",
+      "url": "https://www.homepages.ucl.ac.uk/~tcrndfu/articles/FullerQin09.pdf",
+      "locator": "pp. 95–98",
+      "access": "Original article read online; synthesizes excavated fields and does not establish inter-site transmission."
+    },
+    {
+      "source": "Zheng et al. 2009",
+      "url": "https://www.academia.edu/26449613/Rice_fields_and_modes_of_rice_cultivation_between_5000_and_2500_BC_in_east_China",
+      "locator": "Table 1, pp. 2611–2615",
+      "access": "Original paper text read online; cited in unresolved note by title but not entered as a separate source record; no change to historical event depends on this comparison."
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Compared base record events and searched all discoveries for Jiahu, Donghulin, Kuahuqiao, Shangshan, Shimoyakebe and Caoxieshan.",
+    "result": "Donghulin grain event extends existing millet record: different evidence from earlier starch events. Kuahuqiao cultivation is distinct from Shangshan morphology and later Lake Tai field designs. Existing Jiahu beverage and carp records cover different activities. No duplicate discovery found."
+  },
+  "issues": [],
+  "unknowns": [
+    "Kuahuqiao pig feeding strategy and any crop-to-pig dependence are not established.",
+    "The Tianluoshan comparison is cited by author, title and locators in an unresolved note, but lacks a registered source; add it if promoted to a retained formal event or relation.",
+    "Unchanged baseline millet summary gives 11,000–9,500 years although the Nanzhuangtou site interval starts 11,500 calibrated BP; the source distinguishes site age from age assigned to millet use. This baseline wording was not silently reapproved."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 907 discoveries, 1516 events, 243 links, 1680 sources; No problems found",
+    "diff_check": "git diff --check base to repaired proposal passed"
+  },
+  "history": [
+    {
+      "proposal_commit": "40f65a67220b29411b20346ea5bc6f169f2fdb2b",
+      "review_commit": "31447c1599af5d8d6fc2a48e2578e480b3ef1182",
+      "superseded_review": {
+        "schema_version": 1,
+        "lane": "eastasia",
+        "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+        "proposal_commit": "40f65a67220b29411b20346ea5bc6f169f2fdb2b",
+        "worker_commit": "40f65a67220b29411b20346ea5bc6f169f2fdb2b",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "independent original-source review",
+          "independence": "Separate execution from researcher gpt-6.2-sol high; reviewed originals, not only research notes."
+        },
+        "overall_verdict": "accept",
+        "overall_decision": "accept",
+        "files": [
+          {
+            "path": "data/discoveries/food/common-carp-aquaculture-at-jiahu-henan.json",
+            "sha256": "1747dab90f5ca1dfdf3b96ddcda9603b6f6783a31e544a770a8ef8725e8a48e9"
+          },
+          {
+            "path": "data/discoveries/food/early-millet-exploitation-on-the-north-china-plain.json",
+            "sha256": "37985db89c4c61cb5b100bc366a69fcf790dd5775d79b505bb9d4340f6863bac"
+          },
+          {
+            "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json",
+            "sha256": "07ab55793482d1506405532b7a1803bb40bf51500f519f9190af5122e6e22a05"
+          },
+          {
+            "path": "data/discoveries/food/lower-yangtze-pig-management.json",
+            "sha256": "5765dc9b9fb6a2b12465ad797c761ef2a7db8f26c80bf2dffb2e66075524cb60"
+          },
+          {
+            "path": "data/discoveries/food/shangshan-rice-domestication-traits.json",
+            "sha256": "a366dff035c025b9ed9faf8670cc3ee3db143c41fc72a0bf284a3166c2383dfd"
+          },
+          {
+            "path": "data/discoveries/food/shimoyakebe-large-seeded-soybean.json",
+            "sha256": "fda82e25d5ac1bea87aa18b2e95486e6a6d6930a5439bf7a8d205338f5d5d70e"
+          },
+          {
+            "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json",
+            "sha256": "d166e3d5c416bb6b7b2bef59bb3d8b1232217118d336184eb5b7813254c70eaf"
+          },
+          {
+            "path": "data/sources/h/huang-2003-caoxieshan-paddy-pollen-phytoliths.json",
+            "sha256": "0a30cf58933e8c6001cceb55b02147c027435b69724d2d4ed92a838307d7d944"
+          },
+          {
+            "path": "data/sources/k/kudo-2010-shimoyakebe-plant-remains.json",
+            "sha256": "4bf7f70cd531c94abe94ca57ef86c3bc2d9e45816c41dc777870971167199e1f"
+          },
+          {
+            "path": "data/sources/n/nakajima-2019-common-carp-aquaculture.json",
+            "sha256": "0812cc9b3b08791166eb00854eb534792de3323fc57fb2885a0a7685e6d7359a"
+          },
+          {
+            "path": "data/sources/s/shu-2012-kuahuqiao-burning-interpretation.json",
+            "sha256": "b1ee52457d4dcddddd9d05b72f8edfd04ee6cf5d56186f416c9968fbcc9129f4"
+          },
+          {
+            "path": "data/sources/s/sterckx-2025-fish-farming-texts.json",
+            "sha256": "2b2f89d1c040214ca02947db05c5f4177f0e192dae88e7a915dc2471f40b8919"
+          },
+          {
+            "path": "data/sources/w/wang-2022-shangshan-stone-flake-rice-harvest.json",
+            "sha256": "52824fa4368dc57daa458e21e1e3055f1c7502579c69591be3c3d82ea9fe7943"
+          },
+          {
+            "path": "data/sources/z/zhao-2020-donghulin-flotation.json",
+            "sha256": "41cfcd73df221be616db5718528efea1871ce11316f390140cde9f3291df3483"
+          },
+          {
+            "path": "data/sources/z/zheng-2007-kuahuqiao-rice-rachillae.json",
+            "sha256": "ea38ee970140a843c556de39a2ae85998559abee1db998cec427a88db9f45b2f"
+          },
+          {
+            "path": "data/sources/z/zong-2007-kuahuqiao-wetland-cultivation.json",
+            "sha256": "469c83306339713e8a128f97aa09bfe98cb6e96abef2d5c5a653a46ef0f5cfd3"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-prehistory/lanes/eastasia.json",
+            "sha256": "ed2b3297c0cde9416dd57ad50ae890e3855ca61a3f7caaf08838df6b24147235"
+          },
+          {
+            "path": "evidence/h/huang-2003-caoxieshan-paddy-pollen-phytoliths-notes.txt",
+            "sha256": "e41cf88e68c2f5378c37eb908a2f5a200b8ea1556e8097dc4fc1a33c53bd9e86"
+          },
+          {
+            "path": "evidence/k/kudo-2010-shimoyakebe-plant-remains-notes.txt",
+            "sha256": "0797069ecba47683fbb18ccc05d3492a219480d900f33f9554b682f51c201f5f"
+          },
+          {
+            "path": "evidence/s/shu-2012-kuahuqiao-burning-interpretation-notes.txt",
+            "sha256": "fb9334077b677e6049085d22f355b676b403f23b9b64de2bf720cab0ba0a87c6"
+          },
+          {
+            "path": "evidence/s/sterckx-2025-fish-farming-texts-notes.txt",
+            "sha256": "3b3357fecdec0292759f6a400562f82d27574dcaea995f2c14a25897ca5a1ff2"
+          },
+          {
+            "path": "evidence/w/wang-2022-shangshan-stone-flake-rice-harvest-notes.txt",
+            "sha256": "ad34bce2c784d1f87cae5e77103e35b3778dbbfd02743c7e55be4ada68515728"
+          },
+          {
+            "path": "evidence/z/zhao-2020-donghulin-flotation-notes.txt",
+            "sha256": "e9b1ce4aac21d5740b9af02dc09379e524641d17982a86b1bef481c5c1dafc81"
+          },
+          {
+            "path": "evidence/z/zheng-2007-kuahuqiao-rice-rachillae-notes.txt",
+            "sha256": "36bcc265db7d19df63182005208b52d70215edf0f81685f08ad9fad2d0c2e196"
+          },
+          {
+            "path": "evidence/z/zong-2007-kuahuqiao-wetland-cultivation-notes.txt",
+            "sha256": "053dbd947e3f532380f5ee68e69ac5b46ae56c8c3c35a8a69f3ab22759a9732e"
+          }
+        ],
+        "records": [
+          {
+            "id": "common-carp-aquaculture-at-jiahu-henan",
+            "verdict": "accept",
+            "rationale": "Source-based correction refines existing event; no evidence of inter-community continuity.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/common-carp-aquaculture-at-jiahu-henan.json#summary,events/archaeological-evidence-6000bce/date,statement,caveats",
+                "verdict": "accept",
+                "rationale": "Period III is 6200–5700 BCE; bimodal size distribution and species proportions underpin the authors’ management interpretation. The locality or form of managed waters remains unknown.",
+                "sources": [
+                  "nakajima-2019-common-carp-aquaculture, pp. 1415–1417 fig. 1"
+                ],
+                "extends": "common-carp-aquaculture-at-jiahu-henan"
+              },
+              {
+                "path": "data/discoveries/food/common-carp-aquaculture-at-jiahu-henan.json#research/unresolved",
+                "verdict": "accept",
+                "rationale": "Textual study identifies sixth-century surviving witness but does not establish its original date or its connection to Jiahu.",
+                "sources": [
+                  "sterckx-2025-fish-farming-texts, pp. 366–369, 372–373",
+                  "nakajima-2019-common-carp-aquaculture, pp. 1415–1417 fig. 1"
+                ]
+              }
+            ],
+            "unknowns": [
+              "Selective fishing and environmental influences remain alternatives; no excavated pond attributed to this episode."
+            ]
+          },
+          {
+            "id": "early-millet-exploitation-on-the-north-china-plain",
+            "verdict": "accept",
+            "rationale": "Distinct charcoal grain deposit complements earlier starch evidence without establishing cultivation continuity.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/early-millet-exploitation-on-the-north-china-plain.json#events/donghulin-foxtail-millet-charred-grains",
+                "verdict": "accept",
+                "rationale": "The authors report 14 morphologically assigned grains across four deposits; a cork-tree seed from one millet-bearing unit yielded BA07888, 8885±55 BP, 8240–7820 BCE at 95.4%. Grain displacement and indirect dating remain explicit.",
+                "sources": [
+                  "zhao-2020-donghulin-flotation, Tables 2–4, pp. 103–104"
+                ],
+                "extends": "early-millet-exploitation-on-the-north-china-plain"
+              }
+            ],
+            "unknowns": [
+              "No direct date on the millet grains; author overlap with earlier study does not make different specimens independent excavation contexts."
+            ]
+          },
+          {
+            "id": "lower-yangtze-pig-management",
+            "verdict": "accept",
+            "rationale": "Candidate connection asks a local functional question; it is not an established graph edge.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/lower-yangtze-pig-management.json#research/basis/links,links/0",
+                "verdict": "accept",
+                "rationale": "Rice cultivation at Kuahuqiao is an interpreted independent local capability; rice phytoliths in three local pig specimens do not identify wild versus cultivated rice or intentional provisioning. Temporal span and broader pig endpoint are explicitly qualified.",
+                "sources": [
+                  "wang-2025-yangtze-pig-management, Fig. 3 and Discussion",
+                  "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+                  "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3"
+                ],
+                "relation": {
+                  "type": "builds_on",
+                  "direction": "kuahuqiao-wetland-rice-cultivation → lower-yangtze-pig-management",
+                  "context": "possible local cultivation contribution to Kuahuqiao pig management only",
+                  "status": "candidate, retained question",
+                  "corroboration": "independent sediment, rachilla and dental samples support components; none independently establishes this causal connection",
+                  "alternatives": "wild rice and scavenged food; other resources and settlement ecology"
+                }
+              }
+            ],
+            "unknowns": [
+              "Exact specimen phases and route from crop to pig diet remain unknown."
+            ]
+          },
+          {
+            "id": "shangshan-rice-domestication-traits",
+            "verdict": "accept",
+            "rationale": "The added question preserves a distinction between harvesting technology and inferred domestication traits.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/shangshan-rice-domestication-traits.json#research/unresolved/Local harvesting and domestication traits",
+                "verdict": "accept",
+                "rationale": "SS-10 striations and rice glume residue support interpreted panicle harvesting; independent material records Shangshan rachilla morphologies and bulliform measurements. Seed retention and contribution to particular silica traits are not demonstrated.",
+                "sources": [
+                  "wang-2022-shangshan-stone-flake-rice-harvest, figs. 6–8 and discussion",
+                  "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3",
+                  "zuo-2017-shangshan-rice-phytoliths, pp. 6486–6491"
+                ]
+              }
+            ],
+            "unknowns": [
+              "Harvesting does not itself establish resowing, selection or causal contribution."
+            ]
+          },
+          {
+            "id": "shimoyakebe-large-seeded-soybean",
+            "verdict": "accept",
+            "rationale": "The same radiocarbon specimen has traceable original context; it is not independent corroboration of seed size.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/shimoyakebe-large-seeded-soybean.json#events/documented-case/date/basis,evidence",
+                "verdict": "accept",
+                "rationale": "Kudo Table 1 gives SY37/PLD-9088 4335±30 radiocarbon BP and Middle Jomon Glycine; the English summary puts the legumes around 4900 cal BP. Lee uses the same sample and interprets the assemblage at about 5000 cal BP.",
+                "sources": [
+                  "kudo-2010-shimoyakebe-plant-remains, Table 1 SY37, English summary p. 26",
+                  "w8-lee-2011-shimoyakebe-soybean, Methods and Results"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/shimoyakebe-large-seeded-soybean.json#research/status,basis/events",
+                "verdict": "accept",
+                "rationale": "Sourced status avoids treating this new source addition as already reviewed.",
+                "sources": [
+                  "kudo-2010-shimoyakebe-plant-remains, Table 1 SY37, English summary p. 26",
+                  "w8-lee-2011-shimoyakebe-soybean, Methods and Results"
+                ]
+              }
+            ],
+            "unknowns": [
+              "Seed size and charring complications preclude proof of cultivation or descent."
+            ]
+          },
+          {
+            "id": "wet-rice-paddy-fields-lower-yangtze",
+            "verdict": "accept",
+            "rationale": "Local water-change explanation is properly attributed and no connection to earlier fields is claimed.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json#events/archaeological-evidence-4000bce/evidence",
+                "verdict": "accept",
+                "rationale": "Huang and Li contrast pit S13 with S′ and S15 using pollen, phytolith and excavation evidence; Fuller and Qin supply the Late Majiabang 4300–4000 BCE context. The studies refer to related excavation features, not two independent excavations.",
+                "sources": [
+                  "huang-2003-caoxieshan-paddy-pollen-phytoliths, pp. 164–169",
+                  "fuller-2009-water-management-labour, pp. 95–96"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json#why,prompted_by,research/basis/prompted_by",
+                "verdict": "accept",
+                "rationale": "Huang and Li explicitly interpret pondweed decline as falling water and propose water scarcity prompted the change in field type; it is an attributed explanation, not direct proof.",
+                "sources": [
+                  "huang-2003-caoxieshan-paddy-pollen-phytoliths, pp. 164–169"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/wet-rice-paddy-fields-lower-yangtze.json#research/unresolved",
+                "verdict": "accept",
+                "rationale": "Zheng et al. 2009 describes Tianluoshan early fields 5000–4500 BCE and reports no irrigation in early and later phases; no transmission to Lake Tai is shown. Other unresolved notes retain hydrology and chronological questions.",
+                "sources": [
+                  "Zheng et al. 2009, Rice fields and modes of rice cultivation, Table 1, pp. 2611–2615",
+                  "huang-2003-caoxieshan-paddy-pollen-phytoliths, pp. 164–169"
+                ]
+              }
+            ],
+            "unknowns": [
+              "Matching Huang phase labels to the Late Majiabang record needs further stratigraphic work; modern study does not independently replicate original pit excavation."
+            ]
+          }
+        ],
+        "additional_records": [
+          {
+            "id": "kuahuqiao-wetland-rice-cultivation",
+            "verdict": "accept",
+            "rationale": "New local wetland cultivation evidence is a distinct site and context from later Lake Tai engineered fields and from Shangshan rice morphology.",
+            "claim_reviews": [
+              {
+                "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json#id,name,summary,description,kind,domain,origin,places,known_from",
+                "verdict": "accept",
+                "rationale": "Zong describes a Kuahuqiao coastal wetland and associated rice and wild-food remains; Zheng examines rice morphology. Burning taxa are disputed by Shu and barrier construction remains a proposal.",
+                "sources": [
+                  "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+                  "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3",
+                  "shu-2012-kuahuqiao-burning-interpretation, abstract"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json#events/wetland-cultivation-horizon",
+                "verdict": "accept",
+                "rationale": "Zong dates cultural sediments in this specific sequence about 7700–7550 cal BP and interprets combined sediment indicators and rice remains as cultivation; Zheng supports cultivation using different rice specimens. Converted dates are correct and approximate.",
+                "sources": [
+                  "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+                  "zheng-2007-kuahuqiao-rice-rachillae, pp. 1655–1658 and Fig. 3"
+                ]
+              },
+              {
+                "path": "data/discoveries/food/kuahuqiao-wetland-rice-cultivation.json#earliest_record,research/status,basis,unresolved",
+                "verdict": "accept",
+                "rationale": "Only the sampled sequence is dated. The contrasted oak/pine interpretation and unverified barrier are disclosed as unresolved.",
+                "sources": [
+                  "zong-2007-kuahuqiao-wetland-cultivation, pp. 459–461",
+                  "shu-2012-kuahuqiao-burning-interpretation, abstract"
+                ]
+              }
+            ],
+            "unknowns": [
+              "The inferred wetland does not itself document an excavated field layout or transfer to later systems."
+            ]
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "Nakajima 2019",
+            "url": "https://www.academia.edu/40412574/Common_carp_aquaculture_in_Neolithic_China_dates_back_8000_years",
+            "locator": "pp. 1415–1417 Fig. 1 and discussion",
+            "access": "Full author-paper text read online; same study as Nature DOI; not independent of it. Period II may reflect climate."
+          },
+          {
+            "source": "Sterckx 2025",
+            "url": "https://brill.com/view/journals/tpao/111/3-4/article-p353_4.pdf",
+            "locator": "pp. 366–369, 372–373",
+            "access": "Original PDF text read online; textual history is independent of carp remains, not proof of historical continuity."
+          },
+          {
+            "source": "Zhao 2020",
+            "url": "https://www.researchgate.net/publication/356299065_Plant_remains_unearthed_at_the_Donghulin_site_in_Beijing_discussion_on_results_of_flotation",
+            "locator": "Chinese original Tables 2–4 and pp. 103–104, BA07888",
+            "access": "Original Chinese text read online; separate flotation specimens from Yang starch study, authors and site partly overlap."
+          },
+          {
+            "source": "Wang 2025",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12184640/",
+            "locator": "Fig. 3 and Discussion",
+            "access": "Original study text read online; independent dental samples from rice sediment; authors overlap with Zheng. Rice identification does not distinguish source."
+          },
+          {
+            "source": "Zong 2007",
+            "url": "https://www.researchgate.net/publication/5945483_Fire_and_flood_management_of_coastal_swamp_enabled_first_rice_paddy_cultivation_in_east_China",
+            "locator": "pp. 459–461, Table 1 and Fig. 2",
+            "access": "Author-posted original article read online; sediment sequence and microfossils; dating an occupation sequence, not individual plants."
+          },
+          {
+            "source": "Zheng 2007",
+            "url": "https://www.academia.edu/26293579/Characteristics_of_the_short_rachillae_of_rice_from_archaeological_sites_dating_to_7000_years_ago",
+            "locator": "pp. 1655–1658, Table 1, Fig. 3",
+            "access": "Original paper text read online; 70 wild-type and 50 japonica-type Kuahuqiao rachillae; independent specimens from sediment samples though some team overlap."
+          },
+          {
+            "source": "Shu 2012",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S1871174X12000042",
+            "locator": "abstract",
+            "access": "Abstract inspected; independent measurements in the same locality disagree over tree species. Full text not reviewed."
+          },
+          {
+            "source": "Wang 2022",
+            "url": "https://pdfs.semanticscholar.org/fe14/8ddf28e244326ddb363c702d18f38be4f78a.pdf",
+            "locator": "pp. 8–12 Figs. 6–8",
+            "access": "Original article read online; use-wear and phytoliths on same flakes are complementary, not separate assemblages."
+          },
+          {
+            "source": "Zuo 2017",
+            "url": "https://www.pnas.org/content/pnas/114/25/6486.full.pdf",
+            "locator": "pp. 6486–6491",
+            "access": "Original paper text reviewed online. Phytoliths measure different traits and samples than rachilla and flakes; team overlaps."
+          },
+          {
+            "source": "Kudo 2010",
+            "url": "https://rekihaku.repo.nii.ac.jp/record/1828/files/kenkyuhokoku_158_01.pdf",
+            "locator": "Table 1 SY37, p. 26",
+            "sha256": "6523a5b9000d8ccd732fed24eef2e945b904b3a86022b0b77b9e8d1ca08b1eba",
+            "access": "Downloaded original local PDF supplied by researcher and read; shared specimen PLD-9088 in Lee is not independent."
+          },
+          {
+            "source": "Lee 2011",
+            "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0026720&type=printable",
+            "locator": "Methods and Results, figs. 1, 7, 10",
+            "access": "Original paper read online. Overlapping specimen with Kudo, broader comparative measurements."
+          },
+          {
+            "source": "Huang and Li 2003",
+            "url": "https://openresearch-repository.anu.edu.au/bitstream/1885/127433/1/TA_19.pdf",
+            "locator": "pp. 164–169 and conclusion",
+            "access": "Web-cached original book PDF text read; preliminary local observations and interpretation, with archaeological excavation shared with later accounts."
+          },
+          {
+            "source": "Fuller and Qin 2009",
+            "url": "https://www.homepages.ucl.ac.uk/~tcrndfu/articles/FullerQin09.pdf",
+            "locator": "pp. 95–98",
+            "access": "Original article read online; synthesizes excavated fields and does not establish inter-site transmission."
+          },
+          {
+            "source": "Zheng et al. 2009",
+            "url": "https://www.academia.edu/26449613/Rice_fields_and_modes_of_rice_cultivation_between_5000_and_2500_BC_in_east_China",
+            "locator": "Table 1, pp. 2611–2615",
+            "access": "Original paper text read online; cited in unresolved note by title but not entered as a separate source record; no change to historical event depends on this comparison."
+          }
+        ],
+        "duplicate_screen": {
+          "method": "Compared base record events and searched all discoveries for Jiahu, Donghulin, Kuahuqiao, Shangshan, Shimoyakebe and Caoxieshan.",
+          "result": "Donghulin grain event extends existing millet record: different evidence from earlier starch events. Kuahuqiao cultivation is distinct from Shangshan morphology and later Lake Tai field designs. Existing Jiahu beverage and carp records cover different activities. No duplicate discovery found."
+        },
+        "issues": [],
+        "unknowns": [
+          "Kuahuqiao pig feeding strategy and any crop-to-pig dependence are not established.",
+          "The Tianluoshan comparison is cited by author, title and locators in an unresolved note, but lacks a registered source; add it if promoted to a retained formal event or relation.",
+          "Unchanged baseline millet summary gives 11,000–9,500 years although the Nanzhuangtou site interval starts 11,500 calibrated BP; the source distinguishes site age from age assigned to millet use. This baseline wording was not silently reapproved."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py",
+          "result": "passed: 907 discoveries, 1516 events, 243 links, 1680 sources; No problems found",
+          "diff_check": "git diff --check base to proposal passed"
+        },
+        "history": []
+      },
+      "subsequent_vocabulary_issue": "Original builds_on candidate was misclassified: vocab requires development out of the other, whereas evidence raised a possible feeding arrangement. Coordinator notified and requested repair."
+    }
+  ],
+  "vocabulary_attestation": {
+    "result": "valid as a candidate",
+    "basis": "companion_of means the two worked together as parts of one arrangement. The revised question specifies an integrated feed arrangement; it is not accepted as established. Candidate status denotes a research question. builds_on was unsuitable because development out of the other was not the predicate."
+  }
+}

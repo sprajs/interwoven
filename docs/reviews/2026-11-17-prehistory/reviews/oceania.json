@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "lane": "oceania",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "de62d9a58cba5c092048b5ba4764ccb56a746397",
+  "worker_commit": "de62d9a58cba5c092048b5ba4764ccb56a746397",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent /root/review_coordinator/review_oceania prehistory review",
+    "independence": "Separate from gpt-6.2-sol high research execution."
+  },
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/food/hook-and-line-and-open-sea-fishing-in-timor-and-alor.json",
+      "sha256": "fd5911e63a74b67a3fd02592e52586bf595d6436a14ec211032bd9287973e543"
+    },
+    {
+      "path": "data/discoveries/food/kuk-banana-cultivation.json",
+      "sha256": "4bb8d5a3aa04cce28bbacca13b39e910c7dbec85305f330078cdad9a49684edd"
+    },
+    {
+      "path": "data/discoveries/food/kuk-phase-two-mounded-cultivation.json",
+      "sha256": "d29be0c62cdbb7d904993aeb6f8f951f11a2c5c27e9e18624ee5bcc7bc56cdde"
+    },
+    {
+      "path": "data/discoveries/food/norje-fish-fermentation-storage.json",
+      "sha256": "4e51ed6f98f90ec42ac481a00b85f374725c45af85c1f2f792537dbcaaa7c400"
+    },
+    {
+      "path": "data/discoveries/food/seed-grinding-at-cuddie-springs-new-south-wales.json",
+      "sha256": "cd48d94fef297a73b5af659b33dc036e7172d81d8b14b03707eb69f3fea16733"
+    },
+    {
+      "path": "data/discoveries/food/shellfish-gathering-pinnacle-point-south-africa.json",
+      "sha256": "60af33fae7346cf603fc7a3c46d11ceeef3bd5a909011b74c634de330e6981cf"
+    },
+    {
+      "path": "data/sources/a/anderson-2013-jerimalai-inshore-debate.json",
+      "sha256": "726b201d54ef28fa26a1cf9d5a8ed57768d347ceb9cedc4da1aa7d9841cbc0f4"
+    },
+    {
+      "path": "data/sources/b/boethius-2016-norje-fish-pit.json",
+      "sha256": "ec6782b61ec2dedf989496ddf608acaeb69776be941bd4a0d59cd2307c45f851"
+    },
+    {
+      "path": "data/sources/c/cortes-sanchez-2011-bajondillo-shellfish.json",
+      "sha256": "405b88a072a115d55ed21d032ac3deb2b5b31ddd835c4747acfee4646d23c0d6"
+    },
+    {
+      "path": "data/sources/d/denham-2003-kuk-agriculture.json",
+      "sha256": "02205f712b87f39e7cac5a1dc09edcc99d85f8674e28b38fcf9bb56f106f6b5e"
+    },
+    {
+      "path": "data/sources/d/denham-2017-kuk-mounded-cultivation.json",
+      "sha256": "87e25bd50eb70d8d4be3cf8a05ca6c2e8b7ab1110c78f9c9df35563d313a0cbe"
+    },
+    {
+      "path": "data/sources/g/grun-2010-cuddie-springs-geochronology.json",
+      "sha256": "12b905a9c3d8b30384d73eb07629b54bc03f7ec06337f657a95ec83979906755"
+    },
+    {
+      "path": "data/sources/l/lentfer-2017-kuk-archaeobotany.json",
+      "sha256": "5ba25c31eb4819851284e105d32ed168f4e694bcf1e7e93e66126e14ad0ef585"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/oceania.json",
+      "sha256": "853ed83b8241e5bd5ad21a040b491e8fe05055b874d111bc7199f1ba1d4938e1"
+    }
+  ],
+  "records": [
+    {
+      "id": "shellfish-gathering-pinnacle-point-south-africa",
+      "verdict": "accept",
+      "rationale": "Accept bounded refinement and duplicate-event consolidation; no new tool or transmission relation is established.",
+      "claim_reviews": [
+        {
+          "path": "/summary,description",
+          "verdict": "accept",
+          "rationale": "LC-MSA Lower contains shells interpreted as food remains; Perna perna dominates lower minimum-individual count; nearby rocky intertidal habitat and tide pools inform collection inference.",
+          "sources": [
+            "Marean et al. 2007 pp. 905–907, tables 1–2"
+          ]
+        },
+        {
+          "path": "/origin,research.basis.origin,research.unresolved/origin",
+          "verdict": "accept",
+          "rationale": "Bajondillo provides a distinct roughly 150 ka assemblage; dating uncertainty and incomplete coverage do not establish universal priority or transmission.",
+          "sources": [
+            "Marean et al. 2007 pp. 905–907, tables 1–2",
+            "Cortés-Sánchez et al. 2011 Results and Discussion"
+          ]
+        },
+        {
+          "path": "/events/archaeological-evidence-150050bce,earliest_record",
+          "verdict": "accept",
+          "rationale": "Original reports weighted mean OSL age 164 ± 12 ka for LC-MSA Lower, retaining range and archaeological interpretation. Deleted press-release event duplicated same observation and is not an independent date.",
+          "sources": [
+            "Marean et al. 2007 pp. 905–907, tables 1–2"
+          ]
+        },
+        {
+          "path": "/research.unresolved/collection-timing",
+          "verdict": "accept",
+          "rationale": "The source infers intertidal collecting conditions, but exact daily or spring-tide timing is not demonstrated.",
+          "sources": [
+            "Marean et al. 2007 pp. 905–907, tables 1–2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hook-and-line-and-open-sea-fishing-in-timor-and-alor",
+      "verdict": "accept",
+      "rationale": "Accept narrower fishing identity and separated later-hook evidence; specific capture method and offshore use remain unresolved.",
+      "claim_reviews": [
+        {
+          "path": "/name,summary,description,impact.note",
+          "verdict": "accept",
+          "rationale": "Original 2011 assemblage dates to about 42 ka; family-level scombrid remains cannot demonstrate tuna or offshore capture on their own. Anderson provides habitat comparison and critique, and excavators respond. Later Jerimalai and Alor hooks have separate contexts.",
+          "sources": [
+            "O’Connor et al. 2011 pp. 1117–1120, table 3 and fig. 3",
+            "Anderson 2013 pp. 879–883 and O’Connor–Ono response",
+            "O’Connor et al. 2017, Introduction and AMS dating"
+          ]
+        },
+        {
+          "path": "/events/archaeological-evidence-40050bce",
+          "verdict": "accept",
+          "rationale": "Table 3 lists scombrids in earliest phase; Anderson disputes whether species identity and location imply offshore fishing. Technique remains unknown.",
+          "sources": [
+            "O’Connor et al. 2011 pp. 1117–1120, table 3 and fig. 3",
+            "Anderson 2013 pp. 879–883 and O’Connor–Ono response"
+          ]
+        },
+        {
+          "path": "/events/archaeological-evidence-14050bce/evidence",
+          "verdict": "accept",
+          "rationale": "2011 figure 3 documents fragment from Square A spit 29 in ~23–16 ka context; this is a context bracket, not proof hooks caught the much older fish.",
+          "sources": [
+            "O’Connor et al. 2011 pp. 1117–1120, table 3 and fig. 3"
+          ]
+        },
+        {
+          "path": "/research.status,unresolved",
+          "verdict": "accept",
+          "rationale": "Draft status and removal of old abstract-only limitation are appropriate after full report reading; other capture-method uncertainty remains.",
+          "sources": [
+            "O’Connor et al. 2011 pp. 1117–1120, table 3 and fig. 3",
+            "Anderson 2013 pp. 879–883 and O’Connor–Ono response"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "norje-fish-fermentation-storage",
+      "verdict": "accept",
+      "rationale": "Accept additional source and season as an explicitly inferred open question, not direct fermentation chemistry.",
+      "claim_reviews": [
+        {
+          "path": "/events/documented-evidence/evidence",
+          "verdict": "accept",
+          "rationale": "2016 excavation interprets the fish-rich pit, altered vertebrae and ethnographic comparison as fermentation, evaluating alternatives; 2021 isotope measurements characterize fish origin and ecology, not chemistry. Same assemblage and shared investigator are not independent confirmation of fermentation.",
+          "sources": [
+            "Boethius 2016 pp. 172–179",
+            "Boethius et al. 2021 site background and Figs 8–11, Discussion"
+          ]
+        },
+        {
+          "path": "/research.unresolved/capture-methods-and-season",
+          "verdict": "accept",
+          "rationale": "2021 isotopes distinguish sampled groups and ecological reasoning favors autumn; method, gear and season are correctly left uncertain.",
+          "sources": [
+            "Boethius et al. 2021 site background and Figs 8–11, Discussion"
+          ]
+        },
+        {
+          "path": "/research.basis.events",
+          "verdict": "accept",
+          "rationale": "Downgrade reviewed to sourced for changed evidence; unmodified baseline claims are not reapproved.",
+          "sources": [
+            "Boethius 2016 pp. 172–179",
+            "Boethius et al. 2021 site background and Figs 8–11, Discussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuk-banana-cultivation",
+      "verdict": "accept",
+      "rationale": "Accept source-grounded local candidate while acknowledging evidence is direct site-specific interpretation, not a cross-community transmission question.",
+      "claim_reviews": [
+        {
+          "path": "/events/documented-evidence/evidence",
+          "verdict": "accept",
+          "rationale": "Original chapters report Phase 2 feature fills and Musa seed morphotypes; 2017 chapter interprets local concentrations as bananas planted in raised plots, not direct observation. Samples 35–37 elevated by authors; sample 38 diagnostic seed proportion, not separately elevated.",
+          "sources": [
+            "Denham, Golson and Hughes 2017 pp. 201–204, 210–212",
+            "Lentfer and Denham 2017 p. 171 table 10.T2.1",
+            "Perrier et al. 2011 Archaeobotanical evidence and fig. 3"
+          ]
+        },
+        {
+          "path": "/links/0",
+          "verdict": "accept",
+          "rationale": "The later banana record points to the proposed local Phase 2 mounded cultivation event; spatially related fills and mound bases support a plausible uses_process relationship. As candidate it is a retained question and not drawn as established; papers share researchers and site samples, so are not independent replication. The lack of inter-community transfer evidence is irrelevant to this local question.",
+          "sources": [
+            "Denham et al. 2003 pp. 190–192",
+            "Denham, Golson and Hughes 2017 pp. 201–204, 210–212",
+            "Lentfer and Denham 2017 p. 171 table 10.T2.1"
+          ]
+        },
+        {
+          "path": "/research.basis, research.note",
+          "verdict": "accept",
+          "rationale": "Prior event review is not silently extended; new evidence and link remain sourced/draft.",
+          "sources": [
+            "Denham, Golson and Hughes 2017 pp. 201–204, 210–212",
+            "Lentfer and Denham 2017 p. 171 table 10.T2.1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seed-grinding-at-cuddie-springs-new-south-wales",
+      "verdict": "accept",
+      "rationale": "Accept museum-attributed interpretation and contextual age with clear geochronological limits; no assumed relation to another site.",
+      "claim_reviews": [
+        {
+          "path": "/summary,description,events/archaeological-evidence-28050bce",
+          "verdict": "accept",
+          "rationale": "Museum describes Wailwan Country specimen and food preparation over 30,000 years with usewear and starch evidence for flour. Independent faunal geochronology questions common primary context and does not directly date this specimen; age assignment remains contextual.",
+          "sources": [
+            "Australian Museum Wailwan grindstone",
+            "Grün et al. 2010 pp. 607–609"
+          ]
+        },
+        {
+          "path": "/events/archaeological-evidence-28050bce/evidence,caveats,research.unresolved/context",
+          "verdict": "accept",
+          "rationale": "Grün §6 gives alternative scenarios involving either older primary deposits or redeposition, not proof this specific object moved. Matching specimen to excavated unit remains necessary.",
+          "sources": [
+            "Grün et al. 2010 pp. 607–609",
+            "Australian Museum Wailwan grindstone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carpenters-gap-ground-edge-axe",
+      "verdict": "defer",
+      "rationale": "No changes proposed; Hiscock original documents a ground-bevel flake with same-unit charcoal 48,875–43,941 cal BP. The attribution and contextual age remain interpretations, and comparative similarity alone does not establish a route or transfer.",
+      "claim_reviews": [
+        {
+          "path": "/unchanged",
+          "verdict": "defer",
+          "rationale": "No new link or record admitted. Separate site evidence cannot establish continuity; original charcoal result is not an independent second date when cited again.",
+          "sources": [
+            "Hiscock et al. 2016 pp. 3–8"
+          ]
+        }
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "kuk-phase-two-mounded-cultivation",
+      "verdict": "accept",
+      "rationale": "Distinct local land-preparation practice from the crop-specific banana record; no pre-existing mounded-process record found in base. The candidate points from banana use to this practice, with no external transmission claim.",
+      "claim_reviews": [
+        {
+          "path": "/id,name,summary,description,kind,domain,grain,advance,places,known_from",
+          "verdict": "accept",
+          "rationale": "Early Phase 2 palaeosurface shows bases of former mounds and intervening cut features interpreted as cultivation on raised plots along the wetland; interpretation and physical evidence are distinguished.",
+          "sources": [
+            "Denham et al. 2003 pp. 190–192",
+            "Denham, Golson and Hughes 2017 pp. 201–204, 210–212"
+          ]
+        },
+        {
+          "path": "/events/early-phase-two-mounds/date,statement,place,caveats",
+          "verdict": "accept",
+          "rationale": "Basal-fill charcoal supports 6950–6440 cal BP for the early palaeosurface; preserved bases and adjacent cuts imply raised plots. Age is contextual, not direct dating of individual mound construction.",
+          "sources": [
+            "Denham et al. 2003 pp. 190–192",
+            "Denham, Golson and Hughes 2017 pp. 201–204, 210–212"
+          ]
+        },
+        {
+          "path": "/earliest_record,research",
+          "verdict": "accept",
+          "rationale": "Scoped to earliest documented Kuk mound palaeosurface, with no world priority or origin claim; basis is sourced and status draft.",
+          "sources": [
+            "Denham et al. 2003 pp. 190–192",
+            "Denham, Golson and Hughes 2017 pp. 201–204, 210–212"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "marean-2007-early-human-use",
+      "url": "https://www.archaeomagnetism.com/wp-content/uploads/2011/03/Marean-et-al-2007-Nature.pdf",
+      "locator": "pp. 905–907, tables 1–2",
+      "access": "Original local /tmp/interwoven-prehistory-oceania/marean2007.pdf and online publisher PDF",
+      "sha256": "c2287517b0293690a9b0382d1f515218869e311c5b657f6d106732d03cb3021d",
+      "independence": "Original PP13B data; news release repeats same study."
+    },
+    {
+      "source": "cortes-sanchez-2011-bajondillo-shellfish",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0024026",
+      "locator": "Results and Discussion",
+      "access": "Publisher full text",
+      "independence": "Separate Spanish assemblage; compares published Pinnacle Point chronology."
+    },
+    {
+      "source": "oconnor-2011-pelagic-fishing-years",
+      "url": "https://openresearch-repository.anu.edu.au/bitstream/1885/35424/2/01_O%27Connor_Pelagic_Fishing_at_42%2C000_2011.pdf",
+      "locator": "pp. 1117–1120, table 3, fig. 3",
+      "access": "Full original online and local /tmp/interwoven-prehistory-oceania/jerimalai2011.pdf",
+      "independence": "2017 discussion reuses Jerimalai original finding."
+    },
+    {
+      "source": "anderson-2013-jerimalai-inshore-debate",
+      "url": "https://openresearch-repository.anu.edu.au/server/api/core/bitstreams/65cb1300-b211-43ef-8904-826b57794ed5/content",
+      "locator": "pp. 879–883, 885–887",
+      "access": "Original local /tmp/interwoven-prehistory-oceania/anderson2013.pdf",
+      "sha256": "3c339d37c225467d8ca6ba21b513ef5ceaf83123dc12233ca9763f510f6fc602",
+      "independence": "Same assemblage independently critiqued using regional habitat and morphology comparison; reply retains opposing view."
+    },
+    {
+      "source": "oconnor-2017-fishing-life-death",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BD9145338CF10EE824AC4A7F0AF7E2D9/S0003598X17001867a.pdf/fishing_in_life_and_death_pleistocene_fishhooks_from_a_burial_context_on_alor_island_indonesia.pdf",
+      "locator": "Introduction and AMS dating",
+      "access": "Original open PDF",
+      "independence": "New Alor burial sample; reiterates 2011 Jerimalai context."
+    },
+    {
+      "source": "boethius-2016-norje-fish-pit",
+      "url": "https://www.academia.edu/85188597/Something_rotten_in_Scandinavia_The_worlds_earliest_evidence_of_fermentation",
+      "locator": "pp. 172–179",
+      "access": "Rendered original article text",
+      "independence": "Original excavation interpretation and analogies; 2021 same site and lead author."
+    },
+    {
+      "source": "boethius-2021-norje-fish-storage",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0245222",
+      "locator": "Site background, Figs. 8–11, Discussion",
+      "access": "Publisher full text",
+      "independence": "New isotope measurements, same assemblage; not independent fermentation chemistry."
+    },
+    {
+      "source": "denham-2003-kuk-agriculture",
+      "url": "https://faculty.washington.edu/plape/pacificarchaut12/Denham%20et%20al%202003.pdf",
+      "locator": "pp. 190–192",
+      "access": "Original publisher PDF",
+      "independence": "Original interdisciplinary investigation; overlapping material and researchers with 2017."
+    },
+    {
+      "source": "denham-2017-kuk-mounded-cultivation",
+      "url": "https://press-files.anu.edu.au/downloads/press/n2540/pdf/ch12.pdf",
+      "locator": "pp. 201–204, 210–212",
+      "access": "Original local /tmp/interwoven-prehistory-oceania/kuk-2017.pdf",
+      "sha256": "b4dea3803f12817bdb0ec1173fd99758caa14cc36723d889e308bbee1bde3acb",
+      "independence": "Field synthesis with overlapping investigators and samples; no independent replication inferred."
+    },
+    {
+      "source": "lentfer-2017-kuk-archaeobotany",
+      "url": "https://press-files.anu.edu.au/downloads/press/n2540/pdf/ch10.pdf",
+      "locator": "p. 171 table 10.T2.1",
+      "access": "Original local /tmp/interwoven-prehistory-oceania/kuk-ch10.pdf",
+      "sha256": "10e1d9df270a409e0e419328ceb62f81bf65b74c9d497659539d5605f53d880d",
+      "independence": "Plant measurements and field architecture are different observation types but publications share site material and authors."
+    },
+    {
+      "source": "perrier-2011-kuk-banana",
+      "url": "https://www.supagro.fr/ress-tice/ue1-ue2_auto/Etude%20cas%20banane/Perrier%20et%20al.%20PNAS%202011%201102001108.full.pdf",
+      "locator": "Archaeobotanical evidence, Fig. 3",
+      "access": "Original PDF",
+      "independence": "Kuk samples and researcher overlap; regional genetics do not establish a specific transfer."
+    },
+    {
+      "source": "grun-2010-cuddie-springs-geochronology",
+      "url": "https://openresearch-repository.anu.edu.au/server/api/core/bitstreams/d87dc41d-8295-4cf5-a2b0-309c838814a4/content",
+      "locator": "§6, pp. 607–609",
+      "access": "Original local /tmp/interwoven-prehistory-oceania/grun2010.pdf",
+      "sha256": "910f68d1191707e36d179d788c355998f516f04619dacbe88f47becf86e0ec6f",
+      "independence": "Independent dating of faunal material; not the museum stone."
+    },
+    {
+      "source": "australian-museum-2021-wailwan-grindstone",
+      "url": "https://australian.museum/learn/first-nations/unsettled/unsettled-introduction/wailwan-grindstone",
+      "locator": "Specimen and page text",
+      "access": "Museum original page",
+      "independence": "Object account; exact excavation specimen crosswalk unresolved."
+    },
+    {
+      "source": "hiscock-2016-carpenters-ground-axe",
+      "url": "https://rockartaustralia.org.au/wp-content/uploads/2020/10/hiscock_et_al.pdf",
+      "locator": "pp. 3–8",
+      "access": "Original PDF",
+      "independence": "Original artefact study; later Wk-37976 citations refer to same charcoal."
+    }
+  ],
+  "duplicate_screen": "Compared base roster and existing local records. PP13B removed event repeats same study and same evidence, not a separate observation; retained uncertainty-bearing event covers it. The Kuk mound practice is distinct from the crop record but same local site and period. Hook stratigraphy and Alor burial are distinct events; compare other sites without inferring lineage. No changes to Carpenter’s Gap.",
+  "issues": [],
+  "unknowns": [
+    "PP13B shellfish-collection timing and global priority remain unresolved.",
+    "The fishing method and inshore/offshore capture location of oldest Jerimalai fish remain disputed.",
+    "Fermentation chemistry, capture gear, and precise season at Norje are not directly measured.",
+    "Kuk banana plot position is inferred from adjacent feature fills; local link is candidate.",
+    "Museum Cuddie Springs object’s excavation unit and chronology require a specimen crosswalk.",
+    "The Carpenter’s Gap flake has contextual, not direct, dating and intersite transmission remains unknown."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 907 discoveries, 1514 events, 243 links, 1679 sources; No problems found.",
+    "diff_check": "git diff --check base to proposal passed"
+  },
+  "history": [],
+  "link_type_attestation": {
+    "path": "data/discoveries/food/kuk-banana-cultivation.json#/links/0",
+    "vocab": "data/vocab.json link types: uses_process means the other is the process that made this production possible.",
+    "from": "kuk-phase-two-mounded-cultivation: early-phase-two-mounds; kind practice, grain instance; process of mounded cultivation on raised plots.",
+    "to": "kuk-banana-cultivation: documented-evidence; kind practice, grain instance; production is banana cultivation at the same site and phase.",
+    "judgment": "uses_process is appropriate to the proposed relation: it asks whether the local crop cultivation employed the documented raised-plot process. This is a process-to-production relation, not an instrument-to-observation relation or assertion of transmission. Evidence and direction support the scoped question; candidate status retains uncertainty concerning location of banana planting.",
+    "status": "candidate",
+    "sources": [
+      "denham-2017-kuk-mounded-cultivation pp. 210–212",
+      "lentfer-2017-kuk-archaeobotany p. 171 table 10.T2.1"
+    ]
+  }
+}
