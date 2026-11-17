@@ -1,0 +1,117 @@
+{
+  "lane": "immersion",
+  "title": "Base N7 and early 193 nm immersion lithography",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "questions": [
+    {
+      "child": "tsmc-n7-immersion-finfet-process",
+      "parent": "tsmc-193nm-immersion-lithography",
+      "initial_status": "candidate",
+      "decision": "established",
+      "reason": "The production link is supported at the 193 nm technique level by TSMC’s R&D disclosures and earnings call plus separate market analysis identifying ArF immersion. The link no longer points to the 40 nm event because it does not establish inheritance from that specific process.",
+      "sources": [
+        "https://investor.tsmc.com/static/annualReports/2015/english/e_5_2.html",
+        "https://investor.tsmc.com/chinese/encrypt/files/encrypt_file/chinese/2018/Q1/TSMC%201Q18%20transcript.pdf",
+        "https://asiaresearch.hk.daiwacm.com/DAIWA_RESEARCH/Korea_Semiconductors-_190919.pdf"
+      ]
+    },
+    {
+      "child": "tsmc-193nm-immersion-lithography",
+      "parent": "asml-twinscan-early-193nm-immersion-scanners",
+      "initial_status": "not recorded",
+      "decision": "established",
+      "reason": "The foundry identifies an ASML immersion prototype used for the split wafer trial. The scanner maker documents its prototype and pre-production immersion programme, its collaboration with TSMC and the use of its early equipment for TSMC’s successful trial.",
+      "sources": [
+        "https://pr.tsmc.com/english/news/1318",
+        "https://www.sec.gov/Archives/edgar/data/937966/000095017204000038/asml_slides.txt",
+        "https://www.asml.com/en/company/stories/2023/how-immersion-lithography-saved-moores-law"
+      ]
+    },
+    {
+      "child": "tsmc-193nm-immersion-lithography",
+      "parent": "tsmc-193nm-immersion-lithography",
+      "initial_status": "event absent",
+      "decision": "extension",
+      "reason": "The existing 2004 feasibility and 2008 40 nm use events omitted the independently dated N45LP process qualification and delivery in Q3 2007.",
+      "sources": [
+        "https://investor.tsmc.com/static/annualReports/2007/E/e_5.pdf"
+      ]
+    }
+  ],
+  "findings": [
+    "At the equipment level, ASML demonstrated 193 nm immersion imaging on the AT:1150i in October 2003. Its 2003 conference presentation identifies the test patterns and its retrospective describes a specific technical adaptation of the dry dual-stage design.",
+    "At the process level, TSMC verified its SRAM trial after exposure at ASML and completion at TSMC in 2004. N45LP qualification and delivery followed in Q3 2007. The existing Q4 2008 event covers both 40 nm variants.",
+    "The 2015 R&D account identifies new resist and mask development for 7 nm. TSMC’s 2012 report traces earlier 193 nm immersion-scanner improvements aimed at multiple patterning. The 2014 report explicitly relates patterning from 20 and 16 nm to the 10 nm immersion development."
+  ],
+  "records": [
+    "asml-twinscan-early-193nm-immersion-scanners",
+    "tsmc-193nm-immersion-lithography",
+    "tsmc-n7-immersion-finfet-process"
+  ],
+  "frontier": [
+    "Look for the TSMC trial presentation from the 1 December 2004 Cymer Lithography Symposium or a tool log to identify the exact ASML prototype used on the TSMC split.",
+    "Follow the documented modification of the dry ASML TWINSCAN AT:1150 lens and body to early ArF dry projection scanners. ASML’s 20th-anniversary chapter 6 gives the adaptation and identifies Philips and ZEISS roles. Original equipment and customer records are needed to date the dry platform milestone and trace any predecessor or transfer.",
+    "Inspect a full 2016 Wu et al. IEDM paper (DOI 10.1109/IEDM.2016.7838333) and TechInsights N7 process-flow records for the layers, tools and any direct transfer of recipes between 10 nm and production base N7."
+  ],
+  "sources": [
+    {
+      "title": "ASML: 20 Years of Innovation, chapter 6",
+      "url": "https://chiphistory.org/exhibits/ex_se_asml_20yr_history/chapter6.pdf",
+      "locator": "Printed pp. 182–183, Immersion"
+    },
+    {
+      "title": "ASML and Immersion, SEMICON Japan 2003 presentation",
+      "url": "https://www.sec.gov/Archives/edgar/data/937966/000095017204000038/asml_slides.txt",
+      "locator": "Slides 11–15"
+    },
+    {
+      "title": "TSMC Verifies Fully Functional 90 Nanometer Chips Using Immersion Lithography Tools",
+      "url": "https://pr.tsmc.com/english/news/1318",
+      "locator": "Main paragraphs 1 and 3–5"
+    },
+    {
+      "title": "How immersion lithography saved Moore’s Law",
+      "url": "https://www.asml.com/en/company/stories/2023/how-immersion-lithography-saved-moores-law",
+      "locator": "Early prototype account and Controlling the pesky puddle"
+    },
+    {
+      "title": "First microprocessors with immersion lithography",
+      "url": "https://research.ibm.com/publications/first-microprocessors-with-immersion-lithography",
+      "locator": "Abstract"
+    },
+    {
+      "title": "TSMC 2007 Annual Report, Operational Highlights",
+      "url": "https://investor.tsmc.com/static/annualReports/2007/E/e_5.pdf",
+      "locator": "Printed pp. 45–46, 45 and 40 Nanometer Technology and Immersion Lithography"
+    },
+    {
+      "title": "TSMC 2015 Annual Report, Operational Highlights",
+      "url": "https://investor.tsmc.com/static/annualReports/2015/english/e_5_2.html",
+      "locator": "R&D Accomplishments in 2015, Lithography"
+    },
+    {
+      "title": "Korea Semiconductors",
+      "url": "https://asiaresearch.hk.daiwacm.com/DAIWA_RESEARCH/Korea_Semiconductors-_190919.pdf",
+      "locator": "Section on TSMC and Samsung Foundry EUV adoption"
+    },
+    {
+      "title": "TSMC Q1 2018 Earnings Call",
+      "url": "https://investor.tsmc.com/chinese/encrypt/files/encrypt_file/chinese/2018/Q1/TSMC%201Q18%20transcript.pdf",
+      "locator": "Printed pp. 3–4, C. C. Wei prepared remarks on N7 and N7+"
+    },
+    {
+      "title": "TSMC 2012 Annual Report, Operational Highlights",
+      "url": "https://investor.tsmc.com/static/annualReports/2012/english/e_5_2.html",
+      "locator": "Lithography, 10nm pathfinding and continued 193nm immersion scanner development"
+    },
+    {
+      "title": "TSMC 2014 Annual Report, Operational Highlights",
+      "url": "https://investor.tsmc.com/static/annualReports/2014/english/e_5_2.html",
+      "locator": "Lithography, 20nm/16nm patterning used in 10nm development"
+    }
+  ],
+  "screen": "Searched discoveries, sources, link targets, leads and the earlier chip audit for TWINSCAN, AT:1150i, XT:1250i, 193 nm, immersion, ArF and projection lithography. Existing records cover TSMC integration and base N7, each extended in place. The existing Alpha Demo is EUV. The nineteenth-century Zeiss objectives show an optical analogy and do not identify a transfer into this semiconductor programme.",
+  "limits": "Sampled published technical and operator documents through 17 November 2026. Prototype imaging, functional-device trials, foundry qualification and production are distinct. No worldwide priority, full equipment list, exact scanner on the 2004 TSMC wafer batch, or recipe-level lineage into N7 is assigned."
+}

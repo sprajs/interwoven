@@ -1,7 +1,7 @@
 {
   "id": "tsmc-193nm-immersion-lithography",
   "name": "TSMC’s 193 nm immersion lithography",
-  "description": "TSMC integrated 193 nm water-immersion lithography into semiconductor fabrication, testing it on 90 nm devices and later using it in 40 nm production.",
+  "description": "TSMC integrated 193 nm water-immersion lithography into semiconductor fabrication, testing it on 90 nm devices and later qualifying manufacturing processes that used it, including N45LP and the 40 nm variants.",
   "kind": "technology",
   "domain": "electronics.semiconductors",
   "grain": "improvement",
@@ -21,9 +21,14 @@
         "label": "2004",
         "basis": "Date or date granularity stated in the cited source."
       },
-      "statement": "TSMC demonstrated the manufacturing feasibility of 193 nm immersion lithography on its 90 nm process with ASML equipment.",
+      "statement": "TSMC demonstrated manufacturing feasibility by completing functional 90 nm SRAM with a critical layer exposed using an ASML immersion prototype.",
       "caveats": "The 90 nm result establishes feasibility on functional devices. TSMC announced it at the end of 2004. The trial does not establish volume manufacture via immersion on the 90 nm node.",
       "evidence": [
+        {
+          "source": "d2-immersion-tsmc-2004-90nm-prototype-immersion",
+          "locator": "Main paragraphs 1 and 3–5",
+          "supports": "Documents the split dry/immersion wafer batch, ASML prototype exposure and TSMC’s completion of functional SRAM."
+        },
         {
           "source": "tsmc-2004-annual-report-immersion-lithography",
           "locator": "§2 Business Overview, Innovation, and §5.2 R&D Accomplishments in 2004",
@@ -33,6 +38,33 @@
           "source": "asml-2005-fourth-quarter-immersion-results",
           "locator": "Slides 17–18, Technology accomplishments 2004 and Immersion working on the fab floor",
           "supports": "ASML independently documents early immersion shipments and a December 2004 immersion fabrication milestone in its 2004 results."
+        }
+      ]
+    },
+    {
+      "id": "45nm-low-power-qualification",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2007,
+          "month": 7
+        },
+        "latest": {
+          "year": 2007,
+          "month": 9
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "Q3 2007",
+        "basis": "TSMC dates qualification and delivery of its low-power N45LP flavour to the third quarter."
+      },
+      "statement": "TSMC qualified and delivered its low-power 45 nm N45LP process with 193 nm immersion lithography.",
+      "scope": "N45LP qualification and delivery. The source gives a separate later milestone for the broader 45 nm generation.",
+      "evidence": [
+        {
+          "source": "d2-immersion-tsmc-2007-45nm-immersion",
+          "locator": "Printed p. 45, 45 and 40 Nanometer Technology",
+          "supports": "Names the process, optical technique, and quarter of qualification and delivery."
         }
       ]
     },
@@ -78,8 +110,38 @@
     "basis": {
       "domain": "sourced",
       "grain": "sourced",
-      "events": "sourced"
+      "events": "sourced",
+      "links": "sourced"
     },
     "note": "The node covers TSMC’s integration of the technique. It leaves water-immersion priority and possible earlier practical use at other companies open."
-  }
+  },
+  "links": [
+    {
+      "from": "asml-twinscan-early-193nm-immersion-scanners",
+      "type": "uses_instrument",
+      "status": "established",
+      "from_event": "prototype-imaging",
+      "to_event": "90nm-feasibility",
+      "statement": "TSMC’s 90 nm SRAM trial used an early ASML immersion scanner to expose a critical layer before TSMC completed the wafers.",
+      "scope": "ASML’s early TWINSCAN immersion scanner line as used in the 2004 feasibility trial.",
+      "caveats": "TSMC’s release describes the prototype without a model or serial number. The link does not identify a particular scanner used in subsequent TSMC production.",
+      "evidence": [
+        {
+          "source": "d2-immersion-tsmc-2004-90nm-prototype-immersion",
+          "locator": "Main paragraphs 3–5",
+          "supports": "The foundry specifies the ASML prototype exposure and completion of SRAM at TSMC."
+        },
+        {
+          "source": "d2-immersion-asml-2003-semicon-japan-slides",
+          "locator": "Slides 11–15",
+          "supports": "The supplier documents the early TWINSCAN prototype, follow-on scanner, and joint immersion programme with TSMC."
+        },
+        {
+          "source": "d2-immersion-asml-2023-early-immersion",
+          "locator": "Controlling the pesky puddle",
+          "supports": "The supplier confirms that TSMC’s functional 90 nm chips used its early immersion equipment."
+        }
+      ]
+    }
+  ]
 }
