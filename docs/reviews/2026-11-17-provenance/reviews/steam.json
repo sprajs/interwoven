@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "lane": "steam",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "818262973c05790bd24fdb500abe8973898f712d",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent review",
+    "independence": "Separate from gpt-6.2-sol high proposer; original documents or clearly identified reprints independently read"
+  },
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json",
+      "sha256": "70998b7947a8f289fa3dc3fa5d7ce16784565445dc121461d444a658b191874e"
+    },
+    {
+      "path": "data/sources/a/american-citizen-1807-north-river-advertisement.json",
+      "sha256": "d8444193f4503ac6bd67223297668d2f4fdc08a9a6aafa32f5ebc4d41ad07692"
+    },
+    {
+      "path": "data/sources/d/dickinson-1913-fulton-north-river-documents.json",
+      "sha256": "590f8a100e74fe22f8cf3135a70ef756ed6078fbe77b20d1f2643fd28ed68187"
+    },
+    {
+      "path": "data/sources/m/munsell-1855-north-river-passengers.json",
+      "sha256": "be3b9b2bec1485d529bbbfbaab63b71ce06712a71c71354d13a952028201ed3c"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json",
+      "sha256": "0f572cc32e362ea3826e1c5150bac13828688eef23cfa3282d215d506c6804e8"
+    },
+    {
+      "path": "evidence/a/american-citizen-1807-north-river-advertisement-notes.txt",
+      "sha256": "4d3531915a25719de7b5685ee6e2211912aab9604a4d0939e63dd3415abf8750"
+    },
+    {
+      "path": "evidence/d/dickinson-1913-fulton-north-river-documents.pdf.cache.json",
+      "sha256": "dd44ba4f404bd863afa14dd1036d3c64baaa15009ae2fcf746766ce6dba6d98d"
+    },
+    {
+      "path": "evidence/m/munsell-1855-north-river-passengers.jpg.cache.json",
+      "sha256": "c2bb8c7581f6ae497c8786d2f878c3a27d39a5588bc3cf22d2889fde6007ebbb"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json#/description",
+      "decision": "accept",
+      "rationale": "Passenger statement and Fulton 1810 identify an operating boat and its maker; the description attributes the 1804 engine identification to Fulton rather than asserting the original machine ledger was examined.",
+      "sources": [
+        "Munsell 1855 p.25",
+        "Dickinson 1913 pp.230–231"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json#/events/fare-offer-1807 and measures/advertised passage fare",
+      "decision": "accept",
+      "rationale": "New York State Library transcript of its American Citizen September 2 issue advertises Friday September 4, Paulas Hook and seven dollars to Albany. Offer is not actual payment; later guide repeats same offer.",
+      "sources": [
+        "American Citizen 2 September 1807, NYSL transcript",
+        "1846 Picture pp.104–105"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json#/events/first-packet-passage-1807",
+      "decision": "accept",
+      "rationale": "Printed 1855 reprint of 5 September passenger statement recounts Friday New York departure and Albany arrival, and identifies it as first passage as a packet. Date is source-supported; no claim of actual fare or overall first steamboat. Newspaper original not examined.",
+      "sources": [
+        "Munsell 1855 vol.VI p.25"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json#/events/fulton-accounts-for-engine-1810 except contributions",
+      "decision": "accept",
+      "rationale": "Fulton in his September 1810 letter identifies a 24-inch by four-foot 1804 Boulton & Watt engine with his passenger boat. The 1805 account and forwarding letter provide maker side and say goods forwarded toward London, not proof of arrival, freight, or fitting. The event date is the letter date.",
+      "sources": [
+        "Dickinson 1913 pp.177–178 and 230–231"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json#/events/fulton-accounts-for-engine-1810/contributions",
+      "decision": "changes_requested",
+      "rationale": "A supplier contribution belongs to the stage where supply occurred, not the later documented-description event, which records Fulton writing a letter in 1810. Remove contribution while retaining attributed maker identification; alternatively add a separately sourced 1805 dispatch event limited to forwarding toward London and attach the contribution to that event. Do not state delivery or installation was verified.",
+      "sources": [
+        "Dickinson 1913 pp.177–178 and 230–231",
+        "docs/data-model.md: Event contributions"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/north-river-steamboat-passenger-service.json#/research/unresolved",
+      "decision": "accept",
+      "rationale": "The code, transatlantic freight and installation remain unverified. Maker-side order/forwarding and buyer-side later identification establish stronger supply evidence than shared dimensions alone; exact identity with a different Soho installation is not shown.",
+      "sources": [
+        "Dickinson 1913 pp.177–178 and 230–231"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json#/inputs, reject_if, stop_when and next_anchor",
+      "decision": "accept",
+      "rationale": "Reusable entry fields and stops require specific matching and independent duty evidence; reject common numbers and advertisements alone. Science Museum object 1862-53/1 is a traceable different Comet engine pilot, not proof of its operation schedule.",
+      "sources": [
+        "Birmingham Archives MS 3147/4 engine codes",
+        "Science Museum Group 1862-53/1"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json#/steps/0",
+      "decision": "accept",
+      "rationale": "Instructions generalize port-record checks; 1808 enrollment transcription identifies remodeled vessel and prior enrollment 973 from 1807, while the passenger text uses Clermont as a landing.",
+      "sources": [
+        "Dickinson 1913 p.228",
+        "Munsell 1855 p.25"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json#/steps/1",
+      "decision": "accept",
+      "rationale": "Maker catalogue describes alphabetical and repeated code systems, order books and alternative small-engine sequence; calendar MS 3147/3/496 lists Fulton/Francis correspondence and drawings. No particular code assigned. Item MS 3147/4/91 page could not be loaded by reviewer; its exact item date and access status remain an access limitation, not independently verified.",
+      "sources": [
+        "Birmingham Archives MS 3147/4",
+        "Adam Matthew MS 3147/3/496"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json#/steps/2",
+      "decision": "accept",
+      "rationale": "Maker account and letters document order and dispatch via carrier for London in 1805, not transatlantic receipt or fitting; distinction of these steps is sound.",
+      "sources": [
+        "Dickinson 1913 pp.174,177–178",
+        "Adam Matthew MS 3147/3/496"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json#/steps/3",
+      "decision": "accept",
+      "rationale": "Fulton’s 1810 buyer statement explicitly ties 1804 engine to Hudson passenger service and requests another; matching dimensions alone are not an identity test. U.S. National Museum bulletin identifies drawing 180137 as remodeled North River, not original installation. Multiple copies of 1810 letter are one underlying source.",
+      "sources": [
+        "Dickinson 1913 pp.230–231",
+        "Adam Matthew MS 3147/3/496 item 15",
+        "USNM Bulletin 173, object 180137"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/steam.json#/steps/4 and decision",
+      "decision": "accept",
+      "rationale": "Contemporary advertisement is an offer; independent passenger testimony is preserved in a later reprint and records first packet passage. Source roles and later reproduction are stated, and no exact maker code, installed-object identity or ticket purchase is claimed.",
+      "sources": [
+        "NYSL American Citizen 2 September 1807 transcript",
+        "Munsell 1855 vol.VI p.25",
+        "Dickinson 1913 pp.230–231"
+      ]
+    },
+    {
+      "path": "data/sources and evidence changed files",
+      "decision": "accept",
+      "rationale": "The source metadata identifies the advertisement facsimile/transcript, Dickinson printed transcriptions, and Munsell 1855 reprint separately; PDF and JPEG checksums match local originals. The 1807 original passenger newspaper issue and actual manuscripts remain uninspected.",
+      "sources": [
+        "NYSL newspaper page",
+        "Dickinson 1913 pp.177–178, 228, 230–231",
+        "Munsell 1855 p.25"
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "url": "https://nyslibrary.libguides.com/steamboats/newspapers",
+      "locator": "American Citizen 2 September 1807 transcription and BOX 409",
+      "representation": "State Library transcript read; local notes contain facsimile URL and hash",
+      "role": "operator advertisement / library reproduction",
+      "independence": "The 1846 advertisement reproduction is same underlying notice."
+    },
+    {
+      "url": "https://archive.org/download/cu31924005003466/cu31924005003466.pdf",
+      "locator": "pp.174,177–178,228,230–231",
+      "representation": "1913 printed book scan read locally; SHA-256 53f8563941e28ead3bcab5a8b33b95d951e74837f27a2b0d886ee73e158e3f51",
+      "role": "transcriptions of maker dispatch, customer letter and enrollment",
+      "independence": "Distinct 1805 maker correspondence and 1810 buyer statement; neither original manuscript independently inspected."
+    },
+    {
+      "url": "https://archive.org/details/annalsofalbany06munsuoft/page/25/mode/1up",
+      "locator": "vol.VI p.25",
+      "representation": "local printed page facsimile read; SHA-256 cc81c664052ed4054c47c5a82eaea3000b1e82e3c8832f18ca0a2a18204ca5e9",
+      "role": "passenger testimonial in 1855 reprint",
+      "independence": "Separate evidence of passenger passage from manufacturer and operator; original 1807 newspaper issue not inspected."
+    },
+    {
+      "url": "https://calmview.birmingham.gov.uk/CalmView/Record.aspx?id=MS+3147/4&src=CalmView.Catalog",
+      "locator": "series introduction, Engine Codes",
+      "representation": "catalogue full text read",
+      "role": "finding aid and source of coding conventions",
+      "independence": "Catalog metadata is not an independent inspection of Fulton order folio; item 4/91 page unavailable to reviewer."
+    },
+    {
+      "url": "https://webdoc.sub.gwdg.de/zdmdm/mifoguide/matthew/INDUSTRIAL_REVOLUTION_S1_p15.pdf",
+      "locator": "MS 3147/3/496 heading and correspondence item list",
+      "representation": "finding aid PDF read",
+      "role": "catalogue locator for original letters",
+      "independence": "Index to same letters as Dickinson, not another historical eyewitness."
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Bulletin_-_United_States_National_Museum_%28IA_bulletinunitedst1731939unit%29.pdf",
+      "locator": "Machinery of Clermont and Chancellor Livingston, no.180137",
+      "representation": "digitized museum bulletin text read",
+      "role": "independent scrutiny of drawing attribution",
+      "independence": "Museum interpretation, not an installation record."
+    },
+    {
+      "url": "https://collection.sciencemuseumgroup.org.uk/objects/co8018658/the-original-engine-of-henry-bells-paddle-steamer",
+      "locator": "object 1862-53/1",
+      "representation": "museum collection entry read",
+      "role": "next pilot object catalogue",
+      "independence": "does not independently establish historical passenger service."
+    }
+  ],
+  "duplicate_screen": "The base North River record already contains a 2 September offer and October 2 departure; the new September 4–5 packet passage and 1810 letter have distinct event type, date and scope. No new graph edge or new node is proposed; no Soho individual engine identity asserted. Historical supplier attribution is not a uses_instrument relation.",
+  "limitations": [
+    "Fulton’s original manuscript, the 1807 Albany Register issue, maker order folio/code and transatlantic and installation handovers were not inspected.",
+    "Reviewer could not load Birmingham MS 3147/4/91 item or the cited Archive.org p.23 page. The p.25 statement itself shows Friday departure and September 5 date; catalogue series guidance is accessible.",
+    "No complete verification of user-side searches beyond recorded specific outcomes is claimed; provenance of the results is cited."
+  ],
+  "issues": [
+    "Remove the supplier contribution from the 1810 letter event or place it on an appropriately scoped separate 1805 dispatch event; preserve London forwarding vs actual delivery and later operator attribution."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 979 discoveries, 1690 events, 302 links, 2016 sources; no problems found",
+    "diff_check": "git diff --check base..worker: pass"
+  },
+  "history": []
+}
