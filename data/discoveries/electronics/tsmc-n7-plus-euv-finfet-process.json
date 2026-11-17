@@ -1,7 +1,7 @@
 {
   "id": "tsmc-n7-plus-euv-finfet-process",
   "name": "TSMC’s N7+ EUV FinFET process",
-  "description": "TSMC adapted its N7 FinFET foundry process to use extreme ultraviolet lithography for selected layers and delivered customer products on that variant.",
+  "description": "TSMC introduced the N7+ FinFET foundry process with extreme ultraviolet lithography for selected layers and delivered customer products on that variant.",
   "kind": "technology",
   "domain": "electronics.semiconductors",
   "grain": "improvement",
@@ -35,6 +35,11 @@
           "source": "yen-2021-euv-saves-moores-law",
           "locator": "Opening and We Are All In",
           "supports": "The former TSMC lithography lead quotes the 2019 enhanced N7 volume ramp and describes ASML scanner work underlying the foundry’s EUV effort."
+        },
+        {
+          "source": "ansys-2018-tsmc-n7-plus-euv-tool-certification",
+          "locator": "Opening paragraphs, RedHawk and Totem N7+ certification",
+          "supports": "The design software partner separately identifies EUV-enabled features on N7+ in 2018 certification work."
         }
       ]
     },
@@ -86,10 +91,10 @@
     {
       "from": "tsmc-n7-immersion-finfet-process",
       "type": "builds_on",
-      "status": "established",
+      "status": "candidate",
       "from_event": "n7-volume-production",
       "to_event": "n7-plus-volume-production",
-      "statement": "N7+ used base N7 as its process foundation and introduced EUV in place of some immersion patterning.",
+      "statement": "Which parts of base N7 carried forward in N7+ as TSMC shifted selected layers to EUV?",
       "scope": "Within TSMC’s N7 family, selective EUV insertion and production learning.",
       "evidence": [
         {
@@ -104,10 +109,11 @@
         },
         {
           "source": "yen-2021-euv-saves-moores-law",
-          "locator": "2019 IEDM papers",
-          "supports": "The programme participant independently documents the enhanced 7 nm process and EUV insertion using the 2019 research presentations."
+          "locator": "Opening paragraphs",
+          "supports": "The programme participant reports the enhanced 7 nm process and EUV insertion, citing the foundry’s 2019 research presentations."
         }
-      ]
+      ],
+      "caveats": "TSMC explicitly describes the baseline relationship. The sources checked independently corroborate EUV use on N7+ without tracing the internal process lineage."
     }
   ]
 }
