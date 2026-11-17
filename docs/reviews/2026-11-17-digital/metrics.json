@@ -1,0 +1,230 @@
+{
+  "baseline": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "aggregate": {
+    "new_nodes": 13,
+    "updated_nodes": 10,
+    "new_events": 25,
+    "updated_events": 2,
+    "removed_events": 0,
+    "new_sources": 62,
+    "updated_sources": 0,
+    "new_established_edges": 16,
+    "promoted_established_edges": 1,
+    "updated_established_edges": 0,
+    "removed_established_edges": 0,
+    "changed_open_edges": 4,
+    "original_questions": 6,
+    "original_questions_established": 1
+  },
+  "original_question_decisions": {
+    "still candidate": 3,
+    "narrowed": 2,
+    "established": 1
+  },
+  "lanes": {
+    "fugaku": {
+      "proposal": "bc0fb9c3b72eab4b56f0f820925a6dc25ec8beae",
+      "question_decision": "still candidate",
+      "counts": {
+        "new_nodes": 3,
+        "updated_nodes": 1,
+        "new_events": 5,
+        "updated_events": 0,
+        "removed_events": 0,
+        "new_sources": 12,
+        "updated_sources": 0,
+        "new_established_edges": 3,
+        "promoted_established_edges": 0,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 1,
+        "original_questions": 1,
+        "original_questions_established": 0
+      },
+      "reviewed_files": 17,
+      "original_question": {
+        "earlier_record": "fujitsu-tofu-interconnect-2",
+        "receiving_record": "riken-fujitsu-fugaku",
+        "type": "adapts",
+        "baseline_status": "candidate",
+        "current_statuses": [
+          "candidate"
+        ]
+      }
+    },
+    "tofu": {
+      "proposal": "eaedeeaa3581fd511030edc431e20a01436ec54d",
+      "question_decision": "narrowed",
+      "counts": {
+        "new_nodes": 3,
+        "updated_nodes": 2,
+        "new_events": 7,
+        "updated_events": 0,
+        "removed_events": 0,
+        "new_sources": 13,
+        "updated_sources": 0,
+        "new_established_edges": 4,
+        "promoted_established_edges": 0,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 1,
+        "original_questions": 1,
+        "original_questions_established": 0
+      },
+      "reviewed_files": 19,
+      "original_question": {
+        "earlier_record": "riken-fujitsu-k-computer",
+        "receiving_record": "fujitsu-tofu-interconnect-2",
+        "type": "adapts",
+        "baseline_status": "candidate",
+        "current_statuses": [
+          "candidate"
+        ]
+      }
+    },
+    "finfet": {
+      "proposal": "7b15aceda225c94fb12c5722da83d61635183633",
+      "question_decision": "narrowed",
+      "counts": {
+        "new_nodes": 2,
+        "updated_nodes": 1,
+        "new_events": 4,
+        "updated_events": 0,
+        "removed_events": 0,
+        "new_sources": 8,
+        "updated_sources": 0,
+        "new_established_edges": 2,
+        "promoted_established_edges": 0,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 1,
+        "original_questions": 1,
+        "original_questions_established": 0
+      },
+      "reviewed_files": 12,
+      "original_question": {
+        "earlier_record": "tsmc-n7-immersion-finfet-process",
+        "receiving_record": "tsmc-n7-plus-euv-finfet-process",
+        "type": "builds_on",
+        "baseline_status": "candidate",
+        "current_statuses": [
+          "candidate"
+        ]
+      }
+    },
+    "immersion": {
+      "proposal": "491b2432a4b68a0cad1dcc4946c27e0faf0db64c",
+      "question_decision": "established",
+      "counts": {
+        "new_nodes": 1,
+        "updated_nodes": 2,
+        "new_events": 2,
+        "updated_events": 1,
+        "removed_events": 0,
+        "new_sources": 9,
+        "updated_sources": 0,
+        "new_established_edges": 1,
+        "promoted_established_edges": 1,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 0,
+        "original_questions": 1,
+        "original_questions_established": 1
+      },
+      "reviewed_files": 13,
+      "original_question": {
+        "earlier_record": "tsmc-193nm-immersion-lithography",
+        "receiving_record": "tsmc-n7-immersion-finfet-process",
+        "type": "uses_process",
+        "baseline_status": "candidate",
+        "current_statuses": [
+          "established"
+        ]
+      }
+    },
+    "berkeley": {
+      "proposal": "8ff32fdc4cda29b64f8bbfbe67d236785a0af2fb",
+      "question_decision": "still candidate",
+      "counts": {
+        "new_nodes": 2,
+        "updated_nodes": 2,
+        "new_events": 2,
+        "updated_events": 0,
+        "removed_events": 0,
+        "new_sources": 8,
+        "updated_sources": 0,
+        "new_established_edges": 2,
+        "promoted_established_edges": 0,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 1,
+        "original_questions": 1,
+        "original_questions_established": 0
+      },
+      "reviewed_files": 13,
+      "original_question": {
+        "earlier_record": "berkeley-high-resistivity-pin-detector-process",
+        "receiving_record": "berkeley-fully-depleted-back-illuminated-ccd",
+        "type": "builds_on",
+        "baseline_status": "candidate",
+        "current_statuses": [
+          "candidate"
+        ]
+      }
+    },
+    "steel": {
+      "proposal": "fd5d3b51a92cb2546d1920423c0f23e3c19a3d27",
+      "question_decision": "still candidate",
+      "counts": {
+        "new_nodes": 0,
+        "updated_nodes": 0,
+        "new_events": 0,
+        "updated_events": 0,
+        "removed_events": 0,
+        "new_sources": 0,
+        "updated_sources": 0,
+        "new_established_edges": 0,
+        "promoted_established_edges": 0,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 0,
+        "original_questions": 1,
+        "original_questions_established": 0
+      },
+      "reviewed_files": 1,
+      "original_question": {
+        "earlier_record": "lulea-hybrit-hydrogen-direct-reduction",
+        "receiving_record": "oxelosund-hybrit-trial-steel",
+        "type": "builds_on",
+        "baseline_status": "candidate",
+        "current_statuses": [
+          "candidate"
+        ]
+      }
+    },
+    "sensor": {
+      "proposal": "b8f9c35656cd510bc920f025605ef48df0cef6eb",
+      "question_decision": null,
+      "counts": {
+        "new_nodes": 2,
+        "updated_nodes": 2,
+        "new_events": 5,
+        "updated_events": 1,
+        "removed_events": 0,
+        "new_sources": 12,
+        "updated_sources": 0,
+        "new_established_edges": 4,
+        "promoted_established_edges": 0,
+        "updated_established_edges": 0,
+        "removed_established_edges": 0,
+        "changed_open_edges": 0,
+        "original_questions": 0,
+        "original_questions_established": 0
+      },
+      "reviewed_files": 17,
+      "original_question": null
+    }
+  }
+}

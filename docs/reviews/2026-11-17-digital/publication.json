@@ -1,0 +1,321 @@
+{
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "data_snapshot": "7606a77353078d8ba7d23ff974c7426528b417c6",
+  "publications": [
+    {
+      "lane": "steel",
+      "proposal": "fd5d3b51a92cb2546d1920423c0f23e3c19a3d27",
+      "commit": "19f823149141d658b881e494ef784dc14b85d956",
+      "pre": "7fb93f94b380c7bd6e1e8fff818a2ed2dc775032",
+      "time": "2026-11-17T22:16:43Z"
+    },
+    {
+      "lane": "finfet",
+      "proposal": "7b15aceda225c94fb12c5722da83d61635183633",
+      "commit": "6db83c9c3d5f79044ff99e6447adc1c5b7dd4c78",
+      "pre": "19f823149141d658b881e494ef784dc14b85d956",
+      "time": "2026-11-17T22:17:13Z"
+    },
+    {
+      "lane": "immersion",
+      "proposal": "491b2432a4b68a0cad1dcc4946c27e0faf0db64c",
+      "commit": "f1c16004d8fff4f357bd6e39c064ffc43e5b27b6",
+      "pre": "6db83c9c3d5f79044ff99e6447adc1c5b7dd4c78",
+      "time": "2026-11-17T22:17:41Z"
+    },
+    {
+      "lane": "fugaku",
+      "proposal": "69161628d1b67ca6e1011115d64a24dddc6989b7",
+      "commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+      "pre": "f1c16004d8fff4f357bd6e39c064ffc43e5b27b6",
+      "time": "2026-11-17T22:17:59Z"
+    },
+    {
+      "lane": "sensor",
+      "proposal": "b8f9c35656cd510bc920f025605ef48df0cef6eb",
+      "commit": "2848dde4cf59169fd7c4b5d20dc3b765b4963fac",
+      "pre": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+      "time": "2026-11-17T22:20:30Z"
+    },
+    {
+      "lane": "fugaku",
+      "proposal": "bc0fb9c3b72eab4b56f0f820925a6dc25ec8beae",
+      "commit": "21752749309c92cd552dd33394e4ea1df0f9da58",
+      "pre": "2848dde4cf59169fd7c4b5d20dc3b765b4963fac",
+      "time": "2026-11-17T22:20:36Z"
+    },
+    {
+      "lane": "berkeley",
+      "proposal": "91b737fd75350cda0cbf6db6c56ccebe9e551fee",
+      "commit": "f560bd72e5f4c98967830f0cda6bb88296e5e6e3",
+      "pre": "21752749309c92cd552dd33394e4ea1df0f9da58",
+      "time": "2026-11-17T22:20:42Z"
+    },
+    {
+      "lane": "tofu",
+      "proposal": "eaedeeaa3581fd511030edc431e20a01436ec54d",
+      "commit": "9b9ecd59a39905fc94bc92644525f4000cc6c158",
+      "pre": "f560bd72e5f4c98967830f0cda6bb88296e5e6e3",
+      "time": "2026-11-17T22:20:48Z"
+    },
+    {
+      "lane": "berkeley",
+      "proposal": "8ff32fdc4cda29b64f8bbfbe67d236785a0af2fb",
+      "commit": "7606a77353078d8ba7d23ff974c7426528b417c6",
+      "pre": "9b9ecd59a39905fc94bc92644525f4000cc6c158",
+      "time": "2026-11-17T22:21:07Z"
+    }
+  ],
+  "workers": [
+    {
+      "execution": "/root/d2_berkeley",
+      "id": "01a1eb90-d2bd-7c10-830e-5076366851d0",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:11:39.344Z",
+      "usage_at_utc": "2026-11-17T22:21:53.351Z",
+      "usage": {
+        "input_tokens": 11172841,
+        "cached_input_tokens": 10938752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18978,
+        "reasoning_output_tokens": 2971,
+        "total_tokens": 11191819
+      }
+    },
+    {
+      "execution": "/root/d2_finfet",
+      "id": "01a1eb90-57fb-7b20-8f99-d41991fe6af2",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:11:07.934Z",
+      "usage_at_utc": "2026-11-17T22:16:55.739Z",
+      "usage": {
+        "input_tokens": 3374292,
+        "cached_input_tokens": 3226240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11791,
+        "reasoning_output_tokens": 1320,
+        "total_tokens": 3386083
+      }
+    },
+    {
+      "execution": "/root/d2_fugaku",
+      "id": "01a1eb90-a933-7303-8271-ad3411200345",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:11:28.733Z",
+      "usage_at_utc": "2026-11-17T22:19:20.151Z",
+      "usage": {
+        "input_tokens": 4705306,
+        "cached_input_tokens": 4552064,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17126,
+        "reasoning_output_tokens": 2607,
+        "total_tokens": 4722432
+      }
+    },
+    {
+      "execution": "/root/d2_immersion",
+      "id": "01a1eb90-256a-73e0-a562-a995bbcc4eaf",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:10:55.040Z",
+      "usage_at_utc": "2026-11-17T22:18:01.849Z",
+      "usage": {
+        "input_tokens": 5806799,
+        "cached_input_tokens": 5631616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14558,
+        "reasoning_output_tokens": 1486,
+        "total_tokens": 5821357
+      }
+    },
+    {
+      "execution": "/root/d2_reader",
+      "id": "01a1eb93-27da-7fd3-b6dd-3118f4fceeba",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:14:12.247Z",
+      "usage_at_utc": "2026-11-17T22:20:35.170Z",
+      "usage": {
+        "input_tokens": 1906547,
+        "cached_input_tokens": 1839360,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16235,
+        "reasoning_output_tokens": 2429,
+        "total_tokens": 1922782
+      }
+    },
+    {
+      "execution": "/root/d2_sensor",
+      "id": "01a1eb91-0721-7730-8441-49c5ab5c1f82",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:11:53.020Z",
+      "usage_at_utc": "2026-11-17T22:19:29.869Z",
+      "usage": {
+        "input_tokens": 6525551,
+        "cached_input_tokens": 6289408,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14488,
+        "reasoning_output_tokens": 1492,
+        "total_tokens": 6540039
+      }
+    },
+    {
+      "execution": "/root/d2_steel",
+      "id": "01a1eb91-35a0-7f13-b7cf-5d94cf90da3a",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:04.673Z",
+      "usage_at_utc": "2026-11-17T22:17:08.383Z",
+      "usage": {
+        "input_tokens": 4142508,
+        "cached_input_tokens": 4004736,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8601,
+        "reasoning_output_tokens": 321,
+        "total_tokens": 4151109
+      }
+    },
+    {
+      "execution": "/root/d2_tofu",
+      "id": "01a1eb90-8394-7861-9343-8cb18946eb5a",
+      "model": "gpt-6.2-sol",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:11:19.091Z",
+      "usage_at_utc": "2026-11-17T22:20:41.775Z",
+      "usage": {
+        "input_tokens": 7952708,
+        "cached_input_tokens": 7747072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19667,
+        "reasoning_output_tokens": 2848,
+        "total_tokens": 7972375
+      }
+    },
+    {
+      "execution": "/root/d2r_berkeley",
+      "id": "01a1eb91-a3ff-7292-a7a9-179592f12e03",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:32.926Z",
+      "usage_at_utc": "2026-11-17T22:21:12.447Z",
+      "usage": {
+        "input_tokens": 6635514,
+        "cached_input_tokens": 6523392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8928,
+        "reasoning_output_tokens": 1109,
+        "total_tokens": 6644442
+      }
+    },
+    {
+      "execution": "/root/d2r_finfet",
+      "id": "01a1eb91-623f-7371-9f27-20a9f8c270af",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:16.084Z",
+      "usage_at_utc": "2026-11-17T22:17:16.649Z",
+      "usage": {
+        "input_tokens": 3207781,
+        "cached_input_tokens": 3103616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5547,
+        "reasoning_output_tokens": 524,
+        "total_tokens": 3213328
+      }
+    },
+    {
+      "execution": "/root/d2r_fugaku",
+      "id": "01a1eb91-8ef3-76c1-8800-383101da96ab",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:27.528Z",
+      "usage_at_utc": "2026-11-17T22:19:17.429Z",
+      "usage": {
+        "input_tokens": 4883022,
+        "cached_input_tokens": 4765312,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7268,
+        "reasoning_output_tokens": 551,
+        "total_tokens": 4890290
+      }
+    },
+    {
+      "execution": "/root/d2r_immersion",
+      "id": "01a1eb91-4c06-7952-8df1-004a878cd3ae",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:10.407Z",
+      "usage_at_utc": "2026-11-17T22:17:42.753Z",
+      "usage": {
+        "input_tokens": 3834684,
+        "cached_input_tokens": 3710208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5701,
+        "reasoning_output_tokens": 569,
+        "total_tokens": 3840385
+      }
+    },
+    {
+      "execution": "/root/d2r_sensor",
+      "id": "01a1eb91-c071-7c62-bf8e-5f131c92c04e",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:40.202Z",
+      "usage_at_utc": "2026-11-17T22:19:07.956Z",
+      "usage": {
+        "input_tokens": 3120767,
+        "cached_input_tokens": 2997632,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5550,
+        "reasoning_output_tokens": 457,
+        "total_tokens": 3126317
+      }
+    },
+    {
+      "execution": "/root/d2r_steel",
+      "id": "01a1eb91-df48-7740-9911-172b48c64723",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:48.115Z",
+      "usage_at_utc": "2026-11-17T22:16:45.598Z",
+      "usage": {
+        "input_tokens": 2172931,
+        "cached_input_tokens": 2097280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4855,
+        "reasoning_output_tokens": 236,
+        "total_tokens": 2177786
+      }
+    },
+    {
+      "execution": "/root/d2r_tofu",
+      "id": "01a1eb91-7b02-7b72-b167-975edb59c950",
+      "model": "gpt-6.1-terra",
+      "effort": "high",
+      "started_utc": "2026-11-17T22:12:22.428Z",
+      "usage_at_utc": "2026-11-17T22:20:36.088Z",
+      "usage": {
+        "input_tokens": 3762898,
+        "cached_input_tokens": 3655808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7290,
+        "reasoning_output_tokens": 741,
+        "total_tokens": 3770188
+      }
+    }
+  ],
+  "usage_scope": "Observed cumulative worker counters. Input includes repeated context and cached tokens. Reasoning output is included in output tokens. Coordinator excluded. No invoice observed.",
+  "worker_usage_total": {
+    "input_tokens": 73204149,
+    "cached_input_tokens": 71082496,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 166583,
+    "reasoning_output_tokens": 19661,
+    "total_tokens": 73370732
+  },
+  "billing": null
+}
