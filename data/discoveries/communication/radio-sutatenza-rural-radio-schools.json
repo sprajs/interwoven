@@ -12,6 +12,13 @@
     "note": "Broadcast schooling brought literacy to rural Colombians who had no school access; one region, with radio-school successors in other countries."
   },
   "grain": "capability",
+  "places": [
+    {
+      "place": "sutatenza",
+      "role": "origin",
+      "note": "Starting parish in Boyacá, Colombia."
+    }
+  ],
   "events": [
     {
       "id": "schools-start-1947",
@@ -28,15 +35,29 @@
         "label": "1947",
         "basis": "Date stated by the cited source; see event scope."
       },
-      "statement": "José Joaquín Salcedo began a rural radio-school project from Sutatenza in Colombia.",
+      "statement": "José Joaquín Salcedo began a rural radio-school project from the parish of Sutatenza, Boyacá, Colombia.",
+      "places": [
+        "sutatenza"
+      ],
+      "place_note": "Early broadcasts reached households in the rural locality of Irzón.",
       "evidence": [
         {
           "source": "unesco-2013-sutatenza-registration-wave11",
           "locator": "Section 3.4",
-          "supports": "Nomination dates start of rural radio-school project to 1947 and identifies Salcedo."
+          "supports": "The nomination dates the start of the project to 1947 and names Salcedo and the parish of Sutatenza, Boyacá."
+        },
+        {
+          "source": "zabala-2020-first-radio-sutatenza-sets",
+          "locator": "p. 15, Los inicios and images 1–2",
+          "supports": "Places assembly of the first transmitter in Sutatenza in 1947 and describes early reception by households in Irzón."
+        },
+        {
+          "source": "registraduria-2023-sutatenza-seat-georeference",
+          "locator": "Boyacá, Sutatenza, PUESTO CABECERA MUNICIPAL row",
+          "supports": "Georeferences the present-day settlement used for the map point."
         }
       ],
-      "caveats": "This dates the project, not a documented nationwide audience or later cumulative reach.",
+      "caveats": "This dates the local start of the project. Irzón was an early receiving locality. Accounts differ about the day of the first cultural broadcast.",
       "contributions": [
         {
           "person": "jose-joaquin-salcedo",
@@ -51,6 +72,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "transmitter-inauguration-1954",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1954,
+          "month": 11,
+          "day": 7
+        },
+        "latest": {
+          "year": 1954,
+          "month": 11,
+          "day": 7
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "7 November 1954",
+        "basis": "Date of the ceremony given by the film and speech catalogue descriptions."
+      },
+      "statement": "A high-power transmitter and new broadcasting equipment for the radio schools were inaugurated in Sutatenza, with President Gustavo Rojas Pinilla in attendance.",
+      "places": [
+        "sutatenza"
+      ],
+      "evidence": [
+        {
+          "source": "odipe-1954-sutatenza-transmitter-film",
+          "locator": "Collection description, first paragraph; Ficha técnica",
+          "supports": "Dates and locates the inauguration and identifies its broadcasting equipment and presidential attendance."
+        },
+        {
+          "source": "rojas-pinilla-1954-sutatenza-inauguration-audio",
+          "locator": "Numbered item 3, CD8409 / CD8136 title",
+          "supports": "Dates Rojas Pinilla’s inauguration speech in Sutatenza to 7 November 1954."
+        }
+      ],
+      "caveats": "The sources identify an equipment inauguration. The transmitter model, rated power, and additional audience reached remain uncertain."
     },
     {
       "id": "reach-reported-2020",
@@ -87,11 +145,25 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
+      "places": "sourced",
       "events": "sourced",
       "measures": "reviewed",
       "tier": "recalled",
       "impact": "recalled"
-    }
+    },
+    "unresolved": [
+      {
+        "about": "First broadcast day and building",
+        "note": "The ACPO chronology used by Bernal gives 28 September 1947 for the first cultural broadcast. The Banco de la República bulletin gives 16 November. A dated station log, script, or transmission recording could distinguish the early trials and locate the transmitting room.",
+        "evidence": [
+          {
+            "source": "bernal-2012-radio-sutatenza-model",
+            "locator": "p. 19, early chronology; p. 20, note 8",
+            "supports": "Dates the first cultural broadcast to 28 September 1947 and identifies the underlying ACPO chronology."
+          }
+        ]
+      }
+    ]
   },
   "measures": [
     {
