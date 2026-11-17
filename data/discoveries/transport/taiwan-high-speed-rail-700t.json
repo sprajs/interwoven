@@ -1,0 +1,128 @@
+{
+  "id": "taiwan-high-speed-rail-700t",
+  "name": "Taiwan High Speed Rail 700T",
+  "description": "The 700T adapted Japan’s Series 700 as a 12-car high-speed train for Taiwan’s route, environment, regulation and operating needs.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "taiwan",
+      "note": "Taiwan is the operating region. The manufacturer unveiled the train in Japan."
+    }
+  ],
+  "events": [
+    {
+      "id": "rollout-2004",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2004,
+          "month": 1,
+          "day": 30
+        },
+        "latest": {
+          "year": 2004,
+          "month": 1,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "30 January 2004",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "Taiwan High Speed Rail Corporation and its Japanese suppliers unveiled the 700T at Kawasaki’s Hyogo Works in Japan.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "kawasaki-2004-taiwan-700t-rollout",
+          "locator": "Opening two paragraphs",
+          "supports": "The manufacturer dates and locates the unveiling."
+        }
+      ]
+    },
+    {
+      "id": "service-2007",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2007,
+          "month": 1,
+          "day": 5
+        },
+        "latest": {
+          "year": 2007,
+          "month": 1,
+          "day": 5
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "5 January 2007",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "Taiwan High Speed Rail began passenger service with its 700T fleet between Banqiao and Zuoying.",
+      "places": [
+        "taiwan"
+      ],
+      "evidence": [
+        {
+          "source": "thsrc-2009-initial-passenger-service",
+          "locator": "Operational Highlights, High Speed Rail Service",
+          "supports": "The operator dates the first revenue runs and gives the section."
+        },
+        {
+          "source": "taiwan-railway-bureau-700t-adaptation",
+          "locator": "High-speed railway route and stations; Rolling-stock specifications",
+          "supports": "The bureau confirms opening date, stations and the model adopted."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "rollout-2004",
+    "rationale": "Earliest dated milestone retained here for this design or deployment."
+  },
+  "community_entry": {
+    "event": "service-2007",
+    "community": "Taiwan High Speed Rail Corporation",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Taiwan High Speed Rail began passenger service with its 700T fleet between Banqiao and Zuoying."
+  },
+  "origin": "derived",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "shinkansen-series-700",
+      "status": "established",
+      "statement": "Taiwan’s high-speed rail operator received trains developed from the Japanese Series 700 design. The Japanese manufacturers adapted the model for Taiwan's route, conditions and requirements.",
+      "to_event": "service-2007",
+      "evidence": [
+        {
+          "source": "kawasaki-2004-taiwan-700t-rollout",
+          "locator": "Opening two paragraphs",
+          "supports": "A manufacturer names Series 700 as the basis and details local adaptation."
+        },
+        {
+          "source": "taiwan-railway-bureau-700t-adaptation",
+          "locator": "Rolling-stock specifications",
+          "supports": "The Railway Bureau confirms adoption of the locally adapted Series 700 derivative."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "origin": "sourced"
+    },
+    "note": "Proposal for independent admission review."
+  }
+}

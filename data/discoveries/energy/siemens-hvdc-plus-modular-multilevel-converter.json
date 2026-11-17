@@ -1,0 +1,165 @@
+{
+  "id": "siemens-hvdc-plus-modular-multilevel-converter",
+  "name": "Siemens HVDC PLUS modular multilevel converter",
+  "description": "Siemens implemented modular multilevel voltage-source conversion in a commercial high-voltage direct-current transmission system at Trans Bay Cable. The same product family was later supplied to Viking Link.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "events": [
+    {
+      "id": "trans-bay-commercial-operation-2010",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2010,
+          "month": 11,
+          "day": 23
+        },
+        "latest": {
+          "year": 2010,
+          "month": 11,
+          "day": 23
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2010-11-23",
+        "basis": "CAISO gives the effective date of commercial market availability and operational control."
+      },
+      "statement": "Trans Bay Cable began commercial operation between Pittsburg and San Francisco with Siemens HVDC PLUS modular multilevel voltage-source converters.",
+      "places": [
+        "california"
+      ],
+      "evidence": [
+        {
+          "source": "caiso-2010-trans-bay-operational-control",
+          "locator": "p. 3, sections II–III",
+          "supports": "Dates the link’s entry into actual commercial operation."
+        },
+        {
+          "source": "trans-bay-cable-operator-mmc-operations",
+          "locator": "Operations, first paragraph",
+          "supports": "Identifies the link geography and its installed Siemens converter technology."
+        }
+      ]
+    },
+    {
+      "id": "viking-link-adoption-2023",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 12,
+          "day": 29
+        },
+        "latest": {
+          "year": 2023,
+          "month": 12,
+          "day": 29
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2023-12-29",
+        "basis": "Both National Grid and Ofgem give the date of commercial operation."
+      },
+      "statement": "Viking Link began commercial power transfer between Bicker Fen in Great Britain and Revsing in Denmark using Siemens HVDC PLUS modular multilevel voltage-source converters at both ends.",
+      "places": [
+        "united-kingdom",
+        "denmark"
+      ],
+      "contributions": [
+        {
+          "group": "Siemens Energy",
+          "role": "supplier",
+          "resource": "Converter electrical design, supply, installation and commissioning for both stations.",
+          "evidence": [
+            {
+              "source": "siemens-2019-viking-link-converter-contract",
+              "locator": "Opening paragraphs and Cross-border interconnectors in the United Kingdom and Denmark",
+              "supports": "Documents Siemens’s converter contract and scope."
+            },
+            {
+              "source": "siemens-2025-viking-link-mmc-customer-reference",
+              "locator": "Slide 8, Customer reference: Viking Link",
+              "supports": "Confirms the supply of both converters to the completed project."
+            },
+            {
+              "source": "national-grid-2023-viking-link-commercial-operation",
+              "locator": "Opening paragraphs and paragraph beginning ‘Viking Link has a converter station’",
+              "supports": "Credits Siemens with design, installation and commissioning of both sides’ electrical assets."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "source": "national-grid-2023-viking-link-commercial-operation",
+          "locator": "Opening paragraphs and paragraph beginning ‘Viking Link has a converter station’",
+          "supports": "Dates commercial transfers, identifies both sites and confirms Siemens’s electrical work."
+        },
+        {
+          "source": "ofgem-2025-viking-link-post-construction",
+          "locator": "Executive summary and sections 1.1–1.4",
+          "supports": "Confirms the date, terminals and operator partnership."
+        },
+        {
+          "source": "siemens-2025-viking-link-mmc-customer-reference",
+          "locator": "Slide 8, Customer reference: Viking Link",
+          "supports": "Identifies the completed project and installed converter type at both ends."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "trans-bay-commercial-operation-2010",
+    "rationale": "Earliest verified commercial operation of this scoped Siemens implementation. The design and its prior procurement have earlier dates."
+  },
+  "origin": "derived",
+  "places": [
+    {
+      "place": "california",
+      "role": "use",
+      "note": "Trans Bay Cable terminals in Pittsburg and San Francisco."
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "marquardt-modular-multilevel-converter-topology",
+      "from_event": "bologna-intertie-paper-2003",
+      "to_event": "trans-bay-commercial-operation-2010",
+      "status": "established",
+      "statement": "The Trans Bay Cable converters put the modular multilevel topology developed by Marquardt’s group into commercial HVDC service.",
+      "contribution": [
+        "implemented"
+      ],
+      "caveats": "The cited evidence identifies the topology and commercial implementation. Contractual terms for transfer of the earlier design remain unresolved.",
+      "evidence": [
+        {
+          "source": "unibw-2024-marquardt-mmc-trans-bay",
+          "locator": "Key component of modern electric power systems; references [1] and [2]",
+          "supports": "Directly connects its converter development to the Trans Bay commercial implementation and cites both technical papers."
+        },
+        {
+          "source": "epo-2026-marquardt-mmc-trans-bay",
+          "locator": "A milestone in modern power conversion; Engineering the backbone of future energy systems",
+          "supports": "Independently identifies Trans Bay as a milestone in commercial use of Marquardt’s MMC."
+        },
+        {
+          "source": "trans-bay-cable-operator-mmc-operations",
+          "locator": "Operations, first paragraph",
+          "supports": "Independently identifies the commercial equipment as Siemens’s MMC system."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "places": "sourced",
+      "links": "sourced",
+      "origin": "sourced"
+    },
+    "note": "Proposal by gpt-6.2-sol, high effort. Independent semantic admission review pending."
+  }
+}

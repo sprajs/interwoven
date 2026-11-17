@@ -1,0 +1,79 @@
+{
+  "id": "tsmc-n7-immersion-finfet-process",
+  "name": "TSMC’s N7 immersion FinFET process",
+  "description": "TSMC introduced its original 7 nm FinFET foundry process with immersion lithography, before selectively inserting EUV in the N7+ variant.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "n7-volume-production",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 2018,
+          "month": 4
+        },
+        "latest": {
+          "year": 2018,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2018-04",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "TSMC began volume manufacture on base N7.",
+      "caveats": "N7 and N7+ are separate process variants within one foundry family.",
+      "evidence": [
+        {
+          "source": "tsmc-2020-annual-report-n7-n7-plus-production",
+          "locator": "Printed p. 11, N7, N7+ and N6",
+          "supports": "The annual report dates N7 volume production to April 2018."
+        },
+        {
+          "source": "tsmc-2018-q1-n7-n7-plus-process-remarks",
+          "locator": "Printed pp. 3–4, C. C. Wei prepared remarks on N7 and N7+",
+          "supports": "The contemporaneous call confirms volume production and identifies immersion layers replaced on the later variant."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "n7-volume-production",
+    "rationale": "The dated TSMC call and annual report establish the month of base N7 volume production."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  },
+  "links": [
+    {
+      "from": "tsmc-193nm-immersion-lithography",
+      "type": "uses_process",
+      "status": "candidate",
+      "from_event": "40nm-customer-production",
+      "to_event": "n7-volume-production",
+      "statement": "Did base N7 use the same 193 nm immersion technique documented on earlier TSMC production processes?",
+      "scope": "Use of the immersion technique within TSMC’s process generations.",
+      "evidence": [
+        {
+          "source": "tsmc-2018-q1-n7-n7-plus-process-remarks",
+          "locator": "Printed pp. 3–4, C. C. Wei prepared remarks on N7 and N7+",
+          "supports": "TSMC identifies immersion layers and equipment carried over or changed from N7."
+        },
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "EUV Saves Moore’s Law",
+          "supports": "The lithography lead identifies 193 nm immersion as the process family extended through the pre-EUV generations."
+        }
+      ],
+      "caveats": "TSMC describes immersion use and intended EUV substitution. A separately inspectable primary comparison is needed to close the link for the exact production technique."
+    }
+  ]
+}

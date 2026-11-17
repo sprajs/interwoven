@@ -1,0 +1,132 @@
+{
+  "id": "shinkansen-series-n700s",
+  "name": "Series N700S Shinkansen",
+  "description": "JR Central introduced a redesign of its high-speed train. Smaller silicon-carbide traction electronics gave its engineers flexibility to configure different train lengths and room for a battery system for low-speed movement during a power outage.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "japan"
+    }
+  ],
+  "events": [
+    {
+      "id": "validation-2018",
+      "type": "prototype",
+      "date": {
+        "earliest": {
+          "year": 2018,
+          "month": 3
+        },
+        "latest": {
+          "year": 2018,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "March 2018",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "JR Central began basic functional tests with its N700S validation train.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "jr-central-2018-n700s-validation-testing",
+          "locator": "Plan to launch the new N700S rolling stock in FY2020",
+          "supports": "The operator dates the start of basic tests on the validation train."
+        }
+      ]
+    },
+    {
+      "id": "service-2020",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 7,
+          "day": 1
+        },
+        "latest": {
+          "year": 2020,
+          "month": 7,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1 July 2020",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "JR Central began commercial operation of the N700S on the Tōkaidō Shinkansen.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "jr-central-2020-n700s-revenue-service",
+          "locator": "Introducing New Shinkansen Rolling Stock N700S",
+          "supports": "The operator dates service entry to July 2020."
+        },
+        {
+          "source": "nsk-2020-n700s-passenger-debut",
+          "locator": "Opening paragraph",
+          "supports": "A participant in the supply chain dates and locates the first passenger service."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "validation-2018",
+    "rationale": "Earliest dated milestone retained here for this design or deployment."
+  },
+  "community_entry": {
+    "event": "service-2020",
+    "community": "JR Central",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "JR Central began commercial operation of the N700S on the Tōkaidō Shinkansen."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "shinkansen-series-n700",
+      "status": "established",
+      "statement": "The N700S combined the train-draft cooling used by some Series N700 power converters with silicon carbide devices. The development team also used a Series N700 train to test prototype converter equipment.",
+      "evidence": [
+        {
+          "source": "sato-2021-n700s-traction-lineage",
+          "locator": "§§2.3 and 3.1, pp. 404–405, and §6 Conclusion",
+          "supports": "The traction developers trace N700S cooling to the N700 and describe running tests on the N700 and N700S prototypes."
+        },
+        {
+          "source": "takizawa-nishijima-2015-n700-converter-cooling",
+          "locator": "p. 47, §3.1 and Table 1",
+          "supports": "Fuji Electric independently documents a blowerless N700 converter as well as a forced-air variant."
+        },
+        {
+          "source": "fuji-electric-2015-n700-sic-converter-test",
+          "locator": "Prototype specification table and §2",
+          "supports": "In 2015 Fuji Electric confirmed evaluation of its blowerless silicon-carbide prototype on the N700."
+        },
+        {
+          "source": "fuji-electric-shinkansen-traction-cooling",
+          "locator": "Reducing power consumption and Unshakeable teamwork subsections",
+          "supports": "The participating supplier confirms the cooling architecture's development and SiC use in the N700S."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "note": "Proposal for independent admission review."
+  }
+}

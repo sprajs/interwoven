@@ -1,0 +1,119 @@
+{
+  "id": "tsmc-n7-plus-euv-finfet-process",
+  "name": "TSMC’s N7+ EUV FinFET process",
+  "description": "TSMC introduced the N7+ FinFET foundry process with extreme ultraviolet lithography for selected layers and delivered customer products on that variant.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "n7-plus-volume-production",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 4
+        },
+        "latest": {
+          "year": 2019,
+          "month": 6
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "Q2 2019",
+        "basis": "The foundry dates the onset of volume production to the second quarter, without giving a month."
+      },
+      "statement": "TSMC began volume manufacture on the N7+ process with EUV.",
+      "caveats": "Neither a worldwide priority claim nor the use of EUV for every layer follows.",
+      "evidence": [
+        {
+          "source": "tsmc-2019-n7-plus-euv-volume-production",
+          "locator": "Main announcement, paragraphs 1–3",
+          "supports": "The foundry dates the start to Q2 2019 and describes the relation to base N7."
+        },
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "Opening and We Are All In",
+          "supports": "The former TSMC lithography lead quotes the 2019 enhanced N7 volume ramp and describes ASML scanner work underlying the foundry’s EUV effort."
+        },
+        {
+          "source": "ansys-2018-tsmc-n7-plus-euv-tool-certification",
+          "locator": "Opening paragraphs, RedHawk and Totem N7+ certification",
+          "supports": "The design software partner separately identifies EUV-enabled features on N7+ in 2018 certification work."
+        }
+      ]
+    },
+    {
+      "id": "n7-plus-customer-products",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2019,
+          "month": 10,
+          "day": 7
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 7 October 2019",
+        "basis": "The 7 October announcement describes shipments as already underway."
+      },
+      "statement": "Customer products using N7+ were reaching the market in high volume.",
+      "evidence": [
+        {
+          "source": "tsmc-2019-n7-plus-euv-volume-production",
+          "locator": "Main announcement, paragraphs 1–3",
+          "supports": "The release describes customer products already reaching the market."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "n7-plus-volume-production",
+    "rationale": "The earliest volume-manufacturing date within the retained evidence is bounded to Q2 2019."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "lithography process attribution",
+        "note": "A line-by-line foundry record naming NXE submodels used on volume N7+ wafers has not been located. ASML and TSMC’s documented NXE qualification programme establishes relevant background."
+      }
+    ]
+  },
+  "links": [
+    {
+      "from": "tsmc-n7-immersion-finfet-process",
+      "type": "builds_on",
+      "status": "candidate",
+      "from_event": "n7-volume-production",
+      "to_event": "n7-plus-volume-production",
+      "statement": "Which parts of base N7 carried forward in N7+ as TSMC shifted selected layers to EUV?",
+      "scope": "Within TSMC’s N7 family, selective EUV insertion and production learning.",
+      "evidence": [
+        {
+          "source": "tsmc-2019-n7-plus-euv-volume-production",
+          "locator": "Main announcement, paragraphs 1–3",
+          "supports": "The foundry explicitly identifies base N7 as the process on which N7+ was built."
+        },
+        {
+          "source": "tsmc-2018-q1-n7-n7-plus-process-remarks",
+          "locator": "Printed pp. 3–4, C. C. Wei prepared remarks on N7 and N7+",
+          "supports": "Contemporaneous technical remarks describe the replacement of selected immersion layers and the continued use of most equipment."
+        },
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "Opening paragraphs",
+          "supports": "The programme participant reports the enhanced 7 nm process and EUV insertion, citing the foundry’s 2019 research presentations."
+        }
+      ],
+      "caveats": "TSMC explicitly describes the baseline relationship. The sources checked independently corroborate EUV use on N7+ without tracing the internal process lineage."
+    }
+  ]
+}

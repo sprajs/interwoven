@@ -1,0 +1,119 @@
+{
+  "id": "digital-earth-africa-water-observations-from-space",
+  "name": "Digital Earth Africa Water Observations from Space",
+  "description": "Digital Earth Africa built a continental surface-water service by running the Australian WOfS classifier on Landsat reflectance imagery over Africa. Regional partners validated the service across different African landscapes. It produces water classifications for individual Landsat scenes and summaries of water occurrence over time.",
+  "kind": "technology",
+  "domain": "physical-sciences.earth",
+  "advance": [
+    "dataset",
+    "new_application"
+  ],
+  "origin": "derived",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "geoscience-australia-water-observations-from-space",
+      "status": "established",
+      "statement": "Digital Earth Africa transferred the Australian WOfS decision tree to a different continental Landsat archive and validated its performance across Africa with regional organisations.",
+      "from_event": "australian-product-release",
+      "to_event": "african-operational-release",
+      "influence": "major",
+      "contribution": [
+        "supplied_method",
+        "taught_or_transmitted"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "halabisky-2024-africa-wofs-development",
+          "locator": "Abstract and Section 1, Introduction; Section 2.3",
+          "supports": "African implementation team identifies the Australian algorithm and describes the continental validation."
+        },
+        {
+          "source": "ga-dea-water-observations-product",
+          "locator": "Witness the history of surface water",
+          "supports": "Original developing agency confirms the Australian method was used across Africa."
+        },
+        {
+          "source": "mueller-2016-wofs-australia-method",
+          "locator": "Introduction; Section 2.1 Landsat archive; Section 3 Methods",
+          "supports": "Identifies the original Australian implementation used by the transfer."
+        }
+      ]
+    },
+    {
+      "type": "builds_on",
+      "from": "landsat-collection-2-global-level-2",
+      "status": "established",
+      "statement": "Digital Earth Africa's documented production service applies the water classifier to Landsat Collection 2 Level-2 surface reflectance scenes and uses the associated cloud and cloud-shadow flags.",
+      "scope": "Documented Collection 2 processing of the public service.",
+      "influence": "major",
+      "contribution": [
+        "supplied_data"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "halabisky-2024-africa-wofs-development",
+          "locator": "Section 2.3, Water observations from space (WOfS)",
+          "supports": "Names Collection 2 surface reflectance as the source and describes how flags are reused."
+        },
+        {
+          "source": "digital-earth-africa-wofs-product-specifications",
+          "locator": "Service overview; Table 1; Processing",
+          "supports": "Specifies the scene-level parent dataset and adopted algorithm."
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "african-operational-release",
+      "type": "public_availability",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 9
+        },
+        "latest": {
+          "year": 2021,
+          "month": 9
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "September 2021",
+        "basis": "The operating programme dates the operational public release to September 2021."
+      },
+      "statement": "Digital Earth Africa released its operational Water Observations from Space service for Africa, covering approximately 30 years of historical data at release.",
+      "places": [
+        "africa"
+      ],
+      "evidence": [
+        {
+          "source": "digital-earth-africa-q3-2021-wofs-release",
+          "locator": "p. 12, Continental services / Operational WOFs",
+          "supports": "Directly dates the operational release and reports historical coverage."
+        },
+        {
+          "source": "halabisky-2024-africa-wofs-development",
+          "locator": "Abstract and Section 1, Introduction",
+          "supports": "Document the continental scope and distinct regional validation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "african-operational-release",
+    "rationale": "The operator's quarterly report dates the operational release. Earlier archived Landsat scenes are source data."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "origin": "sourced",
+      "links": "sourced"
+    }
+  }
+}

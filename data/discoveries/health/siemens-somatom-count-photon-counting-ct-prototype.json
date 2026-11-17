@@ -1,0 +1,107 @@
+{
+  "id": "siemens-somatom-count-photon-counting-ct-prototype",
+  "name": "SOMATOM CounT research photon-counting CT",
+  "description": "Siemens adapted a research whole-body dual-source scanner to compare direct photon-counting CT with conventional energy-integrating CT. One detector chain retained an energy-integrating array and the other used a cadmium telluride photon-counting array.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "events": [
+    {
+      "id": "mayo-prototype-2014",
+      "type": "prototype",
+      "date": {
+        "earliest": {
+          "year": 2014
+        },
+        "latest": {
+          "year": 2014
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2014",
+        "basis": "Mayo Clinic gives the installation year."
+      },
+      "statement": "Mayo Clinic installed the investigational SOMATOM CounT scanner in Rochester, Minnesota.",
+      "places": [
+        "minnesota"
+      ],
+      "place_note": "Rochester, Minnesota, at Mayo Clinic.",
+      "evidence": [
+        {
+          "source": "mayo-ct-clinical-innovation-center-resources",
+          "locator": "Our CT scanners",
+          "supports": "Identifies the installed 2014 prototype by name."
+        },
+        {
+          "source": "yu-2016-research-whole-body-photon-counting-ct",
+          "locator": "§§1 and 2.1",
+          "supports": "The Mayo-led study identifies the laboratory system as the hybrid whole-body photon-counting scanner."
+        }
+      ]
+    },
+    {
+      "id": "nih-human-demonstration-2015",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2015,
+          "month": 11,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2015-11-24",
+        "basis": "Submission of the completed human study supplies an upper bound on the scans."
+      },
+      "statement": "At the NIH Clinical Center, researchers obtained photon-counting and energy-integrating abdominal CT images in a study of 15 volunteers.",
+      "places": [
+        "united-states"
+      ],
+      "place_note": "NIH Clinical Center, Bethesda, Maryland.",
+      "caveats": "Research-volunteer enrollment ran from September through November 2015. The source does not date the first scan or establish clinical service.",
+      "evidence": [
+        {
+          "source": "pourmorteza-2016-abdominal-photon-counting-ct",
+          "locator": "Abstract, Materials and Methods; Submission history",
+          "supports": "Documents completed scans in the bounded study and the manuscript submission date."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "mayo-prototype-2014",
+    "rationale": "Mayo identifies the prototype and installation year. Its later NIH imaging is documented by a separate clinical study."
+  },
+  "links": [
+    {
+      "from": "siemens-somatom-definition-flash-dual-source-ct",
+      "type": "adapts",
+      "status": "established",
+      "statement": "Siemens built the hybrid research scanner on the SOMATOM Definition Flash platform, replacing one of its conventional detector chains with a photon-counting chain.",
+      "scope": "Physical platform and detector substitution in the investigational system.",
+      "contribution": [
+        "supplied_platform"
+      ],
+      "evidence": [
+        {
+          "source": "yu-2016-research-whole-body-photon-counting-ct",
+          "locator": "§§1 and 2.1",
+          "supports": "Explicitly names the Definition Flash basis and the EID–PCD pairing."
+        },
+        {
+          "source": "pourmorteza-2016-abdominal-photon-counting-ct",
+          "locator": "Materials and Methods, Imaging System",
+          "supports": "The separate NIH study confirms the mixed detector configuration of its prototype."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}

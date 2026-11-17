@@ -1,0 +1,184 @@
+{
+  "id": "riken-fujitsu-k-computer",
+  "name": "RIKEN and Fujitsu K computer",
+  "description": "RIKEN and Fujitsu's research supercomputer in Kobe connected SPARC64 VIIIfx nodes with the original six-dimensional Tofu interconnect. The system reached 10.51 PFlop/s in LINPACK before entering shared use.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "events": [
+    {
+      "id": "linpack-june-2011",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2011,
+          "month": 6
+        },
+        "latest": {
+          "year": 2011,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2011-06",
+        "basis": "June TOP500 results date the documented demonstration."
+      },
+      "statement": "The June 2011 TOP500 listing reported a measured LINPACK result of 8,162 TFlop/s for the K computer.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "top500-k-computer-results",
+          "locator": "06/2011 row",
+          "supports": "The listing identifies K and reports 8,162.00 TFlop/s Rmax."
+        },
+        {
+          "source": "riken-k-computer-resource-profile",
+          "locator": "Opening and image caption",
+          "supports": "Identifies the installation at AICS in Kobe."
+        }
+      ]
+    },
+    {
+      "id": "linpack-ten-petaflops-2011",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2011,
+          "month": 11,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2011-11-02",
+        "basis": "RIKEN and Fujitsu had announced the result by 2 November."
+      },
+      "statement": "With 88,128 CPUs, K achieved 10.51 PFlop/s in LINPACK while still under development.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "riken-2011-k-computer-10-petaflops",
+          "locator": "Opening announcement and measurement paragraph",
+          "supports": "Joint announcement explicitly reports the measured 10.51 PFlop/s and the 88,128-CPU configuration."
+        },
+        {
+          "source": "top500-k-computer-results",
+          "locator": "11/2011 row",
+          "supports": "The benchmark list reports 10,510.00 TFlop/s Rmax for that configuration."
+        }
+      ]
+    },
+    {
+      "id": "shared-use-2012",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2012,
+          "month": 9,
+          "day": 28
+        },
+        "latest": {
+          "year": 2012,
+          "month": 9,
+          "day": 28
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2012-09-28",
+        "basis": "Start of shared use in the RIKEN job archive."
+      },
+      "statement": "The K computer entered shared research use at RIKEN in Kobe.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "riken-aics-k-computer-fy2012-jobs",
+          "locator": "Number of Jobs in FY2012",
+          "supports": "Operator documents the day shared use started and records jobs by month."
+        },
+        {
+          "source": "riken-k-computer-resource-profile",
+          "locator": "Opening text and image caption",
+          "supports": "RIKEN describes the researcher opening and Kobe site."
+        }
+      ]
+    },
+    {
+      "id": "shared-service-end-2019",
+      "type": "end_of_use",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 8,
+          "day": 16
+        },
+        "latest": {
+          "year": 2019,
+          "month": 8,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2019-08-16",
+        "basis": "Operator retrospectively dates completion of the service mission."
+      },
+      "statement": "The K computer concluded its seven-year service mission.",
+      "places": [
+        "japan"
+      ],
+      "scope": "End of the shared service mission.",
+      "evidence": [
+        {
+          "source": "riken-2019-k-computer-mission-complete",
+          "locator": "Opening paragraph",
+          "supports": "RIKEN confirms the service mission ended on 16 August and distinguishes eventual power-off and dismantling."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "linpack-june-2011",
+    "rationale": "The June TOP500 entry is the earliest benchmark retained here for an operating K configuration. The design and installation predate it."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "measures": "sourced"
+    },
+    "note": "Participant, operator and benchmark records distinguish staged operation from the shared-use lifecycle."
+  },
+  "places": [
+    {
+      "place": "japan",
+      "role": "use",
+      "note": "System operated at RIKEN's AICS in Kobe."
+    }
+  ],
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "LINPACK Rmax",
+      "value": 10.51,
+      "unit": "PFlop/s",
+      "event": "linpack-ten-petaflops-2011",
+      "subject": "K computer, 88,128 CPUs",
+      "conditions": "Published LINPACK run on the November configuration.",
+      "status": "measured",
+      "evidence": [
+        {
+          "source": "riken-2011-k-computer-10-petaflops",
+          "locator": "Opening announcement",
+          "supports": "Reports 10.51 PFlop/s measured on LINPACK."
+        }
+      ]
+    }
+  ]
+}

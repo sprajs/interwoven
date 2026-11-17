@@ -1,0 +1,146 @@
+{
+  "id": "oxelosund-hybrit-trial-steel",
+  "name": "SSAB trial steel from HYBRIT iron",
+  "description": "SSAB rolled trial steel at Oxelösund in July 2021 and identified the source of its iron as the Luleå hydrogen-reduction pilot. Volvo Group used SSAB’s steel in a load carrier shown in Gothenburg.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "grain": "instance",
+  "advance": [
+    "system_integration",
+    "new_application"
+  ],
+  "events": [
+    {
+      "id": "oxelosund-rolling-2021",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 7
+        },
+        "latest": {
+          "year": 2021,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2021-07",
+        "basis": "SSAB’s August announcement gives July as the rolling month."
+      },
+      "statement": "SSAB rolled a trial batch of HYBRIT steel at Oxelösund and reported that it used Luleå’s hydrogen-reduced sponge iron.",
+      "evidence": [
+        {
+          "source": "ssab-2021-trial-delivery-hybrit-steel",
+          "locator": "Opening and paragraph starting SSAB, LKAB and Vattenfall created HYBRIT",
+          "supports": "Dates and locates rolling and identifies the Luleå pilot sponge iron as its feedstock."
+        }
+      ],
+      "places": [
+        "sweden"
+      ],
+      "place_note": "Oxelösund"
+    },
+    {
+      "id": "volvo-trial-delivery-2021",
+      "type": "transmission",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2021,
+          "month": 8,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2021-08-18",
+        "basis": "SSAB reported trial steel delivery in its 18 August release."
+      },
+      "statement": "SSAB reported a trial shipment to Volvo Group.",
+      "evidence": [
+        {
+          "source": "ssab-2021-trial-delivery-hybrit-steel",
+          "locator": "Opening and the July production paragraph",
+          "supports": "Names Volvo Group and explicitly calls the shipment a trial delivery."
+        }
+      ],
+      "caveats": "The producer’s announcement does not state the tonnage or terms, or establish regular commercial supply."
+    },
+    {
+      "id": "volvo-load-carrier-2021",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 10,
+          "day": 13
+        },
+        "latest": {
+          "year": 2021,
+          "month": 10,
+          "day": 13
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2021-10-13",
+        "basis": "The recipient gave the day and location of its launch event."
+      },
+      "statement": "Volvo Group showed a load carrier made using steel from SSAB.",
+      "evidence": [
+        {
+          "source": "volvo-group-2021-load-carrier-hybrit",
+          "locator": "p. 1, opening paragraphs",
+          "supports": "Recipient attests to an actual load carrier incorporating the SSAB steel and publicly shown on the date."
+        }
+      ],
+      "places": [
+        "sweden"
+      ],
+      "place_note": "Gothenburg"
+    }
+  ],
+  "earliest_record": {
+    "event": "oxelosund-rolling-2021",
+    "rationale": "SSAB’s August announcement gives July as the rolling month."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "lulea-hybrit-hydrogen-direct-reduction",
+      "from_event": "lulea-hydrogen-iron-2021",
+      "to_event": "oxelosund-rolling-2021",
+      "status": "candidate",
+      "statement": "Did the July HYBRIT steel rolled at Oxelösund use iron from the first hydrogen-reduced batch at Luleå, as SSAB reported?",
+      "scope": "Named Swedish trial process and material provenance.",
+      "contribution": [
+        "supplied_material"
+      ],
+      "evidence": [
+        {
+          "source": "ssab-2021-trial-delivery-hybrit-steel",
+          "locator": "Paragraph starting SSAB, LKAB and Vattenfall created HYBRIT",
+          "supports": "Explicitly identifies the first Luleå sponge iron as the feed for the trial steel."
+        },
+        {
+          "source": "ec-jrc-incite-nd-hybrit-technical-assessment",
+          "locator": "Direct reduction with fossil-free hydrogen, fourth bullet, and Melting of hydrogen reduced DRI and HBI",
+          "supports": "Separately documents physical transfers of Luleå product to steelmaking trials, including melting at Swerim."
+        }
+      ],
+      "caveats": "The JRC confirms the pilot iron-to-steel pathway but does not independently trace the exact July trial lot. SSAB’s release is the only inspected source that traces the specific material path."
+    }
+  ],
+  "known_from": [
+    "contemporary_text"
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "advance": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "known_from": "sourced"
+    }
+  }
+}

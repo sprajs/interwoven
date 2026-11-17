@@ -1,0 +1,74 @@
+{
+  "id": "asn-sdm1-submarine-cable-design",
+  "name": "Alcatel Submarine Networks’ SDM1 cable design",
+  "summary": "A submarine cable design that increases parallel fibre pairs and shares optical repeater pump resources.",
+  "description": "Alcatel Submarine Networks developed SDM1 as a cost-oriented submarine cable architecture combining a higher fibre count with lower per-fibre signal power and shared repeater pumping. It reports full qualification in 2019.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "sixteen-pair-presentation",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2016
+        },
+        "latest": {
+          "year": 2016
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2016",
+        "basis": "Conference year reported by the designer."
+      },
+      "statement": "Alcatel Submarine Networks presented a 16-fibre-pair cable at SubOptic.",
+      "caveats": "The source establishes a presentation. It gives no live service or sale for this event.",
+      "evidence": [
+        {
+          "source": "asn-nd-sdm1-design-history",
+          "locator": "Origins and SDM1 design sections",
+          "supports": "The supplier dates the 16-pair presentation and traces its SDM1 design to this period."
+        }
+      ]
+    },
+    {
+      "id": "sdm1-qualification",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2019
+        },
+        "latest": {
+          "year": 2019
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2019",
+        "basis": "Year of full qualification stated by the supplier."
+      },
+      "statement": "Alcatel Submarine Networks reports completing qualification of SDM1.",
+      "caveats": "Qualification protocol and exact date were not given in the retained evidence.",
+      "evidence": [
+        {
+          "source": "asn-nd-sdm1-design-history",
+          "locator": "Origins and SDM1 design sections",
+          "supports": "Supplier distinguishes the 2016 presentation from the 2019 qualification."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "sixteen-pair-presentation"
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "note": "Proposed for independent admission review. Researcher gpt-6.2-sol, high."
+  }
+}

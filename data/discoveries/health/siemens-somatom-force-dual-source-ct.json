@@ -1,0 +1,114 @@
+{
+  "id": "siemens-somatom-force-dual-source-ct",
+  "name": "SOMATOM Force dual-source CT",
+  "description": "Siemens extended its dual-source CT platform with more detector rows, energy-integrating detectors and a pair of higher-output Vectron X-ray tubes.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "events": [
+    {
+      "id": "technical-filing-2013",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 2013,
+          "month": 11,
+          "day": 21
+        },
+        "latest": {
+          "year": 2013,
+          "month": 11,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2013-11-21",
+        "basis": "Date printed on the applicant's 510(k) summary."
+      },
+      "statement": "Siemens prepared a technical summary documenting SOMATOM Force and comparing its dual-source hardware with Definition Flash.",
+      "evidence": [
+        {
+          "source": "fda-siemens-k133589-somatom-force",
+          "locator": "510(k) summary, title and §6",
+          "supports": "Dates the summary and describes the paired Vectron tubes and larger detector arrays."
+        },
+        {
+          "source": "fda-siemens-k211591-naeotom-alpha",
+          "locator": "Applicant summary, §VI",
+          "supports": "Identifies SOMATOM Force's two ceramic energy-integrating detectors."
+        }
+      ]
+    },
+    {
+      "id": "us-clearance-2014",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 2014,
+          "month": 4,
+          "day": 17
+        },
+        "latest": {
+          "year": 2014,
+          "month": 4,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2014-04-17",
+        "basis": "Date printed on the FDA determination letter."
+      },
+      "statement": "The U.S. FDA cleared SOMATOM Force through its 510(k) pathway.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "fda-siemens-k133589-somatom-force",
+          "locator": "FDA determination letter, first page",
+          "supports": "States the dated determination for SOMATOM Force."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "technical-filing-2013",
+    "rationale": "The dated technical filing is evidence of the configured design. It precedes the determination letter and does not establish a launch date."
+  },
+  "links": [
+    {
+      "from": "siemens-somatom-definition-flash-dual-source-ct",
+      "type": "builds_on",
+      "status": "established",
+      "statement": "SOMATOM Force carried forward Definition Flash’s dual-source design with two higher-output tubes and more detector rows on both arrays.",
+      "scope": "Design changes in the Siemens dual-source family.",
+      "contribution": [
+        "supplied_platform"
+      ],
+      "evidence": [
+        {
+          "source": "fda-siemens-k133589-somatom-force",
+          "locator": "510(k) summary, §6",
+          "supports": "Compares the two platforms’ paired tubes and detector arrays directly."
+        },
+        {
+          "source": "siemens-dual-source-ct-ten-years",
+          "locator": "Definition Flash; State-of-the-art in morphological and functional imaging",
+          "supports": "Describes Force as further Siemens dual-source development and identifies the new paired Vectron tubes."
+        },
+        {
+          "source": "lenga-2021-second-third-generation-dual-source-ct",
+          "locator": "Methods, CT image acquisition and Table 1",
+          "supports": "Independently confirms the named generations and the difference in detector configuration."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}

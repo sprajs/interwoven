@@ -1,0 +1,125 @@
+{
+  "id": "earth-observing-1-advanced-land-imager",
+  "name": "Advanced Land Imager on Earth Observing-1",
+  "description": "MIT Lincoln Laboratory's Advanced Land Imager demonstrated a pushbroom sensor in orbit aboard NASA's Earth Observing-1. A line of detectors measured along a swath as the spacecraft moved, producing multispectral and panchromatic views for comparison with Landsat.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "fields": [
+    "physical-sciences.optics",
+    "physical-sciences.earth"
+  ],
+  "advance": [
+    "device_or_configuration",
+    "field_or_clinical_trial"
+  ],
+  "events": [
+    {
+      "id": "eo-1-launch",
+      "type": "launch",
+      "date": {
+        "earliest": {
+          "year": 2000,
+          "month": 11,
+          "day": 21
+        },
+        "latest": {
+          "year": 2000,
+          "month": 11,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "21 November 2000",
+        "basis": "The instrument developer reports the launch date, site and payload."
+      },
+      "statement": "NASA launched Earth Observing-1 carrying the Advanced Land Imager from Vandenberg Air Force Base in California.",
+      "places": [
+        "california"
+      ],
+      "evidence": [
+        {
+          "source": "mit-lincoln-eo1-ali-flight-and-transfer",
+          "locator": "Opening and Inaugural scan",
+          "supports": "Dates the launch and identifies ALI aboard the spacecraft."
+        }
+      ]
+    },
+    {
+      "id": "inaugural-earth-scan",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2000,
+          "month": 11,
+          "day": 25
+        },
+        "latest": {
+          "year": 2000,
+          "month": 11,
+          "day": 25
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "25 November 2000",
+        "basis": "Lincoln Laboratory dates the inaugural image acquisition to 25 November."
+      },
+      "statement": "The Advanced Land Imager collected its first Earth scenes, including a panchromatic scene of Sutton, Alaska.",
+      "places": [
+        "alaska"
+      ],
+      "evidence": [
+        {
+          "source": "mit-lincoln-eo1-ali-flight-and-transfer",
+          "locator": "Opening and Inaugural scan",
+          "supports": "Identifies the acquisition day and the Sutton image."
+        },
+        {
+          "source": "nasa-eo1-first-ali-images",
+          "locator": "First three article paragraphs",
+          "supports": "Confirms successful Alaska imaging and comparison of the panchromatic observations to Landsat 7."
+        }
+      ]
+    },
+    {
+      "id": "imager-retired",
+      "type": "end_of_use",
+      "date": {
+        "earliest": {
+          "year": 2017
+        },
+        "latest": {
+          "year": 2017
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2017",
+        "basis": "MIT Lincoln Laboratory reports the spacecraft's retirement in 2017. USGS documents a wind-down in stages."
+      },
+      "statement": "EO-1 operations ended in 2017. The historical Advanced Land Imager scenes remained available from the USGS archive.",
+      "evidence": [
+        {
+          "source": "mit-lincoln-eo1-ali-flight-and-transfer",
+          "locator": "Farewell",
+          "supports": "Describes retirement and spacecraft shutdown."
+        },
+        {
+          "source": "usgs-eo1-archive-mission-end",
+          "locator": "Overview; January 2017 notices",
+          "supports": "Records the end of normal imaging and continued access to archived data."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "eo-1-launch",
+    "rationale": "The first dated milestone retained here is the launch of the integrated instrument. Its first on-orbit observations are recorded separately."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced"
+    }
+  }
+}

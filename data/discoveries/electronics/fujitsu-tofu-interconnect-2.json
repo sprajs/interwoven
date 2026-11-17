@@ -1,0 +1,123 @@
+{
+  "id": "fujitsu-tofu-interconnect-2",
+  "name": "Fujitsu Tofu Interconnect 2",
+  "description": "Fujitsu’s second-generation Tofu interconnect retained the six-dimensional mesh/torus design and integrated the controller into the FX100 node processor. It was used in the National Institute for Fusion Science’s updated Plasma Simulator.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "events": [
+    {
+      "id": "hoti-presentation-2014",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2014,
+          "month": 8,
+          "day": 26
+        },
+        "latest": {
+          "year": 2014,
+          "month": 8,
+          "day": 26
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2014-08-26",
+        "basis": "The Hot Interconnects presentation deck gives the day."
+      },
+      "statement": "Fujitsu's team presented the Tofu2 interconnect design, integrating the network controller into the processor chip while retaining the six-dimensional mesh/torus.",
+      "evidence": [
+        {
+          "source": "ajima-2014-tofu-interconnect-2-hot-interconnects",
+          "locator": "Slides 1 and 4–7",
+          "supports": "Dated slides contrast Tofu1 and Tofu2 and describe chip integration and network topology."
+        }
+      ]
+    },
+    {
+      "id": "nifs-deployment-2015",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2015,
+          "month": 6,
+          "day": 1
+        },
+        "latest": {
+          "year": 2015,
+          "month": 6,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2015-06-01",
+        "basis": "The NIFS announcement dates the updated system's start of operation to 1 June."
+      },
+      "statement": "Tofu2 entered operation in the Fujitsu PRIMEHPC FX100 installed for the updated Plasma Simulator at NIFS in Toki, Gifu.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "nifs-2015-fx100-plasma-simulator-start",
+          "locator": "Opening paragraphs",
+          "supports": "The institute identifies the system and dates operation at its location."
+        },
+        {
+          "source": "top500-nifs-fx100-plasma-simulator-results",
+          "locator": "System configuration and 06/2015 row",
+          "supports": "The independent benchmark list identifies the NIFS installation's Tofu2 interconnect."
+        },
+        {
+          "source": "ajima-2018-tofu-interconnect-d",
+          "locator": "§II B, pp. 646–647",
+          "supports": "The designers identify Tofu2 as the FX100 interconnect."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "hoti-presentation-2014",
+    "rationale": "The dated designer presentation establishes the public design account. The NIFS installation dates a subsequent deployed instance."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "note": "Fujitsu identifies the development sequence. The graph relation remains a candidate pending independent informative corroboration of the precise inheritance."
+  },
+  "places": [
+    {
+      "place": "japan",
+      "role": "use",
+      "note": "Witnessed deployment at NIFS in Toki, Gifu."
+    }
+  ],
+  "grain": "improvement",
+  "links": [
+    {
+      "type": "adapts",
+      "from": "riken-fujitsu-k-computer",
+      "status": "candidate",
+      "statement": "Which parts of the original Tofu design deployed in K carried through to Tofu2?",
+      "scope": "Interconnect design across K and the FX100-era Tofu2, including original Tofu on the FX10.",
+      "finding": "Fujitsu describes continuity of the six-dimensional topology and the shift to processor-chip integration. The precise inheritance awaits independent informative corroboration.",
+      "evidence": [
+        {
+          "source": "ajima-2014-tofu-interconnect-2-hot-interconnects",
+          "locator": "Slides 1 and 4–7",
+          "supports": "Fujitsu credits K’s original Tofu and identifies network topology as retained and integration as the generational change."
+        },
+        {
+          "source": "dongarra-2020-fujitsu-fugaku-system",
+          "locator": "Pp. 7–8, Tofu Interconnect Network",
+          "supports": "The report names K and FX100 as the earlier deployed Tofu generations. Its technical comparison closely follows the Fujitsu account."
+        }
+      ]
+    }
+  ]
+}

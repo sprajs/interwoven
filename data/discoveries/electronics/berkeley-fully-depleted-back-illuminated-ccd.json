@@ -1,0 +1,161 @@
+{
+  "id": "berkeley-fully-depleted-back-illuminated-ccd",
+  "name": "Berkeley fully depleted back-illuminated CCD",
+  "description": "Lawrence Berkeley National Laboratory developed a thick back-illuminated CCD on high-resistivity silicon. Full depletion of the thick substrate increased the response to red and near-infrared light and allowed operation without thinning the silicon to improve blue response.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "places": [
+    {
+      "place": "california",
+      "role": "origin",
+      "note": "Lawrence Berkeley Laboratory in Berkeley."
+    }
+  ],
+  "events": [
+    {
+      "id": "lick-on-sky-test",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1996,
+          "month": 12,
+          "day": 4
+        },
+        "latest": {
+          "year": 1996,
+          "month": 12,
+          "day": 4
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1996-12-04",
+        "basis": "Date of the field test reported by the observing team."
+      },
+      "statement": "A back-illuminated Berkeley CCD imaged part of the Orion Nebula on the Lick Observatory's 1 m Nickel telescope.",
+      "places": [
+        "california"
+      ],
+      "place_note": "Lick Observatory, Mount Hamilton.",
+      "evidence": [
+        {
+          "source": "stover-1997-fully-depleted-ccd-characterization",
+          "locator": "§4, Observatory Testing and Figure 5",
+          "supports": "The observing team names the date, telescope, prototype and two test images."
+        }
+      ]
+    },
+    {
+      "id": "iedm-prototype-report",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1996,
+          "month": 12
+        },
+        "latest": {
+          "year": 1996,
+          "month": 12
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1996-12",
+        "basis": "Conference proceedings attribution, corroborated by Holland's 2006 SNIC presentation. The prototype's fabrication preceded publication."
+      },
+      "statement": "The Berkeley team and Lick Observatory collaborators reported a 200 × 200 test CCD operated with its 300 μm silicon substrate fully depleted and demonstrated backside illumination.",
+      "evidence": [
+        {
+          "source": "holland-1996-fully-depleted-ccd",
+          "locator": "PostScript p. 1, abstract and §§1–2; p. 4, conclusions",
+          "supports": "The 1996 paper reports a fabricated, fully depleted 200 × 200 sensor and successful backside illumination."
+        }
+      ]
+    },
+    {
+      "id": "lick-characterization-report",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1997,
+          "month": 4
+        },
+        "latest": {
+          "year": 1997,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1997-04",
+        "basis": "SPIE proceedings publication month."
+      },
+      "statement": "A Lick Observatory-led paper reported characterization of the Berkeley CCD and described astronomical observations with a back-illuminated sample at the Lick 1 m reflector.",
+      "evidence": [
+        {
+          "source": "stover-1997-fully-depleted-ccd-characterization",
+          "locator": "Abstract and §4, Observatory Testing",
+          "supports": "The authors report measurements on the prototype, its limitations and astronomical observations with the prototype at Lick."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "lick-on-sky-test",
+    "rationale": "The exact-dated telescope test documents operation in December 1996. The conference paper establishes an earlier laboratory prototype without an exact fabrication date."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "berkeley-high-resistivity-pin-detector-process",
+      "from_event": "journal-report",
+      "to_event": "iedm-prototype-report",
+      "status": "candidate",
+      "statement": "Did the specific high-resistivity silicon fabrication process documented in the 1988 preprint and 1989 article provide the CCD's backside-gettering approach?",
+      "finding": "The 1996 prototype paper credits earlier p-i-n detector work and cites the 1989 article. The 1997 paper repeats this attribution with overlapping authorship. Independent corroboration identifying the specific process remains open.",
+      "evidence": [
+        {
+          "source": "holland-1996-fully-depleted-ccd",
+          "locator": "PostScript p. 1, §1 and p. 4, reference [2]",
+          "supports": "The CCD developers state that the new CCD was based on fully depleted p-i-n research and cite the specific 1989 fabrication study; the CCD uses backside gettering."
+        },
+        {
+          "source": "stover-1997-fully-depleted-ccd-characterization",
+          "locator": "§2 and references [1]–[2]",
+          "supports": "The Lick characterization traces the CCD to Berkeley p-i-n work, identifies backside gettering in the device, and separately cites the same 1989 fabrication article."
+        }
+      ]
+    },
+    {
+      "type": "same_principle",
+      "from": "boyle-smith-charge-coupled-device-concept",
+      "status": "established",
+      "statement": "The Berkeley detector retains the charge-coupled principle of collecting and moving packets of charge under clocked electrodes.",
+      "caveats": "The evidence compares the operating principle. The route by which the Berkeley team took up the early CCD design is unresolved.",
+      "evidence": [
+        {
+          "source": "boyle-smith-1970-ccd-wave10",
+          "locator": "pp. 587–593, abstract and applications",
+          "supports": "The Bell Labs paper describes charge storage and clocked transfer between potential wells."
+        },
+        {
+          "source": "stover-1997-fully-depleted-ccd-characterization",
+          "locator": "§3.2, Device characterization and Tables 1–2",
+          "supports": "The prototype transfers collected charge under clocked drive; the paper measures its charge-transfer performance."
+        }
+      ]
+    }
+  ],
+  "why": "The prototype addressed weak red and near-infrared response and interference fringes in thinned scientific CCDs, while using back illumination for short-wavelength response.",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "prompted_by": "sourced"
+    },
+    "note": "Proposal awaiting independent review."
+  }
+}

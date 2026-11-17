@@ -1,0 +1,157 @@
+{
+  "id": "asml-nxe-033-euv-scanner-platform",
+  "name": "ASML’s 0.33 NA NXE EUV platform",
+  "description": "ASML’s NXE scanner generation introduced 0.33 numerical aperture for EUV wafer patterning and matured from development systems to tools suitable for volume production.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "initial-033-shipment",
+      "type": "transmission",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2013,
+          "month": 7,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 17 July 2013",
+        "basis": "ASML’s 17 July release reports the shipment and installation process as underway."
+      },
+      "statement": "ASML was shipping and installing NXE:3300B scanners at customer sites.",
+      "caveats": "This is a progress report on hardware introduction. Light-source development was underway.",
+      "evidence": [
+        {
+          "source": "asml-2013-nxe-3300b-quarterly-report",
+          "locator": "CEO statement and Second Quarter 2013 Product Highlights",
+          "supports": "The results release describes the first NXE:3300B units in shipment and installation."
+        },
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "Early NXE generations and We Are All In",
+          "supports": "Yen identifies 0.33 NA on NXE:3300 and names TSMC as a 2013 receiver."
+        }
+      ]
+    },
+    {
+      "id": "tsmc-first-light",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2013,
+          "month": 10
+        },
+        "latest": {
+          "year": 2013,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2013-10",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "TSMC’s first NXE:3300 reached first light as part of its EUV process development.",
+      "places": [
+        "taiwan"
+      ],
+      "place_note": "Yen locates TSMC equipment development in Hsinchu, with related work in the Netherlands and US.",
+      "evidence": [
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "We Are All In",
+          "supports": "The operator reports first light at the end of October and first-hand work on the same scanner."
+        }
+      ]
+    },
+    {
+      "id": "3400b-shipment",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 2017
+        },
+        "latest": {
+          "year": 2017
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2017",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "ASML began shipping NXE:3400B, an upgraded NXE model aimed at production insertion.",
+      "caveats": "A scanner shipment is distinct from a fab putting wafers into production.",
+      "evidence": [
+        {
+          "source": "asml-2017-nxe-3400b-upgrade-lineage",
+          "locator": "Slides 14–16, EUV highlights, production insertion and NXE:33x0B upgrade path",
+          "supports": "The supplier identifies 2017 as the first shipment year and offers earlier-model upgrades."
+        }
+      ]
+    },
+    {
+      "id": "production-readiness",
+      "type": "experimental_confirmation",
+      "date": {
+        "earliest": {
+          "year": 2018
+        },
+        "latest": {
+          "year": 2018
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2018",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "ASML reached documented EUV tool readiness for high-volume manufacturing.",
+      "caveats": "The cited tests are on equipment capability. Separate operator evidence establishes production on specific foundry processes.",
+      "evidence": [
+        {
+          "source": "miyazaki-yen-2019-euv-production-readiness",
+          "locator": "Abstract, pp. 195–201",
+          "supports": "The engineers date readiness to 2018 and provide source and imaging performance evidence."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "initial-033-shipment",
+    "rationale": "Contemporaneous manufacturer statements bound the start of 0.33 NA hardware delivery. First light at TSMC follows separately."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  },
+  "links": [
+    {
+      "from": "asml-euv-alpha-demo-scanner",
+      "type": "builds_on",
+      "status": "established",
+      "from_event": "alpha-demo-shipments",
+      "to_event": "initial-033-shipment",
+      "statement": "The NXE development programme followed the Alpha Demo Tool work. TSMC reused its early EUV exposure experience in evaluating NXE:3100 before bringing in NXE:3300.",
+      "scope": "Successive experimental and production-line scanners and customer learning, with NXE:3100 as an intermediate.",
+      "evidence": [
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "Opening and early NXE generations",
+          "supports": "A participating foundry lead describes the sequence and evaluates gains in optical performance at each step."
+        },
+        {
+          "source": "hofman-2022-asml-euv-lab-to-fab",
+          "locator": "The dawn of EUV, Toward industrialization, and First prototype to first light",
+          "supports": "Supplier participant history traces Alpha Demo Tool trials to the late-2010 NXE:3100 and the 2013 NXE:3300 shipment."
+        }
+      ],
+      "caveats": "The link covers the development path and experiments. The optical assemblies differ."
+    }
+  ]
+}

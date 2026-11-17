@@ -1,0 +1,89 @@
+{
+  "id": "berkeley-high-resistivity-pin-detector-process",
+  "name": "Berkeley high-resistivity silicon detector process",
+  "description": "Lawrence Berkeley Laboratory fabricated p-i-n radiation detector diodes and p-channel transistors on the same high-resistivity silicon wafer, using backside gettering to limit diode leakage while retaining compatibility with integrated-circuit processing.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "places": [
+    {
+      "place": "california",
+      "role": "origin",
+      "note": "Lawrence Berkeley Laboratory in Berkeley."
+    }
+  ],
+  "events": [
+    {
+      "id": "laboratory-report",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1988,
+          "month": 6
+        },
+        "latest": {
+          "year": 1988,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1988-06",
+        "basis": "Month of issue in the Department of Energy's OSTI metadata. Exact fabrication date is unresolved."
+      },
+      "statement": "A Berkeley laboratory report documented the process and characterization of p-i-n diodes fabricated on the same high-resistivity silicon wafer as test transistors.",
+      "evidence": [
+        {
+          "source": "holland-1988-high-resistivity-detectors-report",
+          "locator": "Abstract and §§1, 4",
+          "supports": "The earlier report documents working devices and their leakage performance."
+        }
+      ]
+    },
+    {
+      "id": "journal-report",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1989,
+          "month": 3,
+          "day": 1
+        },
+        "latest": {
+          "year": 1989,
+          "month": 3,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1989-03-01",
+        "basis": "Journal issue date."
+      },
+      "statement": "Steve Holland published the fabrication and electrical characterization of the low-leakage detector process.",
+      "evidence": [
+        {
+          "source": "holland-1989-high-resistivity-detectors",
+          "locator": "p. 537, abstract and §1",
+          "supports": "The author reports the fabrication approach, paired diode and transistor fabrication, and the role of backside gettering at Lawrence Berkeley Laboratory."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "laboratory-report",
+    "rationale": "The dated preprint already reports the measured devices. The journal article is a later publication."
+  },
+  "why": "Readout close to the detectors was important for high-energy physics. A fabrication process compatible with integrated circuits allowed tests of detector and transistor fabrication on the same wafer.",
+  "caveats": "The paired devices were a fabrication demonstration. The paper stops short of reporting a complete monolithically integrated detector and readout system.",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "prompted_by": "sourced"
+    },
+    "note": "Proposal awaiting independent review."
+  }
+}

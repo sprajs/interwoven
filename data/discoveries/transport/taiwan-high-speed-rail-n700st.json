@@ -1,0 +1,185 @@
+{
+  "id": "taiwan-high-speed-rail-n700st",
+  "name": "Taiwan High Speed Rail N700ST",
+  "description": "Taiwan High Speed Rail and the Hitachi Toshiba Supreme Consortium adapted the N700S design for Taiwan. The 12-car model was tailored to the operator’s environment and passenger service needs.",
+  "kind": "technology",
+  "domain": "transport.rail",
+  "grain": "improvement",
+  "places": [
+    {
+      "place": "taiwan",
+      "note": "The first complete trainset was shipped from Japan. Main-line validation took place in Taiwan."
+    }
+  ],
+  "events": [
+    {
+      "id": "named-design-2025",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 8,
+          "day": 20
+        },
+        "latest": {
+          "year": 2025,
+          "month": 8,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "20 August 2025",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "Taiwan High Speed Rail disclosed the N700ST designation and described its localized design while the first trainset was being manufactured.",
+      "places": [
+        "taiwan"
+      ],
+      "evidence": [
+        {
+          "source": "thsrc-2025-n700st-design-naming",
+          "locator": "Paragraphs 1–4",
+          "supports": "The dated notice names the type, describes design changes and reports manufacture underway."
+        }
+      ]
+    },
+    {
+      "id": "first-trainset-2026",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 7,
+          "day": 30
+        },
+        "latest": {
+          "year": 2026,
+          "month": 7,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "30 July 2026",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "The Hitachi Toshiba Supreme Consortium reported completing and shipping the first 12-car N700ST trainset from Japan.",
+      "places": [
+        "japan"
+      ],
+      "caveats": "The announcement supplies a date by which the first trainset had shipped.",
+      "evidence": [
+        {
+          "source": "hitachi-toshiba-2026-n700st-first-trainset",
+          "locator": "Opening two paragraphs and Overview of Railcars",
+          "supports": "The manufacturer reports completion and shipment of the first trainset on its 30 July announcement."
+        }
+      ]
+    },
+    {
+      "id": "arrival-2026",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 8,
+          "day": 15
+        },
+        "latest": {
+          "year": 2026,
+          "month": 8,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "15 August 2026",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "The first complete N700ST trainset arrived in Taiwan from Japan.",
+      "places": [
+        "taiwan"
+      ],
+      "evidence": [
+        {
+          "source": "thsrc-2026-n700st-mainline-test",
+          "locator": "Paragraph 2",
+          "supports": "The test report gives the earlier arrival date."
+        },
+        {
+          "source": "hitachi-toshiba-2026-n700st-first-trainset",
+          "locator": "Opening two paragraphs",
+          "supports": "The manufacturer identifies the trainset that was shipped to Taiwan."
+        }
+      ]
+    },
+    {
+      "id": "mainline-trial-2026",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 11,
+          "day": 16
+        },
+        "latest": {
+          "year": 2026,
+          "month": 11,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "16 November 2026",
+        "basis": "The cited source dates this event."
+      },
+      "statement": "The first N700ST trainset reached 170 km/h in its first main-line trial, between Yanchao and Chiayi.",
+      "places": [
+        "taiwan"
+      ],
+      "caveats": "The milestone was a test of the train and its interaction with the track and overhead power. Passenger service was planned from 1 July 2027.",
+      "evidence": [
+        {
+          "source": "thsrc-2026-n700st-mainline-test",
+          "locator": "Paragraphs 1–3",
+          "supports": "The operator gives the date, section, measured trial speed and integration aim."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "named-design-2025",
+    "rationale": "Earliest dated milestone retained here for this design or deployment."
+  },
+  "origin": "derived",
+  "links": [
+    {
+      "type": "transmitted_from",
+      "from": "shinkansen-series-n700s",
+      "status": "established",
+      "statement": "The Hitachi Toshiba Supreme Consortium based Taiwan’s N700ST on JR Central’s N700S model and tailored it to THSRC’s operating and service requirements.",
+      "to_event": "arrival-2026",
+      "evidence": [
+        {
+          "source": "hitachi-toshiba-2026-n700st-first-trainset",
+          "locator": "Opening two paragraphs and Overview of Railcars",
+          "supports": "The manufacturer identifies the source design and attributes the localization to THSRC requirements."
+        },
+        {
+          "source": "thsrc-2025-n700st-design-naming",
+          "locator": "Paragraphs 3–4",
+          "supports": "The receiving operator independently identifies the design basis and documents interior, exterior and functional adaptation."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "origin": "sourced"
+    },
+    "note": "Proposal for independent admission review."
+  }
+}

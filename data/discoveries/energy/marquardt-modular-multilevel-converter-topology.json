@@ -1,0 +1,79 @@
+{
+  "id": "marquardt-modular-multilevel-converter-topology",
+  "name": "Marquardt modular multilevel converter topology",
+  "description": "Rainer Marquardt devised a voltage-source converter with series-connected submodules that each store energy in a local capacitor and switch independently. Anton Lesnicar and Marquardt subsequently described the topology and simulated a high-voltage network intertie.",
+  "kind": "technology",
+  "domain": "energy.electric-power",
+  "events": [
+    {
+      "id": "marquardt-filing-2001",
+      "type": "patent",
+      "date": {
+        "earliest": {
+          "year": 2001,
+          "month": 1,
+          "day": 24
+        },
+        "latest": {
+          "year": 2001,
+          "month": 1,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2001-01-24",
+        "basis": "The application front matter gives the filing date."
+      },
+      "statement": "Marquardt filed a German patent application for converter circuits with distributed energy storage.",
+      "evidence": [
+        {
+          "source": "dpma-de10103031a1-marquardt-mmc",
+          "locator": "Front matter; abstract and claims 1–3",
+          "supports": "Dates the filing and describes the switchable local storage and series-connected subsystems."
+        },
+        {
+          "source": "epo-2026-marquardt-mmc-trans-bay",
+          "locator": "A milestone in modern power conversion; Engineering the backbone of future energy systems",
+          "supports": "Identifies the 2001 filing and explains the independently switched submodules."
+        }
+      ]
+    },
+    {
+      "id": "bologna-intertie-paper-2003",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 2003
+        },
+        "latest": {
+          "year": 2003
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2003",
+        "basis": "The copyright year and conference proceedings identify 2003."
+      },
+      "statement": "Lesnicar and Marquardt described the modular multilevel topology for high-voltage power interties and reported a simulation of a 36 MW intertie.",
+      "scope": "Design description and simulation of the converter’s intertie application.",
+      "evidence": [
+        {
+          "source": "lesnicar-marquardt-2003-bologna-mmc",
+          "locator": "Abstract; sections II.A and IV; Fig. 1",
+          "supports": "Describes the arrangement and identifies the 36 MW result as simulated."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "marquardt-filing-2001",
+    "rationale": "The application filing supplies the earliest firm date for this specific design in the retained evidence."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced"
+    },
+    "note": "Proposal by gpt-6.2-sol, high effort. Independent semantic admission review pending."
+  }
+}

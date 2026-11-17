@@ -1,0 +1,103 @@
+{
+  "id": "monterrey-hyl-zero-reformer",
+  "name": "HYL Zero Reformer direct reduction",
+  "description": "Hylsa developed a continuous shaft-furnace scheme that generated reducing gas within the process, eliminating a separate gas reformer. The earliest industrial operation recorded here is Hylsa’s 4M unit at Monterrey, where the scheme produced direct-reduced iron for the electric-arc meltshop in 1998.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "grain": "improvement",
+  "advance": [
+    "manufacturing_process",
+    "system_integration"
+  ],
+  "events": [
+    {
+      "id": "monterrey-4m-operation-1998",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 1998,
+          "month": 4
+        },
+        "latest": {
+          "year": 1998,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1998-04",
+        "basis": "Hylsa’s 2001 conference paper reports accumulated operation for the 4M unit beginning in April 1998. The independent BlueScope assessment confirms the 1998 commercial start."
+      },
+      "statement": "The Monterrey 4M industrial unit began producing direct-reduced iron under the HYL Zero Reformer scheme.",
+      "evidence": [
+        {
+          "source": "quintero-2001-update-on-hyl-technologies",
+          "locator": "p. 613, Direct Feeding of Hot DRI, text above Figure 4",
+          "supports": "Identifies the 4M unit, its method, first reported month and use in the meltshop."
+        },
+        {
+          "source": "zulli-2022-port-kembla-renewables-emissions",
+          "locator": "p. 136, HYL/ENERGIRON",
+          "supports": "Confirms the 1998 industrial start and process distinction."
+        }
+      ],
+      "places": [
+        "mexico"
+      ],
+      "place_note": "Monterrey, 4M unit"
+    }
+  ],
+  "earliest_record": {
+    "event": "monterrey-4m-operation-1998",
+    "rationale": "Hylsa’s 2001 conference paper reports accumulated operation for the 4M unit beginning in April 1998. The independent BlueScope assessment confirms the 1998 commercial start."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "monterrey-hyl-batch-direct-reduction",
+      "from_event": "monterrey-start-1957",
+      "to_event": "monterrey-4m-operation-1998",
+      "status": "established",
+      "statement": "Hylsa’s Zero Reformer scheme was a later development of the HYL process line, which moved from the early batch reactors to continuous shaft-furnace plants before removing the external reformer.",
+      "scope": "Process lineage across generations of HYL technology.",
+      "contribution": [
+        "supplied_production_capability"
+      ],
+      "evidence": [
+        {
+          "source": "tenova-danieli-2021-evolution-energiron-direct-reduction",
+          "locator": "Introduction, technology evolution timeline",
+          "supports": "Traces batch to continuous and subsequent introduction of Zero Reformer plants as developments within the HYL line."
+        },
+        {
+          "source": "quintero-2001-update-on-hyl-technologies",
+          "locator": "pp. 607 and 613, Summary and Direct Feeding of Hot DRI",
+          "supports": "Describes the later HYL-derived process and industrial operation at Monterrey."
+        },
+        {
+          "source": "zulli-2022-port-kembla-renewables-emissions",
+          "locator": "p. 136, HYL/ENERGIRON",
+          "supports": "Independently traces the generations from HYL I through HYL-ZR, with commercial dates in 1957 and 1998."
+        }
+      ],
+      "confidence": "high",
+      "caveats": "An intermediate continuous generation separates the two plants. This edge concerns development within the process family; it does not assert reuse of the 1957 plant’s machinery."
+    }
+  ],
+  "origin": "derived",
+  "known_from": [
+    "scientific_publication",
+    "later_text"
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "advance": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "origin": "sourced",
+      "known_from": "sourced"
+    }
+  }
+}

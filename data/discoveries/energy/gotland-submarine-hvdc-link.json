@@ -35,13 +35,18 @@
         "label": "1954",
         "basis": "The cited source dates this event."
       },
-      "statement": "A submarine high-voltage direct-current link between mainland Sweden and Gotland entered service.",
+      "statement": "A submarine high-voltage direct-current link between mainland Sweden and Gotland entered service. Its converters used mercury-arc valves.",
       "caveats": "Sources disagree about the month; earlier high-voltage direct-current transmission existed.",
       "evidence": [
         {
           "source": "ieee-2014-gotland-hvdc",
           "locator": "Historical introduction and Table 1",
           "supports": "IEEE account dates commissioning to 1954 and reports its rating."
+        },
+        {
+          "source": "vattenfall-2018-gotland-hvdc-feasibility",
+          "locator": "Section 2.3, pp. 10–11",
+          "supports": "Identifies the 1954 Gotland 1 installation and its mercury-arc valves."
         }
       ],
       "contributions": [
@@ -56,6 +61,86 @@
               "supports": "IEEE account states ASEA commissioned the link."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "gotland-1967-thyristor-trial",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 1967
+        },
+        "latest": {
+          "year": 1967
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1967",
+        "basis": "The supplier’s account dates the trial substitution to spring 1967."
+      },
+      "statement": "A thyristor valve was tried in place of one mercury-arc valve on the existing Gotland 1 link.",
+      "scope": "Single valve trial on an operating link.",
+      "evidence": [
+        {
+          "source": "abb-2008-gotland-mercury-arc-thyristor",
+          "locator": "pp. 61–62, Early HVDC projects",
+          "supports": "Reports a spring 1967 trial of one replacement thyristor valve."
+        }
+      ]
+    },
+    {
+      "id": "gotland-1970-hybrid-valves",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1970
+        },
+        "latest": {
+          "year": 1970
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1970",
+        "basis": "The operator’s technical report dates the mixed-valve installation to 1970."
+      },
+      "statement": "Gotland 1 entered service in an upgraded configuration with thyristor valve groups added in series with its mercury-arc groups, raising the link’s capacity from 20 to 30 MW.",
+      "scope": "Gotland 1 upgrade using both mercury-arc and thyristor valves.",
+      "evidence": [
+        {
+          "source": "vattenfall-2018-gotland-hvdc-feasibility",
+          "locator": "Section 2.3, pp. 10–11",
+          "supports": "Dates the addition and confirms the mixed converter arrangement and increased capacity."
+        },
+        {
+          "source": "abb-2008-gotland-mercury-arc-thyristor",
+          "locator": "pp. 61–62, Early HVDC projects",
+          "supports": "Independently describes both converter stations’ upgrade and service in spring 1970."
+        }
+      ]
+    },
+    {
+      "id": "gotland-1986-decommissioning",
+      "type": "end_of_use",
+      "date": {
+        "earliest": {
+          "year": 1986
+        },
+        "latest": {
+          "year": 1986
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1986",
+        "basis": "The operator’s feasibility study dates removal of the original link to 1986."
+      },
+      "statement": "The original Gotland 1 cable and terminal equipment were taken out of service and dismantled.",
+      "scope": "Original Gotland 1 cable and terminal equipment.",
+      "evidence": [
+        {
+          "source": "vattenfall-2018-gotland-hvdc-feasibility",
+          "locator": "Section 2.3, pp. 10–11",
+          "supports": "Dates decommissioning and dismantling to 1986, during the construction of Gotland 3."
         }
       ]
     }
@@ -106,11 +191,11 @@
       "grain": "recalled",
       "concept": "recalled",
       "places": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "measures": "reviewed",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked 1954, 20 MW and 96 km against Tiku table 1 after source URL repair; month is conservatively omitted."
+    "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked 1954, 20 MW and 96 km against Tiku table 1 after source URL repair; month is conservatively omitted. The mercury-arc equipment, thyristor trial, hybrid upgrade and retirement are newly sourced proposals awaiting independent review."
   }
 }

@@ -1,0 +1,252 @@
+{
+  "id": "riken-fujitsu-fugaku",
+  "name": "RIKEN and Fujitsu Fugaku supercomputer",
+  "description": "RIKEN and Fujitsu's Fugaku system at Kobe used Arm-based A64FX nodes linked by Tofu Interconnect D. It reached 442.01 PFlop/s on LINPACK in the November 2020 TOP500 ranking and opened for shared research use in March 2021.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "events": [
+    {
+      "id": "trial-use-2020",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 4
+        },
+        "latest": {
+          "year": 2020,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2020-04",
+        "basis": "RIKEN dates the start of trial use to April 2020."
+      },
+      "statement": "RIKEN began trial use of Fugaku for selected research projects during final preparations for shared service.",
+      "places": [
+        "japan"
+      ],
+      "caveats": "Dongarra reports early user access during the first quarter of 2020. The activities of those users are unelaborated. This event is the trial phase RIKEN dates to April.",
+      "evidence": [
+        {
+          "source": "riken-2021-fugaku-shared-use",
+          "locator": "Trial-use paragraph",
+          "supports": "Operator distinguishes April 2020 trial use from the March 2021 shared opening."
+        },
+        {
+          "source": "dongarra-2020-fujitsu-fugaku-system",
+          "locator": "Overview, pp. 1–2",
+          "supports": "Locates Fugaku at RIKEN in Kobe and reports first-quarter access for some users."
+        }
+      ]
+    },
+    {
+      "id": "linpack-june-2020",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 6
+        },
+        "latest": {
+          "year": 2020,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2020-06",
+        "basis": "Month of the first TOP500 reporting of the measured result."
+      },
+      "statement": "The June 2020 TOP500 listing reported a measured Fugaku LINPACK result of 415.53 PFlop/s.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "top500-fugaku-system-results",
+          "locator": "06/2020 row",
+          "supports": "The June row gives Rmax 415.53 PFlop/s."
+        }
+      ]
+    },
+    {
+      "id": "linpack-november-2020",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 11,
+          "day": 16
+        },
+        "latest": {
+          "year": 2020,
+          "month": 11,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2020-11-16",
+        "basis": "RIKEN dates the benchmark result announcement to 16 November Japan time."
+      },
+      "statement": "The November benchmark ranking announced a measured LINPACK result of 442.01 PFlop/s for Fugaku.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "riken-2020-fugaku-november-benchmarks",
+          "locator": "Opening and TOP500 result paragraphs",
+          "supports": "Dates the rankings announcement and identifies the measured LINPACK result."
+        },
+        {
+          "source": "top500-fugaku-system-results",
+          "locator": "11/2020 row",
+          "supports": "The system history distinguishes 442.01 PFlop/s Rmax from 537.21 PFlop/s theoretical Rpeak."
+        }
+      ]
+    },
+    {
+      "id": "shared-use-2021",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 3,
+          "day": 9
+        },
+        "latest": {
+          "year": 2021,
+          "month": 3,
+          "day": 9
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2021-03-09",
+        "basis": "RIKEN marks completion and start of shared use on the same day."
+      },
+      "statement": "RIKEN completed development with Fujitsu and opened Fugaku for shared research use by selected projects.",
+      "places": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "source": "riken-2021-fugaku-shared-use",
+          "locator": "Opening and trial-use paragraphs",
+          "supports": "RIKEN documents completion, shared use and RIST’s role in project selection."
+        }
+      ]
+    },
+    {
+      "id": "operations-suspension-2026",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 11,
+          "day": 14
+        },
+        "latest": {
+          "year": 2026,
+          "month": 11,
+          "day": 14
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2026-11-14",
+        "basis": "RIKEN's 17 November notice retrospectively dates the suspension."
+      },
+      "statement": "RIKEN suspended Fugaku operations and external access on 14 November 2026.",
+      "places": [
+        "japan"
+      ],
+      "scope": "Operations suspension pending remediation and a later restart decision.",
+      "evidence": [
+        {
+          "source": "riken-2026-fugaku-operations-suspension",
+          "locator": "§1 Timeline, §4 RIKEN’s response and §5 Future actions",
+          "supports": "The operator dates the suspension and says resumption depends on remediation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "trial-use-2020",
+    "rationale": "First operator-dated research trial phase retained here. Dongarra describes earlier access during installation without identifying the user activities."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "measures": "sourced",
+      "links": "sourced"
+    },
+    "note": "The candidate relation concerns only interconnect design. Independent informative corroboration of the exact inheritance is pending. The historical benchmark and dated suspension document different events."
+  },
+  "places": [
+    {
+      "place": "japan",
+      "role": "use",
+      "note": "RIKEN Center for Computational Science in Kobe."
+    }
+  ],
+  "grain": "instance",
+  "measures": [
+    {
+      "quantity": "LINPACK Rmax",
+      "value": 415.53,
+      "unit": "PFlop/s",
+      "event": "linpack-june-2020",
+      "subject": "Fugaku, June 2020 listed configuration",
+      "conditions": "HPL Rmax, reported June 2020.",
+      "status": "measured",
+      "evidence": [
+        {
+          "source": "top500-fugaku-system-results",
+          "locator": "06/2020 row",
+          "supports": "Reports Rmax 415.53 PFlop/s."
+        }
+      ]
+    },
+    {
+      "quantity": "LINPACK Rmax",
+      "value": 442.01,
+      "unit": "PFlop/s",
+      "event": "linpack-november-2020",
+      "subject": "Fugaku, November 2020 listed configuration",
+      "conditions": "HPL Rmax for the listed configuration, reported November 2020.",
+      "status": "measured",
+      "evidence": [
+        {
+          "source": "top500-fugaku-system-results",
+          "locator": "11/2020 row",
+          "supports": "Reports Rmax 442.01 PFlop/s."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "adapts",
+      "from": "fujitsu-tofu-interconnect-2",
+      "status": "candidate",
+      "statement": "Which Tofu2 design elements were carried into Fugaku’s Tofu Interconnect D?",
+      "scope": "Fujitsu interconnect architecture across FX100-era Tofu2 and Fugaku's A64FX-integrated TofuD.",
+      "finding": "Fujitsu identifies Tofu2 as the basis for TofuD and describes changes to improve operation in dense systems. Exact design inheritance awaits independent informative corroboration.",
+      "evidence": [
+        {
+          "source": "fujitsu-2019-primehpc-fx1000-white-paper",
+          "locator": "P. 7, TofuD overview; p. 8, Dynamic packet slicing",
+          "supports": "Fujitsu explicitly traces TofuD to Tofu2 for FX100 and describes high-density and resilience changes."
+        },
+        {
+          "source": "dongarra-2020-fujitsu-fugaku-system",
+          "locator": "Pp. 7–8, Tofu Interconnect Network",
+          "supports": "The report compares the deployed configurations. Its technical comparison closely follows the Fujitsu account."
+        }
+      ]
+    }
+  ]
+}

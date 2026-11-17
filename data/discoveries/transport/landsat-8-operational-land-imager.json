@@ -1,0 +1,94 @@
+{
+  "id": "landsat-8-operational-land-imager",
+  "name": "Operational Land Imager on Landsat 8",
+  "description": "Ball Aerospace developed Landsat 8's Operational Land Imager under contract to NASA. The instrument's pushbroom detector arrays record reflected visible, near-infrared and short-wave infrared light, continuing the Landsat optical record with a new instrument design.",
+  "kind": "technology",
+  "domain": "transport.space",
+  "fields": [
+    "physical-sciences.optics",
+    "physical-sciences.earth"
+  ],
+  "origin": "derived",
+  "advance": [
+    "device_or_configuration"
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "earth-observing-1-advanced-land-imager",
+      "status": "established",
+      "statement": "The Advanced Land Imager demonstrated the pushbroom approach. The Landsat 8 OLI team used ALI's focal-plane module design as a starting point for OLI modules.",
+      "from_event": "inaugural-earth-scan",
+      "to_event": "landsat-8-first-light",
+      "influence": "major",
+      "contribution": [
+        "supplied_theory_or_design_rule"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "knight-kvaran-2014-oli-design-characterization",
+          "locator": "Section 1.2, Landsat-8 History (p. 10287)",
+          "supports": "Records ALI's in-flight demonstration and the specific design contribution from its modules."
+        },
+        {
+          "source": "mit-lincoln-eo1-ali-flight-and-transfer",
+          "locator": "Instrument design and transfer discussion",
+          "supports": "The earlier instrument's developer records industry transfer and design reuse."
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "landsat-8-first-light",
+      "type": "observation",
+      "date": {
+        "earliest": {
+          "year": 2013,
+          "month": 3,
+          "day": 18
+        },
+        "latest": {
+          "year": 2013,
+          "month": 3,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "18 March 2013",
+        "basis": "NASA dates the Landsat 8 first-light acquisition."
+      },
+      "statement": "Landsat 8 acquired its first-light image, showing part of Colorado.",
+      "places": [
+        "colorado"
+      ],
+      "evidence": [
+        {
+          "source": "nasa-landsat8-mission-first-light",
+          "locator": "March 18, 2013 First Light; The Instruments",
+          "supports": "Dates the first-light image and states the OLI role in optical imaging."
+        },
+        {
+          "source": "knight-kvaran-2014-oli-design-characterization",
+          "locator": "Sections 1.1 and 2.1, Mission Overview and Top Level Architecture (pp. 10286–10289)",
+          "supports": "Describes OLI design and the instrument's role in Landsat 8."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "landsat-8-first-light",
+    "rationale": "The dated first-light observation documents the instrument in use on this spacecraft."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "advance": "sourced",
+      "origin": "sourced",
+      "links": "sourced"
+    }
+  }
+}

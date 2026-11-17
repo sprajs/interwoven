@@ -1,0 +1,213 @@
+{
+  "id": "asml-exe-high-na-euv-scanner-platform",
+  "name": "ASML’s 0.55 NA EXE EUV platform",
+  "description": "ASML’s 0.55 NA scanner family extended 13.5 nm EUV patterning to finer features, with experimental patterning at imec and subsequent production qualification on selected Intel 18A layers.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "first-exe-delivery",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 12
+        },
+        "latest": {
+          "year": 2023,
+          "month": 12
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2023-12",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "ASML shipped the first modules of its first EXE:5000 High-NA scanner to Intel.",
+      "place_note": "The equipment supplier is based in Veldhoven. The receiver describes installation at its Oregon development site.",
+      "caveats": "The start of equipment shipping precedes completed installation and process qualification.",
+      "evidence": [
+        {
+          "source": "middleton-2024-asml-first-exe-modules",
+          "locator": "Opening, Larger, anamorphic optics for sharper imaging, and Commonality and modularity for better performance",
+          "supports": "ASML names December 2023, the modules, the system and the receiver."
+        },
+        {
+          "source": "intel-2024-first-high-na-installation-begins",
+          "locator": "Second page, CEO comments on Oregon installation",
+          "supports": "Intel reports that installation was underway on 25 January 2024 at its technology development site in Oregon."
+        }
+      ]
+    },
+    {
+      "id": "veldhoven-test-patterns",
+      "type": "demonstration",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2024,
+          "month": 8,
+          "day": 7
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 7 August 2024",
+        "basis": "The 7 August release presents test patterns printed before publication."
+      },
+      "statement": "Imec published single-exposure logic and DRAM test structures patterned on the EXE:5000 at the joint imec–ASML development lab.",
+      "places": [
+        "netherlands"
+      ],
+      "place_note": "The exposure site was Veldhoven, even though the release has a Leuven dateline.",
+      "caveats": "This is a patterning demonstration on test structures.",
+      "evidence": [
+        {
+          "source": "imec-2024-high-na-vld-pattern-demo",
+          "locator": "Opening description and Steven Scheer statement",
+          "supports": "Identifies 0.55 NA test structures, fine logic patterns, and the Veldhoven exposure site."
+        },
+        {
+          "source": "imec-asml-2024-high-na-vld-lab-opening",
+          "locator": "Main paragraph 1, lab opening and prototype",
+          "supports": "Identifies the working development site and its EXE:5000 prototype."
+        }
+      ]
+    },
+    {
+      "id": "20nm-metal-electrical-test",
+      "type": "experimental_confirmation",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2025,
+          "month": 2,
+          "day": 24
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 24 February 2025",
+        "basis": "Release date bounds the electrical test results presented by imec."
+      },
+      "statement": "Imec obtained electrical results from 20 nm pitch metal-line test structures printed using single-exposure High-NA EUV.",
+      "caveats": "Test-structure electrical yield is a different milestone from yield on volume customer products.",
+      "evidence": [
+        {
+          "source": "imec-2025-high-na-electrical-test-yield",
+          "locator": "Opening paragraphs, SPIE electrical test",
+          "supports": "Reports the test vehicle and electrical-yield evidence."
+        }
+      ]
+    },
+    {
+      "id": "leuven-exe-arrival",
+      "type": "transmission",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2026,
+          "month": 3,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 18 March 2026",
+        "basis": "The public announcement confirms arrival at the development facility by this date."
+      },
+      "statement": "Imec received an EXE:5200 scanner at its Leuven pilot facility.",
+      "places": [
+        "belgium"
+      ],
+      "place_note": "Leuven pilot facility.",
+      "caveats": "Full tool qualification was expected by Q4 2026. The delivery announcement does not establish its completion.",
+      "evidence": [
+        {
+          "source": "imec-2026-high-na-exe-5200-leuven-arrival",
+          "locator": "Opening and qualification paragraph",
+          "supports": "Imec reports tool arrival and gives a prospective qualification target."
+        }
+      ]
+    },
+    {
+      "id": "intel-18a-product-use",
+      "type": "adoption",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2026,
+          "month": 7,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 15 July 2026",
+        "basis": "The 15 July announcement reports wafer processing and customer shipments already underway."
+      },
+      "statement": "Intel qualified High-NA alongside the NXE platform on selected layers of a subset of Panther Lake processors made on Intel 18A and shipped products to customers.",
+      "places": [
+        "united-states"
+      ],
+      "place_note": "Oregon, United States. The source does not name a production room.",
+      "caveats": "The sources do not give the fraction of processors or the number of production wafers. September’s cumulative count also covers research and certification.",
+      "evidence": [
+        {
+          "source": "asml-2026-intel-18a-high-na-product",
+          "locator": "Summary bullets, Intel statement and tool history",
+          "supports": "ASML names the dual-qualified layers, customer shipments and Oregon."
+        },
+        {
+          "source": "intel-2026-q2-filing-high-na-volume-production",
+          "locator": "Exhibit 99.1, Business Highlights, Intel Foundry bullet",
+          "supports": "Intel’s results filing corroborates the EXE high-volume adoption and product subset."
+        },
+        {
+          "source": "intel-asml-2026-high-na-september-update",
+          "locator": "Updates, first and second bullets",
+          "supports": "The September update corroborates that select-layer commercial production continued at that date."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "first-exe-delivery",
+    "rationale": "The first equipment delivery is the earliest dated entry for the EXE platform in the retained sources. Later events capture test, delivery and production separately."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "note": "The grain is the EXE platform, with recipient and production-use events, rather than a separate node for each delivery or adopting fab."
+  },
+  "links": [
+    {
+      "from": "asml-nxe-033-euv-scanner-platform",
+      "type": "builds_on",
+      "status": "established",
+      "from_event": "production-readiness",
+      "to_event": "first-exe-delivery",
+      "statement": "EXE retains the 13.5 nm wavelength of the 0.33 NA NXE generation and raises numerical aperture to 0.55 with new optics and related patterning changes.",
+      "scope": "Optical and process evolution within ASML’s EUV platform family.",
+      "evidence": [
+        {
+          "source": "asml-nd-nxe-exe-product-platforms",
+          "locator": "Mass producing leading-edge microchips and Developing EUV lithography",
+          "supports": "ASML compares the two platforms’ common EUV wavelength and different numerical apertures."
+        },
+        {
+          "source": "middleton-2024-asml-first-exe-modules",
+          "locator": "Opening, Larger, anamorphic optics for sharper imaging, and Commonality and modularity for better performance",
+          "supports": "The maker describes reuse of existing EUV technology in the modular EXE platform."
+        },
+        {
+          "source": "van-nuffel-2026-imec-high-na-development",
+          "locator": "The start of the EUV era and The next big thing: High NA EUV",
+          "supports": "The development user describes new optics and changes to materials and processing needed to move beyond 0.33 NA."
+        }
+      ],
+      "caveats": "Different apertures are complementary for selected layers. Intel’s dual qualification confirms one concrete example of overlap."
+    }
+  ]
+}

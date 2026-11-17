@@ -1,0 +1,190 @@
+{
+  "id": "siemens-naeotom-alpha-photon-counting-ct",
+  "name": "NAEOTOM Alpha clinical photon-counting CT",
+  "description": "Siemens introduced a general-purpose dual-source X-ray CT scanner with two direct-conversion cadmium telluride photon-counting detector arrays. The arrays register individual X-ray interactions and distinguish energy bands for spectral imaging.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "events": [
+    {
+      "id": "mayo-prototype-2021",
+      "type": "prototype",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 4
+        },
+        "latest": {
+          "year": 2021,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2021-04",
+        "basis": "Mayo Clinic gives April 2021 as the investigational installation month."
+      },
+      "statement": "Mayo Clinic installed a NAEOTOM Alpha as an investigational prototype in Rochester, Minnesota.",
+      "places": [
+        "minnesota"
+      ],
+      "place_note": "Rochester, Minnesota, at Mayo Clinic.",
+      "evidence": [
+        {
+          "source": "mayo-ct-clinical-innovation-center-resources",
+          "locator": "Our CT scanners",
+          "supports": "Identifies the installed Alpha and its April 2021 investigational status."
+        }
+      ]
+    },
+    {
+      "id": "us-clearance-2021",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 9,
+          "day": 30
+        },
+        "latest": {
+          "year": 2021,
+          "month": 9,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2021-09-30",
+        "basis": "Date on the FDA determination letter."
+      },
+      "statement": "The U.S. FDA cleared NAEOTOM Alpha through the 510(k) process.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "fda-siemens-k211591-naeotom-alpha",
+          "locator": "FDA determination letter, p. 1",
+          "supports": "Names NAEOTOM Alpha and dates the clearance."
+        }
+      ]
+    },
+    {
+      "id": "launch-2021",
+      "type": "launch",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 11,
+          "day": 16
+        },
+        "latest": {
+          "year": 2021,
+          "month": 11,
+          "day": 16
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2021-11-16",
+        "basis": "Date of the maker's launch announcement."
+      },
+      "statement": "Siemens Healthineers formally launched NAEOTOM Alpha in an announcement describing U.S. and European clearance and prior installations.",
+      "evidence": [
+        {
+          "source": "siemens-2021-naeotom-alpha-launch",
+          "locator": "Opening and final technology paragraphs",
+          "supports": "Announces the launch and distinguishes cleared markets from the previous installations."
+        }
+      ]
+    },
+    {
+      "id": "mayo-clinical-use-2021",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 9,
+          "day": 30
+        },
+        "latest": {
+          "year": 2021,
+          "month": 12,
+          "day": 31
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "After FDA clearance in 2021",
+        "basis": "Mayo reports clinical use beginning in 2021 after the FDA letter dated 30 September. These dates bound the start of use."
+      },
+      "statement": "Mayo Clinic began clinical use of the Alpha after the U.S. FDA clearance.",
+      "places": [
+        "minnesota"
+      ],
+      "place_note": "Rochester, Minnesota, at Mayo Clinic.",
+      "caveats": "The first clinical day is unresolved. The stated year and clearance order do not settle the sequence relative to the public November launch.",
+      "evidence": [
+        {
+          "source": "mayo-2023-clinical-photon-counting-use",
+          "locator": "A fundamental shift",
+          "supports": "Dates the beginning of actual clinical use to 2021."
+        },
+        {
+          "source": "mayo-ct-clinical-innovation-center-resources",
+          "locator": "Our CT scanners",
+          "supports": "Identifies the installed model as Alpha and reports its transition into clinical service."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "mayo-prototype-2021",
+    "rationale": "Mayo’s documented investigational installation predates clearance, formal launch and the documented start of clinical use."
+  },
+  "community_entry": {
+    "event": "mayo-clinical-use-2021",
+    "community": "Mayo Clinic, Rochester",
+    "basis": "practical_use",
+    "strength": "direct"
+  },
+  "caveats": "General-purpose whole-body product scope.",
+  "links": [
+    {
+      "from": "siemens-somatom-force-dual-source-ct",
+      "type": "builds_on",
+      "status": "established",
+      "statement": "NAEOTOM Alpha builds on the SOMATOM Force dual-source configuration, exchanging its two conventional ceramic detector arrays for two cadmium telluride photon-counting arrays.",
+      "scope": "Two-source scanner configuration carried forward from Force, with a different detector technology.",
+      "contribution": [
+        "supplied_platform"
+      ],
+      "evidence": [
+        {
+          "source": "fda-siemens-k211591-naeotom-alpha",
+          "locator": "Applicant summary, §VI",
+          "supports": "Explicitly describes engineering continuity and replacement of detector arrays."
+        },
+        {
+          "source": "rajendran-2021-naeotom-alpha-technical-evaluation",
+          "locator": "Materials and Methods, First Clinical PCD CT system",
+          "supports": "Separately characterizes dual-source operation and detector placement on the Alpha and energy-integrating Force systems."
+        },
+        {
+          "source": "bache-samei-2023-photon-counting-ct-implementation",
+          "locator": "Methods, Phantom acquisitions; Table 1",
+          "supports": "Duke operators independently corroborate the detector change and shared detector coverage."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Prototype detector transfer",
+        "note": "Mayo names Count, Count Plus and Alpha as consecutive research generations. Component-level transfers from the CounT prototypes into Alpha are unresolved."
+      }
+    ]
+  }
+}

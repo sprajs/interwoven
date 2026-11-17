@@ -1,0 +1,127 @@
+{
+  "lane": "chips",
+  "title": "Deep ultraviolet, standard EUV and High-NA lithography in logic manufacturing",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "as_of": "2026-11-17",
+  "inventory": [
+    {
+      "name": "TSMC N2 logic production",
+      "region": "Hsinchu and Kaohsiung, Taiwan",
+      "status": "in service",
+      "date": "2026-10-15",
+      "claim": "TSMC reported N2 ramping at both sites after Q4 2025 high-volume entry. The separate September-quarter release attributed 8% of consolidated wafer revenue to 2 nm shipments.",
+      "limit": "The published share is companywide revenue. Site-specific volumes, exact scanner and layer assignments, and later output levels remain unverified.",
+      "sources": [
+        {
+          "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/eba4fac72873bf546b669bd2b5d973df5c93215d/TSMC%203Q26%20Transcript.pdf",
+          "title": "TSMC Q3 2026 Earnings Call",
+          "date": "2026-10-15",
+          "locator": "Printed p. 5, C. C. Wei prepared remarks, N2 and A14"
+        },
+        {
+          "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/qr/phase4_reports/2026-10/cb1c588cc3b2009f97afa57a6d7c146ae1e27808/3Q26%20EarningsRelease_WoG.pdf",
+          "title": "TSMC Reports Third Quarter EPS of NT$29.43",
+          "date": "2026-10-15",
+          "locator": "Printed p. 1, wafer revenue by node, quarter ended September 30"
+        },
+        {
+          "url": "https://pr.tsmc.com/english/news/3338",
+          "title": "ASML and TSMC Announce Initiative to Pioneer Industry Transition to Large-Format Photomasks for High NA EUV",
+          "date": "2026-09-08",
+          "locator": "Opening bullets and sections on TSMC production intentions and pilot line"
+        }
+      ],
+      "records": [
+        "tsmc-n2-nanosheet-foundry-process"
+      ]
+    },
+    {
+      "name": "Intel 18A High-NA EUV production insertion",
+      "region": "Oregon, United States",
+      "status": "in service",
+      "date": "2026-09-08",
+      "claim": "ASML reported customer shipments by July 15 and the partners confirmed continued production in September. A subset of Panther Lake processors used High-NA EUV on select layers also qualified for standard EUV.",
+      "limit": "The wafer total in the September update includes R&D and qualification. The sources give neither a production-only total nor a claim that all Intel 18A or other fabs use High-NA.",
+      "sources": [
+        {
+          "url": "https://investor.asml.com/news-releases/news-release-details/high-na-euv-reaches-new-readiness-milestone",
+          "title": "High NA EUV reaches new readiness milestone with first high-volume Logic product",
+          "date": "2026-07-15",
+          "locator": "Summary bullets, Intel statement and tool history"
+        },
+        {
+          "url": "https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-26-000155/0000050863-26-000155.pdf",
+          "title": "Intel Form 8-K, Q2 2026 Results",
+          "date": "2026-07-23",
+          "locator": "Exhibit 99.1, Business Highlights, Intel Foundry bullet"
+        },
+        {
+          "url": "https://www.investor.asml.com/news-releases/news-release-details/intel-foundry-and-asml-collaborate-accelerate-industry-readiness-high-na-euv",
+          "title": "Intel Foundry and ASML Collaborate to Accelerate Industry Readiness for High-NA EUV",
+          "date": "2026-09-08",
+          "locator": "Updates, first and second bullets"
+        }
+      ],
+      "records": [
+        "asml-exe-high-na-euv-scanner-platform"
+      ]
+    },
+    {
+      "name": "Imec–ASML High-NA test patterning",
+      "region": "Veldhoven, Netherlands",
+      "status": "demonstrated",
+      "date": "2024-08-07",
+      "claim": "Imec reported logic and memory test structures printed with a 0.55 NA scanner in the joint Veldhoven lab. Electrical results on 20 nm pitch metal test structures were reported in February 2025.",
+      "limit": "The original structures were a research demonstration. The separate EXE:5200 arrival in Leuven in March 2026 supports equipment receipt. Full Leuven qualification and the status of each lab on November 17 remain unverified.",
+      "sources": [
+        {
+          "url": "https://www.imec-int.com/en/press/imec-demonstrates-logic-and-dram-structures-using-high-na-euv-lithography",
+          "title": "Imec demonstrates logic and DRAM structures using High NA EUV Lithography",
+          "date": "2024-08-07",
+          "locator": "Opening description and Steven Scheer statement"
+        },
+        {
+          "url": "https://www.imec-int.com/en/press/asml-and-imec-open-joint-high-na-euv-lithography-lab-offering-early-development-platform",
+          "title": "ASML and imec open joint High NA EUV Lithography Lab",
+          "date": "2024-06-03",
+          "locator": "Main paragraph 1, lab opening and prototype"
+        },
+        {
+          "url": "https://www.imec-int.com/en/press/imec-demonstrates-electrical-yield-20nm-pitch-metal-lines-obtained-high-na-euv-single",
+          "title": "Imec demonstrates electrical yield for 20nm pitch metal lines obtained with High NA EUV single patterning",
+          "date": "2025-02-24",
+          "locator": "Opening paragraphs, SPIE electrical test"
+        },
+        {
+          "url": "https://www.imec-int.com/en/press/imec-receives-worlds-most-advanced-high-na-euv-system",
+          "title": "Imec receives the world’s most advanced High NA EUV system",
+          "date": "2026-03-18",
+          "locator": "Opening and qualification paragraph"
+        }
+      ],
+      "records": [
+        "asml-exe-high-na-euv-scanner-platform"
+      ]
+    }
+  ],
+  "trace": [
+    "EXE High-NA (0.55 NA, 13.5 nm) builds on the 0.33 NA NXE EUV platform at the same wavelength. Imec documents an optical redesign and reworked patterning steps. The 2023 equipment-module shipment, 2024 test prints and 2026 Intel 18A customer products mark separate stages on asml-exe-high-na-euv-scanner-platform.",
+    "ASML’s 0.33 NA NXE platform builds on the 2006 Alpha Demo Tool programme via the intermediate 2010 pre-production NXE:3100. The supplier history and Yen’s foundry experience support experimental continuity. The 2013 0.33 NA system introduction and 2017 NXE:3400B shipment preceded production readiness around 2018. See asml-euv-alpha-demo-scanner and asml-nxe-033-euv-scanner-platform.",
+    "TSMC describes N7+ as an adapted form of base N7, with EUV replacing immersion on selected layers. Base N7 entered volume production in April 2018 and N7+ followed in Q2 2019. TSMC’s 193 nm immersion work had reached 90 nm feasibility in 2004 and 40 nm qualification and delivery by Q4 2008. The N7 and N7+ records keep the two specific intergenerational edges as candidates pending independently inspectable evidence. See tsmc-n7-plus-euv-finfet-process, tsmc-n7-immersion-finfet-process and tsmc-193nm-immersion-lithography.",
+    "N2 is a distinct documented production process. TSMC’s 2024 report describes lithography development for N2 risk production, and the September 2026 High-NA announcement gives a later volume-use target. The new tsmc-n2-nanosheet-foundry-process record leaves scanner-model and process-family edges unasserted.",
+    "NTT had demonstrated reduced patterns with soft X-rays and multilayer mirrors by the mid-1980s (Kinoshita, SPIE 1742, printed pp. 576–577). ASML’s 2022 history describes this as early EUV work. The lane does not establish a specific transfer from NTT into the ASML Alpha Demo design. The existing Bell Labs record photolithographic-diffusion-windows establishes the earlier use of photoresist for semiconductor patterning, with an existing link to silicon-oxide-diffusion-mask. This batch supplies no bridge from those diffusion windows to a specific projection tool."
+  ],
+  "alternatives": [
+    "Immersion DUV and standard EUV coexist. TSMC’s base N7 and N7+ show selective replacement at the process level, and ASML’s October 14, 2026 financial release discusses added capacity plans in both categories. It records 113 new and eight used systems sold during Q3 across lithography types and does not assign them to named fabs or establish tool delivery dates.",
+    "TSMC said in September 2026 that it intends to begin volume manufacturing with High-NA around 2030. Its proposed larger-mask transition has different milestones. A pilot line is targeted for 2031 and system readiness for advanced production by 2033. These targets and imec’s Leuven installation are distinct from the limited Intel production insertion already documented.",
+    "TSMC’s 2004 report characterizes 193 nm immersion as an alternative to the shorter-wavelength 157 nm path. This contemporaneous statement explains TSMC’s choice but does not identify a complete industry-wide chronology of 157 nm adoption or abandonment."
+  ],
+  "frontier": [
+    "Find operator or conference qualification results naming the EXE:5200 site at Leuven. The March 2026 arrival release gave a Q4 qualification target, with no date of completed qualification established in sources checked through November 17. Check TechInsights report SME-1801-807 and the N7+ process-flow report for the comparative N7 and N7+ lithography evidence.",
+    "Inspect TSMC foundry publications for a layer-specific NXE or ArF statement for N2 and an independently documented link from TSMC’s early 0.33 NA NXE research programme into a named N7+ manufacturing configuration.",
+    "Read the 1986 JSAP Kinoshita abstract and contemporaneous Bell Labs and Lawrence Livermore papers for precise dates, referenced predecessors and evidence of transmission. Investigate where projection exposure and the 1950s resist-window method are first documented together in production."
+  ],
+  "screen": "Searched discovery files, source IDs, leads and links through 71326e01a105da21decb1587195a81bd5b596b8c for lithography, EUV, semiconductor steppers, immersion, and foundry processes. The existing Bell Labs oxide-window and oxide-mask entries concern a different step. Intel 4004, MOSIS and the semiconductor-foundry access lead concern distinct designs or services. No matching equipment or process milestone was found. EXE deliveries and commercial use are events on the platform record. N7 and N7+ are distinct process achievements from the same family.",
+  "coverage": "Operator, supplier and participant evidence searched through November 17, 2026. The latest retained status observations are TSMC October 15, ASML sales October 14 and Intel–ASML September 8. Research-lab evidence has separate dates. The evidence is a selected set of production, research and equipment milestones, with reported plans and test results distinguished from in-fab production. Node labels, imaging wavelength, line width and pitch refer to different quantities. No worldwide priority claim is proposed."
+}

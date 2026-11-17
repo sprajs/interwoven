@@ -1,0 +1,96 @@
+{
+  "id": "ge-photonova-spectra-silicon-photon-counting-ct",
+  "name": "Photonova Spectra silicon photon-counting CT",
+  "description": "GE developed a general-purpose X-ray CT scanner on its Revolution Apex platform using a direct-conversion silicon photon-counting detector.",
+  "kind": "technology",
+  "domain": "health.diagnostics",
+  "events": [
+    {
+      "id": "us-clearance-2026",
+      "type": "recognition",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 3,
+          "day": 20
+        },
+        "latest": {
+          "year": 2026,
+          "month": 3,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2026-03-20",
+        "basis": "Date on the FDA determination letter."
+      },
+      "statement": "The U.S. FDA cleared Photonova Spectra and Photonova Spectra Select through the 510(k) process.",
+      "places": [
+        "united-states"
+      ],
+      "evidence": [
+        {
+          "source": "fda-ge-k253520-photonova-spectra",
+          "locator": "FDA determination letter and applicant Device Description",
+          "supports": "Dates clearance and identifies the two named configurations and silicon detector."
+        }
+      ]
+    },
+    {
+      "id": "uw-clinical-use-2026",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2026,
+          "month": 11,
+          "day": 13
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2026-11-13",
+        "basis": "The dated UW report confirms that its first standard-of-care scans had already taken place that autumn."
+      },
+      "statement": "UW–Madison reported standard-of-care patient imaging on its FDA-cleared GE Photonova Spectra scanner.",
+      "places": [
+        "university-of-wisconsin-madison"
+      ],
+      "caveats": "The exact scan day is unresolved. The use reported by one operator does not establish market-wide adoption.",
+      "evidence": [
+        {
+          "source": "uw-madison-2026-photon-counting-clinical-implementation",
+          "locator": "Paragraph on the department's GE collaboration",
+          "supports": "Reports completed initial routine scans in autumn 2026 and distinguishes the 2022 prototype."
+        },
+        {
+          "source": "uw-madison-photon-counting-case-reviews",
+          "locator": "Opening and fourth paragraphs",
+          "supports": "Identifies the instrument and reports research alongside standard-of-care scans."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "us-clearance-2026",
+    "rationale": "The FDA decision dates the documented commercial configurations and precedes observed standard-of-care deployment. The earlier UW prototype is not assumed identical."
+  },
+  "community_entry": {
+    "event": "uw-clinical-use-2026",
+    "community": "UW–Madison Department of Radiology",
+    "basis": "practical_use",
+    "strength": "direct"
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "events": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Prototype to product and prior platform",
+        "note": "An earlier silicon prototype was installed in 2022 at UW. The FDA submission identifies the Revolution Apex hardware platform, but this batch did not add antecedent records or trace which particular prototype subassemblies reached the market."
+      }
+    ]
+  }
+}

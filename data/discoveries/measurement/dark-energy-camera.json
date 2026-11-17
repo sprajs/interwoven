@@ -1,0 +1,205 @@
+{
+  "id": "dark-energy-camera",
+  "name": "Dark Energy Camera (DECam)",
+  "description": "The Dark Energy Survey Collaboration built a wide-field mosaic camera with thick fully depleted CCDs for the Blanco 4 m telescope in Chile. Its 570-megapixel focal plane includes imaging, guiding and focus devices.",
+  "kind": "technology",
+  "domain": "measurement.optical-instruments",
+  "places": [
+    {
+      "place": "illinois",
+      "role": "origin",
+      "note": "The collaboration first assembled and tested the camera at Fermilab."
+    },
+    {
+      "place": "chile",
+      "role": "use",
+      "note": "Víctor M. Blanco 4 m telescope at Cerro Tololo Inter-American Observatory."
+    }
+  ],
+  "events": [
+    {
+      "id": "blanco-first-light",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2012,
+          "month": 9,
+          "day": 12
+        },
+        "latest": {
+          "year": 2012,
+          "month": 9,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2012-09-12",
+        "basis": "Official first-light night in UT, as dated by the instrument paper."
+      },
+      "statement": "DECam produced official first-light images on the Blanco telescope at Cerro Tololo.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "Cerro Tololo Inter-American Observatory.",
+      "evidence": [
+        {
+          "source": "flaugher-2015-dark-energy-camera",
+          "locator": "§9.3, Installation and Commissioning",
+          "supports": "Dates the official first-light night and records the imaging results."
+        },
+        {
+          "source": "des-instrument-first-light-and-verification",
+          "locator": "First Light",
+          "supports": "The collaboration distinguishes first-light images from commissioning and Science Verification."
+        }
+      ]
+    },
+    {
+      "id": "des-start",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2013,
+          "month": 8,
+          "day": 31
+        },
+        "latest": {
+          "year": 2013,
+          "month": 8,
+          "day": 31
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2013-08-31",
+        "basis": "Start of campaign imaging reported by the project."
+      },
+      "statement": "The Dark Energy Survey began its southern-sky mapping campaign with DECam.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "Cerro Tololo Inter-American Observatory.",
+      "evidence": [
+        {
+          "source": "fermilab-2019-dark-energy-survey-completion",
+          "locator": "Opening paragraphs",
+          "supports": "Names the camera, its location and the start of survey data taking."
+        }
+      ]
+    },
+    {
+      "id": "des-final-campaign-data",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 1
+        },
+        "latest": {
+          "year": 2019,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2019-01",
+        "basis": "The project confirms January 2019 as the final observing month. Sources use different day labels for the final night."
+      },
+      "statement": "The Dark Energy Survey finished collecting campaign data with DECam.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "Cerro Tololo Inter-American Observatory.",
+      "evidence": [
+        {
+          "source": "des-2019-final-observations",
+          "locator": "Opening heading",
+          "supports": "The project retrospective confirms the final observations."
+        }
+      ]
+    },
+    {
+      "id": "community-observations-2026",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 11,
+          "day": 9
+        },
+        "latest": {
+          "year": 2026,
+          "month": 11,
+          "day": 9
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2026-11-09",
+        "basis": "UTC date of observations stated in the observer circular."
+      },
+      "statement": "A separate observing programme used DECam on the Blanco telescope to image the field of GRB 261108D.",
+      "places": [
+        "chile"
+      ],
+      "place_note": "Cerro Tololo Inter-American Observatory.",
+      "evidence": [
+        {
+          "source": "davis-2026-decam-november-observations",
+          "locator": "First observation paragraph",
+          "supports": "Direct observing report identifying telescope, instrument, date and programme."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "blanco-first-light",
+    "rationale": "This record is anchored to the official first-light demonstration of the integrated on-telescope camera. Preassembly and tests occurred at Fermilab."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "berkeley-fully-depleted-back-illuminated-ccd",
+      "to_event": "blanco-first-light",
+      "status": "established",
+      "statement": "DECam scaled the LBNL fully depleted CCD technology into a large-format mosaic. LBNL supplied the later devices that Fermilab packaged.",
+      "scope": "The LBNL detector design family and the 250 μm generation built for DECam.",
+      "contribution": [
+        "supplied_component"
+      ],
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "flaugher-2015-dark-energy-camera",
+          "locator": "Abstract; §§3 and 3.1",
+          "supports": "The delivered camera uses the LBNL-developed thick, fully depleted CCD design and the paper documents supply to Fermilab."
+        },
+        {
+          "source": "berkeley-lab-2012-decam-detector-lineage",
+          "locator": "Paragraphs beginning ‘Early in the planning’, ‘Manufacture’, and ‘The DECam chips’",
+          "supports": "The supplier documents continuity of the detector technology from Berkeley's mid-1990s work to the manufacture of the 250 μm DECam devices."
+        },
+        {
+          "source": "flaugher-2022-creation-of-decam",
+          "locator": "Slide 12, Key features of early project development",
+          "supports": "The receiving project manager identifies the prior CCD programme that DES drew on and the manufacturing scale-up needed for the camera."
+        }
+      ]
+    }
+  ],
+  "why": "The survey required high detector sensitivity toward the red end of the optical spectrum. Berkeley's back-illuminated, fully depleted silicon CCDs met the survey's z-band sensitivity requirement.",
+  "origin": "derived",
+  "caveats": "The camera served multiple observing programmes. The original DES campaign ended in January 2019.",
+  "prompted_by": [
+    "practical_need"
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "places": "sourced",
+      "events": "sourced",
+      "links": "sourced",
+      "prompted_by": "sourced",
+      "origin": "sourced"
+    },
+    "note": "Proposal awaiting independent review."
+  }
+}
