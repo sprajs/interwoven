@@ -1,0 +1,377 @@
+{
+  "lane": "computing",
+  "kind": "workflow",
+  "title": "Trace a published specification into a shipped software package",
+  "question": "Did the released software contain working support for the exact standardized feature, and what kind of support did the evidence establish?",
+  "summary": "Tested the Emoji 15.1 head shaking horizontally sequence through Unicode’s released data, Google’s tagged Noto Color Emoji fonts, and Debian’s archived 12.4 font package. Identical input shaped as two glyphs in upstream v2.038 and as one glyph in v2.040, v2.042 and Debian 2.042-0+deb12u1. The package contains a colour bitmap for that glyph. The test isolates font support from application font selection and platform rendering.",
+  "inputs": [
+    "Versioned specification and preceding edition",
+    "Exact code point, sequence or conformance fixture",
+    "Named implementation, producer tag and comparator",
+    "Named release channel and archived binary package",
+    "A diagnostic that can test the feature in isolation"
+  ],
+  "steps": [
+    {
+      "title": "Define the smallest historical claim",
+      "action": "Search the catalogue and prior reviews for the standard, exact feature identifier, implementation name and release. Record whether the proposed endpoint is publication, implementation availability, distribution or observed application use.",
+      "result": "Searching the project for Unicode, Noto Color Emoji, 1F642 and head shaking found the existing Unicode standard record with 1990–1991 events and no matching adoption event. The bounded endpoint is Debian stable distribution of a font supporting this one sequence.",
+      "sources": [
+        {
+          "title": "Unicode 15.1 release page",
+          "url": "https://www.unicode.org/versions/Unicode15.1.0/",
+          "locator": "Release header, §A and §H"
+        },
+        {
+          "title": "Debian 12.4 release",
+          "url": "https://www.debian.org/News/2023/20231210",
+          "locator": "Release header and Miscellaneous Bugfixes"
+        }
+      ]
+    },
+    {
+      "title": "Resolve the identifier in the final standard",
+      "action": "Search the issuer’s version archive for the exact feature token, predecessor and conformance fixture. Compare whole fields or parse their structured records. Record the normative status and any older component identifiers. Use a proposal or draft solely to investigate provenance.",
+      "result": "The original L2/23-034 proposal uses the same four scalars. Final Emoji 15.1 RGI data lists 1F642 200D 2194 FE0F at line 1524. Emoji 15.0 contains no exact match. All four scalars already occur in Unicode 15.0 DerivedAge, with ages 7.0, 1.1, 1.1 and 3.2. The 15.1 test fixture distinguishes the full sequence at line 96 from the minimally-qualified form ending at 2194 at line 97.",
+      "sources": [
+        {
+          "title": "Original head-shake proposal",
+          "url": "https://www.unicode.org/L2/L2023/23034-head-shaking-horizontal.pdf",
+          "locator": "Proposed code point sequence"
+        },
+        {
+          "title": "Final Unicode Emoji 15.1 technical standard",
+          "url": "https://www.unicode.org/reports/tr51/tr51-25.html",
+          "locator": "Revision 25, §1.5.2 and §2.5"
+        },
+        {
+          "title": "Emoji 15.1 sequence data",
+          "url": "https://www.unicode.org/Public/emoji/15.1/emoji-zwj-sequences.txt",
+          "locator": "Version header and exact record at line 1524"
+        },
+        {
+          "title": "Earlier Emoji 15.0 sequence data",
+          "url": "https://www.unicode.org/Public/emoji/15.0/emoji-zwj-sequences.txt",
+          "locator": "All first-column sequence tokens"
+        },
+        {
+          "title": "Emoji 15.1 test fixture",
+          "url": "https://www.unicode.org/Public/emoji/15.1/emoji-test.txt",
+          "locator": "Lines 96–99"
+        },
+        {
+          "title": "Unicode 15.0 character ages",
+          "url": "https://www.unicode.org/Public/15.0.0/ucd/DerivedAge.txt",
+          "locator": "Lines 273, 284, 655 and 1457"
+        }
+      ]
+    },
+    {
+      "title": "Pin implementation sources and bytes",
+      "action": "Search the producer’s release pages, release API and tag history for the version or exact identifier. Resolve tags with git ls-remote, following peeled commits for annotated tags. Fetch the exact shipped asset and, where available, its source or tests from each commit. Compare a previous released artifact to the release that claims the feature.",
+      "result": "Noto v2.038 was published on 16 September 2022 for 15.0; v2.040 on 17 November 2023 added 15.1 assets; v2.042 on 30 November 2023 fixed a separate flag issue. The pinned v2.042 source has svg/emoji_u1f642_200d_2194.svg; that asset path returns 404 at the v2.038 commit. The released font payloads and dates are pinned below. The asset filename omits VS16, so the shaping check uses the full specification sequence.",
+      "sources": [
+        {
+          "title": "Noto v2.038 release API",
+          "url": "https://api.github.com/repos/googlefonts/noto-emoji/releases/tags/v2.038",
+          "locator": "published_at and body"
+        },
+        {
+          "title": "Noto v2.040 release API",
+          "url": "https://api.github.com/repos/googlefonts/noto-emoji/releases/tags/v2.040",
+          "locator": "published_at and body"
+        },
+        {
+          "title": "Noto v2.042 release API",
+          "url": "https://api.github.com/repos/googlefonts/noto-emoji/releases/tags/v2.042",
+          "locator": "published_at and body"
+        },
+        {
+          "title": "Noto v2.042 sequence asset",
+          "url": "https://raw.githubusercontent.com/googlefonts/noto-emoji/d79d23e6822e0f6e5731b114cbfb26b2a4e380da/svg/emoji_u1f642_200d_2194.svg",
+          "locator": "Commit-pinned original artwork"
+        },
+        {
+          "title": "Noto v2.042 font",
+          "url": "https://raw.githubusercontent.com/googlefonts/noto-emoji/d79d23e6822e0f6e5731b114cbfb26b2a4e380da/fonts/NotoColorEmoji.ttf",
+          "locator": "Exact packaged upstream font bytes"
+        }
+      ]
+    },
+    {
+      "title": "Verify the distribution handoff",
+      "action": "Search the distribution’s release announcements, versioned packaging files, archive index and binary archive. Compare dates and package versions. Download the exact binary, check its index hash, and extract the relevant file without installation. When its bytes differ from upstream, inspect build rules and test both files.",
+      "result": "The Debian maintainer’s changelog identifies 2.042-0+deb12u1 as the bookworm update for the new upstream release. Debian’s 10 December 2023 point release lists the font update. The archived package’s control metadata and SHA-256 match the bookworm index entry. Its extracted TTF differs from the tagged Google TTF. Debian’s build rules explicitly build and install NotoColorEmoji.ttf.",
+      "sources": [
+        {
+          "title": "Debian 12.4 release notice",
+          "url": "https://www.debian.org/News/2023/20231210",
+          "locator": "10 December 2023 and fonts-noto-color-emoji row"
+        },
+        {
+          "title": "Bookworm package changelog",
+          "url": "https://sources.debian.org/src/fonts-noto-color-emoji/2.042-0%2Bdeb12u1/debian/changelog/",
+          "locator": "2.042-0+deb12u1 entry dated 30 November 2023"
+        },
+        {
+          "title": "Bookworm package index",
+          "url": "https://deb.debian.org/debian/dists/bookworm/main/binary-amd64/Packages.xz",
+          "locator": "fonts-noto-color-emoji stanza, Version, Filename, SHA256"
+        },
+        {
+          "title": "Bookworm package build rules",
+          "url": "https://sources.debian.org/data/main/f/fonts-noto-color-emoji/2.042-0%2Bdeb12u1/debian/rules",
+          "locator": "Lines 6–16, override_dh_auto_build and override_dh_install"
+        },
+        {
+          "title": "Debian binary archive object",
+          "url": "https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb",
+          "locator": "control.tar.xz and data.tar.xz"
+        }
+      ]
+    },
+    {
+      "title": "Run the same fixture on each artifact",
+      "action": "Run a small external probe against each exact artifact, selecting it explicitly and disabling fallback. Record tool version, flags, output and negative controls. Add a technical check specific to the claimed output, such as extracting the actual glyph bitmap. Test application display separately if that is part of the claim.",
+      "result": "HarfBuzz 15.1.0 shaped the same full sequence into glyphs 949 and 24 with upstream v2.038, glyph 2827 with v2.040 and v2.042, and glyph 2924 with the Debian font. The Debian glyph contains a 3,167-byte PNG at the tested 109 ppem, which was extracted and inspected. Dropping ZWJ gave a separate smile and arrow. The form without VS16 produced the same combined glyph in these newer fonts despite the different fixture classification. The vertical sequence produced a distinct glyph.",
+      "sources": [
+        {
+          "title": "HarfBuzz command documentation",
+          "url": "https://harfbuzz.github.io/utilities.html",
+          "locator": "hb-shape, glyph indices, text-and-font combinations"
+        },
+        {
+          "title": "HarfBuzz shaping flags",
+          "url": "https://manpages.debian.org/unstable/libharfbuzz-bin/hb-shape.1.en.html",
+          "locator": "--unicodes, --remove-default-ignorables, --no-glyph-names"
+        },
+        {
+          "title": "Official qualification fixture",
+          "url": "https://www.unicode.org/Public/emoji/15.1/emoji-test.txt",
+          "locator": "Fully and minimally qualified test cases, lines 96–99"
+        },
+        {
+          "title": "Archived Debian font package",
+          "url": "https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb",
+          "locator": "./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf"
+        }
+      ]
+    },
+    {
+      "title": "Make the two-ended decision",
+      "action": "Require the exact standard feature at the source and the matching output in the shipped artifact at the destination. Establish uptake with producer or distributor records naming the version and the change. Use a separate distributor account or independently reproduce the output if the producer’s claims are the only narrative evidence. Treat matching labels, images or encoded input alone as insufficient.",
+      "result": "The Consortium specifies the sequence, Google documents its asset release, and Debian separately documents packaging and stable distribution. The archive hash and controlled probe corroborate the end-to-end match. Unicode’s test file and RGI data share one publisher. Debian’s asset derives from Google’s Noto sources, so it corroborates distribution rather than providing an independent invention. The bytes test supplies separate evidence of shipped behavior.",
+      "sources": [
+        {
+          "title": "Emoji 15.1 sequence data",
+          "url": "https://www.unicode.org/Public/emoji/15.1/emoji-zwj-sequences.txt",
+          "locator": "Version header and exact record at line 1524"
+        },
+        {
+          "title": "Google’s upstream release",
+          "url": "https://github.com/googlefonts/noto-emoji/releases/tag/v2.042",
+          "locator": "Release title and v2.042 tag"
+        },
+        {
+          "title": "Documented Debian stable adoption",
+          "url": "https://www.debian.org/News/2023/20231210",
+          "locator": "fonts-noto-color-emoji in Miscellaneous Bugfixes"
+        }
+      ]
+    }
+  ],
+  "decision": "Propose a dated Emoji 15.1 publication event and a dated Debian 12.4 adoption event on the existing Unicode standard record. The supported relation is uptake of one standardized sequence in a named distributed font package. Record package availability and observed shaping in a controlled environment. Application display, universal font coverage and the size of the user community remain open.",
+  "reject_if": "Reject a new code-point claim when the constituent characters predate the edition. Reject a shipped-support claim based only on a chart picture, release announcement, component glyphs or a tested file that cannot be matched to the distribution version. For a rebuild, verify the distribution binary independently and reproduce the feature in both files.",
+  "stop_when": "Stop with a bounded adoption finding once both exact identifiers, the release chronology, the archive provenance and a diagnostic positive with relevant negative control agree. Stop at a documented evidence gap when the released artifact or applicable test is missing. Leave application use unresolved unless it was tested on the named shipping stack.",
+  "next": "Reuse the worksheet on a different character or sequence, keeping the versioned inputs and one negative control. For this pilot, the remaining question is whether a named Debian 12.4 application selected this font and displayed the combined glyph with the versions of its renderer and fallback configuration actually shipped.",
+  "next_anchor": "Unicode 15.0 Kawi Letter A (U+11F04) → a pinned Noto Sans Kawi release and its first traceable distribution build. Verify both the base character and an orthographic combining sequence.",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "base": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "replication": {
+    "artifacts": {
+      "normative_sequence_file": {
+        "url": "https://www.unicode.org/Public/emoji/15.1/emoji-zwj-sequences.txt",
+        "sha256": "9a76a03dcacfcd8f9bfe08c49c8d90b55182b977cbcc87a694e8a8193efb0e57",
+        "bytes": 251595
+      },
+      "predecessor_sequence_file": {
+        "url": "https://www.unicode.org/Public/emoji/15.0/emoji-zwj-sequences.txt",
+        "sha256": "fe357f9117b7746676063765d587137edf9b25903a792bd54935bf0856791182",
+        "bytes": 231164
+      },
+      "qualification_fixture": {
+        "url": "https://www.unicode.org/Public/emoji/15.1/emoji-test.txt",
+        "sha256": "d876ee249aa28eaa76cfa6dfaa702847a8d13b062aa488d465d0395ee8137ed9",
+        "bytes": 639405
+      },
+      "prior_character_ages": {
+        "url": "https://www.unicode.org/Public/15.0.0/ucd/DerivedAge.txt",
+        "sha256": "7570877e0fa197c45338f7c41a02636da4e14c8dba6a3611a01cd30bf329d5ca",
+        "bytes": 130720
+      },
+      "debian_binary_package": {
+        "url": "https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb",
+        "sha256": "a5ab0f69c7938423862320d9aca5dd187b3fd879d6a9a57dd52e17c3fa8d2751",
+        "bytes": 9893872,
+        "version": "2.042-0+deb12u1",
+        "package_index": "https://deb.debian.org/debian/dists/bookworm/main/binary-amd64/Packages.xz"
+      },
+      "debian_extracted_font": {
+        "url": "https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb",
+        "sha256": "e5899ed38b8ed83e08bd3ac5de09791e9d19d288333a796de1d35ad17396f1ec",
+        "bytes": 10980856,
+        "archive_member": "./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf"
+      },
+      "debian_packaging_rules": {
+        "url": "https://sources.debian.org/data/main/f/fonts-noto-color-emoji/2.042-0%2Bdeb12u1/debian/rules",
+        "sha256": "bbf4f7c291d8c8281d3be9de40d42eb2e58df9287994c735f4544e7e0d3eeaad",
+        "bytes": 451
+      },
+      "upstream_v2.038": {
+        "url": "https://raw.githubusercontent.com/googlefonts/noto-emoji/e8073ab740292f8d5f19b5de144087ac58044d06/fonts/NotoColorEmoji.ttf",
+        "sha256": "5a953e4c2c3c650c37d9e996eae6fef08414854871e1f9a916daf4c59527f008",
+        "bytes": 10352796,
+        "tag": "v2.038",
+        "commit": "e8073ab740292f8d5f19b5de144087ac58044d06",
+        "published_at": "2022-09-16T02:51:44Z"
+      },
+      "upstream_v2.040": {
+        "url": "https://raw.githubusercontent.com/googlefonts/noto-emoji/144e84dbc2b49f164279bfce230569116ac98bfd/fonts/NotoColorEmoji.ttf",
+        "sha256": "eadac8f4c67331412f36967b5a3aa58f46a89664957b8981413f31b324c2b8e6",
+        "bytes": 10591160,
+        "tag": "v2.040",
+        "commit": "144e84dbc2b49f164279bfce230569116ac98bfd",
+        "published_at": "2023-11-17T07:11:38Z"
+      },
+      "upstream_v2.042": {
+        "url": "https://raw.githubusercontent.com/googlefonts/noto-emoji/d79d23e6822e0f6e5731b114cbfb26b2a4e380da/fonts/NotoColorEmoji.ttf",
+        "sha256": "c2f19f6a404baa7da7a710b018c2892d7b51386983ddca146811f76aea0b6861",
+        "bytes": 10589456,
+        "tag": "v2.042",
+        "commit": "d79d23e6822e0f6e5731b114cbfb26b2a4e380da",
+        "published_at": "2023-11-30T04:15:28Z"
+      }
+    },
+    "fixture_codepoints": "1F642 200D 2194 FE0F",
+    "fixture_utf8_hex": "f0 9f 99 82 e2 80 8d e2 86 94 ef b8 8f",
+    "implementation": "Local C probe linked against HarfBuzz 15.1.0. For each file it used hb_blob_create_from_file_or_fail, hb_face_create(index 0), hb_font_create, hb_ot_font_set_funcs and hb_font_set_ppem(109,109). For each input it used hb_buffer_add_codepoints, hb_buffer_guess_segment_properties, HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES and hb_shape with default features. It inspected count and indexes from hb_buffer_get_glyph_infos and read colour bitmap bytes with hb_ot_color_glyph_reference_png. Only one font was loaded per test.",
+    "repeat_commands": [
+      "Run mkdir -p .cache/unicode. Download the original files listed in artifacts and verify their SHA-256 digests. Save the three upstream TTFs as .cache/unicode/noto-2.038.ttf, .cache/unicode/noto-2.040.ttf and .cache/unicode/noto-2.042.ttf, and save the Debian archive as .cache/unicode/bookworm.deb. Verify the Debian TTF digest after extracting it from that archive.",
+      "For the standards files run awk -F ';' '$1 ~ /^[[:space:]]*1F642 200D 2194 FE0F[[:space:]]*$/ {print NR, $0}' on each version's sequence data, changing the identifier on reuse.",
+      "Extract without installation: ar p .cache/unicode/bookworm.deb data.tar.xz | tar -xJO ./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf > .cache/unicode/bookworm.ttf",
+      "Inspect package metadata: ar p .cache/unicode/bookworm.deb control.tar.xz | tar -xJO ./control",
+      "Optional glyph selection check with hb-shape: hb-shape --no-glyph-names --remove-default-ignorables --unicodes=1F642,200D,2194,FE0F FONT.ttf",
+      "Repeat the shape command with --unicodes=1F642,2194,FE0F to test standalone components and with --unicodes=1F642,200D,2194 to test the minimally-qualified input.",
+      "Run the commands in probe.commands for the full test, including the bitmap checksum."
+    ],
+    "glyph_ids": {
+      "input_order": [
+        "1F642 200D 2194 FE0F",
+        "1F642 200D 2194",
+        "1F642 2194 FE0F",
+        "1F642 200D 2195 FE0F",
+        "1F642"
+      ],
+      "upstream_v2.038": [
+        [
+          949,
+          24
+        ],
+        [
+          949,
+          24
+        ],
+        [
+          949,
+          24
+        ],
+        [
+          949,
+          25
+        ],
+        [
+          949
+        ]
+      ],
+      "upstream_v2.040": [
+        [
+          2827
+        ],
+        [
+          2827
+        ],
+        [
+          949,
+          24
+        ],
+        [
+          2828
+        ],
+        [
+          949
+        ]
+      ],
+      "upstream_v2.042": [
+        [
+          2827
+        ],
+        [
+          2827
+        ],
+        [
+          949,
+          24
+        ],
+        [
+          2828
+        ],
+        [
+          949
+        ]
+      ],
+      "debian_2.042-0+deb12u1": [
+        [
+          2924
+        ],
+        [
+          2924
+        ],
+        [
+          949,
+          24
+        ],
+        [
+          2925
+        ],
+        [
+          949
+        ]
+      ]
+    },
+    "debian_horizontal_bitmap_png": {
+      "glyph_id": 2924,
+      "bytes": 3167,
+      "pixels": [
+        136,
+        128
+      ],
+      "sha256": "69dc14a825f59379b0f73bc3d03f1781a8d591d945c0a44dc433cecb4f88ffca"
+    },
+    "access_limits": "The producer release files, distribution changelog, archive index and binary package were public and accessible. The consortium’s direct September 2023 blog post was temporarily blocked in the web reader. Its September archive and the dated version-specific page supplied the release date. The package SHA-256 was checked against the current first-party bookworm index for the matching exact version. The pinned URLs identify the original artifacts and the embedded C probe records the exact test used to extract the bitmap.",
+    "probe": {
+      "language": "C11",
+      "dependencies": "C compiler, pkg-config, and HarfBuzz 15.1.0 headers and library. Run the commands from the repository root.",
+      "source": "#include <stdint.h>\n#include <stdio.h>\n#include <hb.h>\n#include <hb-ot.h>\n\nstatic void probe(hb_font_t *font, const char *label, const uint32_t *text, int size) {\n    hb_buffer_t *buffer = hb_buffer_create();\n    hb_buffer_set_flags(buffer, HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES);\n    hb_buffer_add_codepoints(buffer, text, size, 0, size);\n    hb_buffer_guess_segment_properties(buffer);\n    hb_shape(font, buffer, NULL, 0);\n\n    unsigned count = 0;\n    hb_glyph_info_t *glyphs = hb_buffer_get_glyph_infos(buffer, &count);\n    printf(\"%s (%u glyphs):\", label, count);\n    for (unsigned i = 0; i < count; i++) {\n        hb_blob_t *png = hb_ot_color_glyph_reference_png(font, glyphs[i].codepoint);\n        unsigned byte_count = hb_blob_get_length(png);\n        printf(\" %u/cluster %u/png %u\", glyphs[i].codepoint, glyphs[i].cluster, byte_count);\n        if (count == 1 && glyphs[i].codepoint == 2924) {\n            FILE *out = fopen(\".cache/unicode/bookworm-horizontal.png\", \"wb\");\n            if (out) {\n                fwrite(hb_blob_get_data(png, NULL), 1, byte_count, out);\n                fclose(out);\n            }\n        }\n        hb_blob_destroy(png);\n    }\n    putchar('\\n');\n    hb_buffer_destroy(buffer);\n}\n\nint main(int argc, char **argv) {\n    const uint32_t exact[] = {0x1F642, 0x200D, 0x2194, 0xFE0F};\n    const uint32_t no_joiner[] = {0x1F642, 0x2194, 0xFE0F};\n    const uint32_t vertical[] = {0x1F642, 0x200D, 0x2195, 0xFE0F};\n    printf(\"HarfBuzz %s\\n\", hb_version_string());\n    for (int i = 1; i < argc; i++) {\n        hb_blob_t *file = hb_blob_create_from_file_or_fail(argv[i]);\n        if (!file) return 2;\n        hb_face_t *face = hb_face_create(file, 0);\n        hb_font_t *font = hb_font_create(face);\n        hb_ot_font_set_funcs(font);\n        hb_font_set_ppem(font, 109, 109);\n        puts(argv[i]);\n        probe(font, \"full horizontal\", exact, 4);\n        probe(font, \"minus VS16\", exact, 3);\n        probe(font, \"minus ZWJ\", no_joiner, 3);\n        probe(font, \"full vertical\", vertical, 4);\n        probe(font, \"ordinary smile\", exact, 1);\n        hb_font_destroy(font);\n        hb_face_destroy(face);\n        hb_blob_destroy(file);\n    }\n    return 0;\n}\n",
+      "commands": [
+        "mkdir -p .cache/unicode",
+        "python3 -c 'import json, pathlib, sys; pathlib.Path(\".cache/unicode/compare.c\").write_text(json.load(open(sys.argv[1]))[\"replication\"][\"probe\"][\"source\"])' docs/reviews/2026-11-17-provenance/lanes/computing.json",
+        "pkg-config --modversion harfbuzz",
+        "cc -std=c11 -Wall -Wextra -o .cache/unicode/compare .cache/unicode/compare.c $(pkg-config --cflags --libs harfbuzz)",
+        ".cache/unicode/compare .cache/unicode/noto-2.038.ttf .cache/unicode/noto-2.040.ttf .cache/unicode/noto-2.042.ttf .cache/unicode/bookworm.ttf",
+        "sha256sum .cache/unicode/bookworm-horizontal.png"
+      ],
+      "output": "The probe prints glyph indexes, cluster indexes and available PNG bytes for the five inputs. The PNG at .cache/unicode/bookworm-horizontal.png records glyph 2924 from the Debian font at 109 ppem. In this font the fully and minimally qualified inputs select that same glyph and write identical PNG bytes. A different font or sequence may require changing the inputs and export glyph ID."
+    }
+  }
+}

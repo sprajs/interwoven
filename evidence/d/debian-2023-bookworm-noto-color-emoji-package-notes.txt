@@ -1,0 +1,11 @@
+Inspected on 2026-11-17.
+Package https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb
+Package control: fonts-noto-color-emoji 2.042-0+deb12u1, Architecture all.
+Package SHA-256 a5ab0f69c7938423862320d9aca5dd187b3fd879d6a9a57dd52e17c3fa8d2751 matches SHA256 in the corresponding record in Debian bookworm main Packages.xz.
+Index https://deb.debian.org/debian/dists/bookworm/main/binary-amd64/Packages.xz
+Extracted member ./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf
+Extracted TTF SHA-256 e5899ed38b8ed83e08bd3ac5de09791e9d19d288333a796de1d35ad17396f1ec
+Upstream v2.042 TTF SHA-256 c2f19f6a404baa7da7a710b018c2892d7b51386983ddca146811f76aea0b6861
+Debian and upstream font bytes are different. Debian source build and install rules https://sources.debian.org/data/main/f/fonts-noto-color-emoji/2.042-0%2Bdeb12u1/debian/rules
+The Debian TTF shaped U+1F642 U+200D U+2194 U+FE0F to glyph 2924 in HarfBuzz 15.1.0. At 109 ppem, the glyph has a 3,167-byte internal PNG (136 × 128 pixels). Dropping ZWJ gives two glyphs, 949 and 24. The minimally-qualified form without VS16 also gives glyph 2924 in this test.
+This tests the specified file directly and does not test application font selection or operating-system rendering.

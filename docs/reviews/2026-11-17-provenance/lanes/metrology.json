@@ -1,0 +1,135 @@
+{
+  "lane": "metrology",
+  "kind": "workflow",
+  "title": "From an international standard to a measured national realization",
+  "question": "How can an international decision about a measurement unit be linked to an identified laboratory operation, and what evidence separates the vote, the effective date, the measurements and dissemination?",
+  "summary": "The 1875 Metre Convention established the authority under which the CGPM sanctioned a material kilogram in 1889 and adopted a fixed-Planck-constant definition on 16 November 2018. That definition took effect on 20 May 2019. NIST used its NIST-4 Kibble balance and the exact constant to assign masses to two identified standards in September and October 2019 and repeated the realization on the same standards in early 2025. BIPM separately measured the transfer specimens against its own working standard in the first comparison. NIST's dissemination chain transitioned to the international consensus value on 1 February 2021.",
+  "inputs": [
+    "Unit, definition or standard name and relevant years",
+    "Standard-setting institution, document archive and official language",
+    "Potential receiving national laboratory and instrument, specimen or comparison identifiers",
+    "Candidate measurement output and the former basis for traceability"
+  ],
+  "steps": [
+    {
+      "title": "Identify the mandate and the institutional anchor",
+      "action": "Search the existing graph and lead files for the unit, instrument name and spelling variants. Search the issuing body's treaty and proceedings archive using the institution, standard name and mandate year. In the operative articles, record the organization that adopts decisions, the committee that oversees the work and the laboratory or secretariat that maintains standards. Check article-level amendment markers before dating any clause in a consolidated edition.",
+      "result": "The catalogue had an institutional Metre Convention record and a lead on the physical 1889 metre. Searches for the SI kilogram, redefinition, Planck constant and Kibble or watt balances found no equivalent modern kilogram definition or realization record. The clauses marked 1875 in the consolidated treaty establish the international bureau, place it under the CIPM and CGPM, and assign the CGPM the sanction of fundamental metrological determinations. The CGPM is the definition issuer. BIPM is also the comparison pilot and comparator examined below, while NIST operates NIST-4.",
+      "sources": [
+        {
+          "title": "Metre Convention and Annexed Rules, consolidated bilingual text",
+          "url": "https://www.bipm.org/documents/20126/44107685/metre-convention.pdf/cd9c9e57-0cc6-4cda-2930-ec1d7c853743?download=true&version=1.5",
+          "locator": "English pp. 2, 6 (PDF pp. 13, 17), Convention Arts. 1 and 3 and Annexed Rules Art. 7, provisions marked 1875"
+        }
+      ]
+    },
+    {
+      "title": "Cross-check a material standard through allocation and later use",
+      "action": "For a material lineage, search the issuer's original proceedings index for the unit and 'prototype', 'allocation' or 'tirage au sort'. Transcribe serial numbers and recipient from the allocation table. In the recipient laboratory's publications catalogue, search those exact serials with 'national prototype' and 'recalibration'; require the operator's record of the same specimens before asserting actual retention or use. Record whether calibration certificates are available directly or only as transcriptions.",
+      "result": "The first CGPM sanctioned the international prototypes on 26 September 1889. Its distribution table assigns national kilogram copies 4 and 20 to the United States. R. S. Davis of the US National Bureau of Standards identifies K20 as the national prototype and K4 as its check standard, and transcribes their 1889 certificate offsets of −0.039 mg and −0.075 mg from nominal 1 kg. The paper also reports 1984 BIPM recalibration results for both serials. The transcribed original certificate values are accessible in the laboratory paper. Separate certificate facsimiles were outside the inspected evidence.",
+      "sources": [
+        {
+          "title": "First CGPM proceedings",
+          "url": "https://www.bipm.org/documents/20126/17314988/CGPM1.pdf/ab69792a-2e5e-2040-14d0-11464bc9414c?download=true&t=1633423308593&version=1.3",
+          "locator": "26 September 1889, pp. 34–40, vote pp. 38–39 and prototype distribution table p. 40, États-Unis row"
+        },
+        {
+          "title": "Third CGPM, Declaration 2 of 1901",
+          "url": "https://www.bipm.org/en/committees/cg/cgpm/3-1901/resolution-2",
+          "locator": "Preamble records the 1889 date and cites p. 34 of the proceedings. Declaration paragraph 1 specifies the kilogram as a unit of mass."
+        },
+        {
+          "title": "R. S. Davis, Recalibration of the U.S. National Prototype Kilogram",
+          "url": "https://nvlpubs.nist.gov/nistpubs/jres/090/jresv90n4p263_A1b.pdf",
+          "locator": "pp. 263–265, abstract, introduction and K20/K4 certificate and recalibration values"
+        }
+      ]
+    },
+    {
+      "title": "Verify decision, effect and operational scope",
+      "action": "Query the competent body's decisions index for the unit, meeting year and definitional term. Open the final resolution and proceedings, then locate the adoption item, any effective-date clause, the former definition being superseded, and the operative value and units. Check the published method guide under 'mise en pratique' or 'realization' for eligible methods, recording its edition date. Keep its general method description distinct from evidence of a dated laboratory run.",
+      "result": "In the seventh session of the 26th CGPM on 16 November 2018, members unanimously adopted Draft Resolution A as Resolution 1. The English final text explicitly sets 20 May 2019 as the effective date and abrogates the prototype-based definition. The kilogram now uses the exact value h = 6.626 070 15 × 10⁻³⁴ J s, with the metre and second defined by c and ΔνCs. The 2021 mise en pratique identifies Kibble balances and X-ray crystal density among eligible approaches. That edition explains how a realization can work. The laboratory runs below establish when it did work.",
+      "sources": [
+        {
+          "title": "Twenty-sixth CGPM proceedings, vote and final resolution",
+          "url": "https://www.bipm.org/documents/20126/35655029/CGPM26.pdf/f1d8d7e6-2570-9479-9ee9-bb8d86138fe9",
+          "locator": "French pp. 203–204 and English p. 465, item 54, adoption; English pp. 472–474, effective date, fixed value and abrogation"
+        },
+        {
+          "title": "CGPM Resolution 1 of 2018, revision of the SI",
+          "url": "https://www.bipm.org/en/committees/cg/cgpm/26-2018/resolution-1",
+          "locator": "Operative clauses beginning with the 20 May 2019 date, annexes 1 and 3"
+        },
+        {
+          "title": "BIPM, Mise en pratique for the definition of the kilogram in the SI",
+          "url": "https://www.bipm.org/documents/20126/41489673/SI-App2-kilogram.pdf/5881b6b5-668d-5d2b-f12a-0ef8ca437176?download=true&version=1.9",
+          "locator": "7 July 2021 version, pp. 1–3, §§1, 2.1, 2.2 and 3"
+        }
+      ]
+    },
+    {
+      "title": "Match the operative rule to a dated laboratory output",
+      "action": "Search the issuing body's Key Comparison Database or equivalent under the unit, 'realizations of the [unit]' and the receiver's acronym. Open the final report by identifier. Pair the protocol stating which definition or constant was used with the receiver's signed or coauthored operations section. Check lab, apparatus, procedure date, specimen serials, numerical result and uncertainty in the results table. Record which inputs are fixed and which quantities are obtained by measurement.",
+      "result": "BIPM comparison CCM.M-K8.2019 required the exact fixed h in the participants' primary realizations. The final report describes NIST as the operator of NIST-4, two direct measurement series on each travelling platinum–iridium standard numbered 85 and 104 in vacuum during September and October 2019, and a separate entry for the BIPM comparator. NIST reported a deviation from nominal 1 kg of −0.7679 mg for 85 (standard uncertainty 0.027 mg) and +0.398 mg for 104 (standard uncertainty 0.0273 mg). The joined evidence identifies both endpoints: the operative fixed-h definition supplies the numerical input and the dated NIST-4 realization assigns masses with it.",
+      "sources": [
+        {
+          "title": "Stock et al., Final report on CCM.M-K8.2019",
+          "url": "https://www.bipm.org/documents/20126/48150799/CCM.M-K8.2019.pdf/1212a40a-5e5e-f614-0d2b-dd89404424f8",
+          "locator": "16 October 2020, §2 pp. 4–5 for protocol, Table 2 p. 6 for specimen identity, §4.4 p. 8 for NIST dates and apparatus, Table 4 p. 13 for results"
+        },
+        {
+          "title": "NIST, The NIST Mise en Pratique since the Redefinition of the Kilogram",
+          "url": "https://www.nist.gov/programs-projects/nist-mise-en-pratique-redefinition-kilogram",
+          "locator": "Realization section, NIST-4, K85/K104 and vacuum measurements"
+        }
+      ]
+    },
+    {
+      "title": "Check separate measurements and distinguish repetition from independent scrutiny",
+      "action": "Inspect the comparator's own measurement method and its results for the same serials. Look up subsequent comparison identifiers for a first-hand report about a fresh campaign, and extract run dates from the lab section instead of assuming the identifier year. Check whether a reference average includes the receiver and whether putatively separate publications reuse the same lab or data. Record inaccessible raw records and which evidence remains independently inspectable.",
+      "result": "BIPM weighed the two artefacts against its own working mass standard and reported deviations of −0.7498 mg for 85 and +0.4169 mg for 104, with standard uncertainty 0.0021 mg on each. This is a separate comparator operation on the same specimens. The overall comparison reference includes NIST, so agreement with that average gives no second independent test of NIST's result. The CCM.M-K8.2024 final report documents a fresh NIST-4 campaign in 2025: 85 on 17–27 January and 104 on 28 January–3 February. Some participants and authors recur. Public reports give the methods and outputs, but individual submitted run files and notebooks were outside the inspected evidence.",
+      "sources": [
+        {
+          "title": "Stock et al., Final report on CCM.M-K8.2019",
+          "url": "https://www.bipm.org/documents/20126/48150799/CCM.M-K8.2019.pdf/1212a40a-5e5e-f614-0d2b-dd89404424f8",
+          "locator": "§5 pp. 10–11, Table 4 p. 13, §§6–8 for comparator, receiver measurements and reference-value calculation"
+        },
+        {
+          "title": "Stock et al., Final report of CCM.M-K8.2024",
+          "url": "https://www.bipm.org/documents/20126/48150799/CCM.M-K8.2024.pdf/8ab5186c-cfe2-71c5-a389-6d04426d3531?download=true&t=1775130198564&version=5.0",
+          "locator": "Final report dated 8 December 2025, published in 2026, Table 2, §4.6 printed p. 9 (PDF p. 11), Table 5 printed p. 18 (PDF p. 20)"
+        }
+      ]
+    },
+    {
+      "title": "Test pre-existing use and trace dissemination separately",
+      "action": "Search the operator's publications for the instrument model in the years before the vote. Compare the earlier and later experiments' inputs and outputs. For any claim about downstream use, search both the international organization's implementation notices and the receiver's calibration records by 'dissemination', 'traceability' and the reference identifier. Admit only the dependency or implementation step tied to an observed action.",
+      "result": "A 2017 NIST paper records NIST-4 measuring h from weighings during 2015–2017, before the 2018 vote. Its existence and operation therefore cannot be attributed to the vote. In 2019 the same instrument applied already fixed h to assign masses, reversing the inference. NIST records initial dissemination via a prototype-traceable chain and a switch on 1 February 2021 to an international consensus value. BIPM's implementation notice independently dates that switch and describes the consensus as combining multiple comparisons. A NIST direct realization, the international consensus and a downstream calibration consequently need separate evidence.",
+      "sources": [
+        {
+          "title": "Haddad et al., Measurement of the Planck constant at NIST from 2015 to 2017",
+          "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=923579",
+          "locator": "Metrologia 54 (2017), p. 633, abstract and §§1–2"
+        },
+        {
+          "title": "NIST, The NIST Mise en Pratique since the Redefinition of the Kilogram",
+          "url": "https://www.nist.gov/programs-projects/nist-mise-en-pratique-redefinition-kilogram",
+          "locator": "Dissemination section, initial traceability and first consensus value"
+        },
+        {
+          "title": "BIPM, First consensus value for the kilogram",
+          "url": "https://www.bipm.org/en/-/2021-kg-consensus",
+          "locator": "Paragraphs on consensus calculation, multiple inputs and traceability from 1 February 2021"
+        }
+      ]
+    }
+  ],
+  "decision": "Extend metre-convention-international-metrology with the 1889 sanction and retain the exact national-copy chain in the workflow. Propose si-kilogram-definition-by-planck-constant as an institutional builds_on of metre-convention-international-metrology. Propose nist-4-kibble-balance-kilogram-realization as requiring the operative si-kilogram-definition-by-planck-constant for the particular fixed-h mass assignment, supported by the 2019 experiment and a 2025 repeat. The ruling body and laboratory records establish different endpoints. Treat the previously operating balance, the 2021 consensus-based dissemination and wider industrial uptake as distinct claims.",
+  "reject_if": "Reject a dependency based only on a decision date, catalogue listing or recurring instrument or specimen name. NIST-4 already measured h before 2018. A pre-vote publication about its existence is evidence of earlier work and cannot establish that the 2018 decision caused its construction or operation. The 2019 comparison earns a narrower dependency because it states that the new fixed value was used in the mass assignment.",
+  "stop_when": "Stop when the original decision supplies the rule and its dates, a receiver-run record explicitly consumes that rule and identifies an operational output, and a separate comparator measurement or other original scrutiny has been checked. If the record stops at a method guide, approval, equipment listing or common label, leave the operation or dependency unresolved and name the missing run, output or identity record.",
+  "next_anchor": "Test the 17th CGPM 1983 Resolution 1 on the metre against a national laboratory's named stabilized-laser or interferometer measurement. Locate the original resolution in BIPM's history-of-the-metre index and use the NIST collection SI Research in Journal of Research of NIST to find Jennings and colleagues' 1987 The continuity of the meter. Check the operation date and whether the result tests continuity with the former standard or realizes the new definition.",
+  "next": "Send the exact proposed events, links and source passages for independent review. Apply the method to the 1983 metre case and check its transmitter and receiver evidence before deciding on any new record.",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "base": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6"
+}
