@@ -112,6 +112,84 @@
           "supports": "Original introduction explains multilingual representation."
         }
       ]
+    },
+    {
+      "id": "emoji-15-1-head-shake-publication",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 9,
+          "day": 12
+        },
+        "latest": {
+          "year": 2023,
+          "month": 9,
+          "day": 12
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2023-09-12",
+        "basis": "Release date stated in the cited original publication."
+      },
+      "statement": "The Unicode Consortium released Unicode 15.1.0 and the synchronized Emoji 15.1 update. The emoji data lists a head shaking horizontally sequence made of U+1F642 U+200D U+2194 U+FE0F.",
+      "caveats": "The four constituent code points were already assigned. This is the publication of the recommended sequence, with display support determined by the implementation.",
+      "evidence": [
+        {
+          "source": "unicode-consortium-2023-emoji-15-1-release",
+          "locator": "Release date and §A Synchronization",
+          "supports": "Establishes the publication date and the synchronized technical standard."
+        },
+        {
+          "source": "unicode-consortium-2023-emoji-15-1-zwj-data",
+          "locator": "Version header and line 1524",
+          "supports": "Lists the exact four-code-point sequence as RGI in Emoji 15.1."
+        }
+      ]
+    },
+    {
+      "id": "debian-12-4-emoji-15-1-font-adoption",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 12,
+          "day": 10
+        },
+        "latest": {
+          "year": 2023,
+          "month": 12,
+          "day": 10
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2023-12-10",
+        "basis": "Release date stated in the cited original publication."
+      },
+      "statement": "Debian 12.4 included Noto Color Emoji package 2.042-0+deb12u1. Its font contains a combined glyph for the Emoji 15.1 head shaking horizontally sequence.",
+      "caveats": "This is scoped to a distributed font package and one verified sequence. Application display depends on font selection and the rendering stack.",
+      "evidence": [
+        {
+          "source": "debian-2023-bookworm-12-4-release",
+          "locator": "Release date and Miscellaneous Bugfixes, fonts-noto-color-emoji row",
+          "supports": "Debian announces stable distribution of the font update."
+        },
+        {
+          "source": "debian-2023-bookworm-noto-color-emoji-changelog",
+          "locator": "Lines 1–9, 2.042-0+deb12u1 entry",
+          "supports": "Identifies the exact package version that adopted the upstream Emoji 15.1 update in bookworm."
+        },
+        {
+          "source": "noto-emoji-2023-v2-042-release",
+          "locator": "v2.042 release and tagged NotoColorEmoji.ttf",
+          "supports": "Google’s versioned release supplies the matching upstream implementation."
+        },
+        {
+          "source": "debian-2023-bookworm-noto-color-emoji-package",
+          "locator": "Package control and extracted NotoColorEmoji.ttf",
+          "supports": "Confirms the exact shipped version and combined colour glyph in the archived package."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -125,7 +203,7 @@
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "concept": "recalled",
       "tier": "recalled",
       "impact": "recalled"
