@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modern technology review · Interwoven</title>
+<style>
+:root {
+  color-scheme: light;
+  --paper: #f4f6f1;
+  --white: #fefffc;
+  --ink: #18271f;
+  --muted: #526359;
+  --line: #d2ddd3;
+  --deep: #153c31;
+  --accent: #246953;
+  --accent-light: #e5efe8;
+  --warm: #f6f1e7;
+  --warm-line: #dfd4c0;
+  font: 16px/1.55 system-ui,sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+h1,h2,h3,p { margin: 0; }
+h1,h2 { font-family: Georgia,serif; font-weight: 400; line-height: 1.08; }
+h1 { font-size: clamp(2.6rem,5vw,5rem); letter-spacing: -.048em; }
+h2 { font-size: clamp(1.85rem,3vw,2.8rem); letter-spacing: -.035em; }
+h3 { line-height: 1.35; font-size: 1.08rem; }
+a { color: var(--accent); text-underline-offset: .16em; }
+button,select,input { font: inherit; }
+button,select { cursor: pointer; }
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid #986322;
+  outline-offset: 3px;
+}
+.wrap { max-width: 1400px; margin: 0 auto; padding-inline: clamp(16px,4vw,56px); }
+header { background: var(--deep); color: #fbfdf9; }
+header .wrap { padding-block: 28px 42px; }
+.brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .13em; font-size: .72rem; font-weight: 720; }
+header p { color: #d7e7dd; }
+header .intro { margin-top: 14px; max-width: 68ch; }
+.tabs { background: var(--white); border-bottom: 1px solid var(--line); }
+.tabs .wrap { display: flex; align-items: stretch; gap: 22px; overflow-x: auto; }
+.tab {
+  background: none; border: 0; border-bottom: 3px solid transparent; color: var(--muted);
+  padding: 14px 2px 11px; white-space: nowrap; font-weight: 650;
+}
+.tab[aria-current] { color: var(--deep); border-color: var(--accent); }
+.layout { display: grid; grid-template-columns: 221px minmax(0,1fr); gap: 32px; padding-block: 32px 48px; }
+.subject-heading { color: var(--muted); }
+.subject-label,#subject { display: none; }
+#subject {
+  width: 100%; margin-top: 6px; padding: 8px;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--white); color: var(--ink);
+}
+.subjects { margin-top: 8px; display: grid; gap: 3px; }
+.subjects button {
+  color: inherit; background: transparent; text-align: left; font-weight: 600;
+  border: 1px solid transparent; border-radius: 7px; padding: 7px 10px;
+}
+.subjects button:hover,.subjects button[aria-pressed="true"] {
+  background: var(--accent-light); color: var(--deep);
+}
+.subjects button[aria-pressed="true"] { border-color: #ccdcd1; }
+.side-scope { color: var(--muted); font-size: .85rem; margin-top: 22px; }
+#view:focus { outline: none; }
+.section-intro { color: var(--muted); margin-top: 8px; max-width: 76ch; }
+.controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 14px; margin: 20px 0 13px; }
+.controls label { display: grid; gap: 5px; color: var(--muted); font-weight: 650; font-size: .78rem; }
+.controls select,.controls input {
+  min-height: 40px; width: 100%;
+  padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--white); color: var(--ink); font-size: .93rem; font-weight: 400;
+}
+.controls .search { flex: 1 1 260px; }
+.graph-controls label { width: min(100%,410px); }
+.result { margin: 0 0 12px; color: var(--muted); font-size: .83rem; }
+.inventory { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; align-items: start; }
+.card,.panel {
+  background: var(--white); border: 1px solid var(--line); border-radius: 9px;
+  padding: clamp(14px,2vw,22px); overflow-wrap: anywhere;
+}
+.card { display: grid; gap: 9px; }
+.card .topic { color: var(--muted); font-size: .78rem; }
+.card h3 { font-size: 1.18rem; }
+.meta { font-size: .85rem; color: var(--muted); display: flex; align-items: baseline; flex-wrap: wrap; gap: 3px 11px; }
+.status { font-weight: 690; }
+.status::before { content: ''; display: inline-block; width: .55em; height: .55em; border-radius: 50%; background: currentColor; margin-right: .43em; }
+.scope { color: #514635; background: var(--warm); border-left: 2px solid var(--warm-line); padding: 8px 10px; font-size: .9rem; }
+.label { font-weight: 700; }
+details { padding-top: 7px; }
+summary { cursor: pointer; color: var(--accent); font-weight: 670; }
+.sources,.item-list { padding-left: 1.25rem; margin: 7px 0 0; }
+.sources li,.item-list li { margin-bottom: 6px; }
+.sources { font-size: .89rem; overflow-wrap: anywhere; }
+.sources p { margin-top: 3px; color: var(--muted); }
+.record-buttons { display: flex; flex-wrap: wrap; gap: 7px; }
+.record-button {
+  background: var(--accent-light); color: var(--deep); border: 1px solid #c8dbce; border-radius: 6px;
+  font-size: .85rem; padding: 6px 9px; text-align: left;
+}
+.record-button:hover { background: #d6e6db; }
+.empty { border: 1px dashed #becdc2; border-radius: 8px; color: var(--muted); padding: 16px; }
+.graph-window {
+  overflow: auto; max-height: 580px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--white);
+}
+.graph-inner { position: relative; }
+.graph-inner svg { position: absolute; inset: 0; }
+.graph-node {
+  position: absolute; display: grid; gap: 3px; align-content: center; text-align: left;
+  padding: 7px 9px; overflow: hidden; overflow-wrap: anywhere; background: var(--white); color: var(--ink);
+  border: 1px solid #a4b9aa; border-radius: 6px; font-size: .8rem; line-height: 1.2; font-weight: 680;
+}
+.graph-node span {
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.graph-node small { color: var(--muted); font-weight: 500; font-size: .71rem; }
+.graph-node.seed { background: var(--accent-light); }
+.graph-node:hover,.graph-node[aria-pressed="true"] { background: #d6e8dc; border-color: #497863; }
+.graph-legend { display: flex; flex-wrap: wrap; gap: 6px 19px; margin-bottom: 10px; color: var(--muted); font-size: .85rem; }
+.graph-legend span::before { content: ''; display: inline-block; width: 17px; border-top: 2px solid #4e735f; vertical-align: middle; margin-right: 6px; }
+.graph-legend .transmission::before { border-top: 2px dashed #96652c; }
+.details-grid { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 12px; margin-top: 13px; align-items: start; }
+.details-grid p { margin-top: 7px; }
+.details-grid .meta { margin-bottom: 6px; }
+.details-grid details { border-top: 1px solid var(--line); margin-top: 9px; }
+.stack { display: grid; gap: 12px; margin-top: 20px; }
+.stack h3:not(:first-child) { margin-top: 15px; }
+.stack .stack-head { border-bottom: 1px solid var(--line); padding-bottom: 9px; margin-bottom: 10px; }
+footer { padding: 20px 0 25px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+footer summary { font-size: .88rem; }
+footer code { overflow-wrap: anywhere; }
+[hidden] { display: none !important; }
+@media(max-width: 1000px) { .layout { grid-template-columns: 165px minmax(0,1fr); gap: 18px; } }
+@media(max-width: 820px) {
+  .layout { grid-template-columns: 1fr; }
+  .subjects,.side-scope,.subject-heading { display: none; }
+  .subject-label,#subject { display: block; }
+  #subject { max-width: 420px; }
+}
+@media(max-width: 650px) {
+  .inventory,.details-grid { grid-template-columns: 1fr; }
+  header .wrap { padding-top: 20px; padding-bottom: 28px; }
+  .brand { align-items: baseline; margin-bottom: 17px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <p class="eyebrow">Interwoven · Research review</p>
+      <p id="cutoff"></p>
+    </div>
+    <h1>Modern technology</h1>
+    <p class="intro">Dated observations of technology in use, on the market, in trials or still proposed. Follow the historical evidence behind selected records.</p>
+  </div>
+</header>
+<nav class="tabs" aria-label="Review sections">
+  <div class="wrap">
+    <button type="button" class="tab" data-view="inventory" aria-current="page">Inventory</button>
+    <button type="button" class="tab" data-view="graph">Genealogies</button>
+    <button type="button" class="tab" data-view="frontier">Research frontier</button>
+  </div>
+</nav>
+<div class="wrap layout">
+  <aside aria-label="Subjects">
+    <p class="eyebrow subject-heading">Subject</p>
+    <label class="eyebrow subject-label" for="subject">Subject</label>
+    <select id="subject"></select>
+    <div class="subjects" id="subjects"></div>
+    <p class="side-scope" id="side-scope"></p>
+  </aside>
+  <main id="view" tabindex="-1"></main>
+</div>
+<footer>
+  <div class="wrap">
+    <a href="snapshot.svg" target="_blank" rel="noopener">Open the evidence-date figure</a>
+    <details>
+      <summary>About the data</summary>
+      <p>Each observation is scoped to the reported location, date and evidence limit. The graph follows up to four steps through established dependence and transmission links.</p>
+      <p id="provenance"></p>
+    </details>
+  </div>
+</footer>
+<noscript><p class="wrap">Enable JavaScript to explore the inventory and its sources.</p></noscript>
+<script type="application/json" id="review-data">/* REVIEW_DATA */</script>
+<script>
+"use strict";
+const model = JSON.parse(document.querySelector("#review-data").textContent);
+const root = document.querySelector("#view");
+const subject = document.querySelector("#subject");
+const statusList = Object.keys(model.statuses);
+const changedRecords = new Set(model.changed);
+const state = {lane: "", view: "inventory", status: "", query: "", anchor: null, selected: ""};
+const svgNS = "http://www.w3.org/2000/svg";
+
+function node(tag, className = "", text = "") {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text) element.textContent = text;
+  return element;
+}
+
+function button(text, action, className) {
+  const element = node("button", className, text);
+  element.type = "button";
+  element.addEventListener("click", action);
+  return element;
+}
+
+function option(value, label) {
+  const item = node("option", "", label);
+  item.value = value;
+  return item;
+}
+
+function formatDate(date) {
+  if (!/^\d{4}-\d\d(?:-\d\d)?$/.test(date)) return date;
+  const time = new Date(date.length === 7 ? date + "-01T00:00:00Z" : date + "T00:00:00Z");
+  if (Number.isNaN(time.getTime())) return date;
+  const format = {timeZone: "UTC", month: "short", year: "numeric"};
+  if (date.length === 10) format.day = "numeric";
+  return new Intl.DateTimeFormat("en-GB", format).format(time);
+}
+
+function titleCase(value) {
+  return value[0].toUpperCase() + value.slice(1);
+}
+
+function labelType(value) {
+  return value.replaceAll("_", " ");
+}
+
+function externalLink(url, title) {
+  let parsed;
+  try { parsed = new URL(url); } catch { return node("span", "", title); }
+  if (!["http:", "https:"].includes(parsed.protocol)) return node("span", "", title);
+  const link = node("a", "", title);
+  link.href = parsed.href;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  return link;
+}
+
+function sourcedText(parent, text) {
+  const parts = text.split(/(https?:\/\/[^\s<>"\x27]+)/);
+  parts.forEach((part, index) => {
+    if (index % 2 === 0) {
+      parent.append(part);
+      return;
+    }
+    // A closing parenthesis is often citation punctuation, and sometimes belongs to a URL.
+    let url = part.replace(/[.,;\]]+$/, "");
+    if (url.endsWith(")") && !url.includes("(")) url = url.slice(0, -1);
+    parent.append(externalLink(url, url), part.slice(url.length));
+  });
+}
+
+function sources(citations) {
+  const list = node("ul", "sources");
+  for (const citation of citations) {
+    const item = node("li");
+    item.append(externalLink(citation.url, citation.title));
+    const context = [citation.date && formatDate(String(citation.date)), citation.locator].filter(Boolean);
+    if (context.length) item.append(document.createTextNode(" · " + context.join(" · ")));
+    if (citation.supports) item.append(node("p", "", citation.supports));
+    list.append(item);
+  }
+  return list;
+}
+
+function disclosure(title, content, open = false) {
+  const section = node("details");
+  section.append(node("summary", "", title), content);
+  section.open = open;
+  return section;
+}
+
+function focusLanes() {
+  return state.lane ? model.lanes.filter(lane => lane.lane === state.lane) : model.lanes;
+}
+
+function chooseLane(lane) {
+  state.lane = lane;
+  state.anchor = null;
+  state.selected = "";
+  render();
+}
+
+function changeView(view, focus = false) {
+  state.view = view;
+  render();
+  if (focus) root.focus();
+}
+
+function openRecord(id) {
+  state.anchor = id;
+  state.selected = id;
+  changeView("graph", true);
+}
+
+function showHeading(title, description) {
+  root.append(node("h2", "", title));
+  if (description) root.append(node("p", "section-intro", description));
+}
+
+function inventoryCard(lane, row) {
+  const card = node("article", "card");
+  const metadata = node("div", "meta");
+  const status = node("span", "status", titleCase(row.status));
+  status.style.color = model.statuses[row.status];
+  const date = node("time", "", formatDate(row.date));
+  date.dateTime = row.date;
+  metadata.append(status, date, node("span", "", row.region));
+  const bounds = node("p", "scope");
+  bounds.append(node("span", "label", "Evidence limit. "), row.limit);
+  card.append(node("p", "topic", lane.title), node("h3", "", row.name), metadata,
+              node("p", "", row.claim), bounds);
+  card.append(disclosure(`${row.sources.length} ${row.sources.length === 1 ? "source" : "sources"}`, sources(row.sources)));
+  if (row.records.length) {
+    const group = node("div", "record-buttons");
+    for (const id of row.records) group.append(button(model.nodes[id].name + " ↗", () => openRecord(id), "record-button"));
+    card.append(group);
+  }
+  return card;
+}
+
+function renderInventory() {
+  showHeading("Dated observations", "Filter by subject or status. Each card gives the date, geography and limit of the cited observation.");
+  const controls = node("div", "controls");
+  const statusLabel = node("label", "", "Status");
+  const status = node("select");
+  status.setAttribute("aria-label", "Status");
+  status.append(option("", "Every status"));
+  for (const name of statusList) status.append(option(name, titleCase(name)));
+  status.value = state.status;
+  statusLabel.append(status);
+  const searchLabel = node("label", "search", "Search observations");
+  const search = node("input");
+  search.type = "search";
+  search.setAttribute("aria-label", "Search observations");
+  search.placeholder = "Name, place or keyword";
+  search.value = state.query;
+  searchLabel.append(search);
+  controls.append(statusLabel, searchLabel);
+  const result = node("p", "result");
+  result.setAttribute("aria-live", "polite");
+  const cards = node("div", "inventory");
+  root.append(controls, result, cards);
+  const rows = focusLanes().flatMap(lane => lane.inventory.map(row => ({lane, row})));
+  function update() {
+    state.status = status.value;
+    state.query = search.value;
+    const query = state.query.toLocaleLowerCase().trim();
+    const matches = rows.filter(({lane, row}) => (
+      (!state.status || row.status === state.status) &&
+      (!query || [lane.title, row.name, row.region, row.claim].join(" ").toLocaleLowerCase().includes(query))
+    ));
+    result.textContent = `${matches.length} of ${rows.length} observations`;
+    cards.replaceChildren(...matches.map(({lane,row}) => inventoryCard(lane, row)));
+    if (!matches.length) cards.append(node("p", "empty", "No observations match these filters."));
+  }
+  status.addEventListener("change", update);
+  search.addEventListener("input", update);
+  update();
+}
+
+const priorByRecord = new Map();
+for (const edge of model.edges) {
+  if (!priorByRecord.has(edge.to)) priorByRecord.set(edge.to, []);
+  priorByRecord.get(edge.to).push(edge);
+}
+
+function tracedGraph(seeds) {
+  const distances = new Map(seeds.map(id => [id, 0]));
+  const edgeSet = new Set();
+  let frontier = seeds;
+  for (let depth = 0; depth < model.depth && frontier.length; depth++) {
+    const upcoming = [];
+    for (const id of frontier) {
+      for (const edge of priorByRecord.get(id) ?? []) {
+        edgeSet.add(edge);
+        if (!distances.has(edge.from)) {
+          upcoming.push(edge.from);
+          distances.set(edge.from, depth + 1);
+        }
+      }
+    }
+    frontier = upcoming;
+  }
+  const edges = [...edgeSet];
+  const dependants = new Map([...distances.keys()].map(id => [id, new Set()]));
+  const prerequisites = new Map([...distances.keys()].map(id => [id, new Set()]));
+  for (const edge of edges) {
+    dependants.get(edge.from).add(edge.to);
+    prerequisites.get(edge.to).add(edge.from);
+  }
+  // Rank backwards from sinks so every acyclic relationship points towards its dependant.
+  const pending = new Map([...dependants].map(([id, ids]) => [id, ids.size]));
+  const rank = new Map([...distances.keys()].map(id => [id, 0]));
+  const queue = [...distances.keys()].filter(id => !pending.get(id));
+  for (const id of queue) {
+    for (const earlier of prerequisites.get(id)) {
+      rank.set(earlier, Math.max(rank.get(earlier), rank.get(id) + 1));
+      pending.set(earlier, pending.get(earlier) - 1);
+      if (!pending.get(earlier)) queue.push(earlier);
+    }
+  }
+  return {rank: queue.length === distances.size ? rank : distances, edges};
+}
+
+function svgElement(tag, attributes) {
+  const element = document.createElementNS(svgNS, tag);
+  for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
+  return element;
+}
+
+function recordDetails(id, target) {
+  const record = model.nodes[id];
+  const details = node("section", "panel");
+  details.append(node("h3", "", record.name));
+  const metadata = [record.date, record.places.join(", ")].filter(Boolean);
+  if (changedRecords.has(id)) metadata.push("Added or revised in this review");
+  if (metadata.length) details.append(node("p", "meta", metadata.join(" · ")));
+  details.append(node("p", "", record.description));
+  if (record.caveats) details.append(node("p", "scope", record.caveats));
+  const canonical = node("p");
+  canonical.append(externalLink(record.path, "Open canonical JSON ↗"));
+  details.append(canonical);
+  for (const event of record.events) {
+    const content = node("div");
+    content.append(node("p", "", event.statement));
+    if (event.places.length) content.append(node("p", "meta", event.places.join(", ")));
+    if (event.caveats) content.append(node("p", "scope", event.caveats));
+    if (event.evidence.length) content.append(sources(event.evidence));
+    details.append(disclosure(event.date + " · " + labelType(event.type), content));
+  }
+  if (record.unresolved.length || record.unproved.length) {
+    const content = node("div");
+    for (const item of record.unresolved) {
+      content.append(node("p", "", [item.about, item.note].join(" · ")));
+      if (item.evidence.length) content.append(sources(item.evidence));
+    }
+    for (const item of record.unproved) {
+      content.append(node("p", "", `${titleCase(item.status)} · ${labelType(item.type)} · ${item.name}`));
+      content.append(node("p", "", item.statement));
+      if (item.caveats) content.append(node("p", "scope", item.caveats));
+      if (item.evidence.length) content.append(sources(item.evidence));
+    }
+    details.append(disclosure("Unresolved evidence and proposed links", content));
+  }
+  target.replaceChildren(details);
+}
+
+function renderNetwork() {
+  showHeading("Canonical genealogies", "Select an achievement to trace up to four steps backwards. Arrows point from the referenced achievement to the later or receiving record. Choose a record or relationship to inspect its evidence.");
+  const choices = model.seeds[state.lane] ?? [];
+  if (!choices.length) {
+    root.append(node("p", "empty", "There are no linked canonical records for this subject."));
+    return;
+  }
+  const controls = node("div", "controls graph-controls");
+  const label = node("label", "", "Starting achievement");
+  const select = node("select");
+  const sorted = [...choices].sort((a,b) => model.nodes[a].name.localeCompare(model.nodes[b].name));
+  select.setAttribute("aria-label", "Starting achievement");
+  select.append(option("", "All starting achievements"));
+  for (const id of sorted) select.append(option(id, model.nodes[id].name));
+  if (state.anchor === null || (state.anchor && !choices.includes(state.anchor))) {
+    const featured = focusLanes().flatMap(lane => lane.inventory.flatMap(row => row.records));
+    state.anchor = featured.find(id => priorByRecord.has(id)) ??
+                   choices.find(id => priorByRecord.has(id)) ?? featured[0] ?? choices[0];
+  }
+  select.value = state.anchor;
+  label.append(select);
+  controls.append(label);
+  const legend = node("div", "graph-legend");
+  legend.append(node("span", "", "Established dependence"), node("span", "transmission", "Established transmission"));
+  const result = node("p", "result");
+  const canvas = node("div", "graph-window");
+  canvas.tabIndex = 0;
+  canvas.setAttribute("aria-label", "Scrollable genealogy");
+  const details = node("div", "details-grid");
+  const recordPanel = node("div");
+  const edgePanel = node("section", "panel");
+  details.append(recordPanel, edgePanel);
+  root.append(controls, legend, result, canvas, details);
+
+  function draw() {
+    state.anchor = select.value;
+    const seeds = state.anchor ? [state.anchor] : choices;
+    const {rank, edges} = tracedGraph(seeds);
+    const furthest = Math.max(...rank.values());
+    const columns = Array.from({length: furthest + 1}, () => []);
+    for (const [id, depth] of rank) columns[furthest - depth].push(id);
+    const compare = (a, b) => (model.nodes[a].year ?? Infinity) - (model.nodes[b].year ?? Infinity) ||
+      model.nodes[a].name.localeCompare(model.nodes[b].name);
+    for (const column of columns) column.sort(compare);
+
+    if (!rank.has(state.selected)) state.selected = seeds[0];
+    const width = 182;
+    const height = 76;
+    const columnStep = 237;
+    const rowStep = 95;
+    const rows = Math.max(...columns.map(column => column.length));
+    const inner = node("div", "graph-inner");
+    const innerWidth = (columns.length - 1) * columnStep + width + 36;
+    const innerHeight = rows * rowStep + 17;
+    inner.style.width = innerWidth + "px";
+    inner.style.height = innerHeight + "px";
+    const svg = svgElement("svg", {viewBox: `0 0 ${innerWidth} ${innerHeight}`, width: innerWidth, height: innerHeight, "aria-hidden": "true"});
+    const definitions = svgElement("defs", {});
+    const layerColors = {dependence: "#4e735f", transmission: "#96652c"};
+    for (const [layer, fill] of Object.entries(layerColors)) {
+      const marker = svgElement("marker", {id: "arrow-" + layer, viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse"});
+      marker.append(svgElement("path", {d: "M 0 0 L 10 5 L 0 10 z", fill}));
+      definitions.append(marker);
+    }
+    svg.append(definitions);
+    inner.append(svg);
+    const positions = new Map();
+    const buttons = new Map();
+
+    function selectRecord(id) {
+      state.selected = id;
+      for (const [candidate, item] of buttons) item.setAttribute("aria-pressed", String(candidate === id));
+      recordDetails(id, recordPanel);
+      edgeDetails(edges, id, edgePanel);
+    }
+
+    columns.forEach((column, x) => column.forEach((id, y) => {
+      const record = model.nodes[id];
+      const left = x * columnStep + 18;
+      const top = y * rowStep + (innerHeight - column.length * rowStep) / 2 + 4;
+      positions.set(id, {left, top});
+      const item = button("", () => selectRecord(id), seeds.includes(id) ? "graph-node seed" : "graph-node");
+      item.title = [record.name, record.date].filter(Boolean).join(" · ");
+      item.append(node("span", "", record.name));
+      if (record.date) item.append(node("small", "", record.date));
+      Object.assign(item.style, {left: left + "px", top: top + "px", width: width + "px", height: height + "px"});
+      buttons.set(id, item);
+      inner.append(item);
+    }));
+    for (const edge of edges) {
+      const from = positions.get(edge.from);
+      const to = positions.get(edge.to);
+      const x1 = from.left + width;
+      const y1 = from.top + height / 2;
+      const x2 = to.left - 4;
+      const y2 = to.top + height / 2;
+      const elbow = x2 > x1 ? (x2 - x1) / 2 : 30;
+      const path = svgElement("path", {
+        d: `M ${x1} ${y1} C ${x1 + elbow} ${y1}, ${x2 - elbow} ${y2}, ${x2} ${y2}`,
+        stroke: layerColors[edge.layer], fill: "none", "stroke-width": 1.5,
+        "marker-end": "url(#arrow-" + edge.layer + ")",
+      });
+      if (edge.layer === "transmission") path.setAttribute("stroke-dasharray", "5 3");
+      svg.append(path);
+    }
+    canvas.replaceChildren(inner);
+    result.textContent = `${rank.size} canonical records · ${edges.length} established relationships`;
+    selectRecord(state.selected);
+    const position = positions.get(state.selected);
+    if (position.left + width > canvas.clientWidth) canvas.scrollLeft = position.left + width - canvas.clientWidth + 18;
+  }
+  select.addEventListener("change", () => {
+    state.selected = select.value;
+    draw();
+  });
+  draw();
+}
+
+function edgeDetails(edges, id, panel) {
+  const touching = edges.filter(edge => edge.from === id || edge.to === id);
+  panel.replaceChildren(node("h3", "", "Established relationships"));
+  if (!touching.length) panel.append(node("p", "meta", "No established dependence or transmission links are shown for this record."));
+  for (const edge of touching) {
+    const from = model.nodes[edge.from];
+    const to = model.nodes[edge.to];
+    const content = node("div");
+    content.append(node("p", "meta", titleCase(labelType(edge.type)) + (edge.confidence ? " · " + edge.confidence + " confidence" : "")));
+    content.append(node("p", "", edge.statement));
+    const fromEvent = from.events.find(event => event.id === edge.fromEvent);
+    const toEvent = to.events.find(event => event.id === edge.toEvent);
+    const eventDates = [fromEvent?.date, toEvent?.date].filter(Boolean);
+    if (eventDates.length) content.append(node("p", "meta", eventDates.join(" → ")));
+    if (edge.scope) content.append(node("p", "", edge.scope));
+    if (edge.caveats) content.append(node("p", "scope", edge.caveats));
+    if (edge.evidence.length) content.append(sources(edge.evidence));
+    panel.append(disclosure(from.name + " → " + to.name, content, touching.length === 1));
+  }
+}
+
+function listSection(title, entries, parent) {
+  if (!entries?.length) return;
+  const list = node("ul", "item-list");
+  for (const text of entries) {
+    const item = node("li");
+    sourcedText(item, text);
+    list.append(item);
+  }
+  parent.append(node("h3", "", title), list);
+}
+
+function renderFrontier() {
+  showHeading("Research frontier", "Open questions, alternative branches and limits documented in each subject review.");
+  const stack = node("div", "stack");
+  for (const lane of focusLanes()) {
+    const panel = node("article", "panel");
+    const head = node("div", "stack-head");
+    head.append(node("h3", "", lane.title));
+    if (lane.coverage) {
+      const coverage = node("p", "meta");
+      sourcedText(coverage, lane.coverage);
+      head.append(coverage);
+    }
+    panel.append(head);
+    listSection("Open evidence questions", lane.frontier, panel);
+    listSection("Alternative approaches", lane.alternatives, panel);
+    listSection("Historical trace notes", lane.trace, panel);
+    const otherSources = [...(lane.trace_sources ?? []), ...(lane.additional_sources ?? [])];
+    if (otherSources.length) panel.append(disclosure("Additional sources", sources(otherSources)));
+    if (lane.screen) {
+      const content = node("p");
+      sourcedText(content, lane.screen);
+      panel.append(disclosure("Records and duplicates checked", content));
+    }
+    stack.append(panel);
+  }
+  root.append(stack);
+}
+
+const subjectNames = [["", "All subjects"], ...model.lanes.map(lane => [lane.lane, lane.title])];
+for (const [value, label] of subjectNames) {
+  subject.append(option(value, label));
+  const item = button(label, () => chooseLane(value));
+  item.dataset.lane = value;
+  document.querySelector("#subjects").append(item);
+}
+subject.addEventListener("change", () => chooseLane(subject.value));
+for (const tab of document.querySelectorAll(".tab")) {
+  tab.addEventListener("click", () => changeView(tab.dataset.view, true));
+}
+const cutoff = [...new Set(model.lanes.map(lane => lane.as_of))].sort();
+document.querySelector("#cutoff").textContent = "Review date " + cutoff.map(formatDate).join(" · ");
+const provenance = document.querySelector("#provenance");
+if (model.base) provenance.append("Comparison base ", node("code", "", model.base), ". ");
+provenance.append("Input SHA-256 ", node("code", "", model.fingerprint));
+
+function render() {
+  subject.value = state.lane;
+  for (const item of document.querySelectorAll("#subjects button")) {
+    item.setAttribute("aria-pressed", String(item.dataset.lane === state.lane));
+  }
+  for (const tab of document.querySelectorAll(".tab")) {
+    if (tab.dataset.view === state.view) tab.setAttribute("aria-current", "page");
+    else tab.removeAttribute("aria-current");
+  }
+  document.querySelector("#side-scope").textContent = state.lane
+    ? focusLanes()[0].coverage : `${model.lanes.length} subjects across a bounded set of sites and dates.`;
+  root.replaceChildren();
+  if (state.view === "inventory") renderInventory();
+  if (state.view === "graph") renderNetwork();
+  if (state.view === "frontier") renderFrontier();
+}
+
+render();
+</script>
+</body>
+</html>
