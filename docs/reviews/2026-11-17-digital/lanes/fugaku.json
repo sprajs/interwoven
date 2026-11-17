@@ -1,0 +1,122 @@
+{
+  "lane": "fugaku",
+  "title": "Fugaku's processor and instruction-set dependencies",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "questions": [
+    {
+      "child": "riken-fujitsu-fugaku",
+      "parent": "fujitsu-tofu-interconnect-2",
+      "initial_status": "candidate",
+      "decision": "still candidate",
+      "reason": "Fujitsu's first-edition 2019 white paper explicitly gives Tofu2 as the basis for TofuD and attributes the six-dimensional mesh/torus to the original Tofu. Ajima’s design paper is the same designer lineage, and Dongarra's comparison tracks the Fujitsu account. Watanabe's new measurements establish the operation of installed TofuD but lack evidence of the transfer of specific Tofu2 elements.",
+      "sources": [
+        "https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.002/Fujitsu-primehpc-fx1000-hard-en.pdf",
+        "https://www.fujitsu.com/downloads/SUPER/ieee/08514929.pdf",
+        "https://icl.utk.edu/files/publications/2020/icl-utk-1379-2020.pdf",
+        "https://link.springer.com/article/10.1007/s11227-024-06201-x"
+      ]
+    },
+    {
+      "child": "riken-fujitsu-fugaku",
+      "parent": "fujitsu-a64fx",
+      "initial_status": "absent",
+      "decision": "established",
+      "reason": "The designer identified A64FX as the post-K processor, the June 2020 system listing documents the deployed configuration, and external researchers explicitly ran an SVE-enabled application on Fugaku's A64FX nodes.",
+      "sources": [
+        "https://www.fujitsu.com/global/documents/solutions/business-technology/tc/catalog/20180821hotchips30.pdf",
+        "https://top500.org/system/179807/",
+        "https://www.r-ccs.riken.jp/en/fugaku/about/",
+        "https://arxiv.org/abs/2304.11002v1"
+      ]
+    },
+    {
+      "child": "fujitsu-a64fx",
+      "parent": "arm-scalable-vector-extension",
+      "initial_status": "absent",
+      "decision": "established",
+      "reason": "The 2018 A64FX disclosure describes the 512-bit implementation and collaboration with Arm; university investigators measured actual SVE instructions on the A64FX in an FX1000.",
+      "sources": [
+        "https://community.arm.com/cfs-file/__key/telligent-evolution-components-attachments/01-3867-00-00-00-01-20-49/ARMv8_2D00_A-SVE-technology-Hot-Chips-v12.pdf",
+        "https://www.fujitsu.com/global/documents/solutions/business-technology/tc/catalog/20180821hotchips30.pdf",
+        "https://arxiv.org/abs/2103.03013v2"
+      ]
+    }
+  ],
+  "findings": [
+    "Arm's Hot Chips 28 deck dates the public design account of the Scalable Vector Extension to 22 August 2016. The supported design range is 128–2,048 bits in 128-bit increments; the specific A64FX width was 512 bits. [d2-fugaku-stephens-2016-sve; d2-fugaku-stephens-2017-sve-paper; d2-fugaku-yoshida-2018-a64fx]",
+    "Fujitsu's Hot Chips 30 disclosure on 21 August 2018 and RIKEN's 18 November 2019 prototype report document distinct stages. The latter reports 768 A64FX chips in the Numazu prototype. [d2-fugaku-hot-chips-30-programme; d2-fugaku-yoshida-2018-a64fx; d2-fugaku-riken-2019-prototype]",
+    "Alappat et al. report 0.5 cycles per standard SVE ld1d instruction as reciprocal throughput in their FX1000 microbenchmark. Diehl et al. separately ran a stellar-merger code with SVE on up to 1,024 Fugaku nodes. [d2-fugaku-alappat-2021-a64fx; d2-fugaku-diehl-2023-octo-tiger]",
+    "Watanabe et al. report about 1.7 µs on TofuD for a four-byte message with 24 threads in their multiworker UCX setup using six interfaces, four completion queues and zero-copy optimization. Their comparison is between software implementations on TofuD. [d2-fugaku-watanabe-2024-tofud-benchmarks]"
+  ],
+  "records": [
+    "riken-fujitsu-fugaku",
+    "fujitsu-a64fx",
+    "arm-scalable-vector-extension",
+    "fujitsu-tofu-interconnect-2"
+  ],
+  "frontier": [
+    "Seek an FX100 and Fugaku implementer with direct evidence of transfer of named Tofu2 routing, virtual-torus mapping or remote-memory operations. Paired tests alone can corroborate the feature match; documentation of carryover is still needed.",
+    "Trace the necessary 64-bit AArch64 substrate from SVE into the first Armv8-A specifications. Arm's Hot Chips presentation describes its A64 encoding allocation and should be compared with independently developed AArch64 toolchain records."
+  ],
+  "sources": [
+    {
+      "title": "Fujitsu High Performance CPU A64FX",
+      "url": "https://www.fujitsu.com/global/documents/solutions/business-technology/tc/catalog/20180821hotchips30.pdf",
+      "locator": "Slides 1 and 5–8"
+    },
+    {
+      "title": "Hot Chips 30 programme",
+      "url": "https://hc30.hotchips.org/index.html",
+      "locator": "Detailed schedule, Tuesday 21 August, Server Processors, 5:30 p.m."
+    },
+    {
+      "title": "Fugaku prototype named greenest supercomputer",
+      "url": "https://www.riken.jp/en/news_pubs/news/2019/20191118_1/index.html",
+      "locator": "Opening two paragraphs"
+    },
+    {
+      "title": "ARMv8-A Next-Generation Vector Architecture for HPC",
+      "url": "https://community.arm.com/cfs-file/__key/telligent-evolution-components-attachments/01-3867-00-00-00-01-20-49/ARMv8_2D00_A-SVE-technology-Hot-Chips-v12.pdf",
+      "locator": "Title slide and slides 3–8; Slides 10–12 and 19"
+    },
+    {
+      "title": "The ARM Scalable Vector Extension",
+      "url": "https://arxiv.org/abs/1803.06185",
+      "locator": "Introduction and § 2, arXiv manuscript pp. 1–2"
+    },
+    {
+      "title": "ECM modeling and performance tuning of SpMV and Lattice QCD on A64FX",
+      "url": "https://arxiv.org/abs/2103.03013v2",
+      "locator": "§ 2 and Table 1; §§ 2, 3.1 and Table 2"
+    },
+    {
+      "title": "Simulating Stellar Merger using HPX/Kokkos on A64FX on Supercomputer Fugaku",
+      "url": "https://arxiv.org/abs/2304.11002v1",
+      "locator": "§§ VI.D and VIII, Figure 6"
+    },
+    {
+      "title": "Design and performance evaluation of UCX for the Tofu Interconnect D on Fugaku towards efficient multithreaded communication",
+      "url": "https://link.springer.com/article/10.1007/s11227-024-06201-x",
+      "locator": "§§ 1, 4.1 and 5.1; Author information"
+    },
+    {
+      "title": "About Fugaku",
+      "url": "https://www.r-ccs.riken.jp/en/fugaku/about/",
+      "locator": "Single node performance table and Tofu Interconnect D"
+    },
+    {
+      "title": "FUJITSU Supercomputer PRIMEHPC FX1000",
+      "url": "https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.002/Fujitsu-primehpc-fx1000-hard-en.pdf",
+      "locator": "First edition, 12 November 2019, p. 7, TofuD overview and 6D mesh/torus; Trinity College Dublin archive copy"
+    },
+    {
+      "title": "Supercomputer Fugaku, TOP500 system results",
+      "url": "https://top500.org/system/179807/",
+      "locator": "System configuration and June 2020 row"
+    }
+  ],
+  "screen": "Searched discoveries, sources and leads for A64FX, Scalable Vector Extension, Tofu2, TofuD, AArch64, Armv8 and Advanced SIMD/NEON. Fugaku and Tofu2 already had canonical records; A64FX and SVE were mentioned in system/source text without dedicated discovery or lead IDs. No register additions.",
+  "limits": "Source search through 17 November 2026. Public disclosure dates do not date first working silicon or the beginning of ISA design. The FX1000 instruction test and the Fugaku application scaling run have different scopes. Independent tests support implementations; they do not establish priority or a lineage through Tofu2."
+}
