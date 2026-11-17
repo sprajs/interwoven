@@ -1,8 +1,8 @@
 {
   "id": "beer-brewing-late-uruk-godin-tepe-central-zagros",
-  "name": "Beer brewing, Late Uruk Godin Tepe, central Zagros",
-  "summary": "Beer identified from oxalate residue on a Late Uruk ceramic sherd at Godin Tepe in Iran, the earliest reported chemical identification of beer in the Middle East.",
-  "description": "Oxalate ions on a Late Uruk ceramic sherd from Godin Tepe, in the Kangavar valley of the central Zagros, are the basis of the earliest reported identification of beer in the Middle East. Encyclopaedia Iranica dates the late Uruk period, to which the pottery of Godin's Period V enclosure is compared, to about 3500-3200 BCE, and says the enclosure is assumed to have been occupied by Sumerian or Elamite traders.",
+  "name": "Possible beer in a Late Uruk jug at Godin Tepe",
+  "summary": "A spot test of yellow deposits in an incised Godin Tepe jug gave an oxalate result consistent with beer, among other possibilities.",
+  "description": "Michel, McGovern and Badler interpreted yellow deposits inside a double-handled jug at Godin Tepe, in Iran’s central Zagros, as probable beer residue. Oxalate and the jar’s form support their interpretation, but the spot test and marker lack specificity. Barley from the period’s botanical assemblage made it a plausible ingredient.",
   "kind": "technology",
   "domain": "food.fermentation",
   "tier": 1,
@@ -10,7 +10,7 @@
     "reach": 1,
     "depth": 2,
     "generativity": 1,
-    "note": "Scored for what is evidenced here, beer in one Late Uruk trading community (reach 1): the wider Mesopotamian beer tradition is not shown to descend from it and is not sourced on this card; beer was a new way of turning grain into a storable drink (depth 2), with later brewing in the region as its few successors (generativity 1)."
+    "note": "Catalogue scope is the reported beer interpretation of one Godin Tepe vessel. Reach, depth and later effects remain unverified."
   },
   "grain": "capability",
   "advance": [
@@ -36,29 +36,35 @@
           "year": -3500
         },
         "latest": {
-          "year": -3200
+          "year": -2900
         },
         "precision": "range",
         "status": "approximate",
-        "label": "late Uruk period, ca. 3500–3200 BCE",
-        "basis": "As the cited source gives it."
+        "label": "ca. 3500–2900 BCE, original Period V assignment",
+        "basis": "Context range used by Michel and colleagues for Period V. It is the original report’s broad context chronology."
       },
-      "statement": "Beer was identified from oxalate ions on a Late Uruk ceramic sherd from Godin Tepe. The years are not in the quoted sentence: they are Encyclopaedia Iranica's date for the late Uruk period (ca. 3500-3200 B.C.E., the second source), and the sherd itself is not separately dated here.",
+      "statement": "A Feigl test gave a positive oxalate result for pale interior deposits sampled from the crisscross grooves of a double-handled jug in the Period V Oval complex. The original investigators interpreted this as evidence consistent with beer.",
       "places": [
         "godin-tepe"
       ],
       "evidence": [
         {
-          "source": "paskulin-2024-leave-no-stone",
-          "supports": "The earliest reported identification of beer in the Middle East, for example, is based on a positive identification of oxalate ions on a Late Uruk ceramic sherd from Godin Tepe in Iran",
-          "locator": "Introduction, paragraph on chemical markers of beer in ceramics"
+          "source": "michel-mcgovern-badler-1993-godin-beer",
+          "locator": "pp. 409A, 412A–413A",
+          "supports": "Provides the contextual period range, sherd description, result and comparison controls."
+        },
+        {
+          "source": "craig-2021-prehistoric-fermentation-markers",
+          "locator": "Direct Evidence for Prehistoric Fermented Beverages",
+          "supports": "Independently explains why the method and marker do not securely identify beer."
         }
-      ]
+      ],
+      "caveats": "No direct date or independently specific beer marker is available for the tested deposits."
     }
   ],
   "earliest_record": {
     "event": "archaeological-evidence-3200bce",
-    "rationale": "The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists."
+    "rationale": "Dates the archaeological context of the reported discovery. The identification of beer remains tentative."
   },
   "research": {
     "status": "sourced",
@@ -70,25 +76,29 @@
       "grain": "recalled",
       "events": "sourced",
       "advance": "recalled",
-      "origin": "sourced",
+      "origin": "unknown",
       "concept": "recalled",
       "places": "sourced",
       "known_from": "sourced"
     },
     "unresolved": [
       {
-        "about": "open question",
-        "note": "Paskulin cites Michel, McGovern and Badler 1993, 'The first wine and beer: chemical detection of ancient fermented beverages', for the identification; neither that paper nor the same authors' 1992 letter 'Chemical evidence for ancient beer' (Nature 360, 24) was read, so the sherd's findspot, level (Period V?) and own date, and whether the beer was of barley, remain to be taken from them."
+        "about": "test specificity and exact context",
+        "note": "Check the Royal Ontario Museum specimen and excavation lot against the residue-sampled sherd, then seek independently replicated residue identification with appropriate controls."
       },
       {
-        "about": "open question",
-        "note": "Beer brewing in lowland Mesopotamia (Late Uruk texts, later rations and depictions) is the larger capability the lead named; it is not sourced on this card and needs its own research before it is scored."
-      },
-      {
-        "about": "open question",
-        "note": "Raqefet Cave (claimed cereal brewing around 11,000 BCE) and Hierakonpolis (predynastic Egyptian brewery) are separate communities and need their own records; the Chinese fermented drink at Jiahu was not compared."
+        "about": "local use and exchange",
+        "note": "A similar double-handled sherd, GOT_20, is of a local fabric. This does not locate the production of its contents or establish how the shape or brewing knowledge travelled.",
+        "evidence": [
+          {
+            "source": "gopnik-2016-godin-ceramic-provenance",
+            "locator": "Fig. 5 and §7",
+            "supports": "Independent provenance analysis of the same vessel type."
+          }
+        ]
       }
     ],
-    "note": "Paskulin and colleagues call the Godin Tepe sherd the earliest reported identification of beer in the Middle East and make no claim of independence; Encyclopaedia Iranica says the Period V enclosure is assumed to have been occupied by Sumerian or Elamite traders, so the brewing may have come with lowland people, and the question is open."
-  }
+    "note": "The fuller 1993 original report gives an earlier-to-later Period V range and attributes barley only from archaeological context. A later provenance study does not support treating the assemblage as straightforward evidence of imported Uruk ceramics."
+  },
+  "caveats": "The chemical result does not securely identify beer, barley or local brewing. A sherd of the same vessel type tested in a separate provenance study had a local clay signature. It has not been matched to the residue-tested vessel."
 }

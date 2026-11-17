@@ -1,7 +1,7 @@
 {
   "id": "jiahu-fermented-beverage",
   "name": "Jiahu mixed fermented beverage",
-  "description": "Residues in Jiahu pottery are interpreted as a fermented beverage made with rice, honey and fruit.",
+  "description": "Pottery residues from Jiahu support a fermented rice-based beverage. An early chemical study proposed honey and fruit alongside rice. A later microfossil study found damaged starch, rice and fungal remains consistent with mould-starter brewing and possible malt-based cereal processing.",
   "kind": "technology",
   "domain": "food.fermentation",
   "tier": 2,
@@ -28,7 +28,7 @@
         "label": "Approximately 7000–5500 BCE, sampled Jiahu contexts",
         "basis": "The paper’s methods give sampled contexts from about 7000–5500 BCE while its note 10 gives the youngest period ending 5800 BCE; the wider reported interval preserves the discrepancy."
       },
-      "statement": "Residues in Jiahu pottery are interpreted as a fermented beverage made with rice, honey and fruit.",
+      "statement": "Chemical residues in Jiahu pottery led McGovern and colleagues to infer a mixed fermented beverage of rice, honey and fruit.",
       "caveats": "Ingredients and fermentation are inferred from combined chemical and archaeological evidence; exact fruit and method remain uncertain. The methods and note 10 give conflicting youngest period endpoints (5500 versus 5800 BCE), so the wider span is retained; the individual positive sherds cannot be placed at one endpoint from this review.",
       "evidence": [
         {
@@ -38,32 +38,66 @@
         }
       ],
       "places": [
-        "china"
+        "jiahu"
       ]
+    },
+    {
+      "id": "microfossil-brewing-evidence",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -7050
+        },
+        "latest": {
+          "year": -5550
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "ca. 9000–7500 cal BP, sampled Jiahu contexts",
+        "basis": "Occupational range used by Liu and colleagues. The year bounds use 1950 as the BP reference."
+      },
+      "statement": "Rice starch, damaged starch, and fungal remains consistent with Monascus were found in Jiahu vessels. The investigators interpret the combination as evidence for mould-starter brewing, with some possible malt processing.",
+      "places": [
+        "jiahu"
+      ],
+      "evidence": [
+        {
+          "source": "liu-2026-jiahu-brewing-microfossils",
+          "locator": "§§3.1, 5.1–5.2; Tables 3–4 and S2",
+          "supports": "Reports the context range, plant and fungal remains, and attribution of likely functions for globular jars and bottles."
+        }
+      ],
+      "caveats": "The damaged starch and fungal morphologies are interpreted together. The same fragments have not been matched across the chemical and microfossil studies."
     }
   ],
   "earliest_record": {
     "event": "documented-evidence",
     "rationale": "The paper reports sampled Jiahu contexts over approximately 7000–5500 BCE in its methods, with a conflicting 5800 BCE endpoint in note 10. This is a broad context range, not a direct date of the beverage’s invention."
   },
-  "caveats": "Ingredients and fermentation are inferred from combined chemical and archaeological evidence; exact fruit and method remain uncertain. The methods and note 10 give conflicting youngest period endpoints (5500 versus 5800 BCE), so the wider span is retained; the individual positive sherds cannot be placed at one endpoint from this review.",
+  "caveats": "The older assays led to a proposal of honey and fruit. The microfossil study identifies candidate brewing processes, while their precise sequence and the contribution of honey or fruit remain uncertain.",
   "research": {
     "status": "sourced",
     "basis": {
       "domain": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "sourced",
-      "places": "reviewed",
+      "places": "sourced",
       "measures": "reviewed",
       "concept": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats."
+    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats.",
+    "unresolved": [
+      {
+        "about": "possible continuity of starter brewing",
+        "note": "The newer authors propose Jiahu as an intermediary between lower-Yangzi and Yellow River brewing. No dated carrier or independently demonstrated vessel or microbial lineage connects Jiahu to Guantaoyuan."
+      }
+    ]
   },
   "places": [
     {
-      "place": "china"
+      "place": "jiahu"
     }
   ],
   "measures": [
