@@ -1,0 +1,112 @@
+{
+  "lane": "grid",
+  "title": "Viking Link and the evolution of HVDC converters",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "as_of": "2026-11-17",
+  "inventory": [
+    {
+      "name": "Viking Link",
+      "region": "Bicker Fen, Great Britain – Revsing, Denmark",
+      "status": "in service",
+      "date": "2026-11-17",
+      "claim": "Great Britain’s system operator listed the link as fully available. National Grid dates actual commercial power transfer to 29 December 2023, and Siemens Energy identifies its modular multilevel voltage-source converters at both ends.",
+      "limit": "The November report gives a day’s availability, which does not establish realised flows or continuous availability. The project’s 1,400 MW design rating and its initial 800 MW operating limit describe different conditions.",
+      "sources": [
+        {
+          "url": "https://www.neso.energy/document/390341/download",
+          "title": "National Electricity Transmission System Status Report",
+          "date": "2026-11-17",
+          "locator": "p. 2, Interconnector Net Transfer Capacity, Viking Link"
+        },
+        {
+          "url": "https://www.nationalgrid.com/national-grid-announces-commercial-operations-viking-link-worlds-longest-land-and-subsea",
+          "title": "National Grid announces commercial operations of Viking Link",
+          "date": "2023-12-29",
+          "locator": "Opening paragraphs and converter station paragraph"
+        },
+        {
+          "url": "https://ch.mathworks.com/content/dam/mathworks/mathworks-dot-com/company/events/conferences/matlab-expo-germany/2025/de-expo-2025-siemens-project-line-engineering.pdf",
+          "title": "Project Line Engineering: Bridging Between Product and Solution Business",
+          "date": "2025-09",
+          "locator": "Slide 8, Customer reference: Viking Link"
+        }
+      ],
+      "records": [
+        "siemens-hvdc-plus-modular-multilevel-converter"
+      ]
+    },
+    {
+      "name": "BritNed thyristor-converter route",
+      "region": "Isle of Grain, Great Britain – Maasvlakte, Netherlands",
+      "status": "in service",
+      "date": "2026-11-17",
+      "claim": "Great Britain’s system operator listed BritNed as fully available. The project operator dates its entry into operation to 1 April 2011, and Siemens describes the thyristor converter valves supplied at both ends.",
+      "limit": "The day’s availability does not establish realised flows or rule out equipment renewals since commissioning. NESO’s 5 November 2026 report recorded a planned outage.",
+      "sources": [
+        {
+          "url": "https://www.neso.energy/document/390341/download",
+          "title": "National Electricity Transmission System Status Report",
+          "date": "2026-11-17",
+          "locator": "p. 2, Interconnector Net Transfer Capacity, Netherlands (BritNed)"
+        },
+        {
+          "url": "https://www.neso.energy/document/389661/download",
+          "title": "National Electricity Transmission System Status Report",
+          "date": "2026-11-05",
+          "locator": "p. 2, Interconnector Net Transfer Capacity, Netherlands (BritNed)"
+        },
+        {
+          "url": "https://www.britned.com/wp-content/uploads/2024/10/Participant-Forum-2024-Slidedeck-London.pdf",
+          "title": "BritNed Participants Forum: Operational Update",
+          "date": "2024-09-18",
+          "locator": "Stewart Whyte, An Overview of BritNed’s Assets, Operational Performance"
+        },
+        {
+          "url": "https://news.siemens.co.uk/news/energy-trading-hub-hvdc-transmission-link-between-britain-and-the-netherlands-goes-into-operation",
+          "title": "Energy trading hub: HVDC transmission link between Britain and the Netherlands goes into operation",
+          "date": "2011-04-05",
+          "locator": "Opening paragraphs and converter scope of supply"
+        }
+      ],
+      "records": []
+    },
+    {
+      "name": "Gotland 1 mixed-valve link",
+      "region": "Mainland Sweden – Gotland",
+      "status": "retired",
+      "date": "1986",
+      "claim": "Vattenfall dates dismantling of the original cable and terminal equipment to 1986. Gotland 1 had entered service with mercury-arc valves in 1954 and added thyristor equipment in series in 1970.",
+      "limit": "Retirement concerns Gotland 1. The same operator distinguishes its successor links Gotland 2 and Gotland 3.",
+      "sources": [
+        {
+          "url": "https://www.energimyndigheten.se/globalassets/klimat--miljo/gotlandsuppdraget/vattenfalls-forstudie-gotland.pdf",
+          "title": "Förstudie Gotland: Förbättrad leveranssäkerhet och ökad kapacitet för ytterligare förnybar elproduktion",
+          "date": "2018-12-06",
+          "locator": "Section 2.3, pp. 10–11, HVDC-förbindelsen till fastlandet"
+        }
+      ],
+      "records": [
+        "gotland-submarine-hvdc-link"
+      ]
+    }
+  ],
+  "trace": [
+    "In 2019 Siemens reported a contract for the design, supply, installation and commissioning of the converter equipment for both Viking Link stations. Siemens’s completed-project reference confirms the installed HVDC PLUS modular multilevel voltage-source converter (MMC-VSC) product. National Grid reported actual transfers on 29 December 2023. Viking Link is a dated adoption on siemens-hvdc-plus-modular-multilevel-converter.",
+    "Energinet’s 2024 system review, p. 14, attributes Viking Link’s initial 800 MW limit to constraints on the Danish grid and reports intervals of full-capacity exports after local reinforcements and operating changes. https://www.energinet.dk/media/kgnfmfxd/aret-der-gik-2024-i-el-og-gassystemerne.pdf",
+    "On 23 November 2010 the California ISO took operational control of Trans Bay Cable, and the cable operator identifies it as the earliest commercial use of Siemens HVDC PLUS MMC-VSC. This is the practical deployment event in siemens-hvdc-plus-modular-multilevel-converter. It records an earlier use of the same supplier technology now deployed at Viking Link.",
+    "Marquardt filed the distributed-energy-storage converter patent application DE10103031A1 on 24 January 2001. Lesnicar and Marquardt described the modular topology and simulated a 36 MW network intertie in 2003. The university and European Patent Office identify Trans Bay as a commercial implementation of the converter class. The proposed canonical builds_on link points to marquardt-modular-multilevel-converter-topology.",
+    "On Gotland 1, ABB’s technical retrospective dates the trial of a single thyristor valve to spring 1967. Vattenfall and ABB date the mixed mercury-arc and thyristor configuration to 1970. These are events on gotland-submarine-hvdc-link. The link-to-link history from Gotland 1 to Viking Link remains unestablished."
+  ],
+  "alternatives": [
+    "BritNed demonstrates the coexistence of the thyristor converter route and the modular voltage-source route in 2026. Siemens identifies thyristor converter valves at BritNed and the 17 November NESO report lists both links as fully available.",
+    "ABB’s March 1997 Hellsjön field trial used a two-level, pulse-width-modulated voltage-source design with insulated-gate bipolar transistor (IGBT) valves. In the 1998 developer account, the authors contrast these switches, which can turn current off under control, with the earlier AC-commutated design. The trial documents an earlier voltage-source design family and leaves direct influence on the Siemens project unresolved. https://library.e.abb.com/public/7a0f930eda2c0b1ec1256ef400488e30/04-09%20ENG%209801.pdf"
+  ],
+  "frontier": [
+    "Find Siemens’s design or procurement records connecting the pre-commercial MMC to the installed Trans Bay valves. The university account and the EPO identify the lineage but give no transfer agreement or design-change history.",
+    "Use the full project-author CIGRÉ paper B4-101_2010 and a Viking Link converter engineering report to identify technical changes within the Siemens product family between the 2010 and 2023 commercial uses. The public CIGRÉ landing page exposes the bibliographic record; the paper is access-controlled.",
+    "Find the contemporary Swedish State Power Board acceptance or trial report for Gotland 1 to independently confirm the sequence and scope of the 1967 single-valve trial and 1970 multi-valve upgrade."
+  ],
+  "screen": "Searched the pinned discovery records, actual event arrays, links and leads for HVDC, the named projects, mercury-arc, thyristors, VSC and modular multilevel converters. Existing Gotland 1 contained only the 1954 deployment. The trial, mixed-valve upgrade and retirement extend that record. The 2001 converter design and the commercial Siemens implementation have distinct scopes. Viking Link is an adoption in the latter record. Generic transistor and planar manufacturing records did not establish a link to the installed converters.",
+  "coverage": "The operating inventory covers the named European links and is bounded by checked reports through 17 November 2026. The California link is a dated predecessor and carries no present-day operating claim here. The reviewed evidence covers converter genealogy, contract scope, commissioning and selected availability observations. It leaves exact project-specific submodule changes and a licence or assignment pathway unresolved."
+}
