@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "lane": "printing",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "428bc82395802b1ab38287e4f7306802e7b8927e",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent source review",
+    "independence": "Distinct from proposing gpt-6.2-sol high execution."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/printing.json",
+      "sha256": "2090842d96d568a56c02211058bb3bf808d9f3f66e6ad8ee51c03df95237634a"
+    }
+  ],
+  "deleted_files": [],
+  "claim_reviews": [
+    {
+      "path": "inputs, steps[].action, reject_if, stop_when, next_anchor",
+      "decision": "accept",
+      "rationale": "Inputs and five sequential actions generalize across distinct workshops and explicitly seek work vs impression, producer vs holder, independent role evidence, both endpoints, bridge and pre-contact alternative. The work-level stopping rule is distinct from stricter individual-sheet and exchange thresholds; next anchor is a concrete different Puvirnituq work, 75-62, whose catalogue caption and image I inspected on PDF p. 37."
+    },
+    {
+      "path": "steps[0].result",
+      "decision": "accept",
+      "rationale": "Original scanned catalogue PDF p. 33 visually identifies 69-62, Kenojuak, bilingual title and stonecut; p. 3 says production in 1962 and also refers to 1963 approved graphics, so distributor label, object date and release are properly separated. Existing Kinngait dataset record covers local experimental practice and does not identify a separate edition."
+    },
+    {
+      "path": "steps[1].result",
+      "decision": "accept",
+      "rationale": "National Gallery accession 38038 records 1962, stonecut in black and yellow on japan paper and cooperative 1995 gift. Archived Lethbridge 1988.164 says 40/50. National Gallery 2000–01 annual report p. 15 identifies the film print and block in its collection without block accession. First Arts lot 20 says unnumbered proof and openly speculates as to the filmed sheet; related but unproven individual-sheet identity is appropriately deferred. Dimensions differ without common stated measurement basis."
+    },
+    {
+      "path": "steps[2].result",
+      "decision": "accept",
+      "rationale": "Original catalogue names Kenojuak; Dyck pp. 198–199 and note 39 give Rhoda Kayakjuak’s translated dialogue and distinguish voice-over. Independent Dorset Fine Arts caption credits Lukta cutting while First Arts assigns cutting to Iyola and printing to Lukta. Record properly leaves exclusive credit unresolved, does not equate this filmed sheet with accession 38038, and identifies its reliance on a published frame and translation rather than asserting independent viewing."
+    },
+    {
+      "path": "steps[3].result and decision workshop exchange",
+      "decision": "accept",
+      "rationale": "Ikeda/Tiampo draft version 4 pp. 37–39, 53–54 quotes Hiratsuka’s own 1962 account, describes Houston learning the Japanese rubbing pad and separately references his dated 1958 travel note; pp. 53–54 and figures document locally made sealskin pad IV-C-3558, publicity image PA-94469 and Kananginak Pootoogook interview. CMH exhibition inventory independently identifies local tools and prints brought back. These are an archival and curatorial reconstruction with distinct types of evidence, not fully independent curatorial publications or direct inspection of every historical item. Support is for adapting a Japanese-style rubbing tool at workshop scope, not a complete workflow or tool use on a specified sheet."
+    },
+    {
+      "path": "steps[4].result and decision chronology",
+      "decision": "accept",
+      "rationale": "CMH object entry 1957 Three Caribous stonecut predates 1958–59 Japanese trip; this is a control against making the visit the origin of Kinngait stonecut practice, not a claim that every later tool had an earlier form. Draft figure 27 identifies IV-C-3559 as the different Talluliyuk block. Historical graph edge is not proposed."
+    },
+    {
+      "path": "next and next_anchor",
+      "decision": "accept",
+      "rationale": "The original catalogue PDF pp. 35–37 surveys Puvirnituq experiments in 1961 and Tinkl’s 1962 role, and p. 37 illustrates and captions Leah Qumalu Sea Goddess no. 75-62. Shared publication supports a cataloguing/release association and does not by itself establish technological transmission."
+    }
+  ],
+  "source_checks": [
+    {
+      "url": "https://static1.squarespace.com/static/5400c027e4b0cb1fd47c5bc9/t/592d99b015d5db9c9215c6c4/1496160739213/1962.pdf",
+      "locator": "PDF pp. 3, 33, 35–37",
+      "read_representation": "Original scanned PDF and rendered page images, local /tmp/big-idea-printing.Qc4mWh/1962.pdf",
+      "sha256": "76c5b706974b7cf12ba7529e902a2e4ac3407f3e5da117150811943cc407065b",
+      "access_limit": "No text layer; inspected page images and OCR. Index’s 1962 label and 1963 approved-graphics wording differ.",
+      "lineage": "Contemporary producer/distributor catalogue, independent from present holding institution."
+    },
+    {
+      "url": "https://www.gallery.ca/collection/artwork/the-arrival-of-the-sun",
+      "locator": "object 38038, materials, date, credit",
+      "read_representation": "National Gallery online object metadata",
+      "access_limit": "No object comparison or matrix accession established by this page.",
+      "lineage": "Holding-institution record for an impression."
+    },
+    {
+      "url": "https://epe.lac-bac.gc.ca/100/205/301/ic/cdc/world_around_me/world/vr1/pop-ups/1988164.htm?nodisclaimer=1",
+      "locator": "1988.164, 40/50",
+      "read_representation": "Archived collection entry",
+      "access_limit": "Inscription and object not physically examined.",
+      "lineage": "Separate holding of another impression, not proof of identical sheet."
+    },
+    {
+      "url": "https://publications.gc.ca/collections/collection_2012/beaux-arts-gallery/NG1-2001-eng.pdf",
+      "locator": "p. 15, Kenojuak paragraph",
+      "read_representation": "Online annual report",
+      "access_limit": "No block accession or direct physical comparison.",
+      "lineage": "Institutional evidence for holding, not independent imaging of relationship."
+    },
+    {
+      "url": "https://firstarts.ca/content/feature/934/artworks-21148-kenojuak-ashevak-c.c.-r.c.a.-1927-2013-kinngait-cape-dorset-the-arrival-of-the-sun-1962-69/",
+      "locator": "Lot 20, roles, final paragraph, provenance",
+      "read_representation": "Auction listing full text",
+      "access_limit": "Its film-sheet identity suggestion is explicitly speculative; role attributions conflict with studio caption.",
+      "lineage": "Commercial seller, distinct from workshop source and holding museums."
+    },
+    {
+      "url": "https://dokumen.pub/atiqput-inuit-oral-history-and-project-naming-9780228013358.html",
+      "locator": "Dyck chapter pp. 198–199, note 39",
+      "read_representation": "Published chapter text and referenced translated dialogue",
+      "access_limit": "Film and underlying translator email not independently inspected; translator’s analysis as quoted.",
+      "lineage": "Independent scrutiny of recorded speech; secondary translation of a single filmed event."
+    },
+    {
+      "url": "https://www.dorsetfinearts.com/stonecut/",
+      "locator": "Stonecutting photograph caption",
+      "read_representation": "Studio/distributor page",
+      "access_limit": "Caption offers attribution, not exclusive complete production documentation.",
+      "lineage": "Workshop-connected account, differs from auction catalogue."
+    },
+    {
+      "url": "https://www.academia.edu/38778945/Travelling_Prints_James_Houston_Unichi_Hiratsuka_and_the_Early_Cape_Dorset_Print_Studio",
+      "locator": "version 4 dated Dec 7 2010 pp. 37–39, 53–55, notes 31–35 and 79, Figs 27–28",
+      "read_representation": "Public manuscript text; author’s reproduction of oral testimony, photo, inventory and translated Hiratsuka account",
+      "access_limit": "Underlying Hiratsuka original, Houston note, photo original and interview audio not directly inspected; conclusions retain draft’s historical reconstruction limitations.",
+      "lineage": "Museum research draft and exhibition inventory share curatorial lineage; physical item, documented photograph and artist interview provide different but related primary traces."
+    },
+    {
+      "url": "https://www.historymuseum.ca/app/DocRepository/1/Exhibitions/Traveling_Exhibitions/inuitprintse.pdf",
+      "locator": "p. 2, works and artifacts",
+      "read_representation": "Museum exhibition inventory",
+      "access_limit": "Describes tools and artwork in exhibition, no direct use of this specific tool on Arrival of the Sun.",
+      "lineage": "Related curatorial project; not an independent new analysis."
+    },
+    {
+      "url": "https://www.historymuseum.ca/capedorsetprints-iu/include/modalArtefact.php?code=38&lang=en",
+      "locator": "Three Caribous, 1957, UN CD 1957/58-003 EXPE",
+      "read_representation": "Museum online object record",
+      "access_limit": "Catalogued attribution; physical object not inspected.",
+      "lineage": "Same museum collections but separate pre-trip work, relevant chronology control."
+    }
+  ],
+  "limitations": [
+    "The independent review saw the published film frame and translation, not the complete original film or the translator’s original email.",
+    "The 1958 Houston note, Hiratsuka’s Japanese original, 2009 interview recording, physical baren and printing matrix were not directly inspected. Workshop adaptation remains a source-grounded historical inference at limited scope.",
+    "The next Puvirnituq target is a starting point, not evidence of technological transfer. No historical dataset changes or new graph edges are proposed."
+  ],
+  "issues": [],
+  "validation": {
+    "commands": [
+      "python3 tools/validate.py",
+      "git diff --check 1795a73dff022c15ee6e28d7dd6f5252a070c9a6 428bc82395802b1ab38287e4f7306802e7b8927e"
+    ],
+    "result": "Both passed; validator reports 979 discoveries, 1688 events, 302 links and no problems."
+  },
+  "history": []
+}
