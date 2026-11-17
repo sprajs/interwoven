@@ -1,0 +1,54 @@
+<section id="science-history" data-viz-composition>
+  <h3>Scientific achievements recorded in the catalogue</h3>
+  <div class="viz-controls">
+    <label class="form-label">Period
+      <select class="form-select" id="science-period" disabled>
+        <option value="century">100 years · 1720–2019</option>
+        <option value="twenty">20 years · 1500–2019</option>
+      </select>
+    </label>
+    <label class="form-label">Scope
+      <select class="form-select" id="science-scope" disabled>
+        <option value="science">Physical and life sciences</option>
+        <option value="broad">Also maths, measurement and health</option>
+        <option value="all">Whole catalogue</option>
+      </select>
+    </label>
+    <label class="form-label">Measure
+      <select class="form-select" id="science-measure" disabled>
+        <option value="population">Per billion person-years</option>
+        <option value="count">Record count</option>
+        <option value="gdp">Per 100 trillion int. $ of GDP</option>
+      </select>
+    </label>
+  </div>
+  <div data-viz-container></div>
+  <p class="text-small text-muted">World population and reconstructed GDP · constant 2021 international dollars</p>
+  <!-- DATA -->
+</section>
+<script type="module">
+  import { mountChart } from "https://persistent.oaistatic.com/plugins/visualize/charts/1.6.5/element.js";
+  const root = document.getElementById("science-history");
+  const configs = new Map([...root.querySelectorAll("[data-viz-chart]")].map(s => [s.dataset.key, JSON.parse(s.textContent)]));
+  const controls = ["period", "scope", "measure"].map(id => root.querySelector("#science-" + id));
+  const key = () => controls.map(c => c.value).join("-");
+  function restore(state) {
+    const triple = state?.modelContent?.selection;
+    if (Array.isArray(triple) && triple.length === 3 && configs.has(triple.join("-"))) {
+      controls.forEach((input, i) => { input.value = triple[i]; });
+    }
+  }
+  restore(window.openai?.widgetState);
+  const chart = mountChart(root.querySelector("[data-viz-container]"), configs.get(key()));
+  window.addEventListener("openai:set_globals", e => {
+    restore(e.detail?.globals?.widgetState);
+    chart.config = configs.get(key());
+  });
+  for (const control of controls) {
+    control.addEventListener("change", () => {
+      chart.config = configs.get(key());
+      window.openai?.setWidgetState?.({modelContent: {selection: controls.map(c => c.value)}, privateContent: null})?.catch(() => {});
+    });
+    control.disabled = false;
+  }
+</script>
