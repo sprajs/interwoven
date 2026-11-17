@@ -1,7 +1,7 @@
 {
   "id": "tang-flying-money-exchange-certificates",
   "name": "Tang flying-money exchange certificates",
-  "description": "Negotiable certificates called flying money circulated in Tang China as a mechanism for transferring value.",
+  "description": "Tang merchants deposited cash in the capital and used matching tallies to collect cash elsewhere, allowing them to travel without carrying the deposited coin.",
   "kind": "practice",
   "domain": "economy.money",
   "tier": 2,
@@ -9,13 +9,18 @@
     "reach": 1,
     "depth": 1,
     "generativity": 1,
-    "note": "Certificates let merchants and offices in one empire move value without hauling coin; a clear gain, with later Chinese paper instruments as successors."
+    "note": "Merchants could move purchasing power from the capital to other places without carrying the deposited coin."
   },
   "grain": "capability",
   "concept": "remittance-exchange-certificate",
   "places": [
     {
       "place": "china"
+    },
+    {
+      "place": "changan",
+      "role": "use",
+      "note": "The Tang capital was the deposit point in the account. Destinations are unnamed."
     }
   ],
   "events": [
@@ -34,13 +39,91 @@
         "label": "About 810 CE",
         "basis": "The museum chronology reports circulation around 810 CE."
       },
-      "statement": "Flying-money exchange notes were in circulation in Tang China.",
-      "scope": "A broad historical report, not a specific surviving certificate.",
+      "statement": "Merchants deposited money in the Tang capital and travelled elsewhere, where they collected cash by matching tallies.",
+      "scope": "A documented merchant remittance practice under Emperor Xianzong. The approximate year comes from the museum chronology.",
       "evidence": [
         {
           "source": "met-2001-tang-flying-money",
           "locator": "Chronology, approximately 810 CE",
-          "supports": "Flying-money exchange notes were in circulation in Tang China."
+          "supports": "The museum dates Tang flying-money exchange certificates to about 810."
+        },
+        {
+          "source": "xin-tang-shu-1060-feiqian",
+          "locator": "Juan 54, Food and Finance IV, paragraph beginning 時商賈至京師",
+          "supports": "Reports deposits at the capital and redemption elsewhere by matching tallies."
+        }
+      ],
+      "places": [
+        "changan"
+      ],
+      "contributions": [
+        {
+          "group": "Merchants visiting the Tang capital",
+          "role": "user",
+          "resource": "Deposited coin and redeemed the value away from the capital.",
+          "evidence": [
+            {
+              "source": "xin-tang-shu-1060-feiqian",
+              "locator": "Juan 54, Food and Finance IV, paragraph beginning 時商賈至京師",
+              "supports": "Merchants deposited money, travelled with light baggage and collected by matching tallies."
+            }
+          ]
+        },
+        {
+          "group": "Provincial liaison offices and other intermediaries in the Tang capital",
+          "role": "infrastructure_provider",
+          "resource": "Accepted coin deposits for remittances.",
+          "evidence": [
+            {
+              "source": "xin-tang-shu-1060-feiqian",
+              "locator": "Juan 54, Food and Finance IV, paragraph beginning 時商賈至京師",
+              "supports": "Names circuit liaison offices and other intermediaries as recipients of deposits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "three-fiscal-offices-812",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 812
+        },
+        "latest": {
+          "year": 812
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "812 CE",
+        "basis": "Tang huiyao dates the approval to the fifth month of Yuanhe 7."
+      },
+      "statement": "The Tang court approved merchant cash exchange through the Revenue, Expenditure, and Salt and Iron offices following earlier restrictions.",
+      "scope": "Approval of the proposal. The passage gives no volume of completed remittances.",
+      "evidence": [
+        {
+          "source": "tang-huiyao-961-remittance",
+          "locator": "Juan 89, Coinage (泉貨), Yuanhe 7, fifth month",
+          "supports": "Dates the officials' request and records its approval."
+        },
+        {
+          "source": "xin-tang-shu-1060-feiqian",
+          "locator": "Juan 54, Food and Finance IV, paragraph beginning 自京師禁飛錢",
+          "supports": "Calls the proposed three-office mechanism flying cash and places it after a ban in the capital."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Tang court",
+          "role": "regulator",
+          "resource": "Approved the request for exchanges through the three fiscal offices.",
+          "evidence": [
+            {
+              "source": "tang-huiyao-961-remittance",
+              "locator": "Juan 89, Coinage (泉貨), Yuanhe 7, fifth month",
+              "supports": "Records acceptance of the officials' request."
+            }
+          ]
         }
       ]
     }
@@ -49,7 +132,7 @@
     "event": "circulation-810",
     "rationale": "Date and scope follow the cited event; this is the earliest episode established in this research, not a claim of world priority."
   },
-  "caveats": "The brief chronology does not establish the exact issuer, transfer route, denominations, holders or redemption conditions. It suggests a possible connection to later banknotes but does not prove a direct lineage.",
+  "caveats": "The sources document remittance and redemption. The scope of any secondary circulation, the precise form of the tallies, and the destinations remain uncertain.",
   "research": {
     "status": "sourced",
     "basis": {
@@ -57,10 +140,10 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
+    "note": "The approximate date of the original practice follows the museum chronology. Descriptions of deposits and redemption and the 812 authorisation follow the separately cited Chinese texts."
   }
 }

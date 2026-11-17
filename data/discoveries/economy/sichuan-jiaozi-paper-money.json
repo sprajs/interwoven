@@ -1,7 +1,7 @@
 {
   "id": "sichuan-jiaozi-paper-money",
   "name": "Sichuan merchant and state jiaozi",
-  "description": "Merchants in Sichuan issued paper bills for regional exchange; the Song state later took over their issue.",
+  "description": "Merchants in Sichuan issued paper bills for regional exchange. The Song court later established an office in Yizhou to administer jiaozi and prohibited private issue.",
   "kind": "practice",
   "domain": "economy.money",
   "tier": 1,
@@ -15,7 +15,8 @@
   "concept": "paper-money",
   "places": [
     {
-      "place": "china"
+      "place": "sichuan",
+      "role": "use"
     }
   ],
   "events": [
@@ -41,6 +42,11 @@
           "source": "von-glahn-2026-sichuan-jiaozi",
           "locator": "Chapter 4 summary",
           "supports": "Sichuan merchants issued private jiaozi bills for intraregional exchange."
+        },
+        {
+          "source": "li-dao-changbian-jiaozi-office",
+          "locator": "Juan 101, Tiansheng 1, eleventh month, wuwu (戊午)",
+          "supports": "Reports that Sichuan residents used private bills to ease trade because iron cash was heavy. This retrospective account does not specify a decade for the onset."
         }
       ],
       "contributions": [
@@ -56,6 +62,9 @@
             }
           ]
         }
+      ],
+      "places": [
+        "sichuan"
       ]
     },
     {
@@ -70,31 +79,66 @@
         },
         "precision": "year",
         "status": "known",
-        "label": "1024 CE",
-        "basis": "Von Glahn dates the state takeover to 1024."
+        "label": "1024 CE (Tiansheng 1, eleventh month, wuwu)",
+        "basis": "Li Dao and Tang Shichi use the Song regnal date. The eleventh month started in December 1023 and its wuwu day fell in January 1024 (Julian)."
       },
-      "statement": "The state took over the issue of jiaozi in Sichuan.",
-      "scope": "State takeover followed issuer insolvencies and attempted regulation.",
+      "statement": "The Song court approved a proposal to establish the Yizhou Jiaozi Office and prohibit private issue.",
+      "scope": "The decision to put an existing regional bill under public administration. The court's approval does not date the release of the first government notes.",
       "evidence": [
+        {
+          "source": "li-dao-changbian-jiaozi-office",
+          "locator": "Juan 101, Tiansheng 1, eleventh month, wuwu (戊午)",
+          "supports": "Records the proposal, ban on private issue, and dated court approval establishing the office."
+        },
+        {
+          "source": "tang-shichi-yizhou-jiaozi-office",
+          "locator": "Juan 4, Account of the Yizhou Jiaozi Office (益州交子務記)",
+          "supports": "The commemorative account dates the approval and describes the case for an official office."
+        },
+        {
+          "source": "liu-song-calendar-tiansheng",
+          "locator": "Tiansheng 1 (1023 row), month 11 beginning xinmao (辛卯)",
+          "supports": "The month starts on 16 December 1023 (Julian), xinmao. The wuwu day falls 27 days later in January 1024."
+        },
         {
           "source": "von-glahn-2026-sichuan-jiaozi",
           "locator": "Chapter 4 summary",
-          "supports": "The state took over the issue of jiaozi in Sichuan."
+          "supports": "Dates the state takeover to 1024 and reports that it followed failures of private issue and an attempt at regulation."
         }
       ],
       "contributions": [
         {
-          "group": "Song state authorities",
-          "role": "operator",
-          "resource": "Took over issue of jiaozi.",
+          "group": "Song court",
+          "role": "regulator",
+          "resource": "Approved the office and prohibition on private issue.",
           "evidence": [
             {
-              "source": "von-glahn-2026-sichuan-jiaozi",
-              "locator": "Chapter 4 summary",
-              "supports": "The summary dates state takeover to 1024."
+              "source": "li-dao-changbian-jiaozi-office",
+              "locator": "Juan 101, Tiansheng 1, eleventh month, wuwu (戊午)",
+              "supports": "Records acceptance of the proposal to establish an official bureau and prohibit private issue."
+            }
+          ]
+        },
+        {
+          "group": "Song officials Xue Tian and Zhang Ruogu",
+          "role": "contributor",
+          "resource": "Recommended public administration of jiaozi to preserve its convenience in trade.",
+          "evidence": [
+            {
+              "source": "li-dao-changbian-jiaozi-office",
+              "locator": "Juan 101, Tiansheng 1, eleventh month, wuwu (戊午)",
+              "supports": "Reports their joint proposal after private issuers were unable to pay."
+            },
+            {
+              "source": "song-shi-1345-jiaozi",
+              "locator": "Juan 181, Food and Finance III, opening of Huizi (會子)",
+              "supports": "Also credits the two officials with proposing the office."
             }
           ]
         }
+      ],
+      "places": [
+        "sichuan"
       ]
     }
   ],
@@ -102,7 +146,7 @@
     "event": "private-issue-990s",
     "rationale": "Date and scope follow the cited event; this is the earliest episode established in this research, not a claim of world priority."
   },
-  "caveats": "This is a regional history, not a claim that all earlier exchange instruments were banknotes. Chronology and reasons are taken from an academic chapter summary; original sources and individual users remain to be examined.",
+  "caveats": "The dating of private issue to the 990s follows Von Glahn's chapter summary. Earlier histories describe private use and the later state takeover but differ in assigning initiative to particular officials.",
   "research": {
     "status": "sourced",
     "basis": {
@@ -110,12 +154,13 @@
       "grain": "recalled",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "links": "sourced",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "prompted_by": "sourced"
     },
-    "note": "Independent second reader checked the cited historical episodes, dates and actor roles against the stated source passages, subject to the caveats; other facets are not blanket reviewed."
+    "note": "The event evidence contains the original-text locators for the local trade circumstances and the establishment of the official office. The 990s date still relies on the chapter summary."
   },
   "links": [
     {
@@ -123,20 +168,34 @@
       "from": "tang-flying-money-exchange-certificates",
       "status": "candidate",
       "statement": "Did Tang flying-money certificates contribute to the emergence of Sichuan jiaozi?",
-      "scope": "A possible institutional relationship, not an established transmission path.",
-      "finding": "The Met describes flying money as a possible precursor of later banknotes, but neither inspected summary traces this particular route.",
+      "scope": "Possible institutional influence on Sichuan jiaozi specifically.",
+      "finding": "The Yuan-era Song shi tentatively traces both huizi and jiaozi to Tang flying cash. Its account names no intermediary or transmission route for the Sichuan bills. Li Dao documents the local shift from private issue to a public office, but that explains a later change within Sichuan.",
       "evidence": [
+        {
+          "source": "song-shi-1345-jiaozi",
+          "locator": "Juan 181, Food and Finance III, opening of Huizi (會子)",
+          "supports": "The opening sentence proposes an antecedent shared by huizi and jiaozi, without recording how it reached Sichuan issuers."
+        },
+        {
+          "source": "xin-tang-shu-1060-feiqian",
+          "locator": "Juan 54, Food and Finance IV, paragraph beginning 時商賈至京師",
+          "supports": "Describes a long-distance mechanism for redeeming deposited funds with matching tallies."
+        },
+        {
+          "source": "li-dao-changbian-jiaozi-office",
+          "locator": "Juan 101, Tiansheng 1, eleventh month, wuwu (戊午)",
+          "supports": "Documents a local trade medium and the takeover of its administration."
+        },
         {
           "source": "met-2001-tang-flying-money",
           "locator": "Chronology, approximately 810 CE",
-          "supports": "Describes flying money as a possible precursor of banknotes, without identifying a direct path to Sichuan jiaozi."
-        },
-        {
-          "source": "von-glahn-2026-sichuan-jiaozi",
-          "locator": "Chapter 4 summary",
-          "supports": "Reports Sichuan jiaozi issue in the 990s and state takeover in 1024."
+          "supports": "Suggests flying money as a possible precursor of banknotes in general."
         }
       ]
     }
-  ]
+  ],
+  "prompted_by": [
+    "practical_need"
+  ],
+  "why": "Li Dao attributes the merchant bills to the weight of Sichuan's iron coinage. After private issuers failed to meet claims, Xue Tian and Zhang Ruogu argued that ending jiaozi would make trade harder and proposed public administration."
 }
