@@ -420,5 +420,17 @@
     "result": "pass: 907 discoveries, 1514 events, 243 links, 1679 sources; No problems found.",
     "diff_check": "git diff --check base to proposal passed"
   },
-  "history": []
+  "history": [],
+  "link_type_attestation": {
+    "path": "data/discoveries/food/kuk-banana-cultivation.json#/links/0",
+    "vocab": "data/vocab.json link types: uses_process means the other is the process that made this production possible.",
+    "from": "kuk-phase-two-mounded-cultivation: early-phase-two-mounds; kind practice, grain instance; process of mounded cultivation on raised plots.",
+    "to": "kuk-banana-cultivation: documented-evidence; kind practice, grain instance; production is banana cultivation at the same site and phase.",
+    "judgment": "uses_process is appropriate to the proposed relation: it asks whether the local crop cultivation employed the documented raised-plot process. This is a process-to-production relation, not an instrument-to-observation relation or assertion of transmission. Evidence and direction support the scoped question; candidate status retains uncertainty concerning location of banana planting.",
+    "status": "candidate",
+    "sources": [
+      "denham-2017-kuk-mounded-cultivation pp. 210–212",
+      "lentfer-2017-kuk-archaeobotany p. 171 table 10.T2.1"
+    ]
+  }
 }
