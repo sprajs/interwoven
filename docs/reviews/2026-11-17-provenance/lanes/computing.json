@@ -257,12 +257,13 @@
     "fixture_utf8_hex": "f0 9f 99 82 e2 80 8d e2 86 94 ef b8 8f",
     "implementation": "Local C probe linked against HarfBuzz 15.1.0. For each file it used hb_blob_create_from_file_or_fail, hb_face_create(index 0), hb_font_create, hb_ot_font_set_funcs and hb_font_set_ppem(109,109). For each input it used hb_buffer_add_codepoints, hb_buffer_guess_segment_properties, HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES and hb_shape with default features. It inspected count and indexes from hb_buffer_get_glyph_infos and read colour bitmap bytes with hb_ot_color_glyph_reference_png. Only one font was loaded per test.",
     "repeat_commands": [
-      "For each version download the exact artifact URL listed below to a distinct local filename and run sha256sum on it.",
+      "Run mkdir -p .cache/unicode. Download the original files listed in artifacts and verify their SHA-256 digests. Save the three upstream TTFs as .cache/unicode/noto-2.038.ttf, .cache/unicode/noto-2.040.ttf and .cache/unicode/noto-2.042.ttf, and save the Debian archive as .cache/unicode/bookworm.deb. Verify the Debian TTF digest after extracting it from that archive.",
       "For the standards files run awk -F ';' '$1 ~ /^[[:space:]]*1F642 200D 2194 FE0F[[:space:]]*$/ {print NR, $0}' on each version's sequence data, changing the identifier on reuse.",
-      "Extract without installation: ar p bookworm.deb data.tar.xz | tar -xJO ./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf > bookworm.ttf",
-      "Inspect package metadata: ar p bookworm.deb control.tar.xz | tar -xJO ./control",
-      "Equivalent command-line shaping check per file: hb-shape --no-glyph-names --remove-default-ignorables --unicodes=1F642,200D,2194,FE0F FONT.ttf",
-      "Repeat the shape command with --unicodes=1F642,2194,FE0F to test standalone components and with --unicodes=1F642,200D,2194 to test the minimally-qualified input."
+      "Extract without installation: ar p .cache/unicode/bookworm.deb data.tar.xz | tar -xJO ./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf > .cache/unicode/bookworm.ttf",
+      "Inspect package metadata: ar p .cache/unicode/bookworm.deb control.tar.xz | tar -xJO ./control",
+      "Optional glyph selection check with hb-shape: hb-shape --no-glyph-names --remove-default-ignorables --unicodes=1F642,200D,2194,FE0F FONT.ttf",
+      "Repeat the shape command with --unicodes=1F642,2194,FE0F to test standalone components and with --unicodes=1F642,200D,2194 to test the minimally-qualified input.",
+      "Run the commands in probe.commands for the full test, including the bitmap checksum."
     ],
     "glyph_ids": {
       "input_order": [
@@ -357,6 +358,20 @@
       ],
       "sha256": "69dc14a825f59379b0f73bc3d03f1781a8d591d945c0a44dc433cecb4f88ffca"
     },
-    "access_limits": "The producer release files, distribution changelog, archive index and binary package were public and accessible. The consortium’s direct September 2023 blog post was temporarily blocked in the web reader. Its September archive and the dated version-specific page supplied the release date. The package SHA-256 was checked against the current first-party bookworm index for the matching exact version. Local probe and source files can be independently recreated via the pinned URLs and commands."
+    "access_limits": "The producer release files, distribution changelog, archive index and binary package were public and accessible. The consortium’s direct September 2023 blog post was temporarily blocked in the web reader. Its September archive and the dated version-specific page supplied the release date. The package SHA-256 was checked against the current first-party bookworm index for the matching exact version. The pinned URLs identify the original artifacts and the embedded C probe records the exact test used to extract the bitmap.",
+    "probe": {
+      "language": "C11",
+      "dependencies": "C compiler, pkg-config, and HarfBuzz 15.1.0 headers and library. Run the commands from the repository root.",
+      "source": "#include <stdint.h>\n#include <stdio.h>\n#include <hb.h>\n#include <hb-ot.h>\n\nstatic void probe(hb_font_t *font, const char *label, const uint32_t *text, int size) {\n    hb_buffer_t *buffer = hb_buffer_create();\n    hb_buffer_set_flags(buffer, HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES);\n    hb_buffer_add_codepoints(buffer, text, size, 0, size);\n    hb_buffer_guess_segment_properties(buffer);\n    hb_shape(font, buffer, NULL, 0);\n\n    unsigned count = 0;\n    hb_glyph_info_t *glyphs = hb_buffer_get_glyph_infos(buffer, &count);\n    printf(\"%s (%u glyphs):\", label, count);\n    for (unsigned i = 0; i < count; i++) {\n        hb_blob_t *png = hb_ot_color_glyph_reference_png(font, glyphs[i].codepoint);\n        unsigned byte_count = hb_blob_get_length(png);\n        printf(\" %u/cluster %u/png %u\", glyphs[i].codepoint, glyphs[i].cluster, byte_count);\n        if (count == 1 && glyphs[i].codepoint == 2924) {\n            FILE *out = fopen(\".cache/unicode/bookworm-horizontal.png\", \"wb\");\n            if (out) {\n                fwrite(hb_blob_get_data(png, NULL), 1, byte_count, out);\n                fclose(out);\n            }\n        }\n        hb_blob_destroy(png);\n    }\n    putchar('\\n');\n    hb_buffer_destroy(buffer);\n}\n\nint main(int argc, char **argv) {\n    const uint32_t exact[] = {0x1F642, 0x200D, 0x2194, 0xFE0F};\n    const uint32_t no_joiner[] = {0x1F642, 0x2194, 0xFE0F};\n    const uint32_t vertical[] = {0x1F642, 0x200D, 0x2195, 0xFE0F};\n    printf(\"HarfBuzz %s\\n\", hb_version_string());\n    for (int i = 1; i < argc; i++) {\n        hb_blob_t *file = hb_blob_create_from_file_or_fail(argv[i]);\n        if (!file) return 2;\n        hb_face_t *face = hb_face_create(file, 0);\n        hb_font_t *font = hb_font_create(face);\n        hb_ot_font_set_funcs(font);\n        hb_font_set_ppem(font, 109, 109);\n        puts(argv[i]);\n        probe(font, \"full horizontal\", exact, 4);\n        probe(font, \"minus VS16\", exact, 3);\n        probe(font, \"minus ZWJ\", no_joiner, 3);\n        probe(font, \"full vertical\", vertical, 4);\n        probe(font, \"ordinary smile\", exact, 1);\n        hb_font_destroy(font);\n        hb_face_destroy(face);\n        hb_blob_destroy(file);\n    }\n    return 0;\n}\n",
+      "commands": [
+        "mkdir -p .cache/unicode",
+        "python3 -c 'import json, pathlib, sys; pathlib.Path(\".cache/unicode/compare.c\").write_text(json.load(open(sys.argv[1]))[\"replication\"][\"probe\"][\"source\"])' docs/reviews/2026-11-17-provenance/lanes/computing.json",
+        "pkg-config --modversion harfbuzz",
+        "cc -std=c11 -Wall -Wextra -o .cache/unicode/compare .cache/unicode/compare.c $(pkg-config --cflags --libs harfbuzz)",
+        ".cache/unicode/compare .cache/unicode/noto-2.038.ttf .cache/unicode/noto-2.040.ttf .cache/unicode/noto-2.042.ttf .cache/unicode/bookworm.ttf",
+        "sha256sum .cache/unicode/bookworm-horizontal.png"
+      ],
+      "output": "The probe prints glyph indexes, cluster indexes and available PNG bytes for the five inputs. The PNG at .cache/unicode/bookworm-horizontal.png records glyph 2924 from the Debian font at 109 ppem. In this font the fully and minimally qualified inputs select that same glyph and write identical PNG bytes. A different font or sequence may require changing the inputs and export glyph ID."
+    }
   }
 }
