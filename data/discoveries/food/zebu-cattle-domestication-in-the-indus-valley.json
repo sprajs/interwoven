@@ -1,8 +1,8 @@
 {
   "id": "zebu-cattle-domestication-in-the-indus-valley",
   "name": "Zebu cattle domestication in the Indus Valley",
-  "summary": "Humped zebu cattle were domesticated in the Indus Valley about 8000 years ago and later became the cattle of South Asia and much of the tropics.",
-  "description": "A 2023 genome study, citing archaeological work, places domesticated indicine (zebu) cattle in the Indus Valley of modern Pakistan about 8000 years before present, earlier than in South India or the middle Ganges, and calls the valley their domestication centre. It reports that they began to spread from the valley about 5000 years before present and reached south-west, central and east Asia and Africa.",
+  "summary": "Evidence points to northwestern South Asia as a centre of zebu domestication, with the earliest date still disputed.",
+  "description": "Bone measurements at Mehrgarh document changes in cattle size across the Neolithic sequence. A 2023 cattle-genome study cited earlier archaeological work to place domesticated indicine cattle in the Indus Valley about 8000 years ago. New dates for Mehrgarh’s human cemetery challenge the chronology underlying that early estimate. The genome study also reports later dispersal of zebu across parts of Asia and into Africa.",
   "kind": "practice",
   "domain": "food.livestock",
   "tier": 1,
@@ -33,7 +33,7 @@
   "events": [
     {
       "id": "archaeological-evidence-6050bce",
-      "type": "archaeological_evidence",
+      "type": "dated_assertion",
       "date": {
         "earliest": {
           "year": -6050
@@ -43,8 +43,8 @@
         },
         "precision": "millennium",
         "status": "approximate",
-        "label": "about 8000 years before present (c. 6050 BCE)",
-        "basis": "As the cited source gives it."
+        "label": "Proposed c. 6050 BCE (chronology disputed)",
+        "basis": "Chen et al. cite archaeology for approximately 8000 years before present. Mutin et al. subsequently proposed a later chronology for the aceramic cemetery at Mehrgarh."
       },
       "statement": "A genome study, citing archaeological evidence, places domesticated indicine cattle in the Indus Valley at about 8000 years before present (c. 6050 BCE, counting from 1950).",
       "places": [
@@ -55,8 +55,19 @@
           "source": "chen-2023-global-genetic-diversity",
           "supports": "Archaeological evidence indicates the presence of domesticated indicine cattle earlier in the Indus Valley (~8000 YBP) than in South India (~5000 YBP) and the middle Ganges (~4000 YBP)",
           "locator": "Introduction"
+        },
+        {
+          "source": "meadow-1991-mehrgarh-cattle-bones",
+          "locator": "pp. 90–94, Figs. 7.1–7.2 and text on Bos",
+          "supports": "Primary bone measurements show changing cattle size distributions across the archaeological sequence at Mehrgarh."
+        },
+        {
+          "source": "mutin-2025-mehrgarh-enamel-dates",
+          "locator": "Results, pp. 3–5, Fig. 3; Discussion, pp. 6–8",
+          "supports": "The new model dates the start of the human cemetery to 5200–4900 BCE and challenges the earlier site chronology used to contextualize cattle remains."
         }
-      ]
+      ],
+      "caveats": "The approximately 6050 BCE estimate comes from the archaeology cited by Chen et al. New dates for the cemetery concern human enamel. Direct dating of taxonomically diagnostic cattle remains remains necessary to settle the earliest evidence."
     },
     {
       "id": "transmission-3050bce",
@@ -87,8 +98,8 @@
     }
   ],
   "earliest_record": {
-    "event": "archaeological-evidence-6050bce",
-    "rationale": "The earliest dated evidence found for this capability in this community. No review has yet confirmed that nothing earlier exists."
+    "event": null,
+    "rationale": "The reported early date is disputed. The later dispersal estimate does not resolve the earliest archaeological occurrence in the Indus Valley."
   },
   "research": {
     "status": "sourced",
@@ -110,17 +121,26 @@
     "unresolved": [
       {
         "about": "open question",
-        "note": "The date and place rest on a genome paper's summary of archaeological work; Mehrgarh and Meadow's bone-size evidence were not opened and should replace this as the primary evidence."
-      },
-      {
-        "about": "open question",
         "note": "The Indus Valley coordinates are a rough regional centre, not a site."
       },
       {
-        "about": "open question",
-        "note": "Whether the first zebu herders already knew of taurine cattle or of herded goats and sheep from the west is not settled here; Chen et al. 2010 on zebu mitochondrial DNA was not opened."
+        "about": "Secure early dating and source",
+        "note": "Directly date taxonomically diagnostic bovine specimens and match them to the faunal sequence. Secure sampled dates and ancient genomes could clarify whether cattle management at Mehrgarh drew on earlier western farming practices.",
+        "evidence": [
+          {
+            "source": "meadow-1991-mehrgarh-cattle-bones",
+            "locator": "pp. 90–94, Figs. 7.1–7.2 and text on Bos",
+            "supports": "Primary bone measurements show changing cattle size distributions across the archaeological sequence at Mehrgarh."
+          },
+          {
+            "source": "mutin-2025-mehrgarh-enamel-dates",
+            "locator": "Results, pp. 3–5, Fig. 3; Discussion, pp. 6–8",
+            "supports": "The new model dates the start of the human cemetery to 5200–4900 BCE and challenges the earlier site chronology used to contextualize cattle remains."
+          }
+        ]
       }
     ],
-    "note": "The source treats the Indus Valley as the domestication centre of indicine cattle, about 2000 years after taurine cattle, but does not say whether its herders knew of cattle keeping further west."
-  }
+    "note": "The earlier chronology is retained as an attributed historical estimate. The earliest date of domestication is unresolved."
+  },
+  "caveats": "The regional domestication chronology remains open. The human cemetery dates at Mehrgarh do not directly date the cattle bones."
 }
