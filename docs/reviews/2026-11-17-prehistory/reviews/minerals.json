@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "lane": "minerals",
+  "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+  "proposal_commit": "dba697ce07a11c20f9788de4e7efd4b6b978a3ba",
+  "worker_commit": "dba697ce07a11c20f9788de4e7efd4b6b978a3ba",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent separate review",
+    "independence": "Different execution and model from gpt-6.2-sol high researcher; original evidence independently inspected."
+  },
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/machines/metal-woodworking-tool-kit-in-egypt.json",
+      "sha256": "f047f006eb2aa16e24b972710f606fd3b11acf0db15b2a7038b0d881d4bb3f21"
+    },
+    {
+      "path": "data/discoveries/materials/belovode-copper-smelting.json",
+      "sha256": "1aef34ce16ff30ea1bf1b4f09e08553837754d9d891163a2e73fc3f28a354dfa"
+    },
+    {
+      "path": "data/discoveries/materials/great-lakes-copper-tools.json",
+      "sha256": "68150e4aee4ca9a9a5088a7a056771ddbc2512ec53fc329af1fbec2f4cfe3866"
+    },
+    {
+      "path": "data/discoveries/materials/lost-wax-casting-at-mehrgarh.json",
+      "sha256": "47d764c47a32c132b2ce2a08d58d21f48acc4e44be4932253305fba4a85a507d"
+    },
+    {
+      "path": "data/discoveries/materials/native-copper-working-at-cayonu-tepesi.json",
+      "sha256": "76906a738e9915ed8c9797325c60776476a7bb6e13034199ead0b9d1945be19c"
+    },
+    {
+      "path": "data/discoveries/materials/plocnik-tin-bronze-foil.json",
+      "sha256": "8200a92248a2cd1eb181f4401fb9476915f2e13c38e01babe05412b145941159"
+    },
+    {
+      "path": "data/discoveries/materials/plocnik-worked-copper-ornament.json",
+      "sha256": "6d6789be8feb9230c4ec40f33114f8da73a21e6615794eccdfedd5383ff89927"
+    },
+    {
+      "path": "data/discoveries/materials/san-ramon-15-iron-oxide-mining.json",
+      "sha256": "16a14ebbfc34c3297e23079c19592939c4f73508bd6514c5e09b003819bfdbd1"
+    },
+    {
+      "path": "data/sources/g/goren-2025-complex-metallurgy-nahal-mishmar.json",
+      "sha256": "04abd200c8b9e4b22dd83420b3b7dd1505835ae075bcf32779f5b028e8b56322"
+    },
+    {
+      "path": "data/sources/o/odler-2021-arsenical-copper-tools-giza.json",
+      "sha256": "2c4fbd802e80326f0a122a000767f66155abbd96b8317511468bc1f67d81aa49"
+    },
+    {
+      "path": "data/sources/o/ozdogan-1999-early-metallurgy-cayonu.json",
+      "sha256": "d85c9d5370a240fa958871f95a4a17b1fa38cf16fcb11cce3c41f15a3581c419"
+    },
+    {
+      "path": "data/sources/r/radivojevic-2021-belovode-metal-production.json",
+      "sha256": "b14ec7611ead8082853a912d631d84295d2255482064de7425b249e504a5731b"
+    },
+    {
+      "path": "data/sources/r/radivojevic-2021-plocnik-metal-production.json",
+      "sha256": "1bd209d76e955188daffefe27a65a215de683438e9962bf25a412513bbe63b4c"
+    },
+    {
+      "path": "data/sources/r/radivojevic-2021-vinca-copper-supply-networks.json",
+      "sha256": "f7e419bda5b75e8a183485f3de439111860a24b45c77ad5462d54d9fc8ed04c4"
+    },
+    {
+      "path": "data/sources/s/sanger-2018-early-copper-mcqueen-shell-ring.json",
+      "sha256": "726f248a9ff26a194d71d4b287ea4ab7e19d936a89c8666e1e4d6f476ea3379e"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-prehistory/lanes/minerals.json",
+      "sha256": "848dae0fce04d4a738e6b431f10721e5970949aac2ea0a2a2dff21d7cd06a26b"
+    },
+    {
+      "path": "evidence/g/goren-2025-complex-metallurgy-nahal-mishmar-notes.txt",
+      "sha256": "e659f23184847a06cbe7a5cce95ce1cd0a8db030c87f34e0b71261f1ac57d011"
+    },
+    {
+      "path": "evidence/o/odler-2021-arsenical-copper-tools-giza-notes.txt",
+      "sha256": "d9e7fed6c122aaac8a796062ee220218f32fb7d4a29b8b181696eb89c82823a9"
+    },
+    {
+      "path": "evidence/o/ozdogan-1999-early-metallurgy-cayonu-notes.txt",
+      "sha256": "9707b4af28adbbaad88a8c796c97a512c4748b301480a83b76df98c528e01dd3"
+    },
+    {
+      "path": "evidence/r/radivojevic-2021-belovode-metal-production-notes.txt",
+      "sha256": "48492756aec0ec9330a801b17cd75d02855bc9551e68214c9f4d7db218a0fa34"
+    },
+    {
+      "path": "evidence/r/radivojevic-2021-plocnik-metal-production-notes.txt",
+      "sha256": "348fe715f00898de5dcb4325238c248cbd136ca1339449f8d963428bb5431003"
+    },
+    {
+      "path": "evidence/r/radivojevic-2021-vinca-copper-supply-networks-notes.txt",
+      "sha256": "2eded0350551642bee6c251769f1aaab63e5e16ec9435f695df342871e0d294e"
+    },
+    {
+      "path": "evidence/s/sanger-2018-early-copper-mcqueen-shell-ring-notes.txt",
+      "sha256": "6ac345499b302d37bce35396cda5b5266be057877948dd0579e8e3f2877192ca"
+    }
+  ],
+  "records": [
+    {
+      "id": "metal-woodworking-tool-kit-in-egypt",
+      "verdict": "accept",
+      "rationale": "Later functional Giza assemblage extends the existing toolkit record; no downstream object-specific dependence established.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/machines/metal-woodworking-tool-kit-in-egypt.json#/events/giza-dynasty-four-functional-tools",
+          "decision": "accept",
+          "rationale": "Odler et al. describe settlement debris assigned to Khufu/Khafra c. 2500–2450 BCE, a full-size arsenical-copper chisel and likely axe fragments; redeposition and functional uncertainty are retained.",
+          "sources": [
+            "odler-2021: abstract, §§1.1–2.1 and analytical results"
+          ],
+          "extends": "metal-woodworking-tool-kit-in-egypt"
+        }
+      ]
+    },
+    {
+      "id": "lost-wax-casting-at-mehrgarh",
+      "verdict": "accept",
+      "rationale": "Priority and transmission are correctly deferred; narrowing origin is supported.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/lost-wax-casting-at-mehrgarh.json#/summary,description,origin",
+          "decision": "accept",
+          "rationale": "Thoury’s one wheel-shaped amulet supports cast microstructure, sacrificial model and low impurities; 4500–3600 BCE dates find area. Unknown origin avoids treating claimed oldest as established.",
+          "sources": [
+            "thoury-2016: abstract, Fig. 1 and results"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/lost-wax-casting-at-mehrgarh.json#/events/archaeological-evidence-4000bce",
+          "decision": "accept",
+          "rationale": "The 6000-year approximate age is attributed to 2016 study; associated context is broader, not a direct sample date.",
+          "sources": [
+            "thoury-2016: Fig. 1 and results"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/lost-wax-casting-at-mehrgarh.json#/research",
+          "decision": "accept",
+          "rationale": "Goren et al. report c. 4700–3800 BCE based on organic cores of Levantine cast objects; comparison with Mehrgarh context cannot prove precedence or transmission.",
+          "sources": [
+            "goren-2025: §III.A, Table 1 and §IV",
+            "thoury-2016: Fig. 1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "native-copper-working-at-cayonu-tepesi",
+      "verdict": "accept",
+      "rationale": "Site-level metalworking and qualified annealing indications supported; exact specimen chronology and transmission remain open.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/native-copper-working-at-cayonu-tepesi.json#/summary and description",
+          "decision": "accept",
+          "rationale": "Excavators distinguish native metal from malachite and report initial worked finds at Grill and basal pits and later work areas.",
+          "sources": [
+            "ozdogan-1999: pp. 15–19 and inventory"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/native-copper-working-at-cayonu-tepesi.json#/events/archaeological-evidence-7500bce",
+          "decision": "accept",
+          "rationale": "The comparative range is contextual and approximate; original excavators report the relative stratigraphy and cite earlier metallography for indications of annealing. Individual phases and specimen dates remain open.",
+          "sources": [
+            "muskara-2022: Table 7",
+            "ozdogan-1999: pp. 15–16"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/native-copper-working-at-cayonu-tepesi.json#/research/unresolved",
+          "decision": "accept",
+          "rationale": "The first metallographic reports were not independently accessed; cross-match needed, not an assertion of no annealing.",
+          "sources": [
+            "ozdogan-1999: pp. 15–16"
+          ]
+        }
+      ],
+      "baseline_issue": "Unchanged origin first_known and sourced basis remain a priority assertion not established by this review; comparative dates overlap Gre Fılla and original sample chronology remains unsettled."
+    },
+    {
+      "id": "belovode-copper-smelting",
+      "verdict": "accept",
+      "rationale": "Separately excavated Trench 18 feature adds a distinct context rather than duplicating Trench 3.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/belovode-copper-smelting.json#/description and caveats",
+          "decision": "accept",
+          "rationale": "The newer report identifies manganese-rich copper residue and suggests a pottery-lined pit; no installation established by the older Trench 3 evidence.",
+          "sources": [
+            "radivojevic-2021-belovode: pp. 123–151",
+            "radivojevic-2014: pp. 13–14"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/belovode-copper-smelting.json#/events/trench-eighteen-smelting-debris",
+          "decision": "accept",
+          "rationale": "Feature 6 spit 5 slag and sherd, MAMS23380 4724–4555 cal BCE, and inference of lined pit are reported; contextual sample is not direct date of each item.",
+          "sources": [
+            "radivojevic-2021-belovode: pp. 123–127, Tables 1–2; pp. 133–151"
+          ],
+          "extends": "belovode-copper-smelting"
+        },
+        {
+          "path": "data/discoveries/materials/belovode-copper-smelting.json#/research",
+          "decision": "accept",
+          "rationale": "Research basis downgraded to sourced; ore source and installation remain open.",
+          "sources": [
+            "radivojevic-2021-belovode: pp. 123–151"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plocnik-tin-bronze-foil",
+      "verdict": "accept",
+      "rationale": "The specific Belovode-to-foil connection remains insufficient; distinct ordinary copper pieces cannot be substituted for foil 63.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/plocnik-tin-bronze-foil.json#/links/0",
+          "decision": "accept",
+          "rationale": "Sample 63 is tin bronze; isotope and trace comparisons in 2021 concern distinct Pločnik ring, chisel and ordinary foil. Source/route for sample 63 remains open.",
+          "sources": [
+            "radivojevic-2013: pp. 1032–1039",
+            "radivojevic-2021-networks: Table 3, Figs. 7 and 15"
+          ],
+          "relation": "transmitted_from",
+          "direction": "Belovode to tin-bronze foil asked, not established",
+          "context": "Specific sample 63 differs from ordinary-copper comparators",
+          "status": "insufficient",
+          "independent_corroboration": "No distinct corroboration of transmission",
+          "established_history": false
+        }
+      ]
+    },
+    {
+      "id": "great-lakes-copper-tools",
+      "verdict": "accept",
+      "rationale": "Later materials and regional use do not demonstrate specific successors; supplier is deferred.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/great-lakes-copper-tools.json#/summary and impact/note",
+          "decision": "accept",
+          "rationale": "Bebber distinguishes modeled assemblages and allows overlap and multiple explanations; wording removes unproven sole ornament succession.",
+          "sources": [
+            "bebber-2022: Tables 2–3 and discussion"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/great-lakes-copper-tools.json#/research/unresolved",
+          "decision": "accept",
+          "rationale": "McQueen analysis favors northern Lake Superior sources among tested materials, while individual supplier and relation among regional traditions remain unknown.",
+          "sources": [
+            "sanger-2018: elemental study, Fig. 4 and Table 2",
+            "bebber-2022: Burnt Rollways discussion"
+          ]
+        }
+      ],
+      "baseline_issue": "Unchanged origin independent is recalled and not reviewed here; probabilistic onset interval remains a model rather than hard limit."
+    },
+    {
+      "id": "san-ramon-15-iron-oxide-mining",
+      "verdict": "accept",
+      "rationale": "Two separately dated strata add early and later excavation witnesses to the existing unit 1 event.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/san-ramon-15-iron-oxide-mining.json#/description and caveats",
+          "decision": "accept",
+          "rationale": "Excavation documents iron-oxide extraction, mining debris and renewed exploitation; colluvium separates early and late unit 2 deposits.",
+          "sources": [
+            "salazar-2011: pp. 466–470 and Fig. 6"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/san-ramon-15-iron-oxide-mining.json#/events/unit-two-early-mining-context and earliest_record",
+          "decision": "accept",
+          "rationale": "Unit 2 layer 5 shell Beta-280992 is 10494–10146 cal BCE with local reservoir correction; dates deposit context, not individual tools or first use.",
+          "sources": [
+            "salazar-2011: pp. 466–470, Fig. 6, Table 1"
+          ],
+          "extends": "san-ramon-15-iron-oxide-mining"
+        },
+        {
+          "path": "data/discoveries/materials/san-ramon-15-iron-oxide-mining.json#/events/unit-two-late-archaic-mining-context",
+          "decision": "accept",
+          "rationale": "Unit 2 layer 3 charcoal UGAMS 5443 is 2398–1954 cal BCE; authors report renewed extraction with colluvium separating early and late phases.",
+          "sources": [
+            "salazar-2011: pp. 466–470, Fig. 6, Table 1"
+          ],
+          "extends": "san-ramon-15-iron-oxide-mining"
+        },
+        {
+          "path": "data/discoveries/materials/san-ramon-15-iron-oxide-mining.json#/research",
+          "decision": "accept",
+          "rationale": "New events marked sourced and prior review restricted to its original unit 1 witness.",
+          "sources": [
+            "salazar-2011: Table 1"
+          ]
+        }
+      ]
+    }
+  ],
+  "additional_records": [
+    {
+      "id": "plocnik-worked-copper-ornament",
+      "verdict": "accept",
+      "rationale": "A specific copper ring C_P2/13 is distinct from Pločnik tin-bronze foil 63 and is a new bounded object-level witness.",
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/materials/plocnik-worked-copper-ornament.json#/identity,description,kind,domain,grain,places,societies,known_from",
+          "decision": "accept",
+          "rationale": "2021 Pločnik report identifies copper ring in Vinča occupation and metallography; isotope study groups it with Belovode residues, without establishing exchange.",
+          "sources": [
+            "radivojevic-2021-plocnik: pp. 301–316",
+            "radivojevic-2021-networks: pp. 488–490"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/plocnik-worked-copper-ornament.json#/events/trench-twenty-four-copper-ring and earliest_record",
+          "decision": "accept",
+          "rationale": "C_P2/13 is T24/F3, S9, horizon 1; associated MAMS22081 is 4493–4365 cal BCE, and Fig.12 documents slip lines and annealing twins. Sample dates context rather than individual manufacture.",
+          "sources": [
+            "radivojevic-2021-plocnik: Tables 1–2 and 6, Fig. 12"
+          ]
+        },
+        {
+          "path": "data/discoveries/materials/plocnik-worked-copper-ornament.json#/links/0",
+          "decision": "accept",
+          "rationale": "Question asks whether Belovode smelting supplied copper for this specific ring; Group 3 groups C_P2/13 with B47/12/3 and B23/12 but cannot discriminate shared geological source from movement of metal.",
+          "sources": [
+            "radivojevic-2021-networks: Table 3 and Group 3, Figs. 2–3",
+            "radivojevic-2021-belovode: Tables 1–2"
+          ],
+          "relation": "uses_process with supplied_material contribution",
+          "direction": "Belovode feature to Pločnik band hypothesized only",
+          "context": "Dispersed isotope group; direction and physical route unresolved",
+          "status": "candidate",
+          "independent_corroboration": "No independent replication of specific supply, chapters share project samples and authors",
+          "established_history": false
+        },
+        {
+          "path": "data/discoveries/materials/plocnik-worked-copper-ornament.json#/research",
+          "decision": "accept",
+          "rationale": "Source basis is appropriate and missing discriminants are stated.",
+          "sources": [
+            "radivojevic-2021-networks: Group 3"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "odler-2021",
+      "url": "https://www.academia.edu/45502657/Arsenical_copper_tools_of_Old_Kingdom_Giza_craftsmen_First_data",
+      "locator": "abstract, §§1.1–2.1 and results",
+      "availability": "Published article facsimile inspected",
+      "independence": "Separate archaeological settlement context from earlier tomb kits."
+    },
+    {
+      "id": "thoury-2016",
+      "url": "https://www.nature.com/articles/ncomms13356",
+      "locator": "abstract, Fig. 1 and results",
+      "availability": "Full article inspected",
+      "independence": "Original imaging of Mehrgarh amulet."
+    },
+    {
+      "id": "goren-2025",
+      "url": "https://www.imeko.info/publications/tc26-2025/IMEKO-Metroarchaeo-2025-063.pdf",
+      "locator": "§III.A, Table 1 and §IV",
+      "availability": "Indexed original PDF text inspected",
+      "independence": "Independent Levantine cores, not a second measurement of Mehrgarh."
+    },
+    {
+      "id": "ozdogan-1999",
+      "url": "https://www.scribd.com/document/372776679/O-zdogan-1999-Archaeological-evidence-on-the-early-metallurgy-at-Cayonu-Tepesi",
+      "locator": "pp. 15–19 and Figs. 1, 4",
+      "availability": "Excavators’ article facsimile inspected; Maddin 1999 original metallography unavailable",
+      "independence": "Original site inventory; annealing discussion cites prior metallographic work."
+    },
+    {
+      "id": "radivojevic-2021-belovode",
+      "url": "https://repository.cyi.ac.cy/bitstream/CyI/1139/1/Radivojevic%20Rehren%202021%20Rise%20of%20Metallurgy%20Belovode%20technology%20metal%20production%20Ch%2011.pdf",
+      "locator": "pp. 123–151, Tables 1–2 and Figs. 2–3",
+      "availability": "Full chapter inspected",
+      "independence": "Separate Trench 18 samples from earlier Trench 3, same broader research project."
+    },
+    {
+      "id": "radivojevic-2021-plocnik",
+      "url": "https://repository.cyi.ac.cy/bitstream/CyI/1140/1/Radivojevic%20Rehren%202021%20Rise%20of%20Metallurgy%20Plocnik%20technology%20metal%20production%20Ch%2026.pdf",
+      "locator": "Tables 1–2, 6 and Fig. 12",
+      "availability": "Full chapter inspected",
+      "independence": "Original excavated ring; same project as isotope study."
+    },
+    {
+      "id": "radivojevic-2021-networks",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10134137/7/Radivojevic_Ch41_The%20Rise%20of%20Metallurgy%20in%20Eurasia.pdf",
+      "locator": "Table 3, Group 3, Figs. 2–3, 7 and 15",
+      "availability": "Full chapter inspected",
+      "independence": "Distinct find samples; overlapping authors and specimens with other 2021 chapters, not independent replication of transfer."
+    },
+    {
+      "id": "radivojevic-2013",
+      "url": "https://wwwhomes.uni-bielefeld.de/tkohers/Bronzegu%C3%9F/Rohstoffe/Radivojevic%20et%20al%202013%20Tainted%20ores%20and%20the%20rise%20of%20tin%20bronzes%20Antiquity%2087.pdf",
+      "locator": "pp. 1032–1039",
+      "availability": "Original article PDF inspected",
+      "independence": "Original analysis of foil 63; same analytical lineage as later research."
+    },
+    {
+      "id": "bebber-2022",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0266908",
+      "locator": "Tables 2–3, results and discussion",
+      "availability": "Full article inspected",
+      "independence": "Bayesian model of dates, not independent manufacture dates for individual pieces."
+    },
+    {
+      "id": "sanger-2018",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6099914/",
+      "locator": "Elemental Study, Fig. 4 and Table 2",
+      "availability": "Full article text inspected",
+      "independence": "Different Georgia specimen from Great Lakes dates; repeated measures concern same assemblage."
+    },
+    {
+      "id": "salazar-2011",
+      "url": "https://repositorio.uchile.cl/bitstream/handle/2250/122122/Jackson_RI_036_2011.pdf?isAllowed=y&sequence=1",
+      "locator": "pp. 466–470, Fig. 6 and Table 1",
+      "availability": "Full original article inspected",
+      "independence": "Same excavation report for distinct early and late stratified contexts."
+    },
+    {
+      "id": "radivojevic-2014",
+      "url": "https://doiserbia.nb.rs/img/doi/0350-0241/2014/0350-02411464007R.pdf",
+      "locator": "pp. 13–14, Trench 3",
+      "availability": "Full article inspected",
+      "independence": "Earlier same research lineage, original separate trench samples."
+    }
+  ],
+  "source_and_note_review": "Seven added source records and corresponding saved research notes were read and their referenced source context checked as above; file hashes bind exact bytes. Notes are not independent evidence; metadata, accessible representations, locators, sample lineage and citations accurately reflect the inspected sources. Lane report rows are consistent with the bounded decisions; other references in the report are leads, not approvals of extra claims.",
+  "duplicate_screen": "Searched catalog for all seven anchor IDs and the Belovode/Pločnik and San Ramón matches; the Giza and three later site-context additions differ by subject or dated stratigraphic context from existing events. The new ordinary copper ring C_P2/13 is distinct in material, object and context from tin-bronze foil 63; no duplicate record found. No implied transmission from chronology.",
+  "issues": [],
+  "unknowns": [
+    "Origin and chronological priority of Çayönü remain unresolved in unchanged baseline, despite first_known baseline label; not reapproved.",
+    "Maddin original metallographic report was inaccessible; excavators cite indications of annealing, no specimen-phase match asserted.",
+    "Belovode Feature 6 interpretation, ore source and direct supply to ring remain unresolved; candidate is not drawn as established history.",
+    "Mehrgarh find-area dates and Levantine core dates are different observables.",
+    "No known supplier or established successor between Old Copper and later traditions."
+  ],
+  "validation": {
+    "python3 tools/validate.py": "passed; 907 discoveries, 1519 events, 243 links, 1679 sources; no problems found.",
+    "git diff --check": "passed, base to exact proposal."
+  },
+  "history": []
+}
