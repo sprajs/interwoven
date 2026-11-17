@@ -2,16 +2,16 @@
   "schema_version": 1,
   "lane": "textiles",
   "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
-  "proposal_commit": "fb0b40c4c5552803128e9046922953b3ed61accf",
-  "worker_commit": "fb0b40c4c5552803128e9046922953b3ed61accf",
+  "proposal_commit": "6883f64f361b207ace409f822dd782e3d1dd70b2",
+  "worker_commit": "6883f64f361b207ace409f822dd782e3d1dd70b2",
   "reviewer": {
     "model": "gpt-6.1-terra",
     "effort": "high",
     "execution": "separate independent review",
     "independence": "Distinct from gpt-6.2-sol high researcher; inspected original studies and existing records."
   },
-  "overall_verdict": "changes_requested",
-  "overall_decision": "changes_requested",
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
   "files": [
     {
       "path": "data/discoveries/daily-life/denisova-eyed-needle.json",
@@ -35,7 +35,7 @@
     },
     {
       "path": "data/discoveries/transport/framed-openwork-snowshoe.json",
-      "sha256": "0171792c58093699e27eefe3f34f130d0edbbe07f04f572402facb82d70c21b0"
+      "sha256": "93b0a531c3d94b3d85e06a54a86ff41fdd87f292427202d6c94545865ebdbbe4"
     },
     {
       "path": "data/sources/c/china-national-silk-museum-2017-wanggou-w12.json",
@@ -63,7 +63,7 @@
     },
     {
       "path": "docs/reviews/2026-11-17-prehistory/lanes/textiles.json",
-      "sha256": "60e49522ae44a4a162774db50762cd3db1e9a49cad3d678452863b85ce25ea36"
+      "sha256": "8c8dc3aa3e2bf4913d57d1557488e5a6865415bc09954cef76dde46f91b053af"
     },
     {
       "path": "evidence/c/china-national-silk-museum-2017-wanggou-w12-prehistory-notes.txt",
@@ -302,13 +302,13 @@
     },
     {
       "id": "framed-openwork-snowshoe",
-      "verdict": "changes_requested",
-      "rationale": "Revised summary, description, event type, source, artifact context, caveats and narrowed date: Steiner et al. 2016 pp. 447–451 support frame, split birch, interpretation and wood tests; primary p. 451 gives 2σ components 3811–3710 (63%) and 3810–3640 BCE (88.1%). Narrowing displayed interval to 3800–3700 BCE, even if a rounded abstract summary, excludes reported plausible calibrated portions. Use a conservative range covering reported components with clear incomplete probability qualification; retain source’s rounded summary in prose, and explicitly distinguish wood age and possible reuse from use date. Later 1917 event unchanged.",
+      "verdict": "accept",
+      "rationale": "Accepted revised snowshoe summary, record, event, source and lane report. Steiner et al. pp. 447–451 identifies structure, wear, wood and proposed use; p. 451 gives calibrated 2σ components 3811–3710 BCE (63%) and 3810–3640 BCE (88.1%). Final 3811–3640 envelope covers the reported components and explicitly states that they contain only part of each probability distribution. Wood age and potential reuse do not prove use date. Same-object lab determinations are not independent artifacts; modern sales event is unchanged. No transmission link is proposed.",
       "claim_reviews": [
         {
           "path": "changed claims and documented deferral",
-          "decision": "changes_requested",
-          "rationale": "Revised summary, description, event type, source, artifact context, caveats and narrowed date: Steiner et al. 2016 pp. 447–451 support frame, split birch, interpretation and wood tests; primary p. 451 gives 2σ components 3811–3710 (63%) and 3810–3640 BCE (88.1%). Narrowing displayed interval to 3800–3700 BCE, even if a rounded abstract summary, excludes reported plausible calibrated portions. Use a conservative range covering reported components with clear incomplete probability qualification; retain source’s rounded summary in prose, and explicitly distinguish wood age and possible reuse from use date. Later 1917 event unchanged.",
+          "decision": "accept",
+          "rationale": "Accepted revised snowshoe summary, record, event, source and lane report. Steiner et al. pp. 447–451 identifies structure, wear, wood and proposed use; p. 451 gives calibrated 2σ components 3811–3710 BCE (63%) and 3810–3640 BCE (88.1%). Final 3811–3640 envelope covers the reported components and explicitly states that they contain only part of each probability distribution. Wood age and potential reuse do not prove use date. Same-object lab determinations are not independent artifacts; modern sales event is unchanged. No transmission link is proposed.",
           "sources": [
             {
               "url": "https://www.academia.edu/81438886/Ein_jungsteinzeitlicher_Schneereif_vom_Gurgler_Eisjoch_3134_m_im_Pfossental_Schnals_S%C3%BCdtirol_",
@@ -434,17 +434,466 @@
     }
   ],
   "duplicate_screen": "No new records or links in proposal. All eight pre-existing records and their events screened; no unapproved same-object duplicate is introduced.",
-  "issues": [
-    "Snowshoe date range 3800–3700 excludes portions of two reported calibrated distributions. Preserve a conservative range and explicit wood-versus-use caveat."
-  ],
+  "issues": [],
   "unknowns": [
     "Snowshoe full laboratory calibration distributions and wood age/reuse; burial-specific dates for W12 and Mehrgarh grave 158; Denisova fine age and thread; species and use of Dzudzuana fibres.",
     "Pre-existing silk record name can be read as local production despite evidence proving only burial presence; flagged separately as an existing scope concern.",
     "Original published Antrea knot is reanalysed, and its full independent primary radiocarbon report was not opened."
   ],
   "validation": {
-    "command": "python3 tools/validate.py; git diff --check 71326e01a105da21decb1587195a81bd5b596b8c fb0b40c4c5552803128e9046922953b3ed61accf",
+    "command": "python3 tools/validate.py; git diff --check 71326e01a105da21decb1587195a81bd5b596b8c 6883f64f361b207ace409f822dd782e3d1dd70b2",
     "result": "Both passed: 906 discoveries, 1514 events, 242 links, 1676 sources; no validation problems or whitespace errors."
   },
-  "history": []
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "textiles",
+      "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+      "proposal_commit": "fb0b40c4c5552803128e9046922953b3ed61accf",
+      "worker_commit": "fb0b40c4c5552803128e9046922953b3ed61accf",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "separate independent review",
+        "independence": "Distinct from gpt-6.2-sol high researcher; inspected original studies and existing records."
+      },
+      "overall_verdict": "changes_requested",
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/daily-life/denisova-eyed-needle.json",
+          "sha256": "f848a1a89c499dc112823abb6a6278fbd8cab4c5998fcaf9e20b40b783910b9c"
+        },
+        {
+          "path": "data/discoveries/daily-life/fur-and-leather-working-for-clothing-at-contrebandiers-cave.json",
+          "sha256": "5cda98372068483355bd4cb3f2c1be4cbd5f5353d62a61748b0ed99174dc1b24"
+        },
+        {
+          "path": "data/discoveries/food/antrea-bast-fishing-net.json",
+          "sha256": "4713ebba47b864c2fdd04829633127f3c8a762f95855d08779c22d39ac5157f7"
+        },
+        {
+          "path": "data/discoveries/materials/cotton-thread-making-at-neolithic-mehrgarh.json",
+          "sha256": "c7bf1f6cdf1a7e66de97d3d47febd190f3fb2a49603afff54e31dbf34c67bd3c"
+        },
+        {
+          "path": "data/discoveries/materials/silk-weaving-in-yangshao-culture-henan.json",
+          "sha256": "9b641c54c442380eb2e09e59bd545dfed02304741a906be5d6d0295410a298c8"
+        },
+        {
+          "path": "data/discoveries/transport/framed-openwork-snowshoe.json",
+          "sha256": "0171792c58093699e27eefe3f34f130d0edbbe07f04f572402facb82d70c21b0"
+        },
+        {
+          "path": "data/sources/c/china-national-silk-museum-2017-wanggou-w12.json",
+          "sha256": "4d8265b1daa1a242c38e069e25e738265c37ce5113c202029522f29303716625"
+        },
+        {
+          "path": "data/sources/d/derevianko-2016-denisova-main-chamber-needle.json",
+          "sha256": "0c24e254a0bf10379fafb34a73b93b157e48b0f1bcf3913f1ad5bf1cf5c2ebf7"
+        },
+        {
+          "path": "data/sources/k/kaaronen-2025-antrea-knot-analysis.json",
+          "sha256": "d707707409811f66a49161e9910abe2003f8b6193843a48aa93ee12fcfda41c9"
+        },
+        {
+          "path": "data/sources/m/moulherat-2002-first-evidence-cotton.json",
+          "sha256": "7cb0aa68083c7e605fb5d8ba69c878198c0f7a3e1f57a2e5b38bd175f0f68da5"
+        },
+        {
+          "path": "data/sources/m/mutin-2025-mehrgarh-period-i-radiocarbon.json",
+          "sha256": "ed6cfc21b5c9fd0270ebce4cac352d8165ac9465e6979357075f3aded5b5ad6b"
+        },
+        {
+          "path": "data/sources/s/steiner-2016-ein-jungsteinzeitlicher-schneereif.json",
+          "sha256": "a0a0448c227d4da60c6aae5d589b8fabec34ca07f766ac99d46689f93dd851b6"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-prehistory/lanes/textiles.json",
+          "sha256": "60e49522ae44a4a162774db50762cd3db1e9a49cad3d678452863b85ce25ea36"
+        },
+        {
+          "path": "evidence/c/china-national-silk-museum-2017-wanggou-w12-prehistory-notes.txt",
+          "sha256": "729fced639e044daefa92269c8d4f34308656e5c0412c0ca09e3c8412678f931"
+        },
+        {
+          "path": "evidence/d/derevianko-2016-denisova-main-chamber-needle-prehistory-notes.txt",
+          "sha256": "b266a224c58a8efb996239bca85c447f4e3db325b12f4c901cbc26607fe53bf5"
+        },
+        {
+          "path": "evidence/k/kaaronen-2025-antrea-knot-analysis-prehistory-notes.txt",
+          "sha256": "d954c0f2f46d32bcfcf5cc888a39fadb928b37b8b36c5158f87081cebe93051d"
+        },
+        {
+          "path": "evidence/m/moulherat-2002-first-evidence-cotton-prehistory-notes.txt",
+          "sha256": "07f7a41bef9403dc49f040926674f8af08208dedf8b6cff582217c016660aa4d"
+        },
+        {
+          "path": "evidence/m/mutin-2025-mehrgarh-period-i-radiocarbon-prehistory-notes.txt",
+          "sha256": "9b820083c3c32d73b8829753b8340f87f2778101e6246f16794abe915827f87c"
+        },
+        {
+          "path": "evidence/s/steiner-2016-ein-jungsteinzeitlicher-schneereif-prehistory-notes.txt",
+          "sha256": "d739fb2252fb7b11c500017846e5b77e79e4ba0f1551e1eb0512a69ba2dfeccc"
+        }
+      ],
+      "records": [
+        {
+          "id": "fur-and-leather-working-for-clothing-at-contrebandiers-cave",
+          "verdict": "accept",
+          "rationale": "Changed event evidence and caveat: Hallett 2021 pp. 3–6 reports seven Layer IV-2 rib spatulates and distinct carnivore skinning versus bovid butchery marks. Comparative experimental wear informs interpretation, but their limitation section p. 10 states 40x examination did not diagnose contact material. Clothing remains an inference; no transmission or individual link is claimed.",
+          "claim_reviews": [
+            {
+              "path": "changed claims and documented deferral",
+              "decision": "accept",
+              "rationale": "Changed event evidence and caveat: Hallett 2021 pp. 3–6 reports seven Layer IV-2 rib spatulates and distinct carnivore skinning versus bovid butchery marks. Comparative experimental wear informs interpretation, but their limitation section p. 10 states 40x examination did not diagnose contact material. Clothing remains an inference; no transmission or individual link is claimed.",
+              "sources": [
+                {
+                  "url": "https://pure.mpg.de/pubman/item/item_3346622_5/component/file_3346623/Hallett_Worked_iScience_2021.pdf",
+                  "locator": "pp. 3–6, Figs. 2–5, Tables S1–S3 and Discussion",
+                  "note": "Primary study of spatulate wear, cut-mark distribution and the Moroccan comparative assemblages. Distinct physical proxies for processing, with clothing an inference."
+                },
+                {
+                  "url": "https://quaternary.uibk.ac.at/QuaternaryResearchGroup/files/63/63584672-527a-47de-8b5a-7ec17ecdf313.pdf",
+                  "locator": "Jacobs et al. 2011, abstract and Methods, pp. 3631–3643",
+                  "note": "Original measurements of sediment dating. Jacobs is also a co-author of Hallett et al. This dates deposits and does not independently establish clothing."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "denisova-eyed-needle",
+          "verdict": "accept",
+          "rationale": "Description, event, evidence, caveats, earliest rationale and research note: Derevianko et al. 2016 pp. 72–75 identifies intact Main Chamber 11.2 specimen, reports polish and infers thread from eye; Gilligan et al. 2024 table gives approximately 40 ka cal BP for site, not direct dating; East Chamber 50.3 ± 2.2 ka measurement does not date this needle. 2018 d’Errico et al. notes inconsistent layer determinations; age and users remain uncertain. No connection proposed.",
+          "claim_reviews": [
+            {
+              "path": "changed claims and documented deferral",
+              "decision": "accept",
+              "rationale": "Description, event, evidence, caveats, earliest rationale and research note: Derevianko et al. 2016 pp. 72–75 identifies intact Main Chamber 11.2 specimen, reports polish and infers thread from eye; Gilligan et al. 2024 table gives approximately 40 ka cal BP for site, not direct dating; East Chamber 50.3 ± 2.2 ka measurement does not date this needle. 2018 d’Errico et al. notes inconsistent layer determinations; age and users remain uncertain. No connection proposed.",
+              "sources": [
+                {
+                  "url": "https://archaeology.nsc.ru/wp-content/uploads/2018/05/ses_2016_min.pdf",
+                  "locator": "Derevianko et al. 2016, pp. 72–75 (whole PDF pp. 72–75), figs. 1–2 and layer dating",
+                  "note": "Original excavation and traces, including the different contexts of the Main and East Chambers."
+                },
+                {
+                  "url": "https://archaeology.nsc.ru/wp-content/uploads/2025/12/aeaeen_534_003-027.pdf",
+                  "locator": "Derevianko 2025, p. 9 and Fig. 1.3–6",
+                  "note": "Reports 40–45 ka BP for Main Chamber layer 11. Same specimen and illustration."
+                },
+                {
+                  "url": "https://www.science.org/doi/pdf/10.1126/sciadv.adg0834?download=true",
+                  "locator": "d’Errico et al. 2023, Abstract and Results",
+                  "note": "Experimental and archaeological assessment of hide perforation at independent Canyars site, with no evidence that the Denisova needle supplied the technique."
+                },
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12871465/",
+                  "locator": "Rosencrance et al. 2026, Results: Sewn hide and bone needles",
+                  "note": "Independent US finds of sewn hide and needles, without evidence of direct descent from the Altai."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "cotton-thread-making-at-neolithic-mehrgarh",
+          "verdict": "accept",
+          "rationale": "Summary, description, origin, event and evidence, approximate contextual date, rationale and unresolved: Moulherat 2002 pp. 1393–1400 analyses Gossypium threads in grave MR.84.03.158 bead with light and electron microscopy. Mutin 2025 pp. 3–4 and discussion revises Period I to about 5250–4650 cal BCE using other cemetery teeth. This model is distinct evidence but does not directly date or securely identify this grave; retained event caveat states this. Wild/domestic identity and tool remain unknown. No first-known claim or connection.",
+          "claim_reviews": [
+            {
+              "path": "changed claims and documented deferral",
+              "decision": "accept",
+              "rationale": "Summary, description, origin, event and evidence, approximate contextual date, rationale and unresolved: Moulherat 2002 pp. 1393–1400 analyses Gossypium threads in grave MR.84.03.158 bead with light and electron microscopy. Mutin 2025 pp. 3–4 and discussion revises Period I to about 5250–4650 cal BCE using other cemetery teeth. This model is distinct evidence but does not directly date or securely identify this grave; retained event caveat states this. Wild/domestic identity and tool remain unknown. No first-known claim or connection.",
+              "sources": [
+                {
+                  "url": "https://www.harappa.com/sites/default/files/pdf/First_Evidence_of_Cotton_at_Mehrgarh.pdf",
+                  "locator": "Moulherat et al. 2002, pp. 1393–1396, Figs. 2–4 and 7–9; pp. 1398–1400",
+                  "note": "Primary fibre analysis. Identifies Period I grave MR.84.03.158 and gives the then-current chronology. The metal bead preserved the threads. This is not evidence for the origin of cotton plants or spinning devices."
+                },
+                {
+                  "url": "https://www.nature.com/articles/s41598-025-92621-5.pdf",
+                  "locator": "Mutin et al. 2025, pp. 3–4, Fig. 2, and Discussion",
+                  "note": "Independent lab measurements on teeth plus Bayesian modelling revise the site’s Period I sequence. Grave 158 was not identified in the inspected model. These are phase dates."
+                },
+                {
+                  "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.1045554/full",
+                  "locator": "Liu et al. 2022, Results and discussion of cotton provenance",
+                  "note": "Independent fibres from the Tel Tsaf site. The authors hypothesize a South Asian source from circumstantial evidence. They do not identify a Mehrgarh workshop, transmission route or specific producing community."
+                },
+                {
+                  "url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440384710491",
+                  "locator": "Betts et al. 1994, abstract",
+                  "note": "Primary report of fabric impressions and fibres on lime plaster at Dhuweila. The tentative Levantine provenance comparison does not establish a particular source for this cloth."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "silk-weaving-in-yangshao-culture-henan",
+          "verdict": "accept",
+          "rationale": "Summary, description, origin and removal of sericulture concept, event and evidence, research basis and uncertainties: original China National Silk Museum 2017 annual report pp. 44–45 identifies W12 crossed-warp fabric as silk by immunoassay, tentatively leno; 2019 press report gives site-level 5300–5500-year age, not direct W12 age. Source samples and coverage share study; location of cloth production, rearing, precise age and historical continuity remain open. Baseline name implies a local weaving tradition but event caveat explicitly limits evidence to cloth in burial; flag this as pre-existing scope concern.",
+          "claim_reviews": [
+            {
+              "path": "changed claims and documented deferral",
+              "decision": "accept",
+              "rationale": "Summary, description, origin and removal of sericulture concept, event and evidence, research basis and uncertainties: original China National Silk Museum 2017 annual report pp. 44–45 identifies W12 crossed-warp fabric as silk by immunoassay, tentatively leno; 2019 press report gives site-level 5300–5500-year age, not direct W12 age. Source samples and coverage share study; location of cloth production, rearing, precise age and historical continuity remain open. Baseline name implies a local weaving tradition but event caveat explicitly limits evidence to cloth in burial; flag this as pre-existing scope concern.",
+              "sources": [
+                {
+                  "url": "https://www.chinasilkmuseum.com/uploadfiles/2018/04/20180403151807586.pdf",
+                  "locator": "China National Silk Museum 2017 annual report, pp. 44–45, Wanggou urn samples (PDF p. 32)",
+                  "note": "Primary lab note separates a coarser plain weave and the finer, crossed-warp, ELISA-positive silk specimen in W12. No direct date here."
+                },
+                {
+                  "url": "https://www.chinasilkmuseum.com/cs/info_168.aspx?itemid=27700&parent=",
+                  "locator": "Zhou Yang interview, chronology of Wanggou sampling",
+                  "note": "Investigator account distinguishes 2017 report from 2019 work. Substantially the same investigators as the museum lab source."
+                },
+                {
+                  "url": "https://www.xinhuanet.com/english/2019-12/05/c_138606911.htm",
+                  "locator": "Age paragraph and sericulture discussion",
+                  "note": "Press report of the same research team supplies the contextual age estimate."
+                },
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5152897/",
+                  "locator": "Gong et al. 2016, Methods, Table 1 and Results, Table 2",
+                  "note": "Independent Jiahu burial-soil peptides from different contexts and specimens. They do not preserve the structure or provenance of any cloth."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "antrea-bast-fishing-net",
+          "verdict": "accept",
+          "rationale": "Description, date basis, event statement/evidence/caveats and unresolved: Kaaronen 2025 discussion and Fig. 1E identify published Antrea knot drawing as alternative sheet-bend form; this independent interpretation uses an existing specimen/drawing, not a fresh excavation or dating. Materials and date supported by earlier sources but different calibrations remain unresolved. Similar knots do not establish transfer.",
+          "claim_reviews": [
+            {
+              "path": "changed claims and documented deferral",
+              "decision": "accept",
+              "rationale": "Description, date basis, event statement/evidence/caveats and unresolved: Kaaronen 2025 discussion and Fig. 1E identify published Antrea knot drawing as alternative sheet-bend form; this independent interpretation uses an existing specimen/drawing, not a fresh excavation or dating. Materials and date supported by earlier sources but different calibrations remain unresolved. Similar knots do not establish transfer.",
+              "sources": [
+                {
+                  "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B35E9C2DB89FA3C81F58F309B8F754FA/S0959774325000071a.pdf/the-ties-that-bind-computational-cross-cultural-analyses-of-knots-reveal-their-cultural-evolutionary-history-and-significance.pdf",
+                  "locator": "Kaaronen et al. 2025, pp. 479–481 and Fig. 1E",
+                  "note": "Independent comparative reconstruction of Pälsi’s published knot. Its Antrea date derives from Manninen et al. 2021."
+                },
+                {
+                  "url": "https://biccs.dh.gu.se/api/uploads/13_Suomela_Suhonen_Koivisto_Unravelling_the_Stone_Age_fishing_net_knots_a8f66e4ea3.pdf",
+                  "locator": "Suomela et al. 2025, pp. 1–3, material and discussion",
+                  "note": "New micro-CT observations on Järvensuo knots, different objects from Antrea. Its Antrea dating and willow-bast identification cite Miettinen et al. 2008."
+                },
+                {
+                  "url": "https://journal.fi/iskos/article/download/110409/64902",
+                  "locator": "Miettinen et al. 2008, pp. 78 and 84",
+                  "note": "The primary Antrea dating and material report could not be opened through this route. Page locations are reported by Suomela et al."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "abri-du-maras-three-ply-cord",
+          "verdict": "deferred",
+          "rationale": "No changed discovery. Hardy 2020 pp. 2–4, Fig. 2 reports three-ply fragment adhered to flake in layer 4.2, not a proven binding or use; fibre dating is context-based. The 2013 observations are other samples by partly overlapping authors, not independent proof of this cord’s function. No link proposed; defer the relation, not historical existence.",
+          "claim_reviews": [
+            {
+              "path": "unchanged record and proposed deferral",
+              "decision": "deferred",
+              "rationale": "No changed discovery. Hardy 2020 pp. 2–4, Fig. 2 reports three-ply fragment adhered to flake in layer 4.2, not a proven binding or use; fibre dating is context-based. The 2013 observations are other samples by partly overlapping authors, not independent proof of this cord’s function. No link proposed; defer the relation, not historical existence.",
+              "sources": [
+                {
+                  "url": "https://www.nature.com/articles/s41598-020-61839-w.pdf",
+                  "locator": "Hardy et al. 2020, pp. 2–4 and Fig. 2, Level 4.2 specimen G8 128",
+                  "note": "Primary fragment and microscopy, with contextual dating and interpretive limits."
+                },
+                {
+                  "url": "https://www.unife.it/interfacolta/lm.preistoria/insegnamenti/archeozoologia-1/materiale-didattico/a-a-2013-2014/presentazioni-8-13-14-gennaio/14-gennaio/hardy-et-al-2013.pdf",
+                  "locator": "Hardy et al. 2013, residue analysis and discussion of fibres",
+                  "note": "Earlier observations on different samples at the same site, with overlapping authors. The complete cord fragment in the 2020 study is distinct."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "framed-openwork-snowshoe",
+          "verdict": "accept",
+          "rationale": "Accepted revised snowshoe summary, record, event, source and lane report. Steiner et al. pp. 447–451 identifies structure, wear, wood and proposed use; p. 451 gives calibrated 2σ components 3811–3710 BCE (63%) and 3810–3640 BCE (88.1%). Final 3811–3640 envelope covers the reported components and explicitly states that they contain only part of each probability distribution. Wood age and potential reuse do not prove use date. Same-object lab determinations are not independent artifacts; modern sales event is unchanged. No transmission link is proposed.",
+          "claim_reviews": [
+            {
+              "path": "changed claims and documented deferral",
+              "decision": "accept",
+              "rationale": "Accepted revised snowshoe summary, record, event, source and lane report. Steiner et al. pp. 447–451 identifies structure, wear, wood and proposed use; p. 451 gives calibrated 2σ components 3811–3710 BCE (63%) and 3810–3640 BCE (88.1%). Final 3811–3640 envelope covers the reported components and explicitly states that they contain only part of each probability distribution. Wood age and potential reuse do not prove use date. Same-object lab determinations are not independent artifacts; modern sales event is unchanged. No transmission link is proposed.",
+              "sources": [
+                {
+                  "url": "https://www.academia.edu/81438886/Ein_jungsteinzeitlicher_Schneereif_vom_Gurgler_Eisjoch_3134_m_im_Pfossental_Schnals_S%C3%BCdtirol_",
+                  "locator": "Steiner et al., 2016 pp. 447–451 (Figs. 4–5), 459 (nn. 13–14), and 462 (summary)",
+                  "note": "Primary article text reproduced at source URL. Two reported determinations date the wood, while form, wear and context support the interpretation."
+                },
+                {
+                  "url": "https://journals.ub.uni-heidelberg.de/index.php/ak/article/view/74815",
+                  "locator": "Journal’s abstract and DOI",
+                  "note": "Same article lineage as the hosted full text. The publisher's PDF download was unavailable in this pass."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        },
+        {
+          "id": "dzudzuana-twisted-plant-fibres",
+          "verdict": "deferred",
+          "rationale": "No changed discovery. Kvavadze 2009 p. 1359 and Fig. 1 describe spun/twisted fibres in Unit D and separate two-ply examples in younger Unit C; Bergfjord 2010 critiques species identification using same published microscopy, and use is unknown. Chronology dates context, not the fibres; defer any fibre-tool link and cross-site transmission.",
+          "claim_reviews": [
+            {
+              "path": "unchanged record and proposed deferral",
+              "decision": "deferred",
+              "rationale": "No changed discovery. Kvavadze 2009 p. 1359 and Fig. 1 describe spun/twisted fibres in Unit D and separate two-ply examples in younger Unit C; Bergfjord 2010 critiques species identification using same published microscopy, and use is unknown. Chronology dates context, not the fibres; defer any fibre-tool link and cross-site transmission.",
+              "sources": [
+                {
+                  "url": "https://ghss.ug.edu.ge/storage/themes/June2025/3ev9ncSLyickvEe40dMm.pdf",
+                  "locator": "Kvavadze et al. 2009, Unit D and fig. 1; Unit C discussion",
+                  "note": "Original article hosted by the University of Georgia. Context gives the age; intended materials and fibre functions remain uncertain."
+                },
+                {
+                  "url": "https://org.uib.no/ift-posten/IFT-posten2010/1634-b.pdf",
+                  "locator": "Bergfjord et al. 2010, technical comment",
+                  "note": "Independent methodological assessment questions flax identification using the published observations rather than a new test of the specimen."
+                },
+                {
+                  "url": "https://www.academia.edu/1062050/Dzudzuana_an_Upper_Palaeolithic_cave_site_in_the_Caucasus_foothills_Georgia_",
+                  "locator": "Bar-Yosef et al. 2011, Unit D artefacts pp. 337–338 and fibres, Fig. 8",
+                  "note": "Original site report contextualizes tools and fibre parcels. Shares investigators and fibre evidence with Kvavadze et al."
+                }
+              ]
+            }
+          ],
+          "relations": {
+            "status": "none proposed",
+            "assessment": "Deferral is an evidence limit, not proof that historical transmission or use was absent."
+          },
+          "duplicate_screen": "No new discovery or link proposed; review pertains to existing roster record."
+        }
+      ],
+      "additional_records": [],
+      "source_checks": [
+        {
+          "source": "Hallett et al. 2021",
+          "url": "https://pure.mpg.de/pubman/item/item_3346622_5/component/file_3346623/Hallett_Worked_iScience_2021.pdf",
+          "locator": "pp. 3–6, limitations p. 10 and methods p. 17",
+          "availability": "full report read online",
+          "independence": "Same excavation assemblage, comparative experimental work independent but contact material not diagnosed."
+        },
+        {
+          "source": "Derevianko et al. 2016",
+          "url": "https://archaeology.nsc.ru/wp-content/uploads/2018/05/ses_2016_min.pdf",
+          "locator": "pp. 72–75, Main Chamber horizon 11.2 and English abstract",
+          "sha256": "1872b73ba1dd67a7b8b556285d9203c1c2830e507ff364a375a54789274bec75",
+          "availability": "Original cached PDF read; hash independently checked.",
+          "independence": "Original excavators report; later same-excavator accounts reuse the specimen."
+        },
+        {
+          "source": "Moulherat et al. 2002",
+          "url": "https://www.harappa.com/sites/default/files/pdf/First_Evidence_of_Cotton_at_Mehrgarh.pdf",
+          "locator": "pp. 1393–1400",
+          "availability": "Full original read online.",
+          "independence": "Original specimen microscopy; no direct age measurement."
+        },
+        {
+          "source": "Mutin et al. 2025",
+          "url": "https://www.nature.com/articles/s41598-025-92621-5.pdf",
+          "locator": "pp. 3–4, Fig. 2 and discussion",
+          "sha256": "131e85b4c354de1e0b2a911205bd308f83a0bbc501f230fda47642b2a4acd933",
+          "availability": "Cached original read and hash checked.",
+          "independence": "Different dated cemetery material; not a direct measurement of bead or identified grave."
+        },
+        {
+          "source": "China National Silk Museum 2017",
+          "url": "https://www.chinasilkmuseum.com/uploadfiles/2018/04/20180403151807586.pdf",
+          "locator": "PDF p. 32 (printed pp. 44–45), W12 and W20 section",
+          "sha256": "2dfc7e29e64c8d88770a5277094590c693d405310db78c6518fdcf7d3ea9c7e9",
+          "availability": "Cached original Chinese-language report read and hash independently checked.",
+          "independence": "Laboratory report and 2019 news report are same research lineage; no independent specimen identification or individual burial age."
+        },
+        {
+          "source": "Kaaronen et al. 2025",
+          "url": "https://www.cambridge.org/core/journals/cambridge-archaeological-journal/article/ties-that-bind-computational-crosscultural-analyses-of-knots-reveal-their-cultural-evolutionary-history-and-significance/B35E9C2DB89FA3C81F58F309B8F754FA",
+          "locator": "Discussion, Antrea and Fig. 1E",
+          "availability": "Full paper read online.",
+          "independence": "Independent knot analysis of an existing published drawing; dates derive from earlier work."
+        },
+        {
+          "source": "Steiner et al. 2016",
+          "url": "https://www.academia.edu/81438886/Ein_jungsteinzeitlicher_Schneereif_vom_Gurgler_Eisjoch_3134_m_im_Pfossental_Schnals_S%C3%BCdtirol_",
+          "locator": "pp. 447–451, 459, 462",
+          "availability": "Full original article text read online; underlying lab full distributions not inspected.",
+          "independence": "Two labs measured wood of same object; no independent archaeological object."
+        },
+        {
+          "source": "Hardy et al. 2020",
+          "url": "https://www.nature.com/articles/s41598-020-61839-w.pdf",
+          "locator": "pp. 2–4 and Fig. 2",
+          "availability": "Primary report encountered in source reconnaissance; no record modifications.",
+          "independence": "Same specimen and assemblage; 2013 study is different sample with overlapping investigators."
+        },
+        {
+          "source": "Kvavadze et al. 2009",
+          "url": "https://ghss.ug.edu.ge/storage/themes/June2025/3ev9ncSLyickvEe40dMm.pdf",
+          "locator": "p. 1359, Unit D and Fig. 1",
+          "availability": "Original read online.",
+          "independence": "Bergfjord comment challenges species identification from published microscopy, not new measurement."
+        }
+      ],
+      "duplicate_screen": "No new records or links in proposal. All eight pre-existing records and their events screened; no unapproved same-object duplicate is introduced.",
+      "issues": [
+        "Snowshoe date range 3800–3700 excludes portions of two reported calibrated distributions. Preserve a conservative range and explicit wood-versus-use caveat."
+      ],
+      "unknowns": [
+        "Snowshoe full laboratory calibration distributions and wood age/reuse; burial-specific dates for W12 and Mehrgarh grave 158; Denisova fine age and thread; species and use of Dzudzuana fibres.",
+        "Pre-existing silk record name can be read as local production despite evidence proving only burial presence; flagged separately as an existing scope concern.",
+        "Original published Antrea knot is reanalysed, and its full independent primary radiocarbon report was not opened."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py; git diff --check 71326e01a105da21decb1587195a81bd5b596b8c fb0b40c4c5552803128e9046922953b3ed61accf",
+        "result": "Both passed: 906 discoveries, 1514 events, 242 links, 1676 sources; no validation problems or whitespace errors."
+      },
+      "history": []
+    }
+  ]
 }
