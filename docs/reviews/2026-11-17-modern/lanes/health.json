@@ -6,18 +6,18 @@
   "as_of": "2026-11-17",
   "inventory": [
     {
-      "name": "Siemens photon-counting CT, National University Hospital",
+      "name": "Photon-counting CT, National University Hospital",
       "region": "Singapore",
       "status": "in service",
       "date": "2026-05-18",
-      "claim": "By 18 May 2026, NUHCS and NUH reported that their Siemens photon-counting CT had been used to evaluate a cardiac patient who subsequently received treatment.",
-      "limit": "This is the reporting upper bound. The exact scan day, model variant and later service at this site remain unverified.",
+      "claim": "By 18 May 2026, NUHCS and NUH reported that their photon-counting CT had been used to evaluate a cardiac patient who subsequently received treatment.",
+      "limit": "This is the reporting upper bound. The exact scan day, scanner model and later service at this site remain unverified.",
       "sources": [
         {
           "url": "https://www.nuh.com.sg/about-nuh/newsroom/newsroom-details/nuhcs-and-nuh-advance-cardiac-care-with-safer-less-invasive-imaging-for-high-risk-patients",
           "title": "NUHCS and NUH lead cardiac care with safer, less invasive imaging for high-risk patients",
           "date": "2026-05-18",
-          "locator": "Patient-centred cardiac care and scanner photograph"
+          "locator": "Patient-centred cardiac care"
         }
       ],
       "records": []
@@ -87,8 +87,8 @@
   ],
   "trace": [
     "At Mayo, siemens-naeotom-alpha-photon-counting-ct progressed from investigational installation in April 2021 to clinical use later in 2021 after U.S. clearance on 30 September. The formal launch was 16 November. The FDA file and Mayo confirm distinct stages.",
-    "Canonical design trace: siemens-naeotom-alpha-photon-counting-ct builds on siemens-somatom-force-dual-source-ct, which builds on siemens-somatom-definition-flash-dual-source-ct, which builds on siemens-somatom-definition-dual-source-ct. The FDA submissions describe the carried-forward dual-source geometry and named changes. The first link explicitly carries forward Force’s geometry while changing both detector arrays from energy integration to photon counting.",
-    "A separate detector branch: siemens-somatom-count-photon-counting-ct-prototype adapted siemens-somatom-definition-flash-dual-source-ct using one photon-counting and one energy-integrating detector. Mayo installed the investigational unit in 2014. The NIH team demonstrated human abdominal imaging with an investigational unit in 2015 (Pourmorteza et al., doi:10.1148/radiol.2016152601). The batch establishes the Flash-to-CounT adaptation. A hardware inheritance link from CounT to Alpha awaits direct evidence.",
+    "The canonical design trace shows that siemens-naeotom-alpha-photon-counting-ct builds on siemens-somatom-force-dual-source-ct, which builds on siemens-somatom-definition-flash-dual-source-ct, which builds on siemens-somatom-definition-dual-source-ct. The FDA submissions describe the carried-forward dual-source geometry and named changes. The first link explicitly carries forward Force’s geometry while changing both detector arrays from energy integration to photon counting.",
+    "The investigational siemens-somatom-count-photon-counting-ct-prototype adapted siemens-somatom-definition-flash-dual-source-ct using one photon-counting and one energy-integrating detector. Mayo installed the investigational unit in 2014. The NIH team demonstrated human abdominal imaging with an investigational unit in 2015 (Pourmorteza et al., doi:10.1148/radiol.2016152601). The batch establishes the Flash-to-CounT adaptation. A hardware inheritance link from CounT to Alpha awaits direct evidence.",
     "At the method level, siemens-somatom-definition-dual-source-ct has a same-principle connection to existing clinical-x-ray-computed-tomography. The existing record connects early clinical CT to medical-x-ray-projection-imaging. Scope is the imaging method and does not imply that the EMI detector hardware carried over.",
     "On the silicon branch, ge-photonova-spectra-silicon-photon-counting-ct evolved from GE’s Revolution Apex hardware according to the GE technical filing K253520. UW documented evaluation of a 2022 silicon prototype and began standard-of-care scanning with the cleared product in autumn 2026. Revolution Apex has no canonical record in this batch."
   ],
@@ -104,7 +104,7 @@
     "Resolve the early GE/Rabin human prototype with a contemporary operator report or full original conference proceedings before claiming any human priority.",
     "Check the patent and hospital archive for the earlier Siemens/other manufacturers’ continuous-rotation and multislice stages; the method-level link here leaves those generations open."
   ],
-  "screen": "Searched canonical records, links, sources and leads for computed tomography, dual-source, photon-counting and scanner trade names at commit 71326e0. Retained the existing EMI clinical X-ray CT and projection radiography nodes. No matching named-generation, platform or detector lead was found. Site adoption alone was not proposed as a new record. Missing Singapore model attribution also prevented attaching the NUH deployment to Alpha.",
+  "screen": "Searched canonical records, links, sources and leads for computed tomography, dual-source, photon-counting and scanner trade names at commit 71326e0. Retained the existing EMI clinical X-ray CT and projection radiography nodes. No matching named-generation, platform or detector lead was found. Site adoption alone was not proposed as a new record. The operator’s Singapore report does not establish a scanner model, so this use is listed independently of the named models.",
   "coverage": "Evidence inspected through 17 November 2026. Selected examples are bounded to the documented sites and Japanese market. Later service, regional penetration, global priority and clinical effectiveness are not estimated.",
   "additional_sources": [
     {

@@ -1,7 +1,7 @@
 {
   "id": "siemens-somatom-definition-flash-dual-source-ct",
   "name": "SOMATOM Definition Flash dual-source CT",
-  "description": "Siemens developed a second-generation dual-source X-ray CT scanner with two continuously rotating tube-detector systems, a wider secondary detector and a high-pitch spiral acquisition mode.",
+  "description": "Siemens developed a second-generation dual-source X-ray CT scanner with two continuously rotating tube-detector systems, a higher slice count per rotation and a high-pitch spiral acquisition mode.",
   "kind": "technology",
   "domain": "health.diagnostics",
   "events": [
@@ -43,7 +43,7 @@
         {
           "source": "siemens-dual-source-ct-ten-years",
           "locator": "Definition Flash section",
-          "supports": "Reports the larger secondary detector and high-pitch mode."
+          "supports": "Reports the higher acquisition speed and high-pitch mode."
         }
       ]
     }
@@ -57,7 +57,7 @@
       "from": "siemens-somatom-definition-dual-source-ct",
       "type": "builds_on",
       "status": "established",
-      "statement": "Definition Flash retained the Definition scanner’s dual-source layout and enlarged the secondary detector.",
+      "statement": "Definition Flash retained the Definition scanner’s dual-source layout and increased the number of slices acquired per rotation.",
       "scope": "Second-generation geometry in the Siemens dual-source family.",
       "contribution": [
         "supplied_platform"
@@ -76,7 +76,7 @@
         {
           "source": "ghoshhajra-2012-coronary-ct-scanner-generations",
           "locator": "Methods, CT Scan Protocol",
-          "supports": "Clinical scans independently document both generations and corroborate that Flash retained two detector arrays with greater slice coverage."
+          "supports": "Independent clinical observations document both dual-source models and compare paired 64- and 128-slice configurations."
         }
       ]
     }
