@@ -10,25 +10,23 @@
       "id": "fujitsu-forum-debut-2009",
       "type": "public_disclosure",
       "date": {
-        "earliest": {
-          "year": 2009,
-          "month": 5
-        },
+        "earliest": null,
         "latest": {
           "year": 2009,
-          "month": 5
+          "month": 5,
+          "day": 14
         },
-        "precision": "month",
-        "status": "known",
-        "label": "2009-05",
-        "basis": "Fujitsu's corporate chronology dates the debut to May 2009."
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2009-05-14",
+        "basis": "The report from Fujitsu Forum is dated 14 May 2009 and documents the display."
       },
-      "statement": "Fujitsu publicly introduced the SPARC64 VIIIfx at Fujitsu Forum.",
+      "statement": "Fujitsu displayed the SPARC64 VIIIfx processor package, code-named Venus, at Fujitsu Forum in Tokyo.",
       "evidence": [
         {
           "source": "d2-tofu-fujitsu-2009-debut",
-          "locator": "P. 34, May 2009 product developments",
-          "supports": "Identifies the processor and month of the public debut."
+          "locator": "Opening paragraphs, processor package photo and publication date",
+          "supports": "The journalist reports and photographs the VIIIfx package on display."
         }
       ]
     },
@@ -63,7 +61,7 @@
   ],
   "earliest_record": {
     "event": "fujitsu-forum-debut-2009",
-    "rationale": "Fujitsu records a May 2009 public debut and its August presentation provides technical detail."
+    "rationale": "A contemporary report documents the publicly exhibited VIIIfx package by 14 May 2009. The August conference presentation documents the implementation and hardware results."
   },
   "research": {
     "status": "draft",
@@ -99,14 +97,9 @@
           "supports": "The separately issued joint common specification directly derives from the SPARC V9 manual."
         },
         {
-          "source": "d2-tofu-viiifx-extensions",
-          "locator": "P. 1, §1.1; p. 39, §6.1",
-          "supports": "The VIIIfx implementation specification explicitly uses the JPS1 common definitions and names the processor a SPARC V9 implementation."
-        },
-        {
           "source": "d2-tofu-maruyama-2009",
           "locator": "Slides 4–7",
-          "supports": "The designer identifies V9 and JPS as standards used, and describes the HPC-ACE register and SIMD additions."
+          "supports": "The designer identifies V9 and JPS compliance and describes the HPC-ACE register and SIMD additions."
         }
       ],
       "contribution": [
@@ -118,5 +111,8 @@
       ],
       "from_event": "v9-manual-1994"
     }
+  ],
+  "aliases": [
+    "Venus"
   ]
 }

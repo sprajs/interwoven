@@ -13,7 +13,7 @@
       "reason": "The K deployment identifies the original Tofu. The established scope moves to the design-to-design edge, with the original candidate retained for implementation-level routing, hardware-barrier and rank-mapping details.",
       "sources": [
         "https://old.hoti.org/hoti22/slides/Tofu2.pdf",
-        "https://www.fujitsu.com/global/documents/about/resources/publications/fstj/archives/vol48-3/paper05.pdf",
+        "https://www.researchgate.net/publication/265227674_Tofu_Interconnect_for_the_K_computer",
         "https://jaxa.repo.nii.ac.jp/record/3632/files/AA1630005007.pdf",
         "https://aics.riken.jp/en/wp-content/uploads/sites/2/2017/06/aics_annualreport_fy2015.pdf"
       ]
@@ -37,7 +37,7 @@
       "decision": "established",
       "reason": "Designer documentation, benchmark configuration and topology-dependent application experiments identify the concrete K interconnect.",
       "sources": [
-        "https://www.fujitsu.com/global/documents/about/resources/publications/fstj/archives/vol48-3/paper05.pdf",
+        "https://www.researchgate.net/publication/265227674_Tofu_Interconnect_for_the_K_computer",
         "https://link.springer.com/article/10.1007/s41019-016-0024-y",
         "https://www.top500.org/system/177232/"
       ]
@@ -50,7 +50,7 @@
       "reason": "The contemporary system listing identifies the processor. An independent Hiroshima University solver port implements and benchmarks VIIIfx SIMD use on K.",
       "sources": [
         "https://www.top500.org/system/177232/",
-        "https://www.fujitsu.com/downloads/SUPER/hotchips/20090825hotchips21.pdf",
+        "https://old.hotchips.org/wp-content/uploads/hc_archives/hc21/3_tues/HC21.25.500.ComputingAccelerators-Epub/HC21.25.51A.Maruyama-Fujitsu-Octo-Core-VIIIfx.pdf",
         "https://arxiv.org/pdf/1811.00355"
       ]
     },
@@ -59,12 +59,11 @@
       "parent": "sparc-v9-instruction-set",
       "initial_status": "unrecorded",
       "decision": "established",
-      "reason": "VIIIfx explicitly implements SPARC V9 through JPS1. The V9 standard, jointly issued JPS1 and the VIIIfx hardware specification pin down what maps from one specification to the next. The processor designer identifies the HPC features that expand those definitions.",
+      "reason": "Maruyama names SPARC V9 and JPS as the implemented architecture. The V9 standard and the jointly issued JPS1 spell out the base architecture and direct derivation. The Hot Chips slides explain the register and SIMD extensions.",
       "sources": [
         "https://www.cs.utexas.edu/~novak/sparcv9.pdf",
-        "https://www.fujitsu.com/downloads/SUPER/sparc64/jps1-r1.0.4-common-pub.pdf",
-        "https://www.fujitsu.com/downloads/JP/archive/imgjp/jhpc/sparc64viiifx-extensions.pdf",
-        "https://www.fujitsu.com/downloads/SUPER/hotchips/20090825hotchips21.pdf"
+        "https://www.ece.lsu.edu/ee4720/doc/JPS1-R1.0.4-Common-pub.pdf",
+        "https://old.hotchips.org/wp-content/uploads/hc_archives/hc21/3_tues/HC21.25.500.ComputingAccelerators-Epub/HC21.25.51A.Maruyama-Fujitsu-Octo-Core-VIIIfx.pdf"
       ]
     },
     {
@@ -74,7 +73,7 @@
       "decision": "extension",
       "reason": "The first JAXA SORA-MA configuration used Tofu2 in April 2015, a distinct deployment from the existing June 2015 NIFS event.",
       "sources": [
-        "https://www.jss.jaxa.jp/en/jss2portaltop/",
+        "https://www.jss.jaxa.jp/jss2portaltop/",
         "https://jaxa.repo.nii.ac.jp/record/3632/files/AA1630005007.pdf"
       ]
     }
@@ -105,8 +104,8 @@
     },
     {
       "title": "Tofu: Interconnect for the K computer",
-      "url": "https://www.fujitsu.com/global/documents/about/resources/publications/fstj/archives/vol48-3/paper05.pdf",
-      "locator": "Pp. 280–282, §§1–3.2 and Figures 1–3"
+      "url": "https://www.researchgate.net/publication/265227674_Tofu_Interconnect_for_the_K_computer",
+      "locator": "Pp. 280–282, §§1–3.4 and Figures 1–3"
     },
     {
       "title": "FX10 Supercomputer System (Oakleaf-FX) with 1.13 PFLOPS started operation at the University of Tokyo",
@@ -116,7 +115,7 @@
     {
       "title": "Efficient Breadth-First Search on Massively Parallel and Distributed-Memory Machines",
       "url": "https://link.springer.com/article/10.1007/s41019-016-0024-y",
-      "locator": "§§5.1–5.2 and §6.3, topology-aware mapping and results on K"
+      "locator": "§§5.1–5.2 and §6.2, topology-aware mapping and results on K"
     },
     {
       "title": "Performance Evaluation of the JAXA’s New Supercomputer System: SORA-MA",
@@ -124,9 +123,9 @@
       "locator": "P. 53, §§1–2; pp. 55–57, §3.2 and Figure 5"
     },
     {
-      "title": "Overview of JSS2",
-      "url": "https://www.jss.jaxa.jp/en/jss2portaltop/",
-      "locator": "Overview of JSS2, phase 2 and phase 3"
+      "title": "Overview of JSS2 (JSS2の概要)",
+      "url": "https://www.jss.jaxa.jp/jss2portaltop/",
+      "locator": "JSS2の概要, phase 2 (第2期) and phase 3 (第3期)"
     },
     {
       "title": "RIKEN AICS Annual Report FY2015, Chapter 1: System Software Research Team",
@@ -144,24 +143,19 @@
       "locator": "Opening paragraph"
     },
     {
-      "title": "Fujitsu Data Book 2014: History of Fujitsu",
-      "url": "https://www.fujitsu.com/global/Images/databook-2014-14.pdf",
-      "locator": "P. 34, May 2009 product developments"
+      "title": "Fujitsu exhibits its SPARC64 VIIIfx (PC Watch field report)",
+      "url": "https://pc.watch.impress.co.jp/docs/news/168533.html",
+      "locator": "Opening paragraphs, processor package photo and publication date"
     },
     {
       "title": "SPARC64 VIIIfx: Fujitsu’s New Generation Octo Core Processor for PETA Scale Computing",
-      "url": "https://www.fujitsu.com/downloads/SUPER/hotchips/20090825hotchips21.pdf",
+      "url": "https://old.hotchips.org/wp-content/uploads/hc_archives/hc21/3_tues/HC21.25.500.ComputingAccelerators-Epub/HC21.25.51A.Maruyama-Fujitsu-Octo-Core-VIIIfx.pdf",
       "locator": "Slides 1, 3–7, 12–17 and 20"
     },
     {
       "title": "SPARC Joint Programming Specification 1: Commonality",
-      "url": "https://www.fujitsu.com/downloads/SUPER/sparc64/jps1-r1.0.4-common-pub.pdf",
+      "url": "https://www.ece.lsu.edu/ee4720/doc/JPS1-R1.0.4-Common-pub.pdf",
       "locator": "P. 1, Chapter 1, and p. 19, §3.1"
-    },
-    {
-      "title": "SPARC64 VIIIfx Extensions",
-      "url": "https://www.fujitsu.com/downloads/JP/archive/imgjp/jhpc/sparc64viiifx-extensions.pdf",
-      "locator": "P. 1, §1.1; p. 39, §6.1"
     },
     {
       "title": "Porting DDalphaAMG solver to K computer",
@@ -171,7 +165,7 @@
     {
       "title": "The Tofu Interconnect 2",
       "url": "https://old.hoti.org/hoti22/slides/Tofu2.pdf",
-      "locator": "Printed slides 1, 4–7 and 24"
+      "locator": "Printed slides 1, 4–7 and 23"
     },
     {
       "title": "K computer TOP500 listing",
