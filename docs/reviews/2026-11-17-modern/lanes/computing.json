@@ -96,6 +96,7 @@
     }
   ],
   "trace": [
+    "riken-fujitsu-fugaku → riken-fujitsu-k-computer: Canonical supersedes link scoped to RIKEN’s shared research installation in Kobe. RIKEN’s 2019 retirement notice describes preparing for the Fugaku installation. MEXT’s 2022 white paper, pp. 242–243, names Fugaku the successor in Japan’s HPCI programme.",
     "riken-fujitsu-fugaku → fujitsu-tofu-interconnect-2: Candidate graph link. Fujitsu traces Fugaku's A64FX-integrated TofuD to Tofu2 in its 2019 FX1000 white paper, pp. 7–8, including new resilience features for densely packed nodes. Dongarra’s technical comparison closely follows the developers’ account.",
     "fujitsu-tofu-interconnect-2 → riken-fujitsu-k-computer: Candidate graph link for the original Tofu design. Fujitsu’s 26 August 2014 Hot Interconnects slides describe a six-dimensional topology and show the controller moving onto the processor chip in Tofu2. The original Tofu also appeared in FX10. Tofu2 was in operation in the FX100-based Plasma Simulator at NIFS in Toki on 1 June 2015. That deployment is an event on the Tofu2 record.",
     "riken-fujitsu-k-computer: RIKEN and Fujitsu reported 10.51 PFlop/s measured LINPACK in 2011. RIKEN began shared use in September 2012 and concluded that service on 16 August 2019, preparing the site for Fugaku’s installation."
@@ -110,5 +111,5 @@
     "Check RIKEN’s next operating notice for a verified Fugaku restart and the scope of restored external research access."
   ],
   "screen": "Searched current discoveries, source IDs and leads for K computer, Kei, Fugaku/post-K, Tofu, FX100/PRIMEHPC, and JUPITER Booster. No matching canonical machine or Tofu design record or lead was found. Ethernet and CUDA are different referents. No processor fabrication link was inferred.",
-  "coverage": "Three installations or plans in Japan and Germany, with a single bounded Japanese interconnect lineage. Evidence checked against the 17 November 2026 cutoff. Benchmark results, allocated access, and incident-driven interruption carry separate scopes. Fujitsu supplies the explicit technical inheritance account. Both links remain candidates pending independent informative corroboration."
+  "coverage": "Three installations or plans in Japan and Germany, with a single bounded Japanese interconnect lineage. Evidence checked against the 17 November 2026 cutoff. Benchmark results, allocated access, and incident-driven interruption carry separate scopes. Fujitsu supplies the explicit technical inheritance account. The two engineering links remain candidates pending independent informative corroboration. The documented succession concerns the Kobe research installation and shared service."
 }
