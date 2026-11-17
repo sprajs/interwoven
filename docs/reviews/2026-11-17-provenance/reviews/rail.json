@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "lane": "rail",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "2fc401f18927f81b15473ffb8ec5c3249d12be26",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review_credit reassigned rail",
+    "independence": "Separate execution from gpt-6.2-sol high proposer."
+  },
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/transport/bombay-thane-passenger-railway.json",
+      "sha256": "baf4642681f5018d01fa1bae04ee3b084c3e0e03c92b1f22dcbe476fa4acd9ac"
+    },
+    {
+      "path": "data/sources/d/danvers-1860-indian-railways-through-1859.json",
+      "sha256": "4027885bd32280d2aefbf8932a381c10bce7255b72f86a0b064ee50ea121bef5"
+    },
+    {
+      "path": "data/sources/e/economist-1853-gipr-eighth-report.json",
+      "sha256": "4bbe5d0daa489f66679163a1e21363fd40ca4bd21fffa1897231cb89ab19e91a"
+    },
+    {
+      "path": "data/sources/g/gipr-1858-receipts-working-expenses.json",
+      "sha256": "c9c1e270ecae00a29d511d39161862d27c1ca27eab1dbc7a6b4839121614f670"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json",
+      "sha256": "81f6f02c3008f6143ba702c5f4d7119ee32d54f4329399d14ed8b3a47bea82f0"
+    },
+    {
+      "path": "evidence/d/danvers-1860-indian-railways-through-1859.pdf.cache.json",
+      "sha256": "9670c628a6f9358b366024797de5fb1a56ec6c81e17bc52caffeebc3b62a5c09"
+    },
+    {
+      "path": "evidence/e/economist-1853-gipr-eighth-report.pdf.cache.json",
+      "sha256": "1c0ed883faec11e4ca248984e8aebaa504b2d04338cd70b85a05a1515633cebd"
+    },
+    {
+      "path": "evidence/g/gipr-1858-receipts-working-expenses.pdf.cache.json",
+      "sha256": "f8f58308c652e4e9f59a5febe52ed03d1020ab9c83284854e23b847bfe41d033"
+    }
+  ],
+  "deleted_files": [],
+  "claim_reviews": [
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/kind,title,question,inputs,steps/action,reject_if,stop_when,next_anchor",
+      "decision": "accept",
+      "rationale": "Reusable inputs, searches, comparison steps, rejection and stopping criteria are explicitly operational and distinguish route-level evidence from design ancestry. The next anchor is a different 1856 railway case, not an invented result. Actions are distinct from observed results.",
+      "sources": [
+        "British Library IOR/L/AG/46/12 catalogue",
+        "Danvers §§41,142",
+        "Economist 5 November 1853 p.1260"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/steps/0/result",
+      "decision": "changes_requested",
+      "rationale": "ICOMOS and ministry support Bori Bunder site, later building, opening and name chronology. The 26 April Gazette source was inaccessible to this reviewer; obtain the researcher’s original PDF scan or independently readable pages to verify asserted station table and separate Mahim table, or explicitly defer those clauses.",
+      "sources": [
+        "ICOMOS evaluation no.945 rev p.63",
+        "Ministry of Railways 21 May 2018",
+        "Bombay Government Gazette vol 23 no 32 p.1260"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/steps/1/result",
+      "decision": "accept",
+      "rationale": "Times of India reproduces 8 April notice as future 18 April daily service; a modern transcription of the Bombay Gazette account reports 14 carriages, three unnamed engines and an estimated 500 guests. Its Argus reprint is the same report, not independent corroboration. Bombay Times modern transcription and 400 modern count are separated as estimates; no original Trove page claim is made.",
+      "sources": [
+        "Times of India 25 Apr 2013 archives",
+        "Bombay Gazette 18 Apr 1853 modern transcription",
+        "Ministry of Railways/RPF history"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/steps/2/result",
+      "decision": "accept",
+      "rationale": "The original Danvers scan §41 reports traffic opening 18 April in a combined route row and later extension 1 May 1854. §142 reports 535,195 passenger conveyances and £13,647 for period ending June 1854. Original Watt signed 1858 account starts 18 April, ends June 1854 and totals £14,252 3s 8d across 34½ miles; it does not identify receipts on any particular day. Company-account lineage constrains independence.",
+      "sources": [
+        "Danvers 1860 pp.13,33",
+        "GIPR Watt 1858 appendix p.292"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/steps/3/result",
+      "decision": "changes_requested",
+      "rationale": "The Economist original page explicitly reports 17 April and two daily trains, attributed to directors; original directors’ report not inspected. Reviewer could not access 26 April Gazette PDF due to size and no locally retained original. Supply or cite inspectable original pages for claimed changes and fare terms, or defer these source-specific claims.",
+      "sources": [
+        "Economist 5 Nov 1853 p.1260",
+        "Bombay Government Gazette 26 Apr 1853 pp.1260–1261",
+        "British Library IOR/L/AG/46/12"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/steps/4/result,decision",
+      "decision": "accept",
+      "rationale": "Archive catalogue lists August 1849 Bombay–Callian agreement but not the terms; Danvers §41 identifies opening section and §48 records guaranteed interest, while original Watt account reports repayment against interest advanced. This supports an institutional guarantee associated with the wider undertaking, not exact route-specific spending or a technological lineage. Shares and guarantee are separate roles. The 1849 agreement itself remains uninspected.",
+      "sources": [
+        "British Library IOR/L/AG/46/12/1",
+        "Danvers 1860 §§36,41,44,48",
+        "GIPR Watt 1858 p.292",
+        "Economist 5 Nov 1853 p.1260"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/rail.json#/summary,steps/5/result,decision",
+      "decision": "changes_requested",
+      "rationale": "The evidence allows 18 April as Danvers’ date for opening the line for traffic, not attribution to his table of the first day of regular paid passenger service. The offer is prospective; the revenue period covers more than one date and route; Economist reports daily service without proving the first ordinary departure. Replace claims of a known 18 April regular/paid passenger opening with clearly attributed traffic-opening report plus separate contemporaneous schedule and subsequent traffic evidence, while preserving 17 April alternative and unresolved first trip.",
+      "sources": [
+        "Danvers 1860 §41",
+        "GIPR Watt 1858 p.292",
+        "Economist 5 Nov 1853 p.1260",
+        "Times of India 2013 reproduction of 8 April notice"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/bombay-thane-passenger-railway.json#/events/recorded-public-opening-1853,earliest_record,research",
+      "decision": "changes_requested",
+      "rationale": "The event is not a duplicate of the 8 April offer or 16 April invitation train. Danvers §41 reports a line opening for traffic, not explicitly the onset of regular passenger service; the Watt account’s first accounting period is not a daily log. The statement attributes regular passenger traffic to the table and the asserted known day despite a 17 April conflict. Narrow to a source-attributed recorded traffic opening, and distinguish later evidence of service from first-day paid operation; keep and verify original specific source roles and event operator.",
+      "sources": [
+        "Danvers 1860 §41",
+        "GIPR Watt 1858 p.292",
+        "Economist 5 Nov 1853 p.1260"
+      ]
+    },
+    {
+      "path": "data/sources/d/danvers-1860-indian-railways-through-1859.json + evidence/d/danvers-1860-indian-railways-through-1859.pdf.cache.json",
+      "decision": "accept",
+      "rationale": "Page map binds archival selected scans; primary government report line and annual table were independently read from the researcher’s full original before temporary cache removal. £13,647 and 535,195 refer to wider network/year, not first day.",
+      "sources": [
+        "Danvers 1860 pp.13,33"
+      ]
+    },
+    {
+      "path": "data/sources/g/gipr-1858-receipts-working-expenses.json + evidence/g/gipr-1858-receipts-working-expenses.pdf.cache.json",
+      "decision": "accept",
+      "rationale": "Original 1858 signed company return was visually inspected; initial period and fields correctly identified, not treated as a daily log.",
+      "sources": [
+        "GIPR Watt 1858 appendix p.292"
+      ]
+    },
+    {
+      "path": "data/sources/e/economist-1853-gipr-eighth-report.json + evidence/e/economist-1853-gipr-eighth-report.pdf.cache.json",
+      "decision": "accept",
+      "rationale": "Original newspaper p.1260 was visually inspected. It prints 17 April and claims two trains daily, attributed to directors’ report. This is not independent of company reporting and is an unresolved conflicting account.",
+      "sources": [
+        "Economist 5 Nov 1853 p.1260"
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Report_to_the_Secretary_of_State_for_India_in_Council_on_Railways_in_India_to_the_end_of_the_year_1859%2C_1860-61_to_1879-80_%28IA_dli.granth.109260%29.pdf",
+      "locator": "printed pp.13 and 33; source scan pages 15 and 35",
+      "read_representation": "full original worker-local PDF text, before cleanup; matched page text",
+      "access_limit": "full remote PDF exceeds web fetch limit; guarantee p.14 is supported by worker excerpt but full p.12 was not independently reread",
+      "source_lineage": "government director synthesis may draw on company returns"
+    },
+    {
+      "url": "https://archive.org/download/reporttogetherwi00grea/reporttogetherwi00grea.pdf",
+      "locator": "appendix p.292 scan page 318",
+      "read_representation": "original worker-local scan page visually inspected",
+      "access_limit": "remote unavailable via web; source cached descriptor records source digest and excerpt page mapping",
+      "source_lineage": "signed operator return; not independent from company reports"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/The_Economist_1853-11-05-_Vol_11_Iss_532_%28IA_sim_economist_1853-11-05_11_532%29.pdf",
+      "locator": "5 Nov 1853 p.1260 scan page 24",
+      "read_representation": "worker-local original scan page visually inspected",
+      "access_limit": "original directors report uninspected",
+      "source_lineage": "contemporary newspaper quoting directors; independent publication, dependent underlying account"
+    },
+    {
+      "url": "https://dspace.gipe.ac.in/xmlui/bitstream/handle/10973/56096/GIPE-BGG-1853-23-32-01.pdf?isAllowed=y&sequence=1",
+      "locator": "vol 23 no 32 pp.1260–1261, 26 Apr notice",
+      "read_representation": "not independently inspected",
+      "access_limit": "24MB PDF exceeds web limit; worker removed temporary copy; requested local original",
+      "source_lineage": "operator notice printed in government gazette"
+    },
+    {
+      "url": "https://searcharchives.bl.uk/catalog/040-000980626",
+      "locator": "IOR/L/AG/46/12/1 scope (b)",
+      "read_representation": "catalogue directly read",
+      "access_limit": "contract contents not digitized in record",
+      "source_lineage": "archival metadata only"
+    },
+    {
+      "url": "https://whc.unesco.org/archive/advisory_body_evaluation/945rev.pdf",
+      "locator": "p.63 history",
+      "read_representation": "original ICOMOS evaluation PDF read",
+      "access_limit": "retrospective heritage evaluation",
+      "source_lineage": "separate heritage inventory"
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1532953&lang=2&reg=48",
+      "locator": "21 May 2018 building dates and names",
+      "read_representation": "official source directly read",
+      "access_limit": "retrospective; does not describe 1853 building",
+      "source_lineage": "operator ministry release"
+    },
+    {
+      "url": "https://timesofindia.indiatimes.com/news/Indias-1st-train-When-Sahib-Sindh-Sultan-blew-steam/toi175yrsarticleshow/19717248.cms",
+      "locator": "archive 8 April 1853 notice",
+      "read_representation": "modern reproduction directly read",
+      "access_limit": "not the original issue image",
+      "source_lineage": "newspaper reporting from its archive"
+    },
+    {
+      "url": "https://indiaofthepast.org/bombay-gazette/life-back-then/india-s-first-commercial-passenger-train-journey",
+      "locator": "Bombay Gazette inaugural trip transcription",
+      "read_representation": "modern transcription checked",
+      "access_limit": "Argus original Trove unavailable; transcript not independent of Gazette original",
+      "source_lineage": "derivative witness, not two reports"
+    }
+  ],
+  "limitations": [
+    "The 26 April Gazette original was unavailable to independent review; request for local copy sent.",
+    "Guarantee wording pertains to the Bombay–Callian undertaking; original 1849 contract remains a catalogue item only.",
+    "The link to the Merthyr steam locomotive is deferred; no asserted design transmission.",
+    "No claim of actually witnessing undocumented searches or an unavailable original is made."
+  ],
+  "issues": [
+    "Correct the event and workflow attributions so that the 18 April date is the reported line opening for traffic, not a directly established start of regular paid passenger operation. Keep 17 April alternative and first ordinary trip unresolved.",
+    "Make the 26 April Gazette original inspectable for review (precise local source PDF/page), or defer the timetable and fare details attributed to it."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 979 discoveries, 1689 events, 302 links, 2016 sources; no problems found",
+    "diff_check": "git diff --check base..proposal passed"
+  },
+  "history": []
+}
