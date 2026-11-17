@@ -1,0 +1,85 @@
+{
+  "id": "tsmc-193nm-immersion-lithography",
+  "name": "TSMC’s 193 nm immersion lithography",
+  "description": "TSMC integrated 193 nm water-immersion lithography into semiconductor fabrication, testing it on 90 nm devices and later using it in 40 nm production.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "90nm-feasibility",
+      "type": "demonstration",
+      "date": {
+        "earliest": {
+          "year": 2004
+        },
+        "latest": {
+          "year": 2004
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "2004",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "TSMC demonstrated the manufacturing feasibility of 193 nm immersion lithography on its 90 nm process with ASML equipment.",
+      "caveats": "The 90 nm result establishes feasibility on functional devices. TSMC announced it at the end of 2004. The trial does not establish volume manufacture via immersion on the 90 nm node.",
+      "evidence": [
+        {
+          "source": "tsmc-2004-annual-report-immersion-lithography",
+          "locator": "§2 Business Overview, Innovation, and §5.2 R&D Accomplishments in 2004",
+          "supports": "TSMC reports the 193 nm feasibility result and the use of ASML tools for functional 90 nm devices."
+        },
+        {
+          "source": "asml-2005-fourth-quarter-immersion-results",
+          "locator": "Slides 17–18, Technology accomplishments 2004 and Immersion working on the fab floor",
+          "supports": "ASML independently documents early immersion shipments and a December 2004 immersion fabrication milestone in its 2004 results."
+        }
+      ]
+    },
+    {
+      "id": "40nm-customer-production",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2008,
+          "month": 10
+        },
+        "latest": {
+          "year": 2008,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2008-10",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "TSMC put 193 nm immersion into production on its 40 nm general-purpose and low-power technologies as initial customer wafers entered fabrication.",
+      "scope": "This dates production use on the two 40 nm variants. Other TSMC immersion process introductions fall outside this event.",
+      "evidence": [
+        {
+          "source": "tsmc-2008-40nm-immersion-operation",
+          "locator": "Printed p. 48, §5.2.2, 40 and 45 Nanometer Technology",
+          "supports": "Describes the 193 nm method and Q4 delivery of both 40 nm processes."
+        },
+        {
+          "source": "tsmc-2008-40nm-customer-production",
+          "locator": "Main paragraphs 1 and 9, TSMC 40nmG and 40nm LP",
+          "supports": "Dates the entry of the first customer wafers into production to October."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "90nm-feasibility",
+    "rationale": "The earliest dated result within the sampled sources is the 2004 90 nm feasibility demonstration."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "note": "The node covers TSMC’s integration of the technique. It leaves water-immersion priority and possible earlier practical use at other companies open."
+  }
+}

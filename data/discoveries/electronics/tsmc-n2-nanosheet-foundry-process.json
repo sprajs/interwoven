@@ -1,0 +1,124 @@
+{
+  "id": "tsmc-n2-nanosheet-foundry-process",
+  "name": "TSMC’s N2 nanosheet foundry process",
+  "description": "TSMC put its first-generation nanosheet logic process into high-volume manufacturing and subsequently reported its ramp at Hsinchu and Kaohsiung.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "n2-hvm-entry",
+      "type": "production",
+      "date": {
+        "earliest": {
+          "year": 2025,
+          "month": 10
+        },
+        "latest": {
+          "year": 2025,
+          "month": 12
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "Q4 2025",
+        "basis": "The foundry confirms onset in the fourth quarter without giving the month."
+      },
+      "statement": "TSMC began high-volume manufacture of its N2 nanosheet process.",
+      "places": [
+        "taiwan"
+      ],
+      "place_note": "The more specific locations are documented for the later ramp, without separate Q4 start dates.",
+      "evidence": [
+        {
+          "source": "tsmc-nd-n2-foundry-process-description",
+          "locator": "2nm Technology, opening paragraphs",
+          "supports": "TSMC identifies first-generation nanosheets and dates volume manufacture to Q4 2025."
+        },
+        {
+          "source": "tsmc-2026-q3-n2-fab-ramp",
+          "locator": "Printed p. 5, C. C. Wei prepared remarks, N2 and A14",
+          "supports": "TSMC confirms the production milestone retrospectively and names the two sites in the subsequent ramp."
+        }
+      ]
+    },
+    {
+      "id": "n2-september-quarter-shipments",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 7
+        },
+        "latest": {
+          "year": 2026,
+          "month": 9
+        },
+        "precision": "range",
+        "status": "bounded",
+        "label": "Q3 2026",
+        "basis": "TSMC’s financial release reports shipments across the quarter ended September 30."
+      },
+      "statement": "TSMC reported 2 nm shipments accounting for 8% of its consolidated wafer revenue in the September quarter.",
+      "caveats": "Revenue share across the company is not wafer count, fab throughput or the customer mix.",
+      "evidence": [
+        {
+          "source": "tsmc-2026-q3-wafer-node-revenue",
+          "locator": "Printed p. 1, wafer revenue by node, quarter ended September 30",
+          "supports": "Wafer revenue breakdown attributes 8% to the 2 nm category."
+        }
+      ]
+    },
+    {
+      "id": "n2-site-ramp",
+      "type": "dated_assertion",
+      "date": {
+        "earliest": {
+          "year": 2026,
+          "month": 10,
+          "day": 15
+        },
+        "latest": {
+          "year": 2026,
+          "month": 10,
+          "day": 15
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2026-10-15",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "TSMC reported an ongoing N2 ramp in multiple phases at Hsinchu and Kaohsiung.",
+      "places": [
+        "taiwan"
+      ],
+      "place_note": "Hsinchu and Kaohsiung, Taiwan.",
+      "caveats": "This is an operator snapshot as of the call. It does not date initial production at each site.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "tsmc-2026-q3-n2-fab-ramp",
+          "locator": "Printed p. 5, C. C. Wei prepared remarks, N2 and A14",
+          "supports": "The operator states that N2 is ramping at both named sites during the call."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "n2-hvm-entry",
+    "rationale": "The scoped record is high-volume N2 manufacturing, with the onset bounded to Q4 2025 by its operator."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "lithography process attribution",
+        "note": "Published evidence about each fab’s scanner models and layer assignments has not been located. The TSMC–ASML roadmap dates TSMC’s high-volume High-NA intent to 2030, rather than documenting N2 scanner assignments."
+      }
+    ]
+  }
+}

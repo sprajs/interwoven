@@ -1,0 +1,64 @@
+{
+  "id": "asml-euv-alpha-demo-scanner",
+  "name": "ASML’s Alpha Demo EUV scanner",
+  "description": "ASML built full-field 0.25 NA prototype EUV scanners and shipped them to laboratories in Leuven and Albany for experimental development.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "alpha-demo-shipments",
+      "type": "transmission",
+      "date": {
+        "earliest": {
+          "year": 2006,
+          "month": 8
+        },
+        "latest": {
+          "year": 2006,
+          "month": 8
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2006-08",
+        "basis": "Date or date granularity stated in the cited source."
+      },
+      "statement": "ASML shipped prototype EUV scanners to imec in Leuven and the College of Nanoscale Science and Engineering in Albany.",
+      "places": [
+        "belgium",
+        "new-york-state"
+      ],
+      "place_note": "These are the receiver locations. The event does not date ASML’s factory assembly of the machines.",
+      "caveats": "Prototype tool shipments establish research access rather than wafer production.",
+      "evidence": [
+        {
+          "source": "asml-nd-nxe-exe-product-platforms",
+          "locator": "Mass producing leading-edge microchips and Developing EUV lithography",
+          "supports": "ASML dates the Alpha Demo Tool shipments to August 2006."
+        },
+        {
+          "source": "van-nuffel-2026-imec-high-na-development",
+          "locator": "The start of the EUV era and The next big thing: High NA EUV",
+          "supports": "The receiving Belgian lab independently recalls its 2006 receipt."
+        },
+        {
+          "source": "yen-2021-euv-saves-moores-law",
+          "locator": "Opening and Long March",
+          "supports": "A user confirms two Alpha Demo Tools at Albany and Leuven and describes development work at Albany."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "alpha-demo-shipments",
+    "rationale": "The supplier dates the handover of two research tools, and receivers and users corroborate the year and destinations."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    }
+  }
+}
