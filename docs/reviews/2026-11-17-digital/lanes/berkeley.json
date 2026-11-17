@@ -10,7 +10,7 @@
       "parent": "berkeley-high-resistivity-pin-detector-process",
       "initial_status": "candidate",
       "decision": "still candidate",
-      "reason": "The designers explicitly credit earlier p-i-n work. Specifications in overlapping 1996–1997 accounts and Holland's patent match backside phosphorus-doped polysilicon gettering and document its later adaptation for an optical window. Spieler participated in the 1990 preamplifier work and discusses the broader lineage. Independent confirmation of the precise 1988/1989 process on the 1996 prototype is still missing.",
+      "reason": "The 1996 designers cite Holland's 1989 paper at the phosphorus-doped polysilicon gettering step and describe removal of the thick getter before applying a transparent contact. The 1997 reports and Holland's patent add technical detail with overlapping authorship. Spieler participated in the 1990 preamplifier work and discusses the broader lineage. Independent confirmation of the exact process on the December 1996 on-sky prototype is still missing.",
       "sources": [
         "https://www-supernova.lbl.gov/public/papers/ccd_ieee.ps",
         "https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon",
@@ -36,9 +36,10 @@
       "parent": "lick-ccd-data-acquisition-system",
       "initial_status": "unrecorded",
       "decision": "established",
-      "reason": "Stover's characterization names the standard Lick data acquisition system and cites the 1987 design report. The original design abstract and a separate 1987 photometer report document the named system's readout arrangement. The laboratory tests provide the scope of this link.",
+      "reason": "The 1996 prototype report and 1997 characterization, which share authors, both identify the 1987 Lick data acquisition system. The design abstract and a separate 1987 photometer report document the named system's readout arrangement. The relation is scoped to the laboratory.",
       "sources": [
         "https://www.researchgate.net/publication/260660401_Characterization_of_a_fully_depleted_CCD_on_high-resistivity_silicon",
+        "https://www-supernova.lbl.gov/public/papers/ccd_ieee.ps",
         "https://ntrs.nasa.gov/citations/19870065201",
         "https://adsabs.harvard.edu/pdf/1987PASP...99..877S"
       ]
@@ -47,8 +48,8 @@
   "findings": [
     "Hu's 1977 IBM-assigned patent reports experiments on integrated circuit test structures with a deposited backside polysilicon impurity sink. Holland's 1989 article cites Hu and describes the same principle in high-resistivity silicon p-i-n diodes.",
     "Chen and Silvestri report a separate experiment using backside polysilicon after epitaxial growth. They cite Hu and acknowledge discussions with him. This supports the technique family and has the IBM affiliation in common.",
-    "The 1997 Lick paper attributes low CCD leakage to phosphorus-doped backside polysilicon and names the 1989 fabrication article. The inventor's later patent describes the 1989 gettering process followed by removal of the thick getter and deposition of a thin optical window.",
-    "Stover's 1997 paper §3.2 and ref. [3] name the earlier Lick data acquisition system used to characterize Berkeley detector packages. Its controller used double-correlated amplification and 16-bit digitization."
+    "The 1996 prototype paper cites the 1989 fabrication study directly at its description of the phosphorus-doped polysilicon getter. It reports removing the thick getter for backside illumination. Holland's later patent describes the same approach to depositing a thin optical window.",
+    "The 1996 prototype paper §4 and ref. [12] and the 1997 Lick characterization §3.2 and ref. [3] identify the earlier Lick data acquisition system used in lab tests. The 1997 report describes double-correlated amplification and 16-bit digitization."
   ],
   "records": [
     "berkeley-fully-depleted-back-illuminated-ccd",
@@ -80,7 +81,7 @@
     {
       "title": "A 200 × 200 CCD Image Sensor Fabricated on High-Resistivity Silicon",
       "url": "https://www-supernova.lbl.gov/public/papers/ccd_ieee.ps",
-      "locator": "PostScript p. 1, §1 and p. 4, ref. [2]"
+      "locator": "PostScript pp. 1–3, §§1–4 and p. 4, refs. [2], [12]–[13]; original file checksum matches existing source record"
     },
     {
       "title": "Characterization of a fully depleted CCD on high-resistivity silicon",
