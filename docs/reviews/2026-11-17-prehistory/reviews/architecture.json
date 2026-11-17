@@ -2,16 +2,16 @@
   "schema_version": 1,
   "lane": "architecture",
   "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
-  "proposal_commit": "e531767ec2a429688e4dc1e3590f77c1f122fdfc",
-  "worker_commit": "e531767ec2a429688e4dc1e3590f77c1f122fdfc",
+  "proposal_commit": "6b572759282ba9ae1c73d34b9e3f09b6b71b7fd2",
+  "worker_commit": "6b572759282ba9ae1c73d34b9e3f09b6b71b7fd2",
   "reviewer": {
     "model": "gpt-6.1-terra",
     "effort": "high",
     "execution": "independent separate review",
     "independence": "Researcher gpt-6.2-sol high in separate execution; original material read independently."
   },
-  "overall_verdict": "changes_requested",
-  "overall_decision": "changes_requested",
+  "overall_verdict": "accept",
+  "overall_decision": "accept",
   "files": [
     {
       "path": "data/discoveries/construction/altscherbitz-tenon-well-frame.json",
@@ -19,7 +19,7 @@
     },
     {
       "path": "data/discoveries/construction/burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant.json",
-      "sha256": "24b349b0c394f0efbde0ec6e4a24e2722986a922398daec2f2b26aa349f02244"
+      "sha256": "a450340e78785d713b534f8c137d5f733da9a1abc36f7a00c1e305cb82201713"
     },
     {
       "path": "data/discoveries/construction/catalhoyuk-roof-access-settlement.json",
@@ -31,7 +31,7 @@
     },
     {
       "path": "data/discoveries/construction/settled-village-life-among-natufian-foragers-in-the-levant.json",
-      "sha256": "8af8bf3e712ff9ebe89e780bc1997b287c38ee432da169c9fc64df91a01551a9"
+      "sha256": "2b1262e370412b8d29675c535821f801d637f4b636f27fab32adaa20a4929e99"
     },
     {
       "path": "data/discoveries/materials/lbk-split-oak-well-timbers.json",
@@ -67,7 +67,7 @@
     },
     {
       "path": "docs/reviews/2026-11-17-prehistory/lanes/architecture.json",
-      "sha256": "0efd07d39e2de8f977773a73bd7e9c9048143fc62efb8c9fa30de124adae806e"
+      "sha256": "7c9415af10765a3ceb50860fa927fdb7ac54ff5e8d3b237dfb92e39f54662e0b"
     },
     {
       "path": "evidence/b/bocquentin-nous-2022-natufian-phases-notes.txt",
@@ -108,28 +108,36 @@
     },
     {
       "id": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant",
-      "verdict": "changes_requested",
-      "rationale": "Kingery pp. 224, 226 reports lab sample 86-1 from an Eynan bench-like structure, but gives no locus or phase. Haklay and Gopher independently report a lime-plastered Shelter 1 bench in Early Natufian layer II, based on Perrot, without linking that sample. Regional phase dates cannot safely date the specific laboratory sample until identity is established. Separate source-supported descriptions or qualify their association and date; retain the useful built-feature observation.",
+      "verdict": "accept",
+      "rationale": "The dated event now states only Haklay and Gopher’s identification of the Shelter 1 bench, in Early Natufian Layer II, with regional phase bounds explicitly applied. The distinct laboratory sample and uncertain locus are retained as an unresolved question; the two are not claimed to be identical.",
       "claim_reviews": [
         {
           "path": "summary, description and places",
           "decision": "accept",
-          "rationale": "Friesem prehistoric lime section and Kingery table 1 support local early adhesive, plaster and Eynan bench-like material, with unresolved exact locus.",
+          "rationale": "Friesem prehistoric lime section and Haklay architectural section describe early adhesive, plaster and Eynan lime-plastered bench, separately from Kingery sample 86-1.",
           "sources": [
             "friesem-2019-lime-plaster-cover",
-            "kingery-1988-eynan-lime-plaster"
+            "haklay-gopher-2015-eynan-shelters"
           ]
         },
         {
           "path": "events/eynan-early-natufian-built-feature",
-          "decision": "changes_requested",
-          "rationale": "Early Natufian Shelter 1 bench and lab sample are not securely shown to be the same feature; avoid attributing regional phase bounds to laboratory sample without provenance.",
+          "decision": "accept",
+          "rationale": "Haklay and Gopher Early Natufian architectural remains explicitly describes Shelter 1 Layer II and a lime-plastered bench; Bocquentin and Noûs p.16 gives the regional Early Natufian phase range. The date is not a laboratory sample date.",
           "sources": [
-            "kingery-1988-eynan-lime-plaster",
             "haklay-gopher-2015-eynan-shelters",
             "bocquentin-nous-2022-natufian-phases"
           ],
           "extends": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant"
+        },
+        {
+          "path": "research.unresolved/eynan-plaster-sample-provenance",
+          "decision": "accept",
+          "rationale": "Kingery table 1 and p.226 identify sample 86-1 from an Eynan bench-like feature without naming shelter or layer. Identity with Shelter 1 remains open.",
+          "sources": [
+            "kingery-1988-eynan-lime-plaster",
+            "haklay-gopher-2015-eynan-shelters"
+          ]
         }
       ],
       "research_outcome": "established"
@@ -186,8 +194,8 @@
     },
     {
       "id": "settled-village-life-among-natufian-foragers-in-the-levant",
-      "verdict": "changes_requested",
-      "rationale": "Local Eynan plaster supports a bounded site-use relationship, but an early-phase link to sample 86-1 depends on unestablished equivalence of two bench descriptions. Do not conflate a particular sample with Shelter 1 without documented provenance; make relation and dating explicitly conditional or independently prove the identity.",
+      "verdict": "accept",
+      "rationale": "The link is now scoped to undated Eynan local use of lime plaster within a bench-like feature, directly supported by Kingery’s examination; it explicitly leaves the sample’s relationship to the phase-dated Shelter 1 bench unresolved.",
       "claim_reviews": [
         {
           "path": "description added sentence",
@@ -199,19 +207,19 @@
         },
         {
           "path": "links/0",
-          "decision": "changes_requested",
-          "rationale": "The exact sample locus is unreported and source does not establish Early Natufian identity of that sample. Haklay’s named bench and phase are field identification, and their source lineage is Perrot; distinguish it from lab identification.",
+          "decision": "accept",
+          "rationale": "Kingery table 1 and p.226 identify the Eynan material as incompletely calcined lime plaster shaped as a bench-like feature. Haklay describes a lime-plastered bench separately; no association of the two or intercommunity transfer is asserted.",
           "sources": [
             "kingery-1988-eynan-lime-plaster",
             "haklay-gopher-2015-eynan-shelters"
           ],
           "relation_attestation": {
-            "relation": "Eynan local plaster use supported; identity and age of sampled feature relative to Shelter 1 not established",
-            "direction": "process to local settlement use, not transmission",
-            "context": "sample 86-1 from Eynan bench-like structure; Shelter 1 is separate recorded description",
-            "status": "conditional/defer pending provenance or narrow to firmly supported site use without assigning sample to phase",
-            "independent_corroboration": "analytical and architectural studies use separate methods but do not prove identical feature; both draw on Perrot context",
-            "historical_or_question": "site use supported; sample-to-Shelter-1 association remains question"
+            "relation": "local use of lime plaster within an Eynan built feature",
+            "direction": "regional practice to Eynan site use, with no transmission inference",
+            "context": "Kingery sample 86-1; no shelter or phase identified",
+            "status": "established for narrowly scoped local use",
+            "independent_corroboration": "Kingery laboratory study and Haklay architectural field description are different methods, but do not prove both identify same feature; explicit caveat retains uncertainty",
+            "historical_or_question": "local site use supported; sample-to-Shelter-1 association remains question"
           }
         }
       ],
@@ -350,15 +358,385 @@
     }
   ],
   "duplicate_screen": "Compared existing assigned events and scoped new split-oak record. Eynan event is distinct from prior Lagama adhesive, Hayonim interpreted hearth and Nahal Ein Gev burial; Well 116 fill is separate from Well 133; split-wood process differs from wedged tenon frame. Exact association of Eynan laboratory specimen to named bench remains unresolved.",
-  "issues": [
-    "Eynan early-phase event and established link tie a lab-identified bench-like sample to an Early Natufian feature without documented identity; separate evidence or qualify phase/sample connection."
-  ],
+  "issues": [],
   "unknowns": [
-    "Exact collection provenance of sample 86-1; Early Natufian built-feature identity, quarry and intercommunity transmission. Hemudu 1978 full report unavailable. Baseline Uruk and Natufian first_known are not reassessed here. Well 116 2003 phase estimate is approximate; later recalibration uses same samples."
+    "Exact collection provenance and date of sample 86-1; its identity with the Early Natufian Shelter 1 bench remains unknown. Hemudu 1978 full report unavailable. Baseline Uruk and Natufian first_known are not reassessed here. Well 116 2003 phase estimate is approximate; later recalibration uses same samples."
   ],
   "validation": {
-    "validate": "python3 tools/validate.py: passed, 907 discoveries, 1518 events, 244 links, 1679 sources; no problems",
-    "diff_check": "git diff --check base proposal: passed"
+    "validate": "python3 tools/validate.py passed: 907 discoveries, 1518 events, 244 links, 1679 sources; no problems",
+    "diff_check": "git diff --check base final proposal passed"
   },
-  "history": []
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "architecture",
+      "base_commit": "71326e01a105da21decb1587195a81bd5b596b8c",
+      "proposal_commit": "e531767ec2a429688e4dc1e3590f77c1f122fdfc",
+      "worker_commit": "e531767ec2a429688e4dc1e3590f77c1f122fdfc",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "independent separate review",
+        "independence": "Researcher gpt-6.2-sol high in separate execution; original material read independently."
+      },
+      "overall_verdict": "changes_requested",
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/construction/altscherbitz-tenon-well-frame.json",
+          "sha256": "4f3d0a13202588ff69cf5fd993dda96d1ca7c8259ef0222c8ff1c4f121188e3a"
+        },
+        {
+          "path": "data/discoveries/construction/burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant.json",
+          "sha256": "24b349b0c394f0efbde0ec6e4a24e2722986a922398daec2f2b26aa349f02244"
+        },
+        {
+          "path": "data/discoveries/construction/catalhoyuk-roof-access-settlement.json",
+          "sha256": "b0ed0b5882a357322c3d42cf34d103e9eb92ed3a814bbc47244d99ca2b4528b3"
+        },
+        {
+          "path": "data/discoveries/construction/dug-wells-in-neolithic-cyprus.json",
+          "sha256": "f100872eb4f90916cc19cbf50123e1b2f33b551a83f33ca69b93d682f291a7c2"
+        },
+        {
+          "path": "data/discoveries/construction/settled-village-life-among-natufian-foragers-in-the-levant.json",
+          "sha256": "8af8bf3e712ff9ebe89e780bc1997b287c38ee432da169c9fc64df91a01551a9"
+        },
+        {
+          "path": "data/discoveries/materials/lbk-split-oak-well-timbers.json",
+          "sha256": "292c8df0bcbda67a14567d531093dbe4d25a9ee18aeb27a8829bd75a018b6b49"
+        },
+        {
+          "path": "data/sources/b/bocquentin-nous-2022-natufian-phases.json",
+          "sha256": "f3905bdee9fea79b7659bd54c9387b51a954adee58024f1b30328badd41f66f5"
+        },
+        {
+          "path": "data/sources/h/haklay-gopher-2015-eynan-shelters.json",
+          "sha256": "3787b776cb52269d384e30db56763b64b68972a3b13eb9a044036d75a72926fd"
+        },
+        {
+          "path": "data/sources/h/hodder-2003-catalhoyuk-building-3-door.json",
+          "sha256": "7d7aac773d98ba11490553a20502013dabb489d711d1451456425af6de03aec3"
+        },
+        {
+          "path": "data/sources/k/kingery-1988-eynan-lime-plaster.json",
+          "sha256": "eb23f25725e63a607decffe1a025547c4de810dca50c2a4e76826317d3639a3b"
+        },
+        {
+          "path": "data/sources/m/matthews-1996-catalhoyuk-building-1.json",
+          "sha256": "d84d5f8e5f131bbbe526dcd7fd0b0963fdb157644d491bf673098e483fd177ca"
+        },
+        {
+          "path": "data/sources/p/peltenburg-2003-mylouthkia-well-116.json",
+          "sha256": "96d62b672000ef08fd22678d0e0c6caa875e492f69dd1b463b35a340365e84bc"
+        },
+        {
+          "path": "data/sources/v/vostrovska-2026-ostrov-split-oak.json",
+          "sha256": "62f689d8b9e719c56caecb90a0ae72afca29f2b0b95609896939ac5504a63b38"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-prehistory/lanes/architecture.json",
+          "sha256": "0efd07d39e2de8f977773a73bd7e9c9048143fc62efb8c9fa30de124adae806e"
+        },
+        {
+          "path": "evidence/b/bocquentin-nous-2022-natufian-phases-notes.txt",
+          "sha256": "cd990eb53bb6635179b4d7dda8efb7ab97def7e2669fd5ac10dd9bb1d21b751d"
+        },
+        {
+          "path": "evidence/h/haklay-gopher-2015-eynan-shelters-notes.txt",
+          "sha256": "8a0511b430d9926a218fef5db56176ff909636047368d1db6da18dc3f6a1a40c"
+        },
+        {
+          "path": "evidence/h/hodder-2003-catalhoyuk-building-3-door-notes.txt",
+          "sha256": "e7f6e9862476413ce7308e2519753785c016473c430d516b1e90dcf3201aaece"
+        },
+        {
+          "path": "evidence/k/kingery-1988-eynan-lime-plaster-notes.txt",
+          "sha256": "f47cbce8c29edc98c4b81d7e2f9fcdde89b850eecfb984d162f0e31217ed6060"
+        },
+        {
+          "path": "evidence/m/matthews-1996-catalhoyuk-building-1-notes.txt",
+          "sha256": "296fde72460ac6cbe59b21cf7775a9903eab6cab0816b3301bf9681f523762d3"
+        },
+        {
+          "path": "evidence/p/peltenburg-2003-mylouthkia-well-116-notes.txt",
+          "sha256": "fe53c894d56c4e5d7f51583ece591524f2f5a534ddd7bf62b5b9a031141b75e0"
+        },
+        {
+          "path": "evidence/v/vostrovska-2026-ostrov-split-oak-notes.txt",
+          "sha256": "a837a1392649f5f09e1e13198b433c2f33e45cf2ea768b30be95859a6800a5d3"
+        }
+      ],
+      "records": [
+        {
+          "id": "kalambo-notched-interlocking-timbers",
+          "verdict": "accept",
+          "rationale": "No changes; bounded deferral of a specific tool connection is warranted. Barham et al. BLB5 describe cut marks and experimentally compare stone tools; this does not identify a particular catalogued tool as the maker. Dates concern deposit, and exact function and hominin species remain unknown.",
+          "claim_reviews": [],
+          "research_outcome": "deferred"
+        },
+        {
+          "id": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant",
+          "verdict": "changes_requested",
+          "rationale": "Kingery pp. 224, 226 reports lab sample 86-1 from an Eynan bench-like structure, but gives no locus or phase. Haklay and Gopher independently report a lime-plastered Shelter 1 bench in Early Natufian layer II, based on Perrot, without linking that sample. Regional phase dates cannot safely date the specific laboratory sample until identity is established. Separate source-supported descriptions or qualify their association and date; retain the useful built-feature observation.",
+          "claim_reviews": [
+            {
+              "path": "summary, description and places",
+              "decision": "accept",
+              "rationale": "Friesem prehistoric lime section and Kingery table 1 support local early adhesive, plaster and Eynan bench-like material, with unresolved exact locus.",
+              "sources": [
+                "friesem-2019-lime-plaster-cover",
+                "kingery-1988-eynan-lime-plaster"
+              ]
+            },
+            {
+              "path": "events/eynan-early-natufian-built-feature",
+              "decision": "changes_requested",
+              "rationale": "Early Natufian Shelter 1 bench and lab sample are not securely shown to be the same feature; avoid attributing regional phase bounds to laboratory sample without provenance.",
+              "sources": [
+                "kingery-1988-eynan-lime-plaster",
+                "haklay-gopher-2015-eynan-shelters",
+                "bocquentin-nous-2022-natufian-phases"
+              ],
+              "extends": "burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant"
+            }
+          ],
+          "research_outcome": "established"
+        },
+        {
+          "id": "catalhoyuk-roof-access-settlement",
+          "verdict": "accept",
+          "rationale": "Matthews Phase 1 describes indirect roof and possible ladder traces by oven; Hodder Building 3 documents a blocked entrance and infers ground-level access in some phases. Mound dates remain broad. The changes qualify rather than universalize the access claim.",
+          "claim_reviews": [
+            {
+              "path": "description, documented-case evidence, caveats, research",
+              "decision": "accept",
+              "rationale": "Matthews Phase 1 Space 71 and Hodder 2003 Building 3 are excavation reports; UNESCO provides mound chronology. Proposed ladder remains an inference and doorway a counterexample.",
+              "sources": [
+                "matthews-1996-catalhoyuk-building-1",
+                "hodder-2003-catalhoyuk-building-3-door",
+                "unesco-catalhoyuk-roof-access"
+              ],
+              "extends": "catalhoyuk-roof-access-settlement"
+            }
+          ],
+          "research_outcome": "deferred"
+        },
+        {
+          "id": "city-life-in-southern-mesopotamia",
+          "verdict": "accept",
+          "rationale": "Unchanged. Deferred proposed administrative dependency is a bounded outcome; secondary tablet contexts and co-occurrence alone do not establish a directed construction relationship. Existing first_known remains a material unreviewed baseline uncertainty.",
+          "claim_reviews": [],
+          "research_outcome": "deferred"
+        },
+        {
+          "id": "dug-wells-in-neolithic-cyprus",
+          "verdict": "accept",
+          "rationale": "New Well 116 event is distinct from Well 133 and dates fill, not the act of digging. Peltenburg 2001 table 1 identifies three separate samples from fills 123 and 124; the 2003 report uses an approximate 8600–8200 cal BCE Period 1A synthesis. 2007 recalibration is the same samples and includes a wider earliest interval. Do not treat approximate synthesis as exact calibrated bounds.",
+          "claim_reviews": [
+            {
+              "path": "summary, description, events/well-116-dated-fill, earliest_record, research",
+              "decision": "accept",
+              "rationale": "Peltenburg 2003 chapter 11/table 11.1 and period table; 2001 original table identifies the sample materials and contexts. Synthesis is an approximate interval for the fill and only a probabilistic terminus for the pre-existing well, not a construction date.",
+              "sources": [
+                "peltenburg-2003-mylouthkia-well-116"
+              ],
+              "extends": "dug-wells-in-neolithic-cyprus"
+            }
+          ],
+          "research_outcome": "deferred"
+        },
+        {
+          "id": "jointed-timber-pile-dwellings-at-hemudu-lower-yangtze",
+          "verdict": "accept",
+          "rationale": "Unchanged; no link warranted from comparison with Tianluoshan or central European wells. The 1978 Hemudu full excavation report was unavailable; this is an access limitation, not proof against local joinery or contact. Existing BP conversion and origin interpretations are not newly reviewed.",
+          "claim_reviews": [],
+          "research_outcome": "deferred"
+        },
+        {
+          "id": "settled-village-life-among-natufian-foragers-in-the-levant",
+          "verdict": "changes_requested",
+          "rationale": "Local Eynan plaster supports a bounded site-use relationship, but an early-phase link to sample 86-1 depends on unestablished equivalence of two bench descriptions. Do not conflate a particular sample with Shelter 1 without documented provenance; make relation and dating explicitly conditional or independently prove the identity.",
+          "claim_reviews": [
+            {
+              "path": "description added sentence",
+              "decision": "accept",
+              "rationale": "Kingery table 1 and p.226 identifies Eynan sample as incompletely calcined lime plaster from a bench-like structure.",
+              "sources": [
+                "kingery-1988-eynan-lime-plaster"
+              ]
+            },
+            {
+              "path": "links/0",
+              "decision": "changes_requested",
+              "rationale": "The exact sample locus is unreported and source does not establish Early Natufian identity of that sample. Haklay’s named bench and phase are field identification, and their source lineage is Perrot; distinguish it from lab identification.",
+              "sources": [
+                "kingery-1988-eynan-lime-plaster",
+                "haklay-gopher-2015-eynan-shelters"
+              ],
+              "relation_attestation": {
+                "relation": "Eynan local plaster use supported; identity and age of sampled feature relative to Shelter 1 not established",
+                "direction": "process to local settlement use, not transmission",
+                "context": "sample 86-1 from Eynan bench-like structure; Shelter 1 is separate recorded description",
+                "status": "conditional/defer pending provenance or narrow to firmly supported site use without assigning sample to phase",
+                "independent_corroboration": "analytical and architectural studies use separate methods but do not prove identical feature; both draw on Perrot context",
+                "historical_or_question": "site use supported; sample-to-Shelter-1 association remains question"
+              }
+            }
+          ],
+          "research_outcome": "established"
+        },
+        {
+          "id": "altscherbitz-tenon-well-frame",
+          "verdict": "accept",
+          "rationale": "Tegel Results Well A identifies split oak beams in the same lining with wedged-tenon basal frame; the edge describes local preparation, not transmission. Ostrov is a separate assemblage, though Tegel is coauthor and its chronology cross-dates Saxon series.",
+          "claim_reviews": [
+            {
+              "path": "links/0 and links basis",
+              "decision": "accept",
+              "rationale": "Tegel 2012 Results Well A figs. 4–5 and S8/S9 documents split beams and wedged frame. Vostrovská et al. §§3.1–3.2 independently document physical Ostrov planks, not an independent identity or transmission test.",
+              "sources": [
+                "w10-tegel-2012-altscherbitz-joinery",
+                "vostrovska-2026-ostrov-split-oak"
+              ],
+              "relation_attestation": {
+                "relation": "split oak preparation used in lining that includes frame",
+                "direction": "regional timber preparation record to local well assembly",
+                "context": "Altscherbitz Well A, local oak beams",
+                "status": "established narrowly for local use",
+                "independent_corroboration": "Ostrov is a distinct excavated assemblage, with shared coauthor and related chronology; local relationship is directly observed in Tegel",
+                "historical_or_question": "local use established, intersite transmission open"
+              }
+            }
+          ],
+          "research_outcome": "established"
+        },
+        {
+          "id": "bronocice-wheeled-vehicle-imagery",
+          "verdict": "accept",
+          "rationale": "No change; deferral of wheel construction or traction link is appropriate. Kowalski et al. Further evidence reports GrN-19612; the date is associated material, not a direct dating of depiction, and imagery remains an interpretation.",
+          "claim_reviews": [],
+          "research_outcome": "deferred"
+        }
+      ],
+      "additional_records": [
+        {
+          "id": "lbk-split-oak-well-timbers",
+          "verdict": "accept",
+          "claim_reviews": [
+            {
+              "path": "identity, description, kind, domain, origin and places",
+              "decision": "accept",
+              "rationale": "Tegel Results Well A and Vostrovská §§3.1–3.2 document split oak at separate central European LBK wells; origin unknown avoids invention or contact claims.",
+              "sources": [
+                "w10-tegel-2012-altscherbitz-joinery",
+                "vostrovska-2026-ostrov-split-oak"
+              ]
+            },
+            {
+              "path": "events/ostrov-split-oak-planks",
+              "decision": "accept",
+              "rationale": "Vostrovská §3.1 table 1, figs. 6–8 and §3.2 documents radial and one tangential plank, felling years 5256–5255 BC, with posts and repairs separately dated. Felling is not exact time of every processing step.",
+              "sources": [
+                "vostrovska-2026-ostrov-split-oak"
+              ]
+            },
+            {
+              "path": "events/altscherbitz-split-oak-beams",
+              "decision": "accept",
+              "rationale": "Tegel Results Well A identifies radial and tangential splitting, 5102 BCE felling and a 5099 BCE pit plank; latter is construction-onset inference.",
+              "sources": [
+                "w10-tegel-2012-altscherbitz-joinery"
+              ]
+            },
+            {
+              "path": "earliest_record, caveats and research",
+              "decision": "accept",
+              "rationale": "Ostrov is earlier among the two cases, with dates explicitly felling or associated material, and origin and transfer left unknown.",
+              "sources": [
+                "w10-tegel-2012-altscherbitz-joinery",
+                "vostrovska-2026-ostrov-split-oak"
+              ]
+            }
+          ],
+          "duplicate_screen": "Distinct regional material preparation practice versus existing Altscherbitz wedged joinery frame; both local and earlier separate Ostrov event retained without asserting transmission."
+        }
+      ],
+      "source_checks": [
+        {
+          "url": "https://www.academia.edu/45082621/The_Beginnings_ofPyrotechnology_Part_IT_Production_and_Use_of_Lime_and_Gypsum_Plaster_in_the_Pre_Pottery_Neolithic_Near_East",
+          "locators": "Kingery et al. 1988 pp.224 table 1, 226",
+          "availability": "Original article transcription read",
+          "independence": "Independent material analysis, sample 86-1 collection lacks locus; cites Perrot site reports."
+        },
+        {
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130121",
+          "locators": "Haklay and Gopher 2015 Early Natufian architectural remains",
+          "availability": "Full original text read",
+          "independence": "Architectural interpretation based on Perrot plans; no independent test that sampled bench is Shelter 1."
+        },
+        {
+          "url": "https://scispace.com/pdf/considerations-on-the-mechanisms-of-integration-of-the-dead-11y55s65.pdf",
+          "locators": "Bocquentin and Noûs 2022 p.16",
+          "availability": "Original PDF text read; publisher blocked",
+          "independence": "Regional chronology, not sample-specific dating."
+        },
+        {
+          "url": "https://www.scribd.com/document/176396632/Peltenburg-the-Colonisation-and-Settlement-of-Cyprus-Investigations-at-Kissonerga-Mylouthkia-1976-1996-2003",
+          "locators": "Period table p.xxxv and chapter 11 §11.1",
+          "availability": "Original volume indexed transcription; search exposed period table; chapter full text timed out during independent access",
+          "independence": "2001 report and 2007 recalibration reuse same lab samples; not separate samples. 2001 and 2007 PDFs independently inspected in shared /tmp."
+        },
+        {
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051374",
+          "locators": "Tegel et al. 2012 Results Well A figs.4–5 S8–9",
+          "availability": "Full original text read",
+          "independence": "Primary Altscherbitz physical observations; shared author and cross-dating with Ostrov."
+        },
+        {
+          "url": "https://www.academia.edu/175380587/Multi_proxy_analysis_of_an_Early_Neolithic_wooden_well_in_a_pastoral_landscape_in_eastern_Bohemia",
+          "locators": "Vostrovská et al. 2026 §§3.1–3.2, table 1, figs.6–8",
+          "availability": "Original article transcription read",
+          "independence": "Distinct Ostrov physical assemblage, same coauthor and correlated chronology."
+        },
+        {
+          "url": "https://www.catalhoyuk.com/archive_reports/1996/ar96_02.html",
+          "locators": "Matthews Phase 1 Space 71",
+          "availability": "Original excavation report indexed full text read",
+          "independence": "Site excavation interpretation; not direct survival of ladder."
+        },
+        {
+          "url": "https://www.catalhoyuk.com/archive_reports/2003/ar03_01.html",
+          "locators": "Hodder Building 3",
+          "availability": "Original project report read",
+          "independence": "Different building, same broader excavation project; doorway supports exception."
+        },
+        {
+          "url": "https://livrepository.liverpool.ac.uk/3172959/1/s41586-023-06557-9.pdf",
+          "locators": "Barham et al. 2023 BLB5, methods and ages",
+          "availability": "Original published PDF available",
+          "independence": "Original Kalambo research; tool association evidence not a distinct catalogue endpoint."
+        }
+      ],
+      "duplicate_screen": "Compared existing assigned events and scoped new split-oak record. Eynan event is distinct from prior Lagama adhesive, Hayonim interpreted hearth and Nahal Ein Gev burial; Well 116 fill is separate from Well 133; split-wood process differs from wedged tenon frame. Exact association of Eynan laboratory specimen to named bench remains unresolved.",
+      "issues": [
+        "Eynan early-phase event and established link tie a lab-identified bench-like sample to an Early Natufian feature without documented identity; separate evidence or qualify phase/sample connection."
+      ],
+      "unknowns": [
+        "Exact collection provenance of sample 86-1; Early Natufian built-feature identity, quarry and intercommunity transmission. Hemudu 1978 full report unavailable. Baseline Uruk and Natufian first_known are not reassessed here. Well 116 2003 phase estimate is approximate; later recalibration uses same samples."
+      ],
+      "validation": {
+        "validate": "python3 tools/validate.py: passed, 907 discoveries, 1518 events, 244 links, 1679 sources; no problems",
+        "diff_check": "git diff --check base proposal: passed"
+      },
+      "history": []
+    },
+    {
+      "proposal_commit": "157c1d459d9882ac71e39a1421cc7b885925d3f5",
+      "overall_decision": "changes_requested",
+      "issues": [
+        "Repair separated sample provenance and Shelter 1 dating, but described plaster as being on a bench; Kingery describes plaster material shaped as a bench-like feature. Changed to in a bench-like built feature in final proposal."
+      ]
+    }
+  ]
 }
