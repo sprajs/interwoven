@@ -151,7 +151,8 @@
       "places": "sourced",
       "grain": "sourced",
       "events": "sourced",
-      "measures": "sourced"
+      "measures": "sourced",
+      "links": "sourced"
     },
     "note": "Participant, operator and benchmark records distinguish staged operation from the shared-use lifecycle."
   },
@@ -179,6 +180,65 @@
           "supports": "Reports 10.51 PFlop/s measured on LINPACK."
         }
       ]
+    }
+  ],
+  "links": [
+    {
+      "type": "requires",
+      "from": "fujitsu-tofu-interconnect",
+      "status": "established",
+      "statement": "The June 2011 K configuration used Fujitsu’s original Tofu to interconnect its compute nodes.",
+      "scope": "The actual built K system and its node-to-node network.",
+      "evidence": [
+        {
+          "source": "d2-tofu-ajima-2012",
+          "locator": "Pp. 280–282, §§1–3.2 and Figures 1–3",
+          "supports": "The system's original Tofu was developed for K and used a dedicated controller chip."
+        },
+        {
+          "source": "top500-k-computer-results",
+          "locator": "System header and 06/2011 row",
+          "supports": "Identifies original Tofu as the interconnect in the benchmarked machine."
+        },
+        {
+          "source": "d2-tofu-ueno-2017-k-bfs",
+          "locator": "§§5.1–5.2 and §6.3, topology-aware mapping and results on K",
+          "supports": "Applications measured on K exploit the actual network dimensions and simultaneous communication."
+        }
+      ],
+      "contribution": [
+        "supplied_component"
+      ],
+      "from_event": "k-benchmarked-2011",
+      "to_event": "linpack-june-2011"
+    },
+    {
+      "type": "requires",
+      "from": "fujitsu-sparc64-viiifx",
+      "status": "established",
+      "statement": "K’s compute nodes used Fujitsu’s SPARC64 VIIIfx for numerical work.",
+      "scope": "The actual built K system and its processor configuration.",
+      "evidence": [
+        {
+          "source": "d2-tofu-maruyama-2009",
+          "locator": "Slides 1 and 20",
+          "supports": "Identifies the VIIIfx as the processor being developed for Fujitsu's petascale supercomputer."
+        },
+        {
+          "source": "top500-k-computer-results",
+          "locator": "System header and 06/2011 row",
+          "supports": "Names SPARC64 VIIIfx in the benchmarked machine."
+        },
+        {
+          "source": "d2-tofu-ishikawa-k-port",
+          "locator": "Abstract, §3 and §4",
+          "supports": "Hiroshima University researchers used its double-precision SIMD in a solver port on the operating K computer."
+        }
+      ],
+      "contribution": [
+        "supplied_component"
+      ],
+      "to_event": "linpack-june-2011"
     }
   ]
 }

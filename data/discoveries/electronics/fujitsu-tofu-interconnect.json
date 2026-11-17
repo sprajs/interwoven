@@ -1,0 +1,127 @@
+{
+  "id": "fujitsu-tofu-interconnect",
+  "name": "Fujitsu Tofu Interconnect",
+  "description": "Fujitsu developed a six-dimensional mesh/torus for the K computer, with a dedicated controller chip on each node. Its rank-mapping scheme supported a virtual torus of up to three dimensions for applications. The network was also deployed on the commercial PRIMEHPC FX10.",
+  "kind": "technology",
+  "domain": "electronics.networks",
+  "grain": "capability",
+  "events": [
+    {
+      "id": "tofu-design-publication-2009",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 2009,
+          "month": 11
+        },
+        "latest": {
+          "year": 2009,
+          "month": 11
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2009-11",
+        "basis": "Computer volume 42, issue 11 is dated November 2009."
+      },
+      "statement": "Fujitsu researchers published Tofu’s six-dimensional mesh/torus topology and three-phase packet routing.",
+      "evidence": [
+        {
+          "source": "d2-tofu-ajima-2009",
+          "locator": "Journal metadata and article abstract",
+          "supports": "The issue and abstract date the description of the named topology and routing."
+        }
+      ]
+    },
+    {
+      "id": "k-benchmarked-2011",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2011,
+          "month": 6
+        },
+        "latest": {
+          "year": 2011,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2011-06",
+        "basis": "The June TOP500 listing documents an operating system with original Tofu."
+      },
+      "statement": "Original Tofu connected SPARC64 VIIIfx nodes in the K computer’s June 2011 benchmark configuration.",
+      "evidence": [
+        {
+          "source": "top500-k-computer-results",
+          "locator": "System header and 06/2011 row",
+          "supports": "Identifies the operating system’s interconnect and June benchmark configuration."
+        },
+        {
+          "source": "d2-tofu-ajima-2012",
+          "locator": "Pp. 280–282, §§1–3.2 and Figures 1–3",
+          "supports": "Identifies the original Tofu as the network developed for K."
+        }
+      ],
+      "places": [
+        "japan"
+      ]
+    },
+    {
+      "id": "oakleaf-fx10-adoption-2012",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2012,
+          "month": 4,
+          "day": 2
+        },
+        "latest": {
+          "year": 2012,
+          "month": 4,
+          "day": 2
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2012-04-02",
+        "basis": "The University of Tokyo dates the start of operation to 2 April."
+      },
+      "statement": "The University of Tokyo began operating the Oakleaf-FX installation at Kashiwa, using original Tofu to connect 4,800 PRIMEHPC FX10 compute nodes.",
+      "evidence": [
+        {
+          "source": "d2-tofu-oakleaf-fx10",
+          "locator": "P. 1, opening paragraphs and system diagram",
+          "supports": "The site operator identifies the network, node count and date that operation began."
+        }
+      ],
+      "places": [
+        "japan"
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "tofu-design-publication-2009",
+    "rationale": "The 2009 publication documents the named topology. The later records date separate deployments."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "places": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Earlier network precedents",
+        "note": "Which earlier interconnect designs supplied specific topology, routing or controller techniques? Fujitsu's AP1000 and AP3000 are comparators. Direct transfer into Tofu is unverified."
+      }
+    ]
+  },
+  "places": [
+    {
+      "place": "japan",
+      "role": "use",
+      "note": "Documented deployments in Kobe and Kashiwa."
+    }
+  ]
+}

@@ -34,6 +34,40 @@
       ]
     },
     {
+      "id": "jaxa-sora-ma-adoption-2015",
+      "type": "adoption",
+      "date": {
+        "earliest": {
+          "year": 2015,
+          "month": 4
+        },
+        "latest": {
+          "year": 2015,
+          "month": 4
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2015-04",
+        "basis": "JAXA dates the first operational SORA-MA configuration to phase 2 in April 2015."
+      },
+      "statement": "Tofu2 entered operation at JAXA in the initial PRIMEHPC FX100 SORA-MA configuration.",
+      "evidence": [
+        {
+          "source": "d2-tofu-jaxa-jss2",
+          "locator": "Overview of JSS2, phase 2 and phase 3",
+          "supports": "The operator dates operation of a partial SORA-MA configuration to April 2015."
+        },
+        {
+          "source": "d2-tofu-takaki-sora-ma",
+          "locator": "P. 53, §§1–2",
+          "supports": "Identifies the SORA-MA FX100 and its installed Tofu2 interconnect."
+        }
+      ],
+      "places": [
+        "japan"
+      ]
+    },
+    {
       "id": "nifs-deployment-2015",
       "type": "adoption",
       "date": {
@@ -88,24 +122,63 @@
       "events": "sourced",
       "links": "sourced"
     },
-    "note": "Fujitsu identifies the development sequence. The graph relation remains a candidate pending independent informative corroboration of the precise inheritance."
+    "note": "JAXA's deployed-system account corroborates the topology and controller placement Fujitsu described. Measurements on the operating generations demonstrate software behavior under particular configurations.",
+    "unresolved": [
+      {
+        "about": "Implementation details across the first two generations",
+        "note": "Which routing, virtual topology mapping and barrier implementation details were preserved? The MPI locking benchmark compared different implementations and tests use of a newly documented Tofu2 capability."
+      }
+    ]
   },
   "places": [
     {
       "place": "japan",
       "role": "use",
-      "note": "Witnessed deployment at NIFS in Toki, Gifu."
+      "note": "Documented in the JAXA SORA-MA and NIFS Plasma Simulator deployments."
     }
   ],
   "grain": "improvement",
   "links": [
     {
       "type": "adapts",
+      "from": "fujitsu-tofu-interconnect",
+      "status": "established",
+      "statement": "Fujitsu retained the original Tofu’s six-dimensional mesh/torus in Tofu2 and moved the network controller from a separate chip into the FX100’s processor.",
+      "scope": "Six-dimensional network topology and controller integration from K and FX10 to FX100.",
+      "evidence": [
+        {
+          "source": "ajima-2014-tofu-interconnect-2-hot-interconnects",
+          "locator": "Printed slides 1, 4–7 and 24",
+          "supports": "The designer identifies Tofu2 as the next generation and specifies the six named axes and integration of the controller."
+        },
+        {
+          "source": "d2-tofu-oakleaf-fx10",
+          "locator": "P. 1, opening paragraphs and system diagram",
+          "supports": "The FX10 customer identifies its installed original Tofu network as a six-dimensional mesh/torus."
+        },
+        {
+          "source": "d2-tofu-takaki-sora-ma",
+          "locator": "P. 53, §§1–2",
+          "supports": "The FX100 operator identifies the system's inheritance from K and FX10 and describes its deployed six-dimensional mesh/torus and integrated controller."
+        }
+      ],
+      "contribution": [
+        "improved_on",
+        "supplied_theory_or_design_rule"
+      ],
+      "carrier": [
+        "institutional"
+      ],
+      "from_event": "tofu-design-publication-2009",
+      "to_event": "hoti-presentation-2014"
+    },
+    {
+      "type": "adapts",
       "from": "riken-fujitsu-k-computer",
       "status": "candidate",
-      "statement": "Which parts of the original Tofu design deployed in K carried through to Tofu2?",
-      "scope": "Interconnect design across K and the FX100-era Tofu2, including original Tofu on the FX10.",
-      "finding": "Fujitsu describes continuity of the six-dimensional topology and the shift to processor-chip integration. The precise inheritance awaits independent informative corroboration.",
+      "statement": "Beyond the topology, which original Tofu routing, hardware-barrier and rank-mapping details deployed in K carried into Tofu2?",
+      "scope": "Remaining implementation-level questions across K, FX10 and FX100.",
+      "finding": "A separate design-to-design link records the supported continuity of the six-dimensional mesh/torus and the controller integration change. Which routing, hardware-barrier and rank-mapping internals carried over remains open.",
       "evidence": [
         {
           "source": "ajima-2014-tofu-interconnect-2-hot-interconnects",
@@ -116,6 +189,16 @@
           "source": "dongarra-2020-fujitsu-fugaku-system",
           "locator": "Pp. 7–8, Tofu Interconnect Network",
           "supports": "The report names K and FX100 as the earlier deployed Tofu generations. Its technical comparison closely follows the Fujitsu account."
+        },
+        {
+          "source": "d2-tofu-takaki-sora-ma",
+          "locator": "P. 53, §§1–2; pp. 55–57, §3.2 and Figure 5",
+          "supports": "JAXA verifies the FX100 topology and controller placement in service and describes system-level inheritance. Its measurements concern application performance."
+        },
+        {
+          "source": "d2-tofu-riken-2015-mpi",
+          "locator": "Pp. 3–4, §1.3.1 and Figure 1.1",
+          "supports": "The benchmark verifies the use of new Tofu2 atomic operations and compares two distinct software implementations."
         }
       ]
     }
