@@ -183,7 +183,7 @@
       "measures": "sourced",
       "links": "sourced"
     },
-    "note": "The candidate relation concerns only interconnect design. Independent informative corroboration of the exact inheritance is pending. The historical benchmark and dated suspension document different events."
+    "note": "Independent application tests confirm the deployed A64FX component. The exact inheritance of Tofu2 features in TofuD remains open. The historical benchmark and dated suspension document different events."
   },
   "places": [
     {
@@ -260,7 +260,7 @@
       "status": "candidate",
       "statement": "Which Tofu2 design elements were carried into Fugaku’s Tofu Interconnect D?",
       "scope": "Fujitsu interconnect architecture across FX100-era Tofu2 and Fugaku's A64FX-integrated TofuD.",
-      "finding": "Fujitsu identifies Tofu2 as the basis for TofuD and describes changes to improve operation in dense systems. Exact design inheritance awaits independent informative corroboration.",
+      "finding": "Fujitsu identifies Tofu2 as the basis for TofuD and attributes the shared six-dimensional mesh/torus to the original Tofu. University of Tsukuba and RIKEN benchmarks test the deployed TofuD but do not compare design transfer from Tofu2.",
       "evidence": [
         {
           "source": "fujitsu-2019-primehpc-fx1000-white-paper",
@@ -271,6 +271,51 @@
           "source": "dongarra-2020-fujitsu-fugaku-system",
           "locator": "Pp. 7–8, Tofu Interconnect Network",
           "supports": "The report compares the deployed configurations. Its technical comparison closely follows the Fujitsu account."
+        },
+        {
+          "source": "ajima-2018-tofu-interconnect-d",
+          "locator": "§ II and Table I",
+          "supports": "The Fujitsu designers compare the three generations, including common topology and changes in RDMA engines and link design."
+        },
+        {
+          "source": "d2-fugaku-watanabe-2024-tofud-benchmarks",
+          "locator": "§§ 1, 4.1 and 5.1",
+          "supports": "Original communication experiments confirm TofuD in use on Fugaku. They compare software implementations on that network and do not test Tofu2."
+        }
+      ]
+    },
+    {
+      "type": "requires",
+      "from": "fujitsu-a64fx",
+      "status": "established",
+      "to_event": "linpack-june-2020",
+      "statement": "Fugaku's installed compute nodes used the Fujitsu A64FX for their processor and integrated TofuD network interface.",
+      "scope": "The deployed Fugaku hardware configuration documented in the June 2020 benchmark listing.",
+      "contribution": [
+        "supplied_component"
+      ],
+      "influence": "essential",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "top500-fugaku-system-results",
+          "locator": "System configuration and 06/2020 row",
+          "supports": "Identifies A64FX and TofuD in the benchmarked installation."
+        },
+        {
+          "source": "d2-fugaku-yoshida-2018-a64fx",
+          "locator": "Slides 1 and 5–8",
+          "supports": "Identifies the A64FX as the post-K processor and shows the Tofu controller integrated on the chip."
+        },
+        {
+          "source": "d2-fugaku-riken-about-fugaku",
+          "locator": "Single node performance table and Tofu Interconnect D",
+          "supports": "The operator describes the installed node configuration and inter-node network."
+        },
+        {
+          "source": "d2-fugaku-diehl-2023-octo-tiger",
+          "locator": "§§ VI.D and VIII",
+          "supports": "External research users ran SVE-enabled code on Fugaku's A64FX nodes and identify the installed TofuD network."
         }
       ]
     }

@@ -1,0 +1,158 @@
+{
+  "id": "fujitsu-a64fx",
+  "name": "Fujitsu A64FX processor",
+  "aliases": [
+    "A64FX"
+  ],
+  "description": "Fujitsu designed the A64FX processor for the post-K supercomputer project that became Fugaku. It implemented Armv8.2-A with 512-bit SVE and combined vector processing cores with HBM2 memory in the package and a Tofu network interface on the chip.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "improvement",
+  "origin": "derived",
+  "organizations": [
+    {
+      "organization": "fujitsu",
+      "role": "maker"
+    }
+  ],
+  "events": [
+    {
+      "id": "hot-chips-a64fx-presentation-2018",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2018,
+          "month": 8,
+          "day": 21
+        },
+        "latest": {
+          "year": 2018,
+          "month": 8,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2018-08-21",
+        "basis": "The archived Hot Chips 30 programme gives the scheduled day of Fujitsu's talk."
+      },
+      "statement": "Fujitsu presented the A64FX processor design, including the 512-bit SVE implementation, at Hot Chips 30 in Cupertino, California.",
+      "places": [
+        "california"
+      ],
+      "evidence": [
+        {
+          "source": "d2-fugaku-yoshida-2018-a64fx",
+          "locator": "Slides 1 and 5–8",
+          "supports": "Names A64FX, states its intended post-K role, and lists its architecture."
+        },
+        {
+          "source": "d2-fugaku-hot-chips-30-programme",
+          "locator": "Tuesday 21 August, Server Processors, 5:30 p.m.",
+          "supports": "Dates Toshio Yoshida's Fujitsu presentation."
+        }
+      ]
+    },
+    {
+      "id": "prototype-benchmark-announcement-2019",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 11,
+          "day": 18
+        },
+        "latest": {
+          "year": 2019,
+          "month": 11,
+          "day": 18
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2019-11-18",
+        "basis": "RIKEN dates the announcement of the ranking to 18 November."
+      },
+      "statement": "RIKEN reported that a benchmarked Fugaku prototype at Fujitsu's Numazu plant used 768 A64FX processors.",
+      "evidence": [
+        {
+          "source": "d2-fugaku-riken-2019-prototype",
+          "locator": "Opening two paragraphs",
+          "supports": "Distinguishes the operational prototype's processor count and location from the planned full installation."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "hot-chips-a64fx-presentation-2018",
+    "rationale": "The Hot Chips programme and design slides establish the dated disclosure. The later benchmark announcement documents working processors in a prototype system."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "origin": "sourced",
+      "organizations": "sourced",
+      "events": "sourced",
+      "measures": "sourced",
+      "links": "sourced"
+    },
+    "note": "The link concerns SVE implementation in the A64FX. The recorded instruction benchmark ran on an FX1000 test system."
+  },
+  "measures": [
+    {
+      "quantity": "Reciprocal throughput of standard SVE ld1d load",
+      "value": 0.5,
+      "unit": "cycles per instruction",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2021,
+          "month": 7,
+          "day": 30
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2021-07-30",
+        "basis": "The inspected manuscript revision reports the measurements. The run date is unspecified."
+      },
+      "subject": "Fujitsu A64FX in PRIMEHPC FX1000",
+      "conditions": "In-core instruction microbenchmark with the processor fixed at 2.2 GHz by default.",
+      "status": "measured",
+      "evidence": [
+        {
+          "source": "d2-fugaku-alappat-2021-a64fx",
+          "locator": "§§ 2, 3.1 and Table 2",
+          "supports": "Reports reciprocal throughput of 0.5 cycles for standard ld1d."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "arm-scalable-vector-extension",
+      "status": "established",
+      "to_event": "hot-chips-a64fx-presentation-2018",
+      "statement": "Fujitsu implemented Arm's Scalable Vector Extension in A64FX using 512-bit vector registers. Fujitsu contributed to the SVE specification as an Arm lead partner.",
+      "scope": "Instruction-set design and its implementation in the A64FX processor.",
+      "contribution": [
+        "supplied_theory_or_design_rule",
+        "implemented"
+      ],
+      "influence": "major",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "d2-fugaku-yoshida-2018-a64fx",
+          "locator": "Slides 1 and 5–8",
+          "supports": "The chip designer confirms collaboration and identifies the implemented instruction set and width."
+        },
+        {
+          "source": "d2-fugaku-alappat-2021-a64fx",
+          "locator": "§§ 2, 3.1 and Tables 1–2",
+          "supports": "Independent investigators report that the A64FX supports 512-bit SVE and benchmark specific SVE instructions on actual hardware."
+        }
+      ]
+    }
+  ]
+}

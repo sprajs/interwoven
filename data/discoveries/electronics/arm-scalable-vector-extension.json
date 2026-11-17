@@ -1,0 +1,62 @@
+{
+  "id": "arm-scalable-vector-extension",
+  "name": "Arm Scalable Vector Extension",
+  "aliases": [
+    "SVE"
+  ],
+  "description": "Arm designed a vector instruction set extension for AArch64 in which processors can implement vector lengths from 128 to 2,048 bits in 128-bit steps. The design allows vector-length-agnostic software to run across those choices without recompilation. Per-lane predicates control which elements take part in an operation.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "hot-chips-sve-presentation-2016",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 2016,
+          "month": 8,
+          "day": 22
+        },
+        "latest": {
+          "year": 2016,
+          "month": 8,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2016-08-22",
+        "basis": "The dated Arm presentation title slide gives the day and venue."
+      },
+      "statement": "Arm presented SVE for its 64-bit Armv8-A architecture at Hot Chips 28 in Cupertino, California.",
+      "places": [
+        "california"
+      ],
+      "evidence": [
+        {
+          "source": "d2-fugaku-stephens-2016-sve",
+          "locator": "Title slide and slides 3–8",
+          "supports": "Dates the public presentation and describes the vector instruction architecture."
+        },
+        {
+          "source": "d2-fugaku-stephens-2017-sve-paper",
+          "locator": "Introduction and § 2",
+          "supports": "Explains implementation-selected vector length, predication and the vector-length-agnostic model."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "hot-chips-sve-presentation-2016",
+    "rationale": "The dated designer presentation documents the extension. It does not establish when the specification was first drafted or when working silicon first existed."
+  },
+  "research": {
+    "status": "draft",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "note": "The extension was initially presented for high-performance computing. Arm's account links its design to wider vectors and compiler vectorization for those workloads."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "lane": "fugaku",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "da459259a134eae431d4e45991dc050fa25a83d6",
+  "proposal": "69161628d1b67ca6e1011115d64a24dddc6989b7",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/arm-scalable-vector-extension.json": "18aed45591a57709389620afa0fbcaf0d82dbb43679004515b74f9470442ee49",
+    "data/discoveries/electronics/fujitsu-a64fx.json": "11809ca87bfa71f879d27aa88309404dcb44638dfb9b215b3076fa157ed8e674",
+    "data/discoveries/electronics/riken-fujitsu-fugaku.json": "74d2608a925b9cf3fff1d6461176d8dd88665bac761f6fee541f64f19b192923",
+    "data/sources/d/d2-fugaku-alappat-2021-a64fx.json": "f89b652c4b016a01b9dad9d4442c8eda81d07a197e24098493217b94f18e5972",
+    "data/sources/d/d2-fugaku-diehl-2023-octo-tiger.json": "87016d05c562c0e7b08ab6b99f776a9885eacab405716f89025de4ed3d8c49cf",
+    "data/sources/d/d2-fugaku-hot-chips-30-programme.json": "b73cc80fbf8c5afbd009e98ca4dd5c4a38b79258d11f341899901721908cf113",
+    "data/sources/d/d2-fugaku-riken-2019-prototype.json": "82256fecf1c6ed3c363e9daca825bf8629fe73501ed9e1818e9f918679747e49",
+    "data/sources/d/d2-fugaku-riken-about-fugaku.json": "78d8cff7601ff5945e3d192086d76d1b5637a1f59fba0c9a167f3bc720e90427",
+    "data/sources/d/d2-fugaku-stephens-2016-sve.json": "d1cb5c109f2bb3b20e09633044ecddc1a55437f8b258bc609e5583147b83217a",
+    "data/sources/d/d2-fugaku-stephens-2017-sve-paper.json": "40d04bb53f40a822b535f12fb07ea3771c40f1f59d1091e7eeb95f770d2c3364",
+    "data/sources/d/d2-fugaku-watanabe-2024-tofud-benchmarks.json": "a9d6341bc7c59067fb01a4c88369559a9157965e0442fa1404e47f02dee9dd4e",
+    "data/sources/d/d2-fugaku-yoshida-2018-a64fx.json": "2387fc1794dbd965962d018c77bf2283f93719f4da477f21841e34e9a803b2d3",
+    "docs/reviews/2026-11-17-digital/lanes/fugaku.json": "8798ac6e2b2aecc856e27369f2c3b567fbbced423780be0837d2571f35131a86"
+  },
+  "claims": [
+    {
+      "path": "arm-scalable-vector-extension: identity, description, classification, event, date, place, earliest_record",
+      "decision": "accept",
+      "reason": "Stephens, Hot Chips 28 title and slides 3–8 (https://community.arm.com/cfs-file/__key/telligent-evolution-components-attachments/01-3867-00-00-00-01-20-49/ARMv8_2D00_A-SVE-technology-Hot-Chips-v12.pdf) gives 22 August 2016, Cupertino, AArch64, variable lengths and predication. Stephens et al. 2017 introduction and §2 (https://alastairreid.github.io/papers/sve-ieee-micro-2017.pdf) explain 128–2048 bits in 128-bit steps and vector-length agnostic execution. This is a dated public presentation, not an invention date."
+    },
+    {
+      "path": "fujitsu-a64fx: identity, description, grain, origin, organization, presentation and prototype events, earliest_record",
+      "decision": "accept",
+      "reason": "Yoshida, Hot Chips 30 original slides 0–8 (https://old.hotchips.org/hc30/2conf/2.13_Fujitsu_HC30.Fujitsu.Yoshida.rev1.2.pdf) date disclosure 21 August 2018 and identify processor, post-K, 512-bit SVE, package memory and on-chip Tofu controller. Conference programme https://hc30.hotchips.org/index.html identifies venue and date; RIKEN https://www.riken.jp/en/news_pubs/news/2019/20191118_1/index.html reports 18 November 2019 and 768 processors in the Numazu prototype. This is an observed prototype, not the full installation."
+    },
+    {
+      "path": "fujitsu-a64fx: ld1d measure",
+      "decision": "accept",
+      "reason": "Alappat et al., https://doi.org/10.1002/cpe.6512 §§2, 3.1 and Tables 1–2 report independently run A64FX FX1000 SVE instruction microbenchmarks, 512-bit width, standard ld1d reciprocal throughput 0.5 cycles; 2.2 GHz is the default. Date bounded by 30 July 2021 arXiv v2, not asserted test date."
+    },
+    {
+      "path": "fujitsu-a64fx links from arm-scalable-vector-extension",
+      "decision": "accept",
+      "reason": "Yoshida slides 1 and 5–8 explicitly identify SVE in the A64FX and collaboration; independently Alappat et al. §§2, 3.1, Tables 1–2 actually executed SVE instructions on A64FX. builds_on points from ISA to later implementation, not priority or exclusive development."
+    },
+    {
+      "path": "riken-fujitsu-fugaku links from fujitsu-a64fx",
+      "decision": "accept",
+      "reason": "TOP500 https://www.top500.org/system/179807/ identifies A64FX and TofuD in the benchmarked system; Yoshida slides 1, 6 and 8 and RIKEN https://www.r-ccs.riken.jp/en/fugaku/about/ describe component and system. Independent Diehl et al. https://arxiv.org/pdf/2304.11002 §§VI.D and VIII ran an SVE-enabled stellar simulation on up to 1024 Fugaku A64FX nodes. requires is scoped to the documented 2020 configuration."
+    },
+    {
+      "path": "riken-fujitsu-fugaku links from fujitsu-tofu-interconnect-2, candidate finding and evidence",
+      "decision": "accept",
+      "reason": "Fujitsu FX1000 white paper p.7 https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.002/Fujitsu-primehpc-fx1000-hard-en.pdf explicitly bases TofuD on Tofu2 and says 6D topology originated for K and continues in both. Watanabe et al. https://link.springer.com/article/10.1007/s11227-024-06201-x §§4–5 measured software on TofuD, not design transfer from Tofu2. Dongarra repeats designer account. Keep inherited design elements candidate pending independent informative evidence; no relationship was promoted."
+    },
+    {
+      "path": "docs/reviews/2026-11-17-digital/lanes/fugaku.json and source descriptions",
+      "decision": "accept",
+      "reason": "Independently checked original Stephens and Yoshida presentations; 2019 RIKEN prototype report; conference programme; RIKEN operator description; TOP500 system record; Alappat instruction measurements; Diehl application tests; Watanabe communication experiments; Fujitsu TofuD white paper. Source notes and lane findings reflect their different scope and do not treat tests as proof of Tofu2 inheritance. Search of baseline records found existing Fugaku/Tofu2, no separate A64FX or SVE record."
+    }
+  ],
+  "corrections": [
+    "Original Fujitsu deck link redirected to homepage. Researcher replaced it with independently checked Hot Chips original archive at 69161628d1b67ca6e1011115d64a24dddc6989b7."
+  ],
+  "deferred": [
+    "The specific Tofu2 to TofuD design inheritance remains candidate; Watanabe tests TofuD rather than transfer. Further SVE antecedents need a separate bounded review."
+  ]
+}
