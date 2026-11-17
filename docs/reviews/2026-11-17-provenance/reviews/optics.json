@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "lane": "optics",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "76db3755745b8ab7012c6f442637a28674a56b96",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent original-source admission review",
+    "independence": "Separate execution from gpt-6.2-sol high researcher; original scans, reports and endpoint records inspected."
+  },
+  "overall_decision": "changes_requested",
+  "files": [
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json",
+      "sha256": "6c16c8dca97ab157167714709ee75208386c121f73021a4fb1b12e0ac0e75778"
+    },
+    {
+      "path": "data/discoveries/communication/optical-fiber-communication-links.json",
+      "sha256": "73e685a78930ada67c8700df817dbd61a2b52345e059785a4a437a728144ff30"
+    },
+    {
+      "path": "data/sources/a/att-1978-annual-report-1977.json",
+      "sha256": "7cb5e9a12b437f8faf3a63f9e4bdce15a1eb7adc6ed81525ade53947e5f115a4"
+    },
+    {
+      "path": "data/sources/b/buckler-1978-atlanta-lightguide-cable-manufacture.json",
+      "sha256": "7df476ca135a0b7d8149e901d96b91fd85b5baeba31cbd8f97d018a4994feae0"
+    },
+    {
+      "path": "data/sources/b/buckler-miller-1978-lightguide-crosstalk.json",
+      "sha256": "89ddc9a763ce9a4a6d0ceb25c588574fc39fc738fa72a803a3ef5c60cdece7aa"
+    },
+    {
+      "path": "data/sources/e/electronic-design-1977-modern-media.json",
+      "sha256": "62f8caf9d8d891f67aadff665563f88b83fbefbb54c30272b503f5946027f657"
+    },
+    {
+      "path": "data/sources/j/jacobs-1978-atlanta-fiber-system-overview.json",
+      "sha256": "516bce3a96e7f4a9c041db491bd638526cb13a3f4694e107d80fd48b6eb2b2e2"
+    },
+    {
+      "path": "data/sources/s/schwartz-1978-chicago-lightwave-project.json",
+      "sha256": "29b02509ab19f4fdba33480b06711f8f23cc5c30ee2cc68a570a268c3df158ab"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/optics.json",
+      "sha256": "735537e5ccba09df21c69b0dfc27de7e9f63c4ea214f5f3c30fb62e4336b34d0"
+    },
+    {
+      "path": "evidence/a/att-1978-annual-report-1977.txt",
+      "sha256": "1260de2e5ccbae6dcc8c9bc2b39d188cf638601bb0094ab011f1530b0e1b30e6"
+    },
+    {
+      "path": "evidence/b/buckler-1978-atlanta-lightguide-cable-manufacture.txt",
+      "sha256": "fd0b2189cf95b204dc6bb850b9eb96b08b8f7513dc1c0c5038713717738467e3"
+    },
+    {
+      "path": "evidence/b/buckler-miller-1978-lightguide-crosstalk.txt",
+      "sha256": "ee0092d020cb1505d83f974bdbd9434a83d0db56a5caa206129628a71b5cb4b6"
+    },
+    {
+      "path": "evidence/e/electronic-design-1977-modern-media.txt",
+      "sha256": "784ba5c4a9b6814a2bf95710870dabca558a4ca91be6e1655260d1ed3a50f3fb"
+    },
+    {
+      "path": "evidence/j/jacobs-1978-atlanta-fiber-system-overview.txt",
+      "sha256": "7d6a4434b251123a30b093fc9e5e9b9edb1f336be7e168f9b85253718425ce81"
+    },
+    {
+      "path": "evidence/s/schwartz-1978-chicago-lightwave-project.txt",
+      "sha256": "cd18e854021f8c299824e3d89782f2454e68436164708238c561d0db8ea5955a"
+    }
+  ],
+  "deleted_files": [],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json#identity,summary,description,kind,grain,domain,fields,advance,setting,places,organizations,societies,known_from",
+      "decision": "accept",
+      "rationale": "Buckler pp. 1745–1747 describes the 12-by-12 Western Electric fiber ribbons and cable, group splicing and handling; this is a specific tested configuration, not global invention priority.",
+      "sources": [
+        "Buckler 1978 pp. 1745–1747"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json#tier,tier_reason",
+      "decision": "accept",
+      "rationale": "The tier is explicitly editorial and scope-limited rather than an empirical first-priority claim.",
+      "sources": [
+        "Buckler 1978 pp. 1745–1747"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json#events/atlanta-1975-cable-manufacture,earliest_record",
+      "decision": "changes_requested",
+      "rationale": "Fig. 5 labels the loss-distribution series “Atlanta Experiment – 1975” but does not identify what the year dates. It does not establish that the cable was manufactured in 1975. Bound manufacture by 13 January 1976, when the complete system transmitted, or provide an explicit dated fabrication source. Update event id, statement, date, basis and earliest rationale consistently.",
+      "sources": [
+        "Schwartz 1978 p. 1885 Fig. 5",
+        "Jacobs 1978 pp. 1717–1718",
+        "Buckler 1978 pp. 1745–1747"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json#events/atlanta-1976-wired-test",
+      "decision": "accept",
+      "rationale": "Jacobs states full-system test signal at 44.7 Mb/s on 13 January 1976 and identifies Bell Labs/Western Electric test facility with typical underground ducts; Buckler documents the 12-ribbon cable and breakage. Not customer operation.",
+      "sources": [
+        "Jacobs 1978 pp. 1717–1718",
+        "Buckler 1978 pp. 1745–1747"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json#caveats,research",
+      "decision": "accept",
+      "rationale": "Prior work and limited nominal working fibers are distinguished; status sourced.",
+      "sources": [
+        "Buckler 1978 pp. 1745–1747"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/optical-fiber-communication-links.json#events/chicago-1977-cable-installation",
+      "decision": "accept",
+      "rationale": "Schwartz dates February installation, describes new two-ribbon cables and attributes intra-office work to WE and IBT; Buckler and Miller report measurements on named endpoints.",
+      "sources": [
+        "Schwartz 1978 pp. 1881–1886",
+        "Buckler and Miller 1978 pp. 1765–1768"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/optical-fiber-communication-links.json#events/chicago-1977-traffic-cutover",
+      "decision": "accept",
+      "rationale": "Project engineers report 11 May full cutover and specified services; corporate operator account says May service and independent trade publication gives 11 May. Trade publication’s underlying sources are unspecified; annual report and engineering source are same corporate family.",
+      "sources": [
+        "Schwartz 1978 pp. 1881–1883, 1887–1888",
+        "AT&T 1977 annual report pp. 10,15",
+        "Electronic Design 1977 p. 107"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/optical-fiber-communication-links.json#research/status,basis,unresolved/chicago-april-1977-traffic",
+      "decision": "accept",
+      "rationale": "Hecht calls April 1 test signals while project report calls it first commercial traffic; full cutover distinct. Sourced status does not claim proposal reviewed.",
+      "sources": [
+        "Hecht 1999 pp. 181–182",
+        "Schwartz 1978 p. 1881"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/optical-fiber-communication-links.json#links/0",
+      "decision": "changes_requested",
+      "rationale": "The receiving record is a broad capability, but its Chicago installation event explicitly identifies two-ribbon cables and the link scope restricts the relationship to that event. Thus adapts (“It modified the other’s design”) is meaningful at the event-scoped cable level, not a claim that all optical links adapted this one. However the cited manufacturing, project and crosstalk papers are all Bell System project sources; crosstalk shares Buckler. They offer different measurements but not established independent informative corroboration of this consequential design transfer. Find and cite independent informative evidence for the as-built transfer, or retain as candidate/defer; do not treat the 1978 Canadian survey of planned Chicago equipment as a second as-built observation.",
+      "sources": [
+        "Buckler 1978 pp. 1745–1747, 1756",
+        "Schwartz 1978 pp. 1882–1885",
+        "Buckler and Miller 1978 pp. 1765–1768",
+        "Canadian systems study 1978 p. 11.10"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/optics.json#inputs,steps/0,steps/2,steps/3,steps/4,reject_if,next,next_anchor",
+      "decision": "accept",
+      "rationale": "The pilot records named searches, receiving and originating technical descriptions, operator and external trade source roles, competing equivalence/transfer and April test/traffic ambiguity. Actions are generally reusable; external trade report is distinct publication with unknown reporting lineage. The GTE next target is a distinct route, not a transfer conclusion.",
+      "sources": [
+        "Schwartz 1978 pp. 1881–1888",
+        "AT&T 1977 annual report pp. 10,15",
+        "Electronic Design 1977 p. 107",
+        "Hecht 1999 pp. 181–182"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/optics.json#summary,steps/1,decision,stop_when",
+      "decision": "changes_requested",
+      "rationale": "Remove or source exact 1975 fabrication date, and revise reusable instruction that a comparison figure independently dates fabrication. Stop rule must require independent informative corroboration before established consequential relation, or expressly direct the reader to retain a candidate. Decision must match graph status after repair.",
+      "sources": [
+        "Schwartz 1978 p. 1885 Fig. 5",
+        "Jacobs 1978 pp. 1717–1718",
+        "project brief review gate"
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "url": "https://www.worldradiohistory.com/Archive-Bell-System-Technical-Journal/70s/Bell-System-Technical-Journal-1978-6.pdf",
+      "locator": "Jacobs pp. 1717–1721, Buckler pp. 1745–1757, Buckler–Miller pp. 1765–1768, Schwartz pp. 1881–1888",
+      "representation": "Original journal PDF and extracted text; local full PDF SHA-256 c1c0105c15c756aa5374b6fc17ab9cb078016d9240215db02770ac8b42fe1108",
+      "lineage": "Different participants and measurements within one Bell System project. Buckler coauthored manufacture and crosstalk; the 1975 figure label does not specify manufacture date."
+    },
+    {
+      "url": "https://www.telephonearchive.com/uploads/papers/pdfs/att1977.pdf",
+      "locator": "printed pp. 10,15 / PDF pp. 12,17",
+      "representation": "Full scanned annual report pages inspected via local OCR and page images; SHA-256 d654d96805ddfde8bb35fb4f9307ddaf262c972f42fc125b799be4eefebb33b7",
+      "lineage": "AT&T parent corporate report including Illinois Bell operator statement; same group as Bell research."
+    },
+    {
+      "url": "https://www.worldradiohistory.com/Archive-Electronic-Design/1977/Electronic-Design-V25-N18-1977-0901.pdf",
+      "locator": "printed p. 107 / PDF p. 121",
+      "representation": "Original issue PDF text locally inspected; SHA-256 49af59423329239f12666f8f1c2cce9171230c089489fbd6a44e0c458b9897e3",
+      "lineage": "Independent trade publication; information sources and independent access to logs unknown."
+    },
+    {
+      "url": "https://paperzz.com/doc/8592557/city-of-light--the-story-of-fiber-optics",
+      "locator": "pp. 181–182",
+      "representation": "Original book text online",
+      "lineage": "Later secondary historian; first test signals April 1 versus May regular traffic."
+    },
+    {
+      "url": "https://publications.gc.ca/collections/collection_2022/isde-ised/co24/Co24-566-1978-1-eng.pdf",
+      "locator": "section 11.1 and p. 11.10 Chicago plans",
+      "representation": "Original Canadian study scanned text online",
+      "lineage": "Outside study reports same form for planned Chicago ribbons; not inspection of final installed cable, no direct proof of transmission or subsequent operation."
+    }
+  ],
+  "limitations": [
+    "Full records of circuit traffic not inspected. Direct publisher site blocked for Electronic Design, but shared downloaded original scan inspected.",
+    "No independent as-built confirmation for the specific design transfer was cited."
+  ],
+  "issues": [
+    {
+      "path": "data/discoveries/communication/atlanta-adhesive-ribbon-optical-cable.json#events/atlanta-1975-cable-manufacture",
+      "repair": "Use bounded manufacture by 13 January 1976 or explicitly dated fabrication evidence; update all dependent wording and rationale."
+    },
+    {
+      "path": "data/discoveries/communication/optical-fiber-communication-links.json#links/0",
+      "repair": "Provide independent informative corroboration for specific as-built adaptation or downgrade to candidate/defer; reconcile workflow and stop rule with review gate."
+    }
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 980 discoveries, 1692 events, 303 links, 2019 sources; No problems found.",
+    "diff_check": "git diff --check base to proposal passed"
+  },
+  "history": []
+}
