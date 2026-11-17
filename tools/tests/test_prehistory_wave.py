@@ -35,7 +35,7 @@ class PrehistoryWaveTest(unittest.TestCase):
             return git("rev-parse", "HEAD")
 
         git("init", "-q")
-        roles = {"dependence": ["uses_process"], "transmission": [], "affinity": ["companion_of"]}
+        roles = {"dependence": ["uses_process", "requires"], "transmission": [], "affinity": ["companion_of"]}
         write_json(root / "data/vocab.json", {"link": {"layers": roles}})
         write_json(root / "data/sources/a/article.json", {"id": "article", "title": "Title", "url": "https://example.com/"})
         old_candidate = {"from": "older", "type": "uses_process", "status": "candidate", "to_event": "dated",
@@ -49,13 +49,14 @@ class PrehistoryWaveTest(unittest.TestCase):
         base = commit()
 
         discovery("alpha", [{**old_candidate, "status": "established"}])
-        discovery("beta", [old_candidate, {"from": "outside", "type": "companion_of", "status": "established"}])
+        discovery("beta", [{**old_candidate, "type": "requires"},
+                           {"from": "outside", "type": "companion_of", "status": "established"}])
         discovery("new", [{"from": "delta", "type": "uses_process", "status": "candidate"}], [{"id": "new-event"}])
         # Another thread added an established edge to beta. Its file is absent from this wave's manifest.
         discovery("outside", [{"from": "beta", "type": "uses_process", "status": "established"}])
         lane_dir, review_dir = root / WAVE / "lanes", root / WAVE / "reviews"
         first = {"from": "older", "to": "alpha", "type": "uses_process", "decision": "new-established"}
-        retained = {"from": "older", "to": "beta", "type": "uses_process", "decision": "existing-candidate"}
+        retained = {"from": "older", "to": "beta", "type": "requires", "decision": "existing-candidate"}
         affinity = {"from": "outside", "to": "beta", "type": "companion_of", "decision": "new-established"}
         proposed = {"from": "delta", "to": "new", "type": "uses_process", "decision": "new-candidate"}
 
@@ -97,8 +98,14 @@ class PrehistoryWaveTest(unittest.TestCase):
         self.assertEqual(delta["connections"], [])
         self.assertEqual(delta["incident_causal_edges"][0]["from"], "delta")
         self.assertEqual(result["records"][3]["graph_status"], "open")
-        self.assertEqual(len(result["changed_edges"]), 3)
+        self.assertEqual(len(result["changed_edges"]), 5)
         self.assertEqual(len(result["retained_candidates"]), 1)
+        self.assertEqual(len(result["new_candidate_questions"]), 1)
+        self.assertEqual(result["retained_candidates"][0]["previous_type"], "uses_process")
+        correction, = result["predicate_corrections"]
+        self.assertEqual((correction["before"]["type"], correction["after"]["type"]), ("uses_process", "requires"))
+        self.assertEqual((correction["before"]["status"], correction["after"]["status"]), ("candidate", "candidate"))
+        self.assertIn("from `uses_process` to `requires`", markdown(result))
         self.assertEqual([record["id"] for record in result["new_discoveries"]], ["new"])
         changed = next(edge for edge in result["changed_edges"] if edge["to"] == "alpha")
         self.assertEqual((changed["before"], changed["after"], changed["to_event"]), ("candidate", "established", "dated"))
@@ -134,6 +141,25 @@ class PrehistoryWaveTest(unittest.TestCase):
         resolved, keys = check_connections([mention], before, after)
         self.assertEqual(keys, set(after))
         self.assertEqual(resolved[0]["edges"][0]["to_event"], "new-event")
+
+    def test_predicate_correction_must_be_unambiguous_and_at_the_same_scope(self):
+        previous = ("one", "two", "uses_process", "source-event", "target-event")
+        corrected = ("one", "two", "requires", "source-event", "target-event")
+        alternative = ("one", "two", "builds_on", "source-event", "target-event")
+        other_scope = (*previous[:4], "other-event")
+        mention = {"from": "one", "to": "two", "type": "requires", "decision": "existing-candidate"}
+        candidate = {"status": "candidate"}
+        insufficient = {"status": "insufficient"}
+        for before, after in [
+            ({previous: candidate, alternative: candidate}, {corrected: candidate}),
+            ({previous: candidate}, {corrected: candidate, alternative: candidate}),
+            ({previous: candidate, corrected: insufficient}, {corrected: candidate}),
+            ({other_scope: candidate}, {corrected: candidate}),
+            ({previous: insufficient}, {corrected: candidate}),
+        ]:
+            with self.subTest(before=before, after=after):
+                with self.assertRaisesRegex(ValueError, "disagrees with graph snapshots"):
+                    check_connections([mention], before, after)
 
 
 if __name__ == "__main__":

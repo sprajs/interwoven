@@ -82,6 +82,10 @@
       node.append(element('div', `${start} → ${end}`));
       const basis = anchorId ? (mention.from === anchorId ? 'outgoing' : 'incoming') : label(mention.decision);
       node.append(element('div', `${label(mention.type)} · ${layers[mention.type]} · ${basis}`, 'text-small'));
+      if (mention.predicate_correction) {
+        const {before, after} = mention.predicate_correction;
+        node.append(element('div', `${title(after.status)} retained · ${label(before.type)} → ${label(after.type)}`));
+      }
       for (const edge of mention.edges ?? [mention]) {
         const scope = [edge.from_event, edge.to_event].filter(Boolean).join(' → ');
         const status = `${edge.before} → ${edge.after}`;

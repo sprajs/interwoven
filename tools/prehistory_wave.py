@@ -122,6 +122,18 @@ def connection_status(edge: dict | None) -> str:
     return edge["status"] if edge is not None else "absent"
 
 
+def previous_predicate(key: tuple, old: dict, new: dict) -> tuple | None:
+    """Find a one-for-one type replacement at the exact directed event scope."""
+    if key in old:
+        return None
+    scope = key[:2] + key[3:]
+    removed = [edge for edge in old.keys() - new.keys() if edge[:2] + edge[3:] == scope]
+    added = [edge for edge in new.keys() - old.keys() if edge[:2] + edge[3:] == scope]
+    if len(removed) == 1 and added == [key] and old[removed[0]]["status"] == new[key]["status"]:
+        return removed[0]
+    return None
+
+
 def check_connections(mentions: list[dict], old: dict, new: dict) -> tuple[list[dict], set]:
     """Resolve each ledger mention to exact stored edges, including event scope."""
     results = []
@@ -130,16 +142,28 @@ def check_connections(mentions: list[dict], old: dict, new: dict) -> tuple[list[
         prefix = tuple(mention[k] for k in EDGE_FIELDS[:3])
         decision = mention["decision"]
         require(decision in DECISIONS, f"invalid link decision {decision!r}")
+        correction = {}
         matches = sorted(key for key in old.keys() | new.keys() if key[:3] == prefix
                          and all((mention[k] or "") == key[i] for i, k in enumerate(EDGE_FIELDS[3:], 3) if k in mention))
         if decision != "deferred":
             freshness, status = decision.split("-")
             seen_before = {key for key in matches if connection_status(old.get(key)) == status}
-            matches = [key for key in matches if connection_status(new.get(key)) == status
-                       and (bool(seen_before) if freshness == "existing" else key not in seen_before)]
+            current = [key for key in matches if connection_status(new.get(key)) == status]
+            matches = current if seen_before else []
+            if freshness == "new":
+                matches = [key for key in current if key not in seen_before]
+            elif not seen_before and len(current) == 1:
+                key = current[0]
+                previous = previous_predicate(key, old, new)
+                if previous is not None:
+                    matches = [key]
+                    correction["predicate_correction"] = {
+                        "before": {**dict(zip(EDGE_FIELDS, previous)), **old[previous]},
+                        "after": {**dict(zip(EDGE_FIELDS, key)), **new[key]},
+                    }
             require(bool(matches), f"ledger decision {decision} disagrees with graph snapshots for {prefix}")
             claimed.update(matches)
-        results.append({**mention, "edges": [edge_transition(key, old, new) for key in matches]})
+        results.append({**mention, **correction, "edges": [edge_transition(key, old, new) for key in matches]})
     return results, claimed
 
 
@@ -276,6 +300,7 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
                           if connection_status(old.get(key)) != connection_status(new.get(key)))
     changed = [edge_transition(key, old, new) for key in changed_keys]
     claimed, retained, rows = set(), set(), []
+    predicate_corrections = {}
     for lane, info in lanes.items():
         ledger = info.pop("records")
         reviewed = info.pop("reviews")
@@ -290,6 +315,11 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
                     f"{key} is not isolated in the frozen graph")
             connections, row_claimed = check_connections(row["connections"], old, new)
             claimed.update(row_claimed)
+            for mention in connections:
+                if "predicate_correction" in mention:
+                    correction = mention["predicate_correction"]
+                    final_edge = correction["after"]
+                    predicate_corrections[edge_key(final_edge["to"], final_edge)] = correction
             retained.update(edge for edge in row_claimed if connection_status(old.get(edge)) == "candidate"
                             and connection_status(new.get(edge)) == "candidate")
             current_record = wave_records.get(key, baseline[key])
@@ -328,19 +358,30 @@ def compile_wave(base: str, after: str, roster: dict, frontier: str, lane_dir: P
     for source_id in sorted(evidence_ids - sources.keys()):
         path = f"data/sources/{source_id[0]}/{source_id}.json"
         sources[source_id] = json.loads(blob(base, path))
+    retained_candidates = [edge_transition(key, old, new) for key in sorted(retained)]
+    for key, correction in sorted(predicate_corrections.items()):
+        if correction["after"]["status"] == "candidate":
+            retained_candidates.append({**edge_transition(key, old, new), "before": "candidate",
+                                        "previous_type": correction["before"]["type"]})
+    new_candidate_questions = [edge_transition(key, old, new) for key in changed_keys
+                               if connection_status(new.get(key)) == "candidate" and key not in predicate_corrections]
     return {"schema_version": 2, "base_commit": base, "after_commit": after, "frozen_frontier": FRONTIER,
             "summary": summary(rows), "lanes": lanes, "records": rows, "new_discoveries": list(additions.values()),
             "removed_discoveries": list(removals.values()), "removed_events_on_existing_records": removed_events,
             "new_events_on_existing_records": new_events, "revised_events_on_existing_records": revised_events,
             "net_events": sum(len(r["events"]) for r in wave_records.values()) - sum(len(r["events"]) for r in baseline.values()),
             "sources": sources, "reviewed_file_sha256": review_paths,
-            "changed_edges": changed, "retained_candidates": [edge_transition(key, old, new) for key in sorted(retained)],
+            "changed_edges": changed, "retained_candidates": retained_candidates,
+            "new_candidate_questions": new_candidate_questions,
+            "predicate_corrections": [predicate_corrections[key] for key in sorted(predicate_corrections)],
             "typed_direction_changes": typed_changes(old, new), "layers": layers,
             "edge_endpoints": {key: (wave_records.get(key) or baseline[key])["name"] for key in sorted(endpoints)}}
 
 
 def new_status(result: dict, status: str) -> list[dict]:
-    return [edge for edge in result["changed_edges"] if edge["after"] == status]
+    corrections = {edge_key(item["after"]["to"], item["after"]) for item in result["predicate_corrections"]}
+    return [edge for edge in result["changed_edges"] if edge["after"] == status
+            and edge_key(edge["to"], edge) not in corrections]
 
 
 def quantity(number: int, noun: str) -> str:
@@ -351,8 +392,10 @@ def markdown(result: dict) -> str:
     totals = result["summary"]
     outcomes = totals["graph_outcomes"]
     established = new_status(result, "established")
+    newly_established_types = {tuple(edge[key] for key in EDGE_FIELDS[:3]) for edge in established}
     directed = [edge for edge in result["typed_direction_changes"]
-                if "established" in edge["after"] and "established" not in edge["before"]]
+                if "established" not in edge["before"]
+                and tuple(edge[key] for key in EDGE_FIELDS[:3]) in newly_established_types]
     layer_totals = Counter(result["layers"][e["type"]] for e in directed)
     causal = sum(layer_totals[layer] for layer in CAUSAL_LAYERS)
     promoted = sum(edge["before"] == "candidate" for edge in established)
@@ -373,7 +416,7 @@ def markdown(result: dict) -> str:
              f"{quantity(len(result['removed_events_on_existing_records']), 'event')}. The net event change across all "
              f"reviewed discoveries was {result['net_events']:+d}. "
              f"The review promoted {quantity(promoted, 'scoped candidate')} to established status. "
-             f"{len(new_status(result, 'candidate'))} relationships newly have candidate status, and "
+             f"{len(result['new_candidate_questions'])} relationships newly have candidate status, and "
              f"{len(result['retained_candidates'])} assessed candidates retained their status.", "",
              "| Research lane | Records | Established link | Candidate only | Open | With an insufficient assessment |",
              "| --- | ---: | ---: | ---: | ---: | ---: |"]
@@ -398,6 +441,13 @@ def markdown(result: dict) -> str:
             lines.append(f"| {left} → {right} | `{edge['type']}` | {result['layers'][edge['type']]} | {edge['before']} |")
     else:
         lines.append("The reviewed records added or promoted zero established edges.")
+    if result["predicate_corrections"]:
+        lines.extend(["", "## Retained relationships with revised link types", ""])
+        for correction in result["predicate_corrections"]:
+            previous, current = correction["before"], correction["after"]
+            left, right = result["edge_endpoints"][current["from"]], result["edge_endpoints"][current["to"]]
+            lines.append(f"- {left} → {right} retained `{current['status']}` status at the same event scope. "
+                         f"The review changed the stored type from `{previous['type']}` to `{current['type']}`.")
     lines.extend(["", "## Method", "",
                   f"The roster is the `{EARLY_ERA}` cohort in the frozen frontier at `{result['base_commit']}`. "
                   "The exporter checks one ledger row and one independent Terra High verdict for each roster ID. "
