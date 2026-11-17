@@ -2,14 +2,14 @@
   "schema_version": 1,
   "lane": "computing",
   "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
-  "worker_commit": "c79fa115977c9aa2395a64a378530634dde6f4e4",
+  "worker_commit": "cddccd038d281925887f6b021da0fc8c94e70ca3",
   "reviewer": {
     "model": "gpt-6.1-terra",
     "effort": "high",
     "execution": "independent review",
     "independence": "Separate from gpt-6.2-sol high researcher; original sources and cached artifacts independently checked."
   },
-  "overall_decision": "changes_requested",
+  "overall_decision": "accept",
   "files": [
     {
       "path": "data/discoveries/electronics/unicode-multilingual-character-standard.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "docs/reviews/2026-11-17-provenance/lanes/computing.json",
-      "sha256": "78eb997f28d6c6914c73e88a3c279a0fa2837ea81be9107e57b08e66483c9a78"
+      "sha256": "cbe604a2517789a322c4156c378d4a32683aae6d5bdc438aeb36e51f05437c84"
     },
     {
       "path": "evidence/d/debian-2023-bookworm-noto-color-emoji-package-notes.txt",
@@ -138,8 +138,8 @@
     },
     {
       "path": "docs/reviews/2026-11-17-provenance/lanes/computing.json#/steps,inputs,reject_if,stop_when,next_anchor",
-      "decision": "changes_requested",
-      "rationale": "Workflow has general repeatable actions and bounded results with exact locators, negative controls, operator/producer/distributor roles and a viable distinct next anchor. Cached real outputs and exact hashes were independently reproduced; however its C probe is not retained and repeat commands do not regenerate the 109-ppem bitmap extraction and claimed PNG SHA. The statement that probe and source can be recreated from the provided commands is therefore not reproducible as written. Retain exact probe source and build/run instructions in a committed lane artifact, or narrow the reproducibility assertion and remove the claim of reproducing the PNG hash."
+      "decision": "accept",
+      "rationale": "Reusable actions have explicit inputs, sources, roles, negative controls and a stopping rule; executed results are bounded to the shipped font. Repair preserves C11 source and build/run/extraction instructions in the committed ledger. Independently reconstructed and compiled the embedded code with HarfBuzz 15.1.0 in a temporary directory and reproduced all output glyph IDs and the exact 3167-byte PNG SHA-256."
     },
     {
       "path": "data/sources and evidence",
@@ -150,18 +150,188 @@
   "test_verification": {
     "independent_run": "Inspected source and executed cached C program from /tmp to avoid modifying evidence; HarfBuzz 15.1.0 produces full sequence glyphs [949,24] in 2.038, [2827] in 2.040 and 2.042, [2924] in Debian; no-ZWJ gives [949,24], vertical gives [2925] Debian, bitmap 3167 bytes. Existing extracted PNG SHA 69dc14a825f59379b0f73bc3d03f1781a8d591d945c0a44dc433cecb4f88ffca; viewed 136x128 image.",
     "archive": "ar-extracted control version 2.042-0+deb12u1 and font SHA e5899ed38b8ed83e08bd3ac5de09791e9d19d288333a796de1d35ad17396f1ec verified; package SHA a5ab0f69c7938423862320d9aca5dd187b3fd879d6a9a57dd52e17c3fa8d2751 matches local copied Debian index.",
-    "limitations": "dpkg-deb and hb-shape unavailable here; independently inspected and ran precompiled probe. Font bytes in cache matched proposed hashes; probe source was read, not recompiled. The exact probe is not in committed output."
+    "limitations": "HarfBuzz 15.1.0 and C compiler available for independent reconstruction; hb-shape and dpkg-deb unavailable. Application rendering not tested.",
+    "independent_rebuild": "Extracted exact committed source, compiled with cc -std=c11 -Wall -Wextra and pkg-config HarfBuzz flags in a fresh temporary directory, ran all four hash-verified fonts, and reproduced all output counts, glyph IDs and bitmap SHA-256 69dc14a825f59379b0f73bc3d03f1781a8d591d945c0a44dc433cecb4f88ffca. Temporary files removed."
   },
-  "issues": [
-    "Retain complete probe source and build/run commands, including PNG extraction, or correct exact reproducibility claims and limit bitmap claim accordingly."
-  ],
+  "issues": [],
   "limitations": [
     "The upstream SVG, Debian font and sequence data do not establish a particular application used or rendered the font.",
     "The Debian and Google code assets share implementation lineage; distributor provenance and separate binary verification corroborate distribution and behavior, not independent invention."
   ],
   "validation": {
     "command": "python3 tools/validate.py; git diff --check BASE PROPOSAL",
-    "result": "Passed; 979 discoveries, 1690 events, 302 links, 2019 sources."
+    "result": "Passed on repaired proposal; 979 discoveries, 1690 events, 302 links, 2019 sources."
   },
-  "history": []
+  "history": [
+    {
+      "superseded_review_commit": "d34bf8f6d6d35efb42098ea4f6c5a79938b57cf8",
+      "review": {
+        "schema_version": 1,
+        "lane": "computing",
+        "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+        "worker_commit": "c79fa115977c9aa2395a64a378530634dde6f4e4",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "independent review",
+          "independence": "Separate from gpt-6.2-sol high researcher; original sources and cached artifacts independently checked."
+        },
+        "overall_decision": "changes_requested",
+        "files": [
+          {
+            "path": "data/discoveries/electronics/unicode-multilingual-character-standard.json",
+            "sha256": "eb283bed864f88a49a25d33c5a6ec36a6096b2a946fa00457dd9d3cc70db67a9"
+          },
+          {
+            "path": "data/sources/d/debian-2023-bookworm-12-4-release.json",
+            "sha256": "2233f678943c45c1e14194a4af2ff5669eb7f11594d8d168b8899bbbb402b27d"
+          },
+          {
+            "path": "data/sources/d/debian-2023-bookworm-noto-color-emoji-changelog.json",
+            "sha256": "95e0d2338a35fed646cb9ac53cbf7c0dbe94b0837a444f1bb1a1805e91daf24b"
+          },
+          {
+            "path": "data/sources/d/debian-2023-bookworm-noto-color-emoji-package.json",
+            "sha256": "606ea5b8660d6d81501fc63a946c42a03e52717c7f566fd80135c153e5f7918d"
+          },
+          {
+            "path": "data/sources/n/noto-emoji-2023-v2-042-release.json",
+            "sha256": "dbb0faa58b024e8a3cefce4cbdabf22275a92d6fc290f5b3559710fcfadaa9c5"
+          },
+          {
+            "path": "data/sources/u/unicode-consortium-2023-emoji-15-1-release.json",
+            "sha256": "90f9ac35c6d6a84fe2daa780ef0d4dd3fd7c660f445b07b9726a71617da7071e"
+          },
+          {
+            "path": "data/sources/u/unicode-consortium-2023-emoji-15-1-zwj-data.json",
+            "sha256": "2f1a42114407c304acd938a13288c9e4d6ab9a14965ab06d9b190210dc8fee05"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-provenance/lanes/computing.json",
+            "sha256": "78eb997f28d6c6914c73e88a3c279a0fa2837ea81be9107e57b08e66483c9a78"
+          },
+          {
+            "path": "evidence/d/debian-2023-bookworm-noto-color-emoji-package-notes.txt",
+            "sha256": "ae253bcb80b2b3ba3e3b63ff99c3545c587c09548d680eb43e968289b975bc58"
+          },
+          {
+            "path": "evidence/u/unicode-consortium-2023-emoji-15-1-zwj-data-notes.txt",
+            "sha256": "e80b5a06cfeb3b7ea90207954828065409bbc961b7f5ebead7bc66ea6226555e"
+          }
+        ],
+        "source_checks": [
+          {
+            "path": "data/sources/d/debian-2023-bookworm-12-4-release.json",
+            "id": "debian-2023-bookworm-12-4-release",
+            "url": "https://www.debian.org/News/2023/20231210",
+            "locator": "Release header and Miscellaneous Bugfixes, fonts-noto-color-emoji row",
+            "read_representation": "Original publisher page, cached artifact, or data as identified in independent checks",
+            "access_limit": "partial-text",
+            "lineage": "Original documenting distributor’s dated stable point release. It describes the package update and is independent of Google’s upstream release notes as evidence of distribution.",
+            "file_sha256": "2233f678943c45c1e14194a4af2ff5669eb7f11594d8d168b8899bbbb402b27d"
+          },
+          {
+            "path": "data/sources/d/debian-2023-bookworm-noto-color-emoji-changelog.json",
+            "id": "debian-2023-bookworm-noto-color-emoji-changelog",
+            "url": "https://sources.debian.org/src/fonts-noto-color-emoji/2.042-0%2Bdeb12u1/debian/changelog/",
+            "locator": "Lines 1–9, 2.042-0+deb12u1 entry",
+            "read_representation": "Original publisher page, cached artifact, or data as identified in independent checks",
+            "access_limit": "partial-text",
+            "lineage": "First-party distribution source archive contains the maintainer’s exact package changelog. This is separate from the font producer’s release description.",
+            "file_sha256": "95e0d2338a35fed646cb9ac53cbf7c0dbe94b0837a444f1bb1a1805e91daf24b"
+          },
+          {
+            "path": "data/sources/d/debian-2023-bookworm-noto-color-emoji-package.json",
+            "id": "debian-2023-bookworm-noto-color-emoji-package",
+            "url": "https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb",
+            "locator": "control.tar.xz, ./control; data.tar.xz, ./usr/share/fonts/truetype/noto/NotoColorEmoji.ttf",
+            "read_representation": "Original publisher page, cached artifact, or data as identified in independent checks",
+            "access_limit": "partial-text",
+            "lineage": "Original Debian package. Extracted without installation. Version and SHA-256 agree with the Debian archive index, and the package's font was tested without font fallback.",
+            "file_sha256": "606ea5b8660d6d81501fc63a946c42a03e52717c7f566fd80135c153e5f7918d"
+          },
+          {
+            "path": "data/sources/n/noto-emoji-2023-v2-042-release.json",
+            "id": "noto-emoji-2023-v2-042-release",
+            "url": "https://github.com/googlefonts/noto-emoji/releases/tag/v2.042",
+            "locator": "Release title, tag and description; Tagged svg/emoji_u1f642_200d_2194.svg and fonts/NotoColorEmoji.ttf",
+            "read_representation": "Original publisher page, cached artifact, or data as identified in independent checks",
+            "access_limit": "partial-text",
+            "lineage": "Producer’s original versioned release and bundled font. The archive supplies evidence of upstream font availability separate from the distributor's release.",
+            "file_sha256": "dbb0faa58b024e8a3cefce4cbdabf22275a92d6fc290f5b3559710fcfadaa9c5"
+          },
+          {
+            "path": "data/sources/u/unicode-consortium-2023-emoji-15-1-release.json",
+            "id": "unicode-consortium-2023-emoji-15-1-release",
+            "url": "https://www.unicode.org/versions/Unicode15.1.0/",
+            "locator": "Release header and §A Synchronization, §H UTS #51",
+            "read_representation": "Original publisher page, cached artifact, or data as identified in independent checks",
+            "access_limit": "partial-text",
+            "lineage": "Consortium’s version-specific publication page. Its date agrees with the public announcement dated 12 September 2023.",
+            "file_sha256": "90f9ac35c6d6a84fe2daa780ef0d4dd3fd7c660f445b07b9726a71617da7071e"
+          },
+          {
+            "path": "data/sources/u/unicode-consortium-2023-emoji-15-1-zwj-data.json",
+            "id": "unicode-consortium-2023-emoji-15-1-zwj-data",
+            "url": "https://www.unicode.org/Public/emoji/15.1/emoji-zwj-sequences.txt",
+            "locator": "Version header and line 1524",
+            "read_representation": "Original publisher page, cached artifact, or data as identified in independent checks",
+            "access_limit": "partial-text",
+            "lineage": "Exact published normative-property data file. Comparison against Emoji 15.0 and the Emoji 15.1 test fixture was conducted from the official versioned URLs.",
+            "file_sha256": "2f1a42114407c304acd938a13288c9e4d6ab9a14965ab06d9b190210dc8fee05"
+          }
+        ],
+        "claim_reviews": [
+          {
+            "path": "data/discoveries/electronics/unicode-multilingual-character-standard.json#/events/emoji-15-1-head-shake-publication",
+            "decision": "accept",
+            "rationale": "Unicode issuer dates 15.1 to 12 September 2023 and synchronizes UTS #51; exact released data record at line 1524 labels the four-scalar string RGI Emoji 15.1. Prior characters are not new; publication on existing standard extends the record, not duplicates a 1990–1991 event.",
+            "sources": [
+              "https://www.unicode.org/versions/Unicode15.1.0/ §A and §H",
+              "https://www.unicode.org/Public/emoji/15.1/emoji-zwj-sequences.txt line 1524",
+              "https://unicode.org/reports/tr51/index.html Emoji Versions"
+            ]
+          },
+          {
+            "path": "data/discoveries/electronics/unicode-multilingual-character-standard.json#/events/debian-12-4-emoji-15-1-font-adoption",
+            "decision": "accept",
+            "rationale": "Debian 10 December 2023 point release lists the font update; changelog specifies 2.042-0+deb12u1. Archive control and bookworm index version and package SHA match. Independently reran controlled HarfBuzz probe against exact extracted font: full sequence glyph 2924 and 3167 PNG bytes; compared prior 2.038 and newer upstream artifacts, correct IDs, no joiner negative control. This shows package-level availability and single-font behavior, not application selection or user adoption. Distinct bounded distribution event extends standard.",
+            "sources": [
+              "https://www.debian.org/News/2023/20231210 fonts-noto-color-emoji",
+              "https://sources.debian.org/src/fonts-noto-color-emoji/2.042-0%2Bdeb12u1/debian/changelog/ entry 1–9",
+              "https://deb.debian.org/debian/pool/main/f/fonts-noto-color-emoji/fonts-noto-color-emoji_2.042-0+deb12u1_all.deb archive control/data",
+              "https://github.com/googlefonts/noto-emoji/releases/tag/v2.042"
+            ]
+          },
+          {
+            "path": "docs/reviews/2026-11-17-provenance/lanes/computing.json#/steps,inputs,reject_if,stop_when,next_anchor",
+            "decision": "changes_requested",
+            "rationale": "Workflow has general repeatable actions and bounded results with exact locators, negative controls, operator/producer/distributor roles and a viable distinct next anchor. Cached real outputs and exact hashes were independently reproduced; however its C probe is not retained and repeat commands do not regenerate the 109-ppem bitmap extraction and claimed PNG SHA. The statement that probe and source can be recreated from the provided commands is therefore not reproducible as written. Retain exact probe source and build/run instructions in a committed lane artifact, or narrow the reproducibility assertion and remove the claim of reproducing the PNG hash."
+          },
+          {
+            "path": "data/sources and evidence",
+            "decision": "accept",
+            "rationale": "Consortium data and release, producer tag, distributor announcement/index/package and recorded notes have distinct source roles; Debian font rebuilt from Noto is not independent invention. Source metadata and preserved note hashes match the data reviewed; no independent witness of application display claimed."
+          }
+        ],
+        "test_verification": {
+          "independent_run": "Inspected source and executed cached C program from /tmp to avoid modifying evidence; HarfBuzz 15.1.0 produces full sequence glyphs [949,24] in 2.038, [2827] in 2.040 and 2.042, [2924] in Debian; no-ZWJ gives [949,24], vertical gives [2925] Debian, bitmap 3167 bytes. Existing extracted PNG SHA 69dc14a825f59379b0f73bc3d03f1781a8d591d945c0a44dc433cecb4f88ffca; viewed 136x128 image.",
+          "archive": "ar-extracted control version 2.042-0+deb12u1 and font SHA e5899ed38b8ed83e08bd3ac5de09791e9d19d288333a796de1d35ad17396f1ec verified; package SHA a5ab0f69c7938423862320d9aca5dd187b3fd879d6a9a57dd52e17c3fa8d2751 matches local copied Debian index.",
+          "limitations": "dpkg-deb and hb-shape unavailable here; independently inspected and ran precompiled probe. Font bytes in cache matched proposed hashes; probe source was read, not recompiled. The exact probe is not in committed output."
+        },
+        "issues": [
+          "Retain complete probe source and build/run commands, including PNG extraction, or correct exact reproducibility claims and limit bitmap claim accordingly."
+        ],
+        "limitations": [
+          "The upstream SVG, Debian font and sequence data do not establish a particular application used or rendered the font.",
+          "The Debian and Google code assets share implementation lineage; distributor provenance and separate binary verification corroborate distribution and behavior, not independent invention."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py; git diff --check BASE PROPOSAL",
+          "result": "Passed; 979 discoveries, 1690 events, 302 links, 2019 sources."
+        },
+        "history": []
+      }
+    }
+  ]
 }
