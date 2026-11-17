@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "lane": "electricity",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "04f203399c01b1a620a7be9636fb8a6a8eaf6f1e",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent review",
+    "independence": "Separate from gpt-6.2-sol high researcher; checked original documents and fetched original meter data independently."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json",
+      "sha256": "f53f35bfb3e9cab89d1aff35787f077616075c79d7cf3909d767198d9231c8cf"
+    },
+    {
+      "path": "data/sources/e/elexon-east-anglia-one-settlement-evidence.json",
+      "sha256": "cea260c60d16236acb85724a260cdb14305e45b5e08019c15e2b8e695b7e1083"
+    },
+    {
+      "path": "data/sources/n/nexans-2020-east-anglia-one-export-order.json",
+      "sha256": "27c23cea62f6f38bb0ad17d42c66da4934172878dbbacc81d97bc50459ad12e9"
+    },
+    {
+      "path": "data/sources/n/nget-east-anglia-one-interface-statement.json",
+      "sha256": "ccbfa0cf71cc6f246625815dfd073efb86efad23902bfa0d251fd4ae6142b4ea"
+    },
+    {
+      "path": "data/sources/o/ofgem-2022-east-anglia-one-transmission-cost-assessment.json",
+      "sha256": "9e4b6114a9273056c6f84ffea4179beb4c492b84869248d3a3c3dd69c359d305"
+    },
+    {
+      "path": "data/sources/s/scottishpower-2019-east-anglia-one-first-power.json",
+      "sha256": "9fc33150d446b1b7a37ae742569cd5f2708ec8eceef463676f6b7bf68315d0c6"
+    },
+    {
+      "path": "data/sources/s/scottishpower-2020-east-anglia-one-full-operation.json",
+      "sha256": "b9b21c365085f7a1fa9b3344e278d4e124651704b55eecc6cc2cedd2d1621818"
+    },
+    {
+      "path": "data/sources/s/scottishpower-2020-east-anglia-one-turbine-installation.json",
+      "sha256": "1cbca87091ff32794236f184d0436d23951b07759b01a4f7abfdcc3923ed03a0"
+    },
+    {
+      "path": "data/sources/s/siemens-2016-east-anglia-one-turbine-order.json",
+      "sha256": "591981c2d5a06b80c87353181f2130a4fe3367da2467cbd03c07d8f70b06c426"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/electricity.json",
+      "sha256": "df27068504cc8ffd7ac2671a6b14dac99e1d485516f5ac7a93e683156f82d3ef"
+    },
+    {
+      "path": "evidence/e/elexon-east-anglia-one-settlement-evidence.json",
+      "sha256": "b5dcc40ce4608990bed04892c6a5e39b87ee7a3d2501f273ab1f0f697f049660"
+    }
+  ],
+  "deleted_files": [],
+  "claim_reviews": [
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/electricity.json#/inputs,steps/0",
+      "decision": "accept",
+      "rationale": "Inputs and reusable action specify aliases, project IDs, supplier archives and operational confirmation. Actual Siemens 9 June 2016 slide 16 names EA1, model and customer; 29 April 2020 developer release documents 102 installed. Gedser and Bogø are distinct installations in catalog.",
+      "sources": [
+        "Siemens 2016 slide 16",
+        "ScottishPower 2020 installation"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/electricity.json#/steps/1",
+      "decision": "accept",
+      "rationale": "Supplier report names EA1 connection order and 2020 completion; Ofgem independently audits construction contracts and distinguishes Nexans offshore and Prysmian onshore. Ofgem and the developer-submitted 2021 DCO report identify HVAC and physical path; National Grid 2023 reports power at Bramford from September 2019. These support the project-specific installed route, not individual circuit or design inheritance.",
+      "sources": [
+        "Nexans 2020 p. 104",
+        "Ofgem 2022 §§3.1–3.5 and 3.23–3.24",
+        "National Grid 2023 §§2.1.2, 2.2.1–2.2.2",
+        "DCO 2021 §§4–6"
+      ],
+      "relation": "installed export path enables project-level grid service",
+      "source_endpoint": "EA1 offshore substation and 220 kV AC submarine export package",
+      "destination_endpoint": "EA1 grid interface at Bramford",
+      "status": "supported project-level functional connection; no explicit dataset graph link",
+      "alternatives": "HVDC consent was an alternative; developer selected HVAC in 2016."
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/electricity.json#/steps/2 and evidence/e/elexon-east-anglia-one-settlement-evidence.json",
+      "decision": "accept",
+      "rationale": "Independent GETs reproduced both exact response payload hashes and all listed rows; registry and bounded-stream original bytes also match saved hashes. 1152 rows; earliest positive within window is 0.043 MWh on 2 Sept SP25. 2 Sept SP30 +2.075/−0.006 and 1 Dec SP25 +101.936/+105.154 sum +207.090 MWh. Swagger defines signed metered volume MWh per settlement period, not MW, and publishTime is null for 2019/20 responses. Data are plant BM-unit settlement volumes, not gross turbine output, turbine-level data or an exact first-generation instant.",
+      "sources": [
+        "Elexon API B1610 exact query URLs and OpenAPI",
+        "Elexon BM unit reference"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/electricity.json#/steps/3,decision,reject_if,stop_when,next_anchor",
+      "decision": "accept",
+      "rationale": "Commissioning announcement, installation and full-operation milestones are bounded by publication; LCCC report confirms May 2020 third-phase start and February 2021 FIC; DCO report October 2020 offshore works and Transmission Capital Dec 2022 transfer are separate. Rejection, stopping rule and next anchor are workable and do not force lineage.",
+      "sources": [
+        "ScottishPower 2019 and 2020 announcements",
+        "LCCC 2020–21 annual report p. 15",
+        "DCO 2021 §6",
+        "Transmission Capital EA1 project"
+      ]
+    },
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json#/identity,description,kind,domain,grain,concept,places",
+      "decision": "accept",
+      "rationale": "EA1 is a specific deployed grid-connected wind farm in southern North Sea; operator and regulator identify turbines and AC connection at Bramford. The existing Gedser and Bogø records describe different installations.",
+      "sources": [
+        "ScottishPower 2020 installation",
+        "Ofgem 2022 §§3.1–3.5",
+        "DCO 2021 §§4–6"
+      ],
+      "duplicate_screen": "No EA1 project record at base; local deployment is distinct from historic Gedser/Bogø demonstrations."
+    },
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json#/events/metered-export-by-september-2019 and earliest_record",
+      "decision": "accept",
+      "rationale": "B1610 T_EAAO-1 has +2.075 MWh on 2 September 2019 SP30 and registry maps the unit to EA1. It is an upper bound within a searched window, not proof of exact first export, E19 assignment, circuit selection or individual turbine measurement. The 12 September announcement identifies E19 as first and says power was flowing by publication.",
+      "sources": [
+        "Elexon B1610 and unit registry",
+        "ScottishPower 2019 first power",
+        "National Grid 2023 §2.2.2"
+      ]
+    },
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json#/events/turbine-installation-complete",
+      "decision": "accept",
+      "rationale": "Siemens original 2016 slide identifies order and model; developer announcement dated 29 April 2020 reports installation of all 102, no exact completion day inferred.",
+      "sources": [
+        "Siemens 2016 slide 16",
+        "ScottishPower 2020 installation"
+      ]
+    },
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json#/events/full-turbine-operation and measures/rated generating power",
+      "decision": "accept",
+      "rationale": "Developer announced all 102 fully operational and 714 MW project capacity on 27 July 2020. Rated MW is capacity, not actual output.",
+      "sources": [
+        "ScottishPower 2020 full operation"
+      ]
+    },
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json#/events/metered-grid-output-december-2020 and measures/combined metered settlement energy",
+      "decision": "accept",
+      "rationale": "The observed signed DF volumes 101.936 and 105.154 MWh total 207.090 MWh at the BM-unit boundary over SP25; do not infer gross generation or annual production. Source reports three decimal places, no extra precision asserted.",
+      "sources": [
+        "Elexon B1610 2020-12-01 SP25 exact response"
+      ]
+    },
+    {
+      "path": "data/discoveries/energy/east-anglia-one-offshore-wind-grid-service.json#/research",
+      "decision": "accept",
+      "rationale": "Sourced, draft status accurately preserves independent review boundary. The project dependency is described with specified endpoints rather than an unsupported typed link to generic earlier wind or HVDC records.",
+      "sources": [
+        "Ofgem 2022 §§3.1–3.5",
+        "Nexans 2020 p.104",
+        "National Grid 2023 §2.2.2",
+        "Elexon B1610"
+      ]
+    },
+    {
+      "path": "data/sources/e/elexon-east-anglia-one-settlement-evidence.json and evidence/e/elexon-east-anglia-one-settlement-evidence.json",
+      "decision": "accept",
+      "rationale": "Source identifies API v1 DF as post-final, current registry, two original responses and bounded stream; recomputed both embedded response hashes, and independent live retrieval matched both hashes plus registry and stream. Publication timestamps are null in the historical responses.",
+      "sources": [
+        "Elexon OpenAPI B1610",
+        "Elexon Trading Disputes Process DF",
+        "Elexon exact query URLs"
+      ]
+    },
+    {
+      "path": "data/sources/n/nexans-2020-east-anglia-one-export-order.json; data/sources/n/nget-east-anglia-one-interface-statement.json; data/sources/o/ofgem-2022-east-anglia-one-transmission-cost-assessment.json",
+      "decision": "accept",
+      "rationale": "Metadata and passage scopes match respective issuer texts; Ofgem scrutiny draws on developer data and forensic accounting rather than independently measuring every electrical flow.",
+      "sources": [
+        "Nexans p. 104",
+        "National Grid 2023 §2.2",
+        "Ofgem §§3.1–3.5, 3.23–3.24"
+      ]
+    },
+    {
+      "path": "data/sources/s/scottishpower-2019-east-anglia-one-first-power.json; data/sources/s/scottishpower-2020-east-anglia-one-full-operation.json; data/sources/s/scottishpower-2020-east-anglia-one-turbine-installation.json; data/sources/s/siemens-2016-east-anglia-one-turbine-order.json",
+      "decision": "accept",
+      "rationale": "Author, version, dates and cited project claims agree with originals; Siemens PDF checked at corrected canonical URL and locally with matching SHA-256. Company materials are producer/operator evidence, not independent replication.",
+      "sources": [
+        "Siemens 2016 slide 16",
+        "ScottishPower 2019 first power",
+        "ScottishPower 2020 installation",
+        "ScottishPower 2020 full operation"
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "role": "producer",
+      "url": "https://assets.new.siemens.com/siemens/assets/api/uuid:44871707-b477-4e4b-ab45-bc7867f99e79/160609-presentation-jp-morgan-conference.pdf",
+      "locator": "9 June 2016 slide 16",
+      "representation": "Original PDF, local /tmp/electricity-siemens-june.pdf, SHA-256 9b7727855e2836f22d9c2742751955e9a1351b9d231bd6605092f2870d119954",
+      "access_limit": "Former Siemens URL returned 404; revised canonical URL provided.",
+      "lineage": "Producer order, not operational proof."
+    },
+    {
+      "role": "producer",
+      "url": "https://www.nexans.com/app/uploads/2024/02/2020-nexans-universal-registration-document.pdf",
+      "locator": "p.104 §3.1.2.3",
+      "representation": "Original PDF text",
+      "access_limit": "Names project and completion, not individual cable first energisation.",
+      "lineage": "Company report; Ofgem independently audits contract allocation."
+    },
+    {
+      "role": "regulator",
+      "url": "https://www.ofgem.gov.uk/sites/default/files/2022-12/EA1_CAR_Report%20Final%20Dec.pdf",
+      "locator": "§§3.1–3.5, 3.23–3.24, 3.76–3.79",
+      "representation": "Original 15 Dec 2022 PDF",
+      "access_limit": "Technical overview sourced from developer; cost scrutiny is not separate direct turbine measurement.",
+      "lineage": "Ofgem and Grant Thornton review."
+    },
+    {
+      "role": "network operator",
+      "url": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN020002-000831-National%20Grid%20Electricity%20Transmission%20-%20Additional%20and%20any%20updated%20Statements%20of%20Common%20Ground%20%28SoCG%29%20%28see%20PD1%20in%20Annex%20F%20of%20the%20Rule%206%20letter%29..pdf",
+      "locator": "September 2023 exhibit 8.3.6.3 §§2.1.2 and 2.2.1–2.2.2",
+      "representation": "Original draft statement PDF",
+      "access_limit": "Reports month not exact day.",
+      "lineage": "National Grid account."
+    },
+    {
+      "role": "market operator",
+      "url": "https://data.elexon.co.uk/swagger/v1/swagger.json",
+      "locator": "GET /datasets/B1610 and /datasets/B1610/stream",
+      "representation": "Live original OpenAPI specification",
+      "access_limit": "Metered MWh per settlement period; output may be revised; historical publishTime null. Does not identify net vs gross turbine production beyond metering boundary.",
+      "lineage": "Elexon settlement data, independent operational observation."
+    },
+    {
+      "role": "market operator",
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/reference/bmunits/all",
+      "locator": "T_EAAO-1 and T_EAAO-2",
+      "representation": "Live original JSON, SHA-256 59f0e0a51748fc81f3d06a7e8d4a3d59c9f99b2fcc115c418dce262e303924ac",
+      "access_limit": "Current registration, not by itself historical installation-level mapping.",
+      "lineage": "Elexon registry maps both identifiers to East Anglia One Limited."
+    },
+    {
+      "role": "market operator",
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610/stream?settlementDateFrom=2019-09-01&settlementDateTo=2019-09-12&settlementPeriodFrom=1&settlementPeriodTo=48&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+      "locator": "DF 1–12 September 2019, all 48 periods, both units",
+      "representation": "Live original JSON SHA-256 afbd368074e7034f8ea13dc5e2a9ee75681dc087c60f46d484020d5953340678; 1152 rows; first positive in window SP25 2 Sep 0.043 MWh",
+      "access_limit": "Bounded window, not earliest physical export.",
+      "lineage": "Dataset responds at BM unit level."
+    },
+    {
+      "role": "market operator",
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610?settlementDate=2019-09-02&settlementPeriod=30&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+      "locator": "SP30, both units",
+      "representation": "Original JSON hash f9d912a7a00f85064bd9013c021133b84997f4f91641f8fd80b59bcf0ebfda95; +2.075, −0.006 MWh",
+      "access_limit": "publishTime null; individual circuit and turbine unidentified.",
+      "lineage": "Elexon DF post-final settlement run."
+    },
+    {
+      "role": "market operator",
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/B1610?settlementDate=2020-12-01&settlementPeriod=25&settlementRunType=DF&bmUnit=T_EAAO-1&bmUnit=T_EAAO-2",
+      "locator": "SP25, both units",
+      "representation": "Original JSON hash 382fef28630d640926b56cc53fae8c2c197037815ced59dfc9480081d886235a; +101.936, +105.154 MWh",
+      "access_limit": "One half-hour only, not annual output or gross production.",
+      "lineage": "Elexon DF post-final settlement run."
+    },
+    {
+      "role": "developer/operator",
+      "url": "https://www.scottishpower.com/w/first_power_generated_at_east_anglia_s_largest_offshore_windfarm",
+      "locator": "12 Sept 2019, first-turbine paragraph",
+      "representation": "Original publication",
+      "access_limit": "Date is announcement, no exact first-power timestamp.",
+      "lineage": "Developer report."
+    },
+    {
+      "role": "developer/operator",
+      "url": "https://www.scottishpowerrenewables.com/w/turbine-installation-complete-on-east-anglia-one-offshore-windfarm",
+      "locator": "29 April 2020 announcement",
+      "representation": "Original publication",
+      "access_limit": "Installation not proof of full operation.",
+      "lineage": "Developer report."
+    },
+    {
+      "role": "developer/operator",
+      "url": "https://www.scottishpowerrenewables.com/w/east-anglia-reaches-major-milestone-with-windfarm-completion",
+      "locator": "27 July 2020 opening",
+      "representation": "Original publication",
+      "access_limit": "Company report, not meter reading.",
+      "lineage": "Developer report."
+    },
+    {
+      "role": "contract counterparty",
+      "url": "https://www.lowcarboncontracts.uk/documents/18/LCCC_Annual_Report_and_Accounts_2020-2021_interactive_pdf_9.pdf",
+      "locator": "A year of firsts, p.15",
+      "representation": "Original annual report PDF",
+      "access_limit": "Contract milestones, not dates of physical first power.",
+      "lineage": "LCCC reports its own CfD milestones."
+    },
+    {
+      "role": "planning applicant",
+      "url": "https://assets.publishing.service.gov.uk/media/61b20b04e90e0704478a9e87/EA1-CON-F-GBE-242081_NMC_Report_FINAL.pdf",
+      "locator": "March 2021 §§4–6",
+      "representation": "Original supporting statement PDF",
+      "access_limit": "Later report of prior selection and works.",
+      "lineage": "Developer planning submission."
+    },
+    {
+      "role": "transmission owner",
+      "url": "https://transmissioncapital.com/projects/11/",
+      "locator": "project overview",
+      "representation": "Project page",
+      "access_limit": "Transfer date, not first power.",
+      "lineage": "Transmission Capital owner."
+    }
+  ],
+  "limitations": [
+    "No individual turbine or cable circuit is identifiable from settlement unit volumes; first positive is limited to the queried window.",
+    "Elexon B1610 is period MWh, not instantaneous MW or gross turbine production; 2019/2020 publishTime fields null and later settlement versions may change.",
+    "No direct historical design transfer or generic offshore-wind prerequisite is established.",
+    "Ofgem network description cites developer and is not independent metering; company procurement/commissioning claims are complemented by network and settlement evidence."
+  ],
+  "issues": [],
+  "validation": {
+    "python3 tools/validate.py": "pass: 980 discoveries, 1692 events, 302 links, 2021 sources; no problems found.",
+    "git diff --check": "pass base to 04f203399c01b1a620a7be9636fb8a6a8eaf6f1e."
+  },
+  "history": []
+}
