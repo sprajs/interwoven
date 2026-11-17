@@ -9,7 +9,7 @@
     "execution": "independent review execution /root/review_coordinator/review_oceania",
     "independence": "Separate from researcher gpt-6.2-sol high; no self-review."
   },
-  "overall_decision": "changes_requested",
+  "overall_decision": "accept",
   "files": [
     {
       "path": "data/discoveries/transport/korents-wavefinding-demonstration.json",
@@ -64,8 +64,8 @@
       "id": "winkler-1901-marshallese-sea-charts",
       "url": "https://habeleinstitute.org/w/img_auth.php/3/3e/DYW5NCIC.pdf",
       "locator": "pp. 487–490, 494–496",
-      "availability": "HTTP 403 from local request; browser also could not access. Original not independently read; researcher note is not a substitute. A government publication catalogue supports 1901 publication but not the detailed event.",
-      "independence": "Separate historical investigation if original verified; downstream summaries based on Winkler do not count as independent readings."
+      "availability": "Original English scan independently read locally at PDF pages 645–646, 649–650, 656, 659–660 (printed pp. 487–490, 494–496); cover PDF p. 7. Original SHA-256 4b56a0514ed4962388657fdd54a10fbc4664494bdc7c08b0186a305f631813bd matches source record. Prior direct HTTP 403 remains recorded in superseded review.",
+      "independence": "Distinct historical investigation from Gulick and recent Genz fieldwork; elicited and mediated accounts under colonial conditions, including a revised initial interpretation. Later works quoting Winkler do not independently corroborate him."
     },
     {
       "id": "genz-2016-marshallese-wave-models",
@@ -109,8 +109,8 @@
     },
     {
       "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/summary,description",
-      "decision": "changes_requested",
-      "rationale": "Teaching with diagrams and embodied practice are supported, but the sentence specifically attributing the historical distinctions to Winkler requires independent original reading; remove or defer this sentence along with Winkler-dependent event until an original is accessible.",
+      "decision": "accept",
+      "rationale": "Original Winkler p. 494 classifies mattang as a general teaching chart without particular islands and meddo and rebbelib by scope; p. 495 describes teaching and reminders. Gulick, Genz et al. and Genz document practice and learning.",
       "sources": [
         "gulick-1862-micronesia-stick-maps p. 304",
         "genz-2009-wave-navigation-marshall pp. 235–240",
@@ -128,8 +128,8 @@
     },
     {
       "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/events/winkler-translation-1901",
-      "decision": "defer",
-      "rationale": "Original inaccessible in this independent execution; the event, named informants, Jaluit attribution and precise distinctions cannot be approved from researcher notes or downstream summaries. Obtain and inspect exact edition or omit until reviewed.",
+      "decision": "accept",
+      "rationale": "The scan cover dates English edition 1901; p. 487 identifies 1898 German original and Jaluit 1896, pp. 488–490 describe return and mediated inquiries with Lojak and Laumanuan, and pp. 494–496 give chart classes and abstract teaching example. Event date is publication, not invention; caveats preserve mediation.",
       "sources": [
         "winkler-1901-marshallese-sea-charts pp. 487–490, 494–496"
       ]
@@ -146,8 +146,8 @@
     },
     {
       "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/earliest_record,caveats,research.unresolved",
-      "decision": "changes_requested",
-      "rationale": "Earliest located dated description is Gulick’s report, not an origin date. The useful question of continuity is warranted; any assertion specifically depending on Winkler remains subject to original review. Remove or qualify Winkler-specific references if event is omitted.",
+      "decision": "accept",
+      "rationale": "Gulick is earliest dated account located here; its 1862 date is not invention. Winkler and Genz support the described distinct historical and recent models; a continuity question is warranted without claiming transmission.",
       "sources": [
         "gulick-1862-micronesia-stick-maps p. 304",
         "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
@@ -191,28 +191,281 @@
         "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
         "smithsonian-nd-marshallese-chart USNM E432083-0, notes and collection date"
       ]
+    },
+    {
+      "path": "data/discoveries/transport/korents-wavefinding-demonstration.json#/extends",
+      "decision": "accept",
+      "extends": "korents-wavefinding-demonstration",
+      "rationale": "New 2006 round-trip demonstration is a source-supported specific event within the pre-existing demonstration record; the existing broad 2005–2006 fieldwork event does not record this itinerary and result.",
+      "sources": [
+        "genz-2016-marshallese-wave-models pp. 29–32",
+        "earnshaw-2014-reviving-ancient-skill participant interview"
+      ]
+    },
+    {
+      "path": "data/discoveries/transport/marshallese-wave-navigation-chart.json#/extends",
+      "decision": "accept",
+      "extends": "marshallese-wave-navigation-chart",
+      "rationale": "Museum catalogue identifies the specimen already referenced by the baseline event, and revised identity and dating preserve its instance scope.",
+      "sources": [
+        "smithsonian-nd-marshallese-chart USNM E432083-0"
+      ]
     }
   ],
   "duplicate_screen": {
     "result": "Distinct practice, specimen and event extension",
     "details": "Compared full changed records and base versions, plus local discovery matches for Marshallese charts, wavefinding, Majuro cross-swell and navigator-guided buoy survey. Existing chart is one museum specimen (1940–1959 collection); new record describes a broader community teaching capability. Prior Joel event covers broad 2005–2006 demonstrations, not a separately dated and sourced Ujae–Kwajalein trial. No standalone duplicate of the 2006 trial identified. No asserted transmission from similarity."
   },
-  "issues": [
-    {
-      "severity": "blocking",
-      "path": "data/discoveries/transport/marshallese-wave-model-instruction.json",
-      "repair": "Have an independent reviewer access and inspect the Winkler original at pp. 487–490 and 494–496, including informants and classification, then bind a fresh review to final hashes; alternatively remove the 1901 event and Winkler-specific claims/citations pending that review while retaining sourced Gulick and 2006 practice."
-    }
-  ],
+  "issues": [],
   "unknowns": [
     "The specific lineage between nineteenth-century charts and modern school models is not established.",
-    "The physical explanation and exact use of each model on the return leg remains contested or under-corroborated.",
-    "Original Winkler scan was unavailable to this reviewer."
+    "The physical explanation and exact use of each model on the return leg remains contested or under-corroborated."
   ],
   "validation": {
     "command": "python3 tools/validate.py",
     "result": "pass: 903 discoveries, 1500 events, 238 links, 1625 sources; No problems found.",
     "diff_check": "git diff --check on base to worker commit passed"
   },
-  "history": []
+  "history": [
+    {
+      "decision": "changes_requested",
+      "reason": "Winkler original was inaccessible to reviewer via browser and direct HTTP 403; detailed previous review preserved below.",
+      "superseded_review": {
+        "schema_version": 1,
+        "lane": "oceania",
+        "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+        "worker_commit": "4b1057507cf79eee36a7dec0e059105245abcf3d",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "independent review execution /root/review_coordinator/review_oceania",
+          "independence": "Separate from researcher gpt-6.2-sol high; no self-review."
+        },
+        "overall_decision": "changes_requested",
+        "files": [
+          {
+            "path": "data/discoveries/transport/korents-wavefinding-demonstration.json",
+            "sha256": "1ac896924acf29db7a1ec288af875c677a82374028b7a3fdfea817ce878f5437"
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json",
+            "sha256": "3ffa51414b4bc2bf64275f99effbfb98f7f508c33e1de332ec653dc3a749e838"
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-navigation-chart.json",
+            "sha256": "7fb05ef5ba95a55462bdf530889843534bb1587cb450d1062aeb179809e2ffa2"
+          },
+          {
+            "path": "data/sources/g/genz-2016-marshallese-wave-models.json",
+            "sha256": "fd4bcabee347f137b6f3bd2395eb6b1ef7a92df78772ad500a01789c2808ec62"
+          },
+          {
+            "path": "data/sources/g/gulick-1862-micronesia-stick-maps.json",
+            "sha256": "08f5746a685dc68d335706b0f5ff831b3b5fa87519eaa649418804131e4bcc3f"
+          },
+          {
+            "path": "data/sources/w/winkler-1901-marshallese-sea-charts.json",
+            "sha256": "5c1093fddb4fc3445f26321a4ac5d9a60cd73364b9c26daa52b06203983e8908"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-all-eras/lanes/oceania.md",
+            "sha256": "c576e79de6df3b445420ccfe026a232d2be35c660e09da5dc2e8646dea1b2413"
+          },
+          {
+            "path": "evidence/g/genz-2016-marshallese-wave-models-notes.txt",
+            "sha256": "ae24ad607783c91b8ac2c1a3bb9a6feb850f58ba002be68a4c5ce829f4ff6fa2"
+          },
+          {
+            "path": "evidence/g/gulick-1862-micronesia-stick-maps-notes.txt",
+            "sha256": "6d4a69054b4fe899863daa84188b4ac61daffd08e8510513bdb7622c3a3a5b85"
+          },
+          {
+            "path": "evidence/w/winkler-1901-marshallese-sea-charts-notes.txt",
+            "sha256": "d728da468ddbd9fa2f6a9e5ff223b9bab72f4551acbadba20c3ec95d600f3ed6"
+          }
+        ],
+        "source_checks": [
+          {
+            "id": "gulick-1862-micronesia-stick-maps",
+            "url": "https://clockwk.com/NM/The_Nautical_Magazine%201862.pdf",
+            "locator": "June 1862 p. 304; surrounding paragraph",
+            "availability": "Original scan downloaded into memory and text read; original volume SHA-256 685587aee09477169f4e25819a87001fbed3aafeb2cc45a58816e2ab3d27f805 matches source record.",
+            "independence": "Contemporary outsider report; separate historical observation from Genz fieldwork, not evidence of continuity."
+          },
+          {
+            "id": "winkler-1901-marshallese-sea-charts",
+            "url": "https://habeleinstitute.org/w/img_auth.php/3/3e/DYW5NCIC.pdf",
+            "locator": "pp. 487–490, 494–496",
+            "availability": "Original English scan independently read locally at PDF pages 645–646, 649–650, 656, 659–660 (printed pp. 487–490, 494–496); cover PDF p. 7. Original SHA-256 4b56a0514ed4962388657fdd54a10fbc4664494bdc7c08b0186a305f631813bd matches source record. Prior direct HTTP 403 remains recorded in superseded review.",
+            "independence": "Distinct historical investigation from Gulick and recent Genz fieldwork; elicited and mediated accounts under colonial conditions, including a revised initial interpretation. Later works quoting Winkler do not independently corroborate him."
+          },
+          {
+            "id": "genz-2016-marshallese-wave-models",
+            "url": "https://escholarship.org/content/qt43h1d0d7/qt43h1d0d7.pdf",
+            "locator": "pp. 12–15, 29–32",
+            "availability": "Publisher original rendered and independently read, including surrounding passages. No verified binary hash.",
+            "independence": "Firsthand researcher report; WAM 2014 repeats Genz testimony and is not independent for the events."
+          },
+          {
+            "id": "genz-2009-wave-navigation-marshall",
+            "url": "https://tos.org/oceanography/assets/docs/22-2_genz.pdf",
+            "locator": "pp. 235–240, Methods and practice",
+            "availability": "Original independently read online.",
+            "independence": "Coauthored by Joel and Kelen but overlaps same fieldwork; not a fully independent source for exact same voyage."
+          },
+          {
+            "id": "earnshaw-2014-reviving-ancient-skill",
+            "url": "https://www.canoesmarshallislands.com/2014/09/reviving-navigation/",
+            "locator": "first voyage in 2006",
+            "availability": "Original participant interview read online.",
+            "independence": "Genz interview about same expedition, not independent corroboration of his account."
+          },
+          {
+            "id": "smithsonian-nd-marshallese-chart",
+            "url": "https://collections.si.edu/search/detail/edanmdm:nmnhanthropology_8552873?print=yes",
+            "locator": "USNM E432083-0; Notes, Collection Date",
+            "availability": "Catalogue read via indexed original; museum identifies 1940–1959 collection and object notes.",
+            "independence": "Independent collection record, but its interpretive note cites Smithsonian magazine; not independent corroboration for exact prior use of this object."
+          }
+        ],
+        "claim_reviews": [
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/identity,kind,domain,grain,concept,advance,societies,places,known_from",
+            "decision": "accept",
+            "rationale": "A bounded community practice of wave-model teaching is supported by original 1862 report and 2009/2016 ethnography. Capability classification and locational scope reflect documented evidence; do not infer origin or continuity.",
+            "sources": [
+              "gulick-1862-micronesia-stick-maps p. 304",
+              "genz-2009-wave-navigation-marshall pp. 235–240",
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/summary,description",
+            "decision": "accept",
+            "rationale": "Original Winkler p. 494 classifies mattang as a general teaching chart without particular islands and meddo and rebbelib by scope; p. 495 describes teaching and reminders. Gulick, Genz et al. and Genz document practice and learning.",
+            "sources": [
+              "gulick-1862-micronesia-stick-maps p. 304",
+              "genz-2009-wave-navigation-marshall pp. 235–240",
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
+              "winkler-1901-marshallese-sea-charts pp. 487–490, 494–496"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/events/gulick-description-1862",
+            "decision": "accept",
+            "rationale": "Original p. 304 describes stick maps used to retain and impart knowledge of island directions and distances, with sticks representing currents or waves. June is publication date rather than invention; caveat preserves that distinction.",
+            "sources": [
+              "gulick-1862-micronesia-stick-maps p. 304"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/events/winkler-translation-1901",
+            "decision": "accept",
+            "rationale": "The scan cover dates English edition 1901; p. 487 identifies 1898 German original and Jaluit 1896, pp. 488–490 describe return and mediated inquiries with Lojak and Laumanuan, and pp. 494–496 give chart classes and abstract teaching example. Event date is publication, not invention; caveats preserve mediation.",
+            "sources": [
+              "winkler-1901-marshallese-sea-charts pp. 487–490, 494–496"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/events/bokin-ujae-instruction-2006",
+            "decision": "accept",
+            "rationale": "Original Genz states Bokin conveyed concepts by weaving the meto in his sitting mat at Ujae; Joel had Eknilang’s wapepe in mind and WAM interview dates the voyage 2006. 2009 coauthors describe shore and canoe learning. The interval is the documented episode, not the practice’s invention.",
+            "sources": [
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
+              "genz-2009-wave-navigation-marshall pp. 235–240",
+              "earnshaw-2014-reviving-ancient-skill participant interview"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json#/earliest_record,caveats,research.unresolved",
+            "decision": "accept",
+            "rationale": "Gulick is earliest dated account located here; its 1862 date is not invention. Winkler and Genz support the described distinct historical and recent models; a continuity question is warranted without claiming transmission.",
+            "sources": [
+              "gulick-1862-micronesia-stick-maps p. 304",
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
+              "winkler-1901-marshallese-sea-charts pp. 487–490, 494–496"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/korents-wavefinding-demonstration.json#/summary,description,events/demonstration-2006,events/kwajalein-ujae-voyage-2006,earliest_record,caveats",
+            "decision": "accept",
+            "rationale": "Genz et al. dates fieldwork June 2005–September 2006 and describes demonstrations; Genz 2016 distinguishes an engine-assisted outbound leg from return using swell shadow and current cues; 2014 interview gives the year and route. Specific voyage extends existing demonstration record; 2005–2006 prior event is broader and does not separately specify route or return-leg result.",
+            "sources": [
+              "genz-2009-wave-navigation-marshall pp. 235–240",
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
+              "earnshaw-2014-reviving-ancient-skill participant interview"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/korents-wavefinding-demonstration.json#/links/0",
+            "decision": "accept",
+            "rationale": "Retain as candidate question only. Both endpoints are explicit: Bokin taught Joel at Ujae before the return and Genz reports Joel had both models in mind and selected cues; this supports the proposed direction and context as a question. Genz and 2014 interview share lineage, so independent corroboration for establishing this consequential relation is absent. Do not draw as established history.",
+            "sources": [
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
+              "earnshaw-2014-reviving-ancient-skill participant interview"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-navigation-chart.json#/name,description,impact.note,events/collection-1940-1959,earliest_record,caveats,witnesses",
+            "decision": "accept",
+            "rationale": "Museum catalogue identifies specimen E432083-0, sticks and shells, culture and collection range, and presents instructional interpretation. New wording distinguishes museum interpretation from documented use and collection from manufacture. This refines existing instance, not a duplicate of the community capability.",
+            "sources": [
+              "smithsonian-nd-marshallese-chart USNM E432083-0, notes and collection date"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/*#/research",
+            "decision": "accept",
+            "rationale": "Downgrading review status to draft and retaining sourced/recalled basis keeps prior assertions from being silently reapproved. This review covers changed assertions only.",
+            "sources": [
+              "gulick-1862-micronesia-stick-maps p. 304",
+              "genz-2009-wave-navigation-marshall pp. 235–240",
+              "genz-2016-marshallese-wave-models pp. 12–15, 29–32",
+              "smithsonian-nd-marshallese-chart USNM E432083-0, notes and collection date"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/korents-wavefinding-demonstration.json#/extends",
+            "decision": "accept",
+            "extends": "korents-wavefinding-demonstration",
+            "rationale": "New 2006 round-trip demonstration is a source-supported specific event within the pre-existing demonstration record; the existing broad 2005–2006 fieldwork event does not record this itinerary and result.",
+            "sources": [
+              "genz-2016-marshallese-wave-models pp. 29–32",
+              "earnshaw-2014-reviving-ancient-skill participant interview"
+            ]
+          },
+          {
+            "path": "data/discoveries/transport/marshallese-wave-navigation-chart.json#/extends",
+            "decision": "accept",
+            "extends": "marshallese-wave-navigation-chart",
+            "rationale": "Museum catalogue identifies the specimen already referenced by the baseline event, and revised identity and dating preserve its instance scope.",
+            "sources": [
+              "smithsonian-nd-marshallese-chart USNM E432083-0"
+            ]
+          }
+        ],
+        "duplicate_screen": {
+          "result": "Distinct practice, specimen and event extension",
+          "details": "Compared full changed records and base versions, plus local discovery matches for Marshallese charts, wavefinding, Majuro cross-swell and navigator-guided buoy survey. Existing chart is one museum specimen (1940–1959 collection); new record describes a broader community teaching capability. Prior Joel event covers broad 2005–2006 demonstrations, not a separately dated and sourced Ujae–Kwajalein trial. No standalone duplicate of the 2006 trial identified. No asserted transmission from similarity."
+        },
+        "issues": [
+          {
+            "severity": "blocking",
+            "path": "data/discoveries/transport/marshallese-wave-model-instruction.json",
+            "repair": "Have an independent reviewer access and inspect the Winkler original at pp. 487–490 and 494–496, including informants and classification, then bind a fresh review to final hashes; alternatively remove the 1901 event and Winkler-specific claims/citations pending that review while retaining sourced Gulick and 2006 practice."
+          }
+        ],
+        "unknowns": [
+          "The specific lineage between nineteenth-century charts and modern school models is not established.",
+          "The physical explanation and exact use of each model on the return leg remains contested or under-corroborated.",
+          "Original Winkler scan was unavailable to this reviewer."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py",
+          "result": "pass: 903 discoveries, 1500 events, 238 links, 1625 sources; No problems found.",
+          "diff_check": "git diff --check on base to worker commit passed"
+        }
+      }
+    }
+  ]
 }
