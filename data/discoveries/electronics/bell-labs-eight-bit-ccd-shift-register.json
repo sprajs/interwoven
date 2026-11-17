@@ -1,0 +1,100 @@
+{
+  "id": "bell-labs-eight-bit-ccd-shift-register",
+  "name": "Bell Labs eight-bit CCD shift register",
+  "description": "Bell Labs built a three-phase CCD that clocked charge packets along eight stages and sensed them at an output diode. The team operated it with electrically injected charge as a serial shift register and used the same device as a rudimentary optical line scanner. The imaging output was displayed on an oscilloscope.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    }
+  ],
+  "events": [
+    {
+      "id": "eight-bit-ccd-report-1970",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1970,
+          "month": 8,
+          "day": 1
+        },
+        "latest": {
+          "year": 1970,
+          "month": 8,
+          "day": 1
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1970-08-01",
+        "basis": "Applied Physics Letters publication header."
+      },
+      "statement": "Tompsett, Amelio and Smith reported an integrated eight-bit CCD operating as a shift register and as an optical line imager.",
+      "evidence": [
+        {
+          "source": "d3-ccd-tompsett-amelio-smith-1970-eight-bit",
+          "locator": "Publication header, affiliation and abstract",
+          "supports": "Dates the report and identifies the 26-capacitor device, electrical charge injection and separate line imaging operation."
+        },
+        {
+          "source": "d3-ccd-smith-2009-nobel-ccd-lecture",
+          "locator": "p. 98, Figures 8–9",
+          "supports": "Shows the three-phase CCD with input and output diodes and reproduces its optical image on an oscilloscope."
+        },
+        {
+          "source": "d3-ccd-carnes-kosonocky-1973-ccd-applications",
+          "locator": "pp. 78–79, introduction and Figure 2",
+          "supports": "The independent RCA account corroborates the early eight-stage class and describes three-phase serial transfer."
+        }
+      ],
+      "caveats": "The publication dates the report. The precise image capture date is unresolved. Eight bits describes the register length."
+    }
+  ],
+  "earliest_record": {
+    "event": "eight-bit-ccd-report-1970",
+    "rationale": "The contemporary publication explicitly reports both operating modes of this integrated prototype."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "boyle-smith-charge-coupled-device-concept",
+      "from_event": "concept-paper-1970",
+      "to_event": "eight-bit-ccd-report-1970",
+      "status": "established",
+      "statement": "The integrated register implemented the Boyle–Smith concept by clocking charge packets along successive potential wells. It used integrated input and output diodes.",
+      "caveats": "The April MOS capacitor verification measured charge transfer between electrodes in a different test structure.",
+      "evidence": [
+        {
+          "source": "boyle-smith-1970-ccd-wave10",
+          "locator": "pp. 587–593, operating principle and applications",
+          "supports": "Describes coupled semiconductor charge storage, serial transfer and possible imaging."
+        },
+        {
+          "source": "d3-ccd-tompsett-amelio-smith-1970-eight-bit",
+          "locator": "Abstract",
+          "supports": "Explicitly identifies the charge-coupled device concept as the basis for the integrated shift register."
+        },
+        {
+          "source": "d3-ccd-smith-2009-nobel-ccd-lecture",
+          "locator": "pp. 97–98, Figures 7–9",
+          "supports": "The participant recounts the construction sequence from the charge-transfer test to the integrated register."
+        },
+        {
+          "source": "d3-ccd-carnes-kosonocky-1973-ccd-applications",
+          "locator": "pp. 78–79, introduction and Figure 2",
+          "supports": "The independent RCA account describes the concept and its operation as a register, and situates the early eight-stage devices."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "organizations": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "id": "bell-labs-frame-transfer-ccd-area-imager",
+  "name": "Bell Labs 128-by-106 frame-transfer CCD area imager",
+  "description": "Bell Labs built a two-dimensional CCD array that electronically scanned a whole image. In frame-transfer mode it moved the captured charge pattern into a shielded storage region, then shifted each row into a serial register for readout. In a separate mode the team also used the full 128-by-106 array for slower imaging.",
+  "kind": "technology",
+  "domain": "electronics.semiconductors",
+  "organizations": [
+    {
+      "organization": "bell-labs",
+      "role": "host"
+    }
+  ],
+  "events": [
+    {
+      "id": "area-imager-symposium-1972",
+      "type": "presentation",
+      "date": {
+        "earliest": {
+          "year": 1972,
+          "month": 9,
+          "day": 22
+        },
+        "latest": {
+          "year": 1972,
+          "month": 9,
+          "day": 22
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "1972-09-22",
+        "basis": "Date of the NASA Headquarters symposium, documented in the proceedings."
+      },
+      "statement": "Carlo H. Séquin presented the working Bell Labs area CCD and showed a picture produced with the device at 15 frames per second.",
+      "evidence": [
+        {
+          "source": "d3-ccd-sequin-1972-nasa-area-ccd",
+          "locator": "Title page and preface; pp. 57–61, Figures IV-8–10",
+          "supports": "Dates the presentation, describes the architecture and identifies the reproduced image and its operating conditions."
+        }
+      ],
+      "caveats": "The date is that of the presentation. The proceedings were published in 1973."
+    },
+    {
+      "id": "area-sensor-paper-1973",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1973,
+          "month": 3
+        },
+        "latest": {
+          "year": 1973,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1973-03",
+        "basis": "Issue date of IEEE Transactions on Electron Devices 20(3)."
+      },
+      "statement": "The Bell Labs team published images from the 64-by-106 sensing region in frame-transfer mode and from all 128-by-106 elements in a slower mode.",
+      "evidence": [
+        {
+          "source": "d3-ccd-sequin-et-al-1973-area-sensor",
+          "locator": "pp. 244 and 247–248, abstract, Results and Figure 4",
+          "supports": "The images, separate modes and readout conditions are reported by the experimenters."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "area-imager-symposium-1972",
+    "rationale": "The dated symposium presentation describes the working array and documents an image."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "bell-labs-96-element-ccd-line-imager",
+      "from_event": "line-imaging-report-1971",
+      "to_event": "area-imager-symposium-1972",
+      "status": "candidate",
+      "statement": "Did the 1971 line-imager paper’s proposed frame-transfer design supply the layout of Bell’s working 128-by-106 area imager?",
+      "caveats": "The later Bell authors credit the earlier paper for the frame-transfer principle. The RCA design survey compares frame-transfer architectures and cites both Bell and RCA work. Independent corroboration of the specific path from proposal to working Bell imager remains outstanding.",
+      "evidence": [
+        {
+          "source": "d2-sensor-tompsett-et-al-1971-line-imaging",
+          "locator": "p. 995, §IV and Figure 7",
+          "supports": "The line-imager researchers diagram a possible three-phase area imager with integration, shielded storage and serial readout."
+        },
+        {
+          "source": "d3-ccd-sequin-1972-nasa-area-ccd",
+          "locator": "pp. 57–61 and p. 68, reference 5",
+          "supports": "Séquin illustrates the working layout, including the serial readout, and cites the 1971 line-imager paper."
+        },
+        {
+          "source": "d3-ccd-sequin-et-al-1973-area-sensor",
+          "locator": "p. 244, Introduction; pp. 245–247; p. 252, reference 2",
+          "supports": "The working array’s authors explicitly credit their frame-transfer principle to the line-imager report and document the implemented geometry."
+        },
+        {
+          "source": "d3-ccd-carnes-kosonocky-1973-ccd-applications",
+          "locator": "pp. 83–84, Figure 12 and text; refs. 14–16",
+          "supports": "Independent RCA engineers describe those same three functional regions and cite Bell’s 1971 and 1972 imaging papers."
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "organizations": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "lane": "ccd",
+  "reviewer": "gpt-6.1-terra",
+  "effort": "high",
+  "base": "c626bdb6cd241a7b6a4889a88ab25b4f9b576432",
+  "proposal": "19929aa37cc039dcd68ceec13a06eae9b66143d9",
+  "decision": "accept",
+  "files": {
+    "data/discoveries/electronics/bell-labs-96-element-ccd-line-imager.json": "91648299420e56d42ad21fe57f8884ba8264d503ff1a2fa1ceb85602cf537af2",
+    "data/discoveries/electronics/bell-labs-eight-bit-ccd-shift-register.json": "a3241cf4b485f1706f20b851f1ad18102e5517fadb8bd0839fe3a50455e3cd5d",
+    "data/discoveries/electronics/bell-labs-frame-transfer-ccd-area-imager.json": "749365f4d4961fb53680058f09c0bc31075702cce343912adb97d2ef58686a85",
+    "data/sources/d/d3-ccd-carnes-kosonocky-1973-ccd-applications.json": "5a01924e68155790f41bd4beaee583adf402d65549b7d1869ff47b1080443b8e",
+    "data/sources/d/d3-ccd-sequin-1972-nasa-area-ccd.json": "684be631bc289efd8bce26f8a3edc7f05e0d7852d2ea1b90375cfcbdfb272180",
+    "data/sources/d/d3-ccd-sequin-et-al-1973-area-sensor.json": "ed9db1e74303e79acf1ac613a658d54a22ad24cf500d4af59ffcceb623c9bf97",
+    "data/sources/d/d3-ccd-smith-2009-nobel-ccd-lecture.json": "f4d16444aa1f5990b1d8e31e61bd09a9f03ccc530ddfc712906efa7a15ebe6d0",
+    "data/sources/d/d3-ccd-tompsett-amelio-smith-1970-eight-bit.json": "02bc7c7a5b3750fcaf142ec334e5ae33acce8548939701ebfe667c0752413869",
+    "docs/reviews/2026-11-17-digital-foundations/lanes/ccd.json": "c8c36988ba709b8cf08e9e08dac4f3c2a450412c5b60121837c838890cea462a"
+  },
+  "claims": [
+    {
+      "path": "bell-labs-eight-bit-ccd-shift-register identity, organization, event and earliest_record",
+      "decision": "accept",
+      "reason": "Publisher-deposited abstract of Tompsett, Amelio and Smith, Applied Physics Letters 17(3), 111–115, 1 August 1970, explicitly reports an eight-stage array, electrically injected shift register and demonstrated line imaging; Smith Nobel lecture 2009 pp. 97–98, Figures 8–9 reproduces the imager output. Eight bits is register length; image acquisition date within the period is not asserted."
+    },
+    {
+      "path": "bell-labs-eight-bit-ccd-shift-register.links.builds_on",
+      "decision": "accept",
+      "reason": "Boyle and Smith BSTJ 1970 pp. 587–593 describe charge-transfer concept; 1970 APL abstract explicitly says register based on concept. Smith lecture pp. 97–98 and independent Carnes and Kosonocky RCA Engineer 1973 pp. 78–79 corroborate development and register principle. April 1970 Amelio et al. BSTJ pp. 594–600 describes a separate avalanche-injected transfer experiment, not an imager."
+    },
+    {
+      "path": "bell-labs-96-element-ccd-line-imager.links.builds_on",
+      "decision": "accept candidate",
+      "reason": "Tompsett et al. IEEE 1971 p. 992 §II and ref. 2 directly compares three-phase metallization and diffused crossunder to earlier eight-bit device. Independent RCA report describes three-phase operation but does not establish the specific historical carryover. Link remains candidate."
+    },
+    {
+      "path": "bell-labs-frame-transfer-ccd-area-imager identity, events, organization and earliest_record",
+      "decision": "accept",
+      "reason": "Séquin NASA symposium proceedings SP-338 title and preface date meeting 22 September 1972, pp. 57–61 and Figs IV-8–10 describe area sensor and image at 15 frames/s. Proceedings published 1973. Séquin et al. IEEE 20(3) 1973 pp. 244–248 Fig. 4 distinguish 64×106 frame-transfer and full 128×106 imaging; 128×106 is total array, not simultaneous frame-transfer sensing size."
+    },
+    {
+      "path": "bell-labs-frame-transfer-ccd-area-imager.links.adapts",
+      "decision": "accept candidate",
+      "reason": "Tompsett et al. 1971 p.995 Fig.7 proposes area frame-transfer architecture; Séquin et al. 1973 p.244 and ref.2 credit the earlier principle. Carnes and Kosonocky pp.83–84 Fig.12 independently explain similar three-region frame-transfer architecture and cite Bell and RCA work, but do not confirm the specific inheritance; candidate remains."
+    },
+    {
+      "path": "source metadata, lane findings, duplicate screen",
+      "decision": "accept",
+      "reason": "Compared existing concept/experimental event, 96-element line scanner, buried-channel and Fairchild sensor records. Original APL full text inaccessible; abstract and Crossref publisher deposit independently accessed. 18 January 1973 Electronics cover and p.3 identify Margaret Tompsett; Séquin et al. 1973 p.252 describes the separate three-sensor color system. NASA presentation and technical article distinguish analog imaging from digital recording."
+    }
+  ],
+  "corrections": [
+    "On review, researcher changed 96-element crossunder inheritance and proposed-frame-transfer-to-area implementation to candidate links pending independent specific corroboration."
+  ],
+  "deferred": [
+    "Original complete 1970 APL report and details of eight-bit optical capture; earlier 8×15 area prototype; separate colour system capture and chip identity; independent records corroborating two proposed links."
+  ]
+}

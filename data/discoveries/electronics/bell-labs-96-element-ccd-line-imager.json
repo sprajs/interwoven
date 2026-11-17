@@ -100,6 +100,33 @@
           "supports": "An independent RCA engineer explicitly attributes the original three-phase structure to Boyle and Smith and describes the Bell group’s operating line imager."
         }
       ]
+    },
+    {
+      "type": "builds_on",
+      "from": "bell-labs-eight-bit-ccd-shift-register",
+      "from_event": "eight-bit-ccd-report-1970",
+      "to_event": "line-imaging-report-1971",
+      "status": "candidate",
+      "statement": "Did Bell Labs carry the eight-bit register’s three-phase electrode connections into the 96-element imager?",
+      "caveats": "The later Bell Labs authors explicitly compare their metallization and diffused crossunder with the eight-bit device. Independent RCA coverage verifies the 96-element scanner’s three-phase operation. Independent documentation linking the specific electrode connections across the two devices remains outstanding.",
+      "evidence": [
+        {
+          "source": "d2-sensor-tompsett-et-al-1971-line-imaging",
+          "locator": "p. 992, §II and reference 2",
+          "supports": "The authors compare the three-phase metallization and diffused crossunder directly to the earlier eight-bit device and cite its report."
+        },
+        {
+          "source": "d3-ccd-smith-2009-nobel-ccd-lecture",
+          "locator": "p. 98, Figure 8 and discussion",
+          "supports": "A participant in the earlier experiment documents the register’s three-phase layout and diffused input and output."
+        },
+        {
+          "source": "d2-sensor-boornard-1972-sensor-arrays",
+          "locator": "pp. 45–46, CCD photosensor arrays and Figures 11–12",
+          "supports": "Independent RCA technical coverage confirms the three-phase 96-element Bell scanner in operation."
+        }
+      ],
+      "confidence": "medium"
     }
   ],
   "research": {

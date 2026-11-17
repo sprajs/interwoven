@@ -1,0 +1,70 @@
+{
+  "lane": "ccd",
+  "title": "CCD shift register, optical line scanning and area imaging",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "baseline": "c626bdb6cd241a7b6a4889a88ab25b4f9b576432",
+  "outcome": "Bell’s eight-bit CCD produced an optical image by August 1970, before the 96-element line imager and the 128-by-106 area imager. Two links between the prototypes have explicit Bell Labs support and await specific independent corroboration.",
+  "findings": [
+    "The existing April 1970 verification report measures electronic transfer between MOS capacitors. The August report documents the separate eight-stage integrated CCD, with electrical injection and serial diode readout in shift-register mode. Its abstract also reports optical line scanning, and Smith’s later first-person lecture reproduces the image on an oscilloscope.",
+    "The 1971 96-element report directly compares its three-phase connections via metallization and a diffused crossunder with the eight-bit register. The carryover is a candidate pending specific independent corroboration. Figures 4 and 5 show printed text and a grayscale reproduction from the 96-element line imager, each scanned mechanically across the sensor.",
+    "The 1971 line-imager paper’s Figure 7 proposes an area imager with a frame store. The area team credits the frame-transfer principle to that paper. The link remains a candidate pending specific independent corroboration. At the 22 September 1972 NASA symposium Séquin showed an image from the 128-by-106 array. The 1973 technical paper shows images in whole-array and frame-transfer modes.",
+    "The 18 January 1973 Electronics article documents a laboratory camera that split the scene into red, green and blue for three CCD sensors. Its cover includes the image of Margaret Tompsett. The camera is a separate system demonstration. The contemporary citation dates the report and does not fix the date of the exposure or identify the exact three chips."
+  ],
+  "records": [
+    "boyle-smith-charge-coupled-device-concept",
+    "bell-labs-eight-bit-ccd-shift-register",
+    "bell-labs-96-element-ccd-line-imager",
+    "bell-labs-frame-transfer-ccd-area-imager"
+  ],
+  "frontier": [
+    "Obtain the full APL paper 10.1063/1.1653327, pp. 111–115, to check the original optical target, optics and readout procedure. Compare the original plates against the oscilloscope image in Smith’s lecture.",
+    "Find independent contemporary inspection or engineering documentation that specifically traces the eight-bit register’s three-phase connections to the 96-element imager and the 1971 frame-transfer proposal to the 128-by-106 prototype.",
+    "Read the original March 1972 INTERCON digest pp. 292–293 for the distinct 8-by-15 area device cited on p. 244 of the later IEEE article. Determine exactly what was presented and whether an optical image survives.",
+    "Check lab or demonstration logs for the three-CCD color camera and cover portrait, including exact capture date and the source of the inconsistent array dimensions in the January 1973 cover caption and technical text."
+  ],
+  "sources": [
+    {
+      "title": "Experimental Verification of the Charge Coupled Device Concept",
+      "url": "https://www.worldradiohistory.com/Archive-Bell-System-Technical-Journal/70s/Bell-System-Technical-Journal-1970-4.pdf",
+      "locator": "pp. 593–600, charge injection and transfer measurements"
+    },
+    {
+      "title": "Charge Coupled 8-Bit Shift Register",
+      "url": "https://pubs.aip.org/aip/apl/article-pdf/17/3/111/18423626/111_1_online.pdf",
+      "locator": "Publication header and abstract. Crossref publisher deposit at https://api.crossref.org/works/10.1063/1.1653327"
+    },
+    {
+      "title": "The Invention and Early History of the CCD",
+      "url": "https://www.nobelprize.org/uploads/2018/06/smith_lecture.pdf",
+      "locator": "pp. 97–98, Figures 7–9"
+    },
+    {
+      "title": "Charge-Coupled Imaging Devices: Experimental Results",
+      "url": "https://www.academia.edu/28795319/Charge_coupled_imaging_devices_Experimental_results",
+      "locator": "p. 992, §II and reference 2; pp. 993–995, Figures 2 and 4–7"
+    },
+    {
+      "title": "Image Recording Using Charge-Coupled Devices",
+      "url": "https://ntrs.nasa.gov/api/citations/19740009293/downloads/19740009293.pdf",
+      "locator": "Title page, preface and pp. 57–61, Figures IV-8–10; p. 68, refs. 5 and 10"
+    },
+    {
+      "title": "A Charge-Coupled Area Image Sensor and Frame Store",
+      "url": "https://people.eecs.berkeley.edu/~sequin/PAPERS/1973_CCD-Sensor_IEEE-T-ED.pdf",
+      "locator": "pp. 244–248, abstract, Introduction and Figure 4; p. 252, Applications and ref. 2"
+    },
+    {
+      "title": "Charge-Coupling Improves Its Image, Challenging Video Camera Tubes",
+      "url": "https://www.worldradiohistory.com/Archive-Electronics/70s/73/Electronics-1973-01-18.pdf",
+      "locator": "Cover, Contents p. 3 cover caption, and pp. 165–169"
+    },
+    {
+      "title": "Charge-coupled devices and applications",
+      "url": "https://www.worldradiohistory.com/ARCHIVE-RCA/RCA-Engineer/1973-02-03.pdf",
+      "locator": "pp. 78–79, introduction and Figure 2; pp. 83–84, Figure 12 and associated references"
+    }
+  ],
+  "screen": "Compared the canonical Boyle–Smith concept and April verification event, Bell 96-element imager, Bell buried-channel CCD, Fairchild CCD101 and Kodak camera. No matching integrated eight-stage register or 128-by-106 frame-transfer area imager was found in the discovery and lead indexes.",
+  "limits": "The 1970 exact optical capture date and original apparatus details remain unresolved. The 1972 result dates a symposium report of a working area device and a reproduced image. The camera and sensors produced analog video in the demonstrations described. Worldwide priority, digitization, commercial sale and astronomical adoption are outside these records."
+}
