@@ -1,0 +1,120 @@
+{
+  "id": "babbage-analytical-engine-punched-card-design",
+  "name": "Babbage’s Analytical Engine punched-card design",
+  "description": "Charles Babbage designed a mechanical calculating engine whose punched cards would select arithmetic operations and the columns supplying or receiving numbers. The full engine remained incomplete.",
+  "kind": "technology",
+  "domain": "electronics.computers",
+  "origin": "derived",
+  "events": [
+    {
+      "id": "sketch-13-1837",
+      "type": "documented_description",
+      "date": {
+        "earliest": {
+          "year": 1837
+        },
+        "latest": {
+          "year": 1837
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1837",
+        "basis": "The sheet records work spanning December 1836 and January 1837, and identifies a change dated 18 March 1837. The Science Museum Group catalogues the sheet under 18 March 1837."
+      },
+      "statement": "Babbage’s Sketch 13 documents a circular Analytical Engine arrangement that included a punched-card mechanism.",
+      "evidence": [
+        {
+          "source": "babbage-1837-analytical-engine-sketch-13",
+          "locator": "BAB/A/042, drawing and date annotations, and archive item title and Made field",
+          "supports": "The original sheet shows the perforated assembly at left. The archive describes it as a punched-card mechanism and dates the sheet to 18 March 1837."
+        }
+      ],
+      "caveats": "The date anchors the design as documented by this drawing. The sheet records multiple stages of drafting."
+    },
+    {
+      "id": "annotated-english-account-1843",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1843
+        },
+        "latest": {
+          "year": 1843
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1843",
+        "basis": "Publication year of Scientific Memoirs, volume III."
+      },
+      "statement": "Ada Lovelace published her English translation of Luigi Federico Menabrea’s description of the Analytical Engine with her own notes. She explained how reversing the card feed would let the design reuse a sequence of cards.",
+      "evidence": [
+        {
+          "source": "menabrea-lovelace-1843-analytical-engine",
+          "locator": "Article XXIX, pp. 666–731, especially pp. 677–678 and Lovelace’s Note E, p. 720 (PDF p. 55)",
+          "supports": "Menabrea describes operation and variable cards. Lovelace’s Note E explains how the Engine’s prism would turn backward to move a group of cards back to its former position for another pass."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "sketch-13-1837",
+    "rationale": "The inspected engineering sheet predates the published descriptions and documents a punched-card arrangement for the Analytical Engine."
+  },
+  "links": [
+    {
+      "type": "adapts",
+      "from": "jacquard-punched-card-pattern-weaving",
+      "status": "established",
+      "statement": "Babbage adapted the Jacquard loom’s method of using successive perforated cards to select mechanical actions. In his Analytical Engine design, separate card strings specified the arithmetic operations and which columns would supply or receive numbers.",
+      "scope": "Transfer of a control method from working looms into an engineering design for calculation.",
+      "contribution": [
+        "supplied_method",
+        "applied_to_new_use"
+      ],
+      "influence": "contributing",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "british-association-1879-analytical-engine-report",
+          "locator": "Footnote 3, December 1839 letter to Arago",
+          "supports": "In the committee’s published excerpt, Babbage credits the Jacquard system he used as the basis for communicating calculation instructions to his engine."
+        },
+        {
+          "source": "menabrea-lovelace-1843-analytical-engine",
+          "locator": "Menabrea, pp. 677–678, and Lovelace, Note E, p. 720",
+          "supports": "Menabrea credits Jacquard’s apparatus and explains the two card functions. Lovelace describes the Engine’s prism presenting cards to lever bundles and turning backward to reuse a sequence."
+        },
+        {
+          "source": "collier-1970-babbage-engine-control",
+          "locator": "Chapter 3, chapter PDF pp. 5 and 18 (whole PDF pp. 27 and 40), especially nn. 31, 41–42",
+          "supports": "Collier’s examination of Babbage’s working notebooks and drawings traces the shift from studded drum control to the Jacquard card method, citing the earlier 1836 notes."
+        },
+        {
+          "source": "bromley-1982-analytical-engine-card-strings",
+          "locator": "pp. 197 and 214 (§12); p. 217 (§14 and acknowledgments)",
+          "supports": "Bromley identifies borrowing from the Jacquard loom and reconstructs the use of ribbon-linked card strings and the Engine’s distinct operation and variable card functions from the surviving designs."
+        }
+      ]
+    }
+  ],
+  "caveats": "The record concerns the control method in the design. The 1878 British Association committee considered the complete engine still at the design stage and declined to recommend construction.",
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "origin": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "route to Babbage",
+        "note": "The sources identify the Jacquard system Babbage adapted. The date and means of his first detailed encounter with working loom controls remain uncertain."
+      },
+      {
+        "about": "dated conception of the card design",
+        "note": "Consult Science Museum Group manuscript BAB/S/1/02, Scribbling Book II, p. 146, for the reported 30 June 1836 entry about substituting Jacquard control for the drums."
+      }
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "toothed-gearing-in-the-hellenistic-greek-world",
   "name": "Toothed gearing in the Hellenistic Greek world",
-  "summary": "Greek craftsmen were building trains of meshing bronze gear wheels by about the end of the second century BC, as the Antikythera Mechanism shows.",
-  "description": "The Antikythera Mechanism, a Greek geared device recovered from a Roman-era shipwreck off Antikythera, was constructed around the end of the second century BC and is the only dated evidence for Greek gear trains read for this record. Its gearing modelled lunar and solar cycles, and the 2006 Nature report calls it technically more complex than any known device for at least a millennium afterwards. Cicero's mention of a model of the heavens made by Archimedes suggests earlier devices of the kind, but no dated source for third-century gearing was read.",
+  "summary": "The surviving gears of the Antikythera Mechanism show that Hellenistic Greek craftsmen built trains of meshing bronze gear wheels.",
+  "description": "The Antikythera Mechanism, a Greek geared device recovered from a Roman-era shipwreck off Antikythera, was dated by Freeth and colleagues to around the end of the second century BC and is the only dated evidence for Greek gear trains read for this record. Its gearing modelled lunar and solar cycles, and the 2006 Nature report calls it technically more complex than any known device for at least a millennium afterwards. Cicero's mention of a model of the heavens made by Archimedes suggests earlier devices of the kind, but no dated source for third-century gearing was read.",
   "kind": "technology",
   "domain": "machines.mechanisms",
   "tier": 0,
@@ -36,17 +36,17 @@
       "type": "archaeological_evidence",
       "date": {
         "earliest": {
-          "year": -200
+          "year": -225
         },
         "latest": {
-          "year": -100
+          "year": -50
         },
-        "precision": "century",
+        "precision": "range",
         "status": "approximate",
-        "label": "around the end of the 2nd century BC",
-        "basis": "As the cited source gives it."
+        "label": "c. 225 BCE to before the wreck (probably 60 ± 10 BCE)",
+        "basis": "Jones finds the letter forms compatible with manufacture from about 225 BCE up to the shipwreck. The latest year represents the later end of his probable wreck date, based on ceramics and coins. Both endpoints are approximate."
       },
-      "statement": "The Antikythera Mechanism, a Greek geared device, was constructed around the end of the second century BC; it is evidence that gear trains existed by then, not a date for the first gears. Its eclipse dial represented a 223-lunar-month cycle and marked possible solar or lunar eclipses; about one third of the scale survives.",
+      "statement": "Freeth and colleagues estimate that the Greek geared device was made around the end of the second century BC. The date of construction remains uncertain. Its eclipse dial represented a 223-lunar-month cycle and marked possible solar or lunar eclipses. About one third of that scale survives. The upper back dial displayed a 19-year calendar of 235 lunar months in a five-turn spiral, consistent with the count in the back-cover inscription. Fragment B preserves part of the scale and part of the pointer, including the guiding pin that followed the gap between turns. Anastasiou and colleagues reconstruct the damaged mounting as a pointer that slid through its hub as the shaft turned. The final gear that drove the pointer is missing.",
       "places": [
         "antikythera-wreck"
       ],
@@ -60,6 +60,16 @@
           "source": "iversen-jones-2019-antikythera-eclipse-round1",
           "supports": "The spiral scale represents 223 lunar months, includes eclipse-possibility glyphs, and is about one third extant.",
           "locator": "Section 1, The Mechanism’s eclipse function"
+        },
+        {
+          "source": "jones-2020-antikythera-epoch",
+          "locator": "§1, pp. 1–2, construction chronology; §2, pp. 3–4, Fig. 1 and Back Cover Inscription II.3",
+          "supports": "The back-cover inscription gives 235 divisions. The surviving divisions accord with a five-turn spiral for the lunar months of the 19-year calendar. Jones finds the letter forms compatible with manufacture from about 225 BCE to before the shipwreck, which he estimates at 60 ± 10 BCE."
+        },
+        {
+          "source": "anastasiou-2014-antikythera-metonic-pointer",
+          "locator": "§1, PDF p. 1 and Fig. 1; §2.1, PDF pp. 3–5 and Figs. 3–5; §2.2, PDF pp. 5–7 and Fig. 6",
+          "supports": "CT images show part of the Metonic spiral, pointer and damaged shaft mounting in Fragment B. The authors reconstruct a pin guided by the spiral slot and a pointer sliding through its rotating hub, using the inscription as a check. The last drive gear is missing."
         }
       ]
     }
@@ -104,11 +114,15 @@
       },
       {
         "about": "open question",
-        "note": "Only the abstract of the Nature report was read; the full paper should give a closer date range."
+        "note": "What securely dated, comparable inscriptions on bronze or independent archaeological evidence can narrow the construction date? Jones distinguishes the calendar’s epoch from the date the device was made."
       },
       {
         "about": "open question",
         "note": "The Babylonian-to-mechanism connection and any intervening transmission route need independent historical evidence; matching 223-month cycles alone do not establish a specific historical route."
+      },
+      {
+        "about": "open question",
+        "note": "Which surviving gear mounts and tooth counts constrain the missing end of the Metonic drive train? The recovered pointer and shaft constrain the display end of the drive."
       }
     ],
     "note": "The sources read date the Antikythera gearing but do not settle whether Greek gearing was independent of earlier gears elsewhere."

@@ -1,8 +1,8 @@
 {
   "id": "good-interaction-and-fourier-analysis-1958",
   "name": "Good interaction algorithm and Fourier analysis",
-  "description": "An interaction algorithm with methods for efficient Fourier analysis developed in a study of factorial experiments.",
-  "kind": "technology",
+  "description": "An algorithm for calculating interactions in factorial experiments by successive matrix operations. Good applied analogous operations to discrete Fourier transforms, using coprime factors and Chinese-remainder indexing to reduce a one-dimensional transform to a multidimensional one.",
+  "kind": "mathematics",
   "domain": "electronics.software",
   "grain": "capability",
   "events": [
@@ -23,20 +23,20 @@
         "label": "1958-07",
         "basis": "Date stated by the cited source; see event scope."
       },
-      "statement": "I. J. Good published an interaction algorithm and related Fourier-analysis shortcuts.",
+      "statement": "I. J. Good published an algorithm for factorial interactions and showed how to speed up discrete Fourier transforms, including a one-dimensional transform whose length splits into coprime factors.",
       "evidence": [
         {
           "source": "good-1958-interaction-analysis-wave12",
-          "locator": "Publisher metadata and original summary",
-          "supports": "Good’s original summary describes an interaction algorithm and Fourier shortcuts in July 1958."
+          "locator": "July 1958 issue metadata; pp. 361–364, §§1–4; pp. 367–371, §§9–13",
+          "supports": "Dates and presents the factorial-interaction algorithm and the Fourier shortcuts, with a worked coprime index example at length 24."
         },
         {
-          "source": "cooley-1967-fft-history-wave12",
-          "locator": "pp. 1675–1676",
-          "supports": "The Cooley coauthored history distinguishes Good’s prime-factor and Cooley–Tukey algorithms."
+          "source": "heideman-johnson-burrus-1985-fft-history",
+          "locator": "p. 265, Introduction",
+          "supports": "Identifies the Fourier method described by Good as the prime-factor algorithm and distinguishes it from Cooley–Tukey."
         }
       ],
-      "caveats": "The publisher abstract was inspected, but the original full text was unavailable; the 1967 history characterizes the prime-factor method.",
+      "caveats": "Section 12 credits Good’s 1951 paper for the converse identification of the one-dimensional and multidimensional transforms. The 1958 paper uses the relationship to reduce the arithmetic.",
       "contributions": [
         {
           "person": "i-j-good",
@@ -51,6 +51,33 @@
           ]
         }
       ]
+    },
+    {
+      "id": "addendum-1960",
+      "type": "publication",
+      "date": {
+        "earliest": {
+          "year": 1960,
+          "month": 7
+        },
+        "latest": {
+          "year": 1960,
+          "month": 7
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "1960-07",
+        "basis": "The publisher identifies the original July 1960 issue of the journal."
+      },
+      "statement": "Good published an addendum clarifying inversion of the Yates algorithm and describing a discrete Poisson summation analogue for relating yields and interactions.",
+      "evidence": [
+        {
+          "source": "good-1960-interaction-algorithm-addendum",
+          "locator": "July 1960 issue metadata and author’s Summary",
+          "supports": "Dates the addendum and describes the clarification, numerical example and connection to discrete Poisson summation."
+        }
+      ],
+      "caveats": "The author’s summary supports the publication and the stated topics. Verification of the detailed formulas requires the full article."
     }
   ],
   "earliest_record": {
@@ -67,8 +94,12 @@
     },
     "unresolved": [
       {
-        "about": "1960 addendum",
-        "note": "Draft event deferred: the original addendum and its summary were inaccessible in this repair; the 1967 history cites a 1960 addendum but does not establish its contents or month."
+        "about": "1951 finite Abelian-group paper",
+        "note": "Compare the original 1951 paper with 1958 §12 to determine exactly what the earlier transform identity established and whether it included a computational shortcut."
+      },
+      {
+        "about": "1960 addendum formulas",
+        "note": "The original summary establishes the issue month and scope of the correction. Inspect the full article before attributing any new Fourier algorithm or a specific formula to it."
       }
     ]
   },

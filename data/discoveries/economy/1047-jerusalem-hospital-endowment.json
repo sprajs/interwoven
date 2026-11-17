@@ -1,18 +1,24 @@
 {
   "id": "1047-jerusalem-hospital-endowment",
   "name": "Endowment supporting a Jerusalem hospital",
-  "description": "A traveller described a Jerusalem hospital in which doctors’ salaries were supported by an endowment.",
+  "description": "In his account of his 1047 visit, Nasir-i Khusraw describes a Jerusalem hospital that gave many people medicine and medicinal drinks. Its physicians drew stipends from an endowment he calls a waqf.",
   "kind": "practice",
   "domain": "economy.organisation",
+  "fields": [
+    "health.public-health"
+  ],
   "tier": 3,
   "impact": {
     "reach": 0,
     "depth": 1,
     "generativity": 0,
-    "note": "One traveller's witness of one endowed hospital; steady paid care for one city, with no known successors of this case."
+    "note": "One traveller’s account of endowment-funded physician stipends at one hospital."
   },
   "grain": "instance",
   "concept": "endowed-hospital",
+  "setting": [
+    "hospital"
+  ],
   "places": [
     {
       "place": "jerusalem"
@@ -21,7 +27,7 @@
   "events": [
     {
       "id": "dated-evidence",
-      "type": "documented_description",
+      "type": "dated_assertion",
       "date": {
         "earliest": {
           "year": 1047
@@ -32,28 +38,41 @@
         "precision": "year",
         "status": "known",
         "label": "1047",
-        "basis": "The museum catalogue dates Nasir-i Khusraw’s report to 1047."
+        "basis": "Nasir-i Khusraw dates his arrival in Jerusalem to 5 Ramadan 438 AH, corresponding to 1047 in Le Strange’s translation. The hospital passage describes conditions during that visit."
       },
-      "statement": "Nasir-i Khusraw described a hospital and endowment-supported physicians.",
+      "statement": "Nasir-i Khusraw reported that a Jerusalem hospital gave many people medicine and medicinal drinks and that its physicians received stipends from a waqf.",
       "places": [
         "jerusalem"
       ],
-      "scope": "The traveller’s description is accessed via a museum catalogue, not the original travel text. The patron, endowed property, beneficiaries and exact legal form are not established; no inference that it was a waqf.",
-      "caveats": "The traveller’s description is accessed via a museum catalogue, not the original travel text. The patron, endowed property, beneficiaries and exact legal form are not established; no inference that it was a waqf.",
+      "scope": "The hospital’s reported operations in Fatimid-era Jerusalem during the 1047 visit.",
+      "caveats": "The hospital’s founding date and the date of composition of the travel account are unknown. The account leaves open whether Nasir-i Khusraw inspected the hospital himself.",
       "evidence": [
         {
+          "source": "nasir-i-khusraw-safarnama-schefer-1881",
+          "locator": "Persian pp. 19, 21 (PDF pp. 504, 502)",
+          "supports": "Dates arrival to 5 Ramadan 438 AH and describes the Jerusalem hospital, its distribution of medicines and medicinal drinks, and physicians drawing stipends from a waqf."
+        },
+        {
+          "source": "nasir-i-khusraw-diary-le-strange-1888",
+          "locator": "Preface p. iv; pp. 23, 26",
+          "supports": "Places Jerusalem under Fatimid rule, dates the visit to 1047 and translates the same account of an endowed hospital with remedies and paid physicians."
+        },
+        {
           "source": "met-2016-jerusalem-hospital-endowment",
-          "locator": "pp. 227–228, hospital patronage",
-          "supports": "Nasir-i Khusraw described a hospital and endowment-supported physicians."
+          "locator": "p. 228 and n. 19",
+          "supports": "Dates the visit to 1047 and summarizes the stipend arrangement from Thackston’s English translation of the same account."
         }
       ]
     }
   ],
   "earliest_record": {
     "event": "dated-evidence",
-    "rationale": "The museum catalogue dates Nasir-i Khusraw’s report to 1047. Earliest supported episode established here, not a claim of world priority."
+    "rationale": "The 1047 visit is the earliest supported episode for the hospital’s endowment-funded physician stipends. The date of composition of the account is unknown."
   },
-  "caveats": "The traveller’s description is accessed via a museum catalogue, not the original travel text. The patron, endowed property, beneficiaries and exact legal form are not established; no inference that it was a waqf.",
+  "known_from": [
+    "contemporary_text"
+  ],
+  "caveats": "The travel account names a waqf as the source of physician stipends. The patron, endowed assets, other expenses, patient eligibility, fees and founding date are unknown.",
   "research": {
     "status": "sourced",
     "basis": {
@@ -61,10 +80,38 @@
       "grain": "sourced",
       "concept": "sourced",
       "places": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "setting": "sourced",
+      "known_from": "sourced",
+      "funding": "unknown",
+      "prompted_by": "unknown"
     },
-    "note": "Independent second reader checked the event and its cited passages, retaining the stated chronological and interpretive limits; no blanket review of other facets is implied. The cited physicians were subjects of the historical description, not contributors to the description event."
+    "note": "The Persian edition and the English renderings cited here transmit one medieval witness.",
+    "unresolved": [
+      {
+        "about": "Patron and founding",
+        "note": "Find an endowment deed, inscription or dated account identifying the donor, assets, founding date and operating terms. The travel text names the waqf as the source of stipends without identifying who endowed it.",
+        "evidence": [
+          {
+            "source": "nasir-i-khusraw-safarnama-schefer-1881",
+            "locator": "Persian p. 21 (PDF p. 502)",
+            "supports": "Names the waqf and describes its physician stipends."
+          }
+        ]
+      },
+      {
+        "about": "Site and continuity",
+        "note": "The adjoining reference to the Friday mosque and Wadi Jahannam leaves the hospital’s precise site open across editions. A contemporary description, deed or excavated inscription tying the hospital to a particular building would help test continuity with other Jerusalem institutions.",
+        "evidence": [
+          {
+            "source": "nasir-i-khusraw-diary-le-strange-1888",
+            "locator": "p. 26",
+            "supports": "The translation locates a wall of the Friday mosque by Wadi Jahannam and names Jerusalem as the location of the hospital."
+          }
+        ]
+      }
+    ]
   }
 }

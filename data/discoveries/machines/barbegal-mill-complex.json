@@ -46,32 +46,36 @@
   "events": [
     {
       "id": "dated-assertion-130",
-      "type": "dated_assertion",
+      "type": "archaeological_evidence",
       "date": {
         "earliest": {
-          "year": 120
+          "year": 101
         },
         "latest": {
-          "year": 130
+          "year": 150
         },
         "precision": "range",
         "status": "approximate",
-        "label": "c. 120–130 CE",
-        "basis": "The 2018 site account dates diversion to the new mills around 120–130; the 2024 account retains a second-century placement."
+        "label": "First half of the second century CE",
+        "basis": "The excavation report dates the building to the first half of the second century. The 2018 site account estimates the diversion around 120–130 CE, and the 2024 synthesis gives the diversion at century resolution."
       },
-      "statement": "Two rows of eight watermills supplied by the redirected southern aqueduct branch.",
+      "statement": "The excavators date construction of the Barbegal mill complex to the first half of the second century CE. Its two rows of eight watermills were supplied by the redirected southern aqueduct branch.",
       "places": [
         "barbegal-mills",
         "provence"
       ],
       "place_note": "Roman Gaul",
-      "caveats": "Wooden wheels are lost. Exact housing, output and customer reconstructions are outside this node.",
-      "type_provisional": true,
+      "caveats": "The exact construction and commissioning dates remain uncertain. Wooden wheels are lost. Exact housing, output and customer reconstructions are outside this node.",
       "evidence": [
+        {
+          "source": "leveau-2000-barbegal-excavations",
+          "locator": "p. 389, introduction; p. 436, Conclusion, first paragraph",
+          "supports": "The excavators revise construction of the complex from the third century to the first half of the second century."
+        },
         {
           "source": "surmelihindi-2018-second-century-ce",
           "locator": "Results, The Barbegal site, paragraph 1; Fig. 1",
-          "supports": "Configuration, supply relationship and approximate construction/diversion date."
+          "supports": "Configuration, supply relationship and a narrower estimate of the diversion around 120–130 CE."
         },
         {
           "source": "passchier-2024-operation-decline-barbegal",
@@ -114,8 +118,8 @@
     }
   ],
   "earliest_record": {
-    "event": null,
-    "rationale": "Historian/date dispute retained. A later community witness is not an automatic earliest-record anchor."
+    "event": "dated-assertion-130",
+    "rationale": "The excavation report provides an approximate construction range for the complex. The first day of operation and the exact timing of the diversion remain uncertain."
   },
   "community_entry": {
     "event": "practical-use-300",
@@ -138,7 +142,7 @@
       "confidence": "high",
       "alternatives": "Other water sources or new conduits were possible; no counterfactual cost comparison.",
       "caveats": "Historical relationship supported; Barbegal’s later diffusion influence is unknown.",
-      "timing": "Earlier node records city-supply use through c. 120; receiving node records subsequent diversion c. 120–130.",
+      "timing": "The 2018 site account places city-supply use before diversion to the mills around 120–130 CE.",
       "evidence": [
         {
           "source": "surmelihindi-2018-second-century-ce",
@@ -154,7 +158,7 @@
     }
   ],
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -168,11 +172,24 @@
       "societies": "sourced",
       "known_from": "sourced",
       "fate": "sourced",
-      "events": "reviewed",
-      "links": "reviewed",
+      "events": "sourced",
+      "links": "sourced",
       "grain": "recalled",
       "impact": "recalled"
-    }
+    },
+    "unresolved": [
+      {
+        "about": "Dates of construction and first operation",
+        "note": "Compare the masonry, carbonate and associated artefact evidence for the mill building and diversion at the convergence basin. The excavators interpret the eastern outlet’s pottery deposit as later than construction.",
+        "evidence": [
+          {
+            "source": "leveau-2000-barbegal-excavations",
+            "locator": "p. 436, Conclusion, paragraph on ceramics at the eastern outlet",
+            "supports": "The excavators tentatively assign the pottery deposit to activity after construction, possibly associated with a modification of the outlet."
+          }
+        ]
+      }
+    ]
   },
   "grain": "instance"
 }

@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "lane": "yoruba",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "e30d7f7f016291aec6bc5f2c2020dd9ce832d747",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review execution",
+    "independence": "Separate from researcher gpt-6.2-sol high; no research changes authored"
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json",
+      "sha256": "bb75570eadcd967e53f4d7d5c6c2c1d9b88cd44dca14eed0525e6e45c7642443"
+    },
+    {
+      "path": "data/sources/a/adams-2022-yoruba-home-video-films.json",
+      "sha256": "ee2357ba70ce52ba76f48eba473d6253e9222a1a2d070ec6322be16f3c90bb07"
+    },
+    {
+      "path": "data/sources/a/ayorinde-2020-nigerian-cinema-interview.json",
+      "sha256": "fac4df5d35b4f0f471fa4f8d1af7d1012875aea65d118a42b094ef58d07a6dd8"
+    },
+    {
+      "path": "data/sources/h/haynes-2011-nnebue-anatomy-of-power.json",
+      "sha256": "6e058e1c6eeaad81ff07da3695aebdd38f708dc0f5665022a2f75b3e47b078d8"
+    },
+    {
+      "path": "data/sources/h/haynes-okome-1998-nigerian-video-films.json",
+      "sha256": "fac2f3130fd51df17f929b9b8d465e0db78f8a1ccea43d1ce2bf9c5e11229ca1"
+    },
+    {
+      "path": "data/sources/v/vanguard-2022-latifat-oguntade-interview.json",
+      "sha256": "af99f632029734ec9b15f38fa9acb84a52c21b6718a4201f066256f83cfa5015"
+    },
+    {
+      "path": "data/sources/w/worldcat-29851704-aje-ni-iya-mi.json",
+      "sha256": "1a16623134c554de20d26fe31aabe2abf5a6c8499697e6e6da8cfd36ce2d979a"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/yoruba.md",
+      "sha256": "18bc799e1715abb5ef791c8652eadd46fecbaa0a2014e88370f2e8d91a5cfdd5"
+    },
+    {
+      "path": "evidence/a/adams-2022-yoruba-home-video-films.pdf.cache.json",
+      "sha256": "fb544a11745c8f863853c1995daf076bc89fa04745f27ce5b9223aa2090807d6"
+    },
+    {
+      "path": "evidence/a/ayorinde-2020-nigerian-cinema-interview-excerpt.txt",
+      "sha256": "5e8ffc3eb1366a18d709e0934f34cba97314c5b58ca82ffc20a9661d11dfd10f"
+    },
+    {
+      "path": "evidence/h/haynes-2011-nnebue-anatomy-of-power-excerpt.txt",
+      "sha256": "93a79a5d25dcd5cfda52ad03b0ac9fe71377ab4f158670800f79bf7a0f030031"
+    },
+    {
+      "path": "evidence/h/haynes-okome-1998-nigerian-video-films.pdf.cache.json",
+      "sha256": "d5fdf821b2e12200740700875c3ce79b482690833ed0e4cb6372f808ad3800b9"
+    },
+    {
+      "path": "evidence/v/vanguard-2022-latifat-oguntade-interview-excerpt.txt",
+      "sha256": "33b2b8e1e48b63760b29b73a52cabf639e23e1a1577fbef3e81d2bca54ae6c49"
+    },
+    {
+      "path": "evidence/w/worldcat-29851704-aje-ni-iya-mi-excerpt.txt",
+      "sha256": "ba86a1b0f3acd9b83ac19c5be4026ad16454b4bb490e0ebb7236632013a8eab7"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "haynes-2011-nnebue-anatomy-of-power p. 204",
+      "url": "https://www.tandfonline.com/doi/pdf/10.1080/19301944.2011.10781410",
+      "availability": "Publisher PDF blocked 403; search-indexed original opening paragraph read with surrounding context; saved excerpt checked",
+      "independence": "Same Haynes lineage as 1998 and Misodi citing Haynes 2016; underlying personal communication unavailable"
+    },
+    {
+      "source": "haynes-okome-1998-nigerian-video-films pp. 108–109",
+      "url": "https://jonathanhaynesweb.wordpress.com/wp-content/uploads/2016/10/jonathan_haynes_and_onookome_okome_evolv.pdf",
+      "path": "evidence/h/haynes-okome-1998-nigerian-video-films.pdf",
+      "sha256": "b64c76f1db2a4d68e768a747126c7157678629e29a4086722b4346a6801d7771",
+      "availability": "Locally cached original scanned article read via OCR pages 108–109",
+      "independence": "Coauthored by Haynes; not independent confirmation of his later account"
+    },
+    {
+      "source": "adams-2022-yoruba-home-video-films p. 101",
+      "url": "https://files-cdn.lasujournalofafricanstudies.org.ng/publications/1660439169.pdf",
+      "path": "evidence/a/adams-2022-yoruba-home-video-films.pdf",
+      "sha256": "434a76644563de6374267527e542d5f63ff36c0d12a92d5537584c7bd07d9c77",
+      "availability": "Publisher PDF read including context",
+      "independence": "Uncited introductory claim, relationship to other accounts unknown"
+    },
+    {
+      "source": "ayorinde-2020-nigerian-cinema-interview answer on 1992",
+      "url": "https://www.thisdaylive.com/2020/07/12/at-50-im-a-child-of-grace/",
+      "availability": "Original interview read",
+      "independence": "Different speaker, evidentiary basis unstated; independent source lineage not established"
+    },
+    {
+      "source": "worldcat-29851704-aje-ni-iya-mi edition details",
+      "url": "https://search.worldcat.org/title/Aje-ni-iya-mi/oclc/29851704",
+      "availability": "Public original catalogue display read; cassette and credits not inspected",
+      "independence": "Catalogue describes edition; independent catalogue source, creation evidence and underlying basis unspecified"
+    },
+    {
+      "source": "vanguard-2022-latifat-oguntade-interview first answer",
+      "url": "https://www.vanguardngr.com/2022/02/the-art-of-dance-has-taught-me-to-be-focused-latifat/",
+      "availability": "Original interview read",
+      "independence": "Family testimony, basis and firsthand observation unspecified; distinct from catalogue and Haynes"
+    },
+    {
+      "source": "w8-misodi-nigeria-video pp. 34–35",
+      "availability": "Existing source; its cited Haynes lineage checked against Haynes original passage",
+      "independence": "Derivative, not corroboration"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/events/0/date",
+      "decision": "accept",
+      "rationale": "The dates 1988, 1989 and 1991 are stated by Adams, Haynes and Ayorinde respectively; the interval is explicitly an envelope of conflicting reported years, not a measured continuous production period.",
+      "sources": [
+        "adams-2022-yoruba-home-video-films p. 101",
+        "haynes-2011-nnebue-anatomy-of-power p. 204",
+        "ayorinde-2020-nigerian-cinema-interview answer on 1992"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/events/0/statement",
+      "decision": "accept",
+      "rationale": "Haynes and Okome describe Nnebue producing this title for Sola Ogunsola and equipment; Haynes 2011 specifies two VCRs and identifies electronics and blank-cassette trade. Equipment attribution and source-lineage caveat preserve differences.",
+      "sources": [
+        "haynes-okome-1998-nigerian-video-films pp. 108–109",
+        "haynes-2011-nnebue-anatomy-of-power p. 204"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/events/0/contributions",
+      "decision": "accept",
+      "rationale": "Nnebue produced the film for Ogunsola and invested ₦2,000 per 1998 account; Haynes reports funding and cost. Contributions are appropriately broad and the attribution is retrospective.",
+      "sources": [
+        "haynes-okome-1998-nigerian-video-films pp. 108–109",
+        "haynes-2011-nnebue-anatomy-of-power p. 204"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/events/0/caveats",
+      "decision": "accept",
+      "rationale": "The earlier text says a few VCRs, later article says two; neither specifies models.",
+      "sources": [
+        "haynes-okome-1998-nigerian-video-films pp. 108–109",
+        "haynes-2011-nnebue-anatomy-of-power p. 204"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/events/1",
+      "decision": "accept",
+      "rationale": "Catalogue identifies same title, Yoruba VHS, NEK and the bracketed distributor and date; Ayorinde independently associates title with NEK and Oguntade names NEK as producer. The estimated date is edition-specific, not first release. Brackets remain caveated; physical copy and credits unavailable.",
+      "sources": [
+        "worldcat-29851704-aje-ni-iya-mi edition details",
+        "ayorinde-2020-nigerian-cinema-interview answer on 1992",
+        "vanguard-2022-latifat-oguntade-interview first answer"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/earliest_record, /caveats",
+      "decision": "accept",
+      "rationale": "Production episode predates the estimated edition as a reported production episode, but overlaps in possible years; rationale explicitly notes year dispute. No global priority or sales claim.",
+      "sources": [
+        "adams-2022-yoruba-home-video-films p. 101",
+        "haynes-2011-nnebue-anatomy-of-power p. 204",
+        "ayorinde-2020-nigerian-cinema-interview answer on 1992",
+        "worldcat-29851704-aje-ni-iya-mi edition details"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/measures/0",
+      "decision": "accept",
+      "rationale": "Haynes and Okome attribute a nominal 2,000-naira investment to a personal communication; later Haynes reports the cost. Claimed status and money context prevent treating this as verified accounting.",
+      "sources": [
+        "haynes-okome-1998-nigerian-video-films pp. 108–109",
+        "haynes-2011-nnebue-anatomy-of-power p. 204"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/witnesses/0",
+      "decision": "accept",
+      "rationale": "Witness limitation identifies edition metadata, not examined cassette, and distinguishes estimated edition from production date.",
+      "sources": [
+        "worldcat-29851704-aje-ni-iya-mi edition details"
+      ]
+    },
+    {
+      "path": "data/discoveries/arts/1989-nigerian-yoruba-commercial-video-films.json#/research",
+      "decision": "accept",
+      "rationale": "Revised event and measure basis is sourced rather than self-reviewed; unresolved chronology, equipment, stage credits, duplication and retail follow the conflicting and incomplete sources. The 1997 communication was not itself inspected.",
+      "sources": [
+        "haynes-2011-nnebue-anatomy-of-power p. 204",
+        "haynes-okome-1998-nigerian-video-films pp. 108–109",
+        "adams-2022-yoruba-home-video-films p. 101",
+        "ayorinde-2020-nigerian-cinema-interview answer on 1992",
+        "worldcat-29851704-aje-ni-iya-mi edition details",
+        "vanguard-2022-latifat-oguntade-interview first answer"
+      ]
+    },
+    {
+      "path": "source records and lane note",
+      "decision": "accept",
+      "rationale": "Source descriptions, excerpts, hashes and source-lineage notes correspond to inspected originals and metadata; limits are explicit. Exact PDF search-index opening was accessible even though direct publisher fetch was blocked.",
+      "sources": [
+        "haynes-2011-nnebue-anatomy-of-power p. 204",
+        "haynes-okome-1998-nigerian-video-films pp. 108–109",
+        "adams-2022-yoruba-home-video-films p. 101",
+        "ayorinde-2020-nigerian-cinema-interview answer on 1992",
+        "worldcat-29851704-aje-ni-iya-mi edition details",
+        "vanguard-2022-latifat-oguntade-interview first answer"
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "target": "1989-nigerian-yoruba-commercial-video-films",
+      "decision": "accept",
+      "rationale": "Existing record has one production event only. Edition-level publication event is distinct and appropriately extends that record; no new achievement node."
+    }
+  ],
+  "link_reviews": [],
+  "duplicate_screen": {
+    "decision": "accept",
+    "checked": [
+      "1989-nigerian-yoruba-commercial-video-films existing events",
+      "1963-yoruba-adejobi-commercial-traveling-theatre",
+      "jvc-hr3300-vhs-home-video-recorder"
+    ],
+    "rationale": "No duplicate edition event in base. The other two records concern a different theatre troupe and a specific JVC model, respectively; sources do not identify either as an actual input. No link is added."
+  },
+  "issues": [],
+  "unknowns": [
+    "Actual production year, exact original release date, physical cassette and credits, equipment models, domestic distribution and total sales remain open. Source provenance for Adams and Ayorinde dates is unspecified.",
+    "The 2011 publisher PDF returned 403; its indexed opening text and separate 1998 scanned article were inspected, but underlying interview records unavailable.",
+    "WorldCat estimates are cataloguer-supplied; an edition match is supported by title, Yoruba, NEK and related testimony but physical copy was not verified."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 902 discoveries, 1497 events, 237 links, 1628 sources; No problems found."
+  },
+  "history": []
+}

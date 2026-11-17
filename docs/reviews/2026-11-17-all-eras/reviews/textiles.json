@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "lane": "textiles",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "5bb2d802aa08ad26d2953550c008a60933c211b9",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review execution",
+    "independence": "Separate from proposing gpt-6.2-sol high execution; original sources independently inspected."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/electronics/babbage-analytical-engine-punched-card-design.json",
+      "sha256": "3665fa7f5663fdbd89aa63bdbb65a10aa10e75ba01e98ea870a320c1c27fcaac"
+    },
+    {
+      "path": "data/sources/b/babbage-1837-analytical-engine-sketch-13.json",
+      "sha256": "7024750ebb2b56cf14d9d76e4b18ac6ab403302ed2dc3c700b786e5bb2323ffc"
+    },
+    {
+      "path": "data/sources/b/british-association-1879-analytical-engine-report.json",
+      "sha256": "c18d24f421b10ea34e863c39fa6a2c057ad3d7d2ec0ac78540e6bca572b91ac8"
+    },
+    {
+      "path": "data/sources/b/bromley-1982-analytical-engine-card-strings.json",
+      "sha256": "6ecf0d58b40ed065efe8418c4dda471bdf9e018f9ad66b3264e685997da7f92b"
+    },
+    {
+      "path": "data/sources/c/collier-1970-babbage-engine-control.json",
+      "sha256": "6879bd24a16d3d8c5254625fa97552ea4b35fa690a68a0295c6262598528a0fb"
+    },
+    {
+      "path": "data/sources/m/menabrea-lovelace-1843-analytical-engine.json",
+      "sha256": "ba7b233e32f59ade503efbc616623990a3511352eb7d36b8c38423a269da3940"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/textiles.md",
+      "sha256": "85d1460929fc873d8713fa7781779a5f1764016f0bd81ecfc54e7ececbbc093c"
+    },
+    {
+      "path": "evidence/b/babbage-1837-analytical-engine-sketch-13.jpg.cache.json",
+      "sha256": "4a57f6b7b42f539eb951a7fea743a8d3f9b84bdab8ee39dfbb5a55148c0930c2"
+    },
+    {
+      "path": "evidence/b/british-association-1879-analytical-engine-report-excerpts.txt",
+      "sha256": "980afea3720a35bb03bff9a9e1dc5180564f071e85a7f3404ecd1fb57998c400"
+    },
+    {
+      "path": "evidence/b/bromley-1982-analytical-engine-card-strings-notes.txt",
+      "sha256": "e24dc352622113104ab730b96b9850e20e540a8aa90dddafb401c32298fc4ae8"
+    },
+    {
+      "path": "evidence/c/collier-1970-babbage-engine-control-notes.txt",
+      "sha256": "82068b386bd3aef84e727479387faffbdc055638bdb095b4f3e66f6bfcd3be6b"
+    },
+    {
+      "path": "evidence/m/menabrea-lovelace-1843-analytical-engine.pdf.cache.json",
+      "sha256": "8f3a2b667c63fe78d22fc1b765b95941c655b4ef4a80ea62b01550a3106c59e9"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "babbage-1837-analytical-engine-sketch-13",
+      "url": "https://collection.sciencemuseumgroup.org.uk/documents/aa110000176",
+      "locator": "BAB/A/042 drawing, centre annotations and left edge; catalogue title and date",
+      "original_path": "evidence/b/babbage-1837-analytical-engine-sketch-13.jpg",
+      "sha256": "f72379df8f971cc7af3a5dc98056f76d2bebafeb5732b5343b526a89b3a52106",
+      "availability": "Inspected downloaded image and online catalogue.",
+      "independence": "Original drawing is independent physical evidence of design features, but does not independently identify Jacquard as the origin of this method or date each subsequent alteration."
+    },
+    {
+      "source": "menabrea-lovelace-1843-analytical-engine",
+      "url": "https://www.hist-math.fr/textes/Lovelace1843_SketchAnalytical.pdf",
+      "locator": "pp. 677–678, 706, 719–720 (PDF pages 12–13, 41, 54–55)",
+      "original_path": "evidence/m/menabrea-lovelace-1843-analytical-engine.pdf",
+      "sha256": "6b6d3fad405647f7cc746f93a0edd63a2e97f7eb48301d9f1d0b305ac9a52ea5",
+      "availability": "Inspected scan and extracted surrounding text.",
+      "independence": "Menabrea was informed by Babbage; translation and French account are one lineage. Lovelace separately discusses mechanism, drawing on access to Babbage; not demonstrably independent provenance for adaptation."
+    },
+    {
+      "source": "british-association-1879-analytical-engine-report",
+      "url": "https://www.fourmilab.ch/babbage/baas.html",
+      "locator": "sections IV, V, IX and footnote 3",
+      "original_path": "evidence/b/british-association-1879-analytical-engine-report-excerpts.txt",
+      "sha256": "980afea3720a35bb03bff9a9e1dc5180564f071e85a7f3404ecd1fb57998c400",
+      "availability": "Read surrounding Fourmilab transcription and saved excerpts. The original manuscript of letter was not inspected.",
+      "independence": "The committee inspected extant drawings and mechanisms and independently assesses the state of the design. Footnote 3 quotes Babbage himself, not a separate witness to his source of inspiration; committee references Menabrea-Lovelace."
+    },
+    {
+      "source": "collier-1970-babbage-engine-control",
+      "url": "https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.002/TheLittleEnginesThatCouldve-TheCalculatingMachinesOfCharlesBabbage.pdf",
+      "locator": "chapter 3, text PDF p. 27 and notes p. 40, nn. 41–42",
+      "sha256": "414bdb833660ff5d7b08c621a53928d57a095c8789a0f5436e19911fa7e8a2ec",
+      "availability": "Read original study and surrounding text online. Manuscript notebook itself not inspected. PDF hash taken from saved research notes, not independently recomputed.",
+      "independence": "Collier cites the earlier manuscript notebook II p. 146 and I p. 160 for the first mention, reconstructs design development, and separately cites the 1839 letter; distinct original documentary basis but Babbage authored both."
+    },
+    {
+      "source": "bromley-1982-analytical-engine-card-strings",
+      "url": "https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.001/AlanBromley-Charles-Babbages-Analytical-Engine-1838.pdf",
+      "locator": "pp. 197, 214–215 (§12), 217",
+      "sha256": "45f7f6a70c285b84539b18fd3f135f3df938dc5bcd0a1dc7d2131d5f9721738f",
+      "availability": "Independently downloaded, checksum verified, scanned pages read with OCR.",
+      "independence": "Bromley acknowledges Collier, so these are not fully independent historiographical lineages. He independently examines Science Museum notations and reconstructs the 1838 design: his comparison of loom-type card strings and operation/variable strings adds technical evidence, although the original designers records and historical attribution ultimately remain Babbage-associated. He describes analysis as simplified and tentative, with less than 10% of material studied in detail."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "identity, name, description, kind, domain",
+      "decision": "accept",
+      "rationale": "1843 pp. 677–678 describe the engine and operation/variable cards; the 1878 committee section IV records only a partial mill built. Scope is a design and mechanical computing.",
+      "sources": [
+        "menabrea-lovelace-1843-analytical-engine",
+        "british-association-1879-analytical-engine-report"
+      ]
+    },
+    {
+      "path": "events.sketch-13-1837 statement, date and earliest_record",
+      "decision": "accept_with_qualification",
+      "rationale": "The catalogue dates Sketch 13 to 1837 and identifies a punched-card mechanism; image shows multiple dates and a perforated arrangement. This is the archive date for a multilayer drawing, not proof of the exact date when each component was added or priority over earlier designs. Existing caveat expresses multiple stages.",
+      "sources": [
+        "babbage-1837-analytical-engine-sketch-13"
+      ]
+    },
+    {
+      "path": "events.annotated-english-account-1843 statement and date",
+      "decision": "accept",
+      "rationale": "1843 publication and statement supported; Note E p. 720, PDF p. 55, specifically describes the Engine prism turning backwards to reuse cards. Revised citation correctly distinguishes Note C’s separate proposed loom mechanism.",
+      "sources": [
+        "menabrea-lovelace-1843-analytical-engine"
+      ]
+    },
+    {
+      "path": "origin and links[0]",
+      "decision": "accept",
+      "rationale": "Babbage’s 1839 attribution and Menabrea’s description establish the historical direction, with Collier’s separate notebook-based chronology and Bromley’s independent examination of design notations providing informative documentary and structural corroboration. Collier and Bromley are not wholly independent of Babbage or each other, but they add distinct archival and technical evidence beyond a copy of the 1839 statement. Bromley §12 p. 215 supports distinct operation and variable strings and the correspondence to loom strings. Removed to_event avoids falsely tying both functions to the 1837 sketch. The attribution does not settle Babbage’s first encounter or date of each component.",
+      "sources": [
+        "british-association-1879-analytical-engine-report",
+        "menabrea-lovelace-1843-analytical-engine",
+        "collier-1970-babbage-engine-control",
+        "bromley-1982-analytical-engine-card-strings"
+      ],
+      "relation_attestation": {
+        "relation": "adapts",
+        "direction": "Jacquard loom card selection to Babbage Analytical Engine design",
+        "context": "control method, not proof of completed engine or later computing descent",
+        "proposed_status": "established",
+        "independent_corroboration": "Yes, qualified: Collier investigates an earlier notebook; Bromley reconstructs the machine from original design notations, adding mechanical comparison. They share Babbage-authored evidence and Bromley cites Collier, so not wholly independent witnesses.",
+        "disposition": "established historical adaptation; exact route and dates remain open",
+        "priority_claim": "none"
+      }
+    },
+    {
+      "path": "caveats and research.unresolved",
+      "decision": "accept",
+      "rationale": "Committee section IX and IV support incomplete engine and feasibility uncertainty; route and earlier conception remain open, not assertions of established provenance or dates.",
+      "sources": [
+        "british-association-1879-analytical-engine-report",
+        "babbage-1837-analytical-engine-sketch-13"
+      ]
+    },
+    {
+      "path": "source records, evidence descriptors and lane note",
+      "decision": "accept",
+      "rationale": "Checksums of saved evidence and Bromley scan match; sources and note distinguish original manuscript access and provenance. Bromley’s §12 begins on cited p. 214, with key card-string passage continuing on p. 215; this review records the more precise page. Collier scan read online; PDF checksum is researcher-reported, not independently verified.",
+      "sources": [
+        "babbage-1837-analytical-engine-sketch-13",
+        "menabrea-lovelace-1843-analytical-engine",
+        "british-association-1879-analytical-engine-report",
+        "collier-1970-babbage-engine-control",
+        "bromley-1982-analytical-engine-card-strings"
+      ]
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Searched discovery files and leads for Babbage, Analytical Engine, Lovelace, Jacquard and punched-card terms; inspected Jacquard record and actual events.",
+    "result": "No existing Engine record found. Existing Jacquard record documents a distinct loom mechanism with a dated 1805 event; this is a separate achievement, not an extension of that loom event.",
+    "extends": null
+  },
+  "issues": [],
+  "unknowns": [
+    "Original Babbage manuscript for 1836 conception and manuscript draft of the 1839 letter were not inspected.",
+    "The archive-dated drawing includes alterations made after the March 1837 bevel-wheel introduction; component-specific dates need further investigation.",
+    "First encounter with loom controls remains unknown."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 903 discoveries, 1498 events, 238 links, 1627 sources; no problems found."
+  },
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "textiles",
+      "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+      "worker_commit": "e2757d10c9f04d2fca1236fea9ad64eab09a6fe3",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "independent review execution",
+        "independence": "Separate from proposing gpt-6.2-sol high execution; original sources independently inspected."
+      },
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/electronics/babbage-analytical-engine-punched-card-design.json",
+          "sha256": "53e096daddc06901a07a9962346a86c28f64256aa5ee494d97da639b0f6f6b4a"
+        },
+        {
+          "path": "data/sources/b/babbage-1837-analytical-engine-sketch-13.json",
+          "sha256": "7024750ebb2b56cf14d9d76e4b18ac6ab403302ed2dc3c700b786e5bb2323ffc"
+        },
+        {
+          "path": "data/sources/b/british-association-1879-analytical-engine-report.json",
+          "sha256": "c18d24f421b10ea34e863c39fa6a2c057ad3d7d2ec0ac78540e6bca572b91ac8"
+        },
+        {
+          "path": "data/sources/m/menabrea-lovelace-1843-analytical-engine.json",
+          "sha256": "fa6d3326a5fb9556eec87742724abc9dca2ce92a4f0c42d8ef8dd1cad49bb957"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-all-eras/lanes/textiles.md",
+          "sha256": "2e859fc99c8f8bec8dfbedeb8bc8eb2375bea3da204170424f48a7aa36c569b8"
+        },
+        {
+          "path": "evidence/b/babbage-1837-analytical-engine-sketch-13.jpg.cache.json",
+          "sha256": "4a57f6b7b42f539eb951a7fea743a8d3f9b84bdab8ee39dfbb5a55148c0930c2"
+        },
+        {
+          "path": "evidence/b/british-association-1879-analytical-engine-report-excerpts.txt",
+          "sha256": "980afea3720a35bb03bff9a9e1dc5180564f071e85a7f3404ecd1fb57998c400"
+        },
+        {
+          "path": "evidence/m/menabrea-lovelace-1843-analytical-engine.pdf.cache.json",
+          "sha256": "8f3a2b667c63fe78d22fc1b765b95941c655b4ef4a80ea62b01550a3106c59e9"
+        }
+      ],
+      "source_checks": [
+        {
+          "source": "babbage-1837-analytical-engine-sketch-13",
+          "url": "https://collection.sciencemuseumgroup.org.uk/documents/aa110000176",
+          "locator": "BAB/A/042 drawing, centre annotations and left edge; catalogue title and date",
+          "original_path": "evidence/b/babbage-1837-analytical-engine-sketch-13.jpg",
+          "sha256": "f72379df8f971cc7af3a5dc98056f76d2bebafeb5732b5343b526a89b3a52106",
+          "availability": "Inspected downloaded image and online catalogue.",
+          "independence": "Original drawing is independent physical evidence of design features, but does not independently identify Jacquard as the origin of this method or date each subsequent alteration."
+        },
+        {
+          "source": "menabrea-lovelace-1843-analytical-engine",
+          "url": "https://www.hist-math.fr/textes/Lovelace1843_SketchAnalytical.pdf",
+          "locator": "pp. 677–678, 706, 719–720 (PDF pages 12–13, 41, 54–55)",
+          "original_path": "evidence/m/menabrea-lovelace-1843-analytical-engine.pdf",
+          "sha256": "6b6d3fad405647f7cc746f93a0edd63a2e97f7eb48301d9f1d0b305ac9a52ea5",
+          "availability": "Inspected scan and extracted surrounding text.",
+          "independence": "Menabrea was informed by Babbage; translation and French account are one lineage. Lovelace separately discusses mechanism, drawing on access to Babbage; not demonstrably independent provenance for adaptation."
+        },
+        {
+          "source": "british-association-1879-analytical-engine-report",
+          "url": "https://www.fourmilab.ch/babbage/baas.html",
+          "locator": "sections IV, V, IX and footnote 3",
+          "original_path": "evidence/b/british-association-1879-analytical-engine-report-excerpts.txt",
+          "sha256": "980afea3720a35bb03bff9a9e1dc5180564f071e85a7f3404ecd1fb57998c400",
+          "availability": "Read surrounding Fourmilab transcription and saved excerpts. The original manuscript of letter was not inspected.",
+          "independence": "The committee inspected extant drawings and mechanisms and independently assesses the state of the design. Footnote 3 quotes Babbage himself, not a separate witness to his source of inspiration; committee references Menabrea-Lovelace."
+        }
+      ],
+      "claim_reviews": [
+        {
+          "path": "identity, name, description, kind, domain",
+          "decision": "accept",
+          "rationale": "1843 pp. 677–678 describe the engine and operation/variable cards; the 1878 committee section IV records only a partial mill built. Scope is a design and mechanical computing.",
+          "sources": [
+            "menabrea-lovelace-1843-analytical-engine",
+            "british-association-1879-analytical-engine-report"
+          ]
+        },
+        {
+          "path": "events.sketch-13-1837 statement, date and earliest_record",
+          "decision": "accept_with_qualification",
+          "rationale": "The catalogue dates Sketch 13 to 1837 and identifies a punched-card mechanism; image shows multiple dates and a perforated arrangement. This is the archive date for a multilayer drawing, not proof of the exact date when each component was added or priority over earlier designs. Existing caveat expresses multiple stages.",
+          "sources": [
+            "babbage-1837-analytical-engine-sketch-13"
+          ]
+        },
+        {
+          "path": "events.annotated-english-account-1843 statement and date",
+          "decision": "accept",
+          "rationale": "1843 publication and statement supported; Note E p. 720, PDF p. 55, specifically describes the Engine prism turning backwards to reuse cards. Revised citation correctly distinguishes Note C’s separate proposed loom mechanism.",
+          "sources": [
+            "menabrea-lovelace-1843-analytical-engine"
+          ]
+        },
+        {
+          "path": "origin and links[0]",
+          "decision": "accept",
+          "rationale": "Babbage’s 1839 attribution and Menabrea’s description establish the historical direction, with Collier’s separate notebook-based chronology and Bromley’s independent examination of design notations providing informative documentary and structural corroboration. Collier and Bromley are not wholly independent of Babbage or each other, but they add distinct archival and technical evidence beyond a copy of the 1839 statement. Bromley §12 p. 215 supports distinct operation and variable strings and the correspondence to loom strings. Removed to_event avoids falsely tying both functions to the 1837 sketch. The attribution does not settle Babbage’s first encounter or date of each component.",
+          "sources": [
+            "british-association-1879-analytical-engine-report",
+            "menabrea-lovelace-1843-analytical-engine",
+            "collier-1970-babbage-engine-control",
+            "bromley-1982-analytical-engine-card-strings"
+          ],
+          "relation_attestation": {
+            "relation": "adapts",
+            "direction": "Jacquard loom card selection to Babbage Analytical Engine design",
+            "context": "control method, not proof of completed engine or later computing descent",
+            "proposed_status": "established",
+            "independent_corroboration": "Yes, qualified: Collier investigates an earlier notebook; Bromley reconstructs the machine from original design notations, adding mechanical comparison. They share Babbage-authored evidence and Bromley cites Collier, so not wholly independent witnesses.",
+            "disposition": "established historical adaptation; exact route and dates remain open",
+            "priority_claim": "none"
+          }
+        },
+        {
+          "path": "caveats and research.unresolved",
+          "decision": "accept",
+          "rationale": "Committee section IX and IV support incomplete engine and feasibility uncertainty; route and earlier conception remain open, not assertions of established provenance or dates.",
+          "sources": [
+            "british-association-1879-analytical-engine-report",
+            "babbage-1837-analytical-engine-sketch-13"
+          ]
+        },
+        {
+          "path": "source records, evidence descriptors and lane note",
+          "decision": "accept",
+          "rationale": "Checksums of saved evidence and Bromley scan match; sources and note distinguish original manuscript access and provenance. Bromley’s §12 begins on cited p. 214, with key card-string passage continuing on p. 215; this review records the more precise page. Collier scan read online; PDF checksum is researcher-reported, not independently verified.",
+          "sources": [
+            "babbage-1837-analytical-engine-sketch-13",
+            "menabrea-lovelace-1843-analytical-engine",
+            "british-association-1879-analytical-engine-report",
+            "collier-1970-babbage-engine-control",
+            "bromley-1982-analytical-engine-card-strings"
+          ]
+        }
+      ],
+      "duplicate_screen": {
+        "method": "Searched discovery files and leads for Babbage, Analytical Engine, Lovelace, Jacquard and punched-card terms; inspected Jacquard record and actual events.",
+        "result": "No existing Engine record found. Existing Jacquard record documents a distinct loom mechanism with a dated 1805 event; this is a separate achievement, not an extension of that loom event.",
+        "extends": null
+      },
+      "issues": [
+        "Repair event evidence locator to identify Note E p. 720 for reversing the Engine prism; Note C describes a proposed weaving prism.",
+        "Supply independently informative evidence of historical adaptation for established link and derived origin, or downgrade link to candidate and origin to unknown.",
+        "Remove link to_event 1837 or support the timing of the attributed adaptation and described card functions in that exact drawing."
+      ],
+      "unknowns": [
+        "Original Babbage manuscript for 1836 conception and manuscript draft of the 1839 letter were not inspected.",
+        "The archive-dated drawing includes alterations made after the March 1837 bevel-wheel introduction; component-specific dates need further investigation.",
+        "A separately evidenced account could resolve whether the link meets the project independent-corroboration gate."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py",
+        "result": "passed: 903 discoveries, 1498 events, 238 links, 1625 sources; no problems found."
+      },
+      "history": []
+    }
+  ]
+}

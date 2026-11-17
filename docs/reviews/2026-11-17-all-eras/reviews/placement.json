@@ -1,0 +1,495 @@
+{
+  "schema_version": 1,
+  "lane": "placement",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "64b262c0a6244f5235bd149e1a0cee217b36c577",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent review",
+    "independence": "Different execution from researcher gpt-6.2-sol high; original passages independently checked where available."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json",
+      "sha256": "a4c21face380762bffbe1fa8950cf3458a5e45db1fbc2aca5aedbe653d015bbf"
+    },
+    {
+      "path": "data/discoveries/machines/barbegal-mill-complex.json",
+      "sha256": "048367389adf6ed055a8a23cdcadb08a53f427a0cef4ee233aebcef6ef28965b"
+    },
+    {
+      "path": "data/places.jsonl",
+      "sha256": "37c1ebee69a75e5757fbaf473ed7278ad621b6db95d269e6d655594b1aa41538"
+    },
+    {
+      "path": "data/sources/b/bernal-2012-radio-sutatenza-model.json",
+      "sha256": "43da529ebbe36c0344efeed6cdc6203cb9c9dc0142f022a6410324cd727dcb67"
+    },
+    {
+      "path": "data/sources/g/geonames-sutatenza-settlement.json",
+      "sha256": "2e322116a07579390b90463186106efd3f1c75c0f6ff699788dbdd376a539664"
+    },
+    {
+      "path": "data/sources/l/leveau-2000-barbegal-excavations.json",
+      "sha256": "6aa086c5ce72dd9b7b3332176b2546258d0bb14a4f4e6cc2c5620ce01ca71316"
+    },
+    {
+      "path": "data/sources/o/odipe-1954-sutatenza-transmitter-film.json",
+      "sha256": "89b488693c9db1d12b77497cb1152ae3d72aa57edeb99f3375ba6fd5a64f500f"
+    },
+    {
+      "path": "data/sources/r/rojas-pinilla-1954-sutatenza-inauguration-audio.json",
+      "sha256": "6fefdf4dcf3b715f798c5bb12cc4407e434702836542708d063ed62e7a74466c"
+    },
+    {
+      "path": "data/sources/z/zabala-2020-first-radio-sutatenza-sets.json",
+      "sha256": "aff0bf2424661fa87822244ba104a07e1ebc0c55549989854d4228f31eea110e"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/placement.md",
+      "sha256": "80206b4d825f6a292b7a8546da6ec07ed2b058e02b8c256e6fc84023b74a648c"
+    },
+    {
+      "path": "evidence/b/bernal-2012-radio-sutatenza-model-excerpts.txt",
+      "sha256": "24d9cb461efaaba37d78023955fd35f59a012ac89c8e064d02139fcebd2767ee"
+    },
+    {
+      "path": "evidence/g/geonames-sutatenza-settlement-extract.txt",
+      "sha256": "3dc44bc3138b7b318cc0c50e62536a83f2f4e1d5340080b60999b8da8223d1cf"
+    },
+    {
+      "path": "evidence/l/leveau-2000-barbegal-excavations-excerpts.txt",
+      "sha256": "6bb37db3dbab7d605b53f177cc9f52a0e37621d787c8e6b1d0b126ce5d4bc272"
+    },
+    {
+      "path": "evidence/o/odipe-1954-sutatenza-transmitter-film-excerpt.txt",
+      "sha256": "4dea38b830c8c47b5394d05acb2c5556554aa9e997c88ce7fa94e85d57df2afc"
+    },
+    {
+      "path": "evidence/r/rojas-pinilla-1954-sutatenza-inauguration-audio-excerpt.txt",
+      "sha256": "8d16dd47d74f3ce0ace0e621982a58430a8eece4ff3b8d6af8946714dc9e4eab"
+    },
+    {
+      "path": "evidence/z/zabala-2020-first-radio-sutatenza-sets-excerpts.txt",
+      "sha256": "75a415cf585a2d64921b02aeea714db30b1c7e2b8bc2a6ada16c58095be37f08"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "zabala-2020-first-radio-sutatenza-sets",
+      "url": "https://www.banrepcultural.org/bogota/boletines-blaa/boletin-inv-1.pdf",
+      "locator": "p. 15 Los inicios and captions",
+      "availability": "Original PDF retrieved and read; SHA-256 67792eff89bcd2cf15a50b0c44cac0509b2ed597a7f65eb75cd2f872b1400841 matches source.",
+      "independence": "Custodian account shares ACPO collection with nomination; not independent evidence of priority."
+    },
+    {
+      "source": "odipe-1954-sutatenza-transmitter-film",
+      "url": "https://www.senalmemoria.co/piezas/la-historia-de-las-escuelas-radiofonicas",
+      "locator": "description and ficha técnica",
+      "availability": "Original holding-archive catalogue read; film itself not inspected.",
+      "independence": "Catalogue description of contemporary film; same archive as speech, not independent for equipment details."
+    },
+    {
+      "source": "rojas-pinilla-1954-sutatenza-inauguration-audio",
+      "url": "https://www.senalmemoria.co/articulos/radio-sutatenza-como-era-en-un-principio",
+      "locator": "introductory numbered point 3, CD8409/CD8136 title",
+      "availability": "Original catalogue page read; audio not auditioned.",
+      "independence": "Separate sound record of same ceremony; two CD identifiers are copies, archive shares custody with film."
+    },
+    {
+      "source": "registraduria-2023-sutatenza-seat-georeference",
+      "url": "https://wapp.registraduria.gov.co/electoral/elecciones-territoriales-2023/pdf/20231006_puestos-de-votacion-georreferenciacion_territoriales.pdf",
+      "locator": "Boyacá / Sutatenza municipal-seat polling station",
+      "availability": "Original PDF inaccessible in web reader (too large) and curl returned HTML challenge; saved extract is researcher transcription and cannot independently establish the coordinate.",
+      "independence": "Official electoral source, distinct from historical sources, if verified."
+    },
+    {
+      "source": "bernal-2012-radio-sutatenza-model",
+      "url": "https://publicaciones.banrepcultural.org/index.php/boletin_cultural/article/download/67/65",
+      "locator": "pp. 19–20 and note 8",
+      "availability": "Original scanned PDF supplied locally; SHA-256 939367e712ccc5d942831a037928271c01241d4d8564a32114f9f4da0537d67d. Visually read printed pp.19–20 (PDF physical pp.16–17): 28 September and note 8 attribution confirmed. URL previously returned 403.",
+      "independence": "Institutional chronology and possible shared ACPO evidence; no independence assumed."
+    },
+    {
+      "source": "leveau-2000-barbegal-excavations",
+      "url": "https://www.persee.fr/doc/ran_0557-7705_2000_num_33_1_1573",
+      "locator": "p. 389 introduction; p. 436 conclusion",
+      "availability": "Publisher original OCR pp.389 and 436 read; p.436 explicitly proposes pottery deposit later than building, tentatively.",
+      "independence": "Original archaeological report; shared author and chronology with 2018 and 2024 papers."
+    },
+    {
+      "source": "surmelihindi-2018-second-century-ce",
+      "path": "evidence/s/surmelihindi-2018-second-century-ce.xml",
+      "sha256": "49315543e73e9f5eee8879d59c6b1188636c62880826a13968e201af085bc054",
+      "locator": "Results, The Barbegal site",
+      "availability": "Saved full original article available.",
+      "independence": "Shared author and inherited archaeological chronology with Leveau 2000 and Passchier 2024; carbonate measurements add different observations, not independent attestation of inherited chronology."
+    },
+    {
+      "source": "unesco-2013-sutatenza-registration-wave11",
+      "url": "https://media.unesco.org/sites/default/files/webform/mtd001/88_2013_formulario-esp.pdf",
+      "locator": "§3.4",
+      "availability": "PDF retrieved in web but text extraction unavailable in this review; locality corroborated by original Zabala p.15.",
+      "independence": "Nomination and archive bulletin share ACPO holdings."
+    },
+    {
+      "source": "geonames-sutatenza-settlement",
+      "url": "https://www.geonames.org/api/search?q=Sutatenza&maxRows=51&country=CO",
+      "locator": "markers id 3667647",
+      "availability": "Locally supplied original API response SHA-256 313f7c403ea83da1a5d86b7f30174bbfc1d0093685ff76821260091a060f85bf independently inspected; PPLA2, Boyacá, Colombia, lat 5.02311 lon -73.4523.",
+      "independence": "Geographic gazetteer distinct from historical sources; rounded position is a settlement point, not a historical building."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json#places,events/schools-start-1947",
+      "decision": "accept",
+      "extends": "radio-sutatenza-rural-radio-schools",
+      "rationale": "Zabala p.15 independently inspected: Salcedo assembled transmitter at Sutatenza, Boyacá in 1947 and three Irzón families received a broadcast. Consistent with retained year, project locality and scoped early reception; no exact broadcast date asserted.",
+      "sources": [
+        "zabala-2020-first-radio-sutatenza-sets p.15"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json#events/transmitter-inauguration-1954",
+      "decision": "accept",
+      "extends": "radio-sutatenza-rural-radio-schools",
+      "rationale": "Archive film catalogue explicitly dates Rojas Pinilla’s trip, high-power transmitter and new equipment inauguration in Sutatenza to 7 November 1954; separate speech title supports same day and locality. Audio and film were not played. Rated power and audience are not inferred.",
+      "sources": [
+        "odipe-1954-sutatenza-transmitter-film description",
+        "rojas-pinilla-1954-sutatenza-inauguration-audio introductory point 3"
+      ]
+    },
+    {
+      "path": "data/places.jsonl#sutatenza",
+      "decision": "accept",
+      "rationale": "GeoNames original API response identifies settlement 3667647 PPLA2 in Boyacá, Colombia at 5.02311, -73.4523. Rounded 5.023, -73.452 correctly represent settlement, not exact historical broadcast room.",
+      "sources": [
+        "geonames-sutatenza-settlement entry 3667647"
+      ]
+    },
+    {
+      "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json#research/unresolved",
+      "decision": "accept",
+      "rationale": "Bernal printed p.19 states 28 September, with p.20 note 8 attributing the historical account to Jiménez ACPO chronology. Zabala p.15 states 16 November. The item accurately retains the conflict as unresolved; no day is admitted as fact.",
+      "sources": [
+        "bernal-2012-radio-sutatenza-model pp.19–20",
+        "zabala-2020-first-radio-sutatenza-sets p.15"
+      ]
+    },
+    {
+      "path": "data/discoveries/machines/barbegal-mill-complex.json#events/dated-assertion-130,earliest_record",
+      "decision": "accept",
+      "extends": "barbegal-mill-complex",
+      "rationale": "Leveau et al. 2000 p.389 original introduction identifies first-half second-century as the proposed construction date. 101–150 represents that approximation, not a measured precise commissioning. 2018 source identifies configuration and diversion. The date is explicitly attributed to excavators; uncertainty retained.",
+      "sources": [
+        "leveau-2000-barbegal-excavations p.389 and saved p.436 excerpt",
+        "surmelihindi-2018-second-century-ce Results"
+      ]
+    },
+    {
+      "path": "data/discoveries/machines/barbegal-mill-complex.json#links/0/timing",
+      "decision": "accept",
+      "rationale": "Changed timing attributes c.120–130 diversion to 2018 site account. Existing Arelate endpoint covers earlier city supply; receiving endpoint is now wider construction estimate. The established adaptation is an unchanged baseline relation; this review does not silently reapprove its independent corroboration. Studies share authors and inherited chronology.",
+      "sources": [
+        "surmelihindi-2018-second-century-ce Results"
+      ],
+      "relation": {
+        "direction": "Arelate southern supply branch to Barbegal",
+        "context": "site diversion after city supply",
+        "status": "established in baseline",
+        "independent_corroboration": "not established by counting overlapping 2018 and 2024 teams as independent",
+        "disposition": "baseline established relation unchanged; timing only reviewed"
+      }
+    },
+    {
+      "path": "data/discoveries/machines/barbegal-mill-complex.json#research/unresolved",
+      "decision": "accept",
+      "rationale": "Publisher p.436 conditionally places deposition after mill construction and suggests possible outlet alteration; revised note attributes interpretation to excavators and requests phase checks.",
+      "sources": [
+        "leveau-2000-barbegal-excavations p.436"
+      ]
+    },
+    {
+      "path": "data/discoveries/machines/barbegal-mill-complex.json#research/status,basis",
+      "decision": "accept",
+      "rationale": "Downgrade reviewed to sourced for changed events and links appropriately avoids presenting modified wording as already reviewed; unchanged baseline facets not reapproved.",
+      "sources": []
+    },
+    {
+      "path": "data/sources/r/rojas-pinilla-1954-sutatenza-inauguration-audio.json#passages/0/locator",
+      "decision": "accept",
+      "rationale": "Locator corrected in source, evidence and event to introductory numbered point 3, where the speech title occurs.",
+      "sources": [
+        "rojas-pinilla-1954-sutatenza-inauguration-audio introductory point 3"
+      ]
+    }
+  ],
+  "duplicate_screen": "Compared both changed discoveries and base events. 1954 equipment inauguration is a distinct deployment from 1947 start and 2020 retrospective; it extends existing record. Barbegal change revises existing event rather than creating duplicate. Arelate supply endpoint and Rome aqueduct mills reviewed for scope; latter is distinct site and its relation remains insufficient.",
+  "issues": [],
+  "unknowns": [
+    "The two historical sources differ on the first cultural broadcast day; actual date and transmitting room remain open.",
+    "Film and audio were not played; holding-archive descriptions were read. Model, power and audience changes remain uncertain.",
+    "Exact Barbegal construction and commissioning phases remain uncertain; pottery sequence is interpreted, not independently dated in this review.",
+    "Existing established Arelate relation predates this lane; overlapping later studies do not constitute independent chronological corroboration."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass on 64b262c: 902 discoveries, 1497 events, 237 links, 1628 sources, 454 places; no problems"
+  },
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "placement",
+      "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+      "worker_commit": "fcec4d7e020a55146b11cca0b419e8f4ddc71dc8",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "separate independent review",
+        "independence": "Different execution from researcher gpt-6.2-sol high; original passages independently checked where available."
+      },
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json",
+          "sha256": "0093a3558ab37397f99e797b1e7c1538b1a3365fcd27db40fc96a6e46d90d53b"
+        },
+        {
+          "path": "data/discoveries/machines/barbegal-mill-complex.json",
+          "sha256": "5ae4abb71907b20db0d05990b6f71705640780b1c8b58fc378232fb85222bc0f"
+        },
+        {
+          "path": "data/places.jsonl",
+          "sha256": "e3dfc7c04d288fb881cc4059725295ca4134ca2a0ea6312784e58fc6bb84002e"
+        },
+        {
+          "path": "data/sources/b/bernal-2012-radio-sutatenza-model.json",
+          "sha256": "b3ecd523b98cd8dcab1dcb2b623507a81b994dd5f17e30794ed0194ee43df22b"
+        },
+        {
+          "path": "data/sources/l/leveau-2000-barbegal-excavations.json",
+          "sha256": "f9ee2cddaf275ed1e91f3a4d6e2ae0c5b62428509479c1f3ce539a0b25f82af8"
+        },
+        {
+          "path": "data/sources/o/odipe-1954-sutatenza-transmitter-film.json",
+          "sha256": "89b488693c9db1d12b77497cb1152ae3d72aa57edeb99f3375ba6fd5a64f500f"
+        },
+        {
+          "path": "data/sources/r/registraduria-2023-sutatenza-seat-georeference.json",
+          "sha256": "0ee5084c4a93a883066c8d2680ad9d376531ef18b61bc58bc5fadf794470ec46"
+        },
+        {
+          "path": "data/sources/r/rojas-pinilla-1954-sutatenza-inauguration-audio.json",
+          "sha256": "18864c4c4573ef2cee4413f3ac16a994c0dc5f8a78c64b500d9fab8f91ee2d2b"
+        },
+        {
+          "path": "data/sources/z/zabala-2020-first-radio-sutatenza-sets.json",
+          "sha256": "aff0bf2424661fa87822244ba104a07e1ebc0c55549989854d4228f31eea110e"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-all-eras/lanes/placement.md",
+          "sha256": "9e0c5f8e023e759b56e5b91c8cfe7939bc3a708c9256d25c6fa3b30b61a67e57"
+        },
+        {
+          "path": "evidence/b/bernal-2012-radio-sutatenza-model-excerpts.txt",
+          "sha256": "aeff76aab596fddfdb65b3638e61a12d2adb82c4134bc78ba843d17b172d3d94"
+        },
+        {
+          "path": "evidence/l/leveau-2000-barbegal-excavations-excerpts.txt",
+          "sha256": "92b36097d0fa762bbc1f851250ac29d9a4d3ea248685e628e0c5b8ed03234ea5"
+        },
+        {
+          "path": "evidence/o/odipe-1954-sutatenza-transmitter-film-excerpt.txt",
+          "sha256": "4dea38b830c8c47b5394d05acb2c5556554aa9e997c88ce7fa94e85d57df2afc"
+        },
+        {
+          "path": "evidence/r/registraduria-2023-sutatenza-seat-georeference-extract.txt",
+          "sha256": "31ab1013faf54237b004ae0d9b0a4e4c008b06e39cd392ef681f9b24760463c3"
+        },
+        {
+          "path": "evidence/r/rojas-pinilla-1954-sutatenza-inauguration-audio-excerpt.txt",
+          "sha256": "222539c32787f984ade53e0f776e6c133a8979bca24c4c5d734c8854c34113bd"
+        },
+        {
+          "path": "evidence/z/zabala-2020-first-radio-sutatenza-sets-excerpts.txt",
+          "sha256": "75a415cf585a2d64921b02aeea714db30b1c7e2b8bc2a6ada16c58095be37f08"
+        }
+      ],
+      "source_checks": [
+        {
+          "source": "zabala-2020-first-radio-sutatenza-sets",
+          "url": "https://www.banrepcultural.org/bogota/boletines-blaa/boletin-inv-1.pdf",
+          "locator": "p. 15 Los inicios and captions",
+          "availability": "Original PDF retrieved and read; SHA-256 67792eff89bcd2cf15a50b0c44cac0509b2ed597a7f65eb75cd2f872b1400841 matches source.",
+          "independence": "Custodian account shares ACPO collection with nomination; not independent evidence of priority."
+        },
+        {
+          "source": "odipe-1954-sutatenza-transmitter-film",
+          "url": "https://www.senalmemoria.co/piezas/la-historia-de-las-escuelas-radiofonicas",
+          "locator": "description and ficha técnica",
+          "availability": "Original holding-archive catalogue read; film itself not inspected.",
+          "independence": "Catalogue description of contemporary film; same archive as speech, not independent for equipment details."
+        },
+        {
+          "source": "rojas-pinilla-1954-sutatenza-inauguration-audio",
+          "url": "https://www.senalmemoria.co/articulos/radio-sutatenza-como-era-en-un-principio",
+          "locator": "introductory numbered point 3, CD8409/CD8136 title",
+          "availability": "Original catalogue page read; audio not auditioned.",
+          "independence": "Separate sound record of same ceremony; two CD identifiers are copies, archive shares custody with film."
+        },
+        {
+          "source": "registraduria-2023-sutatenza-seat-georeference",
+          "url": "https://wapp.registraduria.gov.co/electoral/elecciones-territoriales-2023/pdf/20231006_puestos-de-votacion-georreferenciacion_territoriales.pdf",
+          "locator": "Boyacá / Sutatenza municipal-seat polling station",
+          "availability": "Original PDF inaccessible in web reader (too large) and curl returned HTML challenge; saved extract is researcher transcription and cannot independently establish the coordinate.",
+          "independence": "Official electoral source, distinct from historical sources, if verified."
+        },
+        {
+          "source": "bernal-2012-radio-sutatenza-model",
+          "url": "https://publicaciones.banrepcultural.org/index.php/boletin_cultural/article/download/67/65",
+          "locator": "pp. 19–20 and note 8",
+          "availability": "Original scanned PDF supplied locally; SHA-256 939367e712ccc5d942831a037928271c01241d4d8564a32114f9f4da0537d67d. Visually read printed pp.19–20 (PDF physical pp.16–17): 28 September and note 8 attribution confirmed. URL previously returned 403.",
+          "independence": "Institutional chronology and possible shared ACPO evidence; no independence assumed."
+        },
+        {
+          "source": "leveau-2000-barbegal-excavations",
+          "url": "https://www.persee.fr/doc/ran_0557-7705_2000_num_33_1_1573",
+          "locator": "p. 389 introduction; p. 436 conclusion",
+          "availability": "Publisher original OCR pp.389 and 436 read; p.436 explicitly proposes pottery deposit later than building, tentatively.",
+          "independence": "Original archaeological report; shared author and chronology with 2018 and 2024 papers."
+        },
+        {
+          "source": "surmelihindi-2018-second-century-ce",
+          "path": "evidence/s/surmelihindi-2018-second-century-ce.xml",
+          "sha256": "49315543e73e9f5eee8879d59c6b1188636c62880826a13968e201af085bc054",
+          "locator": "Results, The Barbegal site",
+          "availability": "Saved full original article available.",
+          "independence": "Shared author and inherited archaeological chronology with Leveau 2000 and Passchier 2024; carbonate measurements add different observations, not independent attestation of inherited chronology."
+        },
+        {
+          "source": "unesco-2013-sutatenza-registration-wave11",
+          "url": "https://media.unesco.org/sites/default/files/webform/mtd001/88_2013_formulario-esp.pdf",
+          "locator": "§3.4",
+          "availability": "PDF retrieved in web but text extraction unavailable in this review; locality corroborated by original Zabala p.15.",
+          "independence": "Nomination and archive bulletin share ACPO holdings."
+        },
+        {
+          "source": "geonames-sutatenza-settlement",
+          "url": "https://www.geonames.org/api/search?q=Sutatenza&maxRows=51&country=CO",
+          "locator": "markers id 3667647",
+          "availability": "Locally supplied original API response SHA-256 313f7c403ea83da1a5d86b7f30174bbfc1d0093685ff76821260091a060f85bf independently inspected; PPLA2, Boyacá, Colombia, lat 5.02311 lon -73.4523.",
+          "independence": "Geographic gazetteer distinct from historical sources; rounded position is a settlement point, not a historical building."
+        }
+      ],
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json#places,events/schools-start-1947",
+          "decision": "accept",
+          "extends": "radio-sutatenza-rural-radio-schools",
+          "rationale": "Zabala p.15 independently inspected: Salcedo assembled transmitter at Sutatenza, Boyacá in 1947 and three Irzón families received a broadcast. Consistent with retained year, project locality and scoped early reception; no exact broadcast date asserted.",
+          "sources": [
+            "zabala-2020-first-radio-sutatenza-sets p.15"
+          ]
+        },
+        {
+          "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json#events/transmitter-inauguration-1954",
+          "decision": "accept",
+          "extends": "radio-sutatenza-rural-radio-schools",
+          "rationale": "Archive film catalogue explicitly dates Rojas Pinilla’s trip, high-power transmitter and new equipment inauguration in Sutatenza to 7 November 1954; separate speech title supports same day and locality. Audio and film were not played. Rated power and audience are not inferred.",
+          "sources": [
+            "odipe-1954-sutatenza-transmitter-film description",
+            "rojas-pinilla-1954-sutatenza-inauguration-audio introductory point 3"
+          ]
+        },
+        {
+          "path": "data/places.jsonl#sutatenza",
+          "decision": "accept",
+          "rationale": "GeoNames original API response identifies settlement 3667647 PPLA2 in Boyacá, Colombia at 5.02311, -73.4523. Rounded 5.023, -73.452 correctly represent settlement, not exact historical broadcast room.",
+          "sources": [
+            "geonames-sutatenza-settlement entry 3667647"
+          ]
+        },
+        {
+          "path": "data/discoveries/communication/radio-sutatenza-rural-radio-schools.json#research/unresolved",
+          "decision": "accept",
+          "rationale": "Bernal printed p.19 states 28 September, with p.20 note 8 attributing the historical account to Jiménez ACPO chronology. Zabala p.15 states 16 November. The item accurately retains the conflict as unresolved; no day is admitted as fact.",
+          "sources": [
+            "bernal-2012-radio-sutatenza-model pp.19–20",
+            "zabala-2020-first-radio-sutatenza-sets p.15"
+          ]
+        },
+        {
+          "path": "data/discoveries/machines/barbegal-mill-complex.json#events/dated-assertion-130,earliest_record",
+          "decision": "accept",
+          "extends": "barbegal-mill-complex",
+          "rationale": "Leveau et al. 2000 p.389 original introduction identifies first-half second-century as the proposed construction date. 101–150 represents that approximation, not a measured precise commissioning. 2018 source identifies configuration and diversion. The date is explicitly attributed to excavators; uncertainty retained.",
+          "sources": [
+            "leveau-2000-barbegal-excavations p.389 and saved p.436 excerpt",
+            "surmelihindi-2018-second-century-ce Results"
+          ]
+        },
+        {
+          "path": "data/discoveries/machines/barbegal-mill-complex.json#links/0/timing",
+          "decision": "accept",
+          "rationale": "Changed timing attributes c.120–130 diversion to 2018 site account. Existing Arelate endpoint covers earlier city supply; receiving endpoint is now wider construction estimate. The established adaptation is an unchanged baseline relation; this review does not silently reapprove its independent corroboration. Studies share authors and inherited chronology.",
+          "sources": [
+            "surmelihindi-2018-second-century-ce Results"
+          ],
+          "relation": {
+            "direction": "Arelate southern supply branch to Barbegal",
+            "context": "site diversion after city supply",
+            "status": "established in baseline",
+            "independent_corroboration": "not established by counting overlapping 2018 and 2024 teams as independent",
+            "disposition": "baseline established relation unchanged; timing only reviewed"
+          }
+        },
+        {
+          "path": "data/discoveries/machines/barbegal-mill-complex.json#research/unresolved",
+          "decision": "accept",
+          "rationale": "Publisher p.436 conditionally places deposition after mill construction and suggests possible outlet alteration; revised note attributes interpretation to excavators and requests phase checks.",
+          "sources": [
+            "leveau-2000-barbegal-excavations p.436"
+          ]
+        },
+        {
+          "path": "data/discoveries/machines/barbegal-mill-complex.json#research/status,basis",
+          "decision": "accept",
+          "rationale": "Downgrade reviewed to sourced for changed events and links appropriately avoids presenting modified wording as already reviewed; unchanged baseline facets not reapproved.",
+          "sources": []
+        },
+        {
+          "path": "data/sources/r/rojas-pinilla-1954-sutatenza-inauguration-audio.json#passages/0/locator",
+          "decision": "accept",
+          "rationale": "Locator corrected in source, evidence and event to introductory numbered point 3, where the speech title occurs.",
+          "sources": [
+            "rojas-pinilla-1954-sutatenza-inauguration-audio introductory point 3"
+          ]
+        }
+      ],
+      "duplicate_screen": "Compared both changed discoveries and base events. 1954 equipment inauguration is a distinct deployment from 1947 start and 2020 retrospective; it extends existing record. Barbegal change revises existing event rather than creating duplicate. Arelate supply endpoint and Rome aqueduct mills reviewed for scope; latter is distinct site and its relation remains insufficient.",
+      "issues": [
+        "Provide independently retrievable primary table or authoritative gazetteer for coordinate, or defer the new sourced coordinate and dependent placement until verified.",
+        "Provide retrievable Bernal original for September date and ACPO attribution, or remove that specific claim while retaining a general open broadcast-date question.",
+        "Independently inspect full Leveau pp.436–437 or remove categorical pottery sequence from unresolved note.",
+        "Correct speech locator to introductory numbered point 3 in source metadata, event and saved excerpt."
+      ],
+      "unknowns": [
+        "Film and audio media were not played; judgments use holding-archive descriptions.",
+        "First broadcast day/building, transmitter rated power, and post-inauguration audience remain unestablished.",
+        "Exact Barbegal construction and commissioning phases and independence of chronology remain uncertain."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py",
+        "result": "pass on 64b262c: 902 discoveries, 1497 events, 237 links, 1628 sources, 454 places; no problems"
+      },
+      "history": []
+    }
+  ],
+  "removed_since_prior_review": [
+    "data/sources/r/registraduria-2023-sutatenza-seat-georeference.json",
+    "evidence/r/registraduria-2023-sutatenza-seat-georeference-extract.txt"
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "lane": "endowment",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "716ab89242f260c67ed0506ecf6045d65ad8e492",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent reviewer",
+    "independence": "Distinct execution from gpt-6.2-sol high researcher"
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/economy/1047-jerusalem-hospital-endowment.json",
+      "sha256": "1ce09901a782e997d7fbc54a7bd609b79330fd690a9e946039a3dd0ad2384ac3"
+    },
+    {
+      "path": "data/sources/n/nasir-i-khusraw-diary-le-strange-1888.json",
+      "sha256": "063e604788cf15f11e4580a350ad152b784ead5be436d74a9724d2e450cd58ea"
+    },
+    {
+      "path": "data/sources/n/nasir-i-khusraw-safarnama-schefer-1881.json",
+      "sha256": "075f3b0207af9926ff12c11fa659871017d2094d9c5992c6922e8791679b6ecf"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/endowment.md",
+      "sha256": "f7c1fffaee1f77de69b4d47a89746351fc5304a755d356d3659d736e891f7212"
+    },
+    {
+      "path": "evidence/n/nasir-i-khusraw-safarnama-schefer-1881.pdf.cache.json",
+      "sha256": "aaa2ccf90d8a847e2035993cd72a2975122bce55cd7d4c773612af6e6e578c18"
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "nasir-i-khusraw-safarnama-schefer-1881",
+      "path": "evidence/n/nasir-i-khusraw-safarnama-schefer-1881.pdf",
+      "sha256": "79e2016591f440e5404efebc686ee693c2be88f700d07672c3bfef6dcd4db5c1",
+      "availability": "cached PDF inspected",
+      "locators": "French pp. 66, 70; Persian pp. 19, 21",
+      "independence": "same medieval witness as Le Strange and Met report; printed edition is not independent corroboration"
+    },
+    {
+      "id": "nasir-i-khusraw-diary-le-strange-1888",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/The_library_of_the_Palestine_Pilgrims%27_Text_Society_%28IA_cu31924028534281%29.pdf",
+      "availability": "online PDF inspected",
+      "locators": "title p.; preface; pp. 23, 26",
+      "independence": "same travel account; translation refers to Schefer"
+    },
+    {
+      "id": "met-2016-jerusalem-hospital-endowment",
+      "path": "data/sources/m/met-2016-jerusalem-hospital-endowment.json",
+      "availability": "existing source record and notes inspected",
+      "locators": "p. 228 n. 19 as described in record",
+      "independence": "same travel account via Thackston; not separate witness"
+    },
+    {
+      "id": "kedar-hospitallers",
+      "url": "https://api.pageplace.de/preview/DT0400.9781317028512_A26648429/preview-9781317028512_A26648429.pdf",
+      "availability": "online preview inspected",
+      "locators": "pp. 7–10, especially p. 8 n. 7",
+      "independence": "Amatus is a distinct medieval witness concerning Maurus; does not establish identity of hospitals"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "description",
+      "decision": "accept",
+      "rationale": "Schefer French p. 70 and Persian p. 21 convey the hospital, medicines, waqf and physicians’ stipends as the traveller’s account; arrival dated p. 66, corroborated in Le Strange p. 23.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "fields",
+      "decision": "accept",
+      "rationale": "Public-health classification is supported by the hospital treatment described in Schefer p. 70. tools/dataset.py FACET_FOLLOWS makes fields follow the sourced domain basis; no standalone fields basis is required or permitted.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "setting",
+      "decision": "accept",
+      "rationale": "Hospital setting follows the described bimaristan, Schefer French p. 70.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "impact.note",
+      "decision": "accept",
+      "rationale": "Correctly limits the note to a single traveller account of stipend funding; prior numeric scores remain recalled and are not reapproved.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "events.dated-evidence.statement",
+      "decision": "accept",
+      "rationale": "French p. 70 reports remedies/potions and physicians paid from charitable endowment; Persian p. 21 names waqf. Account reports rather than proving direct eyewitness inspection.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "events.dated-evidence.date, type, basis and scope",
+      "decision": "accept",
+      "rationale": "Le Strange p. 23 dates the visit to 1047; Schefer p. 70 reports the hospital. The revised dated_assertion scopes the episode to the visit and explicitly distinguishes the unknown composition date and whether the traveller inspected it himself.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "events.dated-evidence.evidence",
+      "decision": "accept",
+      "rationale": "Schefer pp. 66 and 70 and Le Strange pp. 23 and 26 support visit and content. The Met quotation of Thackston is a derivative account, not independent corroboration.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888",
+        "met-2016-jerusalem-hospital-endowment"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "earliest_record.rationale",
+      "decision": "accept",
+      "rationale": "The revised wording identifies the 1047 visit as the earliest supported episode here and explicitly leaves composition date unknown.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "known_from",
+      "decision": "accept",
+      "rationale": "The medieval travel account is a contemporary textual witness to the period described, not a surviving contemporary manuscript or independently dated composition.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "caveats and unresolved patron/founding",
+      "decision": "accept",
+      "rationale": "Account names an endowment and stipends but does not identify its patron, assets, eligibility, fees, founding date or other expenses; uncertainty is appropriate.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "unresolved site and continuity",
+      "decision": "accept",
+      "rationale": "Le Strange p. 26 places Friday mosque wall by Wadi Jahannam; the hospital is in the Holy City, not unequivocally placed at the spring. No asserted institutional continuity; source-specific textual variations remain research questions.",
+      "source_ids": [
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "research basis and note",
+      "decision": "accept",
+      "rationale": "Sourced event and same-witness lineage are appropriate; fields follows sourced domain under FACET_FOLLOWS. The note does not assert an independent review.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "new source records and cache descriptor",
+      "decision": "accept",
+      "rationale": "Schefer scan checked at French pp. 66 and 70 and Persian p. 21 transcription retained; actual cached PDF hash and length match descriptor. Le Strange translation read online pp. 23 and 26. Publication years and lineage are supported by title pages and preface.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    },
+    {
+      "path": "lane note, no link",
+      "decision": "accept",
+      "rationale": "Kedar pp. 7–10 quotes Amatus independently for Maurus and separates the Amalfitan hospital; resemblance alone establishes no transfer or identity. No new link is proposed.",
+      "source_ids": [
+        "nasir-i-khusraw-safarnama-schefer-1881",
+        "nasir-i-khusraw-diary-le-strange-1888"
+      ],
+      "extends": "1047-jerusalem-hospital-endowment"
+    }
+  ],
+  "links": {
+    "proposed": 0,
+    "decision": "none to attest",
+    "unresolved": "Identity and continuity with other Jerusalem hospitals remain a question; Amatus independently reports another hospital without identifying it as this one."
+  },
+  "duplicate_screen": "Existing 1047 record already contains the dated description event; this proposal extends its same event, not a new event or node. Inspected the separate 1552 Hürrem kitchen: different activity, date and institution; no duplicate. Searched hospital, Jerusalem and waqf across discoveries and leads.",
+  "issues": [],
+  "unknowns": [
+    "Date of composition and direct observation of the hospital not established.",
+    "Patron, assets, terms, precise site, and institutional continuity unresolved.",
+    "The Met original catalogue was not independently reopened for this review; it is supplementary derivative evidence."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 902 discoveries, 1496 events, 237 links, 1624 sources; No problems found."
+  },
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "endowment",
+      "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+      "worker_commit": "f4ad2942666e7aad80d17935b48b017abc404566",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "separate independent reviewer",
+        "independence": "Distinct execution from gpt-6.2-sol high researcher"
+      },
+      "overall_decision": "changes_requested",
+      "files": [
+        {
+          "path": "data/discoveries/economy/1047-jerusalem-hospital-endowment.json",
+          "sha256": "1ce09901a782e997d7fbc54a7bd609b79330fd690a9e946039a3dd0ad2384ac3"
+        },
+        {
+          "path": "data/sources/n/nasir-i-khusraw-diary-le-strange-1888.json",
+          "sha256": "063e604788cf15f11e4580a350ad152b784ead5be436d74a9724d2e450cd58ea"
+        },
+        {
+          "path": "data/sources/n/nasir-i-khusraw-safarnama-schefer-1881.json",
+          "sha256": "075f3b0207af9926ff12c11fa659871017d2094d9c5992c6922e8791679b6ecf"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-all-eras/lanes/endowment.md",
+          "sha256": "f7c1fffaee1f77de69b4d47a89746351fc5304a755d356d3659d736e891f7212"
+        },
+        {
+          "path": "evidence/n/nasir-i-khusraw-safarnama-schefer-1881.pdf.cache.json",
+          "sha256": "aaa2ccf90d8a847e2035993cd72a2975122bce55cd7d4c773612af6e6e578c18"
+        }
+      ],
+      "source_checks": [
+        {
+          "id": "nasir-i-khusraw-safarnama-schefer-1881",
+          "path": "evidence/n/nasir-i-khusraw-safarnama-schefer-1881.pdf",
+          "sha256": "79e2016591f440e5404efebc686ee693c2be88f700d07672c3bfef6dcd4db5c1",
+          "availability": "cached PDF inspected",
+          "locators": "French pp. 66, 70; Persian pp. 19, 21",
+          "independence": "same medieval witness as Le Strange and Met report; printed edition is not independent corroboration"
+        },
+        {
+          "id": "nasir-i-khusraw-diary-le-strange-1888",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/The_library_of_the_Palestine_Pilgrims%27_Text_Society_%28IA_cu31924028534281%29.pdf",
+          "availability": "online PDF inspected",
+          "locators": "title p.; preface; pp. 23, 26",
+          "independence": "same travel account; translation refers to Schefer"
+        },
+        {
+          "id": "met-2016-jerusalem-hospital-endowment",
+          "path": "data/sources/m/met-2016-jerusalem-hospital-endowment.json",
+          "availability": "existing source record and notes inspected",
+          "locators": "p. 228 n. 19 as described in record",
+          "independence": "same travel account via Thackston; not separate witness"
+        },
+        {
+          "id": "kedar-hospitallers",
+          "url": "https://api.pageplace.de/preview/DT0400.9781317028512_A26648429/preview-9781317028512_A26648429.pdf",
+          "availability": "online preview inspected",
+          "locators": "pp. 7–10, especially p. 8 n. 7",
+          "independence": "Amatus is a distinct medieval witness concerning Maurus; does not establish identity of hospitals"
+        }
+      ],
+      "claim_reviews": [
+        {
+          "path": "description",
+          "decision": "accept",
+          "rationale": "Schefer French p. 70 and Persian p. 21 convey the hospital, medicines, waqf and physicians’ stipends as the traveller’s account; arrival dated p. 66, corroborated in Le Strange p. 23.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "fields",
+          "decision": "accept",
+          "rationale": "Public-health classification is supported by the hospital treatment described in Schefer p. 70. tools/dataset.py FACET_FOLLOWS makes fields follow the sourced domain basis; no standalone fields basis is required or permitted.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "setting",
+          "decision": "accept",
+          "rationale": "Hospital setting follows the described bimaristan, Schefer French p. 70.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "impact.note",
+          "decision": "accept",
+          "rationale": "Correctly limits the note to a single traveller account of stipend funding; prior numeric scores remain recalled and are not reapproved.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "events.dated-evidence.statement",
+          "decision": "accept",
+          "rationale": "French p. 70 reports remedies/potions and physicians paid from charitable endowment; Persian p. 21 names waqf. Account reports rather than proving direct eyewitness inspection.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "events.dated-evidence.date, type, basis and scope",
+          "decision": "accept",
+          "rationale": "Le Strange p. 23 dates the visit to 1047; Schefer p. 70 reports the hospital. The revised dated_assertion scopes the episode to the visit and explicitly distinguishes the unknown composition date and whether the traveller inspected it himself.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "events.dated-evidence.evidence",
+          "decision": "accept",
+          "rationale": "Schefer pp. 66 and 70 and Le Strange pp. 23 and 26 support visit and content. The Met quotation of Thackston is a derivative account, not independent corroboration.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888",
+            "met-2016-jerusalem-hospital-endowment"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "earliest_record.rationale",
+          "decision": "accept",
+          "rationale": "The revised wording identifies the 1047 visit as the earliest supported episode here and explicitly leaves composition date unknown.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "known_from",
+          "decision": "accept",
+          "rationale": "The medieval travel account is a contemporary textual witness to the period described, not a surviving contemporary manuscript or independently dated composition.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "caveats and unresolved patron/founding",
+          "decision": "accept",
+          "rationale": "Account names an endowment and stipends but does not identify its patron, assets, eligibility, fees, founding date or other expenses; uncertainty is appropriate.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "unresolved site and continuity",
+          "decision": "accept",
+          "rationale": "Le Strange p. 26 places Friday mosque wall by Wadi Jahannam; the hospital is in the Holy City, not unequivocally placed at the spring. No asserted institutional continuity; source-specific textual variations remain research questions.",
+          "source_ids": [
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "research basis and note",
+          "decision": "accept",
+          "rationale": "Sourced event and same-witness lineage are appropriate; fields follows sourced domain under FACET_FOLLOWS. The note does not assert an independent review.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "new source records and cache descriptor",
+          "decision": "accept",
+          "rationale": "Schefer scan checked at French pp. 66 and 70 and Persian p. 21 transcription retained; actual cached PDF hash and length match descriptor. Le Strange translation read online pp. 23 and 26. Publication years and lineage are supported by title pages and preface.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        },
+        {
+          "path": "lane note, no link",
+          "decision": "accept",
+          "rationale": "Kedar pp. 7–10 quotes Amatus independently for Maurus and separates the Amalfitan hospital; resemblance alone establishes no transfer or identity. No new link is proposed.",
+          "source_ids": [
+            "nasir-i-khusraw-safarnama-schefer-1881",
+            "nasir-i-khusraw-diary-le-strange-1888"
+          ],
+          "extends": "1047-jerusalem-hospital-endowment"
+        }
+      ],
+      "links": {
+        "proposed": 0,
+        "decision": "none to attest",
+        "unresolved": "Identity and continuity with other Jerusalem hospitals remain a question; Amatus independently reports another hospital without identifying it as this one."
+      },
+      "duplicate_screen": "Existing 1047 record already contains the documented-description event; this proposal extends its same event, not a new event or node. Inspected the separate 1552 Hürrem kitchen: different activity, date and institution; no duplicate. Searched hospital, Jerusalem and waqf across discoveries and leads.",
+      "issues": [
+        "Change event type and rationale so 1047 is clearly the visit/episode, not date of the text.",
+        "Add research.basis.fields = sourced for the newly populated field."
+      ],
+      "unknowns": [
+        "Date of composition and direct observation of the hospital not established.",
+        "Patron, assets, terms, precise site, and institutional continuity unresolved.",
+        "The Met original catalogue was not independently reopened for this review; it is supplementary derivative evidence."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py",
+        "result": "pass: 902 discoveries, 1496 events, 237 links, 1624 sources; No problems found."
+      },
+      "history": [],
+      "correction": "The prior request for research.basis.fields was incorrect: tools/dataset.py FACET_FOLLOWS makes fields follow domain; the existing domain basis is sourced. Withdrawn."
+    }
+  ]
+}

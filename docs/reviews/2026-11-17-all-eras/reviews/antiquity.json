@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "lane": "antiquity",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "5251a0d25358fc112ab46d0f50303369b8a0340b",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review antiquity",
+    "independence": "Separate execution from researcher gpt-6.2-sol high."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json",
+      "sha256": "cfd6b45b70225d28faa43c68edac963559f700030f2ed419f42006e2b984bdea"
+    },
+    {
+      "path": "data/sources/a/anastasiou-2014-antikythera-metonic-pointer.json",
+      "sha256": "65715911bfd42070c9f4905df88a9173457b7f4f9bf79a624218b9f5a88143a0"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/antiquity.md",
+      "sha256": "717e05b2798de2ab980fc053ae231d8893c80d5bb75ecc9ba507b5e4c3a7594c"
+    },
+    {
+      "path": "evidence/a/anastasiou-2014-antikythera-metonic-pointer.pdf.cache.json",
+      "sha256": "dbccba5b2f3b905af8bbe4655709011ab548e61a53e6711e9fd266c58d59d87f"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "anastasiou-2014-antikythera-metonic-pointer",
+      "url": "https://ri.conicet.gov.ar/server/api/core/bitstreams/e2734e93-69ed-4770-8e7e-020ba41c17b8/content",
+      "path": "evidence/a/anastasiou-2014-antikythera-metonic-pointer.pdf",
+      "sha256": "841a1dd91b14e6ba34a8397583833d4f6aca4f307e487f1aaa79ef8f44782fbc",
+      "availability": "Local cached full text read; web fetch restricted.",
+      "locators": "pp. 1–6, figs. 1, 3–6",
+      "independence": "Primary study of same object, shared author with Freeth; not independent artifact or fully independent research lineage."
+    },
+    {
+      "source": "jones-2020-antikythera-epoch",
+      "path": "evidence/j/jones-2020-antikythera-epoch.pdf",
+      "sha256": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12",
+      "availability": "Local full text read",
+      "locators": "§§1–2, pp. 1–4",
+      "independence": "Distinct scholarly interpretation with physical and inscription evidence; same instrument and shares research lineage, not independent artifact."
+    },
+    {
+      "source": "freeth-2006-decoding-ancient-greek",
+      "path": "evidence/f/freeth-2006-decoding-ancient-greek.txt",
+      "availability": "Saved abstract excerpt; full article web fetch failed in reviewer session",
+      "locators": "Abstract",
+      "independence": "Same instrument and shared authors with Anastasiou."
+    },
+    {
+      "source": "iversen-jones-2019-antikythera-eclipse-round1",
+      "path": "evidence/i/iversen-jones-2019-antikythera-eclipse-round1.txt",
+      "availability": "Saved excerpt, Section 1; full article not independently retrieved",
+      "locators": "Section 1",
+      "independence": "Same artifact; Jones also authors 2020 paper."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "summary",
+      "decision": "accept",
+      "rationale": "Jones §1 describes chiefly bronze fragments and gearwork; Anastasiou §1 documents the device and spirals. Greek and craftsmanship are supported at this level.",
+      "sources": [
+        "jones-2020-antikythera-epoch §1",
+        "anastasiou-2014-antikythera-metonic-pointer §1"
+      ]
+    },
+    {
+      "path": "description",
+      "decision": "accept",
+      "rationale": "The changed attribution correctly characterizes Freeth’s stated construction estimate, not a firm date; Jones §1 discusses substantially broader limits. Other clauses unchanged from baseline.",
+      "sources": [
+        "freeth-2006-decoding-ancient-greek Abstract",
+        "jones-2020-antikythera-epoch §1"
+      ]
+    },
+    {
+      "path": "events[archaeological-evidence-100bce].date",
+      "decision": "accept",
+      "rationale": "Jones §1 says letter forms permit about 225 BCE to just before the wreck and estimates the wreck at 60 ± 10 BCE from coins and pottery. The revised approximate range uses the later end of that probable wreck estimate, explicitly discloses this derivation, and does not present it as a certain hard cutoff. Freeth’s late-second-century construction estimate remains attributed in the event. Jones also notes dates over 20 years from 60 BCE are rather unlikely, not impossible; the range remains approximate.",
+      "sources": [
+        "freeth-2006-decoding-ancient-greek Abstract",
+        "jones-2020-antikythera-epoch §1"
+      ]
+    },
+    {
+      "path": "events[archaeological-evidence-100bce].statement",
+      "decision": "accept",
+      "extends": "toothed-gearing-in-the-hellenistic-greek-world:archaeological-evidence-100bce",
+      "rationale": "Freeth estimates end second century; Jones dates are uncertain. Anastasiou §1 and Jones §2 identify 235 lunar months, 19 years, five turns, Fragment B and the inscription. Anastasiou §§1–2.2 identifies preserved pointer and pin, reconstructs sliding hub, and reports last gear missing. Iversen/Jones §1 identifies the 223-month eclipse scale and one-third survival. Reconstruction is attributed and not confused with observed intact mounting.",
+      "sources": [
+        "freeth-2006-decoding-ancient-greek Abstract",
+        "jones-2020-antikythera-epoch §§1–2",
+        "anastasiou-2014-antikythera-metonic-pointer §§1–2.2",
+        "iversen-jones-2019-antikythera-eclipse-round1 §1"
+      ]
+    },
+    {
+      "path": "events[archaeological-evidence-100bce].evidence",
+      "decision": "accept",
+      "rationale": "New citations and locators identify relevant original arguments and differentiate missing gear, reconstruction and physical fragments; source metadata and saved evidence checksum match.",
+      "sources": [
+        "jones-2020-antikythera-epoch §§1–2",
+        "anastasiou-2014-antikythera-metonic-pointer §§1–2.2"
+      ]
+    },
+    {
+      "path": "research.unresolved",
+      "decision": "accept",
+      "rationale": "Date question follows Jones §1 on insecure paleographic comparanda and difference between epoch and manufacture. Missing-drive question follows Anastasiou §1 and §2.1; this is an explicit question, not an established new connection.",
+      "sources": [
+        "jones-2020-antikythera-epoch §1",
+        "anastasiou-2014-antikythera-metonic-pointer §§1–2.1"
+      ]
+    },
+    {
+      "path": "links[observational-and-mathematical-astronomy-in-babylonia]",
+      "decision": "unchanged_candidate",
+      "rationale": "Existing link and endpoint inspected. The 223-month correspondence does not establish direction or route to this particular instrument; remain candidate, not established history. No new consequential relation proposed; independent corroboration of this specific connection is absent.",
+      "sources": [
+        "iversen-jones-2019-antikythera-eclipse-round1 §1"
+      ]
+    }
+  ],
+  "duplicate_screen": {
+    "decision": "extension",
+    "rationale": "Baseline existing gearing record has the same artifact and archaeological event. Metonic calendar and pointer add supported detail to that event, not a new record. Search of discovery records for Antikythera and Metonic yielded that record; broad gearing remains distinct from particular display."
+  },
+  "issues": [],
+  "unknowns": [
+    "The specific drive train and final gear remain missing.",
+    "No established route from Babylonian astronomy to this particular instrument was demonstrated.",
+    "Full Freeth article and full Iversen/Jones paper were not independently retrieved in this review; saved cited excerpts were available.",
+    "The 50 BCE end is the later end of the probable wreck range, not an absolute latest possible wreck or construction date."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 902 discoveries, 1496 events, 237 links; no problems found"
+  },
+  "history": [
+    {
+      "status": "superseded",
+      "review": {
+        "schema_version": 1,
+        "lane": "antiquity",
+        "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+        "worker_commit": "fe2d3ec4daeaba0c9ed74b9fc5568ef378377ffa",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "independent review antiquity",
+          "independence": "Separate execution from researcher gpt-6.2-sol high."
+        },
+        "overall_decision": "changes_requested",
+        "files": [
+          {
+            "path": "data/discoveries/machines/toothed-gearing-in-the-hellenistic-greek-world.json",
+            "sha256": "cfd6b45b70225d28faa43c68edac963559f700030f2ed419f42006e2b984bdea"
+          },
+          {
+            "path": "data/sources/a/anastasiou-2014-antikythera-metonic-pointer.json",
+            "sha256": "65715911bfd42070c9f4905df88a9173457b7f4f9bf79a624218b9f5a88143a0"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-all-eras/lanes/antiquity.md",
+            "sha256": "717e05b2798de2ab980fc053ae231d8893c80d5bb75ecc9ba507b5e4c3a7594c"
+          },
+          {
+            "path": "evidence/a/anastasiou-2014-antikythera-metonic-pointer.pdf.cache.json",
+            "sha256": "dbccba5b2f3b905af8bbe4655709011ab548e61a53e6711e9fd266c58d59d87f"
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "anastasiou-2014-antikythera-metonic-pointer",
+            "url": "https://ri.conicet.gov.ar/server/api/core/bitstreams/e2734e93-69ed-4770-8e7e-020ba41c17b8/content",
+            "path": "evidence/a/anastasiou-2014-antikythera-metonic-pointer.pdf",
+            "sha256": "841a1dd91b14e6ba34a8397583833d4f6aca4f307e487f1aaa79ef8f44782fbc",
+            "availability": "Local cached full text read; web fetch restricted.",
+            "locators": "pp. 1–6, figs. 1, 3–6",
+            "independence": "Primary study of same object, shared author with Freeth; not independent artifact or fully independent research lineage."
+          },
+          {
+            "source": "jones-2020-antikythera-epoch",
+            "path": "evidence/j/jones-2020-antikythera-epoch.pdf",
+            "sha256": "38c6bcfa02848966c732b46e6d45ac892c4e63ea1a83467d963bccd9b0af0a12",
+            "availability": "Local full text read",
+            "locators": "§§1–2, pp. 1–4",
+            "independence": "Distinct scholarly interpretation with physical and inscription evidence; same instrument and shares research lineage, not independent artifact."
+          },
+          {
+            "source": "freeth-2006-decoding-ancient-greek",
+            "path": "evidence/f/freeth-2006-decoding-ancient-greek.txt",
+            "availability": "Saved abstract excerpt; full article web fetch failed in reviewer session",
+            "locators": "Abstract",
+            "independence": "Same instrument and shared authors with Anastasiou."
+          },
+          {
+            "source": "iversen-jones-2019-antikythera-eclipse-round1",
+            "path": "evidence/i/iversen-jones-2019-antikythera-eclipse-round1.txt",
+            "availability": "Saved excerpt, Section 1; full article not independently retrieved",
+            "locators": "Section 1",
+            "independence": "Same artifact; Jones also authors 2020 paper."
+          }
+        ],
+        "claim_reviews": [
+          {
+            "path": "summary",
+            "decision": "accept",
+            "rationale": "Jones §1 describes chiefly bronze fragments and gearwork; Anastasiou §1 documents the device and spirals. Greek and craftsmanship are supported at this level.",
+            "sources": [
+              "jones-2020-antikythera-epoch §1",
+              "anastasiou-2014-antikythera-metonic-pointer §1"
+            ]
+          },
+          {
+            "path": "description",
+            "decision": "accept",
+            "rationale": "The changed attribution correctly characterizes Freeth’s stated construction estimate, not a firm date; Jones §1 discusses substantially broader limits. Other clauses unchanged from baseline.",
+            "sources": [
+              "freeth-2006-decoding-ancient-greek Abstract",
+              "jones-2020-antikythera-epoch §1"
+            ]
+          },
+          {
+            "path": "events[archaeological-evidence-100bce].date",
+            "decision": "accept",
+            "rationale": "Jones §1 says letter forms permit about 225 BCE to just before the wreck and estimates the wreck at 60 ± 10 BCE from coins and pottery. The revised approximate range uses the later end of that probable wreck estimate, explicitly discloses this derivation, and does not present it as a certain hard cutoff. Freeth’s late-second-century construction estimate remains attributed in the event. Jones also notes dates over 20 years from 60 BCE are rather unlikely, not impossible; the range remains approximate.",
+            "sources": [
+              "freeth-2006-decoding-ancient-greek Abstract",
+              "jones-2020-antikythera-epoch §1"
+            ]
+          },
+          {
+            "path": "events[archaeological-evidence-100bce].statement",
+            "decision": "accept",
+            "extends": "toothed-gearing-in-the-hellenistic-greek-world:archaeological-evidence-100bce",
+            "rationale": "Freeth estimates end second century; Jones dates are uncertain. Anastasiou §1 and Jones §2 identify 235 lunar months, 19 years, five turns, Fragment B and the inscription. Anastasiou §§1–2.2 identifies preserved pointer and pin, reconstructs sliding hub, and reports last gear missing. Iversen/Jones §1 identifies the 223-month eclipse scale and one-third survival. Reconstruction is attributed and not confused with observed intact mounting.",
+            "sources": [
+              "freeth-2006-decoding-ancient-greek Abstract",
+              "jones-2020-antikythera-epoch §§1–2",
+              "anastasiou-2014-antikythera-metonic-pointer §§1–2.2",
+              "iversen-jones-2019-antikythera-eclipse-round1 §1"
+            ]
+          },
+          {
+            "path": "events[archaeological-evidence-100bce].evidence",
+            "decision": "accept",
+            "rationale": "New citations and locators identify relevant original arguments and differentiate missing gear, reconstruction and physical fragments; source metadata and saved evidence checksum match.",
+            "sources": [
+              "jones-2020-antikythera-epoch §§1–2",
+              "anastasiou-2014-antikythera-metonic-pointer §§1–2.2"
+            ]
+          },
+          {
+            "path": "research.unresolved",
+            "decision": "accept",
+            "rationale": "Date question follows Jones §1 on insecure paleographic comparanda and difference between epoch and manufacture. Missing-drive question follows Anastasiou §1 and §2.1; this is an explicit question, not an established new connection.",
+            "sources": [
+              "jones-2020-antikythera-epoch §1",
+              "anastasiou-2014-antikythera-metonic-pointer §§1–2.1"
+            ]
+          },
+          {
+            "path": "links[observational-and-mathematical-astronomy-in-babylonia]",
+            "decision": "unchanged_candidate",
+            "rationale": "Existing link and endpoint inspected. The 223-month correspondence does not establish direction or route to this particular instrument; remain candidate, not established history. No new consequential relation proposed; independent corroboration of this specific connection is absent.",
+            "sources": [
+              "iversen-jones-2019-antikythera-eclipse-round1 §1"
+            ]
+          }
+        ],
+        "duplicate_screen": {
+          "decision": "extension",
+          "rationale": "Baseline existing gearing record has the same artifact and archaeological event. Metonic calendar and pointer add supported detail to that event, not a new record. Search of discovery records for Antikythera and Metonic yielded that record; broad gearing remains distinct from particular display."
+        },
+        "issues": [
+          {
+            "severity": "required",
+            "path": "events[archaeological-evidence-100bce].date",
+            "repair": "Represent the acknowledged wider construction uncertainty in structured bounds and label, with source-aware approximation and provenance. Keep Freeth’s late-second-century estimate as an attributed estimate. Jones gives c. 225 BCE to just before wreck, and probable wreck c. 60 ± 10 BCE; choose bounds conservatively and explain their derivation rather than invent a hard manufacture cutoff."
+          }
+        ],
+        "unknowns": [
+          "The specific drive train and final gear remain missing.",
+          "No established route from Babylonian astronomy to this particular instrument was demonstrated.",
+          "Full Freeth article and full Iversen/Jones paper were not independently retrieved in this review; saved cited excerpts were available.",
+          "The 50 BCE end is the later end of the probable wreck range, not an absolute latest possible wreck or construction date."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py",
+          "result": "passed: 902 discoveries, 1496 events, 237 links; no problems found"
+        }
+      }
+    }
+  ]
+}

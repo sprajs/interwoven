@@ -1,7 +1,7 @@
 {
   "id": "marshallese-wave-navigation-chart",
-  "name": "Marshallese navigation teaching chart",
-  "description": "A Marshallese chart represents relationships among ocean swell and islands for pre-voyage instruction.",
+  "name": "Marshallese navigation chart (Smithsonian E432083-0)",
+  "description": "Smithsonian specimen E432083-0 is a Marshallese diagram made of tied sticks and cowrie shells. The museum interprets it as a representation of swells and islands for instruction before a voyage.",
   "kind": "technology",
   "domain": "transport.navigation",
   "tier": 3,
@@ -9,7 +9,7 @@
     "reach": 0,
     "depth": 0,
     "generativity": 0,
-    "note": "One collected teaching chart among many from one island community; a witness to swell navigation with nothing known to rest on it."
+    "note": "One collected specimen of a Marshallese navigation chart."
   },
   "grain": "instance",
   "concept": "wave-navigation-teaching-chart",
@@ -22,7 +22,7 @@
   "events": [
     {
       "id": "collection-1940-1959",
-      "type": "archaeological_evidence",
+      "type": "dated_assertion",
       "date": {
         "earliest": {
           "year": 1940
@@ -35,22 +35,23 @@
         "label": "collected 1940–1959",
         "basis": "Museum supplies a collection date range, not the chart creation date."
       },
-      "statement": "A Marshallese navigation teaching chart was collected between 1940 and 1959.",
-      "caveats": "Collection is not evidence that this particular chart originated in that period or was taken to sea.",
+      "statement": "The Smithsonian catalog gives a collection range of 1940–1959 for Marshallese chart E432083-0.",
+      "caveats": "The museum identifies a collection date range. The manufacture date and the maker or users of the specimen remain unknown.",
       "evidence": [
         {
           "source": "smithsonian-nd-marshallese-chart",
-          "locator": "Collection date and object notes",
-          "supports": "Museum gives this collection range and describes chart functions."
+          "locator": "USNM E432083-0, Collection Date and Notes",
+          "supports": "Identifies the specimen, dates its collection and gives the museum's interpretation of its intended function."
         }
-      ]
+      ],
+      "type_provisional": true
     }
   ],
   "earliest_record": {
     "event": "collection-1940-1959",
-    "rationale": "Earliest event sourced for this particular record; not a claim of global origin."
+    "rationale": "The collection range is the earliest dated evidence located for this specimen."
   },
-  "caveats": "The chart is a teaching representation, not a real-time navigation device. The date is collection date, not invention or origin of Marshallese wayfinding.",
+  "caveats": "The catalog supplies a proposed instructional function and a collection range for this specimen. Its original owner, chart class and use history are unresolved.",
   "research": {
     "status": "draft",
     "basis": {
@@ -58,10 +59,16 @@
       "grain": "recalled",
       "concept": "recalled",
       "places": "sourced",
-      "events": "reviewed",
+      "events": "sourced",
       "tier": "recalled",
       "impact": "recalled"
     },
-    "note": "Initial sourced admission; classification and interpretations await independent review. Independent reader checked event dates, attribution and statements against cited passages; measures only where marked. Event classifications and other facets retain their prior status."
-  }
+    "note": "The earlier independent check concerned the collection date. The revised event wording, classification and interpretation await independent review."
+  },
+  "witnesses": [
+    {
+      "event": "collection-1940-1959",
+      "limitation": "This specimen documents the form of one chart. Its recorded collection range leaves the origin of the practice open."
+    }
+  ]
 }

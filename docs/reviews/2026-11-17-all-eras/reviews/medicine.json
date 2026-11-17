@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "lane": "medicine",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "de01355bc8bb07f3e6ddb2645567ab36ca613242",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent admission review",
+    "independence": "Separate from researcher gpt-6.2-sol high; read original publications and matched record independently."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json",
+      "sha256": "46e8d65cdb69e1dab8e2cb8da8a1acc88237b13e6f248953f539a59e2c96337a"
+    },
+    {
+      "path": "data/sources/c/clark-1820-medical-notes-on-climate.json",
+      "sha256": "fdace6ea03acd55a3b2f2fc4871634faf04f9ef7ea9321496a6edf631f6a7ee1"
+    },
+    {
+      "path": "data/sources/d/dubois-1996-laennec-necker-case-notes.json",
+      "sha256": "703d1d757f0ffbdbb9b9ade904eb9cbd5d835483b710526558231a4a7394c8f2"
+    },
+    {
+      "path": "data/sources/l/laennec-1819-auscultation-mediate-volume-1.json",
+      "sha256": "8019ba058b8de34bf2b12ee9b6a0658dc43a31839b4a34a086bf6c872001eda9"
+    },
+    {
+      "path": "data/sources/m/medico-chirurgical-journal-1820-laennec-review.json",
+      "sha256": "ef04a751988b73895998bae0f16846ca7754f9446f9ee940a96d8b91dd68bd9c"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/medicine.md",
+      "sha256": "f60b2939b7ebc0ce04b170ea40c2f4eec26dc7d8bc7eb7d165933fb973e885eb"
+    },
+    {
+      "path": "evidence/c/clark-1820-medical-notes-on-climate-notes.txt",
+      "sha256": "6e58a8213d25a7d5c3a2b380c88b699acbe85342d679d0c8cc39018db2e6e6cc"
+    },
+    {
+      "path": "evidence/d/dubois-1996-laennec-necker-case-notes-notes.txt",
+      "sha256": "f622215a2fb9910820e9a6c18446d4c359c81221be3d1f013d926b75a84b5562"
+    },
+    {
+      "path": "evidence/l/laennec-1819-auscultation-mediate-volume-1-notes.txt",
+      "sha256": "d49e299129353e0a53797fe1c91e781c7374d4c2c9bc2b126c425e64e5f33713"
+    },
+    {
+      "path": "evidence/m/medico-chirurgical-journal-1820-laennec-review-notes.txt",
+      "sha256": "d592feb10c1388377036446a9aa553969c3d855ab5d21b59ee6e1bf9c11b6aed"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "laennec-1819-auscultation-mediate-volume-1",
+      "url": "https://archive.org/download/delauscultationm01laen/delauscultationm01laen.pdf",
+      "locator": "title; introduction §§7–13; Observation III pp. 72–75; plate I",
+      "sha256": "b796926a53f162882f2e273af73a64449b936cbaaf8f52fe56513f73664088fd",
+      "availability": "Full scan downloaded and Observation III read; §§7–13 also read at https://www.bibnum.education.fr/sites/default/files/Laennec-texte.pdf.",
+      "independence": "Laennec’s retrospective first-person account; publication is not independent corroboration of his own case."
+    },
+    {
+      "source": "dubois-1996-laennec-necker-case-notes",
+      "url": "https://numerabilis.u-paris.fr/ressources/pdf/sfhm/hsm/HSMx1996x030x002/HSMx1996x030x002x0221.pdf",
+      "locator": "pp. 221–222",
+      "sha256": "ff1dee88f518967c793682990ab08b43b3278152c2c55c72ac48249be958902d",
+      "availability": "Read PDF text online; hash reported in saved notes, not separately recomputed.",
+      "independence": "Analysis of a separate set of intern manuscripts; distinct December case supports service practice, not the specific day or attribution of Observation III. Manuscripts themselves not inspected."
+    },
+    {
+      "source": "medico-chirurgical-journal-1820-laennec-review",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5582732/supplementaryFiles",
+      "locator": "pp. 461, 494 footnote",
+      "sha256": "83dab3c14df6af220fa4551d78655bbf1b1d7e7f4b6f1a1071bbaca96a419202",
+      "availability": "Read scans from Europe PMC; hash is p. 494 image. p. 461 image hash ac02d7b436db802162f244dd38ef429edb0698df12c86e01ca790c0f714332ed.",
+      "independence": "First-person editor account of procurement and local arrangement; review of Laennec’s book is derivative. Clark reports a separate gift, not independent confirmation that this particular acquisition took place."
+    },
+    {
+      "source": "clark-1820-medical-notes-on-climate",
+      "url": "https://archive.org/download/medicalnotesoncl00clar/medicalnotesoncl00clar.pdf",
+      "locator": "p. 158 footnote",
+      "sha256": "0798c24b44a336288ae7b30d360320f674fece186c731ee544344dcc1eba6b84",
+      "availability": "Downloaded scan and read passage.",
+      "independence": "Clark’s own gift account; recipient’s clinical use is second-hand. Identity and overlap with editor unknown."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#extends",
+      "decision": "accept",
+      "rationale": "The existing record already combines Laennec’s device and mediate auscultation. Its original events were 1819 publication and Forbes 1822 practice; neither the 1817 bedside examination nor the 1820 London transfer is represented in the event array.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "dubois-1996-laennec-necker-case-notes",
+        "medico-chirurgical-journal-1820-laennec-review"
+      ],
+      "extends": "laennec-monaural-stethoscope-and-mediate-auscultation"
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#summary",
+      "decision": "accept",
+      "rationale": "Laennec describes the December examination and 1819 wooden design; the journal footnote reports procurement from Paris and engagement of a London maker.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "medico-chirurgical-journal-1820-laennec-review"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#description",
+      "decision": "accept",
+      "rationale": "The introduction describes the paper roll and later bored wooden cylinder; Dubois pp. 221–222 documents repeated clinical observations compared with autopsy in the Necker service.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "dubois-1996-laennec-necker-case-notes"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#places/london",
+      "decision": "accept",
+      "rationale": "The editor identifies Piccadilly and London for the arrangement.",
+      "sources": [
+        "medico-chirurgical-journal-1820-laennec-review"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#events/necker-practical-use-1817",
+      "decision": "accept",
+      "rationale": "Observation III dates admission 19 December and examination the next day; cylinder was used to assess both pulmonary and cardiac sounds in diagnostic reasoning. The case does not specify its material. Dubois supports separate December service use, not this day.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "dubois-1996-laennec-necker-case-notes"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#events/publication-1819",
+      "decision": "accept",
+      "rationale": "The title and imprint establish Paris 1819; §§11–13 describe wooden apparatus and refer to plate I. The event remains publication rather than invention or proof of readership.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#events/paris-london-transmission-by-1820",
+      "decision": "accept",
+      "rationale": "The January 1820 journal footnote states that the editor procured cylinders from Paris and engaged Alnutt in Piccadilly to make them, at four shillings. This bounds the reported transfer and arrangement, not manufacture volume or actual purchases.",
+      "sources": [
+        "medico-chirurgical-journal-1820-laennec-review"
+      ],
+      "relation": {
+        "type": "event transmission, not a graph link",
+        "direction": "Paris to London",
+        "context": "editor’s acquisition of cylinders and local manufacturing arrangement",
+        "status": "established as the editor’s contemporary report, scoped to that transfer",
+        "independent_corroboration": "No independent corroboration of this specific transaction; Clark’s gift has an unnamed recipient and cannot be equated. No general diffusion or consequential causal link is asserted."
+      }
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#events/paris-london-transmission-by-1820/contributions",
+      "decision": "accept",
+      "rationale": "The editor reports acquisition and engagement; Alnutt is the maker named in the offer. The record does not assert actual completed sales.",
+      "sources": [
+        "medico-chirurgical-journal-1820-laennec-review"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#earliest_record",
+      "decision": "accept",
+      "rationale": "This dated case precedes the other retained events; the 1816 paper-roll episode is earlier in Laennec’s account and is explicitly acknowledged, not denied. The 1817 cylinder construction is unspecified.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#community_entry",
+      "decision": "accept",
+      "rationale": "A patient examination in the service is direct evidence of use there; Dubois identifies a different intern-recorded case in December. The basis does not claim widespread uptake.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "dubois-1996-laennec-necker-case-notes"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#caveats",
+      "decision": "accept",
+      "rationale": "Distinguishes the dated case, published design, and reported transfer without inferring sales or date of invention.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "medico-chirurgical-journal-1820-laennec-review"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#research/status,basis,note",
+      "decision": "accept",
+      "rationale": "Sourced classification and notes identify primary and distinct manuscript lineages; changing prior event status to sourced avoids claiming this proposal was already reviewed. Other baseline basis entries are not reapproved.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "dubois-1996-laennec-necker-case-notes",
+        "medico-chirurgical-journal-1820-laennec-review",
+        "clark-1820-medical-notes-on-climate"
+      ]
+    },
+    {
+      "path": "data/discoveries/health/laennec-monaural-stethoscope-and-mediate-auscultation.json#research/unresolved",
+      "decision": "accept",
+      "rationale": "Clark names no recipient; the editor names no supplier. Their accounts do not establish a shared transfer or recipient identity.",
+      "sources": [
+        "clark-1820-medical-notes-on-climate",
+        "medico-chirurgical-journal-1820-laennec-review"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/medicine.md",
+      "decision": "accept",
+      "rationale": "Research note properly distinguishes documentary stages, source lineage and unresolved recipient; proposal is not an admission.",
+      "sources": [
+        "laennec-1819-auscultation-mediate-volume-1",
+        "dubois-1996-laennec-necker-case-notes",
+        "medico-chirurgical-journal-1820-laennec-review",
+        "clark-1820-medical-notes-on-climate"
+      ]
+    }
+  ],
+  "duplicate_screen": {
+    "decision": "extension",
+    "target": "laennec-monaural-stethoscope-and-mediate-auscultation",
+    "method": "Compared fixed base record and event array, searched discovery files and leads for stethoscope, mediate auscultation and Laennec.",
+    "result": "Only this discovery matched those terms. No duplicate event: original publication 1819 and Forbes practical use 1822 differ from Necker 1817 and London 1820. No new discovery or graph link."
+  },
+  "issues": [],
+  "unknowns": [
+    "Whether Clark’s unnamed recipient was the journal editor and whether the transfers overlap.",
+    "Material of the cylinder in Observation III and precise dates of the London transfer and maker’s output.",
+    "Original intern manuscripts not inspected; Dubois is an independent published analysis of them.",
+    "The retrospective 1816 trial is not itself added as a dated event; its date and uncertainty remain explicit in earliest-record rationale."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 902 discoveries, 1498 events, 237 links, 1626 sources; No problems found.",
+    "diff_check": "git diff --check passed for base to worker commit"
+  },
+  "history": []
+}

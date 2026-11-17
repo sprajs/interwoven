@@ -1,7 +1,7 @@
 {
   "id": "gesher-fish-cooking-inference",
   "name": "Gesher Benot Ya‘aqov inferred fish cooking",
-  "description": "Researchers interpret heat-altered fish remains associated with burned artifacts as evidence that hominins cooked freshwater fish.",
+  "description": "Zohar and colleagues interpreted freshwater fish teeth, some with evidence of moderate heating, and their distribution near burnt flint concentrations at Gesher Benot Ya‘aqov as evidence that hominins cooked fish.",
   "kind": "practice",
   "domain": "food.cooking",
   "tier": 2,
@@ -28,15 +28,20 @@
         "label": "About 780,000 years ago",
         "basis": "Approximate reported site age; calendar position is approximate at this resolution."
       },
-      "statement": "Researchers interpret heat-altered fish remains associated with burned artifacts as evidence that hominins cooked freshwater fish.",
+      "statement": "In eight Area B occupation horizons in Layer II-6 (levels 1–7, including 4b), fish remains consist predominantly of pharyngeal teeth and overlap spatially with burnt flint concentrations. X-ray diffraction on selected teeth yielded patterns consistent with moderate heating in some specimens. Zohar and colleagues inferred that hominins cooked fish at the lakeside site.",
       "evidence": [
         {
           "source": "zohar-2022-gesher-fish-cooking",
-          "locator": "University repository abstract",
-          "supports": "At about 780,000 years ago, fish teeth associated with burned artifacts and heat alteration are interpreted as cooking; the interpretation and temperature reconstruction are indirect."
+          "locator": "Abstract, Results and Fig. 1",
+          "supports": "The eight Area B occupation horizons at the site dated to about 0.78 million years ago preserve abundant fish teeth and few fish bones, unlike the natural-death comparison in Area A."
+        },
+        {
+          "source": "zohar-2022-gesher-fish-cooking",
+          "locator": "Figs. 4–5 and Supplementary Texts D–E",
+          "supports": "Tooth mineral comparisons support moderate heating for some sampled teeth. The density maps compare clusters of fish remains and burnt flint in the same occupation horizons."
         }
       ],
-      "caveats": "Cooking and intentional heating are indirect interpretations of an archaeological assemblage; only the university-hosted abstract was accessible. This is not a claim about the global origin of cooking.",
+      "caveats": "Intentional cooking is inferred from the pattern of remains and experimental comparisons. The measurements cannot identify a cooking apparatus or technique.",
       "places": [
         "israel"
       ]
@@ -46,24 +51,51 @@
     "event": "documented-evidence",
     "rationale": "Date of the supported scoped case; no global priority is implied."
   },
-  "caveats": "Cooking and intentional heating are indirect interpretations of an archaeological assemblage; only the university-hosted abstract was accessible. This is not a claim about the global origin of cooking.",
+  "caveats": "The study infers cooking in these deposits. The age is an approximate site age and the method of cooking remains unresolved.",
   "research": {
     "status": "draft",
     "basis": {
       "domain": "sourced",
       "grain": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "places": "reviewed",
       "concept": "reviewed",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     },
-    "note": "Independent review checked the cited passages for the facets marked reviewed; archaeological interpretation and source-specific limitations remain as stated."
+    "note": "The full-article passages and supplementary data refine the earlier abstract-based account. The process link records an open question about the source of heat."
   },
   "places": [
     {
       "place": "israel"
     }
   ],
-  "concept": "cooking-food"
+  "concept": "cooking-food",
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "gesher-recurrent-fire-use",
+      "from_event": "fire-traces",
+      "to_event": "documented-evidence",
+      "status": "candidate",
+      "statement": "Did hominins use the recurring fires identified in Area B to cook fish?",
+      "scope": "Gesher Benot Ya‘aqov, Area B Layer II-6 levels 1–7, including 4b.",
+      "finding": "The studies examine the same eight horizons and share the burnt-flint evidence. Some tested teeth show changes consistent with moderate heating, and the published density maps place fish remains near likely hearths.",
+      "alternatives": "Later heating of fish refuse near a fire could produce a spatial association. The fish study argues against direct disposal into a hot fire on the basis of the tooth measurements and scarcity of charred bone.",
+      "caveats": "The hotspot tests measure clustering within the fish assemblage. Spatial overlap with burnt flint is shown in density maps, often using finds recorded by excavation unit. A separate assessment of the thermal and spatial evidence for cooking is still needed.",
+      "evidence": [
+        {
+          "source": "alperson-afil-2008-gesher-fire-levels",
+          "locator": "Table 1, section 3 and Fig. 2",
+          "supports": "The eight horizons with burnt-flint clusters match the stratigraphic scope of the fish study."
+        },
+        {
+          "source": "zohar-2022-gesher-fish-cooking",
+          "locator": "Figs. 4–5, Discussion and Supplementary Text E",
+          "supports": "The authors infer cooking from the heating comparison and spatial overlap. They consider the alternative of consumption of raw or dried fish followed by disposal into a fire."
+        }
+      ]
+    }
+  ]
 }

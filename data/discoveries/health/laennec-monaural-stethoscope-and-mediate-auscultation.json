@@ -1,8 +1,8 @@
 {
   "id": "laennec-monaural-stethoscope-and-mediate-auscultation",
   "name": "Laennec monaural stethoscope and mediate auscultation",
-  "summary": "Laennec's wooden tube for listening to the chest, published in Paris in 1819, was being used by John Forbes in an English dispensary by 1822.",
-  "description": "Laennec’s monaural stethoscope used to listen to sounds of the chest for diagnosis by mediate auscultation.",
+  "summary": "Laennec used a listening cylinder at Hôpital Necker in 1817, published a wooden design in 1819, and by January 1820 the editor of a London medical journal had obtained cylinders from Paris and arranged for copies.",
+  "description": "Laennec’s method of listening to sounds of the chest through a cylinder for diagnosis. He described trying rolled paper before adopting a bored wooden instrument and developed the method through repeated bedside observations and comparison with autopsy findings at Hôpital Necker.",
   "kind": "technology",
   "domain": "health.diagnostics",
   "tier": 2,
@@ -28,6 +28,9 @@
     },
     {
       "place": "chichester"
+    },
+    {
+      "place": "london"
     }
   ],
   "people": [
@@ -53,6 +56,45 @@
   ],
   "events": [
     {
+      "id": "necker-practical-use-1817",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 1817,
+          "month": 12,
+          "day": 20
+        },
+        "latest": {
+          "year": 1817,
+          "month": 12,
+          "day": 20
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "20 December 1817",
+        "basis": "Laennec dates the admission to 19 December 1817 and says the cylinder examination took place the following day."
+      },
+      "statement": "At Hôpital Necker in Paris, Laennec listened to a patient’s lungs and heart through a cylinder and used what he heard in forming a diagnosis.",
+      "places": [
+        "paris"
+      ],
+      "scope": "One bedside examination in Laennec’s service at Hôpital Necker.",
+      "caveats": "The case report calls the instrument a cylinder without specifying its construction. The examination date refers to this case.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "laennec-1819-auscultation-mediate-volume-1",
+          "locator": "Volume I, Observation III, pp. 72–75",
+          "supports": "Laennec records that a patient admitted to Hôpital Necker on 19 December 1817 underwent cylinder examination the following day."
+        },
+        {
+          "source": "dubois-1996-laennec-necker-case-notes",
+          "locator": "Printed pp. 221–222, case-note sample from Fonds du Musée Laennec, folder I, lot b",
+          "supports": "A separate December 1817 case in notes kept by the Necker interns also documents mediate auscultation."
+        }
+      ]
+    },
+    {
       "id": "publication-1819",
       "type": "publication",
       "date": {
@@ -65,19 +107,80 @@
         "precision": "year",
         "status": "known",
         "label": "1819",
-        "basis": "Year of the first edition of Laennec’s treatise according to Nantes University Library."
+        "basis": "Paris imprint on the title page of volume I of the original edition."
       },
-      "statement": "Laennec’s treatise on mediate auscultation and chest diagnosis was published in Paris in 1819.",
+      "statement": "In Paris, Laennec published his method of mediate auscultation with a description and drawings of his wooden stethoscope.",
       "places": [
         "paris"
       ],
-      "caveats": "A publication is an awareness proxy; it does not prove any given reader read it, nor a first invention, sale or general adoption. The original 1819 scan was not obtained for this proposal.",
+      "caveats": "The treatise made the method available to readers. Its publication date measures access to the text.",
       "type_provisional": true,
       "evidence": [
+        {
+          "source": "laennec-1819-auscultation-mediate-volume-1",
+          "locator": "Volume I title page, §§11–13 (pp. 9–11), and plate I",
+          "supports": "The 1819 Paris edition describes the bored wooden cylinder, its joint, and its end fitting, and illustrates the instrument."
+        },
         {
           "source": "universitaire-2024-fonds-musee-laennec",
           "locator": "L’édition originale and the collection description",
           "supports": "Institutional library identifies the first edition and date and records a model stethoscope of 1819."
+        }
+      ]
+    },
+    {
+      "id": "paris-london-transmission-by-1820",
+      "type": "transmission",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 1820,
+          "month": 1
+        },
+        "precision": "month",
+        "status": "bounded",
+        "label": "By January 1820",
+        "basis": "The January 1820 review reports that the editor had already obtained the cylinders from Paris."
+      },
+      "statement": "By January 1820, the editor of London’s Medico-Chirurgical Journal had obtained stethoscopes from Paris and arranged for Mr. Alnutt in Piccadilly to make copies.",
+      "places": [
+        "london"
+      ],
+      "place_note": "The journal identifies Paris as the source of the instruments and Piccadilly as the site of local manufacture.",
+      "scope": "Physical transfer of Laennec-type cylinders to a journal editor and an arrangement to reproduce them locally.",
+      "caveats": "The journal gives an offer price and an upper bound for transfer. The specific supplier, transfer date, sales and scale of use remain unknown.",
+      "type_provisional": true,
+      "evidence": [
+        {
+          "source": "medico-chirurgical-journal-1820-laennec-review",
+          "locator": "January 1820 issue, printed p. 494 footnote",
+          "supports": "The editor reports obtaining cylinders from Paris and arranging for Mr. Alnutt in Piccadilly to make them at four shillings each."
+        }
+      ],
+      "contributions": [
+        {
+          "group": "Editor of the Medico-Chirurgical Journal",
+          "role": "contributor",
+          "resource": "Obtained Paris cylinders and arranged local reproduction.",
+          "evidence": [
+            {
+              "source": "medico-chirurgical-journal-1820-laennec-review",
+              "locator": "January 1820 issue, printed p. 494 footnote",
+              "supports": "The editor reports obtaining cylinders from Paris and arranging for Mr. Alnutt in Piccadilly to make them at four shillings each."
+            }
+          ]
+        },
+        {
+          "group": "Mr. Alnutt of Piccadilly",
+          "role": "manufacturer",
+          "resource": "Wooden cylinders offered at four shillings each.",
+          "evidence": [
+            {
+              "source": "medico-chirurgical-journal-1820-laennec-review",
+              "locator": "January 1820 issue, printed p. 494 footnote",
+              "supports": "The editor reports obtaining cylinders from Paris and arranging for Mr. Alnutt in Piccadilly to make them at four shillings each."
+            }
+          ]
         }
       ]
     },
@@ -142,21 +245,20 @@
     }
   ],
   "earliest_record": {
-    "event": "publication-1819",
-    "rationale": "Earliest defensible dated record of this scoped referent in the retained evidence; later community entry is recorded separately. Year of the first edition of Laennec’s treatise according to Nantes University Library. A publication is an awareness proxy; it does not prove any given reader read it, nor a first invention, sale or general adoption. The original 1819 scan was not obtained for this proposal. This is the earliest supported record currently established here, not certification of absolute priority."
+    "event": "necker-practical-use-1817",
+    "rationale": "Laennec’s 1819 treatise dates a clinical cylinder examination to 20 December 1817. The introduction reports an earlier, improvised trial with a paper roll in 1816. The form used in the December 1817 case is unspecified and the printed description attests the wooden design in 1819."
   },
   "community_entry": {
-    "event": "publication-1819",
-    "community": "Readers of Laennec’s 1819 medical treatise",
-    "basis": "public_awareness",
-    "strength": "awareness_proxy",
-    "rationale": "Earlier documented dissemination or use of the same broader configuration; later local cases remain separate events.",
-    "proxy_reason": "The 1819 medical treatise provides a route to public specialist awareness; actual readership and independent clinical uptake are unproven.",
-    "caveats": "A publication is an awareness proxy; it does not prove any given reader read it, nor a first invention, sale or general adoption. The original 1819 scan was not obtained for this proposal."
+    "event": "necker-practical-use-1817",
+    "community": "Laennec’s clinical service at Hôpital Necker in Paris",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "Laennec’s dated case shows use of the cylinder in a bedside examination. Independent reading of the service’s manuscript notes documents the method in another case that December.",
+    "caveats": "The dated case supports use in Laennec’s service. Uptake outside that service is evidenced separately."
   },
-  "caveats": "A publication is an awareness proxy; it does not prove any given reader read it, nor a first invention, sale or general adoption. The original 1819 scan was not obtained for this proposal.",
+  "caveats": "Three distinct stages have dates here. The 1817 case describes clinical use of a cylinder. The 1819 book publishes a specific wooden design. The January 1820 London review reports physical transfer and a local supplier.",
   "research": {
-    "status": "reviewed",
+    "status": "sourced",
     "basis": {
       "summary": "sourced",
       "domain": "sourced",
@@ -169,10 +271,28 @@
       "societies": "recalled",
       "known_from": "sourced",
       "fate": "recalled",
-      "events": "reviewed",
+      "events": "sourced",
       "impact": "recalled",
       "grain": "recalled"
     },
-    "note": "Broader configuration with local use retained as a later dated witness; historical anchor awaits independent review."
+    "note": "The first French edition is the primary source for the 1816 paper-roll trial and the December 1817 case. Dubois examined a separate manuscript corpus of Necker observations. The British publications and Forbes’s 1822 clinical use document distinct kinds of evidence.",
+    "unresolved": [
+      {
+        "about": "Recipient of the stethoscope Clark brought from Paris",
+        "note": "Clark’s footnote leaves the recipient unnamed. Read his correspondence with James Johnson and John Forbes to identify the recipient and establish whether the gift overlapped with the journal editor’s acquisition.",
+        "evidence": [
+          {
+            "source": "clark-1820-medical-notes-on-climate",
+            "locator": "Printed p. 158 footnote",
+            "supports": "The donor reports a gift to an unnamed English physician."
+          },
+          {
+            "source": "medico-chirurgical-journal-1820-laennec-review",
+            "locator": "Printed p. 494 footnote",
+            "supports": "The unnamed editor’s note reports acquiring cylinders from Paris without identifying a supplier."
+          }
+        ]
+      }
+    ]
   }
 }

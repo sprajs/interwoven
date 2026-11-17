@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "lane": "maize",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "9810f4aee8c86c3681dc0cdba83477a664e6c2ca",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "separate independent review execution",
+    "independence": "different agent execution from gpt-6.2-sol high researcher; no self-review"
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json",
+      "sha256": "ff83257a99ebe80fc0e348464b394945e8c57623e3150c0e3a5d0daa18d836f7"
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize.json",
+      "sha256": "c813762a0779375663c566de9de0cbbb9eefee8cbdc3d97d605c585166ffd6a3"
+    },
+    {
+      "path": "data/discoveries/food/domesticated-maize.json",
+      "sha256": "62413e59dbfb86406ad52eaf05ab87176af984fab0e6b5ed5611ea4a771eaafe"
+    },
+    {
+      "path": "data/sources/c/cagnato-2024-la-corona-maize.json",
+      "sha256": "6c1bea89d816ba0c665e7db3cc44ae47b0e2e0938026cd550d13450652ec54ba"
+    },
+    {
+      "path": "data/sources/m/matsuoka-2002-maize-domestication.json",
+      "sha256": "3739d9d1fb28dd09b651ec30c8e934821d1bd2587110b93092831c0c0b5dcd91"
+    },
+    {
+      "path": "data/sources/s/santini-2022-san-bartolo-maize.json",
+      "sha256": "9c586e9abb237dfe8b1f1d68cd802f95f293cc980c24f486c9a3960de6986dbc"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/maize.md",
+      "sha256": "776b7fce100e0e342f0670c6cc3e2041972a92647549a01e1416ba8423615960"
+    },
+    {
+      "path": "evidence/c/cagnato-2024-la-corona-maize-notes.txt",
+      "sha256": "c4714f0330fc5244a6831dfdea2e8051fb09bd33da03f353a6946662915531ac"
+    },
+    {
+      "path": "evidence/m/matsuoka-2002-maize-domestication.pdf.cache.json",
+      "sha256": "09bac6032ddb6f3d2ac0b2bba174f7aed42790f77bec5955fea345cb89772d0b"
+    },
+    {
+      "path": "evidence/s/santini-2022-san-bartolo-maize-notes.txt",
+      "sha256": "c0ceca5855f1ba9609937a248755016a20152d390a1aec079ae0ff9b4a15ec78"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "santini-2022-san-bartolo-maize",
+      "url": "https://www.academia.edu/87172475/Santini_etal_Nixtamalization_2022",
+      "locator": "§3; §§4.1, 5, 6.1–6.2; Figs. 5–11",
+      "availability": "Author rendering read, interleaved columns; PDF and supplement unavailable",
+      "saved_notes_sha256": "c0ceca5855f1ba9609937a248755016a20152d390a1aec079ae0ff9b4a15ec78",
+      "independence": "original site study, shares Marston and experimental diagnostic with Johnson"
+    },
+    {
+      "source": "johnson-2020-experimental-identification-nixtamalized",
+      "url": "https://www.bu.edu/archaeology/files/2019/12/Johnson.Marston.JAS_.11.20.19.pdf",
+      "locator": "§3; §§6–8",
+      "availability": "author PDF web rendering read; local PDF absent",
+      "expected_sha256": "be8a1544cf1e4636e35964a5486eddc5783e238da5df3aea4988f0f020672f7f",
+      "independence": "experimental controls inform identification, not independent archaeological corroboration; author shared with Santini"
+    },
+    {
+      "source": "cagnato-2024-la-corona-maize",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1040618224003549",
+      "locator": "abstract and conclusion preview",
+      "availability": "original article preview read, full context unavailable",
+      "saved_notes_sha256": "c4714f0330fc5244a6831dfdea2e8051fb09bd33da03f353a6946662915531ac",
+      "independence": "separate field team and assemblage, same experimental diagnostic; author and publisher pages same paper"
+    },
+    {
+      "source": "matsuoka-2002-maize-domestication",
+      "url": "https://www.panzea.org/files/publications/matsuoka-2002-2.pdf",
+      "locator": "pp. 6080–6083 Figs 1–2 and Cradle section",
+      "availability": "local original PDF read and hash verified",
+      "sha256": "c3146e42b262c237391f0d10f255f337aa0e026ecb70d549b0e27f911424a3e2",
+      "independence": "modern genetic sample comparison independent of excavations; no direct Xihuatoxtla sample"
+    },
+    {
+      "source": "piperno-2009-piperno-al-central",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2664021/",
+      "locator": "abstract; Table 1; Results",
+      "availability": "full original online article read",
+      "saved_abstract_sha256": "0659b7c7729850f74eebea8d06329439455da084dfe0defcfc20c062a0f47717",
+      "independence": "same excavation as Ranere, not independent corroboration"
+    },
+    {
+      "source": "ranere-2009-cultural-chronological-context",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2664064/",
+      "locator": "excavations, Fig. 4, discussion",
+      "availability": "full original online article read",
+      "saved_excerpt_sha256": "c129e18a6179c03efe5b981b46dcd2c3c96adf23e7ec655f2be3f9cdc924a040",
+      "independence": "companion excavation report to Piperno"
+    },
+    {
+      "source": "de-sahagun-1577-historia-general-cosas",
+      "url": "https://florentinecodex.getty.edu/en/book/4/folio/69r",
+      "locator": "English translation, embedded folio page data",
+      "availability": "saved digital edition HTML read; web rendering omits embedded translation",
+      "sha256": "e2cb47cebf35a9465a92fab1db56906948a789d0b4c07e191712f7ebfe7d106e",
+      "independence": "digital edition and translation of same historical manuscript, not an independent witness"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/id,name,aliases,summary,description,kind,domain,fields,grain",
+      "decision": "accept",
+      "rationale": "The two sealed pits in a Maya residential group contain spherulites interpreted as nixtamalized maize and probable discarded cooking liquid; this is a bounded local case and wording preserves interpretation.",
+      "sources": [
+        "santini-2022-san-bartolo-maize",
+        "johnson-2020-experimental-identification-nixtamalized"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/origin,caveats,research.unresolved,research.note",
+      "decision": "accept",
+      "rationale": "Technique acquisition, exact cooking place and transmission are not established; Cagnato separately reports La Corona spherulites but no direction or continuity. The revised note states that the residential deposits support an interpretation, while the exact preparation site remains unresolved.",
+      "sources": [
+        "santini-2022-san-bartolo-maize",
+        "cagnato-2024-la-corona-maize"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/setting,places,societies,known_from",
+      "decision": "accept",
+      "rationale": "Santini sections 2–5 locate the pits in Grupo Zacatal at San Bartolo and compare excavated material with modern experiments; country marker is qualified.",
+      "sources": [
+        "santini-2022-san-bartolo-maize",
+        "johnson-2020-experimental-identification-nixtamalized"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/events/0",
+      "decision": "accept",
+      "rationale": "Santini section 3 explicitly proposes c. 770–895 cal CE; charcoal has discontiguous wider ranges and floor stratigraphy constrains interpretation. Sections 5–6 compare morphology and one EDS particle; no exact date, recipe or cooking location is established.",
+      "sources": [
+        "santini-2022-san-bartolo-maize",
+        "johnson-2020-experimental-identification-nixtamalized"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/earliest_record/rationale",
+      "decision": "accept",
+      "rationale": "Revised rationale dates the deposits and qualifies discarded alkaline cooking liquid as likely; it explicitly leaves the preparation site unknown, consistent with Santini §§3, 6.1–6.2.",
+      "sources": [
+        "santini-2022-san-bartolo-maize"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/name,summary,description,events/0,earliest_record,community_entry,caveats",
+      "decision": "accept",
+      "rationale": "Getty folio translation describes older women washing lime-cooked grains among tamale and water tasks; 1577 is completion of the manuscript and a use-by bound, not a date for a particular feast or invention.",
+      "sources": [
+        "de-sahagun-1577-historia-general-cosas"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/places,people,societies,research.basis,research.note,research.unresolved,origin",
+      "decision": "accept",
+      "rationale": "Nahua authorship and Central Mexican setting are compatible with the source; no source establishes the origin, particular supply route or continuity with the separate Maya assemblages.",
+      "sources": [
+        "de-sahagun-1577-historia-general-cosas",
+        "santini-2022-san-bartolo-maize",
+        "cagnato-2024-la-corona-maize"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/grain,impact,tier,fate,research.unresolved",
+      "decision": "accept",
+      "rationale": "The Nahua witness is scoped as an instance. The inherited broad impact, tier and in_use fate have been removed; later history remains an explicit question. Getty folio provides the bounded historical witness.",
+      "sources": [
+        "de-sahagun-1577-historia-general-cosas",
+        "johnson-2020-experimental-identification-nixtamalized"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/links/0",
+      "decision": "accept",
+      "rationale": "Retain only as candidate question, directed from earlier Xihuatoxtla maize-use witness to later Nahua processing. The codex supplies the maize input and Piperno the earlier witness; Matsuoka gives broad sampled ancestry, not the specific lineage, route or transmission. No established causal or transmission edge is supported.",
+      "sources": [
+        "piperno-2009-piperno-al-central",
+        "matsuoka-2002-maize-domestication",
+        "de-sahagun-1577-historia-general-cosas",
+        "johnson-2020-experimental-identification-nixtamalized"
+      ],
+      "status": "candidate",
+      "relation": "possible crop material lineage",
+      "direction": "Xihuatoxtla witness to Nahua use",
+      "context": "distinct archaeological and textual witnesses",
+      "independent_corroboration": "Genetic sample analysis and archaeological excavation are independent evidence types but do not corroborate the specific historical connection.",
+      "established_history": false
+    },
+    {
+      "path": "data/discoveries/food/domesticated-maize.json#/summary,description,places",
+      "decision": "accept",
+      "rationale": "Piperno Table 1 and Ranere Fig. 4 report maize starch and cob phytoliths at Xihuatoxtla; Matsuoka Figs. 1–2 identifies sampled Balsas parviglumis as basal to maize. Its geographic inference rests on modern samples.",
+      "sources": [
+        "piperno-2009-piperno-al-central",
+        "ranere-2009-cultural-chronological-context",
+        "matsuoka-2002-maize-domestication"
+      ],
+      "extends": "domesticated-maize"
+    },
+    {
+      "path": "data/discoveries/food/domesticated-maize.json#/events/0",
+      "decision": "accept",
+      "rationale": "Ranere Fig. 4 shows handstones in the older layer and milling bases in D with maize starch. Discussion presents repeated small groups and probable seasonal movements as interpretation, not observation. Approximate 8700 cal BP known-by bound is sourced to Piperno.",
+      "sources": [
+        "piperno-2009-piperno-al-central",
+        "ranere-2009-cultural-chronological-context"
+      ],
+      "extends": "domesticated-maize"
+    },
+    {
+      "path": "data/discoveries/food/domesticated-maize.json#/events/1",
+      "decision": "accept",
+      "rationale": "Piperno Table 1 reports maize cob-type phytoliths on tools and sediments in D and E, and starch on tools; Ranere dates charcoal in D to 8990–8610 cal BP. The conversion uses the 1950 epoch and remains approximate.",
+      "sources": [
+        "piperno-2009-piperno-al-central",
+        "ranere-2009-cultural-chronological-context",
+        "matsuoka-2002-maize-domestication"
+      ],
+      "extends": "domesticated-maize"
+    },
+    {
+      "path": "data/discoveries/food/domesticated-maize.json#/earliest_record,community_entry,caveats,research",
+      "decision": "accept",
+      "rationale": "Dated context and lower undated residues support local known-by use, not onset of domestication or a later supply route. Two archaeological articles share the excavation; genetics is independent in method and population.",
+      "sources": [
+        "piperno-2009-piperno-al-central",
+        "ranere-2009-cultural-chronological-context",
+        "matsuoka-2002-maize-domestication"
+      ],
+      "extends": "domesticated-maize"
+    },
+    {
+      "path": "data/sources/* and evidence/* in files",
+      "decision": "accept",
+      "rationale": "Bibliographic metadata and attributable reading notes support the bounded uses above; source copies and mirrors are not independent publications. See source_checks for availability, hashes and limits.",
+      "sources": [
+        "santini-2022-san-bartolo-maize",
+        "johnson-2020-experimental-identification-nixtamalized",
+        "cagnato-2024-la-corona-maize",
+        "piperno-2009-piperno-al-central",
+        "ranere-2009-cultural-chronological-context",
+        "matsuoka-2002-maize-domestication",
+        "de-sahagun-1577-historia-general-cosas"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/maize.md",
+      "decision": "accept",
+      "rationale": "Lane note describes proposal and limitations; it is not independent evidence and its proposed conclusions remain subject to this review.",
+      "sources": [
+        "santini-2022-san-bartolo-maize",
+        "cagnato-2024-la-corona-maize",
+        "piperno-2009-piperno-al-central",
+        "ranere-2009-cultural-chronological-context",
+        "matsuoka-2002-maize-domestication",
+        "de-sahagun-1577-historia-general-cosas",
+        "johnson-2020-experimental-identification-nixtamalized"
+      ]
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Searched discovery records and leads for maize, nixtamalization, San Bartolo, Xihuatoxtla; compared changed records and events.",
+    "outcome": "San Bartolo is a distinct Maya archaeological instance from the Nahua manuscript attestation; domesticated maize extends its existing target and is not a new node. Existing two maize events are revisions, not new events."
+  },
+  "issues": [],
+  "unknowns": [
+    "Exact cooking location, recipe, origin and transmission at San Bartolo.",
+    "La Corona sample chronology and controls were not accessible in full.",
+    "Cultivation onset and later crop and technique transmission to Nahua.",
+    "San Bartolo contextual dating has tails beyond preferred interval."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass at revised commit: 903 discoveries, 1497 events, 237 links, 1625 sources; no problems found",
+    "diff_check": "pass"
+  },
+  "history": [
+    {
+      "superseded_worker_commit": "ff59cc20913a16057c4eb487667326d2ce3329b6",
+      "overall_decision": "changes_requested",
+      "review": {
+        "schema_version": 1,
+        "lane": "maize",
+        "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+        "worker_commit": "ff59cc20913a16057c4eb487667326d2ce3329b6",
+        "reviewer": {
+          "model": "gpt-6.1-terra",
+          "effort": "high",
+          "execution": "separate independent review execution",
+          "independence": "different agent execution from gpt-6.2-sol high researcher; no self-review"
+        },
+        "overall_decision": "changes_requested",
+        "files": [
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json",
+            "sha256": "6274b0fc7526f24526cccad17de23a2cc8562d157e9483400ab42bf4a21d3c03"
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize.json",
+            "sha256": "193d4daefeaa921d5b91aeee729ce336e8bf54a369c65d5de3e82ecad1352692"
+          },
+          {
+            "path": "data/discoveries/food/domesticated-maize.json",
+            "sha256": "62413e59dbfb86406ad52eaf05ab87176af984fab0e6b5ed5611ea4a771eaafe"
+          },
+          {
+            "path": "data/sources/c/cagnato-2024-la-corona-maize.json",
+            "sha256": "6c1bea89d816ba0c665e7db3cc44ae47b0e2e0938026cd550d13450652ec54ba"
+          },
+          {
+            "path": "data/sources/m/matsuoka-2002-maize-domestication.json",
+            "sha256": "3739d9d1fb28dd09b651ec30c8e934821d1bd2587110b93092831c0c0b5dcd91"
+          },
+          {
+            "path": "data/sources/s/santini-2022-san-bartolo-maize.json",
+            "sha256": "9c586e9abb237dfe8b1f1d68cd802f95f293cc980c24f486c9a3960de6986dbc"
+          },
+          {
+            "path": "docs/reviews/2026-11-17-all-eras/lanes/maize.md",
+            "sha256": "356a5b40146d1a4c49082df34b12c5c9301a2937bc15e715682581ec88fa82d5"
+          },
+          {
+            "path": "evidence/c/cagnato-2024-la-corona-maize-notes.txt",
+            "sha256": "c4714f0330fc5244a6831dfdea2e8051fb09bd33da03f353a6946662915531ac"
+          },
+          {
+            "path": "evidence/m/matsuoka-2002-maize-domestication.pdf.cache.json",
+            "sha256": "09bac6032ddb6f3d2ac0b2bba174f7aed42790f77bec5955fea345cb89772d0b"
+          },
+          {
+            "path": "evidence/s/santini-2022-san-bartolo-maize-notes.txt",
+            "sha256": "c0ceca5855f1ba9609937a248755016a20152d390a1aec079ae0ff9b4a15ec78"
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "santini-2022-san-bartolo-maize",
+            "url": "https://www.academia.edu/87172475/Santini_etal_Nixtamalization_2022",
+            "locator": "§3; §§4.1, 5, 6.1–6.2; Figs. 5–11",
+            "availability": "Author rendering read, interleaved columns; PDF and supplement unavailable",
+            "saved_notes_sha256": "c0ceca5855f1ba9609937a248755016a20152d390a1aec079ae0ff9b4a15ec78",
+            "independence": "original site study, shares Marston and experimental diagnostic with Johnson"
+          },
+          {
+            "source": "johnson-2020-experimental-identification-nixtamalized",
+            "url": "https://www.bu.edu/archaeology/files/2019/12/Johnson.Marston.JAS_.11.20.19.pdf",
+            "locator": "§3; §§6–8",
+            "availability": "author PDF web rendering read; local PDF absent",
+            "expected_sha256": "be8a1544cf1e4636e35964a5486eddc5783e238da5df3aea4988f0f020672f7f",
+            "independence": "experimental controls inform identification, not independent archaeological corroboration; author shared with Santini"
+          },
+          {
+            "source": "cagnato-2024-la-corona-maize",
+            "url": "https://www.sciencedirect.com/science/article/pii/S1040618224003549",
+            "locator": "abstract and conclusion preview",
+            "availability": "original article preview read, full context unavailable",
+            "saved_notes_sha256": "c4714f0330fc5244a6831dfdea2e8051fb09bd33da03f353a6946662915531ac",
+            "independence": "separate field team and assemblage, same experimental diagnostic; author and publisher pages same paper"
+          },
+          {
+            "source": "matsuoka-2002-maize-domestication",
+            "url": "https://www.panzea.org/files/publications/matsuoka-2002-2.pdf",
+            "locator": "pp. 6080–6083 Figs 1–2 and Cradle section",
+            "availability": "local original PDF read and hash verified",
+            "sha256": "c3146e42b262c237391f0d10f255f337aa0e026ecb70d549b0e27f911424a3e2",
+            "independence": "modern genetic sample comparison independent of excavations; no direct Xihuatoxtla sample"
+          },
+          {
+            "source": "piperno-2009-piperno-al-central",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2664021/",
+            "locator": "abstract; Table 1; Results",
+            "availability": "full original online article read",
+            "saved_abstract_sha256": "0659b7c7729850f74eebea8d06329439455da084dfe0defcfc20c062a0f47717",
+            "independence": "same excavation as Ranere, not independent corroboration"
+          },
+          {
+            "source": "ranere-2009-cultural-chronological-context",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2664064/",
+            "locator": "excavations, Fig. 4, discussion",
+            "availability": "full original online article read",
+            "saved_excerpt_sha256": "c129e18a6179c03efe5b981b46dcd2c3c96adf23e7ec655f2be3f9cdc924a040",
+            "independence": "companion excavation report to Piperno"
+          },
+          {
+            "source": "de-sahagun-1577-historia-general-cosas",
+            "url": "https://florentinecodex.getty.edu/en/book/4/folio/69r",
+            "locator": "English translation, embedded folio page data",
+            "availability": "saved digital edition HTML read; web rendering omits embedded translation",
+            "sha256": "e2cb47cebf35a9465a92fab1db56906948a789d0b4c07e191712f7ebfe7d106e",
+            "independence": "digital edition and translation of same historical manuscript, not an independent witness"
+          }
+        ],
+        "claim_reviews": [
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/id,name,aliases,summary,description,kind,domain,fields,grain",
+            "decision": "accept",
+            "rationale": "The two sealed pits in a Maya residential group contain spherulites interpreted as nixtamalized maize and probable discarded cooking liquid; this is a bounded local case and wording preserves interpretation.",
+            "sources": [
+              "santini-2022-san-bartolo-maize",
+              "johnson-2020-experimental-identification-nixtamalized"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/origin,caveats,research.unresolved",
+            "decision": "accept",
+            "rationale": "Technique acquisition, exact cooking place and transmission are not established; Cagnato separately reports La Corona spherulites but no direction or continuity.",
+            "sources": [
+              "santini-2022-san-bartolo-maize",
+              "cagnato-2024-la-corona-maize"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/setting,places,societies,known_from",
+            "decision": "accept",
+            "rationale": "Santini sections 2–5 locate the pits in Grupo Zacatal at San Bartolo and compare excavated material with modern experiments; country marker is qualified.",
+            "sources": [
+              "santini-2022-san-bartolo-maize",
+              "johnson-2020-experimental-identification-nixtamalized"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/events/0",
+            "decision": "accept",
+            "rationale": "Santini section 3 explicitly proposes c. 770–895 cal CE; charcoal has discontiguous wider ranges and floor stratigraphy constrains interpretation. Sections 5–6 compare morphology and one EDS particle; no exact date, recipe or cooking location is established.",
+            "sources": [
+              "santini-2022-san-bartolo-maize",
+              "johnson-2020-experimental-identification-nixtamalized"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize-san-bartolo.json#/earliest_record/rationale",
+            "decision": "changes_requested",
+            "rationale": "Replace “establishes alkaline maize preparation in the local residential context” with a qualified interpretation: the deposits in the residential group are consistent with likely discarded nixtamalization liquid; their origin and preparation location are not established. Current wording hardens an inference and contradicts the explicit cooking-location caveat.",
+            "sources": [
+              "santini-2022-san-bartolo-maize"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/name,summary,description,events/0,earliest_record,community_entry,caveats",
+            "decision": "accept",
+            "rationale": "Getty folio translation describes older women washing lime-cooked grains among tamale and water tasks; 1577 is completion of the manuscript and a use-by bound, not a date for a particular feast or invention.",
+            "sources": [
+              "de-sahagun-1577-historia-general-cosas"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/places,people,societies,research.basis,research.note,research.unresolved,origin",
+            "decision": "accept",
+            "rationale": "Nahua authorship and Central Mexican setting are compatible with the source; no source establishes the origin, particular supply route or continuity with the separate Maya assemblages.",
+            "sources": [
+              "de-sahagun-1577-historia-general-cosas",
+              "santini-2022-san-bartolo-maize",
+              "cagnato-2024-la-corona-maize"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/grain,impact",
+            "decision": "changes_requested",
+            "rationale": "After narrowing the identity to a Nahua instance, the retained capability grain and newly rewritten impact note explicitly score the broader Mesoamerican technique rather than the scoped referent. Align representation and remove or justify the score for that referent; reassess inherited in_use fate under the changed scope.",
+            "sources": [
+              "de-sahagun-1577-historia-general-cosas",
+              "johnson-2020-experimental-identification-nixtamalized"
+            ]
+          },
+          {
+            "path": "data/discoveries/food/alkaline-cooking-of-maize.json#/links/0",
+            "decision": "accept",
+            "rationale": "Retain only as candidate question, directed from earlier Xihuatoxtla maize-use witness to later Nahua processing. The codex supplies the maize input and Piperno the earlier witness; Matsuoka gives broad sampled ancestry, not the specific lineage, route or transmission. No established causal or transmission edge is supported.",
+            "sources": [
+              "piperno-2009-piperno-al-central",
+              "matsuoka-2002-maize-domestication",
+              "de-sahagun-1577-historia-general-cosas",
+              "johnson-2020-experimental-identification-nixtamalized"
+            ],
+            "status": "candidate",
+            "relation": "possible crop material lineage",
+            "direction": "Xihuatoxtla witness to Nahua use",
+            "context": "distinct archaeological and textual witnesses",
+            "independent_corroboration": "Genetic sample analysis and archaeological excavation are independent evidence types but do not corroborate the specific historical connection.",
+            "established_history": false
+          },
+          {
+            "path": "data/discoveries/food/domesticated-maize.json#/summary,description,places",
+            "decision": "accept",
+            "rationale": "Piperno Table 1 and Ranere Fig. 4 report maize starch and cob phytoliths at Xihuatoxtla; Matsuoka Figs. 1–2 identifies sampled Balsas parviglumis as basal to maize. Its geographic inference rests on modern samples.",
+            "sources": [
+              "piperno-2009-piperno-al-central",
+              "ranere-2009-cultural-chronological-context",
+              "matsuoka-2002-maize-domestication"
+            ],
+            "extends": "domesticated-maize"
+          },
+          {
+            "path": "data/discoveries/food/domesticated-maize.json#/events/0",
+            "decision": "accept",
+            "rationale": "Ranere Fig. 4 shows handstones in the older layer and milling bases in D with maize starch. Discussion presents repeated small groups and probable seasonal movements as interpretation, not observation. Approximate 8700 cal BP known-by bound is sourced to Piperno.",
+            "sources": [
+              "piperno-2009-piperno-al-central",
+              "ranere-2009-cultural-chronological-context"
+            ],
+            "extends": "domesticated-maize"
+          },
+          {
+            "path": "data/discoveries/food/domesticated-maize.json#/events/1",
+            "decision": "accept",
+            "rationale": "Piperno Table 1 reports maize cob-type phytoliths on tools and sediments in D and E, and starch on tools; Ranere dates charcoal in D to 8990–8610 cal BP. The conversion uses the 1950 epoch and remains approximate.",
+            "sources": [
+              "piperno-2009-piperno-al-central",
+              "ranere-2009-cultural-chronological-context",
+              "matsuoka-2002-maize-domestication"
+            ],
+            "extends": "domesticated-maize"
+          },
+          {
+            "path": "data/discoveries/food/domesticated-maize.json#/earliest_record,community_entry,caveats,research",
+            "decision": "accept",
+            "rationale": "Dated context and lower undated residues support local known-by use, not onset of domestication or a later supply route. Two archaeological articles share the excavation; genetics is independent in method and population.",
+            "sources": [
+              "piperno-2009-piperno-al-central",
+              "ranere-2009-cultural-chronological-context",
+              "matsuoka-2002-maize-domestication"
+            ],
+            "extends": "domesticated-maize"
+          },
+          {
+            "path": "data/sources/* and evidence/* in files",
+            "decision": "accept",
+            "rationale": "Bibliographic metadata and attributable reading notes support the bounded uses above; source copies and mirrors are not independent publications. See source_checks for availability, hashes and limits.",
+            "sources": [
+              "santini-2022-san-bartolo-maize",
+              "johnson-2020-experimental-identification-nixtamalized",
+              "cagnato-2024-la-corona-maize",
+              "piperno-2009-piperno-al-central",
+              "ranere-2009-cultural-chronological-context",
+              "matsuoka-2002-maize-domestication",
+              "de-sahagun-1577-historia-general-cosas"
+            ]
+          },
+          {
+            "path": "docs/reviews/2026-11-17-all-eras/lanes/maize.md",
+            "decision": "accept",
+            "rationale": "Lane note describes proposal and limitations; it is not independent evidence and its proposed conclusions remain subject to this review.",
+            "sources": [
+              "santini-2022-san-bartolo-maize",
+              "cagnato-2024-la-corona-maize",
+              "piperno-2009-piperno-al-central",
+              "ranere-2009-cultural-chronological-context",
+              "matsuoka-2002-maize-domestication",
+              "de-sahagun-1577-historia-general-cosas",
+              "johnson-2020-experimental-identification-nixtamalized"
+            ]
+          }
+        ],
+        "duplicate_screen": {
+          "method": "Searched discovery records and leads for maize, nixtamalization, San Bartolo, Xihuatoxtla; compared changed records and events.",
+          "outcome": "San Bartolo is a distinct Maya archaeological instance from the Nahua manuscript attestation; domesticated maize extends its existing target and is not a new node. Existing two maize events are revisions, not new events."
+        },
+        "issues": [
+          "Qualify San Bartolo earliest_record.rationale so residual deposition does not prove cooking at the household.",
+          "Align narrowed Nahua identity with grain and newly rewritten broad-technique impact score; reassess inherited fate in_use for narrowed scope."
+        ],
+        "unknowns": [
+          "Exact cooking location, recipe, origin and transmission at San Bartolo.",
+          "La Corona sample chronology and controls were not accessible in full.",
+          "Cultivation onset and later crop and technique transmission to Nahua.",
+          "San Bartolo contextual dating has tails beyond preferred interval."
+        ],
+        "validation": {
+          "command": "python3 tools/validate.py",
+          "result": "pass: 903 discoveries, 1497 events, 237 links, 1625 sources; no problems found",
+          "diff_check": "pass"
+        },
+        "history": []
+      }
+    }
+  ]
+}

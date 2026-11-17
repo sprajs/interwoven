@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "lane": "credit",
+  "base_commit": "612d88b398f13b6a74ae3126db6801ebabce3178",
+  "worker_commit": "1cb871555e42ce7db6482d2832122c7f0045b1a7",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review_credit",
+    "independence": "Separate execution from gpt-6.2-sol high researcher; not independent scholarly verification."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json",
+      "sha256": "7d77755e2d16b521bbe7d31622b9c72b6ec56b4af1ee11cc3fac68a3a3c21ac0"
+    },
+    {
+      "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json",
+      "sha256": "b285e8074246a7c1659ee512fce34445c7bfd581216184a4656c4854e6d3c006"
+    },
+    {
+      "path": "data/sources/l/li-dao-changbian-jiaozi-office.json",
+      "sha256": "4c1b6dfd35b3d3f38fdb954ac8dce935f7da7c8719e011ec7a6ce9227b994372"
+    },
+    {
+      "path": "data/sources/l/liu-song-calendar-tiansheng.json",
+      "sha256": "628c91b2e8b65de9a9cf22db8af3b5484ab19c42d949007fe816b7b0a96a6cb8"
+    },
+    {
+      "path": "data/sources/s/song-shi-1345-jiaozi.json",
+      "sha256": "fb3958dd8eb8783a17e172cd2d87cfa89949c85c1ff8782e0e2a1152840150c1"
+    },
+    {
+      "path": "data/sources/t/tang-huiyao-961-remittance.json",
+      "sha256": "5b8422fc4596337edc64f049679b47b7f5da429d266b4459f28e3aa1d9b6a3a1"
+    },
+    {
+      "path": "data/sources/t/tang-shichi-yizhou-jiaozi-office.json",
+      "sha256": "ae18fec449e824b1bcf6b18e39162bfabcb618abff313fe8d875ca730489df86"
+    },
+    {
+      "path": "data/sources/x/xin-tang-shu-1060-feiqian.json",
+      "sha256": "8c7036ee4bedec883f91aad257201f23d6fa2df5e5d7266d2268451a2b5cb568"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-all-eras/lanes/credit.md",
+      "sha256": "8ef33d47a3e2ce8467e5871f316ba492ea7b7cbfe099c765ad85c8f2f60bac7c"
+    },
+    {
+      "path": "evidence/l/li-dao-changbian-jiaozi-office-excerpts.txt",
+      "sha256": "d928c5f1b18cea5dc0b750dc3d2316b4ad306897d4fd2838f737a915e4ee02d8"
+    },
+    {
+      "path": "evidence/l/liu-song-calendar-tiansheng-excerpts.txt",
+      "sha256": "e1d2278a82db3b3e0f77359a6ce932ff6429896c0c722c67178a440514b68d36"
+    },
+    {
+      "path": "evidence/s/song-shi-1345-jiaozi-excerpts.txt",
+      "sha256": "501406ec65db887153fb4c07784d0b3a8a103ae07e768175df0ff446067675a5"
+    },
+    {
+      "path": "evidence/t/tang-huiyao-961-remittance-excerpts.txt",
+      "sha256": "a76bbded60f1015ce79101c3bcebf74d708044902a07dc82fdc7293cdba17398"
+    },
+    {
+      "path": "evidence/t/tang-shichi-yizhou-jiaozi-office-excerpts.txt",
+      "sha256": "8e21d67d2a1f6e5414166d7f5ef4741eff6b65955b66c0cc641c7056fbb8005f"
+    },
+    {
+      "path": "evidence/x/xin-tang-shu-1060-feiqian-excerpts.txt",
+      "sha256": "dbbbb79df1c935415f4cf3f2771789d38cfdb7a4da6b5092212839dad099b79d"
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "xin-tang-shu-1060-feiqian",
+      "url": "https://zh.wikisource.org/wiki/新唐書/卷054",
+      "locator": "juan 54 paragraphs 時商賈至京師 and 自京師禁飛錢",
+      "availability": "Read surrounding paragraphs in current Wikisource transcription, lines 168 and 175; footer identifies revision 2017604. Initial offer and later revision distinguished.",
+      "independence": "Retrospective Song compilation; may share documents with Tang huiyao, not independently counted as corroboration."
+    },
+    {
+      "id": "tang-huiyao-961-remittance",
+      "url": "https://zh.wikisource.org/wiki/唐會要/卷089",
+      "locator": "juan 89, Yuanhe 6 and 7, fifth month",
+      "availability": "Current transcription and surrounding paragraphs read; fixed oldid returned an error; saved excerpt checked.",
+      "independence": "Institutional compilation preserves fiscal request; shared Tang records with Xin Tang shu possible."
+    },
+    {
+      "id": "song-shi-1345-jiaozi",
+      "url": "https://zh.wikisource.org/wiki/宋史/卷181",
+      "locator": "juan 181 opening Huizi",
+      "availability": "Current transcription and surrounding text read; fixed oldid returned an error; saved excerpt checked.",
+      "independence": "Late retrospective, may derive from earlier material; inference is not independent proof of transmission."
+    },
+    {
+      "id": "li-dao-changbian-jiaozi-office",
+      "url": "https://zh.wikisource.org/wiki/續資治通鑑長編_(四庫全書本)/卷101",
+      "locator": "juan 101, Tiansheng 1, month 11, wuwu",
+      "availability": "Read entire surrounding paragraph in current Wikisource transcription, line 153; page footer identifies revision 2019931. Confirms joint rationale, approval, and competing accounts.",
+      "independence": "Retrospective annals; relationship to Tang Shichi and Song shi source material unknown."
+    },
+    {
+      "id": "tang-shichi-yizhou-jiaozi-office",
+      "url": "https://zh.wikisource.org/w/index.php?title=靈巖集_(四庫全書本)/卷4&oldid=697528",
+      "locator": "juan 4, Yizhou Jiaozi Office account",
+      "availability": "Saved excerpt read; fixed version inaccessible; alternate ctext search result provides surrounding OCR but page access forbidden.",
+      "independence": "Separate composition; dependence on earlier material unknown; OCR requires caution."
+    },
+    {
+      "id": "liu-song-calendar-tiansheng",
+      "url": "https://ytliu0.github.io/ChineseCalendar/LiaoJinYuan_calendars_simp.html",
+      "locator": "1023 row, Tiansheng 1, month 11",
+      "availability": "Live table read; 16 December xinmao plus 27 days gives 12 January 1024.",
+      "independence": "Conversion aid, not independent historical evidence of an event."
+    },
+    {
+      "id": "met-2001-tang-flying-money",
+      "url": "https://www.metmuseum.org/fr/toah/ht/06/eac",
+      "locator": "circa 810",
+      "availability": "Live museum chronology read.",
+      "independence": "Secondary summary; underlying sources not given."
+    },
+    {
+      "id": "von-glahn-2026-sichuan-jiaozi",
+      "url": "https://www.cambridge.org/core/books/abs/rise-and-demise-of-paper-money-in-imperial-china/northern-song-monetary-policy-and-the-invention-of-paper-currency-in-sichuan/8D4E47993802972BFFEE47EC0DF7CD22",
+      "locator": "chapter 4 summary",
+      "availability": "Publisher summary read, full chapter unavailable.",
+      "independence": "Modern scholarly synthesis; underlying sources and independence of particular claims not established."
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json#/description,impact/note,events/circulation-810/statement,scope,places,contributions,caveats",
+      "decision": "accept",
+      "rationale": "Xin Tang shu describes merchant deposits, light travel and matching tallies for withdrawal; it identifies flying cash and locates it at the capital. Met supplies approximate 810 independently as a chronology, not an exact date for each narrated transaction. Changan is the Tang capital; intermediary list may vary by punctuation. New caveats appropriately preserve unknowns.",
+      "sources": [
+        "xin-tang-shu-1060-feiqian:juan 54 時商賈至京師",
+        "met-2001-tang-flying-money:ca. 810"
+      ],
+      "extends": "tang-flying-money-exchange-certificates"
+    },
+    {
+      "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json#/events/three-fiscal-offices-812",
+      "decision": "accept",
+      "rationale": "Tang huiyao dates and reports the granted proposal; Xin Tang shu calls it flying cash and reports no merchants came under the initial offer, followed by permission to exchange at par. Updated scope confines 812 to approval and leaves uptake under revised terms unknown.",
+      "sources": [
+        "tang-huiyao-961-remittance:juan 89 Yuanhe 7 month 5",
+        "xin-tang-shu-1060-feiqian:juan 54 自京師禁飛錢"
+      ],
+      "extends": "tang-flying-money-exchange-certificates"
+    },
+    {
+      "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/description,places,events/private-issue-990s/evidence,places",
+      "decision": "accept",
+      "rationale": "Cambridge summary independently accessible supports Sichuan merchant paper issue and 990s. Saved Li Dao excerpt attributes local private bills to heavy iron cash, without a decade; new place accurately expresses regional use. Existing 990s date is supported by summary rather than original dated witness.",
+      "sources": [
+        "von-glahn-2026-sichuan-jiaozi:chapter 4 summary",
+        "li-dao-changbian-jiaozi-office:juan 101 excerpt"
+      ],
+      "extends": "sichuan-jiaozi-paper-money"
+    },
+    {
+      "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/events/state-takeover-1024,why,prompted_by",
+      "decision": "accept",
+      "rationale": "Li Dao full paragraph explicitly reports private issuers unable to pay and disputes, Xue Tian and Zhang Ruogu jointly judging abolition inconvenient and seeking a public office and private-issue ban, and imperial approval. It also compares conflicting accounts of Kou Jian’s role. Calendar conversion is consistent; Song shi independently records the joint request but shared historical source material is possible.",
+      "sources": [
+        "song-shi-1345-jiaozi:juan 181",
+        "li-dao-changbian-jiaozi-office:juan 101 excerpt",
+        "tang-shichi-yizhou-jiaozi-office:juan 4 excerpt",
+        "liu-song-calendar-tiansheng:1023 row",
+        "von-glahn-2026-sichuan-jiaozi:chapter 4 summary"
+      ],
+      "extends": "sichuan-jiaozi-paper-money"
+    },
+    {
+      "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/links/0",
+      "decision": "accept",
+      "rationale": "Retain only as a question: Song shi explicitly offers a qualified retrospective inference from Tang flying cash to jiaozi and huizi, without a named route. Xin Tang shu describes the earlier endpoint; Song shi and Von Glahn establish later practices. Direction earlier to later is plausible as the question, not proved; sources may share lineage and no independent informative corroboration of a causal transmission is established.",
+      "sources": [
+        "song-shi-1345-jiaozi:juan 181",
+        "xin-tang-shu-1060-feiqian:juan 54",
+        "von-glahn-2026-sichuan-jiaozi:chapter 4 summary"
+      ],
+      "relation": {
+        "type": "builds_on",
+        "direction": "Tang flying cash to Sichuan jiaozi",
+        "context": "retrospective proposed antecedent without route",
+        "status": "candidate",
+        "independent_corroboration": "not established",
+        "historical_status": "retained question, not established history"
+      }
+    },
+    {
+      "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/caveats,research",
+      "decision": "accept",
+      "rationale": "Caveats appropriately note 990s source and disputed agency; research basis demotes prior reviewed status and does not claim independent approval.",
+      "sources": [
+        "von-glahn-2026-sichuan-jiaozi:chapter 4 summary",
+        "song-shi-1345-jiaozi:juan 181",
+        "li-dao-changbian-jiaozi-office:excerpt"
+      ]
+    },
+    {
+      "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json#/research",
+      "decision": "accept",
+      "rationale": "Records approximate date source and historical account sources, and appropriately replaces earlier reviewed basis with sourced.",
+      "sources": [
+        "met-2001-tang-flying-money:ca. 810",
+        "xin-tang-shu-1060-feiqian:juan 54",
+        "tang-huiyao-961-remittance:juan 89"
+      ]
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Searched discovery and leads text for flying money, feiqian, jiaozi, remittance; inspected both existing target event arrays at base and head.",
+    "result": "No new discovery; 812 decision is a distinct dated assertion absent from the approximate 810 practical-use event. 1024 decision is a refinement to the existing state takeover event, not a second event. Related Patna hundi is a distinct community and period."
+  },
+  "issues": [],
+  "unknowns": [
+    "Whether Tang flying cash influenced Sichuan jiaozi and by what route remains unresolved.",
+    "Source dependence between retrospective accounts is not established.",
+    "Full Von Glahn chapter not accessed; 990s relies on publisher summary.",
+    "Tang Shichi fixed-version page inaccessible; saved excerpt and alternate searchable OCR were consulted."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 902 discoveries, 1497 events, 237 links, 1628 sources; no problems found.",
+    "diff_check": "git diff --check base..repaired worker passed."
+  },
+  "history": [
+    {
+      "worker_commit": "93c8be122ecc7325d588e6607d8cb02692322cf3",
+      "overall_decision": "changes_requested",
+      "review_sha256": "40b5a99a2d9f236fa72656382aecf7d27b2baf867ad50b39b63ecc1be5c6320a",
+      "issues": [
+        "Add the Xin Tang shu observation that no merchants came to the initial three-office offer, accurately attributed and without broadening to later revisions.",
+        "Independently examine full Li Dao original surrounding the claimed joint rationale and approval, or narrow/attribute the rationale to accessible original evidence. Version-pinned oldid access failed; excerpt elides the relevant narrative."
+      ],
+      "claim_reviews": [
+        {
+          "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json#/description,impact/note,events/circulation-810/statement,scope,places,contributions,caveats",
+          "decision": "accept",
+          "rationale": "Xin Tang shu describes merchant deposits, light travel and matching tallies for withdrawal; it identifies flying cash and locates it at the capital. Met supplies approximate 810 independently as a chronology, not an exact date for each narrated transaction. Changan is the Tang capital; intermediary list may vary by punctuation. New caveats appropriately preserve unknowns.",
+          "sources": [
+            "xin-tang-shu-1060-feiqian:juan 54 時商賈至京師",
+            "met-2001-tang-flying-money:ca. 810"
+          ],
+          "extends": "tang-flying-money-exchange-certificates"
+        },
+        {
+          "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json#/events/three-fiscal-offices-812",
+          "decision": "accept",
+          "rationale": "Tang huiyao dates and reports the granted proposal; Xin Tang shu calls it flying cash and reports no merchants came under the initial offer, followed by permission to exchange at par. Updated scope confines 812 to approval and leaves uptake under revised terms unknown.",
+          "sources": [
+            "tang-huiyao-961-remittance:juan 89 Yuanhe 7 month 5",
+            "xin-tang-shu-1060-feiqian:juan 54 自京師禁飛錢"
+          ],
+          "extends": "tang-flying-money-exchange-certificates"
+        },
+        {
+          "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/description,places,events/private-issue-990s/evidence,places",
+          "decision": "accept",
+          "rationale": "Cambridge summary independently accessible supports Sichuan merchant paper issue and 990s. Saved Li Dao excerpt attributes local private bills to heavy iron cash, without a decade; new place accurately expresses regional use. Existing 990s date is supported by summary rather than original dated witness.",
+          "sources": [
+            "von-glahn-2026-sichuan-jiaozi:chapter 4 summary",
+            "li-dao-changbian-jiaozi-office:juan 101 excerpt"
+          ],
+          "extends": "sichuan-jiaozi-paper-money"
+        },
+        {
+          "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/events/state-takeover-1024,why,prompted_by",
+          "decision": "accept",
+          "rationale": "Li Dao full paragraph explicitly reports private issuers unable to pay and disputes, Xue Tian and Zhang Ruogu jointly judging abolition inconvenient and seeking a public office and private-issue ban, and imperial approval. It also compares conflicting accounts of Kou Jian’s role. Calendar conversion is consistent; Song shi independently records the joint request but shared historical source material is possible.",
+          "sources": [
+            "song-shi-1345-jiaozi:juan 181",
+            "li-dao-changbian-jiaozi-office:juan 101 excerpt",
+            "tang-shichi-yizhou-jiaozi-office:juan 4 excerpt",
+            "liu-song-calendar-tiansheng:1023 row",
+            "von-glahn-2026-sichuan-jiaozi:chapter 4 summary"
+          ],
+          "extends": "sichuan-jiaozi-paper-money"
+        },
+        {
+          "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/links/0",
+          "decision": "accept",
+          "rationale": "Retain only as a question: Song shi explicitly offers a qualified retrospective inference from Tang flying cash to jiaozi and huizi, without a named route. Xin Tang shu describes the earlier endpoint; Song shi and Von Glahn establish later practices. Direction earlier to later is plausible as the question, not proved; sources may share lineage and no independent informative corroboration of a causal transmission is established.",
+          "sources": [
+            "song-shi-1345-jiaozi:juan 181",
+            "xin-tang-shu-1060-feiqian:juan 54",
+            "von-glahn-2026-sichuan-jiaozi:chapter 4 summary"
+          ],
+          "relation": {
+            "type": "builds_on",
+            "direction": "Tang flying cash to Sichuan jiaozi",
+            "context": "retrospective proposed antecedent without route",
+            "status": "candidate",
+            "independent_corroboration": "not established",
+            "historical_status": "retained question, not established history"
+          }
+        },
+        {
+          "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json#/caveats,research",
+          "decision": "accept",
+          "rationale": "Caveats appropriately note 990s source and disputed agency; research basis demotes prior reviewed status and does not claim independent approval.",
+          "sources": [
+            "von-glahn-2026-sichuan-jiaozi:chapter 4 summary",
+            "song-shi-1345-jiaozi:juan 181",
+            "li-dao-changbian-jiaozi-office:excerpt"
+          ]
+        },
+        {
+          "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json#/research",
+          "decision": "accept",
+          "rationale": "Records approximate date source and historical account sources, and appropriately replaces earlier reviewed basis with sourced.",
+          "sources": [
+            "met-2001-tang-flying-money:ca. 810",
+            "xin-tang-shu-1060-feiqian:juan 54",
+            "tang-huiyao-961-remittance:juan 89"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "data/discoveries/economy/sichuan-jiaozi-paper-money.json",
+          "sha256": "760ea6824c872126659cf246e3922d931ba6a93a8c52c1e7501a7599ea156860"
+        },
+        {
+          "path": "data/discoveries/economy/tang-flying-money-exchange-certificates.json",
+          "sha256": "df44015e4d1bdc1ae8e7c7cf328fa2630a1ed92c6e5a4cf8e881116843b68e29"
+        },
+        {
+          "path": "data/sources/l/li-dao-changbian-jiaozi-office.json",
+          "sha256": "d602aaa094bc98221a05fc806201436d462ad79bfa99a09973ed3546d4f2a545"
+        },
+        {
+          "path": "data/sources/l/liu-song-calendar-tiansheng.json",
+          "sha256": "628c91b2e8b65de9a9cf22db8af3b5484ab19c42d949007fe816b7b0a96a6cb8"
+        },
+        {
+          "path": "data/sources/s/song-shi-1345-jiaozi.json",
+          "sha256": "fb3958dd8eb8783a17e172cd2d87cfa89949c85c1ff8782e0e2a1152840150c1"
+        },
+        {
+          "path": "data/sources/t/tang-huiyao-961-remittance.json",
+          "sha256": "5b8422fc4596337edc64f049679b47b7f5da429d266b4459f28e3aa1d9b6a3a1"
+        },
+        {
+          "path": "data/sources/t/tang-shichi-yizhou-jiaozi-office.json",
+          "sha256": "ae18fec449e824b1bcf6b18e39162bfabcb618abff313fe8d875ca730489df86"
+        },
+        {
+          "path": "data/sources/x/xin-tang-shu-1060-feiqian.json",
+          "sha256": "3742001ceb0106b697b783d90d6343ad75fc59eaade4094160826b94647746ad"
+        },
+        {
+          "path": "docs/reviews/2026-11-17-all-eras/lanes/credit.md",
+          "sha256": "9d65d09df05507b007e6c74cbe50effb8e5cc8fd07283d1856c8f2fe4f637878"
+        },
+        {
+          "path": "evidence/l/li-dao-changbian-jiaozi-office-excerpts.txt",
+          "sha256": "dd2c490130c18c1d109dee32340975d4faf2a00f9ed319a368ca18f37edbaad4"
+        },
+        {
+          "path": "evidence/l/liu-song-calendar-tiansheng-excerpts.txt",
+          "sha256": "e1d2278a82db3b3e0f77359a6ce932ff6429896c0c722c67178a440514b68d36"
+        },
+        {
+          "path": "evidence/s/song-shi-1345-jiaozi-excerpts.txt",
+          "sha256": "501406ec65db887153fb4c07784d0b3a8a103ae07e768175df0ff446067675a5"
+        },
+        {
+          "path": "evidence/t/tang-huiyao-961-remittance-excerpts.txt",
+          "sha256": "a76bbded60f1015ce79101c3bcebf74d708044902a07dc82fdc7293cdba17398"
+        },
+        {
+          "path": "evidence/t/tang-shichi-yizhou-jiaozi-office-excerpts.txt",
+          "sha256": "8e21d67d2a1f6e5414166d7f5ef4741eff6b65955b66c0cc641c7056fbb8005f"
+        },
+        {
+          "path": "evidence/x/xin-tang-shu-1060-feiqian-excerpts.txt",
+          "sha256": "ab43c12ed26ff1d6f04ad4145a7ac17a28d7e128f743d55bce90f4ede7ca8a79"
+        }
+      ],
+      "note": "Superseded independent review, preserved in worker commit 1cb871555e42ce7db6482d2832122c7f0045b1a7; this execution checked revised bytes."
+    }
+  ]
+}

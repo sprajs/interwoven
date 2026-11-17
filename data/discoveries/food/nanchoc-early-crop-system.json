@@ -1,7 +1,7 @@
 {
   "id": "nanchoc-early-crop-system",
   "name": "Ñanchoc mixed crop food production",
-  "description": "Ñanchoc Valley inhabitants consumed cultivated squash and peanuts alongside other plants within a mixed food-production and foraging economy.",
+  "description": "Ñanchoc Valley inhabitants consumed cultivated squash and peanuts alongside other plants within a mixed food-production and foraging economy. Later Tierra Blanca evidence points to more intensive cultivation, with fields worked beyond individual household gardens and small irrigation canals in the same valley.",
   "kind": "practice",
   "domain": "food.crops",
   "tier": 2,
@@ -38,6 +38,50 @@
       "places": [
         "peru"
       ]
+    },
+    {
+      "id": "tierra-blanca-field-cultivation",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -5850
+        },
+        "latest": {
+          "year": -3050
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "Tierra Blanca phase, c. 7800–5000 cal BP (5850–3050 BCE)",
+        "basis": "The 2011 excavation synthesis gives this calibrated phase interval. The interval provides context for a shift in cultivation whose onset and duration remain unresolved."
+      },
+      "statement": "Archaeologists interpret the Tierra Blanca evidence in the Ñanchoc Valley as a shift toward more intensive cultivation, with fields worked by multiple households and small-scale irrigation in the valley.",
+      "scope": "Phase-level transition in Ñanchoc crop production.",
+      "places": [
+        "nanchoc-valley-upper-zana-cajamarca"
+      ],
+      "caveats": "The field below the dated canals remains undated, and the crops grown there are unidentified. Directly dated cotton from CA-09-71 came from a house floor.",
+      "evidence": [
+        {
+          "source": "rossen-2011-preceramic-plant-gathering-gardening-farming",
+          "locator": "Chapter 9, public summary, final paragraph; same volume, chapter 1, dating convention",
+          "supports": "The synthesis dates Tierra Blanca to 7800–5000 calibrated BP and describes the shift from single-family gardens to multifamily fields and canal systems in the upper valley."
+        },
+        {
+          "source": "piperno-2008-nanchoc-crop-diet",
+          "locator": "pp. 19622–19623, site context preceding Fig. 1",
+          "supports": "The study reports plant remains, planting plots, stone hoes and small irrigation canals across Tierra Blanca contexts. The analyzed teeth come from earlier Las Pircas occupations."
+        },
+        {
+          "source": "dillehay-2007-preceramic-crop-adoption",
+          "locator": "pp. 1890–1891, crop descriptions and Fig. 5; p. 1892, Table 1, CA-09-71",
+          "supports": "The paper reports peanut remains and quinoa-like chenopods at Tierra Blanca sites. Cotton recovered from a house floor at CA-09-71 dates to 6278–5948 cal BP."
+        },
+        {
+          "source": "dillehay-2005-preceramic-irrigation-canals",
+          "locator": "pp. 17243–17244, Fig. 3 and discussion of the lower bench and garden sites",
+          "supports": "The lower-bench agricultural field contained hoe-like implements and is undated. The probable earlier garden furrows at CA-09-27 and CA-09-52 are on a separate fan."
+        }
+      ]
     }
   ],
   "earliest_record": {
@@ -49,14 +93,33 @@
     "status": "sourced",
     "basis": {
       "domain": "reviewed",
-      "events": "reviewed",
+      "events": "sourced",
       "grain": "sourced",
       "places": "reviewed",
       "measures": "reviewed",
       "tier": "recalled",
-      "impact": "recalled"
+      "impact": "recalled",
+      "links": "sourced"
     },
-    "note": "Independent check of the marked facets against cited passages on 2026-11-09; causal and archaeological interpretations retain their caveats."
+    "note": "The Las Pircas event and other facets marked reviewed were independently checked on 2026-11-09. The Tierra Blanca event and Canal 3 question are sourced proposals.",
+    "unresolved": [
+      {
+        "about": "Cultivated species on Tierra Blanca plots",
+        "note": "Dated botanical remains from a field horizon or a secure physical link between a field and a canal would clarify crop identities and irrigation practice. The directly dated cotton sample comes from a house floor, and the dental starch evidence comes from earlier Las Pircas contexts.",
+        "evidence": [
+          {
+            "source": "dillehay-2007-preceramic-crop-adoption",
+            "locator": "p. 1891, Fig. 5; p. 1892, Table 1, CA-09-71",
+            "supports": "The cotton sample was recovered from a buried house floor."
+          },
+          {
+            "source": "piperno-2008-nanchoc-crop-diet",
+            "locator": "pp. 19622–19623, site context and Table 1",
+            "supports": "The 39 teeth came from Las Pircas occupations."
+          }
+        ]
+      }
+    ]
   },
   "places": [
     {
@@ -88,6 +151,26 @@
         "label": "By publication in 2008",
         "basis": "The 2008 study reports the sample size; the teeth come from multiple archaeological contexts."
       }
+    }
+  ],
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "gravity-canals-upper-zana-valley-northern-peru",
+      "from_event": "archaeological-evidence-3990bce",
+      "to_event": "tierra-blanca-field-cultivation",
+      "status": "candidate",
+      "statement": "Did Canal 3 supply water to fields on the lower bench during Tierra Blanca cultivation?",
+      "scope": "Canal 3 and the buried lower-bench field at Quebrada sin Nombre-1.",
+      "timing": "The Canal 3 fill age falls within the 2011 Tierra Blanca phase interval. The lower-bench field's age remains open.",
+      "finding": "The excavators inferred that the canals watered the bench from local topography and sediment. Independent evidence for the field's connection to Canal 3 remains unavailable.",
+      "evidence": [
+        {
+          "source": "dillehay-2005-preceramic-irrigation-canals",
+          "locator": "pp. 17242–17244, Figs. 1–3 and discussion of the lower bench",
+          "supports": "The canals lie above a lower bench identified as a probable field location. The report gives a fill age for Canal 3 and describes the buried field as undated."
+        }
+      ]
     }
   ]
 }
