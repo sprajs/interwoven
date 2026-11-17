@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "lane": "telephony",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "1b76cbd96116b698e59f0f636103a0023566f92f",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent separate reviewer",
+    "independence": "Distinct from gpt-6.2-sol high proposing execution"
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/communication/new-haven-telephone-exchange.json",
+      "sha256": "511fa1e75f6713c868f47bba7cc899bf5fcf0d29a83b041619aa187684bf713a"
+    },
+    {
+      "path": "data/sources/n/new-haven-district-telephone-1878-subscriber-sheet.json",
+      "sha256": "36c51d91641e53b13424f660e3b066e1a64fe5950c075164059e015617d2a22e"
+    },
+    {
+      "path": "data/sources/n/new-haven-journal-and-courier-1880-mcgrail-telephone.json",
+      "sha256": "6198f69ed51a5ffdacf13285e19f1658016fb7df383078f29e3c48cafee5ab61"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/telephony.json",
+      "sha256": "f89f1d5fbc547b01e248c5883466902e34a5bb9965020074a30b0e9f50ad228d"
+    },
+    {
+      "path": "evidence/n/new-haven-district-telephone-1878-subscriber-sheet.jpg.cache.json",
+      "sha256": "074735e50e78a473cd4e5d1d41b8be346ffe7468587db8e7b817a43ef7c00baa"
+    }
+  ],
+  "deleted_files": [],
+  "claim_reviews": [
+    {
+      "path": "workflow.inputs",
+      "decision": "accept",
+      "source_based_rationale": "The four inputs identify operator/period, unit and denominator, source and destination, and distinct source classes; each can be applied to another target."
+    },
+    {
+      "path": "workflow.steps[0]",
+      "decision": "accept",
+      "source_based_rationale": "The Connecticut Humanities broadside image states company, address and February date; Connecticut Humanities attributes image to UConn. Seton Guide p. 65 indexed full text identifies catalogue and prospectus; Christie lot 5084352 specifies a different November directory. The LOC and UConn frame endpoints were not retrievable; no independent copy is implied."
+    },
+    {
+      "path": "workflow.steps[1]",
+      "decision": "accept",
+      "source_based_rationale": "Direct facsimile inspection yields 11, 3, 2, 8, 20, 4, 2 rows = 50; Tyler and Flour entries and prospective office-hours change are visible. Reusable instructions require recording unit and duplicate policy."
+    },
+    {
+      "path": "workflow.steps[2]",
+      "decision": "accept",
+      "source_based_rationale": "1878 broadside lists Police Office. 23 March 1880 Journal and Courier p. 1 reports police telephone notification but not provider, caller location or route. Evening Mercury 2 September 1886 p. 2 reprints New Haven Register report of a call from SNET executive office to New York; merchant availability was prospective and no January 1878 connection is implied."
+    },
+    {
+      "path": "workflow.steps[3]",
+      "decision": "accept",
+      "source_based_rationale": "De Land 1907 §VI, NPS landmark page and Census Telephones and Telegraphs p. 66 differ on dates/units; 1968 Bell Labs Record p. 46 caption says 21 customers on eight lines. Kingsbury pp. 74–75 transcribes Ponton prospectus and reports failure to establish the plan. These are separate dated accounts, not interchangeable direct ledgers."
+    },
+    {
+      "path": "workflow.steps[4]",
+      "decision": "accept",
+      "source_based_rationale": "Bell US174465 claim 5 is a producer patent dated 1876; Coy US224653 specification is a different patent granted 1880. De Land §VI reports Bell licence and telephone use, while Seton p.65 inventories a prospectus; neither verifies shipment, contract or January switch design. Both endpoints and alternative routes are investigated; no historic link asserted."
+    },
+    {
+      "path": "workflow.steps[5]",
+      "decision": "accept",
+      "source_based_rationale": "NHFPL microfilm and Yale Register guide list stated access; De Land 1907 §VI election returns suggest targeted issue window, not an inspected original account. UConn finding aid and Yale News access limitation identify concrete follow-up, not a completed search of unavailable originals."
+    },
+    {
+      "path": "workflow.reject_if/stop_when/next_anchor/decision",
+      "decision": "accept",
+      "source_based_rationale": "The rejection criteria distinguish repeated source, listings vs uptake, and unresolved network route; the stopping rule and independent Finland service anchor make the pilot reusable. Decision preserves unexplained January discrepancy and rejects linking the 1880 notification to the specific exchange."
+    },
+    {
+      "path": "data.new-haven-telephone-exchange.known_from/events.subscriber-sheet-1878",
+      "decision": "accept",
+      "source_based_rationale": "The actual dated operator broadside identifies New Haven District Telephone Company, 219 Chapel Street, listings and stated hours; it is a contemporary text and a distinct dated documented-description event from existing January availability, not a duplicate."
+    },
+    {
+      "path": "data.new-haven-telephone-exchange.measures",
+      "decision": "accept",
+      "source_based_rationale": "Independent visual row tally confirms 50 listed rows including 11 residence rows, with ditto and repeated-name method and no inferred subscriber or household count. February event is correctly attached."
+    },
+    {
+      "path": "data.new-haven-telephone-exchange.research.unresolved/status/basis and reception removal",
+      "decision": "accept",
+      "source_based_rationale": "The 1880 newspaper source does not show which company or route handled notification and the February broadside alone cannot establish adoption speed. Sourced status and removed unsupported immediate reception do not silently upgrade other reviewed claims."
+    },
+    {
+      "path": "source records and evidence descriptor",
+      "decision": "accept",
+      "source_based_rationale": "Source records correctly distinguish the operator broadside and separate contemporary press report; sampled image byte SHA-256 matches descriptor. The 1880 newspaper report provides independent limited reporting, not named exchange use."
+    },
+    {
+      "path": "historical links and endpoints",
+      "decision": "accept",
+      "source_based_rationale": "No new graph relation. Bell patent source and New Haven recipient were tested at instrument-family level, but exact transmission and January switch lineage remain unproven; Coy 1880 patent cannot date installation. The selected Radiolinja target is a separate future pilot, not evidence for invention."
+    }
+  ],
+  "source_checks": [
+    {
+      "url": "https://connecticuthistory.org/wp-content/uploads/2012/10/FirstTelephoneExchange.jpg",
+      "locator": "complete broadside; seven headings; footer",
+      "representation": "cached original image and online facsimile",
+      "sha256": "6f936161a31e2b639487e3323ce26e809e7f7210e8d27ac7273eee68795fb07d",
+      "role_lineage": "operator contemporaneous broadside; copies are same edition, not independent witnesses"
+    },
+    {
+      "url": "https://tile.loc.gov/storage-services/service/ndnp/ct/batch_ct_elm_ver01/data/sn82015483/00271764157/1880032301/0287.pdf",
+      "locator": "23 March 1880 p.1, Owen McGrail’s Body Found",
+      "representation": "original newspaper page and indexed text",
+      "role_lineage": "contemporary independent newspaper; route and provider unspecified"
+    },
+    {
+      "url": "https://dai.mun.ca/pdfs/eveherald/EveningMercury18860902.pdf",
+      "locator": "2 September 1886 p.2, A Wonderful Desk",
+      "representation": "online original page indexed text and local original PDF",
+      "role_lineage": "newspaper reprint of New Haven Register report; not a separate 1878 use record"
+    },
+    {
+      "url": "https://www2.census.gov/prod2/decennial/documents/13472615ch1.pdf",
+      "locator": "printed p.66, first paragraph, PDF p.75",
+      "representation": "original census page local scan inspected",
+      "role_lineage": "later federal retrospective, says January 25; original authority unstated"
+    },
+    {
+      "url": "https://www.newhavenmuseum.org/wp-content/uploads/2025/08/Seton.pdf",
+      "locator": "printed p.65, New Haven District Telephone Co.",
+      "representation": "indexed original catalogue page text",
+      "role_lineage": "museum inventory describes prospectus and broadside; 403 full PDF, prospectus not inspected"
+    },
+    {
+      "url": "https://en.wikisource.org/wiki/Popular_Science_Monthly/Volume_70/January_1907/Notes_on_the_Development_of_Telephone_Service_III",
+      "locator": "§VI, opening/licence/returns",
+      "representation": "1907 published transcription",
+      "role_lineage": "retrospective, not independent original contract or contemporaneous operator ledger"
+    },
+    {
+      "url": "https://home.nps.gov/subjects/nationalhistoriclandmarks/site-of-the-first-telephone-exchange.htm",
+      "locator": "history section",
+      "representation": "institutional online account",
+      "role_lineage": "later landmark interpretation"
+    },
+    {
+      "url": "https://www.telephonecollectors.info/index.php/browse/document-repository/catalogs-manuals/bell-system-we/bell-labs-record/11606-68feb-blr-p40-bell-system-history-1/file",
+      "locator": "February 1968 p.46 photograph caption",
+      "representation": "historical company journal scan",
+      "role_lineage": "retrospective Bell company history"
+    },
+    {
+      "url": "https://forohistorico.coit.es/index.php/biblioteca/libros-electronicos?element=a01c647a-3a3f-49fc-8f69-c5a9f1e6faf9&format=raw&item_id=147&method=download&task=callelement",
+      "locator": "Kingsbury pp.74–75",
+      "representation": "digitized book text",
+      "role_lineage": "retrospective transcription of 1877 proposal and 1878 report"
+    },
+    {
+      "url": "https://patents.google.com/patent/US174465A/en",
+      "locator": "claim 5",
+      "representation": "original patent transcription",
+      "role_lineage": "Bell 1876 claimed invention, not New Haven delivery record"
+    },
+    {
+      "url": "https://patents.google.com/patent/US224653A/en",
+      "locator": "specification, operation; dated 17 February 1880",
+      "representation": "original patent transcription",
+      "role_lineage": "Coy later design, not evidence of January 1878 installation"
+    }
+  ],
+  "duplicate_screen": "Existing New Haven event dates service by 28 January; new 21 February dated operator directory event has different documentary subject and date. Earlier record did not include two row-count measures. No new telephone invention or transmission node is proposed.",
+  "limitations": [
+    "Full Seton PDF returned 403; its indexed catalogue p.65 was read, but the prospectus itself was not inspected.",
+    "UConn and LOC directory-frame endpoints did not open; the Connecticut Humanities original reproduction was readable. Reproductions of the same directory are not independent.",
+    "Newspaper evidence does not establish the route, provider, or identity of the 1880 police call with the 1878 exchange.",
+    "Opening dates and counts remain disputed; source versions and units differ.",
+    "Review does not reapprove unchanged baseline priority, impact, dates or price/pay."
+  ],
+  "issues": [],
+  "validation": {
+    "command": "python3 tools/validate.py; git diff --check BASE WORKER",
+    "result": "both pass; 979 discoveries, 1689 events, 302 links, 2015 sources."
+  },
+  "history": []
+}
