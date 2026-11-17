@@ -6,29 +6,29 @@
   "domain": "electronics.networks",
   "events": [
     {
-      "id": "isc-presentation-2014",
+      "id": "hoti-presentation-2014",
       "type": "presentation",
       "date": {
         "earliest": {
           "year": 2014,
-          "month": 6,
-          "day": 25
+          "month": 8,
+          "day": 26
         },
         "latest": {
           "year": 2014,
-          "month": 6,
-          "day": 25
+          "month": 8,
+          "day": 26
         },
         "precision": "day",
         "status": "known",
-        "label": "2014-06-25",
-        "basis": "The ISC presentation deck gives the day."
+        "label": "2014-08-26",
+        "basis": "The Hot Interconnects presentation deck gives the day."
       },
       "statement": "Fujitsu's team presented the Tofu2 interconnect design, integrating the network controller into the processor chip while retaining the six-dimensional mesh/torus.",
       "evidence": [
         {
-          "source": "ajima-2014-tofu-interconnect-2-isc",
-          "locator": "Slides 1, 3–4 and 6",
+          "source": "ajima-2014-tofu-interconnect-2-hot-interconnects",
+          "locator": "Slides 1 and 4–7",
           "supports": "Dated slides contrast Tofu1 and Tofu2 and describe chip integration and network topology."
         }
       ]
@@ -76,7 +76,7 @@
     }
   ],
   "earliest_record": {
-    "event": "isc-presentation-2014",
+    "event": "hoti-presentation-2014",
     "rationale": "The dated designer presentation establishes the public design account. The NIFS installation dates a subsequent deployed instance."
   },
   "research": {
@@ -86,10 +86,9 @@
       "places": "sourced",
       "grain": "sourced",
       "events": "sourced",
-      "origin": "sourced",
       "links": "sourced"
     },
-    "note": "The graph edge refers to the original Tofu design implemented in K. Fujitsu identifies the development sequence and Dongarra independently compares the realised network generations."
+    "note": "Fujitsu identifies the development sequence. The graph relation remains a candidate pending independent informative corroboration of the precise inheritance."
   },
   "places": [
     {
@@ -99,24 +98,24 @@
     }
   ],
   "grain": "improvement",
-  "origin": "derived",
   "links": [
     {
       "type": "adapts",
       "from": "riken-fujitsu-k-computer",
-      "status": "established",
-      "statement": "Fujitsu’s Tofu2 retained the six-dimensional mesh/torus used by K's Tofu interconnect and moved the controller onto the processor chip.",
-      "scope": "Interconnect design inherited via Fujitsu’s Tofu line, including original Tofu on the FX10.",
+      "status": "candidate",
+      "statement": "Which parts of the original Tofu design deployed in K carried through to Tofu2?",
+      "scope": "Interconnect design across K and the FX100-era Tofu2, including original Tofu on the FX10.",
+      "finding": "Fujitsu describes continuity of the six-dimensional topology and the shift to processor-chip integration. The precise inheritance awaits independent informative corroboration.",
       "evidence": [
         {
-          "source": "ajima-2014-tofu-interconnect-2-isc",
-          "locator": "Slides 1, 3–4 and 6",
+          "source": "ajima-2014-tofu-interconnect-2-hot-interconnects",
+          "locator": "Slides 1 and 4–7",
           "supports": "Fujitsu credits K’s original Tofu and identifies network topology as retained and integration as the generational change."
         },
         {
           "source": "dongarra-2020-fujitsu-fugaku-system",
           "locator": "Pp. 7–8, Tofu Interconnect Network",
-          "supports": "External technical report identifies K and FX100 as the two earlier Tofu generations and compares their network implementation."
+          "supports": "The report names K and FX100 as the earlier deployed Tofu generations. Its technical comparison closely follows the Fujitsu account."
         }
       ]
     }

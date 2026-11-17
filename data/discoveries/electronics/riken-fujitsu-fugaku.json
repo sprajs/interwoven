@@ -26,6 +26,7 @@
       "places": [
         "japan"
       ],
+      "caveats": "Dongarra reports early user access during the first quarter of 2020. The activities of those users are unelaborated. This event is the trial phase RIKEN dates to April.",
       "evidence": [
         {
           "source": "riken-2021-fugaku-shared-use",
@@ -34,8 +35,8 @@
         },
         {
           "source": "dongarra-2020-fujitsu-fugaku-system",
-          "locator": "Overview",
-          "supports": "Locates the Fugaku installation at RIKEN in Kobe."
+          "locator": "Overview, pp. 1–2",
+          "supports": "Locates Fugaku at RIKEN in Kobe and reports first-quarter access for some users."
         }
       ]
     },
@@ -56,7 +57,7 @@
         "label": "2020-06",
         "basis": "Month of the first TOP500 reporting of the measured result."
       },
-      "statement": "Fugaku's June configuration recorded 415.53 PFlop/s in the TOP500 LINPACK benchmark.",
+      "statement": "The June 2020 TOP500 listing reported a measured Fugaku LINPACK result of 415.53 PFlop/s.",
       "places": [
         "japan"
       ],
@@ -170,7 +171,7 @@
   ],
   "earliest_record": {
     "event": "trial-use-2020",
-    "rationale": "Earliest retained practical use of the named Kobe system. The prototype and installation are separate stages."
+    "rationale": "First operator-dated research trial phase retained here. Dongarra describes earlier access during installation without identifying the user activities."
   },
   "research": {
     "status": "draft",
@@ -179,11 +180,10 @@
       "places": "sourced",
       "grain": "sourced",
       "events": "sourced",
-      "origin": "sourced",
       "measures": "sourced",
       "links": "sourced"
     },
-    "note": "The link concerns the interconnect design only. The historical benchmark remains distinct from the live operating status."
+    "note": "The candidate relation concerns only interconnect design. Independent informative corroboration of the exact inheritance is pending. The historical benchmark and dated suspension document different events."
   },
   "places": [
     {
@@ -193,7 +193,6 @@
     }
   ],
   "grain": "instance",
-  "origin": "derived",
   "measures": [
     {
       "quantity": "LINPACK Rmax",
@@ -232,9 +231,10 @@
     {
       "type": "adapts",
       "from": "fujitsu-tofu-interconnect-2",
-      "status": "established",
-      "statement": "Fugaku’s Tofu Interconnect D adapted Fujitsu’s Tofu2 design. It retained the six-dimensional mesh/torus and on-chip controller, changing link provisioning and adding resilience features for denser systems.",
+      "status": "candidate",
+      "statement": "Which Tofu2 design elements were carried into Fugaku’s Tofu Interconnect D?",
       "scope": "Fujitsu interconnect architecture across FX100-era Tofu2 and Fugaku's A64FX-integrated TofuD.",
+      "finding": "Fujitsu identifies Tofu2 as the basis for TofuD and describes changes to improve operation in dense systems. Exact design inheritance awaits independent informative corroboration.",
       "evidence": [
         {
           "source": "fujitsu-2019-primehpc-fx1000-white-paper",
@@ -244,7 +244,7 @@
         {
           "source": "dongarra-2020-fujitsu-fugaku-system",
           "locator": "Pp. 7–8, Tofu Interconnect Network",
-          "supports": "External technical report independently identifies Tofu2 as the predecessor-generation interconnect and compares topology, integration and link provisioning."
+          "supports": "The report compares the deployed configurations. Its technical comparison closely follows the Fujitsu account."
         }
       ]
     }
