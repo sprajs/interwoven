@@ -42,9 +42,22 @@
         "https://old.hotchips.org/hc30/2conf/2.13_Fujitsu_HC30.Fujitsu.Yoshida.rev1.2.pdf",
         "https://arxiv.org/abs/2103.03013v2"
       ]
+    },
+    {
+      "child": "arm-scalable-vector-extension",
+      "parent": "armv8-a-64-bit-architecture",
+      "initial_status": "absent",
+      "decision": "established",
+      "reason": "Arm's 2011 A64 instruction-set overview defines the substrate. The designer's 2016 note explicitly identifies SVE as an AArch64 extension occupying part of the A64 encoding space. Alappat and colleagues independently ran programs compiled for that exact combination on A64FX.",
+      "sources": [
+        "https://www.cs.princeton.edu/courses/archive/fall22/cos217/reading/ArmInstructionSetOverview.pdf",
+        "https://developer.arm.com/community/arm-community-blogs/b/servers-and-cloud-computing-blog/posts/technology-update-the-scalable-vector-extension-sve-for-the-armv8-a-architecture",
+        "https://arxiv.org/abs/2103.03013v2"
+      ]
     }
   ],
   "findings": [
+    "Arm's public preview of Armv8-A was in October 2011. Its first non-confidential A64 overview followed on 11 November. The SVE design used a portion of that A64 instruction encoding. [d2-fugaku-arm-2014-armv8a-history; d2-fugaku-arm-2011-a64-overview; d2-fugaku-stephens-2016-a64-sve-encoding]",
     "Arm's Hot Chips 28 deck dates the public design account of the Scalable Vector Extension to 22 August 2016. The supported design range is 128–2,048 bits in 128-bit increments; the specific A64FX width was 512 bits. [d2-fugaku-stephens-2016-sve; d2-fugaku-stephens-2017-sve-paper; d2-fugaku-yoshida-2018-a64fx]",
     "Fujitsu's Hot Chips 30 disclosure on 21 August 2018 and RIKEN's 18 November 2019 prototype report document distinct stages. The latter reports 768 A64FX chips in the Numazu prototype. [d2-fugaku-hot-chips-30-programme; d2-fugaku-yoshida-2018-a64fx; d2-fugaku-riken-2019-prototype]",
     "Alappat et al. report 0.5 cycles per standard SVE ld1d instruction as reciprocal throughput in their FX1000 microbenchmark. Diehl et al. separately ran a stellar-merger code with SVE on up to 1,024 Fugaku nodes. [d2-fugaku-alappat-2021-a64fx; d2-fugaku-diehl-2023-octo-tiger]",
@@ -54,11 +67,12 @@
     "riken-fujitsu-fugaku",
     "fujitsu-a64fx",
     "arm-scalable-vector-extension",
-    "fujitsu-tofu-interconnect-2"
+    "fujitsu-tofu-interconnect-2",
+    "armv8-a-64-bit-architecture"
   ],
   "frontier": [
     "Seek an FX100 and Fugaku implementer with direct evidence of transfer of named Tofu2 routing, virtual-torus mapping or remote-memory operations. Paired tests alone can corroborate the feature match; documentation of carryover is still needed.",
-    "Trace the necessary 64-bit AArch64 substrate from SVE into the first Armv8-A specifications. Arm's Hot Chips presentation describes its A64 encoding allocation and should be compared with independently developed AArch64 toolchain records."
+    "Arm's 2011 overview documents compatibility with earlier A32/T32 instructions. To follow an earlier generation, compare the Armv7-A architecture reference manual with the 2011 preview and distinguish inherited 32-bit compatibility from the design sources of AArch64."
   ],
   "sources": [
     {
@@ -115,8 +129,23 @@
       "title": "Supercomputer Fugaku, TOP500 system results",
       "url": "https://top500.org/system/179807/",
       "locator": "System configuration and June 2020 row"
+    },
+    {
+      "title": "The ARMv8-A architecture and its ongoing development",
+      "url": "https://developer.arm.com/community/arm-community-blogs/b/architectures-and-processors-blog/posts/the-armv8-a-architecture-and-its-ongoing-development",
+      "locator": "Opening paragraph"
+    },
+    {
+      "title": "ARMv8 Instruction Set Overview",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall22/cos217/reading/ArmInstructionSetOverview.pdf",
+      "locator": "Title page, § 1.1.2 Change history, and §§ 2–3"
+    },
+    {
+      "title": "Technology Update: Scalable Vector Extension (SVE) for Armv8-A",
+      "url": "https://developer.arm.com/community/arm-community-blogs/b/servers-and-cloud-computing-blog/posts/technology-update-the-scalable-vector-extension-sve-for-the-armv8-a-architecture",
+      "locator": "Paragraphs beginning “SVE is targeted” and “The variable length aspect”"
     }
   ],
-  "screen": "Searched discoveries, sources and leads for A64FX, Scalable Vector Extension, Tofu2, TofuD, AArch64, Armv8 and Advanced SIMD/NEON. Fugaku and Tofu2 already had canonical records; A64FX and SVE were mentioned in system/source text without dedicated discovery or lead IDs. No register additions.",
+  "screen": "Searched discoveries, sources and leads for A64FX, Scalable Vector Extension, Tofu2, TofuD, Armv8-A, AArch64, Arm64, Arm architecture, Advanced SIMD/NEON and Armv7. Fugaku and Tofu2 already had canonical records. A64FX appeared in system/source text. No dedicated A64FX, SVE or Armv8-A discovery or lead surfaced. No register additions.",
   "limits": "Source search through 17 November 2026. Public disclosure dates do not date first working silicon or the beginning of ISA design. The FX1000 instruction test and the Fugaku application scaling run have different scopes. Independent tests support implementations; they do not establish priority or a lineage through Tofu2."
 }
