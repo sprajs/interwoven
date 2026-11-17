@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "lane": "samir",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "a5d495a3f71880e693a69dff19a9160fc1966a1d",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review",
+    "independence": "Separate execution from proposer gpt-6.2-sol high; articles reuse shared excavation and imagery."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/food/kfar-samir-olive-oil-extraction.json",
+      "sha256": "d367f52d1df1582ae7248eb2e011cd134f0d598d4e8345b135e437ff93805fce"
+    },
+    {
+      "path": "data/discoveries/materials/kfar-samir-pair-twined-basketry.json",
+      "sha256": "e7311fe05d07cfb515436a5cc0d33b2a21398b1f37a492938b09d47ccda107ad"
+    },
+    {
+      "path": "data/sources/g/galili-1997-kfar-samir-oil-excavation.json",
+      "sha256": "0715fdd1c7d2acbe6184c2a3955c3e91390916e539faefe00a234735db63358d"
+    },
+    {
+      "path": "data/sources/g/galili-2007-kafr-samir-survey.json",
+      "sha256": "9cf186a6519b5b135441dbe68d90404ba4b062e0c45d5e820a26e1fe07e406cb"
+    },
+    {
+      "path": "data/sources/r/rosenberg-2023-carmel-wood-and-basketry.json",
+      "sha256": "6fed9cedde07a3cdd08aed776da157f8c61a2be533b06e533a51244bf24293eb"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/samir.json",
+      "sha256": "2b2c27228e65ca9b558902dd63d2805ac5bb4519f1b7b2f6fb62c25b2a22e84c"
+    },
+    {
+      "path": "evidence/g/galili-1997-kfar-samir-oil-excavation-notes.txt",
+      "sha256": "908a4a1c8c31596e6af37ec6a7ce64ea5499c3555e29ae965fd301b8e5b01299"
+    },
+    {
+      "path": "evidence/g/galili-2007-kafr-samir-survey-notes.txt",
+      "sha256": "83df1740becf5e209f76cf96554e358d1ac59981aea3db3130cd15d3dba10923"
+    },
+    {
+      "path": "evidence/r/rosenberg-2023-carmel-wood-and-basketry-notes.txt",
+      "sha256": "c38838d52d95330e5b82ce256d888885793f060532e95f717c735e0cd8fc74b0"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "data/discoveries/materials/kfar-samir-pair-twined-basketry.json#/events/0/statement",
+      "decision": "accept",
+      "rationale": "The IAA winter-1994 report documents three fragments of alternate pair-twined twig basketry, associated olive stones and clay fill; its in-situ and conserved images match Rosenberg KS 2 Fig. 7.",
+      "sources": [
+        "2007 report winter 1994 and Figs. 3–5",
+        "2023 section 3.2, Fig. 7"
+      ]
+    },
+    {
+      "path": "data/discoveries/materials/kfar-samir-pair-twined-basketry.json#/events/0/date and evidence",
+      "decision": "accept",
+      "rationale": "IAA states calibrated 5000–4730 BCE for the braiding, RT 4689. Its original lab documentation, sampled fragment, calibration and probability remain unavailable. 2013 attributes a different range to the braid; the same range is assigned to pit-8 mat RT 855 in 2017. 2023 gives a site envelope. The new date remains explicitly reported and approximate.",
+      "sources": [
+        "2007 winter 1994 report",
+        "2013 p.190",
+        "2017 Table 7.1 pp.109–111",
+        "2023 Table 1"
+      ]
+    },
+    {
+      "path": "data/discoveries/materials/kfar-samir-pair-twined-basketry.json#/events/0/caveats, earliest_record, caveats",
+      "decision": "accept",
+      "rationale": "A reported direct date on the braiding is distinct from the dating of a separate crushed-olive installation; inferred holding and pressing are not demonstrated.",
+      "sources": [
+        "2007 report, final paragraphs",
+        "1997 pp.1143–1147"
+      ]
+    },
+    {
+      "path": "data/discoveries/food/kfar-samir-olive-oil-extraction.json#/research/note and links/0",
+      "decision": "accept",
+      "rationale": "The actual 1997 Fig. 5, IAA 2007 Fig. 3 and 2023 Fig. 7a reproduce the same in-situ photograph. IAA reports separate crushed-olive installation several dozen metres south. The basket’s function and contemporaneity with a specific episode are not established.",
+      "sources": [
+        "1997 Fig. 5 and discussion",
+        "2007 Figs. 3–5 and final paragraphs",
+        "2023 Fig. 7 and section 3.2"
+      ],
+      "relation": {
+        "type": "companion_of",
+        "vocab": "The two worked together as parts of one arrangement.",
+        "direction": "KS2 basketry toward Kfar Samir oil extraction; hypothesized local co-use",
+        "status": "candidate",
+        "established_history": false,
+        "corroboration": "Shared authors and repeated image/analogy, not independent function evidence."
+      }
+    },
+    {
+      "path": "data/sources/g/galili-1997-kfar-samir-oil-excavation.json and evidence/g/galili-1997-kfar-samir-oil-excavation-notes.txt",
+      "decision": "accept",
+      "rationale": "The 1997 original captions, pit 6 and Table 3 support the reported contexts and laboratory designations. I independently inspected the figure asset and same identifiable scene in 2007 and 2023. Figure match is not evidence of pressing.",
+      "sources": [
+        "1997 Figs. 2, 5, 7, Table 3 and discussion",
+        "IAA 2007 Fig.3",
+        "2023 Fig.7"
+      ]
+    },
+    {
+      "path": "data/sources/g/galili-2007-kafr-samir-survey.json and evidence/g/galili-2007-kafr-samir-survey-notes.txt",
+      "decision": "accept",
+      "rationale": "Original English and Hebrew reports support date, location, interpretation and historical treatment destination; Hebrew states twig diameter in mm. RT 4689 is a sample ID, not object accession.",
+      "sources": [
+        "IAA English and Hebrew 2007 report, figs 3–5"
+      ]
+    },
+    {
+      "path": "data/sources/r/rosenberg-2023-carmel-wood-and-basketry.json and evidence/r/rosenberg-2023-carmel-wood-and-basketry-notes.txt",
+      "decision": "accept",
+      "rationale": "KS2 table gives site envelope and BETA 3821; 2020 table gives same interval for PTA 3821 well-3 wood. Prefix mismatch is unresolved and a possible error, not established identity. RT1929A is pit-7 olives.",
+      "sources": [
+        "2023 section 3.2, Fig.7, Table1",
+        "2020 Table 23.2 p.451"
+      ]
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/samir.json",
+      "decision": "accept",
+      "rationale": "Dossier accurately distinguishes reused photographs, shared-source lineage, direct reported date, distinct pits, functional inference and competing dates. IAA catalogue result details were checked against a researcher-captured DOM excerpt, not independently replayed; the corroborating 2007 report was read directly.",
+      "sources": [
+        "1997 Fig.5",
+        "IAA 2007 English and Hebrew",
+        "2013 p.190",
+        "2017 Table 7.1",
+        "2020 Table23.2",
+        "2023 Fig.7 and Table1",
+        "IAA guest DOM captured excerpt"
+      ]
+    }
+  ],
+  "originalsourcechecks": [
+    {
+      "source": "IAA 2007 English and Hebrew",
+      "urls": [
+        "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=552&mag_id=112",
+        "https://hadashot.iaa.org.il/Report_Detail.aspx?id=552&mag_id=112"
+      ],
+      "locators": "Winter 1994 pit, RT4689, Figs 3–5, survey introduction",
+      "availability": "Both primary report texts and figures directly inspected; Hebrew unit 3–5 mm, English typo says m.",
+      "independence": "Same excavation team and object as later accounts."
+    },
+    {
+      "source": "1997 original",
+      "url": "https://www.researchgate.net/publication/248578882_Evidence_for_Earliest_OliveOil_Production_in_Submerged_Settlements_off_the_Carmel_Coast_Israel",
+      "locators": "pp.1143–1148, Figs 2,5,7, Table3; image https://figures.academia-assets.com/40144739/figure_006.jpg",
+      "availability": "Original article transcription and Fig.5 image directly inspected.",
+      "independence": "Original excavation, repeated by subsequent accounts."
+    },
+    {
+      "source": "2023 Rosenberg",
+      "url": "https://www.mdpi.com/1999-4907/14/12/2373",
+      "locators": "section 2.1 and 3.2, Figs 7–8, Table1",
+      "availability": "Publisher HTML and figure 7 image directly inspected.",
+      "independence": "Reuses object images and excavation interpretation; not independent use evidence."
+    },
+    {
+      "source": "2013 Galili",
+      "url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Levant/Israel-Galili2013.pdf",
+      "locators": "p.190 §4.2.1.2 Fig13",
+      "availability": "Original PDF text and conserved-object figure inspected.",
+      "independence": "Shared author and interpretation; directly assigns a conflicting range."
+    },
+    {
+      "source": "2017 Galili",
+      "url": "https://www.academia.edu/82215735/Submerged_Pottery_Neolithic_Settlements_off_the_Coast_of_Israel_Subsistence_Material_Culture_and_the_Development_of_Separate_Burial_Grounds",
+      "locators": "Table7.1, pp.109–111, Fig7.5",
+      "availability": "Original article transcription inspected.",
+      "independence": "Shared archaeological materials and investigators, not independent verification."
+    },
+    {
+      "source": "2020 Galili",
+      "url": "https://www.vliz.be/imisdocs/publications/343870.pdf",
+      "locators": "Table23.2 p.451 and section23.6.3.2",
+      "availability": "Original PDF directly read.",
+      "independence": "Reuses project data, with its own recalibration table."
+    },
+    {
+      "source": "IAA guest catalogue",
+      "url": "https://discover.iaa.org.il/?entity_index=0&tabId=0&freeText=RT%204689",
+      "locators": "guest search result and survey detail 882-840-5107",
+      "availability": "Live replay unavailable; independently read researcher-captured DOM excerpt at .samir-research/iaa-catalogue-guest-dom-20261117.txt; SHA-256 21c5cb1ddc5c416d5450e310e749e6d313b8d8f9209992a0e0ff4539e77446f2. This is a manually extracted representation, not raw archival data.",
+      "independence": "Confirms report and survey catalogue associations as captured; does not identify object accession or lab paperwork."
+    }
+  ],
+  "duplicate_screen": "Both changed records and events already exist. The proposal refines KS2 provenance and the existing candidate relationship rather than adding a second basket or oil process.",
+  "limits": [
+    "IAA sample report does not specify laboratory measurement, calibration curve, probability or exact fragment; RT4689 documentation is still sought.",
+    "A 2013 report assigns 7517–7038 cal BP to the braid but 2017 Table7.1 assigns this interval to RT855, the separate pit-8 mat; 2023 uses a contextual site envelope.",
+    "Guest catalogue could not be replayed in this reviewer environment. Captured excerpts document the reported search but are not an independently authenticated raw response; user-facing claims remain restricted to search results, not proof of an object accession or current custody.",
+    "Actual pressing, residue/use wear, and co-use contemporaneity remain unproven."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "pass: 979 discoveries, 1688 events, 302 links, 2014 sources; no problems found"
+  },
+  "diff_check": {
+    "command": "git diff --check 1795a73dff022c15ee6e28d7dd6f5252a070c9a6 a5d495a3f71880e693a69dff19a9160fc1966a1d",
+    "result": "pass"
+  },
+  "history": []
+}

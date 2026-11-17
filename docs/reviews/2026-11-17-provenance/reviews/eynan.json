@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "lane": "eynan",
+  "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+  "worker_commit": "0eff1a11700e70d521e520e5fd7f5cfe73a6381e",
+  "reviewer": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "execution": "independent review",
+    "independence": "Separate from gpt-6.2-sol high proposer; independently read cited sources, examined photograph and archive descriptions."
+  },
+  "overall_decision": "accept",
+  "files": [
+    {
+      "path": "data/discoveries/construction/burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant.json",
+      "sha256": "f8ae53ce9bd64d89209436c202e5be4d800495eafeb792b593f720e416fd2b66"
+    },
+    {
+      "path": "data/discoveries/construction/settled-village-life-among-natufian-foragers-in-the-levant.json",
+      "sha256": "5157f1a9585f7cb9b9fa302cf378aedb58a1189f781fc4b1d090eac8a8804f16"
+    },
+    {
+      "path": "data/sources/d/dubreuil-2002-mallaha-plastered-rim.json",
+      "sha256": "baee42db3490a1c6913517f20656a1273a3c43a60af2e60182c0a43456d9d6a8"
+    },
+    {
+      "path": "data/sources/k/kingery-1988-eynan-lime-plaster.json",
+      "sha256": "ebd3120136ef0ba3d7593e6853cd69b16b06b4321415fb0cc93ec89dd972760c"
+    },
+    {
+      "path": "data/sources/m/msh-mondes-jean-perrot-fonds-finding-aid.json",
+      "sha256": "91a69da6b40542ba335111fefb928af0085fcfe593b0de6873a84cdeee85bb60"
+    },
+    {
+      "path": "docs/reviews/2026-11-17-provenance/lanes/eynan.json",
+      "sha256": "1020de7229ba6223cbfa84b05b422cfbb3b5bc09d1b70cd579e4387d5d1e8298"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "path": "title, question, summary, decision and next",
+      "decision": "accept",
+      "rationale": "Kingery table 1 sample 86-1 and footnote document collection source and bench-like feature; Dubreuil p.124 calls the match to Perrot’s Shelter 1 description probable rather than a confirmed specimen match. Source record or field catalogue/dispatch comparison remains the correct next route. A newly sampled fragment would not be 86-1."
+    },
+    {
+      "path": "steps/0 locate Shelter 1",
+      "decision": "accept",
+      "rationale": "Haklay and Gopher Early Natufian remains and fig.1 identify layer II and Shelter 1; archive JP557 finding aid pp.21–22 labels La grande tombe (abri 1), plate 25 locus 1, while other plates include locus 3. Independently viewed the reproduced field photograph with later Shelter 1/3 labels. Published photo does not itself carry the laboratory specimen identifier."
+    },
+    {
+      "path": "steps/1 Perrot descriptions",
+      "decision": "accept",
+      "rationale": "Dubreuil p.124 §1.4.1.4 reproduces Perrot 1966 p.445 on feature dimensions and polished coating; quotation remains a secondary reproduction since original 1966 paper not opened. Perrot 1975 original pp.485–486 and plate I concern House 131; archive JP664/JP665 lists preparatory records. The earlier and later original reports were not conflated."
+    },
+    {
+      "path": "steps/2 laboratory and collection credit",
+      "decision": "accept",
+      "rationale": "Kingery et al. 1988 pp.224–226, table 1 and footnote explicitly identify 86-1, site, material, interpretation and collection credit; do not identify field position or catalogue accession. HUJI collection page and Smithsonian/Harvard finding aids are leads rather than custody or absence proof."
+    },
+    {
+      "path": "steps/3 field catalogue",
+      "decision": "accept",
+      "rationale": "MSH Mondes Perrot fonds finding aid pp.8, 11, 14, 21–22 identifies JP216 notebooks, JP220 sample catalogue, JP553 sections and JP557 plate 25 locus 1. These describe potential documents, not an observed sample link. JP646 photo series identifiers provide route, not particular figure attribution."
+    },
+    {
+      "path": "steps/4 material comparison",
+      "decision": "accept",
+      "rationale": "Dubreuil p.124 uses probablement; Valla et al. 2007 pp.146–148, 162–165/table 5 reports distinct Locus 239 material and sample identifiers; Es Sebar et al. 2022 distinguishes several carbonate categories. None independently identifies or retests 86-1."
+    },
+    {
+      "path": "steps/5 historic function",
+      "decision": "accept",
+      "rationale": "Shelter 1 field evidence and modern disturbance provide context but cannot establish function of sample 86-1; decision properly separates context, identity and use."
+    },
+    {
+      "path": "relationship and data model",
+      "decision": "accept",
+      "rationale": "No discovery file or established link added; baseline candidate companion_of remains a question. Site coincidence and a probable descriptive comparison do not satisfy the exact companion_of functional relationship or establish a dated specimen event."
+    },
+    {
+      "path": "data/discoveries/construction/burnt-lime-plaster-in-the-epipalaeolithic-and-neolithic-levant.json#research.unresolved/eynan-plaster-sample-provenance",
+      "decision": "accept",
+      "rationale": "Kingery et al. table 1 and footnote trace sample 86-1 to the Hebrew University collection courtesy Ofer Bar-Yosef; Dubreuil p.124 §1.4.1.4 explicitly proposes a probable match to the Perrot Shelter 1 feature, without a common accession; the MSH finding aid p.11 lists JP220 sample catalogue. The source-based lead and unknown identity remain appropriately qualified."
+    },
+    {
+      "path": "data/discoveries/construction/settled-village-life-among-natufian-foragers-in-the-levant.json#links/0 finding and evidence",
+      "decision": "accept",
+      "rationale": "The Kingery collection chain, Dubreuil probable comparison and JP220 archive lead are source-grounded, with unverified sample field number and feature function explicitly unresolved. The existing candidate companion_of status and question remain unchanged, not an established historical relationship. Both endpoints are regional lime process and Natufian settlement practice; neither similarity nor site context establishes an actual joint function.",
+      "relation_attestation": {
+        "relation": "question whether feature functioned in residential/communal settlement life",
+        "direction": "candidate affinity question, no claimed transmission or production dependence",
+        "context": "Eynan bench-like sample and Shelter 1 may match but accession crosswalk missing",
+        "status": "candidate",
+        "independent_corroboration": "Dubreuil compares earlier descriptions, not an independent specimen trace; Kingery and field sources provide distinct observations",
+        "historical_or_question": "plaster sample and field bench observations supported separately; identity and function retained as questions"
+      }
+    },
+    {
+      "path": "data/sources/d/dubreuil-2002-mallaha-plastered-rim.json",
+      "decision": "accept",
+      "rationale": "Original thesis p.124 §1.4.1.4 calls the link probable, quotes Perrot, and provides no shared field number. The source record correctly preserves lineage and qualification."
+    },
+    {
+      "path": "data/sources/k/kingery-1988-eynan-lime-plaster.json#passages/1",
+      "decision": "accept",
+      "rationale": "Original article p.225 table 1 footnote gives collection and Ofer Bar-Yosef as courtesy for samples 86-1 and 86-2; no corresponding field identifier is furnished."
+    },
+    {
+      "path": "data/sources/m/msh-mondes-jean-perrot-fonds-finding-aid.json",
+      "decision": "accept",
+      "rationale": "Original archive finding aid p.11 lists JP220 including 1955–1961 sample catalogue. The dossier description does not itself identify individual samples; uninspected catalogue is a lead."
+    }
+  ],
+  "originalsourcechecks": [
+    {
+      "url": "https://www.academia.edu/45082621/The_Beginnings_ofPyrotechnology_Part_IT_Production_and_Use_of_Lime_and_Gypsum_Plaster_in_the_Pre_Pottery_Neolithic_Near_East",
+      "locator": "Kingery et al. pp.224–226, table 1 and footnote",
+      "availability": "original article searchable transcription read; Smithsonian direct PDF timed out",
+      "independence": "original material analysis, same sample not independently corroborated by later studies"
+    },
+    {
+      "url": "https://oskar-bordeaux.fr/bitstream/handle/20.500.12278/25427/DUBREUIL_LAURE_2002.pdf?isAllowed=y&sequence=1",
+      "locator": "p.124 §1.4.1.4",
+      "sha256": "71a3c89d2c7015ace1b625c4c1eeaae63e69cdfe0172c7ce701d455154492035",
+      "availability": "local full PDF independently read",
+      "independence": "author’s explicitly probable comparison; Perrot quotation is secondary and does not provide specimen accession"
+    },
+    {
+      "url": "https://archives.mae.parisnanterre.fr/downloads/jean-perrot-du-village-a-letat-au-proche-et-moyen-orient-diffusion.pdf",
+      "locator": "printed pp.8,11,14,21–22,75–76,92",
+      "availability": "original institutional archive finding aid read; item contents not examined",
+      "independence": "finding aid describes collections; its identifiers are document shelfmarks not verified specimen identities"
+    },
+    {
+      "url": "https://ars.els-cdn.com/content/image/1-s2.0-S2352226725000285-gr4_lrg.jpg",
+      "locator": "Bocquentin et al. 2025 figure 4",
+      "sha256": "9faa6bf91e239e61c2234e68a88b20087c3774f18cc3b9513d133ddc9fa3f8e8",
+      "availability": "independently viewed local reproduced image; journal article direct access 403 in this execution",
+      "independence": "archival field view reproduced and annotated later; image cannot identify laboratory sample"
+    },
+    {
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130121",
+      "locator": "Early Natufian architectural remains, figure 1",
+      "availability": "original article text read",
+      "independence": "site architectural interpretation of Perrot field plans; does not establish Kingery specimen join"
+    },
+    {
+      "url": "https://www.persee.fr/doc/paleo_0153-9345_1974_num_2_2_1072",
+      "locator": "Perrot report pp.485–486 and plate I",
+      "availability": "original publication read",
+      "independence": "House 131 distinct from Shelter 1; no matching laboratory identifier"
+    },
+    {
+      "url": "https://www.academia.edu/68290979/Les_fouilles_de_Ain_Mallaha_Eynan_de_2003_%C3%A0_2005_quatri%C3%A8me_rapport_pr%C3%A9liminaire",
+      "locator": "Valla et al. pp.146–148, 162–165 and table 5",
+      "availability": "original excavation publication transcription read",
+      "independence": "distinct Locus 239 later samples; no proof of 86-1 crosswalk"
+    },
+    {
+      "url": "https://www.imeko.org/publications/tc4-Archaeo-2022/IMEKO-TC4-MetroArchaeo2022-004.pdf",
+      "locator": "Es Sebar et al. sections III–V, figure 3",
+      "availability": "original paper read",
+      "independence": "separate samples and techniques; no identified repeat test of 86-1"
+    },
+    {
+      "url": "https://guides.library.harvard.edu/c.php?g=1034799&p=7501235",
+      "locator": "Bar-Yosef personal archive collection-level entry",
+      "availability": "finding aid read",
+      "independence": "collection-level inventory 1988–2008 does not establish contents of individual files"
+    },
+    {
+      "url": "https://siarchives.si.edu/collections/siris_arc_279689",
+      "locator": "SIA accession 08-109; director records",
+      "availability": "collection finding aid read",
+      "independence": "does not establish custody of sample or intake documentation"
+    },
+    {
+      "url": "https://siarchives.si.edu/collections/siris_arc_371246",
+      "locator": "SIA accession 15-273; director records",
+      "availability": "collection finding aid read",
+      "independence": "does not establish custody of sample or intake documentation"
+    }
+  ],
+  "limits": [
+    "Perrot 1957 and 1966 articles and original JP220/JP553 contents not independently available; the 1966 passage was read in Dubreuil’s quotation.",
+    "Bocquentin 2025 full article was blocked in this review; the separately available annotated image was examined, not its full caption from the article.",
+    "No field accession, sampling position, dispatch slip or lab intake record proved the 86-1 to Shelter 1 match; no inference of universal absence or historical function."
+  ],
+  "validation": {
+    "command": "python3 tools/validate.py",
+    "result": "passed: 979 discoveries, 1688 events, 302 links, 2015 sources; no problems",
+    "diff_check": "git diff --check base proposal passed"
+  },
+  "history": [
+    {
+      "schema_version": 1,
+      "lane": "eynan",
+      "base_commit": "1795a73dff022c15ee6e28d7dd6f5252a070c9a6",
+      "worker_commit": "b851b6cc6f8a404595ac9442b0fb00943ba698e4",
+      "reviewer": {
+        "model": "gpt-6.1-terra",
+        "effort": "high",
+        "execution": "independent review",
+        "independence": "Separate from gpt-6.2-sol high proposer; independently read cited sources, examined photograph and archive descriptions."
+      },
+      "overall_decision": "accept",
+      "files": [
+        {
+          "path": "docs/reviews/2026-11-17-provenance/lanes/eynan.json",
+          "sha256": "36349be4a81742dd9577bfb2bd4762a3e1618ae02e3b21f0a6188cd456d338ef"
+        }
+      ],
+      "claim_reviews": [
+        {
+          "path": "title, question, summary, decision and next",
+          "decision": "accept",
+          "rationale": "Kingery table 1 sample 86-1 and footnote document collection source and bench-like feature; Dubreuil p.124 calls the match to Perrot’s Shelter 1 description probable rather than a confirmed specimen match. Source record or field catalogue/dispatch comparison remains the correct next route. A newly sampled fragment would not be 86-1."
+        },
+        {
+          "path": "steps/0 locate Shelter 1",
+          "decision": "accept",
+          "rationale": "Haklay and Gopher Early Natufian remains and fig.1 identify layer II and Shelter 1; archive JP557 finding aid pp.21–22 labels La grande tombe (abri 1), plate 25 locus 1, while other plates include locus 3. Independently viewed the reproduced field photograph with later Shelter 1/3 labels. Published photo does not itself carry the laboratory specimen identifier."
+        },
+        {
+          "path": "steps/1 Perrot descriptions",
+          "decision": "accept",
+          "rationale": "Dubreuil p.124 §1.4.1.4 reproduces Perrot 1966 p.445 on feature dimensions and polished coating; quotation remains a secondary reproduction since original 1966 paper not opened. Perrot 1975 original pp.485–486 and plate I concern House 131; archive JP664/JP665 lists preparatory records. The earlier and later original reports were not conflated."
+        },
+        {
+          "path": "steps/2 laboratory and collection credit",
+          "decision": "accept",
+          "rationale": "Kingery et al. 1988 pp.224–226, table 1 and footnote explicitly identify 86-1, site, material, interpretation and collection credit; do not identify field position or catalogue accession. HUJI collection page and Smithsonian/Harvard finding aids are leads rather than custody or absence proof."
+        },
+        {
+          "path": "steps/3 field catalogue",
+          "decision": "accept",
+          "rationale": "MSH Mondes Perrot fonds finding aid pp.8, 11, 14, 21–22 identifies JP216 notebooks, JP220 sample catalogue, JP553 sections and JP557 plate 25 locus 1. These describe potential documents, not an observed sample link. JP646 photo series identifiers provide route, not particular figure attribution."
+        },
+        {
+          "path": "steps/4 material comparison",
+          "decision": "accept",
+          "rationale": "Dubreuil p.124 uses probablement; Valla et al. 2007 pp.146–148, 162–165/table 5 reports distinct Locus 239 material and sample identifiers; Es Sebar et al. 2022 distinguishes several carbonate categories. None independently identifies or retests 86-1."
+        },
+        {
+          "path": "steps/5 historic function",
+          "decision": "accept",
+          "rationale": "Shelter 1 field evidence and modern disturbance provide context but cannot establish function of sample 86-1; decision properly separates context, identity and use."
+        },
+        {
+          "path": "relationship and data model",
+          "decision": "accept",
+          "rationale": "No discovery file or established link added; baseline candidate companion_of remains a question. Site coincidence and a probable descriptive comparison do not satisfy the exact companion_of functional relationship or establish a dated specimen event."
+        }
+      ],
+      "originalsourcechecks": [
+        {
+          "url": "https://www.academia.edu/45082621/The_Beginnings_ofPyrotechnology_Part_IT_Production_and_Use_of_Lime_and_Gypsum_Plaster_in_the_Pre_Pottery_Neolithic_Near_East",
+          "locator": "Kingery et al. pp.224–226, table 1 and footnote",
+          "availability": "original article searchable transcription read; Smithsonian direct PDF timed out",
+          "independence": "original material analysis, same sample not independently corroborated by later studies"
+        },
+        {
+          "url": "https://oskar-bordeaux.fr/bitstream/handle/20.500.12278/25427/DUBREUIL_LAURE_2002.pdf?isAllowed=y&sequence=1",
+          "locator": "p.124 §1.4.1.4",
+          "sha256": "71a3c89d2c7015ace1b625c4c1eeaae63e69cdfe0172c7ce701d455154492035",
+          "availability": "local full PDF independently read",
+          "independence": "author’s explicitly probable comparison; Perrot quotation is secondary and does not provide specimen accession"
+        },
+        {
+          "url": "https://archives.mae.parisnanterre.fr/downloads/jean-perrot-du-village-a-letat-au-proche-et-moyen-orient-diffusion.pdf",
+          "locator": "printed pp.8,11,14,21–22,75–76,92",
+          "availability": "original institutional archive finding aid read; item contents not examined",
+          "independence": "finding aid describes collections; its identifiers are document shelfmarks not verified specimen identities"
+        },
+        {
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S2352226725000285-gr4_lrg.jpg",
+          "locator": "Bocquentin et al. 2025 figure 4",
+          "sha256": "9faa6bf91e239e61c2234e68a88b20087c3774f18cc3b9513d133ddc9fa3f8e8",
+          "availability": "independently viewed local reproduced image; journal article direct access 403 in this execution",
+          "independence": "archival field view reproduced and annotated later; image cannot identify laboratory sample"
+        },
+        {
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130121",
+          "locator": "Early Natufian architectural remains, figure 1",
+          "availability": "original article text read",
+          "independence": "site architectural interpretation of Perrot field plans; does not establish Kingery specimen join"
+        },
+        {
+          "url": "https://www.persee.fr/doc/paleo_0153-9345_1974_num_2_2_1072",
+          "locator": "Perrot report pp.485–486 and plate I",
+          "availability": "original publication read",
+          "independence": "House 131 distinct from Shelter 1; no matching laboratory identifier"
+        },
+        {
+          "url": "https://www.academia.edu/68290979/Les_fouilles_de_Ain_Mallaha_Eynan_de_2003_%C3%A0_2005_quatri%C3%A8me_rapport_pr%C3%A9liminaire",
+          "locator": "Valla et al. pp.146–148, 162–165 and table 5",
+          "availability": "original excavation publication transcription read",
+          "independence": "distinct Locus 239 later samples; no proof of 86-1 crosswalk"
+        },
+        {
+          "url": "https://www.imeko.org/publications/tc4-Archaeo-2022/IMEKO-TC4-MetroArchaeo2022-004.pdf",
+          "locator": "Es Sebar et al. sections III–V, figure 3",
+          "availability": "original paper read",
+          "independence": "separate samples and techniques; no identified repeat test of 86-1"
+        },
+        {
+          "url": "https://guides.library.harvard.edu/c.php?g=1034799&p=7501235",
+          "locator": "Bar-Yosef personal archive collection-level entry",
+          "availability": "finding aid read",
+          "independence": "collection-level inventory 1988–2008 does not establish contents of individual files"
+        },
+        {
+          "url": "https://siarchives.si.edu/collections/siris_arc_279689",
+          "locator": "SIA accession 08-109; director records",
+          "availability": "collection finding aid read",
+          "independence": "does not establish custody of sample or intake documentation"
+        },
+        {
+          "url": "https://siarchives.si.edu/collections/siris_arc_371246",
+          "locator": "SIA accession 15-273; director records",
+          "availability": "collection finding aid read",
+          "independence": "does not establish custody of sample or intake documentation"
+        }
+      ],
+      "limits": [
+        "Perrot 1957 and 1966 articles and original JP220/JP553 contents not independently available; the 1966 passage was read in Dubreuil’s quotation.",
+        "Bocquentin 2025 full article was blocked in this review; the separately available annotated image was examined, not its full caption from the article.",
+        "No field accession, sampling position, dispatch slip or lab intake record proved the 86-1 to Shelter 1 match; no inference of universal absence or historical function."
+      ],
+      "validation": {
+        "command": "python3 tools/validate.py",
+        "result": "passed: 979 discoveries, 1688 events, 302 links, 2013 sources; no problems",
+        "diff_check": "git diff --check base proposal passed"
+      },
+      "history": []
+    }
+  ]
+}
