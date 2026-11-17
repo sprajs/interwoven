@@ -63,14 +63,15 @@ def render(data, fragment=False):
         panels.append(f'<section class="lane" id="lane-{n}"{hidden}>' + ''.join(rows) + '</section>')
     output = STYLE + f'<h2>{esc(data.get("title", "Reviewed research connections"))}</h2>'
     relationship_word = 'relationship' if len(edges) == 1 else 'relationships'
-    output += f'<div class="text-small">{len(edges)} established {relationship_word} · {len(context)} reviewed context changes</div>'
+    context_label = esc(data.get('context_label', 'reviewed context changes'))
+    output += f'<div class="text-small">{len(edges)} established {relationship_word} · {len(context)} {context_label}</div>'
     output += '<div class="viz-controls"><label class="form-label">Research lane<select class="form-select">' + ''.join(options) + '</select></label></div>'
     output += '<div aria-live="polite">' + ''.join(panels) + '</div>' + SCRIPT
     return output + '\n' if fragment else DOCUMENT + output + '</body></html>\n'
 
 
 STYLE = '''<div id="research-round-view"><style>
-#research-round-view {display:grid;gap:calc(var(--font-size-base)*1)}
+#research-round-view {display:grid;grid-template-columns:minmax(0,1fr);overflow-wrap:anywhere;gap:calc(var(--font-size-base)*1)}
 #research-round-view .lane:not([hidden]) {display:grid;gap:calc(var(--font-size-base)*.75)}
 #research-round-view .edge {display:flex;align-items:center;gap:calc(var(--font-size-base)*1)}
 #research-round-view .node {flex:1;background:color-mix(in srgb,var(--viz-series-1) 10%,transparent);padding:calc(var(--font-size-base)*.75);overflow-wrap:anywhere}
@@ -104,7 +105,7 @@ DOCUMENT = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta n
 body {margin:24px auto;padding:0 16px;max-width:880px;background:var(--background);color:var(--foreground);font:400 var(--font-size-base)/1.5 system-ui,sans-serif}
 h2,h3 {margin:0;font-weight:500} h2 {font-size:1.4em} h3 {font-size:1.1em}
 .text-small {font-size:.86em;color:var(--muted-foreground)}
-.form-label {display:grid;gap:6px} .form-select {font:inherit;padding:8px;max-width:100%}
+.form-label {display:grid;grid-template-columns:minmax(0,1fr);gap:6px} .form-select {font:inherit;padding:8px;max-width:100%}
 a {color:var(--viz-series-1)} summary {cursor:pointer}
 </style></head><body>'''
 
