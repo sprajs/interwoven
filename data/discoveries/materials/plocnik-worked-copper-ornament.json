@@ -1,0 +1,101 @@
+{
+  "id": "plocnik-worked-copper-ornament",
+  "name": "Worked copper ornament at Pločnik",
+  "description": "A copper band or ring from a Vinča occupation at Pločnik preserves metallographic traces of working and annealing. Its lead-isotope ratios group with several copper production residues at Belovode. The association raises the possibility that the two communities used related sources of copper.",
+  "kind": "technology",
+  "domain": "materials.metallurgy",
+  "grain": "instance",
+  "places": [
+    {
+      "place": "plocnik"
+    }
+  ],
+  "societies": [
+    "vinca-culture"
+  ],
+  "known_from": [
+    "archaeological_find",
+    "scientific_publication"
+  ],
+  "events": [
+    {
+      "id": "trench-twenty-four-copper-ring",
+      "type": "archaeological_evidence",
+      "date": {
+        "earliest": {
+          "year": -4493
+        },
+        "latest": {
+          "year": -4365
+        },
+        "precision": "range",
+        "status": "approximate",
+        "label": "4493–4365 cal BCE, associated Feature 3 sample",
+        "basis": "Published 2σ bounds for MAMS22081, the associated radiocarbon sample from Feature 3 in Trench 24."
+      },
+      "statement": "A worked copper ring or band, C_P2/13, was present in Trench 24 at Pločnik. Its microstructure contains slip lines and annealing twins.",
+      "scope": "Copper artefact C_P2/13, Trench 24, spit 9, Horizon 1, Feature 3.",
+      "places": [
+        "plocnik"
+      ],
+      "caveats": "The date applies to the associated feature. The study finds wider evidence for secondary processing at the settlement. The place and time of making this individual object remain unresolved.",
+      "evidence": [
+        {
+          "source": "radivojevic-2021-plocnik-metal-production",
+          "locator": "Tables 1–2 and 6; Figs. 10b and 12",
+          "supports": "The find is ordinary copper with traces of working and annealing, dated by context."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "trench-twenty-four-copper-ring",
+    "rationale": "This associated sample supplies the date for the context of the individual worked ornament."
+  },
+  "links": [
+    {
+      "type": "uses_process",
+      "from": "belovode-copper-smelting",
+      "from_event": "trench-eighteen-smelting-debris",
+      "to_event": "trench-twenty-four-copper-ring",
+      "status": "candidate",
+      "statement": "Did smelting at Belovode supply the copper used in the Pločnik band or ring C_P2/13?",
+      "scope": "Possible material supply from Belovode Feature 6, Trench 18, to one ordinary-copper artefact from Pločnik.",
+      "contribution": [
+        "supplied_material"
+      ],
+      "alternatives": "Independent processing of copper from a shared geological source could give a similar isotope grouping.",
+      "finding": "Lead-isotope Group 3 includes C_P2/13, a Belovode copper droplet associated with Feature 6, and copper in a slagged sherd. Grouping leaves the physical route and direction of supply unresolved.",
+      "evidence": [
+        {
+          "source": "radivojevic-2021-vinca-copper-supply-networks",
+          "locator": "Table 3, Group 3 and Fig. 2",
+          "supports": "The report groups C_P2/13 with the residue samples B47/12/3 and B23/12."
+        },
+        {
+          "source": "radivojevic-2021-belovode-metal-production",
+          "locator": "Figs. 2–3 and Tables 1–2",
+          "supports": "B23/12 and B47/12 residues are related to Feature 6 in the excavation. The B47/12 cluster lies in nearby spit 6."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "domain": "sourced",
+      "grain": "sourced",
+      "places": "sourced",
+      "societies": "sourced",
+      "known_from": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "unresolved": [
+      {
+        "about": "Material circulation",
+        "note": "A securely dated intermediate metal stock or additional provenance discriminants could distinguish the supply route from parallel procurement."
+      }
+    ]
+  }
+}
