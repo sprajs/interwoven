@@ -1,0 +1,96 @@
+{
+  "id": "tat-12-13-erbium-amplified-subsea-ring",
+  "name": "TAT-12/13 erbium-amplified transatlantic ring",
+  "summary": "A working North Atlantic cable ring with erbium-doped optical amplifiers in its submerged repeaters.",
+  "description": "The TAT-12/13 consortium used erbium-doped fibre amplifiers in a ring linking the US, England and France. The transatlantic legs backed one another up and each transmitting fibre initially carried a single 5 Gb/s channel.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "ring-in-service",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 1996
+        },
+        "latest": {
+          "year": 1996
+        },
+        "precision": "year",
+        "status": "known",
+        "label": "1996",
+        "basis": "CERN and the FCC inventory give 1996 for the TAT-12/13 system."
+      },
+      "statement": "The TAT-12/13 ring entered service as an optically amplified transatlantic system.",
+      "places": [
+        "north-atlantic"
+      ],
+      "scope": "Service date for the ring as a system, as reported by CERN.",
+      "evidence": [
+        {
+          "source": "williams-1997-undersea-cable-overview",
+          "locator": "CERN/IT/97/5, “Current Cable Systems”, TAT-12 and TAT-13 paragraph",
+          "supports": "CERN gives the 1996 operation date, optical amplifier configuration and routes."
+        },
+        {
+          "source": "bergano-1996-undersea-lightwave-systems",
+          "locator": "Optical Amplifiers and Their Applications, paper TO8, abstract",
+          "supports": "AT&T author reports the use of EDFAs, two transatlantic legs and the single-channel configuration."
+        },
+        {
+          "source": "fcc-2005-submarine-cable-circuits",
+          "locator": "Submarine Cable Systems table, TAT-12/13 row",
+          "supports": "The independent regulatory inventory corroborates the 1996 service year."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "ring-in-service"
+  },
+  "places": [
+    {
+      "place": "north-atlantic"
+    }
+  ],
+  "links": [
+    {
+      "type": "same_principle",
+      "from": "bell-labs-traveling-wave-erbium-amplifier",
+      "status": "established",
+      "statement": "TAT-12/13 and the Bell Labs laboratory amplifier both used erbium-doped fibre to boost an optical signal directly.",
+      "scope": "Optical gain principle. No component-level tracing from the experimental apparatus to the installed repeaters.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "source": "desurvire-1987-traveling-wave-erbium-amplifier",
+          "locator": "Optics Letters 12(11), pp. 888–890, author affiliations, History and abstract",
+          "supports": "Shows optical gain in erbium-doped single-mode fibre in the laboratory."
+        },
+        {
+          "source": "bergano-1996-undersea-lightwave-systems",
+          "locator": "Optical Amplifiers and Their Applications, paper TO8, abstract",
+          "supports": "Reports erbium-doped fibre amplification in the deployed cable system."
+        },
+        {
+          "source": "williams-1997-undersea-cable-overview",
+          "locator": "CERN/IT/97/5, “Current Cable Systems”, TAT-12 and TAT-13 paragraph",
+          "supports": "The secondary CERN overview corroborates that TAT-12/13 used erbium-doped fibre optical amplifiers."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "places": "sourced",
+      "links": "sourced"
+    },
+    "note": "Proposed for independent admission review. Researcher gpt-6.2-sol, high."
+  }
+}

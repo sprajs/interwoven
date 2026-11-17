@@ -1,0 +1,114 @@
+{
+  "lane": "communications",
+  "title": "Subsea optical transmission serving Africa",
+  "researcher": "gpt-6.2-sol",
+  "effort": "high",
+  "as_of": "2026-11-17",
+  "inventory": [
+    {
+      "name": "Equiano — Swakopmund landing",
+      "region": "Swakopmund, Namibia · Portugal–South Africa system",
+      "status": "in service",
+      "date": "2023-06",
+      "claim": "Paratus activated the Namibian branch and reports launching new products in June 2023. On 29 October 2026 it still reported access to Equiano as the Namibian landing partner.",
+      "limit": "Paratus sources disagree on the day in June 2023. The later statement verifies operator access without traffic totals or route uptime.",
+      "sources": [
+        {
+          "url": "https://paratus.africa/blog/equiano-cable-activated-in-namibia/",
+          "title": "Equiano Cable Activated in Namibia",
+          "date": "2023-06-12",
+          "locator": "Windhoek dateline and opening paragraph"
+        },
+        {
+          "url": "https://paratus.africa/docs/PNH_IAR_June2023.pdf",
+          "title": "Integrated Annual Report 2023",
+          "date": "2023",
+          "locator": "Printed p. 10, Managing Director’s Report, Overview"
+        },
+        {
+          "url": "https://paratus.africa/namibia/news/paratus-namibia-continues-to-reshape-the-connectivity-landscape/",
+          "title": "Paratus Namibia continues to reshape the connectivity landscape",
+          "date": "2026-10-29",
+          "locator": "Paragraph beginning “This resilience extends beyond Namibia”"
+        },
+        {
+          "url": "https://paratus.africa/namibia/wp-content/uploads/2024/07/Paratus-Group-Overview_Spread-web.pdf",
+          "title": "Paratus Group Overview",
+          "date": "2024",
+          "locator": "Equiano Cable section"
+        }
+      ],
+      "records": [
+        "equiano-fibre-pair-switched-subsea-cable"
+      ]
+    },
+    {
+      "name": "2Africa — Durban–Cape Town segment",
+      "region": "Durban–Cape Town, South Africa",
+      "status": "in service",
+      "date": "2024-05-29",
+      "claim": "In service by 29 May 2024, the last segment-level service confirmation located. WIOCC reported connecting FirstNet on the Durban–Cape Town segment. Meta subsequently announced core infrastructure completion in November 2025.",
+      "limit": "The 2024 report gives a latest bound for a single customer connection. Later core completion has a different scope. Segment service at the November 2026 cutoff and uninterrupted operation are unverified.",
+      "sources": [
+        {
+          "url": "https://www.wiocc.net/news/firstnet-leverages-wiocc-2africa-cable-for-unprecedented-connectivity",
+          "title": "FirstNet Leverages WIOCC 2Africa Cable For Unprecedented Connectivity",
+          "date": "2024-05-29",
+          "locator": "Opening announcement and FirstNet operator statements"
+        },
+        {
+          "url": "https://engineering.fb.com/2025/11/17/connectivity/core-2africa-system-completion-future-connectivity/",
+          "title": "Announcing the Completion of the Core 2Africa System: Building the Future of Connectivity Together",
+          "date": "2025-11-17",
+          "locator": "Opening and Building 2Africa section"
+        }
+      ],
+      "records": [
+        "two-africa-sdm1-subsea-cable"
+      ]
+    },
+    {
+      "name": "2Africa Pearls extension — Qatar landing",
+      "region": "Qatar · Persian Gulf branch of 2Africa",
+      "status": "proposed",
+      "date": "2026-10",
+      "claim": "The Qatari regulator recorded the May 2025 physical landing but assessed Pearls as still delayed and without an announced revised ready-for-service date in October 2026.",
+      "limit": "An extension under construction with a physical landing. This service status reflects the October regulatory assessment and does not settle any later readiness or cancellation.",
+      "sources": [
+        {
+          "url": "https://www.cra.gov.qa/-/media/System/4/2/1/8/4218A6E170A6561BB7398AB98811BF45/2026-10-30-MDDD-Dominance-and-Remedies-Consultation-Document-dated.ashx?download=0",
+          "title": "Dominance Designation and Remedies Consultation Document, CRA ICT Competition Framework Review and Update 2024–2026",
+          "date": "2026-10-30",
+          "locator": "Printed p. 92, Table 8 and note 155"
+        },
+        {
+          "url": "https://engineering.fb.com/2025/11/17/connectivity/core-2africa-system-completion-future-connectivity/",
+          "title": "Announcing the Completion of the Core 2Africa System: Building the Future of Connectivity Together",
+          "date": "2025-11-17",
+          "locator": "Opening and Building 2Africa section"
+        }
+      ],
+      "records": [
+        "two-africa-sdm1-subsea-cable"
+      ]
+    }
+  ],
+  "trace": [
+    "equiano-fibre-pair-switched-subsea-cable: Google’s 2019 design and WIOCC’s built-system description establish space-division multiplexing and optical switching of entire fibre pairs. Audit St Helena separately establishes the October 2023 community connection over Sure’s existing domestic network.",
+    "two-africa-sdm1-subsea-cable builds on asn-sdm1-submarine-cable-design at the cable-design stage. The 2020 project announcement, COMESA decision and Dakar landing station contractor identify ASN’s SDM1. The contractor is part of Orange Group. The manufacturer identifies higher fibre counts and shared repeater pumping in the qualified design, and the consortium confirms deployed SDM at system scope. The canonical link concerns the design selected for 2Africa.",
+    "tat-12-13-erbium-amplified-subsea-ring shares the optical amplification principle demonstrated by bell-labs-traveling-wave-erbium-amplifier. The AT&T deployment account and the secondary CERN overview record the use of erbium-doped optical amplifiers in the submarine ring. This is a canonical same-principle link, with the high-gain Bell Labs laboratory report and operational 1996 cable kept at their separate scopes.",
+    "The connection from Equiano’s actual installed repeaters to a specific historical amplifier architecture remains open. Its Nigeria draft ESIA, §3.2.1.2, describes optical repeaters and gives generic EDFA background. The published SDM1 history identifies shared pumping without specifying component lineage to the Bell Labs experiment or TAT-12/13. No canonical dependence link is claimed across either gap."
+  ],
+  "alternatives": [
+    "At St Helena, Sure connected its existing network to Equiano in October 2023 while a domestic fibre rollout remained outstanding. The 16 September 2026 government and Sure memorandum proposed upgrading broadband and mobile access to use Equiano capacity better and targeted deployment beginning in 2027.",
+    "The University of Southampton team separately reported a low-noise erbium-doped fibre amplifier in Electronics Letters, 10 September 1987 (Mears et al., pp. 1026–1028). The two contemporary laboratory publications establish their own demonstrations. Independent origin and exact transmission into cable designs remain open."
+  ],
+  "frontier": [
+    "Can ASN’s Equiano as-built manuals or commissioning records confirm the optical repeaters and identify the technology that replaced wavelength switching at enough detail to link a named prior branching design?",
+    "Can the original ASN SubOptic 2016 or 2019 proceedings and independently sourced equipment evidence pin down the tested repeater configuration underlying SDM1 and the amplifier type of the deployed 2Africa segments?",
+    "Locate a commissioning record for each half of TAT-12/13 and an original record of the installation team’s amplifier design choices. The AT&T conference abstract has a garbled final-segment date, so the canonical date remains the system year corroborated by CERN and the FCC.",
+    "Check Qatar CRA and the consortium for a later Pearls service date, and distinguish the St Helena upgrade’s future installations from the memorandum and existing cable service."
+  ],
+  "screen": "Searched discovery files, dated events and existing links plus leads for optical fibre, repeaters, erbium, spatial multiplexing, cable names and submarine systems. The existing optical-fiber-communication-links record contains an earlier communication-link witness and no event or link for these named submarine systems or the amplifier experiment. The open operational-low-loss-optical-fibre-telephony lead concerns a named earlier operational telephony architecture, remains unpromoted, and is not treated as these systems. The two transatlantic telegraph discoveries concern electrical signalling.",
+  "coverage": "Evidence inspected through 17 November 2026. Equiano evidence is branch- and operator-specific, 2Africa market evidence is segment-specific, and Pearls readiness is a distinct regulator assessment. Dates of reports of completed events are used as upper bounds; no speed, price or population forecasts are counted as measured outcomes."
+}

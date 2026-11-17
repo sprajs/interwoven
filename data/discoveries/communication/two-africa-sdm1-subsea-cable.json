@@ -1,0 +1,165 @@
+{
+  "id": "two-africa-sdm1-subsea-cable",
+  "name": "2Africa core SDM1 subsea cable",
+  "summary": "A multi-operator submarine cable system for African connectivity, designed to use Alcatel Submarine Networks’ high-fibre-count SDM1 architecture.",
+  "description": "The 2Africa consortium commissioned a submarine cable design with up to 16 fibre pairs using SDM1. Separate parts entered service in stages, including the Durban–Cape Town segment before Meta announced completion of the core. The Pearls extension is outside the completion claim.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "sdm1-design-disclosure",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2020,
+          "month": 5,
+          "day": 13
+        },
+        "latest": {
+          "year": 2020,
+          "month": 5,
+          "day": 13
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2020-05-13",
+        "basis": "Date of Meta’s project announcement."
+      },
+      "statement": "Meta announced 2Africa with a maximum design count of 16 fibre pairs using SDM1.",
+      "evidence": [
+        {
+          "source": "meta-2020-2africa-sdm-design",
+          "locator": "Consortium, design and open landing paragraphs",
+          "supports": "Contemporaneous consortium partner account names SDM1 and the maximum of 16 fibre pairs."
+        },
+        {
+          "source": "comesa-2024-2africa-west-decision",
+          "locator": "Overview of the 2Africa West Cable System, paragraphs 18–20",
+          "supports": "Regulator identifies Alcatel Submarine Networks as the designer and records the same maximum."
+        }
+      ]
+    },
+    {
+      "id": "firstnet-south-africa",
+      "type": "practical_use",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2024,
+          "month": 5,
+          "day": 29
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2024-05-29",
+        "basis": "Date of WIOCC’s report of a connection already made."
+      },
+      "statement": "WIOCC had connected the customer FirstNet Technology Services over the Durban–Cape Town segment of 2Africa.",
+      "places": [
+        "south-africa"
+      ],
+      "place_note": "Durban–Cape Town, South Africa",
+      "scope": "One service customer on the South African segment.",
+      "evidence": [
+        {
+          "source": "wiocc-2024-2africa-firstnet-customer",
+          "locator": "Opening announcement and FirstNet operator statements",
+          "supports": "WIOCC reports the named connection and includes a statement from FirstNet’s general manager."
+        }
+      ]
+    },
+    {
+      "id": "core-complete",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": null,
+        "latest": {
+          "year": 2025,
+          "month": 11,
+          "day": 17
+        },
+        "precision": "day",
+        "status": "bounded",
+        "label": "by 2025-11-17",
+        "basis": "The publication date is an upper bound for core completion."
+      },
+      "statement": "Meta reported completion of the core 2Africa infrastructure.",
+      "scope": "Core infrastructure completion announcement.",
+      "caveats": "Core completion does not date activation for all segments or landings.",
+      "evidence": [
+        {
+          "source": "meta-2025-2africa-core-completion",
+          "locator": "Opening and Building 2Africa section",
+          "supports": "Meta separates core completion from the still-future Pearls extension."
+        },
+        {
+          "source": "two-africa-nd-cable-technology",
+          "locator": "Our cable technology",
+          "supports": "The consortium confirms SDM and optical wavelength switching in retrospective system reporting."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "sdm1-design-disclosure"
+  },
+  "community_entry": {
+    "event": "firstnet-south-africa",
+    "community": "FirstNet Technology Services in South Africa",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The operator identifies a specific customer and the segment already connected."
+  },
+  "links": [
+    {
+      "type": "builds_on",
+      "from": "asn-sdm1-submarine-cable-design",
+      "from_event": "sdm1-qualification",
+      "to_event": "sdm1-design-disclosure",
+      "status": "established",
+      "statement": "The design selected for 2Africa uses Alcatel Submarine Networks’ qualified SDM1 architecture to support more parallel fibre pairs.",
+      "scope": "Documented cable design selection.",
+      "caveats": "The landing-station contractor belongs to Orange Group, a consortium member. The design and deployment documents give no segment-by-segment inventory of SDM1 components or lit fibre pairs.",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source": "meta-2020-2africa-sdm-design",
+          "locator": "Consortium, design and open landing paragraphs",
+          "supports": "The project sponsor explicitly attributes the intended fibre count to the use of SDM1."
+        },
+        {
+          "source": "comesa-2024-2africa-west-decision",
+          "locator": "Overview of the 2Africa West Cable System, paragraphs 18–20",
+          "supports": "Identifies ASN’s SDM1 as the named technology selected for 2Africa; parts of the description draw on the parties’ submissions."
+        },
+        {
+          "source": "asn-nd-sdm1-design-history",
+          "locator": "Origins and SDM1 design sections",
+          "supports": "The separate supplier account describes the qualified architecture and the increased fibre count."
+        },
+        {
+          "source": "sonatel-2023-2africa-dakar-branch",
+          "locator": "Dakar dateline, construction roles and technology paragraphs",
+          "supports": "The Dakar contractor separately names ASN’s SDM1 during actual branch installation works. The source is distinct and locally informed but the contractor is part of Orange Group."
+        },
+        {
+          "source": "two-africa-nd-cable-technology",
+          "locator": "Our cable technology",
+          "supports": "The consortium describes spatial division multiplexing and wavelength switching as installed system technologies."
+        }
+      ]
+    }
+  ],
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced",
+      "links": "sourced"
+    },
+    "note": "Proposed for independent admission review. Researcher gpt-6.2-sol, high."
+  }
+}

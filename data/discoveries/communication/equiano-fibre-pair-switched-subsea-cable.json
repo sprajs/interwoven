@@ -1,0 +1,236 @@
+{
+  "id": "equiano-fibre-pair-switched-subsea-cable",
+  "name": "Equiano fibre-pair-switched subsea cable",
+  "summary": "A Portugal–South Africa optical cable using space-division multiplexing and switching entire fibre pairs to allocate branch capacity.",
+  "description": "Google’s Equiano system, built by Alcatel Submarine Networks and served by local landing partners, connected Portugal and South Africa with branches on the West African seaboard and to St Helena. WIOCC describes the built cable as having 12 fibre pairs with optical switching at the pair level.",
+  "kind": "technology",
+  "domain": "communication.telecommunication",
+  "grain": "improvement",
+  "events": [
+    {
+      "id": "design-announcement",
+      "type": "public_disclosure",
+      "date": {
+        "earliest": {
+          "year": 2019,
+          "month": 6,
+          "day": 28
+        },
+        "latest": {
+          "year": 2019,
+          "month": 6,
+          "day": 28
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2019-06-28",
+        "basis": "Date of Google’s project announcement."
+      },
+      "statement": "Google disclosed the Equiano cable design, including optical switching of fibre pairs to allocate capacity at different locations.",
+      "evidence": [
+        {
+          "source": "google-2019-introducing-equiano",
+          "locator": "Route and design paragraphs",
+          "supports": "Google identifies SDM and fibre-pair switching in the planned Portugal to South Africa system."
+        },
+        {
+          "source": "wiocc-nd-equiano-system",
+          "locator": "Design, Technology, Global Reach and Lagos Landing Station",
+          "supports": "WIOCC describes fibre-pair switching and 12 fibre pairs on the constructed system."
+        }
+      ]
+    },
+    {
+      "id": "ruperts-bay-landing",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2021,
+          "month": 8,
+          "day": 29
+        },
+        "latest": {
+          "year": 2021,
+          "month": 8,
+          "day": 29
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2021-08-29",
+        "basis": "Date of branch landing in official audit."
+      },
+      "statement": "St Helena’s Equiano branch landed in Rupert’s Bay.",
+      "place_note": "Rupert’s Bay, St Helena",
+      "scope": "Physical landing of the St Helena branch.",
+      "evidence": [
+        {
+          "source": "audit-st-helena-2025-fibre-optic-cable-project",
+          "locator": "Printed pp. 15 and 23, Figure 1 and subsection on branch delays",
+          "supports": "Dates the physical landing, separately from station commissioning and service."
+        }
+      ]
+    },
+    {
+      "id": "lagos-landing",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2022,
+          "month": 4,
+          "day": 21
+        },
+        "latest": {
+          "year": 2022,
+          "month": 4,
+          "day": 21
+        },
+        "precision": "day",
+        "status": "known",
+        "label": "2022-04-21",
+        "basis": "Operator’s contemporaneous report of landing in Lagos."
+      },
+      "statement": "Equiano landed in Lagos with WIOCC as the local landing partner.",
+      "places": [
+        "nigeria"
+      ],
+      "place_note": "Lagos, Nigeria",
+      "scope": "Physical landing of the Nigerian branch.",
+      "evidence": [
+        {
+          "source": "google-2022-equiano-lagos-landing",
+          "locator": "Opening and landing partner paragraphs",
+          "supports": "Google identifies the place, date and local partner."
+        }
+      ]
+    },
+    {
+      "id": "namibia-service",
+      "type": "practical_deployment",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 6
+        },
+        "latest": {
+          "year": 2023,
+          "month": 6
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2023-06",
+        "basis": "The operator’s release, annual report and later brochure agree on June 2023."
+      },
+      "statement": "The Namibian branch entered service at Swakopmund.",
+      "place_note": "Swakopmund, Namibia",
+      "scope": "Namibian branch activation.",
+      "evidence": [
+        {
+          "source": "paratus-2023-equiano-namibia-activation",
+          "locator": "Windhoek dateline and opening paragraph",
+          "supports": "Dates the activation announcement to June 2023 and identifies Swakopmund."
+        },
+        {
+          "source": "paratus-2023-namibia-integrated-annual-report",
+          "locator": "Printed p. 10, Managing Director’s Report, Overview",
+          "supports": "The operator’s annual report records go-live and the launch of new product offerings in June."
+        },
+        {
+          "source": "paratus-2024-group-overview-equiano-activation",
+          "locator": "Equiano Cable section",
+          "supports": "Dates branch activation to 8 June 2023, differing from the contemporary announcement at day precision."
+        }
+      ],
+      "caveats": "Paratus announced the activation on 12 June 2023 and in a later brochure dated activation to 8 June. The event retains their common month."
+    },
+    {
+      "id": "st-helena-public-connection",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2023,
+          "month": 10
+        },
+        "latest": {
+          "year": 2023,
+          "month": 10
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2023-10",
+        "basis": "Month of community access given in the official audit."
+      },
+      "statement": "Sure connected its existing infrastructure to the St Helena Equiano landing station, giving island businesses and residents access to internet service using the subsea branch.",
+      "place_note": "St Helena",
+      "scope": "Internet service delivered over the incumbent’s existing domestic network.",
+      "evidence": [
+        {
+          "source": "audit-st-helena-2025-fibre-optic-cable-project",
+          "locator": "Printed pp. 15 and 23, Figure 1 and subsection on branch delays",
+          "supports": "The audit dates the change to October 2023 and distinguishes it from landing, station commissioning and the later domestic fibre project."
+        }
+      ]
+    },
+    {
+      "id": "west-africa-service-2024",
+      "type": "practical_use",
+      "date": {
+        "earliest": {
+          "year": 2024,
+          "month": 3
+        },
+        "latest": {
+          "year": 2024,
+          "month": 3
+        },
+        "precision": "month",
+        "status": "known",
+        "label": "2024-03",
+        "basis": "Month of the incident in Google’s retrospective service account."
+      },
+      "statement": "Equiano continued carrying customer traffic during a March 2024 disruption to other West African subsea cables.",
+      "place_note": "West African route",
+      "scope": "Documented traffic during one incident.",
+      "evidence": [
+        {
+          "source": "google-2025-equiano-west-africa-traffic",
+          "locator": "Opening West African outage account",
+          "supports": "Google distinguishes Equiano’s live service and existing businesses from the outage on other cables."
+        }
+      ]
+    }
+  ],
+  "earliest_record": {
+    "event": "design-announcement"
+  },
+  "caveats": "Branch landing, station commissioning and service are distinct stages. The retained draft impact assessment does not verify the deployed repeater model or the optical components of every segment.",
+  "community_entry": {
+    "event": "st-helena-public-connection",
+    "community": "Businesses and residents served by Sure in St Helena",
+    "basis": "practical_use",
+    "strength": "direct",
+    "rationale": "The audit identifies a dated connection and actual local community access."
+  },
+  "research": {
+    "status": "sourced",
+    "basis": {
+      "summary": "sourced",
+      "domain": "sourced",
+      "grain": "sourced",
+      "events": "sourced"
+    },
+    "note": "Proposed for independent admission review. Researcher gpt-6.2-sol, high.",
+    "unresolved": [
+      {
+        "about": "as-built-repeater-architecture",
+        "note": "The opened environmental impact assessment is a 2020 draft. Its EDFA discussion is generic rather than a route component manifest.",
+        "evidence": [
+          {
+            "source": "wiocc-asn-2020-equiano-nigeria-draft-esia",
+            "locator": "Draft report, printed p. 3-10, §3.2.1.2 Repeaters",
+            "supports": "The proponent’s design report describes optical repeaters and gives generic EDFA background."
+          }
+        ]
+      }
+    ]
+  }
+}
