@@ -50,12 +50,12 @@
         "label": "1965",
         "basis": "Date stated by the cited source; see event scope."
       },
-      "statement": "Cooley and Tukey published their algorithm and reported an IBM 7094 program.",
+      "statement": "Cooley and Tukey published their factorisation algorithm, discussed Good’s earlier matrix-factorisation methods and reported an IBM 7094 program.",
       "evidence": [
         {
           "source": "cooley-tukey-1965-fourier-wave11",
           "locator": "pp. 297–301",
-          "supports": "Paper records manuscript receipt, Good prior work, Army Research Office sponsorship and IBM 7094 timings."
+          "supports": "The introduction discusses Good’s methods and presents a different derivation for complex Fourier series. The paper reports IBM 7094 timings."
         },
         {
           "source": "crossref-1965-cooley-fourier-wave11",
@@ -63,7 +63,7 @@
           "supports": "Crossref identifies the publication year 1965."
         }
       ],
-      "caveats": "The authors explicitly cite Good’s earlier work; no exclusive priority or precise benchmark date is asserted.",
+      "caveats": "The 1965 paper acknowledges Good as prior work. The influence on the derivation, global priority and the dates of the reported timings remain unresolved.",
       "contributions": [
         {
           "person": "james-w-cooley",
@@ -151,6 +151,10 @@
       {
         "about": "transmission and uptake",
         "note": "Michels reports FFT implementation in IRIS programs and separately explains use of Cooley’s FORTRAN IV program. Whether that specific program was implemented in IRIS, the details and date of Richard Garwin’s acknowledged communication, wider early external users, and costs still require evidence."
+      },
+      {
+        "about": "Good’s influence before publication",
+        "note": "Good recalled briefly telling Tukey about his FFT in Cheltenham in December 1956, before the 1958 paper. Cooley and Tukey recalled a later patentability inquiry in which Tukey mentioned Good to Cooley after Cooley’s radix-2 work and before drafting the general-radix paper. Seek dated notes or correspondence that identify what Tukey learned from Good and whether it entered the derivation."
       }
     ]
   },
@@ -206,21 +210,35 @@
     {
       "type": "builds_on",
       "from": "good-interaction-and-fourier-analysis-1958",
-      "from_event": "paper-1958",
       "to_event": "paper-1965",
       "status": "candidate",
-      "statement": "Cooley and Tukey explicitly discuss Good’s earlier algorithms as part of the development of their Fourier calculation.",
-      "caveats": "The 1967 history distinguishes Good’s prime-factor method from Cooley–Tukey; this relationship does not assert identical algorithms. The direct author account has not yet been independently corroborated under the project gate; this is a candidate, not an established graph edge.",
+      "statement": "Did Good’s interaction and Fourier methods inform Tukey’s early factorisation or the derivation Cooley and Tukey published in 1965?",
+      "caveats": "The 1958 paper’s one-dimensional reduction uses coprime factors. The 1965 algorithm handles repeated factors and cites Good’s more general idea of using sparse matrix factors. The authors’ 1993 sequence places Cooley’s inquiry about Good after his radix-2 implementation. Good separately recalled a brief 1956 conversation with Tukey, leaving Tukey’s earlier knowledge possible and the mathematical influence uncertain.",
       "evidence": [
         {
-          "source": "cooley-tukey-1965-fourier-wave11",
-          "locator": "p. 297",
-          "supports": "Cooley and Tukey describe Good’s algorithms and apply related methods to Fourier series."
+          "source": "good-1958-interaction-analysis-wave12",
+          "locator": "pp. 370–371, §12",
+          "supports": "Good’s prime-factor reduction uses pairwise coprime lengths and permutations grounded in the Chinese remainder theorem."
         },
         {
-          "source": "cooley-1967-fft-history-wave12",
-          "locator": "pp. 1675–1676",
-          "supports": "The authors distinguish Good prime-factor and Cooley–Tukey methods."
+          "source": "cooley-tukey-1965-fourier-wave11",
+          "locator": "pp. 297–298, introduction and equations (3)–(8); p. 301, reference 2",
+          "supports": "Credits Good’s methods for sparse matrix factorisation, gives a different derivation for complex Fourier sums, and allows repeated factors."
+        },
+        {
+          "source": "cooley-tukey-1993-origin-fft-paper",
+          "locator": "pp. 8–9, radix-2 program, patentability inquiry and publication",
+          "supports": "The authors recall that Tukey named Good during a prior-art inquiry after Cooley’s radix-2 programming and before preparation of the coauthored draft."
+        },
+        {
+          "source": "banks-1996-conversation-good",
+          "locator": "pp. 15–16, Good’s remarks on the FFT",
+          "supports": "Good recalls giving Tukey a brief description during a December 1956 visit and does not specify which mathematical ideas he conveyed."
+        },
+        {
+          "source": "heideman-johnson-burrus-1985-fft-history",
+          "locator": "p. 265, Introduction",
+          "supports": "Distinguishes the two algorithms. Its attribution of influence comes from its reading of the 1965 paper."
         }
       ]
     }
