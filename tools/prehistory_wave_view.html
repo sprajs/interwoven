@@ -1,0 +1,162 @@
+<div id="prehistory-wave-view">
+  <style>
+    #prehistory-wave-view { display: grid; gap: var(--font-size-base); overflow-wrap: anywhere }
+    #prehistory-wave-view figure { margin: 0; display: grid; gap: calc(var(--font-size-base)*.5) }
+    #prehistory-wave-view .wave-bar { display: grid; grid-template-columns: 7ch minmax(0,1fr) 8ch; align-items: center; gap: calc(var(--font-size-base)*.5) }
+    #prehistory-wave-view [data-detail]:not([hidden]) { display: grid; gap: calc(var(--font-size-base)*.75) }
+    #prehistory-wave-view [data-record-field] { min-width: 0 }
+    #prehistory-wave-view select { max-width: 100% }
+    #prehistory-wave-view ul { margin: calc(var(--font-size-base)*.5) 0 0; padding-inline-start: calc(var(--font-size-base)*1.5) }
+    #prehistory-wave-view li + li { margin-top: calc(var(--font-size-base)*.5) }
+  </style>
+  <h2>Prehistory research wave</h2>
+  <div class="viz-controls">
+    <label class="form-label">Research lane<select data-lane class="form-select"><option value="">All lanes</option></select></label>
+    <label class="form-label">Research outcome<select data-outcome class="form-select">
+      <option value="">All outcomes</option>
+      <option value="established">Established</option>
+      <option value="candidate">Candidate</option>
+      <option value="deferred">Deferred</option>
+    </select></label>
+    <label class="form-label">Find a discovery<input data-search class="form-control" type="search" placeholder="Name or ID"></label>
+  </div>
+  <figure aria-label="Established dependence or transmission coverage of visible discoveries">
+    <figcaption>Anchors with established dependence or transmission</figcaption>
+    <div class="wave-bar">Before <div class="progress" data-bar="before" role="progressbar" aria-label="Linked before" aria-valuemin="0"><div class="progress-bar"></div></div><span data-total="before" class="tabular-nums"></span></div>
+    <div class="wave-bar">After <div class="progress" data-bar="after" role="progressbar" aria-label="Linked after" aria-valuemin="0"><div class="progress-bar"></div></div><span data-total="after" class="tabular-nums"></span></div>
+  </figure>
+  <label class="form-label" data-record-field><span aria-live="polite" data-match-count>Discovery</span><select data-record class="form-select"></select></label>
+  <article data-detail aria-live="polite"></article>
+  <script type="application/json" data-wave-data>@@WAVE_DATA@@</script>
+  <script>
+  (() => {
+    const root = document.getElementById('prehistory-wave-view');
+    const {records, layers, names, sources, lanes} = JSON.parse(root.querySelector('[data-wave-data]').textContent);
+    const lane = root.querySelector('[data-lane]');
+    const outcome = root.querySelector('[data-outcome]');
+    const search = root.querySelector('[data-search]');
+    const record = root.querySelector('[data-record]');
+    const count = root.querySelector('[data-match-count]');
+    const detail = root.querySelector('[data-detail]');
+    const byId = new Map(records.map(row => [row.id, row]));
+    const title = value => value ? value[0].toUpperCase() + value.slice(1) : '';
+    const label = value => value.replaceAll('_', ' ').replaceAll('-', ' ');
+    for (const [key, name] of Object.entries(lanes)) lane.add(new Option(name, key));
+
+    function element(tag, value, className) {
+      const item = document.createElement(tag);
+      if (value) item.textContent = value;
+      if (className) item.className = className;
+      return item;
+    }
+
+    function disclosure(summary, content) {
+      const group = element('details');
+      group.append(element('summary', summary), content);
+      return group;
+    }
+
+    function source(item) {
+      const line = element('li');
+      const locator = item.locator || item.url || item.source || 'Source';
+      try {
+        const url = new URL(item.url);
+        if (url.protocol === 'https:' || url.protocol === 'http:') {
+          const anchor = element('a', `${item.title || url.hostname} · ${locator}`);
+          anchor.href = url.href;
+          anchor.target = '_blank';
+          anchor.rel = 'noopener noreferrer';
+          line.append(anchor);
+        } else line.append(locator);
+      } catch { line.append(locator); }
+      if (item.note || item.supports) line.append(element('div', item.note || item.supports, 'text-small'));
+      return line;
+    }
+
+    function connection(mention) {
+      const node = element('li');
+      const start = names[mention.from] || mention.from;
+      const end = names[mention.to] || mention.to;
+      node.append(element('div', `${start} → ${end}`));
+      node.append(element('div', `${label(mention.type)} · ${layers[mention.type]} · ${label(mention.decision)}`, 'text-small'));
+      for (const edge of mention.edges) {
+        const scope = [edge.from_event, edge.to_event].filter(Boolean).join(' → ');
+        const status = `${edge.before} → ${edge.after}`;
+        node.append(element('div', scope ? `${status} · ${scope}` : status, 'text-small'));
+        if (edge.statement) node.append(element('div', edge.statement));
+        if (edge.scope) node.append(element('div', edge.scope));
+        if (edge.caveats) node.append(element('div', edge.caveats, 'text-small'));
+        if (edge.evidence?.length) {
+          const citations = element('ul');
+          for (const item of edge.evidence) citations.append(source({...sources[item.source], ...item}));
+          node.append(disclosure('Relationship evidence', citations));
+        }
+      }
+      return node;
+    }
+
+    function show() {
+      const row = byId.get(record.value);
+      detail.replaceChildren();
+      detail.hidden = !row;
+      if (!row) return;
+      const after = Object.entries(row.after).map(([kind, n]) => `${n} ${label(kind)}`).join(', ');
+      const context = [row.id, row.date || 'Undated', label(row.region), label(row.domain)].filter(Boolean).join(' · ');
+      detail.append(element('h3', row.name), element('div', context, 'text-small'),
+        element('div', `${title(row.outcome)} · ${after || 'No established dependence or transmission'}`, 'text-small'),
+        element('p', row.finding));
+      if (row.frozen_date !== row.date) detail.append(element('div', `Frozen date · ${row.frozen_date || 'Undated'}`, 'text-small'));
+      if (row.next) detail.append(element('div', 'Next evidence'), element('p', row.next));
+      const citations = element('ul');
+      for (const item of row.sources) citations.append(source(item));
+      detail.append(disclosure(`Source passages (${row.sources.length})`, citations));
+      if (row.connections.length) {
+        const links = element('ul');
+        for (const mention of row.connections) links.append(connection(mention));
+        detail.append(disclosure(`Assessed relationships (${row.connections.length})`, links));
+      }
+      detail.append(disclosure(`Independent review · ${label(row.verdict)}`, element('p', row.rationale)));
+    }
+
+    function filter(selected = record.value) {
+      const query = search.value.trim().toLowerCase();
+      const matches = records.filter(row => (!lane.value || lane.value === row.lane)
+        && (!outcome.value || outcome.value === row.outcome)
+        && `${row.name} ${row.id}`.toLowerCase().includes(query));
+      count.textContent = `${matches.length} of ${records.length} discoveries`;
+      record.replaceChildren(...matches.map(row => new Option(row.name, row.id)));
+      record.disabled = !matches.length;
+      if (matches.some(row => row.id === selected)) record.value = selected;
+      for (const period of ['before', 'after']) {
+        const n = matches.filter(row => Object.keys(row[period]).length > 0).length;
+        const bar = root.querySelector(`[data-bar="${period}"]`);
+        bar.setAttribute('aria-valuemax', Math.max(matches.length, 1));
+        bar.setAttribute('aria-valuenow', n);
+        bar.setAttribute('aria-valuetext', `${n} of ${matches.length}`);
+        bar.firstElementChild.style.width = `${matches.length ? 100 * n / matches.length : 0}%`;
+        root.querySelector(`[data-total="${period}"]`).textContent = `${n} / ${matches.length}`;
+      }
+      show();
+    }
+
+    function save() {
+      window.openai?.setWidgetState?.({modelContent: {selectedDiscovery: record.value},
+        privateContent: {lane: lane.value, outcome: outcome.value, query: search.value, selected: record.value}})?.catch(() => {});
+    }
+
+    function restore(saved) {
+      if (saved) {
+        if ([...lane.options].some(option => option.value === saved.lane)) lane.value = saved.lane;
+        if ([...outcome.options].some(option => option.value === saved.outcome)) outcome.value = saved.outcome;
+        if (typeof saved.query === 'string') search.value = saved.query;
+      }
+      filter(saved?.selected);
+    }
+
+    for (const input of [lane, outcome, search]) input.addEventListener('input', () => { filter(); save(); });
+    record.addEventListener('change', () => { show(); save(); });
+    restore(window.openai?.widgetState?.privateContent);
+    window.addEventListener('openai:set_globals', event => restore(event.detail?.globals?.widgetState?.privateContent));
+  })();
+  </script>
+</div>
